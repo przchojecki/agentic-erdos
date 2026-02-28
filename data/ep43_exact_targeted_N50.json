@@ -1,0 +1,110 @@
+{
+  "N": 50,
+  "universe_differences": 49,
+  "canonical_masks_count": 803714,
+  "fN": 9,
+  "rhs_choose2_fN": 36,
+  "best_lhs": 42,
+  "gap_best_minus_rhs": 6,
+  "best_weight_pair": [
+    36,
+    6
+  ],
+  "best_A_size": 9,
+  "best_B_size": 4,
+  "best_A": [
+    1,
+    2,
+    6,
+    16,
+    23,
+    39,
+    42,
+    48,
+    50
+  ],
+  "best_B": [
+    1,
+    13,
+    31,
+    44
+  ],
+  "candidate_sums_desc": [
+    49,
+    46,
+    43,
+    42,
+    39,
+    38,
+    37,
+    36,
+    34,
+    31,
+    30,
+    29,
+    28,
+    27,
+    25,
+    24,
+    22,
+    21,
+    20,
+    18,
+    16,
+    15,
+    13,
+    12,
+    11,
+    10,
+    9,
+    7,
+    6,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "checks": [
+    {
+      "sum": 49,
+      "wa": 28,
+      "wb": 21,
+      "countA": 70349,
+      "countB": 379548,
+      "found": false,
+      "check_ms": 101
+    },
+    {
+      "sum": 46,
+      "wa": 36,
+      "wb": 10,
+      "countA": 166,
+      "countB": 67286,
+      "found": false,
+      "check_ms": 76
+    },
+    {
+      "sum": 43,
+      "wa": 28,
+      "wb": 15,
+      "countA": 70349,
+      "countB": 277639,
+      "found": false,
+      "check_ms": 170
+    },
+    {
+      "sum": 42,
+      "wa": 36,
+      "wb": 6,
+      "countA": 166,
+      "countB": 8100,
+      "found": true,
+      "check_ms": 2
+    }
+  ],
+  "generation_ms": 1169,
+  "solve_ms": 371,
+  "total_ms": 1540,
+  "method": "targeted_weight_sum_exact_v1"
+}

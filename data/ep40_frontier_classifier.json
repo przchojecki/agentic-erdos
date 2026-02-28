@@ -1,0 +1,94 @@
+{
+  "note": [
+    "This classifier is numerical and sample-based (finite N only).",
+    "Do not treat these rows as asymptotic proof/disproof on their own.",
+    "The rigorous theorem is existence of bounded-representation sequences with exponent 1/2-eps for every eps>0 (Erdos-Renyi 1960, Theorem 8 and following note).",
+    "A positive guarantee regime is still only partial (e.g. m(N)^2/N -> infinity implies unbounded limsup)."
+  ],
+  "Ns": [
+    1000000,
+    100000000,
+    10000000000,
+    1000000000000
+  ],
+  "families": [
+    {
+      "family": "log N",
+      "thresholds": {
+        "1000000": 72.38241365054198,
+        "100000000": 542.8681023790647,
+        "10000000000": 4342.944819032518,
+        "1000000000000": 36191.20682527099
+      },
+      "sample_met_by_powers2_all_Ns": false,
+      "sample_met_by_ER_eps_0p05_all_Ns": true,
+      "sample_met_by_ER_eps_0p1_all_Ns": true,
+      "classification": "sample_only_not_asymptotic_proof"
+    },
+    {
+      "family": "(log N)^2",
+      "thresholds": {
+        "1000000": 5.239213805878165,
+        "100000000": 29.47057765806467,
+        "10000000000": 188.61169701161393,
+        "1000000000000": 1309.8034514695412
+      },
+      "sample_met_by_powers2_all_Ns": false,
+      "sample_met_by_ER_eps_0p05_all_Ns": true,
+      "sample_met_by_ER_eps_0p1_all_Ns": true,
+      "classification": "sample_only_not_asymptotic_proof"
+    },
+    {
+      "family": "exp(sqrt(log N))",
+      "thresholds": {
+        "1000000": 24.308670323227517,
+        "100000000": 136.78472223696684,
+        "10000000000": 824.1887364587426,
+        "1000000000000": 5213.4066477884935
+      },
+      "sample_met_by_powers2_all_Ns": false,
+      "sample_met_by_ER_eps_0p05_all_Ns": true,
+      "sample_met_by_ER_eps_0p1_all_Ns": true,
+      "classification": "sample_only_not_asymptotic_proof"
+    },
+    {
+      "family": "N^0.05",
+      "thresholds": {
+        "1000000": 501.18723362727224,
+        "100000000": 3981.0717055349724,
+        "10000000000": 31622.776601683792,
+        "1000000000000": 251188.643150958
+      },
+      "sample_met_by_powers2_all_Ns": false,
+      "sample_met_by_ER_eps_0p05_all_Ns": true,
+      "sample_met_by_ER_eps_0p1_all_Ns": false,
+      "classification": "sample_only_not_asymptotic_proof"
+    },
+    {
+      "family": "N^0.1",
+      "thresholds": {
+        "1000000": 251.188643150958,
+        "100000000": 1584.8931924611134,
+        "10000000000": 9999.999999999998,
+        "1000000000000": 63095.73444801932
+      },
+      "sample_met_by_powers2_all_Ns": false,
+      "sample_met_by_ER_eps_0p05_all_Ns": true,
+      "sample_met_by_ER_eps_0p1_all_Ns": true,
+      "classification": "sample_only_not_asymptotic_proof"
+    },
+    {
+      "family": "sqrt(N)/log N",
+      "thresholds": {
+        "1000000": 13.815510557964274,
+        "100000000": 18.42068074395237,
+        "10000000000": 23.025850929940457,
+        "1000000000000": 27.631021115928547
+      },
+      "sample_met_by_powers2_all_Ns": true,
+      "sample_met_by_ER_eps_0p05_all_Ns": true,
+      "sample_met_by_ER_eps_0p1_all_Ns": true,
+      "classification": "sample_only_not_asymptotic_proof"
+    }
+  ]
+}

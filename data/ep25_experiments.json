@@ -1,0 +1,42 @@
+{
+  "Xs": [
+    10000,
+    100000,
+    1000000
+  ],
+  "systems": [
+    {
+      "name": "convergent_reciprocals_n=i^2+1_a=0",
+      "num_constraints": 220,
+      "max_modulus": 48842,
+      "reciprocal_sum_prefix": 0.5721594131229739,
+      "approx_mu_X": {
+        "10000": 0.7857064793430479,
+        "100000": 0.7603518974530254,
+        "1000000": 0.7436020114538093
+      }
+    },
+    {
+      "name": "pairwise_coprime_primes_a=0",
+      "num_constraints": 220,
+      "max_modulus": 1373,
+      "reciprocal_sum_prefix": 2.242519329635523,
+      "approx_mu_X": {
+        "10000": 0.1346899861999198,
+        "100000": 0.1270530981775547,
+        "1000000": 0.11905522876126678
+      }
+    },
+    {
+      "name": "dense_moduli_n=i+1_random_a",
+      "num_constraints": 300,
+      "max_modulus": 301,
+      "reciprocal_sum_prefix": 5.285986139435714,
+      "approx_mu_X": {
+        "10000": 0.16383103174094701,
+        "100000": 0.1319598697755568,
+        "1000000": 0.11064709212662746
+      }
+    }
+  ]
+}

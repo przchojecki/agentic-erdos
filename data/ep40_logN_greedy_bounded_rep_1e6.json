@@ -1,0 +1,98 @@
+{
+  "Nmax": 1000000,
+  "Ks": [
+    2,
+    4
+  ],
+  "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+  "results": [
+    {
+      "K": 2,
+      "Nmax": 1000000,
+      "size": 381,
+      "max_ordered_rep_observed": 2,
+      "final_ratio_m_log_over_sqrtN": 5.263709522584389,
+      "sample": [
+        {
+          "N": 1000,
+          "m": 27,
+          "ratio_m_log_over_sqrtN": 5.897944854171559
+        },
+        {
+          "N": 3000,
+          "m": 41,
+          "ratio_m_log_over_sqrtN": 5.9931997646557384
+        },
+        {
+          "N": 10000,
+          "m": 66,
+          "ratio_m_log_over_sqrtN": 6.078824645504281
+        },
+        {
+          "N": 30000,
+          "m": 102,
+          "ratio_m_log_over_sqrtN": 6.070914125559813
+        },
+        {
+          "N": 100000,
+          "m": 161,
+          "ratio_m_log_over_sqrtN": 5.861537787170499
+        },
+        {
+          "N": 300000,
+          "m": 246,
+          "ratio_m_log_over_sqrtN": 5.6642514442465135
+        },
+        {
+          "N": 1000000,
+          "m": 381,
+          "ratio_m_log_over_sqrtN": 5.263709522584389
+        }
+      ]
+    },
+    {
+      "K": 4,
+      "Nmax": 1000000,
+      "size": 870,
+      "max_ordered_rep_observed": 4,
+      "final_ratio_m_log_over_sqrtN": 12.019494185428917,
+      "sample": [
+        {
+          "N": 1000,
+          "m": 48,
+          "ratio_m_log_over_sqrtN": 10.485235296304992
+        },
+        {
+          "N": 3000,
+          "m": 77,
+          "ratio_m_log_over_sqrtN": 11.255521509231508
+        },
+        {
+          "N": 10000,
+          "m": 127,
+          "ratio_m_log_over_sqrtN": 11.697132272409753
+        },
+        {
+          "N": 30000,
+          "m": 200,
+          "ratio_m_log_over_sqrtN": 11.903753187372184
+        },
+        {
+          "N": 100000,
+          "m": 332,
+          "ratio_m_log_over_sqrtN": 12.087146244351588
+        },
+        {
+          "N": 300000,
+          "m": 528,
+          "ratio_m_log_over_sqrtN": 12.157417733992515
+        },
+        {
+          "N": 1000000,
+          "m": 870,
+          "ratio_m_log_over_sqrtN": 12.019494185428917
+        }
+      ]
+    }
+  ]
+}

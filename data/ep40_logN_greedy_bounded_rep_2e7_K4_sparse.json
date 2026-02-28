@@ -1,0 +1,54 @@
+{
+  "Nmax": 20000000,
+  "Ks": [
+    4
+  ],
+  "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+  "results": [
+    {
+      "K": 4,
+      "Nmax": 20000000,
+      "mode": "sparse",
+      "size": 3000,
+      "max_ordered_rep_observed": 4,
+      "final_ratio_m_log_over_sqrtN": 11.277324527259266,
+      "sample": [
+        {
+          "N": 1000,
+          "m": 48,
+          "ratio_m_log_over_sqrtN": 10.485235296304992
+        },
+        {
+          "N": 3000,
+          "m": 77,
+          "ratio_m_log_over_sqrtN": 11.255521509231508
+        },
+        {
+          "N": 10000,
+          "m": 127,
+          "ratio_m_log_over_sqrtN": 11.697132272409753
+        },
+        {
+          "N": 30000,
+          "m": 200,
+          "ratio_m_log_over_sqrtN": 11.903753187372184
+        },
+        {
+          "N": 100000,
+          "m": 332,
+          "ratio_m_log_over_sqrtN": 12.087146244351588
+        },
+        {
+          "N": 300000,
+          "m": 528,
+          "ratio_m_log_over_sqrtN": 12.157417733992515
+        },
+        {
+          "N": 1000000,
+          "m": 870,
+          "ratio_m_log_over_sqrtN": 12.019494185428917
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "set": "A={2^k}",
+  "note": "rmax is computed on finite truncation A∩[1,N]; for full infinite set, max ordered representations remains <=2.",
+  "rows": [
+    {
+      "N": 10000,
+      "m": 14,
+      "rmax": 2,
+      "rhs_for_g_sqrtN_over_logN": 9.210340371976184,
+      "ratio_m_over_rhs1": 1.5200306866613813,
+      "rhs_for_g_sqrtN_over_sqrtlogN": 3.034854258770293,
+      "ratio_m_over_rhs2": 4.613071602875825,
+      "rhs_for_g_sqrtN_over_log2N": 84.83036976765439,
+      "ratio_m_over_rhs3": 0.16503523488516214
+    },
+    {
+      "N": 100000,
+      "m": 17,
+      "rmax": 2,
+      "rhs_for_g_sqrtN_over_logN": 11.512925464970229,
+      "ratio_m_over_rhs1": 1.4766012384710563,
+      "rhs_for_g_sqrtN_over_sqrtlogN": 3.393070212207556,
+      "ratio_m_over_rhs2": 5.010211677564927,
+      "rhs_for_g_sqrtN_over_log2N": 132.54745276195996,
+      "ratio_m_over_rhs3": 0.12825595396789746
+    },
+    {
+      "N": 1000000,
+      "m": 20,
+      "rmax": 2,
+      "rhs_for_g_sqrtN_over_logN": 13.815510557964274,
+      "ratio_m_over_rhs1": 1.4476482730108395,
+      "rhs_for_g_sqrtN_over_sqrtlogN": 3.7169221888498383,
+      "ratio_m_over_rhs2": 5.380795987604138,
+      "rhs_for_g_sqrtN_over_log2N": 190.8683319772223,
+      "ratio_m_over_rhs3": 0.1047842761175633
+    },
+    {
+      "N": 10000000,
+      "m": 24,
+      "rmax": 2,
+      "rhs_for_g_sqrtN_over_logN": 16.11809565095832,
+      "ratio_m_over_rhs1": 1.4890096522397205,
+      "rhs_for_g_sqrtN_over_sqrtlogN": 4.0147348170157295,
+      "ratio_m_over_rhs2": 5.977978893719288,
+      "rhs_for_g_sqrtN_over_log2N": 259.7930074134415,
+      "ratio_m_over_rhs3": 0.09238123935262724
+    }
+  ]
+}
