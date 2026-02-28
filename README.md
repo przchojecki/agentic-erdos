@@ -9,7 +9,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Triaged as `harder` (post-2000 reference signal): **257**
 - Records with deep-attempt workflow initialized: **20**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T13:41:33.725Z**
+- README last generated (UTC): **2026-02-28T13:57:07.674Z**
 
 ## Progress Status Counts
 
@@ -17,7 +17,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `not_proved_identified_gap`: 236
 - `not_proved_no_reference_block`: 118
 - `not_proved`: 12
-- `strong_computational_signal_not_proved`: 2
+- `adversarial_search_frontier_extended_not_proved`: 2
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
@@ -128,8 +128,8 @@ node scripts/generate_readme_progress.mjs
 | EP-148 | Erdős Problem #148 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-149 | Erdős Problem #149 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-151 | Erdős Problem #151 | to-check | 320 | 1992 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: There Erdos remarked that this conjecture is 'perhaps completely wrongheaded'. |
-| EP-152 | Erdős Problem #152 | to-check | 8 |  | strong_computational_signal_not_proved | Exhaustive min(A)=1 Sidon scan for N<=60 gives observed minimum isolated(A+A) values 0,1,2,2,3,5,5,8,12 for \|A\|=2..10; tested infinite constructions (Ruzsa, Mian-Chowla) have much larger isolated cou… |
-| EP-153 | Erdős Problem #153 | to-check | 9 |  | strong_computational_signal_not_proved | Exhaustive min(A)=1 Sidon scan for N<=60 gives observed minimum mean-square gap values 0.666667,1.333333,1.8,2.8,3.52381,4.5,5.5,5.644444,6.872727 for \|A\|=2..10; Ruzsa and Mian-Chowla families show c… |
+| EP-152 | Erdős Problem #152 | to-check | 8 |  | adversarial_search_frontier_extended_not_proved | Extended fixed-m adversarial search up to m=80: best-known isolated counts remain large (18 at m=11, 82 at m=20, 228 at m=30, 455 at m=40, 764 at m=50, 1156 at m=60, 1640 at m=70, 2206 at m=80). |
+| EP-153 | Erdős Problem #153 | to-check | 9 |  | adversarial_search_frontier_extended_not_proved | Extended fixed-m adversarial search up to m=80: best-known average squared gaps keep increasing (11.27 at m=11, 28.08 at m=20, 66.16 at m=30, 121.56 at m=40, 154.65 at m=50, 218.26 at m=60, 301.62 at… |
 | EP-155 | Erdős Problem #155 | to-check | 10 |  | not_proved | Studied local increments of F(N), aiming to show eventual one-step growth under fixed k-shifts. |
 | EP-156 | Erdős Problem #156 | to-check | 360 | 1998 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
 | EP-158 | Erdős Problem #158 | to-check | 11 |  | not_proved | Tried to adapt Sidon liminf arguments to the weaker "at most 2 representations" condition via representation counting. |

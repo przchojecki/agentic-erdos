@@ -15,6 +15,13 @@ By Cauchy,
 `(1/t) * sum (gap)^2 >= ((s_t-s_1)/(t-1))^2`,
 which gives only a constant-order lower bound (around `4` asymptotically), not divergence.
 
+Gap-identity viewpoint:
+- Let `x_i = (s_{i+1}-s_i)-1 >= 0`.
+- Then
+  `avg_sq_gap = ((t-1) + 2*sum x_i + sum x_i^2)/t`.
+- Divergence needs either very large total extra-gap mass `sum x_i` (large range)
+  or concentration via `sum x_i^2`; current unconditional bounds only force constant scale.
+
 ## Exhaustive small-N evidence
 Script:
 - `scripts/ep152_ep153_scan_smallN.mjs`
@@ -49,6 +56,31 @@ For both tested families:
 
 the average squared gap grows strongly with `m` in all tested instances.
 
+## Adversarial fixed-m search (larger m)
+Scripts:
+- `scripts/ep152_ep153_adversarial_search.mjs`
+
+Data:
+- `data/ep152_ep153_adversarial_m11_80_best.json`
+- `data/ep152_ep153_adversarial_m11_80_best.csv`
+- `data/ep152_ep153_frontier_summary.json`
+
+Observed best-known averages (stress-test minima, not rigorous lower bounds):
+- `m=11 -> 11.27`
+- `m=20 -> 28.08`
+- `m=30 -> 66.16`
+- `m=40 -> 121.56`
+- `m=50 -> 154.65`
+- `m=60 -> 218.26`
+- `m=70 -> 301.62`
+- `m=80 -> 373.09`
+
+Empirical envelope on `11 <= m <= 80`:
+- minimum observed `avg_sq_gap/m` is about `1.025`
+- linear fit: `avg_sq_gap ~ 5.27*m - 83.9`
+
+So all searched worst-case candidates still show strong growth.
+
 ## Why this is still open
 The key unresolved step is a universal rigidity argument for all Sidon sets: current methods
 do not force enough large gaps (or enough gap-variance) in the worst case, despite strong
@@ -57,5 +89,4 @@ evidence from exhaustive small search and known constructions.
 ## Current status
 - Not solved.
 - Positive computational signal for divergence.
-- Main gap: proving a general lower bound that increases with `|A|`.
-
+- Main gap: proving a general lower bound that increases with `|A|` for all Sidon sets.
