@@ -7,18 +7,18 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **132**
+- Records with deep-attempt workflow initialized: **142**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T21:04:15.586Z**
+- README last generated (UTC): **2026-02-28T21:07:11.776Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
 - `not_proved_identified_gap`: 198
-- `not_proved_no_reference_block`: 44
+- `not_proved_no_reference_block`: 34
 - `no_background_partial_result`: 16
 - `not_proved`: 12
-- `statement_issue_malformed_dataset_entry`: 7
+- `statement_issue_malformed_dataset_entry`: 9
 - `order_known_constant_open`: 3
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -434,14 +434,14 @@ node scripts/generate_readme_progress.mjs
 | EP-690 | Erdős Problem #690 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-691 | Erdős Problem #691 | to-check | 347 | 1996 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: If $A$ is a set of prime numbers (or, more generally, a set of pairwise coprime integers without $1$) then a necessary and sufficient condition is that $\sum_{p\in A}\frac{1}{p}=\infty$. |
 | EP-693 | Erdős Problem #693 | to-check | 93 |  | statement_issue_malformed_dataset_entry | Statement contains trailing injected text and background is empty in this dataset copy. |
-| EP-694 | Erdős Problem #694 | to-check | 94 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos has proved that if such an $n$ exists then there must be infinitely many such $n$. |
+| EP-694 | Erdős Problem #694 | to-check | 94 |  | carmichael_implication_known_ratio_growth_open | Background: if a unique-preimage n exists for phi, then infinitely many such n exist. |
 | EP-695 | Erdős Problem #695 | harder |  | 2010 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-696 | Erdős Problem #696 | to-check | 95 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos writes it is 'easy to see' that $h(n)\to \infty$ for almost all $n$ (which is proved in the comments by van Doorn), and believed he could show that the normal order of $h(n)$ is $\log_*(n)$ (the iterated logarithm). |
-| EP-700 | Erdős Problem #700 | to-check | 96 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: This implies $ f(n) \leq (1+o(1))\frac{n}{\log n}. |
+| EP-696 | Erdős Problem #696 | to-check | 95 |  | h_growth_known_H_over_h_open | Background indicates h(n)->infinity for almost all n (with comment proof reference). |
+| EP-700 | Erdős Problem #700 | to-check | 96 |  | multi_part_partial_results_known | Known: f(n)<=n/P(n), equality for semiprimes (and n=30), and infinitely many composite n with f(n)>=n^{1/2} (n=p^2). |
 | EP-701 | Erdős Problem #701 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-704 | Erdős Problem #704 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-705 | Erdős Problem #705 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-706 | Erdős Problem #706 | to-check | 97 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: The case $r=1$ is the Hadwiger-Nelson problem, for which it is known that $5\leq L(1)\leq 7$. |
+| EP-706 | Erdős Problem #706 | to-check | 97 |  | baseline_r1_known_general_r_open | Background gives Hadwiger-Nelson baseline 5<=L(1)<=7. |
 | EP-708 | Erdős Problem #708 | to-check | 321 | 1992 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A problem of Erdos and Sur\'{a}nyi \cite{ErSu59}, who proved that $g(n) \geq (2-o(1))n$, and that $g(3)=4$. |
 | EP-709 | Erdős Problem #709 | to-check | 160 | 1959 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A problem of Erdos and Sur\'{a}nyi \cite{ErSu59}, who proved $ (\log n)^c \ll f(n) \ll n^{1/2} $ for some constant $c>0$. |
 | EP-710 | Erdős Problem #710 | to-check | 322 | 1992 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos and Pomerance \cite{ErPo80}, who proved $ (2/\sqrt{e}+o(1))n\left(\frac{\log n}{\log\log n}\right)^{1/2}\leq f(n)\leq (1.7398\cdots+o(1))n(\log n)^{1/2}. |
@@ -449,7 +449,7 @@ node scripts/generate_readme_progress.mjs
 | EP-712 | Erdős Problem #712 | to-check | 264 | 1981 | r2_case_solved_higher_r_open | Background records Turan's theorem giving the limit for r=2. |
 | EP-713 | Erdős Problem #713 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-714 | Erdős Problem #714 | to-check | 179 | 1966 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: K"{o}v\'{a}ri, S\'{o}s, and Tur\'{a}n \cite{KST54} proved $ \mathrm{ex}(n; K_{r,r}) \ll n^{2-1/r} $ for all $r\geq 2$. |
-| EP-719 | Erdős Problem #719 | to-check | 98 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-719 | Erdős Problem #719 | to-check | 98 |  | statement_issue_malformed_dataset_entry | Statement includes injected text fragment and background is empty in this dataset copy. |
 | EP-724 | Erdős Problem #724 | to-check | 280 | 1983 | progressive_lower_bounds_known_target_open | Background lists improvements f(n)>>n^{1/91}, then n^{1/17}, then n^{1/14.8}. |
 | EP-725 | Erdős Problem #725 | to-check | 154 | 1951 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: Erdos and Kaplansky \cite{ErKa46} proved the count is $ \sim e^{-\binom{k}{2}}(n!)^k $ when $k=o((\log n)^{3/2-\epsilon})$. |
 | EP-726 | Erdős Problem #726 | to-check | 211 | 1975 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A conjecture of Erdos, Graham, Ruzsa, and Straus \cite{EGRS75}. |
@@ -457,15 +457,15 @@ node scripts/generate_readme_progress.mjs
 | EP-730 | Erdős Problem #730 | to-check | 212 | 1975 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: It is not known whether there are such pairs of the shape $(n,n+k)$ for every $k\geq 1$. |
 | EP-731 | Erdős Problem #731 | to-check | 213 | 1975 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-734 | Erdős Problem #734 | to-check | 266 | 1981 | sqrt_scale_necessity_known_construction_open | Background implies some block size must occur on the order of n^{1/2} times in any pairwise balanced design. |
-| EP-738 | Erdős Problem #738 | to-check | 99 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-738 | Erdős Problem #738 | to-check | 99 |  | statement_issue_malformed_dataset_entry | Statement includes injected text fragment and background is empty in this dataset copy. |
 | EP-740 | Erdős Problem #740 | to-check | 343 | 1995 | countable_r3_case_solved_general_open | Background says Rodl proved the statement for m=aleph_0 and r=3. |
 | EP-741 | Erdős Problem #741 | to-check | 334 | 1994 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
-| EP-749 | Erdős Problem #749 | to-check | 100 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
+| EP-749 | Erdős Problem #749 | to-check | 100 |  | dense_sumset_bounded_rep_tradeoff_open | No construction or impossibility proof obtained for lower density(A+A)>=1-epsilon with uniformly bounded r_{A+A}(n). |
 | EP-750 | Erdős Problem #750 | to-check | 278 | 1982 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: In \cite{Er69b} Erdos conjectures this for $f(m)=\epsilon m$ for any fixed $\epsilon>0$. |
 | EP-757 | Erdős Problem #757 | to-check | 341 | 1995 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and S\'{o}s proved that $c\geq 1/2$. |
-| EP-761 | Erdős Problem #761 | to-check | 101 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: A positive answer to the second question implies a positive answer to the first via the bound mentioned in [760]. |
-| EP-766 | Erdős Problem #766 | to-check | 102 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: Dirac and Erdos proved independently that when $l=\lfloor k^2/4\rfloor+1$ $ f(n;k,l)\leq \lfloor n^2/4\rfloor+1. |
-| EP-768 | Erdős Problem #768 | to-check | 103 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: $ Erdos asked about this because $\lvert A\cap [1,N]\rvert$ provides an upper bound for the number of integers $n\leq N$ for which there is a non-cyclic simple group of order $n$. |
+| EP-761 | Erdős Problem #761 | to-check | 101 |  | implication_relation_known_core_open | Background states a positive answer to the second question would imply the first. |
+| EP-766 | Erdős Problem #766 | to-check | 102 |  | boundary_case_bound_known_monotonicity_open | Background gives f(n;k,l)<=floor(n^2/4)+1 at l=floor(k^2/4)+1 (Dirac-Erdos). |
+| EP-768 | Erdős Problem #768 | to-check | 103 |  | two_sided_bounds_known_asymptotic_open | Known lower exp(-c sqrt(log N) log log N) and upper exp(-(1+o(1)) sqrt(log N log log N)) bounds. |
 | EP-769 | Erdős Problem #769 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-770 | Erdős Problem #770 | to-check | 104 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: It is easy to see that $h(n)=n+1$ if and only if $n+1$ is prime, and that $h(n)$ is unbounded for odd $n$. |
 | EP-773 | Erdős Problem #773 | to-check | 344 | 1995 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: A question of Alon and Erdos \cite{AlEr85}, who proved $\lvert A\rvert \geq N^{2/3-o(1)}$ is possible (via a random subset), and observed that $ \lvert A\rvert \ll \frac{N}{(\log N)^{1/4}}, $ since (as shown by Landau) the density of the sums of two squares decays like $(\log N)^{-1/2}$. |
