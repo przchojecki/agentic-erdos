@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **20**
+- Records with deep-attempt workflow initialized: **21**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T19:48:30.056Z**
+- README last generated (UTC): **2026-02-28T19:54:54.854Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 236
+- `not_proved_identified_gap`: 235
 - `not_proved_no_reference_block`: 118
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
@@ -23,6 +23,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
 - `not_proved_statement_text_noisy`: 1
+- `first_question_disproved_second_open`: 1
 - `not_proved_no_dated_reference`: 1
 
 ## Data and Notes
@@ -498,7 +499,7 @@ node scripts/generate_readme_progress.mjs
 | EP-829 | Erdős Problem #829 | harder |  | 2008 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-830 | Erdős Problem #830 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-831 | Erdős Problem #831 | to-check | 111 |  | not_proved_no_reference_block | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: classifying extremal configurations well enough to make the final bound rigid. |
-| EP-836 | Erdős Problem #836 | to-check | 214 | 1975 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos and Lov\'{a}sz \cite{ErLo75} proved that there must be two edges which meet in $\gg \frac{r}{\log r}$ many vertices. |
+| EP-836 | Erdős Problem #836 | to-check | 214 | 1975 | first_question_disproved_second_open | Alon counterexample gives intersecting 3-chromatic r-uniform hypergraphs with \|V\|=Theta(4^r/sqrt(r)), so O(r^2) fails. |
 | EP-837 | Erdős Problem #837 | to-check | 112 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: It is known that $ A_2 = \left\{ 1-\frac{1}{k} : k\geq 1\right\}. |
 | EP-838 | Erdős Problem #838 | to-check | 237 | 1978 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos proved in \cite{Er78c} that there exist constants $c_1,c_2>0$ such that $ n^{c_1\log n}<f(n)< n^{c_2\log n}. |
 | EP-839 | Erdős Problem #839 | to-check | 328 | 1993 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
