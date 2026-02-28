@@ -7,15 +7,15 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **33**
+- Records with deep-attempt workflow initialized: **37**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:19:44.011Z**
+- README last generated (UTC): **2026-02-28T20:22:45.473Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 225
-- `not_proved_no_reference_block`: 116
+- `not_proved_identified_gap`: 222
+- `not_proved_no_reference_block`: 115
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -23,11 +23,11 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
+- `exponential_bounds_known_exact_rate_open`: 1
 - `not_proved_statement_text_noisy`: 1
 - `asymptotic_resolved_exact_open`: 1
+- `half_density_guess_false_bounds_known`: 1
 - `first_yes_second_false_third_open`: 1
-- `second_stronger_bound_false_first_open`: 1
-- `k3_k5_solved_general_open`: 1
 
 ## Data and Notes
 
@@ -109,7 +109,7 @@ node scripts/generate_readme_progress.mjs
 | EP-111 | Erdős Problem #111 | to-check | 273 | 1982 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: On the other hand, Erdos, Hajnal, and Szemer\'{e}di proved that there is a $G$ with chromatic number $\aleph_1$ such that $h_G(n)\ll n^{3/2}$. |
 | EP-112 | Erdős Problem #112 | to-check | 354 | 1997 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: $ Larson and Mitchell \cite{LaMi97} improved the dependence on $m$, establishing in particular that $k(n,3)\leq n^{2}$. |
 | EP-114 | Erdős Problem #114 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-117 | Erdős Problem #117 | to-check | 357 | 1997 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Pyber \cite{Py87} has proved there exist constants $c_2>c_1>1$ such that $c_1^n<h(n)<c_2^n$. |
+| EP-117 | Erdős Problem #117 | to-check | 357 | 1997 | exponential_bounds_known_exact_rate_open | Background gives c1^n<h(n)<c2^n for constants c2>c1>1 (Pyber/earlier lower-bound work). |
 | EP-119 | Erdős Problem #119 | to-check | 315 | 1991 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: The weaker conjecture that $\limsup M_n=\infty$ was proved by Wagner \cite{Wa80}, who show that there is some $c>0$ with $M_n>(\log n)^c$ infinitely often. |
 | EP-120 | Erdős Problem #120 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-122 | Erdős Problem #122 | to-check | 350 | 1997 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
@@ -208,7 +208,7 @@ node scripts/generate_readme_progress.mjs
 | EP-293 | Erdős Problem #293 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-295 | Erdős Problem #295 | to-check | 197 | 1971 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: Erdos and Straus \cite{ErSt71b} have proved the existence of some constant $c>0$ such that $ -c < k(N)-(e-1)N \ll \frac{N}{\log N}. |
 | EP-301 | Erdős Problem #301 | to-check | 23 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
-| EP-302 | Erdős Problem #302 | to-check | 311 | 1991 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Wouter van Doorn has proved (see this note) that $ f(N) \leq (9/10+o(1))N. |
+| EP-302 | Erdős Problem #302 | to-check | 311 | 1991 | half_density_guess_false_bounds_known | Background records f(N)>=(5/8+o(1))N and f(N)<=(9/10+o(1))N, so the subquestion f(N)=(1/2+o(1))N is ruled out by these bounds. |
 | EP-304 | Erdős Problem #304 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-306 | Erdős Problem #306 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-311 | Erdős Problem #311 | to-check | 253 | 1980 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
@@ -220,7 +220,7 @@ node scripts/generate_readme_progress.mjs
 | EP-320 | Erdős Problem #320 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-321 | Erdős Problem #321 | to-check | 226 | 1976 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: (In these bounds $\log_in$ denotes the $i$-fold iterated logarithm.) See also [320]. |
 | EP-322 | Erdős Problem #322 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-323 | Erdős Problem #323 | to-check | 27 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: For $k>2$ it is not known if $f_{k,k}(x)=o(x)$. |
+| EP-323 | Erdős Problem #323 | to-check | 27 |  | k2_case_solved_general_open | Diagonal k=2 case is resolved in background: f_{2,2}(x)~c x/sqrt(log x) (Landau). |
 | EP-324 | Erdős Problem #324 | to-check | 28 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: The Lander, Parkin, and Selfridge conjecture would imply that $f(x)=x^n$ has this property for all $n\geq 5$. |
 | EP-325 | Erdős Problem #325 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-326 | Erdős Problem #326 | to-check | 158 | 1957 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos originally asked whether this was true with $A=B$, but this was disproved by Cassels \cite{Ca57}. |
@@ -376,7 +376,7 @@ node scripts/generate_readme_progress.mjs
 | EP-597 | Erdős Problem #597 | to-check | 72 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos and Hajnal proved that $\omega_1^2 \to (\omega_1\omega,3)^2$. |
 | EP-598 | Erdős Problem #598 | to-check | 73 |  | not_proved_no_reference_block | Tried partition-calculus reformulation and transfinite induction scaffolding. Hard point: forcing the needed partition relation at the required infinite cardinal scale. |
 | EP-600 | Erdős Problem #600 | to-check | 239 | 1978 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Ruzsa and Szemer\'{e}di \cite{RuSz78} proved that $e(n,r)=o(n^2)$ for any fixed $r$. |
-| EP-601 | Erdős Problem #601 | to-check | 309 | 1990 | not_proved_identified_gap | Tried partition-calculus reformulation and transfinite induction scaffolding. Hard point: A problem of Erdos, Hajnal, and Milner \cite{EHM70}, who proved this is true for $\alpha < \omega_1^{\omega+2}$. |
+| EP-601 | Erdős Problem #601 | to-check | 309 | 1990 | initial_zfc_range_solved_general_open | Background gives truth in ZFC for alpha<omega_1^{omega+2}; under Martin's axiom, true for all alpha<2^{aleph_0}. |
 | EP-602 | Erdős Problem #602 | to-check | 74 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-603 | Erdős Problem #603 | to-check | 75 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-604 | Erdős Problem #604 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
