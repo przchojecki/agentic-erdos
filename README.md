@@ -9,7 +9,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Triaged as `harder` (post-2000 reference signal): **257**
 - Records with deep-attempt workflow initialized: **20**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T19:44:35.748Z**
+- README last generated (UTC): **2026-02-28T19:48:30.056Z**
 
 ## Progress Status Counts
 
@@ -17,12 +17,11 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `not_proved_identified_gap`: 236
 - `not_proved_no_reference_block`: 118
 - `not_proved`: 12
+- `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
-- `counterexample_proved_as_written`: 1
-- `statement_issue_counterexample_in_background`: 1
 - `not_proved_statement_text_noisy`: 1
 - `not_proved_no_dated_reference`: 1
 
@@ -146,7 +145,7 @@ node scripts/generate_readme_progress.mjs
 | EP-174 | Erdős Problem #174 | harder |  | 2012 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-176 | Erdős Problem #176 | to-check | 200 | 1973 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Spencer \cite{Sp73} has proved that if $k=2^tm$ with $m$ odd then $ N(k,1)=2^t(k-1)+1. |
 | EP-177 | Erdős Problem #177 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-180 | Erdős Problem #180 | to-check | 13 |  | statement_issue_counterexample_in_background | Cross-checked the claim against the finite-family star+matching example described in the background. |
+| EP-180 | Erdős Problem #180 | to-check | 13 |  | counterexample_proved_as_written | Explicit finite family counterexample: F={K_{1,2},2K_2}. Then ex(n;F)=1 for n>=2, while ex(n;K_{1,2})=floor(n/2)=Theta(n) and ex(n;2K_2)=n-1=Theta(n), so no G in F satisfies ex(n;G)<<_F ex(n;F). |
 | EP-181 | Erdős Problem #181 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-183 | Erdős Problem #183 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-184 | Erdős Problem #184 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
