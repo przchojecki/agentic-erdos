@@ -54,6 +54,29 @@ function firstNonEmpty(obj, keys) {
   return '';
 }
 
+function extractHardPointSentence(background) {
+  const text = cleanText(background);
+  if (!text) return '';
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  const signal =
+    /(not known|unknown|open|current record|best known|best bound|it is known|proved|conjecture|sufficient|implies|gap|bound)/i;
+  const candidate = sentences.find((s) => signal.test(s));
+  return candidate ? cleanText(candidate) : '';
+}
+
+function repairEllipsisNote(record, note) {
+  const hasEllipsis = /…|\.\.\./.test(note);
+  if (!hasEllipsis) return note;
+
+  const hard = extractHardPointSentence(record.background);
+  const strategy = cleanText(record.proof_attempt_strategy || '');
+
+  if (strategy && hard) return `${strategy} Hard point: ${hard}`;
+  if (hard) return `Hard point: ${hard}`;
+
+  return note.replace(/…|\.\.\./g, '');
+}
+
 function deriveProgress(record) {
   const statusKeys = [
     'deep_attempt_v4_status',
@@ -84,7 +107,8 @@ function deriveProgress(record) {
       ? 'Triaged as harder due to reference activity after 2000.'
       : 'No detailed attempt recorded yet.');
 
-  return { status: cleanText(status), note: truncate(note, 200) };
+  const cleaned = cleanText(note);
+  return { status: cleanText(status), note: repairEllipsisNote(record, cleaned) };
 }
 
 function statusSummary(records) {
