@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **172**
+- Records with deep-attempt workflow initialized: **173**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T21:19:54.077Z**
+- README last generated (UTC): **2026-02-28T21:26:54.973Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 198
+- `not_proved_identified_gap`: 197
 - `no_background_partial_result`: 22
 - `statement_issue_malformed_dataset_entry`: 15
 - `not_proved`: 12
@@ -249,7 +249,7 @@ node scripts/generate_readme_progress.mjs
 | EP-365 | Erdős Problem #365 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-367 | Erdős Problem #367 | to-check | 35 |  | second_stronger_bound_false_first_open | For k>=3, the stronger bound prod_{n<=m<n+k} B_2(m) <<_k n^2 is false; background gives k=3 lower spikes prod_{n<=m<n+3} B_2(m) >> n^2 log n infinitely often. |
 | EP-368 | Erdős Problem #368 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-369 | Erdős Problem #369 | to-check | 359 | 1998 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Graham state that this is open even for $k=2$ and 'the answer should be affirmative but the problem seems very hard'. |
+| EP-369 | Erdős Problem #369 | to-check | 359 | 1998 | proved_true_as_written_trivial | For n > k^(1/epsilon), every m with 1 <= m <= k has all prime factors <= k < n^epsilon, so this block is n^epsilon-smooth. |
 | EP-371 | Erdős Problem #371 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-373 | Erdős Problem #373 | harder |  | 2010 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-374 | Erdős Problem #374 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
