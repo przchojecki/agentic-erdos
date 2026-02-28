@@ -7,15 +7,15 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **22**
+- Records with deep-attempt workflow initialized: **24**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T19:57:30.350Z**
+- README last generated (UTC): **2026-02-28T20:02:14.483Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 235
-- `not_proved_no_reference_block`: 117
+- `not_proved_identified_gap`: 234
+- `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -23,6 +23,8 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
 - `not_proved_statement_text_noisy`: 1
+- `first_yes_second_false_third_open`: 1
+- `second_stronger_bound_false_first_open`: 1
 - `second_stronger_version_disproved_first_open`: 1
 - `first_question_disproved_second_open`: 1
 - `not_proved_no_dated_reference`: 1
@@ -213,7 +215,7 @@ node scripts/generate_readme_progress.mjs
 | EP-312 | Erdős Problem #312 | to-check | 24 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-313 | Erdős Problem #313 | to-check | 25 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-317 | Erdős Problem #317 | to-check | 26 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: $ Arguments of Kovac and van Doorn in the comment section prove a weak version of the first question, with an upper bound of $ 2^{-n\frac{(\log\log\log n)^{1+o(1)}}{\log n}}, $ and van Doorn gives a heuristic that suggests this may be the true order of magnitude. |
-| EP-318 | Erdős Problem #318 | to-check | 277 | 1982 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and Straus \cite{ErSt75} proved this when $A=\mathbb{N}$. |
+| EP-318 | Erdős Problem #318 | to-check | 277 | 1982 | first_yes_second_false_third_open | Arithmetic-progression version is true (Sattler, per background). Positive-density version is false: if A has exactly one even element e, choosing f(e)=1 and f(odd)=-1 prevents any finite zero-sum reciprocal subset. |
 | EP-319 | Erdős Problem #319 | harder |  | 2001 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-320 | Erdős Problem #320 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-321 | Erdős Problem #321 | to-check | 226 | 1976 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: (In these bounds $\log_in$ denotes the $i$-fold iterated logarithm.) See also [320]. |
@@ -245,7 +247,7 @@ node scripts/generate_readme_progress.mjs
 | EP-359 | Erdős Problem #359 | to-check | 232 | 1977 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Andrews conjectures $ a_k\sim \frac{k\log k}{\log\log k}. |
 | EP-361 | Erdős Problem #361 | to-check | 34 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-365 | Erdős Problem #365 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-367 | Erdős Problem #367 | to-check | 35 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: It would also be interesting to find upper and lower bounds for the analogous product with $B_r$ for $r\geq 3$, where $B_r(n)$ is the $r$-full part of $n$ (that is, the product of prime powers $p^a \mid n$ such that $p^{a+1} mid n$ and $a\geq r$). |
+| EP-367 | Erdős Problem #367 | to-check | 35 |  | second_stronger_bound_false_first_open | For k>=3, the stronger bound prod_{n<=m<n+k} B_2(m) <<_k n^2 is false; background gives k=3 lower spikes prod_{n<=m<n+3} B_2(m) >> n^2 log n infinitely often. |
 | EP-368 | Erdős Problem #368 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-369 | Erdős Problem #369 | to-check | 359 | 1998 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Graham state that this is open even for $k=2$ and 'the answer should be affirmative but the problem seems very hard'. |
 | EP-371 | Erdős Problem #371 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
