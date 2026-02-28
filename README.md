@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **26**
+- Records with deep-attempt workflow initialized: **27**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:08:49.299Z**
+- README last generated (UTC): **2026-02-28T20:11:39.657Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 232
+- `not_proved_identified_gap`: 231
 - `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
@@ -653,7 +653,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1088 | Erdős Problem #1088 | to-check | 220 | 1975 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos \cite{Er75f} claimed that he and Straus proved $f_d(n)\leq c_n^d$ for some constant $c_n>0$. |
 | EP-1089 | Erdős Problem #1089 | to-check | 221 | 1975 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos and Straus proved (in unpublished work mentioned in \cite{Er75f}) that $ g_d(n) \leq c^{d^{1-b_n}} $ for some constants $c>0$ and $b_n>0$. |
 | EP-1091 | Erdős Problem #1091 | to-check | 276 | 1982 | first_question_solved_second_open | First subquestion is yes (Voss, 1982) for K4-free 4-chromatic graphs: an odd cycle with at least two diagonals exists. |
-| EP-1092 | Erdős Problem #1092 | to-check | 272 | 1982 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A conjecture of Erdos, Hajnal, and Szemer\'{e}di. |
+| EP-1092 | Erdős Problem #1092 | to-check | 272 | 1982 | first_question_false_general_open | First subquestion is false: background reports R"odl (1982) gives a counterexample, so f_2(n) is not >> n. |
 | EP-1093 | Erdős Problem #1093 | to-check | 331 | 1993 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Barreto in the comments has given a positive answer to the second question, conditional on two (strong) conjectures. |
 | EP-1094 | Erdős Problem #1094 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1095 | Erdős Problem #1095 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
