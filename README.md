@@ -7,18 +7,18 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **112**
+- Records with deep-attempt workflow initialized: **122**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:57:33.868Z**
+- README last generated (UTC): **2026-02-28T20:59:37.461Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
 - `not_proved_identified_gap`: 198
-- `not_proved_no_reference_block`: 64
+- `not_proved_no_reference_block`: 54
+- `no_background_partial_result`: 14
 - `not_proved`: 12
-- `no_background_partial_result`: 12
-- `statement_issue_malformed_dataset_entry`: 3
+- `statement_issue_malformed_dataset_entry`: 6
 - `order_known_constant_open`: 3
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -374,17 +374,17 @@ node scripts/generate_readme_progress.mjs
 | EP-595 | Erdős Problem #595 | to-check | 218 | 1975 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Folkman \cite{Fo70} and Ne\v{s}et\v{r}il and R"{o}dl \cite{NeRo75} have proved that for every $n\geq 1$ there is a graph $G$ which contains no $K_4$ and is not the union of $n$ triangle-free graphs. |
 | EP-596 | Erdős Problem #596 | to-check | 71 |  | existence_known_full_characterization_open | Background gives explicit example G1=C4, G2=C6 and notes original conjecture of nonexistence is false. |
 | EP-597 | Erdős Problem #597 | to-check | 72 |  | special_case_solved_general_open | Background states omega_1^2 -> (omega_1 omega,3)^2 and that earlier K4-free-only version is false via K_{aleph0,aleph0}. |
-| EP-598 | Erdős Problem #598 | to-check | 73 |  | not_proved_no_reference_block | Tried partition-calculus reformulation and transfinite induction scaffolding. Hard point: forcing the needed partition relation at the required infinite cardinal scale. |
+| EP-598 | Erdős Problem #598 | to-check | 73 |  | statement_issue_malformed_dataset_entry | Statement contains injected garbage fragment and background is empty in current copy. |
 | EP-600 | Erdős Problem #600 | to-check | 239 | 1978 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Ruzsa and Szemer\'{e}di \cite{RuSz78} proved that $e(n,r)=o(n^2)$ for any fixed $r$. |
 | EP-601 | Erdős Problem #601 | to-check | 309 | 1990 | initial_zfc_range_solved_general_open | Background gives truth in ZFC for alpha<omega_1^{omega+2}; under Martin's axiom, true for all alpha<2^{aleph_0}. |
-| EP-602 | Erdős Problem #602 | to-check | 74 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
-| EP-603 | Erdős Problem #603 | to-check | 75 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-602 | Erdős Problem #602 | to-check | 74 |  | no_background_partial_result | Background identifies this as Komjath's Property B-type question. |
+| EP-603 | Erdős Problem #603 | to-check | 75 |  | intersection1_variant_solved_intersection2_open | Background says Komjath proved countably many colors suffice when \|A_i cap A_j\| != 1. |
 | EP-604 | Erdős Problem #604 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-609 | Erdős Problem #609 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-610 | Erdős Problem #610 | to-check | 345 | 1995 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Gallai, and Tuza \cite{EGT92}, who proved that $ \tau(G) \leq n-\sqrt{2n}+O(1). |
 | EP-611 | Erdős Problem #611 | to-check | 318 | 1992 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Gallai, and Tuza \cite{EGT92}, who proved for the latter question that $k_c(n) \geq n^{c'/\log\log n}$ for some $c'>0$, and that if every clique has size least $k$ then $\tau(G) \leq n-(kn)^{1/2}$. |
 | EP-612 | Erdős Problem #612 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-614 | Erdős Problem #614 | to-check | 76 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-614 | Erdős Problem #614 | to-check | 76 |  | statement_issue_malformed_dataset_entry | Statement contains injected garbage fragment and background is empty in current copy. |
 | EP-616 | Erdős Problem #616 | to-check | 312 | 1991 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos, Hajnal, and Tuza \cite{EHT91} proved that this $t$ satisfies $ \frac{3}{16}r+\frac{7}{8}\leq t \leq \frac{1}{5}r. |
 | EP-619 | Erdős Problem #619 | to-check | 371 | 2000 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Gy\'{a}rf\'{a}s, and Ruszink\'{o} \cite{EGR98} who proved that $h_3(G)\leq n$ and $h_5(G) \leq \frac{n-1}{2}$ and there exist connected graphs $G$ on $n$ vertices with $h_3(G)\geq n-c$ for some constant $c>0$. |
 | EP-620 | Erdős Problem #620 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -396,20 +396,20 @@ node scripts/generate_readme_progress.mjs
 | EP-629 | Erdős Problem #629 | to-check | 373 | 2000 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Rubin, and Taylor \cite{ERT80}, who proved that $ 2^{k-1}<n(k) <k^22^{k+2}. |
 | EP-633 | Erdős Problem #633 | harder |  | 2009 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-634 | Erdős Problem #634 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-635 | Erdős Problem #635 | to-check | 77 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
-| EP-638 | Erdős Problem #638 | to-check | 78 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
-| EP-640 | Erdős Problem #640 | to-check | 79 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-635 | Erdős Problem #635 | to-check | 77 |  | t1_exact_t2_lower_known_general_open | Background gives exact maximum for t=1 and a t=2 construction with \|A\|>=N/2 + c log N. |
+| EP-638 | Erdős Problem #638 | to-check | 78 |  | no_background_partial_result | Background contains only speculative comment from Erdos. |
+| EP-640 | Erdős Problem #640 | to-check | 79 |  | statement_issue_malformed_dataset_entry | Statement includes injected garbage fragment and background is empty. |
 | EP-642 | Erdős Problem #642 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-643 | Erdős Problem #643 | harder |  | 2009 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-644 | Erdős Problem #644 | to-check | 319 | 1992 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Fon-Der-Flaass, Kostochka, and Tuza \cite{EFKT92}, who proved that $f(k,3)=2k$ and $f(k,4)=\lfloor 3k/2\rfloor$ and $f(k,5)=\lfloor 5k/4\rfloor$, and further that $f(k,6)=k$. |
 | EP-650 | Erdős Problem #650 | to-check | 159 | 1959 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Sar\'{a}nyi \cite{ErSa59} proved that $f(m)\gg m^{1/2}$. |
 | EP-652 | Erdős Problem #652 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-653 | Erdős Problem #653 | to-check | 80 |  | not_proved_no_reference_block | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos and Fishburn proved $g(n)>\frac{3}{8}n$ and Csizmadia proved $g(n)>\frac{7}{10}n$. |
+| EP-653 | Erdős Problem #653 | to-check | 80 |  | two_sided_linear_bounds_near_n_open | Background gives g(n)>(7/10)n and g(n)<n-c n^{2/3} for some c>0. |
 | EP-654 | Erdős Problem #654 | to-check | 307 | 1990 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: In \cite{Er87b} and \cite{ErPa90} Erdos and Pach ask this under the additional assumption that there are no three points on a line (so that the points are in general position), although they only ask the weaker question whether there is a lower bound of the shape $(\tfrac{1}{3}+c)n$ for some constant $c>0$. |
-| EP-655 | Erdős Problem #655 | to-check | 81 |  | not_proved_no_reference_block | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: It is easy to see that this assumption implies that there are at least $\frac{n-1}{2}$ distinct distances determined by every point. |
+| EP-655 | Erdős Problem #655 | to-check | 81 |  | statement_issue_counterexample_in_background | Background states equally spaced points on a circle disprove the conjecture as written. |
 | EP-657 | Erdős Problem #657 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-660 | Erdős Problem #660 | to-check | 219 | 1975 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: For the similar problem in $\mathbb{R}^2$ there are always at least $n/2$ distances, as proved by Altman \cite{Al63} (see [93]). |
-| EP-661 | Erdős Problem #661 | to-check | 82 |  | not_proved_no_reference_block | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: classifying extremal configurations well enough to make the final bound rigid. |
+| EP-661 | Erdős Problem #661 | to-check | 82 |  | r4_benchmark_known_planar_open | Background gives an R^4 construction with d(x_i,y_j)=1 for all i,j. |
 | EP-662 | Erdős Problem #662 | to-check | 351 | 1997 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos also goes on to write 'Perhaps the following stronger conjecture holds: Let $t_1<t_2<\cdots$ be the set of distances occurring in the triangular lattice. |
 | EP-663 | Erdős Problem #663 | to-check | 83 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: The bound $q(n,k)<(1+o(1))k\log n$ is easy. |
 | EP-665 | Erdős Problem #665 | to-check | 358 | 1997 | conditional_no_with_unconditional_bounds | Background gives h(n)<<n^{1/2-c} unconditionally, and conditional answer "no" for fixed C under the prime-power conjecture (Shrikhande-Singhi). |
