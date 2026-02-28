@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **24**
+- Records with deep-attempt workflow initialized: **25**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:02:14.483Z**
+- README last generated (UTC): **2026-02-28T20:06:52.405Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 234
+- `not_proved_identified_gap`: 233
 - `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
@@ -547,7 +547,7 @@ node scripts/generate_readme_progress.mjs
 | EP-896 | Erdős Problem #896 | to-check | 126 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
 | EP-901 | Erdős Problem #901 | harder |  | 2009 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-902 | Erdős Problem #902 | to-check | 177 | 1965 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos \cite{Er63c} proved $ 2^{n+1}-1 \leq f(n) \ll n^22^n. |
-| EP-906 | Erdős Problem #906 | to-check | 275 | 1982 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
+| EP-906 | Erdős Problem #906 | to-check | 275 | 1982 | as_written_true_intended_variant_open | Solved as written by f(z)=1 (nonzero entire): f^(m)=0 for all m>=1, so for any infinite n_k the set {z: f^(n_k)(z)=0 for some k} equals C. |
 | EP-911 | Erdős Problem #911 | to-check | 127 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-912 | Erdős Problem #912 | to-check | 271 | 1982 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A problem of Erdos and Selfridge, who proved (see \cite{Er82c}) $ h(n) \asymp \left(\frac{n}{\log n}\right)^{1/2}. |
 | EP-913 | Erdős Problem #913 | to-check | 128 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: This problem has been formalised in Lean as part of the Google DeepMind Formal Conjectures project. |
