@@ -7,19 +7,20 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **82**
+- Records with deep-attempt workflow initialized: **92**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:48:44.364Z**
+- README last generated (UTC): **2026-02-28T20:51:15.895Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
 - `not_proved_identified_gap`: 198
-- `not_proved_no_reference_block`: 94
+- `not_proved_no_reference_block`: 84
 - `not_proved`: 12
-- `no_background_partial_result`: 3
+- `no_background_partial_result`: 5
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
+- `statement_issue_malformed_dataset_entry`: 2
 - `order_known_constant_open`: 2
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
@@ -27,7 +28,6 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `linear_f_case_constructed_sublinear_open`: 1
 - `n_to_n3over2_bounds_known_growth_open`: 1
 - `exponential_bounds_known_exact_rate_open`: 1
-- `right_triangle_case_solved_general_open`: 1
 
 ## Data and Notes
 
@@ -267,7 +267,7 @@ node scripts/generate_readme_progress.mjs
 | EP-393 | Erdős Problem #393 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-394 | Erdős Problem #394 | to-check | 258 | 1980 | o_x2_case_solved_stronger_open | Background: Erdos-Hall proved sum_{n<=x} t_2(n) << x^2*(log log log x)/(log log x), hence sum_{n<=x} t_2(n)=o(x^2). |
 | EP-396 | Erdős Problem #396 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-400 | Erdős Problem #400 | to-check | 43 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Graham write that it is easy to show that $g_k(n) \ll_k \log n$ always, but the best possible constant is unknown. |
+| EP-400 | Erdős Problem #400 | to-check | 43 |  | log_upper_bound_known_constants_open | Background states g_k(n)<<_k log n. |
 | EP-404 | Erdős Problem #404 | to-check | 162 | 1960 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-406 | Erdős Problem #406 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-408 | Erdős Problem #408 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -276,20 +276,20 @@ node scripts/generate_readme_progress.mjs
 | EP-411 | Erdős Problem #411 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-412 | Erdős Problem #412 | to-check | 242 | 1979 | empirical_negative_signal_no_proof | Background reports Selfridge numerical evidence suggesting the answer may be no. |
 | EP-413 | Erdős Problem #413 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-414 | Erdős Problem #414 | to-check | 44 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-414 | Erdős Problem #414 | to-check | 44 |  | no_background_partial_result | Background reports the problem and belief that answer is yes. |
 | EP-415 | Erdős Problem #415 | to-check | 144 | 1936 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos \cite{Er36b} proved that $ F(n)\asymp \log\log\log n, $ and similarly if we replace $\phi$ with $\sigma$ or $\tau$ or $ u$ or any 'decent' additive or multiplicative function. |
 | EP-416 | Erdős Problem #416 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-417 | Erdős Problem #417 | to-check | 361 | 1998 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
 | EP-420 | Erdős Problem #420 | to-check | 346 | 1996 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos, Graham, Ivi\'{c}, and Pomerance \cite{EGIP96} have proved that $ \liminf F(c\log n, n) = 1 $ for any $c>0$, and $ \lim F(n^{4/9},n)=\infty. |
-| EP-421 | Erdős Problem #421 | to-check | 45 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
-| EP-422 | Erdős Problem #422 | to-check | 46 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-421 | Erdős Problem #421 | to-check | 45 |  | density_gt_1_over_e_known_density1_open | Background gives existence for density > 1/e - epsilon for any epsilon>0. |
+| EP-422 | Erdős Problem #422 | to-check | 46 |  | finite_prefix_well_defined_global_open | Local computation verifies well-definedness through n=500000 and shows many missed values up to max f(n) on that range. |
 | EP-423 | Erdős Problem #423 | to-check | 233 | 1977 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Bolan and Tang have independently proved that there are infinitely many integers which do not appear in this sequence. |
 | EP-424 | Erdős Problem #424 | to-check | 260 | 1980 | original_stronger_version_false_weaker_open | Background gives a mod-3 invariant excluding all numbers congruent to 1 mod 3, so the stronger "almost all integers" form is false. |
 | EP-425 | Erdős Problem #425 | to-check | 262 | 1980 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er68} proved that there exist some constants $0<c_1\leq c_2$ such that $ \pi(n)+c_1 n^{3/4}(\log n)^{-3/2}\leq F(n)\leq \pi(n)+c_2 n^{3/4}(\log n)^{-3/2}. |
-| EP-428 | Erdős Problem #428 | to-check | 47 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Graham could show this is true (assuming the prime $k$-tuple conjecture) if we replace $\liminf$ by $\limsup$. |
-| EP-430 | Erdős Problem #430 | to-check | 48 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-428 | Erdős Problem #428 | to-check | 47 |  | conditional_limsup_known_liminf_open | Background says assuming prime k-tuple conjecture, statement holds with limsup in place of liminf. |
+| EP-430 | Erdős Problem #430 | to-check | 48 |  | equivalent_to_ep385_first_part | Background reports EP-430 first question is equivalent to first part of EP-385. |
 | EP-431 | Erdős Problem #431 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-432 | Erdős Problem #432 | to-check | 49 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-432 | Erdős Problem #432 | to-check | 49 |  | no_background_partial_result | Background gives only attribution to Straus/Ostmann motivation. |
 | EP-436 | Erdős Problem #436 | to-check | 316 | 1991 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A similar argument of Dunton \cite{Du65} proves $\Lambda(3,2)=77$, and Bierstedt and Mills \cite{BiMi63} proved $\Lambda(4,2)=1224$. |
 | EP-445 | Erdős Problem #445 | to-check | 370 | 2000 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Heilbronn (unpublished) proved this for $c$ sufficiently close to $1$. |
 | EP-450 | Erdős Problem #450 | harder |  | 2008 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -298,10 +298,10 @@ node scripts/generate_readme_progress.mjs
 | EP-454 | Erdős Problem #454 | to-check | 244 | 1979 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Pomerance \cite{Po79} has proved the $\limsup$ is at least $2$. |
 | EP-455 | Erdős Problem #455 | to-check | 225 | 1976 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Richter \cite{Ri76} proved that $ \liminf_n \frac{q_n}{n^2}>0.352\cdots. |
 | EP-456 | Erdős Problem #456 | to-check | 245 | 1979 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Linnik's theorem implies that $p_n\leq n^{O(1)}$. |
-| EP-457 | Erdős Problem #457 | to-check | 50 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-457 | Erdős Problem #457 | to-check | 50 |  | two_plus_o1_threshold_known_eps_open | Background provides examples with q(n,log n) >= (2+o(1))log n. |
 | EP-460 | Erdős Problem #460 | to-check | 261 | 1980 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: This question arose in work of Eggleton, Erdos, and Selfridge, who could prove that $a_k <k^{2+o(1)}$ for $k$ large enough depending on $n$, but conjectured that in fact $a_k\ll k\log k$ is true. |
-| EP-461 | Erdős Problem #461 | to-check | 51 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
-| EP-462 | Erdős Problem #462 | to-check | 52 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-461 | Erdős Problem #461 | to-check | 51 |  | t_over_log_t_known_linear_open | Background reports f(n,t) >> t/log t. |
+| EP-462 | Erdős Problem #462 | to-check | 52 |  | statement_issue_malformed_dataset_entry | Statement field includes injected garbage fragment and background is empty in current dataset copy. |
 | EP-463 | Erdős Problem #463 | to-check | 317 | 1992 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-467 | Erdős Problem #467 | to-check | 256 | 1980 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-468 | Erdős Problem #468 | to-check | 53 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
