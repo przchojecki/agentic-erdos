@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **27**
+- Records with deep-attempt workflow initialized: **28**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:11:39.657Z**
+- README last generated (UTC): **2026-02-28T20:13:27.638Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 231
+- `not_proved_identified_gap`: 230
 - `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
@@ -23,11 +23,11 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
 - `not_proved_statement_text_noisy`: 1
+- `asymptotic_resolved_exact_open`: 1
 - `first_yes_second_false_third_open`: 1
 - `second_stronger_bound_false_first_open`: 1
 - `second_stronger_version_disproved_first_open`: 1
 - `first_question_disproved_second_open`: 1
-- `not_proved_no_dated_reference`: 1
 
 ## Data and Notes
 
@@ -193,7 +193,7 @@ node scripts/generate_readme_progress.mjs
 | EP-267 | Erdős Problem #267 | to-check | 333 | 1993 | not_proved_identified_gap | Tried analytic/probabilistic reformulation to isolate a quantitative threshold. Hard point: It may be sufficient to have $n_k/k\to \infty$. |
 | EP-269 | Erdős Problem #269 | to-check | 296 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-271 | Erdős Problem #271 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-272 | Erdős Problem #272 | to-check | 367 | 1999 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: This was disproved by Simonovits and S\'{o}s \cite{SiSo81}, who observed that taking all sets containing at most $3$ elements, containing some fixed element, produces $\binom{N}{2}+1$ many such sets, which is asymptotically greater than the number of arithmetic progressions containing a fixed element, which is $\sim \frac{\pi^2}{24}N^2$. |
+| EP-272 | Erdős Problem #272 | to-check | 367 | 1999 | asymptotic_resolved_exact_open | Background gives Szabo (1999): t(N)=N^2/2 + O(N^{5/3}(log N)^3), resolving the asymptotic leading term. |
 | EP-273 | Erdős Problem #273 | to-check | 20 |  | not_proved | Tried covering-system construction with allowed moduli p-1 (p>=5), balancing congruence classes to achieve full integer coverage. |
 | EP-274 | Erdős Problem #274 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-276 | Erdős Problem #276 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
