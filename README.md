@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **29**
+- Records with deep-attempt workflow initialized: **30**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:14:17.325Z**
+- README last generated (UTC): **2026-02-28T20:14:55.967Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 229
+- `not_proved_identified_gap`: 228
 - `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
@@ -591,7 +591,7 @@ node scripts/generate_readme_progress.mjs
 | EP-971 | Erdős Problem #971 | to-check | 151 | 1949 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: He also proved that, for any $\epsilon>0$, $ p(a,d)< \epsilon \phi(d)\log d $ for $\gg_\epsilon \phi(d)$ many values of $a$. |
 | EP-972 | Erdős Problem #972 | to-check | 148 | 1948 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Vinogradov \cite{Vi48} proved that the sequence $\{p\alpha\}$ is uniformly distributed for every irrational $\alpha$, and hence there are infinitely many primes $p$ of the shape $p=\lfloor n\alpha\rfloor$ for every irrational $\alpha>1$. |
 | EP-973 | Erdős Problem #973 | to-check | 323 | 1992 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: Erdos proved (as described on p.35 of \cite{Tu84b}) that such a sequence does exist with $\lvert z_i\rvert\leq 1$. |
-| EP-975 | Erdős Problem #975 | to-check | 368 | 1999 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Van der Corput \cite{Va39} proved that $ \sum_{n\leq X} \tau(f(n))\gg_f X\log X. |
+| EP-975 | Erdős Problem #975 | to-check | 368 | 1999 | quadratic_case_solved_general_open | Asymptotic c(f)XlogX is known for irreducible quadratic f (Hooley), with explicit constants in several families; general irreducible case remains open in this record. |
 | EP-976 | Erdős Problem #976 | to-check | 308 | 1990 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Nagell and Ricci \cite{Na22} proved that $ F_f(n) \gg n\log n, $ which Erdos \cite{Er52c} improved to $ F_f(n) \gg n(\log n)^{\log\log\log n}. |
 | EP-978 | Erdős Problem #978 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-979 | Erdős Problem #979 | to-check | 146 | 1937 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er37b} proved this is true when $k=2$, and also when $k=3$ (but this proof appears to be unpublished). |
