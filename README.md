@@ -7,15 +7,15 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **21**
+- Records with deep-attempt workflow initialized: **22**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T19:54:54.854Z**
+- README last generated (UTC): **2026-02-28T19:57:30.350Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
 - `not_proved_identified_gap`: 235
-- `not_proved_no_reference_block`: 118
+- `not_proved_no_reference_block`: 117
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -23,6 +23,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
 - `not_proved_statement_text_noisy`: 1
+- `second_stronger_version_disproved_first_open`: 1
 - `first_question_disproved_second_open`: 1
 - `not_proved_no_dated_reference`: 1
 
@@ -418,7 +419,7 @@ node scripts/generate_readme_progress.mjs
 | EP-675 | Erdős Problem #675 | to-check | 85 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Is it true that $t_n>\exp(n^c)$ for some constant $c>0$?{/LI} {/UL} Elementary sieve theory implies that the set of squarefree numbers has the translation property. |
 | EP-676 | Erdős Problem #676 | to-check | 246 | 1979 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: The sieve of Eratosthenes implies that almost all integers are of this form, and the Brun-Selberg sieve implies the number of exceptions in $[1,x]$ is $\ll x/(\log x)^c$ for some constant $c>0$. |
 | EP-677 | Erdős Problem #677 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-679 | Erdős Problem #679 | to-check | 86 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: In the comments DottedCalculator has disproved the second stronger version, proving that in fact for all large $n$ there exists $k<n$ such that $ \omega(n-k)\geq \frac{\log k}{\log\log k} + c\frac{\log k}{(\log\log k)^2} $ for some constant $c>0$. |
+| EP-679 | Erdős Problem #679 | to-check | 86 |  | second_stronger_version_disproved_first_open | The +O(1) stronger version is false: for all large n there exists k<n with omega(n-k) >= log k/log log k + c log k/(log log k)^2. |
 | EP-680 | Erdős Problem #680 | to-check | 340 | 1995 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos observed that Cramer's conjecture $ \limsup_{k\to \infty} \frac{p_{k+1}-p_k}{(\log k)^2}=1 $ implies that for all $\epsilon>0$ and all sufficiently large $n$ there exists some $k$ such that $ p(n+k)>e^{(1-\epsilon)\sqrt{k}}. |
 | EP-681 | Erdős Problem #681 | to-check | 87 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-683 | Erdős Problem #683 | to-check | 249 | 1979 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er55d} proved that there exists some $c>0$ such that, whenever $k\leq n/2$, $ P\left(\binom{n}{k}\right)\gg k\log k. |
