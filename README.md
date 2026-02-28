@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **30**
+- Records with deep-attempt workflow initialized: **31**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:14:55.967Z**
+- README last generated (UTC): **2026-02-28T20:15:47.745Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 228
+- `not_proved_identified_gap`: 227
 - `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
@@ -26,8 +26,8 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `asymptotic_resolved_exact_open`: 1
 - `first_yes_second_false_third_open`: 1
 - `second_stronger_bound_false_first_open`: 1
+- `k3_k5_solved_general_open`: 1
 - `second_stronger_version_disproved_first_open`: 1
-- `first_question_disproved_second_open`: 1
 
 ## Data and Notes
 
@@ -358,7 +358,7 @@ node scripts/generate_readme_progress.mjs
 | EP-568 | Erdős Problem #568 | to-check | 66 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-569 | Erdős Problem #569 | to-check | 67 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-571 | Erdős Problem #571 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-572 | Erdős Problem #572 | to-check | 369 | 1999 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos and Klein \cite{Er38} proved $\mathrm{ex}(n;C_4)\asymp n^{3/2}$. |
+| EP-572 | Erdős Problem #572 | to-check | 369 | 1999 | k3_k5_solved_general_open | Target bound ex(n;C_{2k})>>n^{1+1/k} is proved for k=3 and k=5 (Benson, per background). |
 | EP-573 | Erdős Problem #573 | to-check | 157 | 1954 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos and Simonovits, who proved that $ \mathrm{ex}(n;\{C_4,C_5\})=(n/2)^{3/2}+O(n). |
 | EP-574 | Erdős Problem #574 | to-check | 68 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-575 | Erdős Problem #575 | to-check | 69 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
