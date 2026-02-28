@@ -9,7 +9,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Triaged as `harder` (post-2000 reference signal): **257**
 - Records with deep-attempt workflow initialized: **20**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T14:09:53.600Z**
+- README last generated (UTC): **2026-02-28T14:18:32.643Z**
 
 ## Progress Status Counts
 
@@ -21,7 +21,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
-- `statement_issue_likely_false_as_written`: 1
+- `counterexample_proved_as_written`: 1
 - `statement_issue_counterexample_in_background`: 1
 - `not_proved_statement_text_noisy`: 1
 - `not_proved_no_dated_reference`: 1
@@ -114,7 +114,7 @@ node scripts/generate_readme_progress.mjs
 | EP-124 | Erdős Problem #124 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-125 | Erdős Problem #125 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-126 | Erdős Problem #126 | to-check | 142 | 1934 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Investigated by Erdos and Tur\'{a}n \cite{ErTu34} (prompted by a question of L\'{a}z\'{a}r and Gr"{u}nwald) in their first joint paper, where they proved that $ \log n \ll f(n) \ll n/\log n $ (the upper bound is trivial, taking $A=\{1,\ldots,n\}$). |
-| EP-129 | Erdős Problem #129 | to-check | 7 |  | statement_issue_likely_false_as_written | Checked consistency against the random-coloring heuristic used in the background discussion for r=2. |
+| EP-129 | Erdős Problem #129 | to-check | 7 |  | counterexample_proved_as_written | For r=2, random red/blue edge-colorings plus Steiner-triple-system decomposition for n≡1,3 (mod 6) yield R(n;3,2) >= exp(c n) for infinitely many n, contradicting any C^{sqrt(n)} upper bound. |
 | EP-130 | Erdős Problem #130 | to-check | 355 | 1997 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-131 | Erdős Problem #131 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-132 | Erdős Problem #132 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
