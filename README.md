@@ -7,18 +7,18 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **142**
+- Records with deep-attempt workflow initialized: **152**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T21:07:11.776Z**
+- README last generated (UTC): **2026-02-28T21:15:21.129Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
 - `not_proved_identified_gap`: 198
-- `not_proved_no_reference_block`: 34
-- `no_background_partial_result`: 16
+- `not_proved_no_reference_block`: 24
+- `no_background_partial_result`: 19
 - `not_proved`: 12
-- `statement_issue_malformed_dataset_entry`: 9
+- `statement_issue_malformed_dataset_entry`: 11
 - `order_known_constant_open`: 3
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -467,13 +467,13 @@ node scripts/generate_readme_progress.mjs
 | EP-766 | Erdős Problem #766 | to-check | 102 |  | boundary_case_bound_known_monotonicity_open | Background gives f(n;k,l)<=floor(n^2/4)+1 at l=floor(k^2/4)+1 (Dirac-Erdos). |
 | EP-768 | Erdős Problem #768 | to-check | 103 |  | two_sided_bounds_known_asymptotic_open | Known lower exp(-c sqrt(log N) log log N) and upper exp(-(1+o(1)) sqrt(log N log log N)) bounds. |
 | EP-769 | Erdős Problem #769 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-770 | Erdős Problem #770 | to-check | 104 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: It is easy to see that $h(n)=n+1$ if and only if $n+1$ is prime, and that $h(n)$ is unbounded for odd $n$. |
+| EP-770 | Erdős Problem #770 | to-check | 104 |  | special_cases_known_density_liminf_open | Known: h(n)=n+1 iff n+1 is prime; h(n) is unbounded on odd n. |
 | EP-773 | Erdős Problem #773 | to-check | 344 | 1995 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: A question of Alon and Erdos \cite{AlEr85}, who proved $\lvert A\rvert \geq N^{2/3-o(1)}$ is possible (via a random subset), and observed that $ \lvert A\rvert \ll \frac{N}{(\log N)^{1/4}}, $ since (as shown by Landau) the density of the sums of two squares decays like $(\log N)^{-1/2}$. |
 | EP-774 | Erdős Problem #774 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-776 | Erdős Problem #776 | to-check | 105 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: For $r>1$ and $n$ sufficiently large $n-3$ is achievable, but $n-2$ is never achievable. |
+| EP-776 | Erdős Problem #776 | to-check | 105 |  | eventual_existence_known_threshold_open | Background: for r>1 and sufficiently large n, n-3 sizes are achievable; n-2 is impossible. |
 | EP-778 | Erdős Problem #778 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-782 | Erdős Problem #782 | harder |  | 2007 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-783 | Erdős Problem #783 | to-check | 106 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-783 | Erdős Problem #783 | to-check | 106 |  | statement_issue_malformed_dataset_entry | Statement contains injected text fragment and background is empty in this dataset copy. |
 | EP-786 | Erdős Problem #786 | to-check | 175 | 1965 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: In \cite{Er65} Erdos reports that Ruzsa proved the maximal size of such an $A$ is $\leq (1-c)N$ for some constant $c>0$ for large $N$, but the proof 'is not yet published'. |
 | EP-787 | Erdős Problem #787 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-788 | Erdős Problem #788 | to-check | 372 | 2000 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: A conjecture of Choi \cite{Ch71}, who proved $f(n) \ll n^{3/4}$. |
@@ -485,29 +485,29 @@ node scripts/generate_readme_progress.mjs
 | EP-796 | Erdős Problem #796 | to-check | 192 | 1969 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos \cite{Er64d} proved that if $2^{r-1}<k\leq 2^r$ then $ g_k(n) \sim \frac{(\log\log n)^{r-1}}{(r-1)!\log n}n $ (which is the asymptotic count of those integers $\leq n$ with $r$ distinct prime factors). |
 | EP-802 | Erdős Problem #802 | to-check | 349 | 1996 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A conjecture of Ajtai, Erdos, Koml\'{o}s, and Szemer\'{e}di \cite{AEKS81}, who proved that there must exist an independent set on $ \gg_r \frac{\log\log(t+1)}{t}n $ many vertices. |
 | EP-805 | Erdős Problem #805 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-809 | Erdős Problem #809 | to-check | 107 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Burr, Erdos, Graham, and S\'{o}s, who proved that $ F_k(n)\gg n^2. |
-| EP-810 | Erdős Problem #810 | to-check | 108 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-809 | Erdős Problem #809 | to-check | 107 |  | quadratic_scale_known_constant_open | Background states F_k(n)>>n^2. |
+| EP-810 | Erdős Problem #810 | to-check | 108 |  | no_background_partial_result | Entry provides problem statement plus cross-reference only; no partial bound cited. |
 | EP-811 | Erdős Problem #811 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-812 | Erdős Problem #812 | to-check | 304 | 1989 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: Burr, Erdos, Faudree, and Schelp \cite{BEFS89} proved that $ R(n+1)-R(n) \geq 4n-8 $ for all $n\geq 2$. |
 | EP-813 | Erdős Problem #813 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-817 | Erdős Problem #817 | to-check | 109 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: A problem of Erdos and S\'{a}rk"{o}zy who proved $ g_3(n) \gg \frac{3^n}{n^{O(1)}}. |
+| EP-817 | Erdős Problem #817 | to-check | 109 |  | near_exponential_lower_bound_known_gap_open | Background gives g_3(n)>>3^n/n^{O(1)}. |
 | EP-819 | Erdős Problem #819 | to-check | 313 | 1991 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and Freud \cite{ErFr91} proved $ \left(\frac{3}{8}-o(1)\right)N \leq f(N) \leq \left(\frac{1}{2}+o(1)\right)N, $ and note that it is closely connected to the size of the largest quasi-Sidon set (see [840]). |
 | EP-820 | Erdős Problem #820 | to-check | 204 | 1974 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er74b} proved that there exists a constant $c>0$ such that $ H(n) > \exp(n^{c/(\log\log n)^2}) $ for infinitely many $n$. |
 | EP-821 | Erdős Problem #821 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-824 | Erdős Problem #824 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-825 | Erdős Problem #825 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-826 | Erdős Problem #826 | to-check | 110 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
+| EP-826 | Erdős Problem #826 | to-check | 110 |  | no_background_partial_result | Background only notes relation as a stronger form of EP-248. |
 | EP-827 | Erdős Problem #827 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-828 | Erdős Problem #828 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-829 | Erdős Problem #829 | harder |  | 2008 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-830 | Erdős Problem #830 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-831 | Erdős Problem #831 | to-check | 111 |  | not_proved_no_reference_block | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: classifying extremal configurations well enough to make the final bound rigid. |
+| EP-831 | Erdős Problem #831 | to-check | 111 |  | statement_issue_malformed_dataset_entry | Statement contains injected text fragment and background is empty in this dataset copy. |
 | EP-836 | Erdős Problem #836 | to-check | 214 | 1975 | first_question_disproved_second_open | Alon counterexample gives intersecting 3-chromatic r-uniform hypergraphs with \|V\|=Theta(4^r/sqrt(r)), so O(r^2) fails. |
-| EP-837 | Erdős Problem #837 | to-check | 112 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: It is known that $ A_2 = \left\{ 1-\frac{1}{k} : k\geq 1\right\}. |
+| EP-837 | Erdős Problem #837 | to-check | 112 |  | A2_classified_A3_open | Background gives A_2={1-1/k: k>=1}. |
 | EP-838 | Erdős Problem #838 | to-check | 237 | 1978 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos proved in \cite{Er78c} that there exist constants $c_1,c_2>0$ such that $ n^{c_1\log n}<f(n)< n^{c_2\log n}. |
 | EP-839 | Erdős Problem #839 | to-check | 328 | 1993 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
 | EP-840 | Erdős Problem #840 | harder |  | 2097 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-846 | Erdős Problem #846 | to-check | 113 |  | not_proved_no_reference_block | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: classifying extremal configurations well enough to make the final bound rigid. |
+| EP-846 | Erdős Problem #846 | to-check | 113 |  | no_background_partial_result | Entry provides statement and cross-references only, without a cited partial bound. |
 | EP-847 | Erdős Problem #847 | to-check | 114 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
 | EP-849 | Erdős Problem #849 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-850 | Erdős Problem #850 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
