@@ -7,18 +7,18 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **152**
+- Records with deep-attempt workflow initialized: **162**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T21:15:21.129Z**
+- README last generated (UTC): **2026-02-28T21:17:50.134Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
 - `not_proved_identified_gap`: 198
-- `not_proved_no_reference_block`: 24
-- `no_background_partial_result`: 19
+- `no_background_partial_result`: 21
+- `not_proved_no_reference_block`: 15
 - `not_proved`: 12
-- `statement_issue_malformed_dataset_entry`: 11
+- `statement_issue_malformed_dataset_entry`: 12
 - `order_known_constant_open`: 3
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
@@ -508,31 +508,31 @@ node scripts/generate_readme_progress.mjs
 | EP-839 | Erdős Problem #839 | to-check | 328 | 1993 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
 | EP-840 | Erdős Problem #840 | harder |  | 2097 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-846 | Erdős Problem #846 | to-check | 113 |  | no_background_partial_result | Entry provides statement and cross-references only, without a cited partial bound. |
-| EP-847 | Erdős Problem #847 | to-check | 114 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
+| EP-847 | Erdős Problem #847 | to-check | 114 |  | no_background_partial_result | Entry has statement and references only; no explicit partial theorem cited. |
 | EP-849 | Erdős Problem #849 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-850 | Erdős Problem #850 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-851 | Erdős Problem #851 | to-check | 143 | 1934 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Romanoff \cite{Ro34} proved that the set of integers of the form $2^k+p$ (where $p$ is prime) has positive lower density. |
-| EP-852 | Erdős Problem #852 | to-check | 115 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Brun's sieve implies $h(x) \to \infty$ as $x\to \infty$. |
+| EP-852 | Erdős Problem #852 | to-check | 115 |  | qualitative_growth_known_quantitative_open | Background states Brun sieve implies h(x)->infinity. |
 | EP-853 | Erdős Problem #853 | to-check | 284 | 1985 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
-| EP-854 | Erdős Problem #854 | to-check | 116 |  | not_proved_no_dated_reference | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos first thought that (for large enough $k$) all even $t\leq \max(a_{i+1}-a_i)$ can be written as $t=a_{j+1}-a_j$ for some $j$, but in \cite{Ob1} writes 'perhaps this is false', and reports some computations of Lacampagne and Selfridge that this fails for $n_k=2\cdot 3\cdot 5\cdot 7\cdot 11\cdot 13$ which 'show some doubt on [his] conjecture', and says it could fail for all or infinitely many $k$. |
+| EP-854 | Erdős Problem #854 | to-check | 116 |  | finite_counterexample_signal_general_asymptotics_open | Background reports Lacampagne-Selfridge computation showing the all-even-up-to-max-gap expectation fails at n_k=2*3*5*7*11*13. |
 | EP-856 | Erdős Problem #856 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-857 | Erdős Problem #857 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-858 | Erdős Problem #858 | to-check | 187 | 1968 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Alexander \cite{Al66} and Erdos, S\'{a}rk"{o}zi, and Szemer\'{e}di \cite{ESS68} proved that this maximum is $o(1)$ (as $N\to \infty$). |
 | EP-859 | Erdős Problem #859 | to-check | 193 | 1970 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er70} proved that $d_t$ always exists, and that there exist some constants $c_3,c_4>0$ such that $ \frac{1}{(\log t)^{c_3}} < d_t < \frac{1}{(\log t)^{c_4}}. |
 | EP-860 | Erdős Problem #860 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-863 | Erdős Problem #863 | to-check | 117 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: It is true that $c_1=c_1'$, and the classical bound on the size of Sidon sets (see [30]) implies $c_1=c_1'=1$. |
-| EP-864 | Erdős Problem #864 | to-check | 118 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
+| EP-863 | Erdős Problem #863 | to-check | 117 |  | r1_case_known_r_ge_2_open | Background gives c_1=c_1'=1. |
+| EP-864 | Erdős Problem #864 | to-check | 118 |  | lower_bound_matches_scale_upper_open | Background proves \|A\|>=(1+o(1))(2/sqrt(3))N^{1/2}. |
 | EP-865 | Erdős Problem #865 | to-check | 215 | 1975 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and S\'{o}s conjectured that $ f_k(N)\sim \frac{1}{2}\left(1+\sum_{1\leq r\leq k-2}\frac{1}{4^r}\right) N, $ and a similar example shows that this would be best possible. |
-| EP-866 | Erdős Problem #866 | to-check | 119 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Choi, Erdos, and Szemer\'{e}di proved that $g_3(N)=2$ and $g_4(N) \ll 1$. |
+| EP-866 | Erdős Problem #866 | to-check | 119 |  | many_k_cases_known_full_profile_open | Known: g_3=2, g_4=O(1), g_5~log N, g_6~N^{1/2}, and general upper/lower exponent bounds. |
 | EP-869 | Erdős Problem #869 | to-check | 301 | 1988 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Härtter \cite{Ha56} and Nathanson \cite{Na74} proved that there exist additive bases which do not contain any minimal additive bases. |
 | EP-870 | Erdős Problem #870 | to-check | 250 | 1979 | k2_case_solved_general_k_open | Background gives Erdos-Nathanson: for k=2, if 1_A*1_A(n)>(log(4/3))^{-1}*log n eventually, A contains a minimal basis of order 2. |
 | EP-872 | Erdős Problem #872 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-873 | Erdős Problem #873 | to-check | 120 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: A problem of Erdos and Szemer\'{e}di, who proved that for every $A$ $ F(A,X,3) \ll X^{1/3}\log X, $ and there is an $A$ such that $ F(A,X,3) \gg X^{1/3}\log X $ for infinitely many $X$. |
-| EP-875 | Erdős Problem #875 | to-check | 121 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
+| EP-873 | Erdős Problem #873 | to-check | 120 |  | k3_scale_known_general_epsilon_k_open | Background gives matching-order upper/lower behavior for k=3: X^{1/3} log X scale. |
+| EP-875 | Erdős Problem #875 | to-check | 121 |  | no_background_partial_result | Background mostly states difficulty/context without a proved quantitative bound. |
 | EP-876 | Erdős Problem #876 | to-check | 375 | 2000 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos \cite{Er98} writes that Graham 'recently proved' that there is such a sequence for which $a_{n+1}-a_n<n^{1+o(1)}$, and that Melfi proved a somewhat weaker result. |
 | EP-878 | Erdős Problem #878 | to-check | 281 | 1984 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: $ Erdos \cite{Er84e} proved that $ \max_{n\leq x}f(n)\sim \frac{x\log x}{\log\log x} $ for a sequence of $x\to \infty$. |
-| EP-879 | Erdős Problem #879 | to-check | 122 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Van Lint proved that $ H(n)-n^{3/2-o(1)}<G(n)<H(n) $ and $ \frac{H(n)-G(n)}{n}\to \infty. |
-| EP-881 | Erdős Problem #881 | to-check | 123 |  | not_proved_no_reference_block | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
+| EP-879 | Erdős Problem #879 | to-check | 122 |  | strong_bounds_known_strongest_forms_open | Background gives H(n)-n^{3/2-o(1)}<G(n)<H(n), plus k=2 case of second claim. |
+| EP-881 | Erdős Problem #881 | to-check | 123 |  | statement_issue_malformed_dataset_entry | Statement contains injected text fragment and background is empty in this dataset copy. |
 | EP-883 | Erdős Problem #883 | to-check | 366 | 1999 | second_question_solved_first_open | Second subquestion is true: Sa99 gives a complete (1,ell,ell) with ell>>log n/loglog n for large n, hence any fixed ell is achieved eventually. |
 | EP-884 | Erdős Problem #884 | to-check | 124 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-885 | Erdős Problem #885 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
