@@ -7,18 +7,19 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **31**
+- Records with deep-attempt workflow initialized: **33**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T20:15:47.745Z**
+- README last generated (UTC): **2026-02-28T20:19:44.011Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 227
+- `not_proved_identified_gap`: 225
 - `not_proved_no_reference_block`: 116
 - `not_proved`: 12
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
+- `order_known_constant_open`: 2
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
@@ -27,7 +28,6 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `first_yes_second_false_third_open`: 1
 - `second_stronger_bound_false_first_open`: 1
 - `k3_k5_solved_general_open`: 1
-- `second_stronger_version_disproved_first_open`: 1
 
 ## Data and Notes
 
@@ -263,7 +263,7 @@ node scripts/generate_readme_progress.mjs
 | EP-387 | Erdős Problem #387 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-388 | Erdős Problem #388 | to-check | 41 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
 | EP-389 | Erdős Problem #389 | to-check | 42 |  | not_proved_no_reference_block | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
-| EP-390 | Erdős Problem #390 | to-check | 270 | 1982 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
+| EP-390 | Erdős Problem #390 | to-check | 270 | 1982 | order_known_constant_open | Background gives f(n)-2n asymp n/log n (Erdos-Guy-Selfridge, 1982). |
 | EP-393 | Erdős Problem #393 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-394 | Erdős Problem #394 | to-check | 258 | 1980 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: In \cite{ErGr80} they mention a conjecture of Erdos that the sum is $o(x^2)$. |
 | EP-396 | Erdős Problem #396 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -549,7 +549,7 @@ node scripts/generate_readme_progress.mjs
 | EP-902 | Erdős Problem #902 | to-check | 177 | 1965 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos \cite{Er63c} proved $ 2^{n+1}-1 \leq f(n) \ll n^22^n. |
 | EP-906 | Erdős Problem #906 | to-check | 275 | 1982 | as_written_true_intended_variant_open | Solved as written by f(z)=1 (nonzero entire): f^(m)=0 for all m>=1, so for any infinite n_k the set {z: f^(n_k)(z)=0 for some k} equals C. |
 | EP-911 | Erdős Problem #911 | to-check | 127 |  | not_proved_no_reference_block | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
-| EP-912 | Erdős Problem #912 | to-check | 271 | 1982 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A problem of Erdos and Selfridge, who proved (see \cite{Er82c}) $ h(n) \asymp \left(\frac{n}{\log n}\right)^{1/2}. |
+| EP-912 | Erdős Problem #912 | to-check | 271 | 1982 | order_known_constant_open | Background gives h(n) asymp (n/log n)^{1/2} (Erdos-Selfridge). |
 | EP-913 | Erdős Problem #913 | to-check | 128 |  | not_proved_no_reference_block | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: This problem has been formalised in Lean as part of the Google DeepMind Formal Conjectures project. |
 | EP-917 | Erdős Problem #917 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-918 | Erdős Problem #918 | to-check | 189 | 1969 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A question of Erdos and Hajnal \cite{ErHa68b}, who proved that for every finite $k$ there is a graph with chromatic number $\aleph_1$ where each subgraph on less than $\aleph_k$ vertices has chromatic number $\leq \aleph_0$. |
