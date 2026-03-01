@@ -1,0 +1,26 @@
+# EP-193 partial
+
+## Statement
+For finite step set `S subset Z^3`, must every infinite `S`-walk contain three
+collinear points?
+
+## Attempt in this batch
+I ran randomized greedy construction searches for long finite `S`-walks with no
+collinear triple, on several explicit step families.
+
+Data file:
+- `data/ep193_swalk_collinear_search.json`
+
+## Result
+For target length `180`, best lengths found were:
+- `axis6`: 17
+- `positive3`: 8
+- `diag6`: 41
+- `mixed8`: 58
+
+No tested family reached very long lengths in this run.
+
+## Hard point
+Finite failure to extend walks is not a proof of inevitability of collinear triples
+for all infinite walks and all finite `S`.
+

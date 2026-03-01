@@ -1,0 +1,93 @@
+{
+  "problem": "EP-600",
+  "method": "randomized_local_search_for_dense_graphs_with_per-edge_triangle_count_in_[1,tmax]",
+  "note": "For tmax=r-1, any feasible graph with m edges gives lower bound e(n,r)>=m+1.",
+  "params": {
+    "n_list": [
+      14,
+      18,
+      22,
+      26,
+      30
+    ],
+    "tmax_list": [
+      1,
+      2
+    ],
+    "iters": 80000,
+    "restarts": 20
+  },
+  "rows": [
+    {
+      "n": 14,
+      "tmax": 1,
+      "best_feasible_edges_found": 18,
+      "implied_lower_bound_on_e_n_r": 19,
+      "runtime_ms": 1468
+    },
+    {
+      "n": 14,
+      "tmax": 2,
+      "best_feasible_edges_found": 44,
+      "implied_lower_bound_on_e_n_r": 45,
+      "runtime_ms": 2538
+    },
+    {
+      "n": 18,
+      "tmax": 1,
+      "best_feasible_edges_found": 24,
+      "implied_lower_bound_on_e_n_r": 25,
+      "runtime_ms": 2099
+    },
+    {
+      "n": 18,
+      "tmax": 2,
+      "best_feasible_edges_found": 64,
+      "implied_lower_bound_on_e_n_r": 65,
+      "runtime_ms": 3624
+    },
+    {
+      "n": 22,
+      "tmax": 1,
+      "best_feasible_edges_found": 39,
+      "implied_lower_bound_on_e_n_r": 40,
+      "runtime_ms": 3404
+    },
+    {
+      "n": 22,
+      "tmax": 2,
+      "best_feasible_edges_found": 89,
+      "implied_lower_bound_on_e_n_r": 90,
+      "runtime_ms": 5479
+    },
+    {
+      "n": 26,
+      "tmax": 1,
+      "best_feasible_edges_found": -1,
+      "implied_lower_bound_on_e_n_r": 0,
+      "runtime_ms": 3969
+    },
+    {
+      "n": 26,
+      "tmax": 2,
+      "best_feasible_edges_found": 115,
+      "implied_lower_bound_on_e_n_r": 116,
+      "runtime_ms": 6959
+    },
+    {
+      "n": 30,
+      "tmax": 1,
+      "best_feasible_edges_found": 54,
+      "implied_lower_bound_on_e_n_r": 55,
+      "runtime_ms": 5443
+    },
+    {
+      "n": 30,
+      "tmax": 2,
+      "best_feasible_edges_found": 145,
+      "implied_lower_bound_on_e_n_r": 146,
+      "runtime_ms": 10072
+    }
+  ],
+  "generated_utc": "2026-03-01T17:20:28.877Z"
+}

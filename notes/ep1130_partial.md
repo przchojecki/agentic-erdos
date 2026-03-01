@@ -1,0 +1,16 @@
+# EP-1130 resolution note
+
+## Statement
+For interpolation nodes `x_1,...,x_n in [-1,1]`, define
+`Upsilon(x_1,...,x_n) = min_i max_{x in [x_i,x_{i+1}]} sum_k |l_k(x)|`.
+Ask whether `Upsilon << log n`, and characterize maximizers.
+
+## Resolution from background
+This problem is resolved in the provided background:
+- de Boor and Pinkus proved Erdős' maximizer characterization (equalized local
+  maxima `lambda_i`).
+- Using [1129]-type bounds, one gets
+  `Upsilon(x_1,...,x_n) <= (2/pi) log n + O(1)`.
+
+So the `Upsilon << log n` question has a positive answer as written.
+

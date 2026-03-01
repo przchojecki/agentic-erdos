@@ -1,0 +1,57 @@
+{
+  "problem": "EP-838",
+  "method": "finite_sampling_of_convex_subset_counts_for_point_sets_in_general_position",
+  "params": {
+    "n_list": [
+      10,
+      12,
+      14,
+      16,
+      18
+    ],
+    "trials": 100
+  },
+  "rows": [
+    {
+      "n": 10,
+      "trials": 100,
+      "best_random_convex_subset_count": 242,
+      "avg_random_convex_subset_count": 390.73,
+      "double_chain_convex_subset_count": 199,
+      "fully_convex_position_count": 968
+    },
+    {
+      "n": 12,
+      "trials": 100,
+      "best_random_convex_subset_count": 608,
+      "avg_random_convex_subset_count": 1037.4,
+      "double_chain_convex_subset_count": 453,
+      "fully_convex_position_count": 4017
+    },
+    {
+      "n": 14,
+      "trials": 100,
+      "best_random_convex_subset_count": 1325,
+      "avg_random_convex_subset_count": 2355.46,
+      "double_chain_convex_subset_count": 950,
+      "fully_convex_position_count": 16278
+    },
+    {
+      "n": 16,
+      "trials": 100,
+      "best_random_convex_subset_count": 2663,
+      "avg_random_convex_subset_count": 4804.67,
+      "double_chain_convex_subset_count": 1909,
+      "fully_convex_position_count": 65399
+    },
+    {
+      "n": 18,
+      "trials": 100,
+      "best_random_convex_subset_count": 4960,
+      "avg_random_convex_subset_count": 9129.41,
+      "double_chain_convex_subset_count": 3727,
+      "fully_convex_position_count": 261972
+    }
+  ],
+  "generated_utc": "2026-03-01T17:15:58.468Z"
+}

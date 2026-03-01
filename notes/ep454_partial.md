@@ -1,0 +1,22 @@
+# EP-454 partial
+
+## Statement
+For `f(n)=min_{i<n}(p_{n+i}+p_{n-i})`, is
+`limsup (f(n)-2p_n)=infty`?
+
+## Attempt in this batch
+I ran an exact finite scan up to `n=10000`.
+
+Data file:
+- `data/ep454_prime_graph_scan.json`
+
+## Result
+- Best observed delta `f(n)-2p_n` reached `38` (at `n=9834`).
+- Threshold hits in range include:
+  `delta>=11` by `n=189`, and `delta>=20` appears in the scanned range.
+
+This extends finite evidence in favor of unbounded limsup.
+
+## Hard point
+Finite growth of maxima is suggestive but does not prove infinite limsup.
+
