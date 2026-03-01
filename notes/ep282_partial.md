@@ -1,17 +1,22 @@
-# EP-282 partial resolution
+# EP-282 deeper attempt
 
 ## Statement
-For restricted-denominator Egyptian-fraction greedy algorithms, especially odd
-denominators and odd-denominator rationals, ask when greedy termination always occurs.
+Classify when restricted-denominator Egyptian-fraction greedy algorithm terminates;
+notably odd denominators for rationals with odd denominator.
 
-## What is resolved
-Background gives complete representability criteria (existence of some expansion)
-for certain congruence-restricted sets and square-denominator sets.
+## Computation in this attempt
+I implemented the odd-denominator greedy rule and exhaustively tested reduced
+fractions `m/n` with odd `n` in two ranges:
 
-## What remains open in this note
-Greedy algorithm termination in those representable cases is still open and may fail
-frequently per background heuristics.
+- `n<=199`: all `8150/8150` cases terminated (cap `4000` steps).
+  file: `data/ep282_odd_greedy_small_denominators.json`
+- `n<=401`: all `32764/32764` cases terminated (cap `6000` steps).
+  file: `data/ep282_odd_greedy_small_denominators_extended.json`
 
-## Status
-- representation existence theory known in key families.
-- greedy-termination classification unresolved.
+Hardest observed case in the extended run took 20 steps.
+
+## Interpretation
+Finite-range data supports termination in tested range, but gives no asymptotic proof.
+
+## Background-level progress
+Strong representability criteria are known for related restricted denominator classes.

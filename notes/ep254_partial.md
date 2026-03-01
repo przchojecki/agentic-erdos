@@ -1,17 +1,18 @@
-# EP-254 partial resolution
+# EP-254 deeper attempt
 
 ## Statement
-Under two hypotheses on A (growth in dyadic shells and divergence of sum {theta n}),
-conclude that all sufficiently large integers are sums of distinct elements of A.
+Under two hypotheses on `A`, prove all sufficiently large integers are sums of
+**distinct** elements of `A`.
 
-## What is resolved
-Background records Cassels proved the conclusion under stronger hypotheses:
-- shell growth divided by log log x tends to infinity,
+## Attempt details
+I compared the exact assumptions against Cassels' proven criterion and checked which
+steps in the distinct-summand argument consume the stronger hypotheses.
+
+## What is known
+Cassels proved the conclusion under stronger assumptions:
+- stronger shell-growth rate,
 - divergence of squared fractional-part sums.
 
-## What remains open in this note
-The exact weaker hypotheses in the statement are not fully resolved here.
-
-## Status
-- strengthened version proved.
-- full stated hypothesis regime open.
+## Hard point
+No derivation is known here that lowers those conditions exactly to the statement's
+hypotheses.

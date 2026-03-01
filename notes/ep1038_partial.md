@@ -1,17 +1,16 @@
-# EP-1038 partial resolution
+# EP-1038 deeper attempt
 
 ## Statement
-Determine infimum and supremum of measure{|f(x)|<1} over monic real polynomials with
-all real roots in [-1,1].
+Determine infimum/supremum of `|{x:|f(x)|<1}|` over monic real polynomials with all
+real roots in `[-1,1]`.
 
-## What is resolved
-Background (and comments summary) indicates:
-- supremum is known exactly: 2*sqrt(2),
-- infimum is bounded in a nontrivial interval (roughly 1.519 to 1.835...).
+## Attempt details
+Compared extremal constructions and known bounds; checked whether current bounds can
+be tightened by straightforward perturbation arguments.
 
-## What remains open in this note
-Exact infimum value remains unresolved.
+## What is known
+- Supremum is reported as exact: `2*sqrt(2)`.
+- Infimum currently bracketed (roughly `1.519` to `1.835...`).
 
-## Status
-- supremum solved; infimum bounded.
-- full infimum determination open.
+## Hard point
+Exact infimum remains unsettled.

@@ -1,15 +1,16 @@
 # EP-1002 resolved in background (as written)
 
 ## Statement
-For f(alpha,n)=(1/log n) sum_{k<=n} (1/2-{alpha k}), ask existence of an asymptotic
-distribution over alpha in (0,1).
+For
+`f(alpha,n)=(1/log n) sum_{k<=n} (1/2-{alpha k})`,
+ask existence of an asymptotic distribution over `alpha in (0,1)`.
 
-## Resolution already present in background
-Background cites Kesten's theorem for the more general quantity
-f(alpha,beta,n)=(1/log n) sum_{k<=n} (1/2-{beta+alpha k}), with an explicit limiting
-distribution.
+## Resolution already in background
+Kesten's theorem is stated for
+`f(alpha,beta,n)=(1/log n) sum_{k<=n} (1/2-{beta+alpha k})`
+with explicit limiting distribution. Setting `beta=0` gives the exact function in the
+statement.
 
-Setting beta=0 gives exactly the function in the statement, so the statement follows.
-
-## Note
-This is a background-derived closure, not a new proof contributed here.
+## Conclusion
+The written statement follows directly from the cited more general theorem.
+(Background-derived closure, not a new result here.)

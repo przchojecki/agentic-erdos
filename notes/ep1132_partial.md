@@ -1,17 +1,17 @@
-# EP-1132 partial resolution
+# EP-1132 deeper attempt
 
 ## Statement
-For an infinite interpolation-node sequence in [-1,1], ask whether L_n(x) exceeds
-(2/pi)log n - O(1) infinitely often (and almost-everywhere limsup lower bound).
+For infinite node sequences in `[-1,1]`, ask for repeated or a.e. lower limsup bounds
+for Lebesgue-function growth at the `2/pi` scale.
 
-## What is resolved
-Background records:
-- Bernstein implies density of x with limsup >= 2/pi,
-- Erdos proved max_x L_n(x) > (2/pi)log n - O(1) for each fixed finite node set.
+## Attempt details
+Tried to lift fixed-`n` max bounds to infinite-sequence statements via diagonal and
+Borel-Cantelli style arguments.
 
-## What remains open in this note
-The infinite-sequence limsup assertions in the statement remain unresolved.
+## What is known
+- Erdos fixed-`n` bound: `max_x L_n(x) > (2/pi)log n - O(1)`.
+- Bernstein-type result gives dense set of `x` with limsup at least `2/pi`.
 
-## Status
-- strong finite-n and density results known.
-- full infinite-sequence assertions open.
+## Hard point
+These ingredients do not directly yield the full infinite-sequence claims in the
+statement.

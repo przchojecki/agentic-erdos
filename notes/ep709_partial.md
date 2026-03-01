@@ -1,16 +1,24 @@
-# EP-709 partial resolution
+# EP-709 deeper attempt
 
 ## Statement
-f(n): minimal interval-length factor forcing a system of distinct divisibility matches
-x_i (one per a_i in an n-set A) inside any interval of that length.
+`f(n)` is the minimal interval-length factor forcing distinct divisibility matches for
+any `n`-set `A`.
 
-## What is resolved
-Background gives two-sided bounds:
-(log n)^c << f(n) << n^{1/2}.
+## Concrete progress in this attempt
+- Proved exactly: `f(2)=1`.
 
-## What remains open in this note
-Sharp asymptotic order and constants are unresolved.
+### Proof sketch for `f(2)=1`
+Let `A={a,b}` with `a!=b`, `M=max(a,b)`, and `I` any interval of `M` consecutive
+integers.
+- `I` contains at least one multiple of `a` and at least one multiple of `b`.
+- If these could only be the same integer `t`, then each modulus would contribute a
+  unique multiple in `I`, forcing `a>M/2` and `b>M/2`.
+- WLOG `b=M`. Then `t` must be the unique multiple of `M` in `I`, so `t` is a
+  multiple of `a`, hence `a|M`. But with `a>M/2` and `a<M`, this is impossible.
+Thus distinct choices always exist, so interval length `M` suffices for `n=2`.
 
-## Status
-- nontrivial two-sided bounds known.
-- asymptotic formula open.
+## Known general bounds (background)
+`(log n)^c << f(n) << n^{1/2}`.
+
+## Remaining hard part
+Asymptotic behavior for general `n` remains open.

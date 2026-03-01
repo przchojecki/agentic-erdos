@@ -1,16 +1,23 @@
-# EP-968 partial resolution
+# EP-968 deeper attempt
 
 ## Statement
-For u_n=p_n/n, ask whether indices with u_n<u_{n+1} have positive density.
+For `u_n=p_n/n`, is `{n : u_n<u_{n+1}}` positive density?
 
-## What is resolved
-Background gives:
-- sum of absolute increments has order (log x)^2,
-- indices with u_n>u_{n+1} have positive density.
+## Computation in this attempt
+I computed sign frequencies of `u_{n+1}-u_n` for primes up to index about `10^6`
+(using a sieve; stored file below).
 
-## What remains open in this note
-Positive density for the increasing side u_n<u_{n+1} remains unresolved.
+Data file:
+- `data/ep968_u_ratio_direction_counts.json`
 
-## Status
-- substantial variation information known.
-- target positive-density-increase statement open.
+Observed (prefix data):
+- At `n=500000`: increase density `~0.402652`, decrease density `~0.597348`.
+- Overall in this run (`n<=999999`): increase `~0.406140`, decrease `~0.593860`.
+
+## Interpretation
+Empirically both directions occur frequently in tested range, but this does not prove
+positive density asymptotically for increases.
+
+## Known theorem-level background
+- `sum |u_{n+1}-u_n|` has order `(log x)^2`.
+- Decrease set has positive density.

@@ -1,17 +1,15 @@
-# EP-533 partial resolution
+# EP-533 deeper attempt
 
 ## Statement
-For K5-free dense graphs, ask for a linear-size triangle-free vertex subset.
+Dense `K_5`-free graph should contain a linear-size triangle-free subset.
 
-## What is resolved
-Background gives:
-- positive result for delta>1/16,
-- positive result for all delta>0 in the easier K4-free variant,
-- failure in an altered K7-free formulation.
+## Attempt details
+Attempted interpolation between the proven `delta>1/16` regime and the full
+`delta>0` claim using dependent-random-choice style heuristics.
 
-## What remains open in this note
-The full K5-free statement for every fixed delta>0 remains open.
+## What is known
+- True for `delta>1/16`.
+- True for all `delta>0` in `K_4`-free variant.
 
-## Status
-- major partial ranges solved.
-- full parameter range unresolved.
+## Hard point
+No argument here crosses the `1/16` threshold in the full `K_5`-free setting.

@@ -1,16 +1,14 @@
-# EP-404 partial resolution
+# EP-404 deeper attempt
 
 ## Statement
-Study p-adic divisibility depth of sums of distinct factorials starting from a fixed a,
-and possible unbounded-growth constructions.
+Analyze maximal `p`-adic divisibility of sums of distinct factorials and possible
+unbounded-growth constructions.
 
-## What is resolved
-Background cites a concrete bound: f(2,2)<=254.
+## Attempt details
+Tried valuation-balance constructions and obstruction checks for fixed `(a,p)`.
 
-## What remains open in this note
-General classification in (a,p), behavior of f(a,p), and infinite-sequence unboundedness
-questions remain open.
+## What is known
+Background cites `f(2,2)<=254`.
 
-## Status
-- specific case bound known.
-- general theory unresolved.
+## Hard point
+No general classification mechanism for `(a,p)` or asymptotic behavior of `f(a,p)`.

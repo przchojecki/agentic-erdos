@@ -1,17 +1,16 @@
-# EP-349 partial resolution
+# EP-349 deeper attempt
 
 ## Statement
-Classify (t,alpha) for which floor(t alpha^n) is complete (all large integers are sums
-of distinct sequence terms).
+Classify `(t,alpha)` for which `floor(t alpha^n)` is complete under distinct-sum
+representation.
 
-## What is resolved
-Background records significant structural complexity results (e.g., many disjoint
-parameter intervals of completeness for suitable t).
+## Attempt details
+Examined known disconnected-parameter phenomena and attempted monotonicity transfers
+in `t` and `alpha` to simplify the classification region.
 
-## What remains open in this note
-A full classification over parameters is unresolved; even natural benchmark cases are
-very hard.
+## What is known
+Background records highly nontrivial fragmented parameter geometry (multiple disjoint
+intervals for suitable choices).
 
-## Status
-- nontrivial parameter-geometry results known.
-- full completeness classification open.
+## Hard point
+No global necessary-and-sufficient characterization emerges from known local pieces.
