@@ -1,0 +1,14 @@
+# EP-555 partial attempt
+
+## Route
+Focused on the `C_4` slice as a computational proxy for multicolor even-cycle Ramsey behavior; ran random and hill-climb coloring searches.
+
+## Evidence from this batch
+- `data/ep555_c4_multicolor_random_lb.json` produced small random lower bounds (`k=2` and `k=3`) but did not recover known stronger constructions for larger `k`.
+- Additional hill-climb tests reached low objective values for `(k,m)=(4,13)` but no zero-C4 certificate in this run.
+
+## Hard point
+Constructive lower bounds for `R(C_{2n};k)` need structured algebraic colorings, while brute-force random local search degrades rapidly with `k`.
+
+## Status
+No new bound proved; computational search is inconclusive beyond small cases.

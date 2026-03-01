@@ -1,0 +1,121 @@
+{
+  "script": "ep671_lagrange_lebesgue_demo.mjs",
+  "n_list": [
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "grid_points": 2001,
+  "runs": [
+    {
+      "node_family": "chebyshev",
+      "rows": [
+        {
+          "n": 8,
+          "lebesgue_max_grid": 2.287016,
+          "abs_function_error_at_0": 0.1274489,
+          "abs_function_sup_error_grid": 0.1274489,
+          "runge_error_at_0": 0.3917403,
+          "runge_sup_error_grid": 0.3917403
+        },
+        {
+          "n": 12,
+          "lebesgue_max_grid": 2.544766,
+          "abs_function_error_at_0": 0.08405241,
+          "abs_function_sup_error_grid": 0.08405241,
+          "runge_error_at_0": 0.1827583,
+          "runge_sup_error_grid": 0.1827583
+        },
+        {
+          "n": 16,
+          "lebesgue_max_grid": 2.727778,
+          "abs_function_error_at_0": 0.06280241,
+          "abs_function_sup_error_grid": 0.06280241,
+          "runge_error_at_0": 0.08310705,
+          "runge_sup_error_grid": 0.08310705
+        },
+        {
+          "n": 24,
+          "lebesgue_max_grid": 2.98581,
+          "abs_function_error_at_0": 0.04175607,
+          "abs_function_sup_error_grid": 0.04175607,
+          "runge_error_at_0": 0.01698393,
+          "runge_sup_error_grid": 0.01698393
+        },
+        {
+          "n": 32,
+          "lebesgue_max_grid": 3.168921,
+          "abs_function_error_at_0": 0.03128769,
+          "abs_function_sup_error_grid": 0.03128769,
+          "runge_error_at_0": 0.003465358,
+          "runge_sup_error_grid": 0.003465358
+        },
+        {
+          "n": 48,
+          "lebesgue_max_grid": 3.427025,
+          "abs_function_error_at_0": 0.02084449,
+          "abs_function_sup_error_grid": 0.02084449,
+          "runge_error_at_0": 0.0001442478,
+          "runge_sup_error_grid": 0.0001442478
+        }
+      ]
+    },
+    {
+      "node_family": "equally_spaced",
+      "rows": [
+        {
+          "n": 8,
+          "lebesgue_max_grid": 6.929731,
+          "abs_function_error_at_0": 0.09765625,
+          "abs_function_sup_error_grid": 0.09765625,
+          "runge_error_at_0": 0.2473586,
+          "runge_sup_error_grid": 0.2473586
+        },
+        {
+          "n": 12,
+          "lebesgue_max_grid": 51.214153,
+          "abs_function_error_at_0": 0.06056213,
+          "abs_function_sup_error_grid": 0.108669,
+          "runge_error_at_0": 0.07703494,
+          "runge_sup_error_grid": 0.5567555
+        },
+        {
+          "n": 16,
+          "lebesgue_max_grid": 512.347844,
+          "abs_function_error_at_0": 0.04387879,
+          "abs_function_sup_error_grid": 0.5054007,
+          "runge_error_at_0": 0.02375292,
+          "runge_sup_error_grid": 2.107552
+        },
+        {
+          "n": 24,
+          "lebesgue_max_grid": 72908.13434,
+          "abs_function_error_at_0": 0.02828724,
+          "abs_function_sup_error_grid": 24.34026,
+          "runge_error_at_0": 0.002255037,
+          "runge_sup_error_grid": 36.40073
+        },
+        {
+          "n": 32,
+          "lebesgue_max_grid": 12654611.262649,
+          "abs_function_error_at_0": 0.02086998,
+          "abs_function_sup_error_grid": 1978.596,
+          "runge_error_at_0": 0.0002141025,
+          "runge_sup_error_grid": 705.2413
+        },
+        {
+          "n": 48,
+          "lebesgue_max_grid": 491171442714.46185,
+          "abs_function_error_at_0": 0.01368996,
+          "abs_function_sup_error_grid": 26730040,
+          "runge_error_at_0": 0.000001930282,
+          "runge_sup_error_grid": 307135.4
+        }
+      ]
+    }
+  ],
+  "timestamp_utc": "2026-03-01T18:32:35.196Z"
+}

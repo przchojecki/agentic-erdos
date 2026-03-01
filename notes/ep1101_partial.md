@@ -1,0 +1,15 @@
+# EP-1101 partial attempt
+
+## Route
+Tested candidate `u_i` families (prime squares/cubes and alternating exponents) by direct sieve simulation of allowed integers and normalized maximum-gap ratios.
+
+## Evidence from this batch
+- `data/ep1101_good_sequence_scan.json` reports finite-window ratios
+  `max_gap / (t_x * prod(1-1/u_i)^(-1))` above `1` for all tested families.
+- This is compatible with the known lower-barrier shape and does not validate a "good" sequence criterion in tested windows.
+
+## Hard point
+The definition is asymptotic and quantified for all sufficiently large `x`; finite scans cannot certify eventual upper control.
+
+## Status
+No construction settled either growth regime (`u_n < n^{O(1)}` or `u_n <= e^{o(n)}`) in this batch.

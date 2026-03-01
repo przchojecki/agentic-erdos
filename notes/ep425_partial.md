@@ -1,0 +1,14 @@
+# EP-425 partial attempt
+
+## Route
+Ran repeated greedy constructions for multiplicative Sidon-type sets in `[1,n]` and compared sizes against `pi(n)` and the conjectured `n^(3/4)(log n)^(-3/2)` scale.
+
+## Evidence from this batch
+- `data/ep425_multiplicative_sidon_greedy.json` gives lower-bound constructions up to `n=3000`.
+- Best greedy sizes show `|A|-pi(n)` growing on the conjectured scale; the normalized constant proxy increases across tested `n`.
+
+## Hard point
+Greedy constructions provide lower bounds only and do not identify the asymptotic constant or matching upper structure.
+
+## Status
+Asymptotic constant question remains open in this batch.
