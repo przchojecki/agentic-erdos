@@ -15,10 +15,23 @@ Ran exact finite scans for representations as sums of at most `r+1` many
   interval `[99900001, 100000000]`.
 - Background already states `r=2` is proved.
 
+## Unconditional theorem (weaker than target)
+For each fixed `r>=2`, there exists a constant `W(r)` such that every positive
+integer is a sum of at most `W(r)` many `r`-powerful numbers.
+
+Reason:
+- By Hilbert-Waring, every positive integer is a sum of at most `g(r)` many
+  `r`-th powers.
+- Every nonzero `r`-th power is `r`-powerful.
+- Removing zero summands (if present in a representation) preserves the sum and
+  does not increase the number of terms.
+So one can take `W(r)=g(r)`.
+
 ## Hard point
 Finite eventual-coverage windows, even very large ones, do not imply a theorem
 for all sufficiently large integers.
 
 ## Status
-Very strong finite support for eventual coverage (up to `r=7` here), but full
-general proof remains open.
+We now have an unconditional weaker theorem (`<=W(r)` summands), very strong
+finite support for the sharp `r+1` bound (up to `r=7` here), and the full
+`r+1` statement remains open.

@@ -131,3 +131,24 @@ Background states (via Hechler) that under CH, the answer to the first
 subquestion is negative; equivalently there is a model of `ZFC + CH + not S`.
 If ZFC proved `S`, then every model of ZFC would satisfy `S`, contradiction.
 Hence ZFC does not prove `S` (relative to consistency and the cited result).
+
+## 7) EP-1107: unconditional weaker summand bound
+
+EP-1107 asks whether every sufficiently large integer is a sum of at most
+`r+1` many `r`-powerful numbers.
+
+### Theorem 7
+For every fixed `r>=2`, there exists a finite constant `W(r)` such that every
+positive integer is a sum of at most `W(r)` many `r`-powerful numbers.
+
+### Proof
+By Hilbert-Waring, there exists `g(r)` such that every positive integer is a
+sum of at most `g(r)` many `r`-th powers.
+Every nonzero `r`-th power `m^r` is `r`-powerful, since if a prime `p` divides
+`m^r` then `v_p(m^r)=r*v_p(m) >= r`.
+If a Waring representation uses zero terms, remove them; this does not change
+the sum and does not increase the number of terms.
+Hence every positive integer is a sum of at most `g(r)` many `r`-powerful
+numbers, so we may take `W(r)=g(r)`.
+
+This does not prove the sharp EP-1107 target `r+1`.

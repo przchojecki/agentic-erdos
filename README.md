@@ -9,7 +9,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Triaged as `harder` (post-2000 reference signal): **257**
 - Records with deep-attempt workflow initialized: **312**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-03-01T19:54:40.783Z**
+- README last generated (UTC): **2026-03-01T19:59:01.014Z**
 
 ## Progress Status Counts
 
@@ -666,7 +666,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1104 | Erdős Problem #1104 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1105 | Erdős Problem #1105 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1106 | Erdős Problem #1106 | to-check | 374 | 2000 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Schinzel and Wirsing \cite{ScWi87} have proved $F(n) \gg \log n$. |
-| EP-1107 | Erdős Problem #1107 | to-check | 294 | 1988 | massive_finite_eventual_coverage_signal_r3_to_r7_general_proof_open | Exact bitset scans up to n=1e8 show largest missing values 2039 (r=3), 150271 (r=4), 449560 (r=5), 4034495 (r=6), 41892928 (r=7), with no missing values in [99900001,1e8]. |
+| EP-1107 | Erdős Problem #1107 | to-check | 294 | 1988 | weaker_unconditional_waring_bound_proved_sharp_rplus1_open | Using Hilbert-Waring, every positive integer is a sum of at most W(r)=g(r) many r-powerful numbers for each fixed r>=2; exact scans to n=1e8 additionally show strong finite eventual-coverage signals for r=3..7. |
 | EP-1108 | Erdős Problem #1108 | to-check | 314 | 1991 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: It is open even whether there are infinitely many squares of the form $1+n!$ (see [398]). |
 | EP-1109 | Erdős Problem #1109 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1110 | Erdős Problem #1110 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
