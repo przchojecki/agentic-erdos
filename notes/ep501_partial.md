@@ -21,6 +21,20 @@ the listed facts:
 - Closed-case strengthening: positive result (NPS87).
 So the unrestricted ZFC status is unresolved in this batch.
 
+## Why a direct unconditional proof cannot work here
+Let `S` denote the first subquestion statement:
+
+`For every map x -> A_x (bounded, outer measure < 1), there is an infinite independent set.`
+
+From Hechler (as cited in the background), under CH there is a counterexample to
+`S`, i.e. `ZFC + CH + not S` is consistent (relative to the reference claim).
+
+Therefore, assuming `ZFC` is consistent, `ZFC` cannot prove `S`; otherwise `S`
+would hold in every model of `ZFC`, contradicting a model of `ZFC + CH + not S`.
+
+So a full unconditional proof of the first subquestion is blocked by the
+set-theoretic counterexample framework in the cited literature.
+
 ## Status
 Second subquestion solved; first subquestion remains open/set-theoretically
 delicate.

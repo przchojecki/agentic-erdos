@@ -115,3 +115,19 @@ An infinite independent set contains, in particular, three distinct points, so
 an independent set of size `3` exists.
 
 So EP-501 is partially closed: second subquestion resolved; first remains open.
+
+## 6) EP-501: first subquestion is not a ZFC theorem (relative-consistency conclusion)
+
+Let `S` be EP-501's first subquestion statement:
+
+`For every x, if A_x is bounded with outer measure < 1, then there exists an infinite independent set.`
+
+### Theorem 6
+Assuming the cited Hechler CH-counterexample result and consistency of ZFC,
+`S` is not provable in ZFC.
+
+### Proof
+Background states (via Hechler) that under CH, the answer to the first
+subquestion is negative; equivalently there is a model of `ZFC + CH + not S`.
+If ZFC proved `S`, then every model of ZFC would satisfy `S`, contradiction.
+Hence ZFC does not prove `S` (relative to consistency and the cited result).
