@@ -1,0 +1,14 @@
+# EP-956 partial attempt
+
+## Route
+Mapped the translate problem to explicit constructions in a concrete convex model (disk translates) and computed unit-distance pair counts there.
+
+## Evidence from this batch
+- `data/ep956_hex_lattice_translate_edges.json` (disk-translate model via triangular-lattice centers) yields about `2.2n` to `2.8n` unit-distance translate pairs for tested sizes.
+- This gives linear-scale lower bounds in that construction family.
+
+## Hard point
+The problem asks superlinear lower growth `n^{1+c}` for all large `n`; simple lattice-translate constructions stay linear.
+
+## Status
+No superlinear proof obtained; problem remains open in this batch.

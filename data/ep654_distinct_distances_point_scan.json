@@ -1,0 +1,37 @@
+{
+  "script": "ep654_distinct_distances_point_scan.mjs",
+  "ns": [
+    50,
+    80,
+    120,
+    160
+  ],
+  "trials": 300,
+  "rows": [
+    {
+      "n": 50,
+      "trials": 300,
+      "best_max_distinct_from_one_point": 49,
+      "best_ratio_over_n": 0.98
+    },
+    {
+      "n": 80,
+      "trials": 300,
+      "best_max_distinct_from_one_point": 79,
+      "best_ratio_over_n": 0.9875
+    },
+    {
+      "n": 120,
+      "trials": 300,
+      "best_max_distinct_from_one_point": 119,
+      "best_ratio_over_n": 0.991667
+    },
+    {
+      "n": 160,
+      "trials": 300,
+      "best_max_distinct_from_one_point": 159,
+      "best_ratio_over_n": 0.99375
+    }
+  ],
+  "timestamp_utc": "2026-03-01T20:08:14.653Z"
+}

@@ -1,0 +1,43 @@
+{
+  "script": "ep976_poly_largest_prime_scan.mjs",
+  "n_max": 5000,
+  "rows": [
+    {
+      "poly": "x2_plus_1",
+      "deg": 2,
+      "checkpoints": [
+        {
+          "n": 2000,
+          "F_f_n": 3960101,
+          "ratio_over_n": 1980.0505,
+          "ratio_over_n_pow_d": 0.9900252
+        },
+        {
+          "n": 5000,
+          "F_f_n": 24900101,
+          "ratio_over_n": 4980.0202,
+          "ratio_over_n_pow_d": 0.996004
+        }
+      ]
+    },
+    {
+      "poly": "x2_plus_x_plus_1",
+      "deg": 2,
+      "checkpoints": [
+        {
+          "n": 2000,
+          "F_f_n": 4002001,
+          "ratio_over_n": 2001.0005,
+          "ratio_over_n_pow_d": 1.0005
+        },
+        {
+          "n": 5000,
+          "F_f_n": 24835273,
+          "ratio_over_n": 4967.0546,
+          "ratio_over_n_pow_d": 0.9934109
+        }
+      ]
+    }
+  ],
+  "timestamp_utc": "2026-03-01T20:08:14.446Z"
+}

@@ -1,0 +1,14 @@
+# EP-812 partial attempt
+
+## Route
+Consolidated currently listed lower bounds on consecutive Ramsey differences and compared with the two target assertions.
+
+## What is known
+- `R(n+1)-R(n) >= 4n-8` (listed in background).
+- A two-step difference bound `R(n+2)-R(n) >> n^{2-o(1)}` is also noted.
+
+## Hard point
+The problem asks a one-step quadratic-scale gap and a multiplicative ratio gap away from `1`; current listed bounds do not reach either target.
+
+## Status
+Open in this batch.
