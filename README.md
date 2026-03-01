@@ -7,21 +7,21 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **193**
+- Records with deep-attempt workflow initialized: **203**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-02-28T21:34:54.203Z**
+- README last generated (UTC): **2026-03-01T10:18:39.547Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 182
+- `not_proved_identified_gap`: 172
 - `no_background_partial_result`: 23
 - `statement_issue_malformed_dataset_entry`: 15
 - `not_proved`: 12
 - `order_known_constant_open`: 3
+- `two_sided_bounds_known_asymptotic_open`: 3
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
-- `two_sided_bounds_known_asymptotic_open`: 2
 - `partial_positive_result_not_full_proof`: 1
 - `basis_case_known_nonbasis_strengthening_open`: 1
 - `log_case_reduced_not_solved`: 1
@@ -181,7 +181,7 @@ node scripts/generate_readme_progress.mjs
 | EP-249 | Erdős Problem #249 | to-check | 19 |  | not_proved | Rewrote sum phi(n)/2^n via divisor-sum identities to express it as a rapidly convergent arithmetic series amenable to irrationality criteria. |
 | EP-251 | Erdős Problem #251 | to-check | 300 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er58b} proved that $\sum \frac{p_n^k}{n!}$ is irrational for every $k\geq 1$. |
 | EP-252 | Erdős Problem #252 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-254 | Erdős Problem #254 | to-check | 161 | 1960 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Cassels \cite{Ca60} proved this under the alternative hypotheses $ \lim \frac{\lvert A\cap [1,2x]\rvert -\lvert A\cap [1,x]\rvert}{\log\log x}=\infty $ and $ \sum_{n\in A} \{ \theta n\}^2=\infty $ for every $\theta\in (0,1)$. |
+| EP-254 | Erdős Problem #254 | to-check | 161 | 1960 | stronger_hypotheses_case_known_weaker_open | Cassels proved the conclusion under stronger growth and square-fractional-sum divergence assumptions. |
 | EP-256 | Erdős Problem #256 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-257 | Erdős Problem #257 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-258 | Erdős Problem #258 | to-check | 199 | 1971 | monotone_case_solved_general_open | Background says Erdos-Straus proved irrationality when a_n is monotone nondecreasing. |
@@ -200,7 +200,7 @@ node scripts/generate_readme_progress.mjs
 | EP-278 | Erdős Problem #278 | to-check | 286 | 1986 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
 | EP-279 | Erdős Problem #279 | to-check | 21 |  | k1_k2_analogue_known_kge3_open | Background states analogous covering property is known in k=1 and k=2 settings under divergent harmonic-sum assumptions. |
 | EP-281 | Erdős Problem #281 | to-check | 178 | 1966 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: The latter condition is clearly sufficient, the problem is if it's also necessary. |
-| EP-282 | Erdős Problem #282 | to-check | 168 | 1964 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-282 | Erdős Problem #282 | to-check | 168 | 1964 | representation_criteria_known_greedy_termination_open | Background gives complete representability criteria in notable restricted-denominator families. |
 | EP-283 | Erdős Problem #283 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-288 | Erdős Problem #288 | to-check | 22 |  | open_even_singleton_interval_case | Background reports the finiteness question is still open even when one interval has length one. |
 | EP-289 | Erdős Problem #289 | to-check | 252 | 1980 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
@@ -238,7 +238,7 @@ node scripts/generate_readme_progress.mjs
 | EP-345 | Erdős Problem #345 | to-check | 255 | 1980 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: It is known that $ T(n)=1, T(n^2)=128, T(n^3)=12758, $ $ T(n^4)=5134240,\textrm{ and }T(n^5)=67898771. |
 | EP-346 | Erdős Problem #346 | to-check | 257 | 1980 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
 | EP-348 | Erdős Problem #348 | to-check | 33 |  | small_pairs_known_strong_sense_no_weak_open | Background gives realizable pairs (0,1) and (1,2), and van Doorn's nonexistence for 2<=m<n under strong completeness. |
-| EP-349 | Erdős Problem #349 | to-check | 169 | 1964 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: L., On a conjecture of Erdos in additive number theory. |
+| EP-349 | Erdős Problem #349 | to-check | 169 | 1964 | complex_parameter_structure_known_full_classification_open | Background reports highly nontrivial disconnected parameter behavior for completeness. |
 | EP-351 | Erdős Problem #351 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-352 | Erdős Problem #352 | harder |  | 2013 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-354 | Erdős Problem #354 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -268,7 +268,7 @@ node scripts/generate_readme_progress.mjs
 | EP-394 | Erdős Problem #394 | to-check | 258 | 1980 | o_x2_case_solved_stronger_open | Background: Erdos-Hall proved sum_{n<=x} t_2(n) << x^2*(log log log x)/(log log x), hence sum_{n<=x} t_2(n)=o(x^2). |
 | EP-396 | Erdős Problem #396 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-400 | Erdős Problem #400 | to-check | 43 |  | log_upper_bound_known_constants_open | Background states g_k(n)<<_k log n. |
-| EP-404 | Erdős Problem #404 | to-check | 162 | 1960 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-404 | Erdős Problem #404 | to-check | 162 | 1960 | specific_case_bound_known_general_classification_open | Background cites f(2,2)<=254. |
 | EP-406 | Erdős Problem #406 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-408 | Erdős Problem #408 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-409 | Erdős Problem #409 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -334,7 +334,7 @@ node scripts/generate_readme_progress.mjs
 | EP-529 | Erdős Problem #529 | harder |  | 2013 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-530 | Erdős Problem #530 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-531 | Erdős Problem #531 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-533 | Erdős Problem #533 | to-check | 167 | 1962 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: converting local forbidden-pattern constraints into a sharp global extremal bound. |
+| EP-533 | Erdős Problem #533 | to-check | 167 | 1962 | delta_threshold_partial_results_known_full_range_open | Background: true for delta>1/16; also true for K4-free at any delta>0. |
 | EP-535 | Erdős Problem #535 | to-check | 195 | 1970 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er64} proved that $ f_r(N) \leq N^{\frac{3}{4}+o(1)}, $ and Abbott and Hanson \cite{AbHa70} improved this exponent to $1/2$. |
 | EP-536 | Erdős Problem #536 | to-check | 196 | 1970 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: the extremal structure is not rigid enough under current bounds. |
 | EP-538 | Erdős Problem #538 | to-check | 60 |  | general_upper_bound_known_optimal_open | Background gives sum_{n in A} 1/n << r*log N/log log N. |
@@ -443,7 +443,7 @@ node scripts/generate_readme_progress.mjs
 | EP-705 | Erdős Problem #705 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-706 | Erdős Problem #706 | to-check | 97 |  | baseline_r1_known_general_r_open | Background gives Hadwiger-Nelson baseline 5<=L(1)<=7. |
 | EP-708 | Erdős Problem #708 | to-check | 321 | 1992 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A problem of Erdos and Sur\'{a}nyi \cite{ErSu59}, who proved that $g(n) \geq (2-o(1))n$, and that $g(3)=4$. |
-| EP-709 | Erdős Problem #709 | to-check | 160 | 1959 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A problem of Erdos and Sur\'{a}nyi \cite{ErSu59}, who proved $ (\log n)^c \ll f(n) \ll n^{1/2} $ for some constant $c>0$. |
+| EP-709 | Erdős Problem #709 | to-check | 160 | 1959 | two_sided_bounds_known_asymptotic_open | Background gives (log n)^c << f(n) << n^{1/2}. |
 | EP-710 | Erdős Problem #710 | to-check | 322 | 1992 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos and Pomerance \cite{ErPo80}, who proved $ (2/\sqrt{e}+o(1))n\left(\frac{\log n}{\log\log n}\right)^{1/2}\leq f(n)\leq (1.7398\cdots+o(1))n(\log n)^{1/2}. |
 | EP-711 | Erdős Problem #711 | harder |  | 2026 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-712 | Erdős Problem #712 | to-check | 264 | 1981 | r2_case_solved_higher_r_open | Background records Turan's theorem giving the limit for r=2. |
@@ -585,7 +585,7 @@ node scripts/generate_readme_progress.mjs
 | EP-961 | Erdős Problem #961 | to-check | 208 | 1974 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Sylvester and Schur (see \cite{Er34}) proved $f(k)\leq k$ and Erdos \cite{Er55d} proved $ f(k)<3\frac{k}{\log k}. |
 | EP-962 | Erdős Problem #962 | to-check | 176 | 1965 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er65} wrote it is 'not hard to prove' that $ k(n)\gg_\epsilon \exp((\log n)^{1/2-\epsilon}) $ and it 'seems likely' that $k(n)=o(n^\epsilon)$, but had no non-trivial upper bound for $k(n)$. |
 | EP-963 | Erdős Problem #963 | to-check | 138 |  | log3_lower_bound_known_log2_target_open | Background records f(n)>=floor(log_3 n). |
-| EP-968 | Erdős Problem #968 | to-check | 164 | 1961 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and Prachar \cite{ErPr61} proved that $ \sum_{p_n<x} \lvert u_{n+1}-u_n\rvert \asymp (\log x)^2, $ and that the set of $n$ such that $u_n>u_{n+1}$ has positive density. |
+| EP-968 | Erdős Problem #968 | to-check | 164 | 1961 | one_sided_density_known_other_side_open | Background: set {n: u_n>u_{n+1}} has positive density and total variation has order (log x)^2. |
 | EP-969 | Erdős Problem #969 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-970 | Erdős Problem #970 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-971 | Erdős Problem #971 | to-check | 151 | 1949 | infinite_d_case_known_uniform_all_large_d_open | Background: statement holds for an infinite sequence of d; also many residues can have very small least prime. |
@@ -604,7 +604,7 @@ node scripts/generate_readme_progress.mjs
 | EP-995 | Erdős Problem #995 | to-check | 172 | 1964 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: $ Erdos also proved that, for every lacunary sequence and $f\in L^2$, for every $\epsilon>0$, for almost all $\alpha$, $ \sum_{1\leq k\leq N}\sum_{1\leq k\leq N}f(\{\alpha n_k\})=o( N(\log N)^{\frac{1}{2}+\epsilon}). |
 | EP-996 | Erdős Problem #996 | to-check | 180 | 1966 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Raikov proved the conclusion always holds (for every $f\in L^2([0,1])$, with no assumption on $\\| f-f_n\\|_2$) if $n_k=a^k$ for some integer $a\geq 2$. |
 | EP-997 | Erdős Problem #997 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-1002 | Erdős Problem #1002 | to-check | 163 | 1960 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Kesten \cite{Ke60} proved that if $ f(\alpha,\beta,n)=\frac{1}{\log n}\sum_{1\leq k\leq n}(\tfrac{1}{2}-\{\beta+\alpha k\}) $ then $f(\alpha,\beta,n)$ has asymptotic distribution function $ g(c)=\frac{1}{\pi}\int_{-\infty}^{\rho c}\frac{1}{1+t^2}\mathrm{d}t, $ where $\rho>0$ is an explicit constant. |
+| EP-1002 | Erdős Problem #1002 | to-check | 163 | 1960 | resolved_in_background_as_written | Kesten's distribution theorem for f(alpha,beta,n) implies the stated case by setting beta=0. |
 | EP-1003 | Erdős Problem #1003 | to-check | 291 | 1987 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos, Pomerance, and S\'{a}rk"{o}zy \cite{EPS87} proved that the number of $n\leq x$ with $\phi(n)=\phi(n+1)$ is at most $ \frac{x}{\exp((\log x)^{1/3})}. |
 | EP-1004 | Erdős Problem #1004 | to-check | 289 | 1987 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos, Pomerenace, and S\'{a}rk"{o}zy \cite{EPS87} proved that if $\phi(n+k)$ are all distinct for $1\leq k\leq K$ then $ K \leq \frac{n}{\exp(c(\log n)^{1/3})} $ for some constant $c>0$. |
 | EP-1005 | Erdős Problem #1005 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -620,7 +620,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1032 | Erdős Problem #1032 | to-check | 330 | 1993 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: This problem is also open for $5$-chromatic critical graphs. |
 | EP-1033 | Erdős Problem #1033 | to-check | 298 | 1988 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos and Laskar \cite{ErLa85} proved $ 2(\sqrt{3}-1)n \geq h(n) \geq (1+c)n $ for some $c>0$. |
 | EP-1035 | Erdős Problem #1035 | to-check | 329 | 1993 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos \cite{Er93} says 'if the conjecture is false, two related problems could be asked': {UL} {LI}Determine or estimate the smallest $m>2^n$ such that every graph on $m$ vertices with minimum degree $>(1-c)2^n$ contains a $Q_n$, and {/LI} {LI}For which $u_n$ is it true that every graph on $2^n$ vertices with minimum degree $>2^n-u_n$ contains a $Q_n$.{/LI} {/UL} See also [576] for the extremal number of edges that guarantee a $Q_n$. |
-| EP-1038 | Erdős Problem #1038 | to-check | 165 | 1961 | not_proved_identified_gap | Tried analytic/probabilistic reformulation to isolate a quantitative threshold. Hard point: A problem of Erdos, Herzog, and Piranian \cite{EHP58}, who proved that the measure of the set in question is always at most $2\sqrt{2}$ under the assumption that all the roots are in $\{-1,1\}$, and conjecture this is the best possible upper bound. |
+| EP-1038 | Erdős Problem #1038 | to-check | 165 | 1961 | supremum_known_infimum_bounded_open | Background summary gives sup=2*sqrt(2) and nontrivial bounds on infimum. |
 | EP-1039 | Erdős Problem #1039 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1040 | Erdős Problem #1040 | to-check | 201 | 1973 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos and Netanyahu \cite{ErNe73} proved that if $F$ is also bounded and connected, with transfinite diameter $0<c<1$, then $\{ z: \lvert f(z)\rvert < 1\}$ always contains a disc of radius $\gg_c 1$. |
 | EP-1049 | Erdős Problem #1049 | to-check | 149 | 1948 | integer_t_case_solved_rational_open | Background gives Erdos' theorem: irrationality holds for every integer t>=2. |
@@ -678,7 +678,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1129 | Erdős Problem #1129 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1130 | Erdős Problem #1130 | to-check | 240 | 1978 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: This is true, and was proved by de Boor and Pinkus \cite{dBPi78}. |
 | EP-1131 | Erdős Problem #1131 | to-check | 336 | 1994 | not_proved_identified_gap | Tried analytic/probabilistic reformulation to isolate a quantitative threshold. Hard point: Erdos first conjectured this minimum was achieved by taking the $x_i$ to be the roots of the integral of the Legendre polynomial, since Fejer \cite{Fe32} had earlier shown these to be minimisers of $ \max_{x\in [-1,1]}\sum_k \lvert l_k(x)\rvert^2. |
-| EP-1132 | Erdős Problem #1132 | to-check | 166 | 1961 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: A result of Bernstein \cite{Be31} implies that the set of $x\in(-1,1)$ for which $ \limsup_{n\to \infty}\frac{L_n(x)}{\log n}\geq \frac{2}{\pi} $ is everywhere dense. |
+| EP-1132 | Erdős Problem #1132 | to-check | 166 | 1961 | finite_case_and_density_results_known_full_limsup_open | Background includes Erdos fixed-n max bound and Bernstein density statement. |
 | EP-1133 | Erdős Problem #1133 | to-check | 182 | 1967 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: Erdos proved that, for any $C>0$, there exists $\epsilon>0$ such that if $n$ is sufficiently large and $m=\lfloor (1+\epsilon)n\rfloor$ then for any $x_1,\ldots,x_m\in [-1,1]$ there is a polynomial $P$ of degree $n$ such that $\lvert P(x_i)\rvert\leq 1$ for $1\leq i\leq m$ and $ \max_{x\in [-1,1]}\lvert P(x)\rvert>C. |
 | EP-1135 | Erdős Problem #1135 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 
