@@ -1,0 +1,19 @@
+# EP-1120 deeper attempt
+
+## Statement
+For monic `f` with roots in unit disk, let `E={z:|f(z)|<=1}`. What is the shortest path length
+in `E` from `0` to `|z|=1` in worst case over degree `n`?
+
+## Computation in this attempt
+Random-root finite model with grid shortest-path proxy.
+
+Data file:
+- `data/ep1120_random_path_scan.json`
+
+Observed (degrees 2..12, 120 trials each):
+- all trials found a path in the grid model,
+- shortest lengths stayed near `~1.02` in this random family.
+
+## Interpretation
+This only probes typical random instances and does not target extremal worst-case polynomials.
+No asymptotic lower/upper law is proved here.

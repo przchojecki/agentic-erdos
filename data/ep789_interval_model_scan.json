@@ -1,0 +1,88 @@
+{
+  "problem": "EP-789",
+  "method": "exact_interval_model_exhaustive_search",
+  "note": "This gives upper bounds on h(n) from restricted model A subset [0,M].",
+  "rows": [
+    {
+      "n": 5,
+      "M": 14,
+      "total_A_checked": 3003,
+      "interval_model_upper_bound_on_h_n": 3,
+      "hardest_A_found": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "witness_B_in_hardest_A": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "n": 6,
+      "M": 16,
+      "total_A_checked": 12376,
+      "interval_model_upper_bound_on_h_n": 3,
+      "hardest_A_found": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "witness_B_in_hardest_A": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "n": 7,
+      "M": 18,
+      "total_A_checked": 50388,
+      "interval_model_upper_bound_on_h_n": 4,
+      "hardest_A_found": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "witness_B_in_hardest_A": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "n": 8,
+      "M": 20,
+      "total_A_checked": 203490,
+      "interval_model_upper_bound_on_h_n": 4,
+      "hardest_A_found": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "witness_B_in_hardest_A": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "generated_utc": "2026-03-01T15:40:28.196Z"
+}
