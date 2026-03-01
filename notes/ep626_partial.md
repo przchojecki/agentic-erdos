@@ -1,0 +1,13 @@
+# EP-626 partial attempt
+
+## Route
+Consolidated the known asymptotic bound windows for both `g_k(n)` and `h^{(m)}(n)` formulations.
+
+## What is known here
+Background gives logarithmic-scale two-sided bounds for `g_k(n)` and exponent-range bounds for `h^{(m)}(n)`.
+
+## Hard point
+Existence and exact values of the asymptotic limits are not determined by current bound windows.
+
+## Status
+Open in this batch; no limit-identification proof.

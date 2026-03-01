@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **302**
+- Records with deep-attempt workflow initialized: **312**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-03-01T19:13:24.572Z**
+- README last generated (UTC): **2026-03-01T19:21:34.515Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 73
+- `not_proved_identified_gap`: 63
 - `no_background_partial_result`: 23
 - `statement_issue_malformed_dataset_entry`: 16
 - `not_proved`: 12
@@ -79,10 +79,10 @@ node scripts/generate_readme_progress.mjs
 | EP-52 | Erdős Problem #52 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-60 | Erdős Problem #60 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-61 | Erdős Problem #61 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-62 | Erdős Problem #62 | to-check | 292 | 1987 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Every graph with chromatic number $\aleph_1$ contains all sufficiently large odd cycles (which have chromatic number $3$), see [594]. |
+| EP-62 | Erdős Problem #62 | to-check | 292 | 1987 | known_common_odd_cycles_stronger_common_chromatic_subgraph_open | Background ensures sufficiently large odd cycles appear in every aleph_1-chromatic graph, but this does not resolve the asked common chi=4/aleph_0 subgraph statement. |
 | EP-65 | Erdős Problem #65 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-66 | Erdős Problem #66 | harder |  | 2007 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-68 | Erdős Problem #68 | to-check | 295 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-68 | Erdős Problem #68 | to-check | 295 | 1988 | shifted_factorial_denominator_irrationality_open | No rigorous irrationality proof or counterexample was found for sum_{n>=2} 1/(n!-1) in this batch. |
 | EP-70 | Erdős Problem #70 | to-check | 5 |  | not_proved | Tried to lift known continuum partition relations from (omega+n,4)_2^3 toward (beta,n)_2^3 for arbitrary countable beta via transfinite recursion. |
 | EP-74 | Erdős Problem #74 | to-check | 269 | 1982 | linear_f_case_constructed_sublinear_open | Background gives Rodl's construction for graphs with chromatic number aleph_0 when f(n)=epsilon*n (any fixed epsilon>0). |
 | EP-75 | Erdős Problem #75 | to-check | 342 | 1995 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Conjectured by Erdos, Hajnal, and Szemer\'{e}di \cite{EHS82}. |
@@ -180,7 +180,7 @@ node scripts/generate_readme_progress.mjs
 | EP-244 | Erdős Problem #244 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-247 | Erdős Problem #247 | to-check | 302 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er75c} proved the answer is yes under the stronger condition that $\limsup n_k/k^t=\infty$ for all $t\geq 1$. |
 | EP-249 | Erdős Problem #249 | to-check | 19 |  | not_proved | Rewrote sum phi(n)/2^n via divisor-sum identities to express it as a rapidly convergent arithmetic series amenable to irrationality criteria. |
-| EP-251 | Erdős Problem #251 | to-check | 300 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos \cite{Er58b} proved that $\sum \frac{p_n^k}{n!}$ is irrational for every $k\geq 1$. |
+| EP-251 | Erdős Problem #251 | to-check | 300 | 1988 | factorial_denominator_variant_solved_power_two_denominator_open | Known irrationality for prime-weighted factorial-denominator series does not resolve the 2^n-denominator case in this batch. |
 | EP-252 | Erdős Problem #252 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-254 | Erdős Problem #254 | to-check | 161 | 1960 | stronger_hypotheses_case_known_weaker_open | Cassels proved the conclusion under stronger growth and square-fractional-sum divergence assumptions. |
 | EP-256 | Erdős Problem #256 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -192,7 +192,7 @@ node scripts/generate_readme_progress.mjs
 | EP-264 | Erdős Problem #264 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-265 | Erdős Problem #265 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-267 | Erdős Problem #267 | to-check | 333 | 1993 | not_proved_identified_gap | Tried analytic/probabilistic reformulation to isolate a quantitative threshold. Hard point: It may be sufficient to have $n_k/k\to \infty$. |
-| EP-269 | Erdős Problem #269 | to-check | 296 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-269 | Erdős Problem #269 | to-check | 296 | 1988 | infinite_P_case_easy_finite_P_case_open | Background records irrationality for infinite P and for a modified duplicate-removed finite-P variant, while the stated finite-P sum remains open here. |
 | EP-271 | Erdős Problem #271 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-272 | Erdős Problem #272 | to-check | 367 | 1999 | asymptotic_resolved_exact_open | Background gives Szabo (1999): t(N)=N^2/2 + O(N^{5/3}(log N)^3), resolving the asymptotic leading term. |
 | EP-273 | Erdős Problem #273 | to-check | 20 |  | not_proved | Tried covering-system construction with allowed moduli p-1 (p>=5), balancing congruence classes to achieve full integer coverage. |
@@ -318,7 +318,7 @@ node scripts/generate_readme_progress.mjs
 | EP-489 | Erdős Problem #489 | to-check | 57 |  | squarefree_case_solved_general_open | Background states Erdos proved the limit exists for A={p^2 : p prime} (squarefree B case). |
 | EP-495 | Erdős Problem #495 | to-check | 58 |  | no_background_partial_result | Background labels this as the Littlewood conjecture. |
 | EP-500 | Erdős Problem #500 | harder |  | 2010 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-501 | Erdős Problem #501 | to-check | 293 | 1987 | not_proved_identified_gap | Tried partition-calculus reformulation and transfinite induction scaffolding. Hard point: Erdos and Hajnal \cite{ErHa60} proved the existence of arbitrarily large finite independent sets (under the assumptions in the first problem). |
+| EP-501 | Erdős Problem #501 | to-check | 293 | 1987 | set_theoretic_split_closed_case_positive_unrestricted_open | Background gives a CH negative result for the unrestricted first question and a positive closed-case infinite-independent-set theorem; the second closed-case size-3 question is therefore positive. |
 | EP-503 | Erdős Problem #503 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-507 | Erdős Problem #507 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-508 | Erdős Problem #508 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -392,7 +392,7 @@ node scripts/generate_readme_progress.mjs
 | EP-623 | Erdős Problem #623 | to-check | 365 | 1999 | not_proved_identified_gap | Tried partition-calculus reformulation and transfinite induction scaffolding. Hard point: A problem of Erdos and Hajnal \cite{ErHa58}, who proved that if $\lvert X\rvert <\aleph_\omega$ then the answer is no. |
 | EP-624 | Erdős Problem #624 | to-check | 184 | 1968 | small_n_exact_value_established | Exact value H(8)=4 established in this attempt. |
 | EP-625 | Erdős Problem #625 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-626 | Erdős Problem #626 | to-check | 297 | 1988 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: It is known that $ \frac{1}{4\log k}\log n\leq g_k(n) \leq \frac{2}{\log(k-2)}\log n+1, $ the lower bound due to Kostochka \cite{Ko88} and the upper bound to Erdos \cite{Er59b}. |
+| EP-626 | Erdős Problem #626 | to-check | 297 | 1988 | log_scale_bounds_known_limit_existence_and_value_open | Known two-sided bounds place g_k(n) on a log n scale and constrain h^{(m)} growth exponents, but do not settle limit existence/value. |
 | EP-627 | Erdős Problem #627 | to-check | 183 | 1967 | asymptotic_order_known_limit_existence_open | Background gives f(n) asy n/(log n)^2 and interval constraints for a possible limit value. |
 | EP-629 | Erdős Problem #629 | to-check | 373 | 2000 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Rubin, and Taylor \cite{ERT80}, who proved that $ 2^{k-1}<n(k) <k^22^{k+2}. |
 | EP-633 | Erdős Problem #633 | harder |  | 2009 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -525,7 +525,7 @@ node scripts/generate_readme_progress.mjs
 | EP-864 | Erdős Problem #864 | to-check | 118 |  | lower_bound_matches_scale_upper_open | Background proves \|A\|>=(1+o(1))(2/sqrt(3))N^{1/2}. |
 | EP-865 | Erdős Problem #865 | to-check | 215 | 1975 | finite_exact_scan_supports_constant_gap_conjecture_not_proved | Exact search for 8<=N<=40 gives max(\|A\| avoiding)-5N/8 in [0.875,2.25] (N=40: max avoider size 27). |
 | EP-866 | Erdős Problem #866 | to-check | 119 |  | many_k_cases_known_full_profile_open | Known: g_3=2, g_4=O(1), g_5~log N, g_6~N^{1/2}, and general upper/lower exponent bounds. |
-| EP-869 | Erdős Problem #869 | to-check | 301 | 1988 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Härtter \cite{Ha56} and Nathanson \cite{Na74} proved that there exist additive bases which do not contain any minimal additive bases. |
+| EP-869 | Erdős Problem #869 | to-check | 301 | 1988 | general_nonminimal_basis_examples_known_disjoint_order2_union_case_open | Known existence of additive bases without minimal subbases does not directly settle the specific disjoint-order-2 union question. |
 | EP-870 | Erdős Problem #870 | to-check | 250 | 1979 | k2_case_solved_general_k_open | Background gives Erdos-Nathanson: for k=2, if 1_A*1_A(n)>(log(4/3))^{-1}*log n eventually, A contains a minimal basis of order 2. |
 | EP-872 | Erdős Problem #872 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-873 | Erdős Problem #873 | to-check | 120 |  | k3_scale_known_general_epsilon_k_open | Background gives matching-order upper/lower behavior for k=3: X^{1/3} log X scale. |
@@ -619,13 +619,13 @@ node scripts/generate_readme_progress.mjs
 | EP-1029 | Erdős Problem #1029 | to-check | 332 | 1993 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: In \cite{Er93} Erdos offers \$100 for a proof of this and \$1000 for a disproof, but says 'this last offer is to some extent phoney: I am sure that [this] is true (but I have been wrong before).' Erdos and Szekeres \cite{ErSz35} proved $ k2^{k/2} \ll R(k) \leq \binom{2k-1}{k-1}. |
 | EP-1030 | Erdős Problem #1030 | to-check | 305 | 1989 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Burr, Erdos, Faudree, and Schelp \cite{BEFS89} proved $ R(k+1,k)-R(k,k)\geq 2k-5. |
 | EP-1032 | Erdős Problem #1032 | to-check | 330 | 1993 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: This problem is also open for $5$-chromatic critical graphs. |
-| EP-1033 | Erdős Problem #1033 | to-check | 298 | 1988 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos and Laskar \cite{ErLa85} proved $ 2(\sqrt{3}-1)n \geq h(n) \geq (1+c)n $ for some $c>0$. |
+| EP-1033 | Erdős Problem #1033 | to-check | 298 | 1988 | bound_window_known_finite_upper_profile_search_no_asymptotic_closure | Local search on n=24..48 found best max-triangle-degree-sum ratios about 1.60n, above 2(sqrt(3)-1)n in sampled sizes. |
 | EP-1035 | Erdős Problem #1035 | to-check | 329 | 1993 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Erdos \cite{Er93} says 'if the conjecture is false, two related problems could be asked': {UL} {LI}Determine or estimate the smallest $m>2^n$ such that every graph on $m$ vertices with minimum degree $>(1-c)2^n$ contains a $Q_n$, and {/LI} {LI}For which $u_n$ is it true that every graph on $2^n$ vertices with minimum degree $>2^n-u_n$ contains a $Q_n$.{/LI} {/UL} See also [576] for the extremal number of edges that guarantee a $Q_n$. |
 | EP-1038 | Erdős Problem #1038 | to-check | 165 | 1961 | supremum_known_infimum_bounded_open | Background summary gives sup=2*sqrt(2) and nontrivial bounds on infimum. |
 | EP-1039 | Erdős Problem #1039 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1040 | Erdős Problem #1040 | to-check | 201 | 1973 | special_case_model_support_general_problem_open | Monte Carlo area estimates for \|z^m-1\|<1 drop from ~1.324 (m=40) to ~0.344 (m=300). |
 | EP-1049 | Erdős Problem #1049 | to-check | 149 | 1948 | integer_t_case_solved_rational_open | Background gives Erdos' theorem: irrationality holds for every integer t>=2. |
-| EP-1051 | Erdős Problem #1051 | to-check | 299 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-1051 | Erdős Problem #1051 | to-check | 299 | 1988 | rapid_growth_case_known_weaker_liminf_case_open | Background indicates irrationality under sufficiently rapid growth, but not yet under the stated liminf a_n^{1/2^n}>1 condition. |
 | EP-1052 | Erdős Problem #1052 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1053 | Erdős Problem #1053 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1054 | Erdős Problem #1054 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -666,7 +666,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1104 | Erdős Problem #1104 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1105 | Erdős Problem #1105 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1106 | Erdős Problem #1106 | to-check | 374 | 2000 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Schinzel and Wirsing \cite{ScWi87} have proved $F(n) \gg \log n$. |
-| EP-1107 | Erdős Problem #1107 | to-check | 294 | 1988 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: This is true when $r=2$, as proved by Heath-Brown \cite{He88} (see [941]). |
+| EP-1107 | Erdős Problem #1107 | to-check | 294 | 1988 | r2_solved_finite_r3_r4_eventual_coverage_signal_general_open | Up to n=250000, scans show largest missing values 119 (r=2), 2039 (r=3), 150271 (r=4) with no missing values in final scanned tails. |
 | EP-1108 | Erdős Problem #1108 | to-check | 314 | 1991 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: It is open even whether there are infinitely many squares of the form $1+n!$ (see [398]). |
 | EP-1109 | Erdős Problem #1109 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1110 | Erdős Problem #1110 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
