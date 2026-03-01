@@ -181,6 +181,7 @@ ${summaryLines}
 - Main merged progress source: \`data/erdos_to_check_ranked_with_deep_attempts_top20.jsonl\` + \`data/erdos_harder.jsonl\`
 - CSV export of table below: \`data/all_problems_progress.csv\`
 - Attempt notes directory: \`notes/\`
+- Formal proved-results writeup: \`notes/proved_results.md\`
 - Analysis / search scripts directory: \`scripts/\`
 
 ## Regenerate This README
