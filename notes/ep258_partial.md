@@ -11,8 +11,12 @@ irrational?
 Background says Erdos-Straus proved irrationality when `(a_n)` is monotone
 nondecreasing.
 
-## What remains open in this note
-The unrestricted non-monotone case is not settled by the cited background.
+## Additional proof route attempted here
+I tried extending from monotone to broader non-monotone classes via block/effective-monotone
+decompositions of the denominator products.
+
+Main obstruction: after truncation/shift, the resulting tails involve `tau(n+offset)` in the
+numerator, so the monotone theorem does not transfer directly in a black-box way.
 
 ## Status
 - monotone `a_n`: resolved.

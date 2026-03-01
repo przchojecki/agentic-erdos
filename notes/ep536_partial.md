@@ -1,0 +1,19 @@
+# EP-536 deeper attempt
+
+## Statement
+If `|A|>=epsilon N`, must there exist distinct `a,b,c in A` with
+`lcm(a,b)=lcm(a,c)=lcm(b,c)`?
+
+## Exact finite result proved in this attempt
+I solved the exact maximum size of subsets of `[1,n]` avoiding such triples for `6<=n<=50`.
+
+Data file:
+- `data/ep536_exact_small_hypergraph_scan.json`
+
+Sample values:
+- `n=40`: exact maximum `32`
+- `n=50`: exact maximum `39` (density `0.78`)
+
+## Interpretation
+These exact finite maxima show large triple-avoiding sets at small/medium `n`; this does not
+settle the fixed-`epsilon`, `N->infinity` question.

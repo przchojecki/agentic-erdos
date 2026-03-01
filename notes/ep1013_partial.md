@@ -1,0 +1,11 @@
+# EP-1013 deeper attempt
+
+## Statement
+For `h_3(k)` (minimum order of a triangle-free graph with chromatic number `k`), find
+asymptotics and prove ratio smoothness `h_3(k+1)/h_3(k)->1`.
+
+## What is known
+Background provides near-matching `k^2 log k` scale bounds.
+
+## Hard point
+The precise asymptotic constant and ratio-limit statement remain open.

@@ -1,0 +1,24 @@
+# EP-624 deeper attempt with exact small-n proof
+
+## Statement
+`H(n)` is the least threshold such that some `f:P(X)->X` (|X|=n) satisfies:
+for all `Y` with `|Y|>=H(n)`, `{f(A):A subset Y}=X`.
+Question: prove `H(n)-log_2 n -> infinity`.
+
+## Exact sub-result proved in this attempt
+`H(8)=4`.
+
+### Lower bound
+From the background-cited weaker theorem for `n=2^k`: `H(2^k)>=k+1`.
+Hence `H(8)>=4`.
+
+### Upper bound (explicit witness)
+I found and verified a concrete mapping `f:P([8])->[8]` such that every `Y` of size 4
+already has full image.
+Witness file:
+- `data/ep624_n8_h4_witness.json`
+
+This proves `H(8)<=4`, so `H(8)=4`.
+
+## Interpretation
+This is a finite exact case; it does not settle the asymptotic divergence claim.
