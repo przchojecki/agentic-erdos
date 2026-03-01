@@ -1,0 +1,208 @@
+{
+  "problem": "EP-332",
+  "method": "finite_difference-frequency_gap_proxies_for_various_set_families",
+  "params": {
+    "N": 5000,
+    "thresholds": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      13
+    ]
+  },
+  "rows": [
+    {
+      "family": "squares",
+      "N": 5000,
+      "size_A": 70,
+      "density": 0.014,
+      "thresholds": [
+        {
+          "threshold": 1,
+          "maxGap": 101,
+          "coveredCount": 1525
+        },
+        {
+          "threshold": 2,
+          "maxGap": 520,
+          "coveredCount": 541
+        },
+        {
+          "threshold": 3,
+          "maxGap": 680,
+          "coveredCount": 213
+        },
+        {
+          "threshold": 5,
+          "maxGap": 2120,
+          "coveredCount": 35
+        },
+        {
+          "threshold": 8,
+          "maxGap": null,
+          "coveredCount": 0
+        },
+        {
+          "threshold": 13,
+          "maxGap": null,
+          "coveredCount": 0
+        }
+      ]
+    },
+    {
+      "family": "primes",
+      "N": 5000,
+      "size_A": 669,
+      "density": 0.1338,
+      "thresholds": [
+        {
+          "threshold": 1,
+          "maxGap": 3,
+          "coveredCount": 3164
+        },
+        {
+          "threshold": 2,
+          "maxGap": 12,
+          "coveredCount": 2490
+        },
+        {
+          "threshold": 3,
+          "maxGap": 18,
+          "coveredCount": 2483
+        },
+        {
+          "threshold": 5,
+          "maxGap": 38,
+          "coveredCount": 2465
+        },
+        {
+          "threshold": 8,
+          "maxGap": 74,
+          "coveredCount": 2421
+        },
+        {
+          "threshold": 13,
+          "maxGap": 110,
+          "coveredCount": 2345
+        }
+      ]
+    },
+    {
+      "family": "powers_of_2",
+      "N": 5000,
+      "size_A": 13,
+      "density": 0.0026,
+      "thresholds": [
+        {
+          "threshold": 1,
+          "maxGap": 1023,
+          "coveredCount": 78
+        },
+        {
+          "threshold": 2,
+          "maxGap": null,
+          "coveredCount": 0
+        },
+        {
+          "threshold": 3,
+          "maxGap": null,
+          "coveredCount": 0
+        },
+        {
+          "threshold": 5,
+          "maxGap": null,
+          "coveredCount": 0
+        },
+        {
+          "threshold": 8,
+          "maxGap": null,
+          "coveredCount": 0
+        },
+        {
+          "threshold": 13,
+          "maxGap": null,
+          "coveredCount": 0
+        }
+      ]
+    },
+    {
+      "family": "random_5pct",
+      "N": 5000,
+      "size_A": 229,
+      "density": 0.0458,
+      "thresholds": [
+        {
+          "threshold": 1,
+          "maxGap": 34,
+          "coveredCount": 4643
+        },
+        {
+          "threshold": 2,
+          "maxGap": 78,
+          "coveredCount": 4165
+        },
+        {
+          "threshold": 3,
+          "maxGap": 173,
+          "coveredCount": 3673
+        },
+        {
+          "threshold": 5,
+          "maxGap": 425,
+          "coveredCount": 2700
+        },
+        {
+          "threshold": 8,
+          "maxGap": 1328,
+          "coveredCount": 1265
+        },
+        {
+          "threshold": 13,
+          "maxGap": 2527,
+          "coveredCount": 173
+        }
+      ]
+    },
+    {
+      "family": "random_20pct",
+      "N": 5000,
+      "size_A": 977,
+      "density": 0.1954,
+      "thresholds": [
+        {
+          "threshold": 1,
+          "maxGap": 3,
+          "coveredCount": 4988
+        },
+        {
+          "threshold": 2,
+          "maxGap": 12,
+          "coveredCount": 4963
+        },
+        {
+          "threshold": 3,
+          "maxGap": 19,
+          "coveredCount": 4942
+        },
+        {
+          "threshold": 5,
+          "maxGap": 35,
+          "coveredCount": 4885
+        },
+        {
+          "threshold": 8,
+          "maxGap": 131,
+          "coveredCount": 4813
+        },
+        {
+          "threshold": 13,
+          "maxGap": 198,
+          "coveredCount": 4670
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-03-01T17:50:38.725Z"
+}

@@ -1,0 +1,154 @@
+{
+  "problem": "EP-311",
+  "method": "exact_meet-in-the-middle_for_deltaN_scaled_by_lcm",
+  "params": {
+    "N_list": [
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30
+    ]
+  },
+  "rows": [
+    {
+      "N": 10,
+      "D": "2520",
+      "exact_delta_num": "7",
+      "approx_delta": 0.002777777777777778,
+      "approx_neglog_delta_over_N": 0.5886104031450156,
+      "witness_half_sums": {
+        "a": "1260",
+        "b": "1267"
+      },
+      "runtime_ms": 0
+    },
+    {
+      "N": 12,
+      "D": "27720",
+      "exact_delta_num": "12",
+      "approx_delta": 0.0004329004329004329,
+      "approx_neglog_delta_over_N": 0.6454169002929866,
+      "witness_half_sums": {
+        "a": "16170",
+        "b": "11562"
+      },
+      "runtime_ms": 0
+    },
+    {
+      "N": 14,
+      "D": "360360",
+      "exact_delta_num": "130",
+      "approx_delta": 0.00036075036075036075,
+      "approx_neglog_delta_over_N": 0.5662374543078424,
+      "witness_half_sums": {
+        "a": "231660",
+        "b": "128570"
+      },
+      "runtime_ms": 0
+    },
+    {
+      "N": 16,
+      "D": "720720",
+      "exact_delta_num": "117",
+      "approx_delta": 0.00016233766233766234,
+      "approx_neglog_delta_over_N": 0.5453645035329728,
+      "witness_half_sums": {
+        "a": "450450",
+        "b": "270153"
+      },
+      "runtime_ms": 0
+    },
+    {
+      "N": 18,
+      "D": "12252240",
+      "exact_delta_num": "396",
+      "approx_delta": 0.000032320620555914674,
+      "approx_neglog_delta_over_N": 0.5744336180070587,
+      "witness_half_sums": {
+        "a": "7876440",
+        "b": "4376196"
+      },
+      "runtime_ms": 0
+    },
+    {
+      "N": 20,
+      "D": "232792560",
+      "exact_delta_num": "3900",
+      "approx_delta": 0.000016753112728344926,
+      "approx_neglog_delta_over_N": 0.549846324121512,
+      "witness_half_sums": {
+        "a": "149652360",
+        "b": "83136300"
+      },
+      "runtime_ms": 1
+    },
+    {
+      "N": 22,
+      "D": "232792560",
+      "exact_delta_num": "299",
+      "approx_delta": 0.0000012844053091731111,
+      "approx_neglog_delta_over_N": 0.6166006700526041,
+      "witness_half_sums": {
+        "a": "138483020",
+        "b": "94309839"
+      },
+      "runtime_ms": 1
+    },
+    {
+      "N": 24,
+      "D": "5354228880",
+      "exact_delta_num": "4845",
+      "approx_delta": 9.048922092400353e-7,
+      "approx_neglog_delta_over_N": 0.5798104169230108,
+      "witness_half_sums": {
+        "a": "4374938100",
+        "b": "979295625"
+      },
+      "runtime_ms": 1
+    },
+    {
+      "N": 26,
+      "D": "26771144400",
+      "exact_delta_num": "14036",
+      "approx_delta": 5.242958534114814e-7,
+      "approx_neglog_delta_over_N": 0.5562003733156969,
+      "witness_half_sums": {
+        "a": "15551125700",
+        "b": "11220032736"
+      },
+      "runtime_ms": 3
+    },
+    {
+      "N": 28,
+      "D": "80313433200",
+      "exact_delta_num": "6578",
+      "approx_delta": 8.190410667190853e-8,
+      "approx_neglog_delta_over_N": 0.5827755966010834,
+      "witness_half_sums": {
+        "a": "53542288800",
+        "b": "26771150978"
+      },
+      "runtime_ms": 6
+    },
+    {
+      "N": 30,
+      "D": "2329089562800",
+      "exact_delta_num": "190762",
+      "approx_delta": 8.190410667190853e-8,
+      "approx_neglog_delta_over_N": 0.5439238901610112,
+      "witness_half_sums": {
+        "a": "1358635578300",
+        "b": "970454175262"
+      },
+      "runtime_ms": 12
+    }
+  ],
+  "generated_utc": "2026-03-01T17:50:19.172Z"
+}

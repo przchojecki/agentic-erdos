@@ -1,0 +1,18 @@
+# EP-467 partial
+
+## Statement issue
+The background itself says the formulation in source is missing crucial
+quantifiers and that the recorded statement may be an interpretation.
+
+## Attempt in this batch
+I treated this as a dataset-quality problem first, before attempting proof work
+on a potentially mis-specified statement.
+
+## Result
+Given the acknowledged quantifier ambiguity, the entry should be treated as
+statement-uncertain in this repository unless a canonical corrected version is
+fixed.
+
+## Hard point
+Without a stable formal statement, proof/disproof status is not well-posed.
+

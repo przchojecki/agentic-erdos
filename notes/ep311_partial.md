@@ -1,0 +1,24 @@
+# EP-311 partial
+
+## Statement
+`delta(N)` is the minimal nonzero value of
+`|1 - sum_{n in A} 1/n|` over `A subseteq {1,...,N}`.
+Is `delta(N)=exp(-(c+o(1))N)` for some `c in (0,1)`?
+
+## Attempt in this batch
+I computed exact `delta(N)` for small `N` via meet-in-the-middle on scaled
+integer subset sums (`lcm(1..N)` denominator).
+
+Data file:
+- `data/ep311_delta_exact_small.json`
+
+## Result
+For `N=10..30`, exact values were obtained; empirical
+`-log(delta(N))/N` stays around `0.54` to `0.65` in this range.
+
+This supports exponential decay on finite scales.
+
+## Hard point
+Small-`N` exact values do not determine existence/uniqueness of an asymptotic
+constant `c`.
+

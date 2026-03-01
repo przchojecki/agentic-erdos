@@ -1,0 +1,25 @@
+# EP-345 partial
+
+## Statement
+For `A_k={1^k,2^k,...}`, let `T(n^k)` be the threshold of completeness.
+Are there infinitely many `k` with `T(n^k) > T(n^{k+1})`?
+
+## Attempt in this batch
+I reviewed the strongest concrete values recorded in the background and compared
+their monotonic pattern.
+
+## Result
+Known values listed in background:
+- `T(n)=1`
+- `T(n^2)=128`
+- `T(n^3)=12758`
+- `T(n^4)=5134240`
+- `T(n^5)=67898771`
+
+These initial values are increasing, so no early example of
+`T(n^k) > T(n^{k+1})` is visible yet.
+
+## Hard point
+The question is about infinitely many reversals at large `k`, far beyond the
+currently known finite data.
+

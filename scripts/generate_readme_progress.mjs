@@ -65,7 +65,9 @@ function extractHardPointSentence(background) {
 }
 
 function repairEllipsisNote(record, note) {
-  const hasEllipsis = /…|\.\.\./.test(note);
+  // Treat only trailing ellipses as truncation signals.
+  // Mid-sentence "..." can appear in valid mathematical notation.
+  const hasEllipsis = /(?:…|\.\.\.)\s*$/.test(note);
   if (!hasEllipsis) return note;
 
   const hard = extractHardPointSentence(record.background);
