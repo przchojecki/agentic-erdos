@@ -97,3 +97,21 @@ Code: `scripts/ep952_gaussian_moat_scan.mjs`.
 
 This is a rigorous finite-window threshold statement, not an infinite-plane proof.
 
+## 5) EP-501: second subquestion is fully settled
+
+EP-501 asks two questions. The second is:
+
+If `A_x` are closed with measure `<1`, must there exist an independent set of
+size `3`?
+
+### Theorem 5
+Yes.
+
+### Proof
+The background for EP-501 cites Newelski-Pawlikowski-Seredyński (1987), which
+gives a stronger statement in the closed-case setting: existence of an
+**infinite** independent set.
+An infinite independent set contains, in particular, three distinct points, so
+an independent set of size `3` exists.
+
+So EP-501 is partially closed: second subquestion resolved; first remains open.
