@@ -1,0 +1,23 @@
+# EP-952 partial
+
+## Statement
+Is there an infinite sequence of distinct Gaussian primes with bounded step size:
+`|x_{n+1}-x_n| << 1`?
+
+## Attempt in this batch
+I ran finite-window moat connectivity experiments in `[-R,R]^2` with `R=220`.
+Vertices are Gaussian primes; edges connect points within distance `D`.
+
+Data file:
+- `data/ep952_gaussian_moat_scan.json`
+
+## Result
+- For `D=3`, the component from the smallest-norm prime stays bounded in-window
+  (max reached radius about `93.5`, no boundary reach).
+- For `D>=4` (tested `4,5,6,7,8,10`), the same component reaches the window
+  boundary and is essentially giant in this finite box.
+
+## Hard point
+Finite-box connectivity thresholds do not decide infinite-plane existence.
+The true moat question remains asymptotic/infinite.
+

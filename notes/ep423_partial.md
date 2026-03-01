@@ -1,0 +1,22 @@
+# EP-423 partial
+
+## Statement
+Start `a_1=1, a_2=2`; for `k>=3`, `a_k` is the least integer `>a_{k-1}` that is
+a sum of at least two consecutive earlier terms. Find asymptotics.
+
+## Attempt in this batch
+I generated the sequence exactly up to `k=6000`.
+
+Data file:
+- `data/ep423_hofstadter_scan.json`
+
+## Result
+- `a_6000 = 6275`, so `a_k/k ~= 1.0458`.
+- Gap `a_k-k` is nondecreasing in the sampled checkpoints and reaches `275` by
+  `k=6000`.
+- `k/a_k` drifts upward toward `1` in this finite window.
+
+## Hard point
+These computations support the background claim that `a_n-n` is unbounded, but
+do not determine the true asymptotic rate.
+

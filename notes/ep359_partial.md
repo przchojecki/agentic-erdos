@@ -1,0 +1,23 @@
+# EP-359 partial
+
+## Statement
+Sequence: `a_1=n`, and `a_{i+1}` is the least integer not representable as a sum
+of consecutive earlier terms. For `n=1`, study growth of `a_k`.
+
+## Attempt in this batch
+I generated the sequence exactly up to `k=2400` using incremental maintenance of
+representable consecutive sums.
+
+Data file:
+- `data/ep359_macmahon_scan.json`
+
+## Result (n=1 case)
+- `a_2400 = 8378`, so `a_k/k ~= 3.49` at `k=2400` (clearly growing above 1).
+- Ratio to Andrews model `k log k / log log k` stays around `0.88` to `0.92`
+  across high checkpoints.
+- `a_k / k^(1+c)` is small for tested `c` (`0.02`, `0.05`) and decreases slowly.
+
+## Hard point
+Finite data is consistent with near-`k log k / log log k` scale, but asymptotic
+proofs for the two requested limits remain open.
+
