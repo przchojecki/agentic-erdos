@@ -9,7 +9,7 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Triaged as `harder` (post-2000 reference signal): **257**
 - Records with deep-attempt workflow initialized: **242**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-03-01T16:07:14.873Z**
+- README last generated (UTC): **2026-03-01T16:14:13.243Z**
 
 ## Progress Status Counts
 
@@ -492,7 +492,7 @@ node scripts/generate_readme_progress.mjs
 | EP-813 | Erdős Problem #813 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-817 | Erdős Problem #817 | to-check | 109 |  | near_exponential_lower_bound_known_gap_open | Background gives g_3(n)>>3^n/n^{O(1)}. |
 | EP-819 | Erdős Problem #819 | to-check | 313 | 1991 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and Freud \cite{ErFr91} proved $ \left(\frac{3}{8}-o(1)\right)N \leq f(N) \leq \left(\frac{1}{2}+o(1)\right)N, $ and note that it is closely connected to the size of the largest quasi-Sidon set (see [840]). |
-| EP-820 | Erdős Problem #820 | to-check | 204 | 1974 | h3_frequent_exact_scan_no_infinite_proof | Exact recurrence scan to n<=20,000 gives H(n)=3 count 8,075 (density 0.40375) with max observed hit-gap 14; structure scan explains almost all misses via m_p=lcm(ord_p(2),ord_p(3)) witnesses. |
+| EP-820 | Erdős Problem #820 | to-check | 204 | 1974 | exact_reduction_to_moduli_covering_plus_strong_finite_evidence | Proved exact criterion H(n)=3 iff n avoids all m_p=lcm(ord_p(2),ord_p(3)); conditional infinitude reduces to non-covering of {m_p}. Exact scan to n<=20,000 gives density 0.40375. |
 | EP-821 | Erdős Problem #821 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-824 | Erdős Problem #824 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-825 | Erdős Problem #825 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
