@@ -1,0 +1,40 @@
+{
+  "script": "ep708_small_bounded_exact.mjs",
+  "n_list": [
+    2,
+    3
+  ],
+  "m_bound": 14,
+  "rows": [
+    {
+      "n": 2,
+      "m_bound": 14,
+      "bounded_worst_min_B_size": 2,
+      "witness": {
+        "A": [
+          2,
+          3
+        ],
+        "interval_start": 1,
+        "M": 3,
+        "b": 2
+      }
+    },
+    {
+      "n": 3,
+      "m_bound": 14,
+      "bounded_worst_min_B_size": 3,
+      "witness": {
+        "A": [
+          2,
+          3,
+          4
+        ],
+        "interval_start": 1,
+        "M": 4,
+        "b": 3
+      }
+    }
+  ],
+  "timestamp_utc": "2026-03-01T20:22:53.042Z"
+}

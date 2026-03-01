@@ -1,0 +1,18 @@
+# EP-708 partial attempt
+
+## Route
+Used prime-exponent divisibility encoding and ran a bounded exhaustive proxy search for small `n`.
+
+## Evidence from this batch
+- `data/ep708_small_bounded_exact.json` with restricted search (`max(A) <= 14`) gives bounded worst-case values:
+  - `n=2`: `2`
+  - `n=3`: `3`
+
+## Calibration caveat
+Background states exact `g(3)=4`; the bounded scan underestimates because it does not cover large/adversarial `A` and all interval placements.
+
+## Hard point
+Asymptotic `g(n) <= (2+o(1))n` (or `2n`) needs global prime-factor packing control for worst-case `A`, not finite-box enumeration.
+
+## Status
+Bounded model explored and calibrated against known small-case truth; asymptotic problem remains open.
