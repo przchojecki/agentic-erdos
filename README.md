@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **242**
+- Records with deep-attempt workflow initialized: **252**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-03-01T16:14:13.243Z**
+- README last generated (UTC): **2026-03-01T16:47:08.175Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 133
+- `not_proved_identified_gap`: 123
 - `no_background_partial_result`: 23
 - `statement_issue_malformed_dataset_entry`: 15
 - `not_proved`: 12
@@ -161,7 +161,7 @@ node scripts/generate_readme_progress.mjs
 | EP-196 | Erdős Problem #196 | to-check | 230 | 1977 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
 | EP-197 | Erdős Problem #197 | to-check | 15 |  | not_proved | Tried recursive block permutations in two-color partition classes to suppress monotone 3-term APs after permutation. |
 | EP-200 | Erdős Problem #200 | to-check | 16 |  | not_proved | Used random-primes heuristic and existing AP-in-primes framework to test plausibility of sub-logarithmic maximal progression length. |
-| EP-201 | Erdős Problem #201 | to-check | 217 | 1975 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
+| EP-201 | Erdős Problem #201 | to-check | 217 | 1975 | interval_model_matches_R3_on_small_N_relation_open | For N=6..9 in the interval model, worst-case AP-free size equals exact R_3(N) (ratio 1). |
 | EP-202 | Erdős Problem #202 | harder |  | 2013 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-203 | Erdős Problem #203 | to-check | 17 |  | not_proved | Attempted a covering-congruence construction assigning prime divisors to all values 2^k 3^l m + 1 across exponent classes. |
 | EP-208 | Erdős Problem #208 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -296,7 +296,7 @@ node scripts/generate_readme_progress.mjs
 | EP-451 | Erdős Problem #451 | to-check | 243 | 1979 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Adenwalla observes that an easy upper bound is $n_k\leq \prod_{k<p<2k}p=e^{O(k)}$. |
 | EP-452 | Erdős Problem #452 | to-check | 145 | 1937 | density_and_crt_lower_bound_known_extremal_open | Known: density 1/2 and interval length at least (1+o(1)) log x/(log log x)^2 via CRT. |
 | EP-454 | Erdős Problem #454 | to-check | 244 | 1979 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Pomerance \cite{Po79} has proved the $\limsup$ is at least $2$. |
-| EP-455 | Erdős Problem #455 | to-check | 225 | 1976 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Richter \cite{Ri76} proved that $ \liminf_n \frac{q_n}{n^2}>0.352\cdots. |
+| EP-455 | Erdős Problem #455 | to-check | 225 | 1976 | greedy_sequences_show_quadratic_scale_no_divergence_proof | With Pmax=10^7 and length 50 search, best found q_50=3491 so q_50/50^2=1.3964. |
 | EP-456 | Erdős Problem #456 | to-check | 245 | 1979 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Linnik's theorem implies that $p_n\leq n^{O(1)}$. |
 | EP-457 | Erdős Problem #457 | to-check | 50 |  | two_plus_o1_threshold_known_eps_open | Background provides examples with q(n,log n) >= (2+o(1))log n. |
 | EP-460 | Erdős Problem #460 | to-check | 261 | 1980 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: This question arose in work of Eggleton, Erdos, and Selfridge, who could prove that $a_k <k^{2+o(1)}$ for $k$ large enough depending on $n$, but conjectured that in fact $a_k\ll k\log k$ is true. |
@@ -371,7 +371,7 @@ node scripts/generate_readme_progress.mjs
 | EP-591 | Erdős Problem #591 | harder |  | 2010 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-592 | Erdős Problem #592 | harder |  | 2010 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-593 | Erdős Problem #593 | to-check | 210 | 1975 | graph_analogue_solved_hypergraph_open | Background states the graph analogue is completely solved at chromatic threshold >=aleph_1. |
-| EP-595 | Erdős Problem #595 | to-check | 218 | 1975 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Folkman \cite{Fo70} and Ne\v{s}et\v{r}il and R"{o}dl \cite{NeRo75} have proved that for every $n\geq 1$ there is a graph $G$ which contains no $K_4$ and is not the union of $n$ triangle-free graphs. |
+| EP-595 | Erdős Problem #595 | to-check | 218 | 1975 | finite_level_unbounded_color_demand_known_countable_union_case_open | Background gives for every n a finite K4-free graph not coverable by n triangle-free subgraphs. |
 | EP-596 | Erdős Problem #596 | to-check | 71 |  | existence_known_full_characterization_open | Background gives explicit example G1=C4, G2=C6 and notes original conjecture of nonexistence is false. |
 | EP-597 | Erdős Problem #597 | to-check | 72 |  | special_case_solved_general_open | Background states omega_1^2 -> (omega_1 omega,3)^2 and that earlier K4-free-only version is false via K_{aleph0,aleph0}. |
 | EP-598 | Erdős Problem #598 | to-check | 73 |  | statement_issue_malformed_dataset_entry | Statement contains injected garbage fragment and background is empty in current copy. |
@@ -408,7 +408,7 @@ node scripts/generate_readme_progress.mjs
 | EP-654 | Erdős Problem #654 | to-check | 307 | 1990 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: In \cite{Er87b} and \cite{ErPa90} Erdos and Pach ask this under the additional assumption that there are no three points on a line (so that the points are in general position), although they only ask the weaker question whether there is a lower bound of the shape $(\tfrac{1}{3}+c)n$ for some constant $c>0$. |
 | EP-655 | Erdős Problem #655 | to-check | 81 |  | statement_issue_counterexample_in_background | Background states equally spaced points on a circle disprove the conjecture as written. |
 | EP-657 | Erdős Problem #657 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-660 | Erdős Problem #660 | to-check | 219 | 1975 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: For the similar problem in $\mathbb{R}^2$ there are always at least $n/2$ distances, as proved by Altman \cite{Al63} (see [93]). |
+| EP-660 | Erdős Problem #660 | to-check | 219 | 1975 | explicit_convex_families_meet_half_n_scale_universal_bound_open | Explicit antiprisms achieve exactly n/2 distinct distances (tested to n=200); bipyramids stay near 0.5n. |
 | EP-661 | Erdős Problem #661 | to-check | 82 |  | r4_benchmark_known_planar_open | Background gives an R^4 construction with d(x_i,y_j)=1 for all i,j. |
 | EP-662 | Erdős Problem #662 | to-check | 351 | 1997 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos also goes on to write 'Perhaps the following stronger conjecture holds: Let $t_1<t_2<\cdots$ be the set of distances occurring in the triangular lattice. |
 | EP-663 | Erdős Problem #663 | to-check | 83 |  | k_factor_bound_known_sharp_open | Background gives q(n,k)<(1+o(1))k log n. |
@@ -453,7 +453,7 @@ node scripts/generate_readme_progress.mjs
 | EP-724 | Erdős Problem #724 | to-check | 280 | 1983 | progressive_lower_bounds_known_target_open | Background lists improvements f(n)>>n^{1/91}, then n^{1/17}, then n^{1/14.8}. |
 | EP-725 | Erdős Problem #725 | to-check | 154 | 1951 | broad_k_range_asymptotic_known_full_range_open | Background gives asymptotic count for k up to n^{1/3-o(1)} (with earlier smaller-range result). |
 | EP-726 | Erdős Problem #726 | to-check | 211 | 1975 | finite_scale_support_for_loglog_growth_constant_unresolved | At n=5000 sum~0.891 versus target (1/2)loglog n~1.071. |
-| EP-727 | Erdős Problem #727 | to-check | 222 | 1975 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: A conjecture of Erdos, Graham, Ruzsa, and Straus \cite{EGRS75}. |
+| EP-727 | Erdős Problem #727 | to-check | 222 | 1975 | strong_finite_hits_for_small_k_infinitude_open | Up to n<=700000: hit counts are 7803 (k=2), 631 (k=3), 45 (k=4), 3 (k=5), and 0 for k=6..10. |
 | EP-730 | Erdős Problem #730 | to-check | 212 | 1975 | large_scale_exact_consecutive_pairs_evidence_no_infinite_proof | Exact recurrence-based scan to n<=2,500,000 found 25,547 consecutive pairs (n,n+1) with identical prime-support of C(2n,n), density about 1%. |
 | EP-731 | Erdős Problem #731 | to-check | 213 | 1975 | finite_data_consistent_with_reported_scale_not_proved | For 1<=n<=5000, least m values computed exactly (no unresolved cases with m<=5000). |
 | EP-734 | Erdős Problem #734 | to-check | 266 | 1981 | sqrt_scale_necessity_known_construction_open | Background implies some block size must occur on the order of n^{1/2} times in any pairwise balanced design. |
@@ -478,7 +478,7 @@ node scripts/generate_readme_progress.mjs
 | EP-787 | Erdős Problem #787 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-788 | Erdős Problem #788 | to-check | 372 | 2000 | not_proved_identified_gap | Tried direct contradiction and structural decomposition of the extremal case. Hard point: A conjecture of Choi \cite{Ch71}, who proved $f(n) \ll n^{3/4}$. |
 | EP-789 | Erdős Problem #789 | to-check | 207 | 1974 | exact_interval_model_bounds_obtained_full_problem_open | Interval model gives bounds <=3 (n=5,6) and <=4 (n=7,8) for chosen M values. |
-| EP-790 | Erdős Problem #790 | to-check | 223 | 1975 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos observed that $l(n)\geq (n/2)^{1/2}$, which Choi improved to $l(n)>(1+c)n^{1/2}$ for some $c>0$. |
+| EP-790 | Erdős Problem #790 | to-check | 223 | 1975 | interval_model_sublinear_signal_true_l_n_open | In exact interval model tests: l(5)<=3, l(6)<=4, l(7)<=4, l(8)<=4. |
 | EP-791 | Erdős Problem #791 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-792 | Erdős Problem #792 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-793 | Erdős Problem #793 | to-check | 191 | 1969 | exact_small_n_values_established_general_asymptotic_open | Computed exact F(n) for 6<=n<=50; in particular F(30)=11 and F(50)=16. |
@@ -522,7 +522,7 @@ node scripts/generate_readme_progress.mjs
 | EP-860 | Erdős Problem #860 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-863 | Erdős Problem #863 | to-check | 117 |  | r1_case_known_r_ge_2_open | Background gives c_1=c_1'=1. |
 | EP-864 | Erdős Problem #864 | to-check | 118 |  | lower_bound_matches_scale_upper_open | Background proves \|A\|>=(1+o(1))(2/sqrt(3))N^{1/2}. |
-| EP-865 | Erdős Problem #865 | to-check | 215 | 1975 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos and S\'{o}s conjectured that $ f_k(N)\sim \frac{1}{2}\left(1+\sum_{1\leq r\leq k-2}\frac{1}{4^r}\right) N, $ and a similar example shows that this would be best possible. |
+| EP-865 | Erdős Problem #865 | to-check | 215 | 1975 | finite_exact_scan_supports_constant_gap_conjecture_not_proved | Exact search for 8<=N<=40 gives max(\|A\| avoiding)-5N/8 in [0.875,2.25] (N=40: max avoider size 27). |
 | EP-866 | Erdős Problem #866 | to-check | 119 |  | many_k_cases_known_full_profile_open | Known: g_3=2, g_4=O(1), g_5~log N, g_6~N^{1/2}, and general upper/lower exponent bounds. |
 | EP-869 | Erdős Problem #869 | to-check | 301 | 1988 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Härtter \cite{Ha56} and Nathanson \cite{Na74} proved that there exist additive bases which do not contain any minimal additive bases. |
 | EP-870 | Erdős Problem #870 | to-check | 250 | 1979 | k2_case_solved_general_k_open | Background gives Erdos-Nathanson: for k=2, if 1_A*1_A(n)>(log(4/3))^{-1}*log n eventually, A contains a minimal basis of order 2. |
@@ -557,7 +557,7 @@ node scripts/generate_readme_progress.mjs
 | EP-920 | Erdős Problem #920 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-928 | Erdős Problem #928 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-929 | Erdős Problem #929 | harder |  | 2018 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-930 | Erdős Problem #930 | to-check | 216 | 1975 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos and Selfridge \cite{ErSe75} proved that the product of consecutive integers is never a power (establishing the case $r=1$). |
+| EP-930 | Erdős Problem #930 | to-check | 216 | 1975 | small_k_counterexamples_found_threshold_regime_open | In scan N<=220: r=2 has equal-length counterexamples for k<=3 (none for k>=4), r=3 for k<=5 (none for k>=6). |
 | EP-931 | Erdős Problem #931 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-932 | Erdős Problem #932 | to-check | 129 |  | density_zero_at_least_one_known_infinitely_many_two_open | Known: r with at least one such n has density 0. |
 | EP-933 | Erdős Problem #933 | to-check | 227 | 1976 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Mahler proved (a more general result that implies in particular) that $ 2^k3^l<n^{1+o(1)}. |
@@ -650,8 +650,8 @@ node scripts/generate_readme_progress.mjs
 | EP-1085 | Erdős Problem #1085 | harder |  | 2009 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1086 | Erdős Problem #1086 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1087 | Erdős Problem #1087 | to-check | 198 | 1971 | typical_case_zero_signal_found_extremal_question_open | In 80 random trials per n (n=12..32), min/avg/max degenerate quadruples were all zero. |
-| EP-1088 | Erdős Problem #1088 | to-check | 220 | 1975 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos \cite{Er75f} claimed that he and Straus proved $f_d(n)\leq c_n^d$ for some constant $c_n>0$. |
-| EP-1089 | Erdős Problem #1089 | to-check | 221 | 1975 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: Erdos and Straus proved (in unpublished work mentioned in \cite{Er75f}) that $ g_d(n) \leq c^{d^{1-b_n}} $ for some constants $c>0$ and $b_n>0$. |
+| EP-1088 | Erdős Problem #1088 | to-check | 220 | 1975 | cross_polytope_lower_bound_for_n3_established_higher_n_open | Constructed 2d-point sets in R^d with only two distances and no scalene triple, yielding f_d(3)>=2d+1. |
+| EP-1089 | Erdős Problem #1089 | to-check | 221 | 1975 | cross_polytope_lower_bound_for_n3_established_asymptotic_open | Cross-polytope gives g_d(3)>=2d+1 via an explicit 2-distance set of size 2d. |
 | EP-1091 | Erdős Problem #1091 | to-check | 276 | 1982 | first_question_solved_second_open | First subquestion is yes (Voss, 1982) for K4-free 4-chromatic graphs: an odd cycle with at least two diagonals exists. |
 | EP-1092 | Erdős Problem #1092 | to-check | 272 | 1982 | first_question_false_general_open | First subquestion is false: background reports R"odl (1982) gives a counterexample, so f_2(n) is not >> n. |
 | EP-1093 | Erdős Problem #1093 | to-check | 331 | 1993 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Barreto in the comments has given a positive answer to the second question, conditional on two (strong) conjectures. |

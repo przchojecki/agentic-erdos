@@ -1,0 +1,25 @@
+# EP-660 partial
+
+## Statement
+For vertices `x_1,...,x_n in R^3` of a convex polyhedron, are there at least
+`(1-o(1)) n/2` distinct pairwise distances?
+
+## Attempt in this batch
+I ran two computational probes:
+1. Random convex-position sets on the sphere.
+2. Explicit convex families (bipyramids and antiprisms).
+
+Data files:
+- `data/ep660_convex_distance_random_scan.json`
+- `data/ep660_constructed_polyhedra_scan.json`
+
+## Result
+- Random sphere samples have almost all distances distinct (far above `n/2`).
+- Explicit antiprism family gives exactly `n/2` distinct distances for `n=2m`
+  in tested sizes up to `n=200`.
+- Bipyramids give a ratio around `0.4` to `0.5`, trending near `1/2`.
+
+## Hard point
+Constructions show the `n/2` scale is natural and may be tight, but they do not
+prove a universal lower bound for every convex polyhedron.
+

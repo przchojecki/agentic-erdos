@@ -1,0 +1,28 @@
+# EP-727 partial
+
+## Statement
+For fixed `k>=2`, does `(n+k)!^2` divide `(2n)!` for infinitely many `n`?
+
+## Attempt in this batch
+I used an exact prime-valuation recurrence scan (no floating approximations),
+checking divisibility up to `N=700000` for `k=2..10`.
+
+Data file:
+- `data/ep727_factorial_square_divisibility_scan.json`
+
+## Result
+Hit counts up to `N=700000`:
+- `k=2`: 7803
+- `k=3`: 631
+- `k=4`: 45
+- `k=5`: 3
+- `k=6..10`: 0 in this range
+
+So there is strong finite support for small `k` (especially `k=2,3`), but no
+proof of infinitude yet.
+
+## Hard point
+Finite hits, even many of them, do not imply infinitely many.
+Need a structural or p-adic mechanism that produces infinitely many `n` for each
+fixed `k` (or a disproof for some `k`).
+
