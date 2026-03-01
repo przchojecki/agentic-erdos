@@ -7,14 +7,14 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **292**
+- Records with deep-attempt workflow initialized: **302**
 - Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-03-01T18:34:13.867Z**
+- README last generated (UTC): **2026-03-01T19:13:24.572Z**
 
 ## Progress Status Counts
 
 - `deprioritized_post2000_refs`: 257
-- `not_proved_identified_gap`: 83
+- `not_proved_identified_gap`: 73
 - `no_background_partial_result`: 23
 - `statement_issue_malformed_dataset_entry`: 16
 - `not_proved`: 12
@@ -23,11 +23,11 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - `adversarial_search_frontier_extended_not_proved`: 2
 - `resolved_in_background_as_written`: 2
 - `two_sided_bounds_known_asymptotic_open`: 2
+- `finite_practical_and_factorial_h_values_small_asymptotics_open`: 1
 - `partial_positive_result_not_full_proof`: 1
 - `basis_case_known_nonbasis_strengthening_open`: 1
 - `log_case_reduced_not_solved`: 1
 - `attempted_not_proved_runtime_profiled`: 1
-- `linear_f_case_constructed_sublinear_open`: 1
 
 ## Data and Notes
 
@@ -59,7 +59,7 @@ node scripts/generate_readme_progress.mjs
 | EP-14 | Erdős Problem #14 | to-check | 310 | 1991 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: closing the quantitative gap between current density bounds and the conjectured threshold. |
 | EP-15 | Erdős Problem #15 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-17 | Erdős Problem #17 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-18 | Erdős Problem #18 | to-check | 285 | 1985 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Vose \cite{Vo85} proved the existence of infinitely many practical $m$ such that $h(m)\ll (\log m)^{1/2}$. |
+| EP-18 | Erdős Problem #18 | to-check | 285 | 1985 | finite_practical_and_factorial_h_values_small_asymptotics_open | For practical m<=12000 sampled values of h(m) are single digits; additionally h(3!)..h(8!) = 2,3,4,5,5,6. |
 | EP-20 | Erdős Problem #20 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-25 | Erdős Problem #25 | to-check | 1 |  | partial_positive_result_not_full_proof | proved logarithmic density exists when sum_i 1/n_i converges; also proved existence for pairwise-coprime moduli (density given by product, including zero in divergent case) |
 | EP-28 | Erdős Problem #28 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -169,7 +169,7 @@ node scripts/generate_readme_progress.mjs
 | EP-212 | Erdős Problem #212 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-213 | Erdős Problem #213 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-217 | Erdős Problem #217 | to-check | 279 | 1983 | finite_geometric_random_search_no_witness_no_impossibility | No configuration with multiplicity profile 1..n-1 was found for n=6,7,8,9 in current random grid experiments. |
-| EP-218 | Erdős Problem #218 | to-check | 283 | 1985 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: In \cite{Er85c} Erdos also conjectures that $d_n=d_{n+1}=\cdots=d_{n+k}$ is solvable for every $k$ (which is equivalent to $k$ consecutive primes in arithmetic progression, see [141]). |
+| EP-218 | Erdős Problem #218 | to-check | 283 | 1985 | finite_density_estimates_near_half_equal_gaps_seen_asymptotic_open | Up to n=10^6, proportions of d_{n+1}>=d_n and d_{n+1}<=d_n are both about 0.516, with many equal-gap events observed. |
 | EP-222 | Erdős Problem #222 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-233 | Erdős Problem #233 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-234 | Erdős Problem #234 | to-check | 18 |  | not_proved_statement_text_noisy | Interpreted the problem as existence/continuity of distribution for normalized prime gaps (p_{n+1}-p_n)/log n below threshold c. |
@@ -198,7 +198,7 @@ node scripts/generate_readme_progress.mjs
 | EP-273 | Erdős Problem #273 | to-check | 20 |  | not_proved | Tried covering-system construction with allowed moduli p-1 (p>=5), balancing congruence classes to achieve full integer coverage. |
 | EP-274 | Erdős Problem #274 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-276 | Erdős Problem #276 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-278 | Erdős Problem #278 | to-check | 286 | 1986 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-278 | Erdős Problem #278 | to-check | 286 | 1986 | second_subquestion_solved_max_density_problem_open | Background says minimum density is attained when all residues are equal (second question solved); the maximum-density question remains open here. |
 | EP-279 | Erdős Problem #279 | to-check | 21 |  | k1_k2_analogue_known_kge3_open | Background states analogous covering property is known in k=1 and k=2 settings under divergent harmonic-sum assumptions. |
 | EP-281 | Erdős Problem #281 | to-check | 178 | 1966 | resolved_in_background_as_written | Finite-truncation conclusion follows from background argument combining density limit for multiples and Rogers' extremal residue-class principle. |
 | EP-282 | Erdős Problem #282 | to-check | 168 | 1964 | finite_exhaustive_tests_support_termination_not_proof | Exhaustive tests: all 8150 cases (n<=199) and all 32764 cases (n<=401) terminated. |
@@ -243,7 +243,7 @@ node scripts/generate_readme_progress.mjs
 | EP-351 | Erdős Problem #351 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-352 | Erdős Problem #352 | harder |  | 2013 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-354 | Erdős Problem #354 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-357 | Erdős Problem #357 | to-check | 288 | 1986 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: He notes that a simple averaging process implies $a_k \gg k\log k$ for infinitely many $k$, and so the lower density is $0$. |
+| EP-357 | Erdős Problem #357 | to-check | 288 | 1986 | finite_linear_scale_lower_bounds_found_asymptotic_o_n_open | Found f(40)>=18 (and similarly strong values for n=20..35), indicating robust finite linear-scale behavior. |
 | EP-358 | Erdős Problem #358 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-359 | Erdős Problem #359 | to-check | 232 | 1977 | exact_finite_generation_supports_andrews_scale_not_proved | Computed to k=2400 with a_2400=8378; ratio to k log k/log log k stays around 0.88-0.92 on high checkpoints. |
 | EP-361 | Erdős Problem #361 | to-check | 34 |  | statement_issue_malformed_dataset_entry | Statement field contains injected garbage fragment and background is empty in current dataset copy. |
@@ -353,7 +353,7 @@ node scripts/generate_readme_progress.mjs
 | EP-561 | Erdős Problem #561 | to-check | 236 | 1978 | single_star_base_case_established_general_union_case_open | Exhaustive checks confirm hatR(K1,a,K1,b)=a+b-1 for tested pairs up to (4,4); for (4,4), lower check shows no host with m<=6 and K1,7 gives upper bound 7. |
 | EP-562 | Erdős Problem #562 | to-check | 174 | 1965 | major_open_ramsey_growth_problem | Entry states the target tower-height asymptotic formulation; no full proof cited. |
 | EP-563 | Erdős Problem #563 | to-check | 65 |  | order_known_constant_open | Background gives F(n,alpha) asymp_alpha log n for every 0<=alpha<1/2. |
-| EP-564 | Erdős Problem #564 | to-check | 282 | 1984 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Hajnal, and Rado \cite{EHR65}, who prove the bounds $ 2^{cn^2}< R_3(n)< 2^{2^{n}} $ for some constant $c>0$. |
+| EP-564 | Erdős Problem #564 | to-check | 282 | 1984 | known_bound_window_double_exponential_lower_bound_open | Background gives 2^{c n^2} < R_3(n) < 2^{2^n}; the asked doubly-exponential lower bound remains unresolved here. |
 | EP-566 | Erdős Problem #566 | to-check | 327 | 1993 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: Implies [567]. |
 | EP-567 | Erdős Problem #567 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-568 | Erdős Problem #568 | to-check | 66 |  | no_background_partial_result | Background restates the question as whether G is Ramsey-size linear. |
@@ -514,7 +514,7 @@ node scripts/generate_readme_progress.mjs
 | EP-850 | Erdős Problem #850 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-851 | Erdős Problem #851 | to-check | 143 | 1934 | positive_density_baseline_known_near_full_open | Romanoff proved numbers of the form 2^k+p have positive lower density. |
 | EP-852 | Erdős Problem #852 | to-check | 115 |  | qualitative_growth_known_quantitative_open | Background states Brun sieve implies h(x)->infinity. |
-| EP-853 | Erdős Problem #853 | to-check | 284 | 1985 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: obtaining enough uniformity/cancellation beyond what current modular or sieve control gives. |
+| EP-853 | Erdős Problem #853 | to-check | 284 | 1985 | finite_index_gap_coverage_growth_observed_asymptotic_open | Computed r(10^4)=66, r(10^5)=102, r(10^6)=156 for index-based definition. |
 | EP-854 | Erdős Problem #854 | to-check | 116 |  | finite_counterexample_signal_general_asymptotics_open | Background reports Lacampagne-Selfridge computation showing the all-even-up-to-max-gap expectation fails at n_k=2*3*5*7*11*13. |
 | EP-856 | Erdős Problem #856 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-857 | Erdős Problem #857 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -597,7 +597,7 @@ node scripts/generate_readme_progress.mjs
 | EP-978 | Erdős Problem #978 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-979 | Erdős Problem #979 | to-check | 146 | 1937 | k2_k3_solved_general_k_open | Background states Erdos proved limsup f_k(n)=infinity for k=2 and also for k=3 (noted unpublished there). |
 | EP-983 | Erdős Problem #983 | to-check | 194 | 1970 | exact_small_n_f_values_established_asymptotic_open | For 8<=n<=24 exact f(pi(n)+1,n) computed; 2pi(sqrt n)-f equals -1 at n=22,23,24. |
-| EP-985 | Erdős Problem #985 | to-check | 287 | 1986 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Artin conjectured that $2$ is a primitive root for infinitely many primes $p$, which Hooley \cite{Ho67b} proved assuming the Generalised Riemann Hypothesis. |
+| EP-985 | Erdős Problem #985 | to-check | 287 | 1986 | no_counterexample_in_large_prime_scan_global_question_open | All tested primes p<=2e6 had at least one prime primitive root q<p. |
 | EP-986 | Erdős Problem #986 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-987 | Erdős Problem #987 | to-check | 209 | 1974 | finite_model_diversity_observed_general_asymptotic_open | Arithmetic model shows very small tail A_k/k; quadratic model shows much larger spikes in tested range. |
 | EP-990 | Erdős Problem #990 | to-check | 152 | 1950 | degree_bound_known_sparsity_refinement_open | Background says bound is known with d replacing n. |
@@ -606,8 +606,8 @@ node scripts/generate_readme_progress.mjs
 | EP-996 | Erdős Problem #996 | to-check | 180 | 1966 | known_sufficient_conditions_plus_empirical_support | Background shows progressively weaker sufficient Fourier-tail conditions; simulation for n_k=2^k step-function model shows \|average\| decays with N. |
 | EP-997 | Erdős Problem #997 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1002 | Erdős Problem #1002 | to-check | 163 | 1960 | resolved_in_background_as_written | Kesten's distribution theorem for f(alpha,beta,n) implies the stated case by setting beta=0. |
-| EP-1003 | Erdős Problem #1003 | to-check | 291 | 1987 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos, Pomerance, and S\'{a}rk"{o}zy \cite{EPS87} proved that the number of $n\leq x$ with $\phi(n)=\phi(n+1)$ is at most $ \frac{x}{\exp((\log x)^{1/3})}. |
-| EP-1004 | Erdős Problem #1004 | to-check | 289 | 1987 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Erdos, Pomerenace, and S\'{a}rk"{o}zy \cite{EPS87} proved that if $\phi(n+k)$ are all distinct for $1\leq k\leq K$ then $ K \leq \frac{n}{\exp(c(\log n)^{1/3})} $ for some constant $c>0$. |
+| EP-1003 | Erdős Problem #1003 | to-check | 291 | 1987 | many_finite_equal_totient_pairs_found_infinitude_open | Found 108 solutions n<=5e6 to phi(n)=phi(n+1). |
+| EP-1004 | Erdős Problem #1004 | to-check | 289 | 1987 | long_distinct_phi_runs_observed_full_forall_c_asymptotic_open | Best run length reached 271 by x=4e6, exceeding (log x)^c for tested c up to 2. |
 | EP-1005 | Erdős Problem #1005 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1011 | Erdős Problem #1011 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1013 | Erdős Problem #1013 | to-check | 185 | 1968 | k2logk_scale_known_finer_limits_open | Background provides two-sided bounds of order k^2 log k. |
@@ -641,7 +641,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1066 | Erdős Problem #1066 | harder |  | 2002 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1068 | Erdős Problem #1068 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1070 | Erdős Problem #1070 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-1071 | Erdős Problem #1071 | to-check | 290 | 1987 | not_proved_identified_gap | Tried extremal-configuration reduction with compactness-style reasoning. Hard point: There is no prize mentioned in \cite{Er87b} for the (still open) second question. |
+| EP-1071 | Erdős Problem #1071 | to-check | 290 | 1987 | first_subquestion_solved_second_subquestion_open | Finite maximal disjoint unit-segment family in the unit square exists; countably infinite maximal-family variant remains open here. |
 | EP-1072 | Erdős Problem #1072 | harder |  | 2002 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1073 | Erdős Problem #1073 | harder |  | 2002 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1074 | Erdős Problem #1074 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |

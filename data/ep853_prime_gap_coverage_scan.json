@@ -1,0 +1,37 @@
+{
+  "script": "ep853_prime_gap_coverage_scan.mjs",
+  "n_max": 1000000,
+  "checkpoints": [
+    {
+      "x": 10000,
+      "smallest_missing_even_gap_r_x": 66,
+      "r_over_log_x": 7.165859,
+      "distinct_even_gaps_seen": 33
+    },
+    {
+      "x": 30000,
+      "smallest_missing_even_gap_r_x": 74,
+      "r_over_log_x": 7.178227,
+      "distinct_even_gaps_seen": 40
+    },
+    {
+      "x": 100000,
+      "smallest_missing_even_gap_r_x": 102,
+      "r_over_log_x": 8.859607,
+      "distinct_even_gaps_seen": 53
+    },
+    {
+      "x": 300000,
+      "smallest_missing_even_gap_r_x": 116,
+      "r_over_log_x": 9.197927,
+      "distinct_even_gaps_seen": 65
+    },
+    {
+      "x": 1000000,
+      "smallest_missing_even_gap_r_x": 156,
+      "r_over_log_x": 11.291657,
+      "distinct_even_gaps_seen": 77
+    }
+  ],
+  "timestamp_utc": "2026-03-01T19:10:42.018Z"
+}
