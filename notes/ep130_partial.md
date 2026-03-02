@@ -1,0 +1,13 @@
+# EP-130 partial attempt
+
+## Route
+Separated clique-number and chromatic-number subquestions for the integer-distance graph under no-three-collinear/no-four-cocircular constraints.
+
+## What is resolved from background
+- Infinite complete subgraphs are impossible (Anning-Erdos theorem on integral distances).
+
+## Hard point
+The main remaining issue is whether the chromatic number can still be infinite despite bounded clique behavior.
+
+## Status
+Partially resolved (infinite clique ruled out), chromatic question open.

@@ -1,0 +1,77 @@
+{
+  "script": "ep886_887_divisors_near_sqrt_scan.mjs",
+  "n_max": 2000000,
+  "C_interval_results": [
+    {
+      "C": 0.5,
+      "count": 1,
+      "n": 2,
+      "divisors": [
+        2
+      ]
+    },
+    {
+      "C": 1,
+      "count": 1,
+      "n": 2,
+      "divisors": [
+        2
+      ]
+    },
+    {
+      "C": 2,
+      "count": 4,
+      "n": 15120,
+      "divisors": [
+        135,
+        126,
+        140,
+        144
+      ]
+    },
+    {
+      "C": 4,
+      "count": 6,
+      "n": 85680,
+      "divisors": [
+        357,
+        315,
+        306,
+        340,
+        360,
+        336
+      ]
+    }
+  ],
+  "epsilon_interval_results": [
+    {
+      "epsilon": 0.1,
+      "count": 10,
+      "n": 1441440,
+      "divisors": [
+        1365,
+        1287,
+        1430,
+        1386,
+        1260,
+        1320,
+        1456,
+        1232,
+        1248,
+        1440
+      ]
+    },
+    {
+      "epsilon": 0.2,
+      "count": 4,
+      "n": 712800,
+      "divisors": [
+        891,
+        900,
+        880,
+        864
+      ]
+    }
+  ],
+  "timestamp_utc": "2026-03-02T09:06:18.321Z"
+}

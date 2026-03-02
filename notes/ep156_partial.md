@@ -1,0 +1,15 @@
+# EP-156 partial attempt
+
+## Route
+Ran random-order greedy constructions of maximal Sidon sets in `[1..N]` and tracked size scaling.
+
+## Evidence from this batch
+- `data/ep156_maximal_sidon_random_scan.json` (`N=200..3200`, 600 trials each):
+  - minimum found sizes: `11,15,20,27,36`;
+  - ratios to `N^{1/3}` stay around `1.9` to `2.4`.
+
+## Hard point
+Finite/random constructions support the `N^{1/3}` scale but do not prove existence of maximal Sidon sets of size `O(N^{1/3})` for all large `N`.
+
+## Status
+Strong finite heuristic support; theorem-level existence question remains open.

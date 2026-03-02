@@ -1,0 +1,19 @@
+# EP-1096 partial attempt
+
+## Route
+Computed finite subset-sum spectra
+`{sum_{i=0}^M c_i q^i : c_i in {0,1}}`
+for several `q in (1,2)` and measured tail gap statistics.
+
+## Evidence from this batch
+- `data/ep1096_q_subset_gap_scan.json` (`M=18`) shows very small average tail gaps in the last quartile of sorted values, though occasional large (`~1`) gaps persist in finite truncations.
+
+## What is resolved from background
+- Pisot numbers are excluded from the target vanishing-gap property.
+- Multiple equivalent/related gap criteria are known for Pisot vs non-Pisot behavior.
+
+## Hard point
+Finite truncations do not decide asymptotic behavior of the full infinite ordered set.
+
+## Status
+Heuristic finite evidence only; threshold behavior remains open.

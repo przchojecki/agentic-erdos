@@ -1,0 +1,17 @@
+# EP-886 partial attempt
+
+## Route
+Scanned integers up to `2*10^6` and counted divisors in
+`(sqrt(n), sqrt(n)+n^{1/2-epsilon})`
+for `epsilon in {0.1,0.2}`.
+
+## Evidence from this batch
+- `data/ep886_887_divisors_near_sqrt_scan.json`:
+  - max observed count for `epsilon=0.1` is `10`,
+  - max observed count for `epsilon=0.2` is `4`.
+
+## Hard point
+Finite maxima are compatible with boundedness but do not prove uniform `O_epsilon(1)` for all sufficiently large `n`.
+
+## Status
+Strong finite support, no theorem yet.

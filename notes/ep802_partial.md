@@ -1,0 +1,17 @@
+# EP-802 partial attempt
+
+## Route
+Compared the target bound
+`alpha(G) >>_r (log t / t) n`
+for `K_r`-free graphs with known partial results and strengthened local assumptions.
+
+## What is resolved from background
+- `r=3` case is known.
+- Under stronger local-neighborhood sparsity assumptions, the conjectured scale is also known.
+- General `K_r`-free case is open in the listed context.
+
+## Hard point
+Removing additional local structure assumptions while keeping the full logarithmic factor is the barrier.
+
+## Status
+Partially resolved in special regimes; full conjecture remains open.

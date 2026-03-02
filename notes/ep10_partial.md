@@ -1,0 +1,16 @@
+# EP-10 partial attempt
+
+## Route
+Computed finite coverage of integers representable as
+`prime + (at most k powers of 2)` for `k=1,2,3,4`.
+
+## Evidence from this batch
+- `data/ep10_prime_plus_pow2_scan.json` up to `250000`:
+  - `k=2` covers about `97.6%`,
+  - `k=3` and `k=4` cover all tested `n>=2` (only `n=1` missing, trivially).
+
+## Hard point
+Finite verification cannot prove existence of a universal `k` for all integers.
+
+## Status
+Very strong finite evidence for small `k` (not a proof).
