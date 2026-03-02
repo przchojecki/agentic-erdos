@@ -1,0 +1,16 @@
+# EP-1093 partial attempt
+
+## Route
+Implemented a finite scan using prime-valuation tests for the binomial divisibility condition, then computed deficiencies where defined.
+
+## Evidence from this batch
+- `data/ep1093_deficiency_scan.json` with `n <= 30000`, `k <= 60`:
+  - defined cases: `32458`
+  - deficiency counts: `0:32393`, `1:50`, `2:7`, `3:6`, `4:1`, `9:1`
+- The scan recovers classical small high-deficiency examples (`(44,8)`, `(46,10)`, `(47,10)`, `(47,11)`, etc.).
+
+## Hard point
+Finite scans support rarity of deficiency `>1` but do not prove finiteness or infinitude across all `n,k`.
+
+## Status
+Strong finite evidence added; global questions remain open.

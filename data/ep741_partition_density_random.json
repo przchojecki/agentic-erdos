@@ -1,0 +1,55 @@
+{
+  "script": "ep741_partition_density_random.mjs",
+  "n": 1200,
+  "densities": [
+    0.1,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "instances": 30,
+  "partitions": 500,
+  "rows": [
+    {
+      "p": 0.1,
+      "n": 1200,
+      "instances": 30,
+      "partitions_per_instance": 500,
+      "accepted_instances": 30,
+      "both_positive_found_count": 30,
+      "avg_base_sumset_density": 0.843074,
+      "avg_best_min_partition_density": 0.50396
+    },
+    {
+      "p": 0.15,
+      "n": 1200,
+      "instances": 30,
+      "partitions_per_instance": 500,
+      "accepted_instances": 30,
+      "both_positive_found_count": 30,
+      "avg_base_sumset_density": 0.922996,
+      "avg_best_min_partition_density": 0.724413
+    },
+    {
+      "p": 0.2,
+      "n": 1200,
+      "instances": 30,
+      "partitions_per_instance": 500,
+      "accepted_instances": 30,
+      "both_positive_found_count": 30,
+      "avg_base_sumset_density": 0.964666,
+      "avg_best_min_partition_density": 0.851077
+    },
+    {
+      "p": 0.3,
+      "n": 1200,
+      "instances": 30,
+      "partitions_per_instance": 500,
+      "accepted_instances": 30,
+      "both_positive_found_count": 30,
+      "avg_base_sumset_density": 0.987147,
+      "avg_best_min_partition_density": 0.939378
+    }
+  ],
+  "timestamp_utc": "2026-03-02T08:26:53.463Z"
+}

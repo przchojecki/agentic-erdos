@@ -1,0 +1,16 @@
+# EP-50 partial attempt
+
+## Route
+Used known singularity of the distribution function and added a finite empirical scan of `phi(n)/n` CDF slopes.
+
+## Evidence from this batch
+- `data/ep50_phi_distribution_scan.json` (`n<=300000`) shows a highly irregular empirical CDF with sharp slope spikes near arithmetic-rational locations.
+
+## What is resolved from background
+Erdos proved the distribution function is purely singular.
+
+## Hard point
+Pure singularity does not by itself rule out isolated points where derivative exists and is positive, so the stated derivative question remains subtle.
+
+## Status
+Partially resolved structurally (singularity known), full derivative claim still open.

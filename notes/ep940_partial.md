@@ -1,0 +1,14 @@
+# EP-940 partial attempt
+
+## Route
+Reduced the first question to additive bases of `r`-powerful numbers and compared with known additive results in nearby cases.
+
+## Context from background
+- For `r=3`, even the classical question on sums of three cubes is unresolved at density level.
+- Existing results for squarefull numbers (`r=2`) do not transfer to the `r>=3` regime in the statement.
+
+## Hard point
+Current additive methods do not provide enough control on representation density by at most `r` many `r`-powerful numbers.
+
+## Status
+No proof or counterexample obtained.
