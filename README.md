@@ -2,32 +2,44 @@
 
 Tracking repository for experimental progress on Erdős problems from the `ulamai/UnsolvedMath` dataset subset we downloaded locally.
 
+## To-Check Summary (All Attempted)
+
+- Full write-up across all attempted `to-check` problems: [summary-check.md](summary-check.md)
+- Total `to-check` problems: **375**
+- Attempted (deep_attempt_done=true): **375**
+- Remaining unattempted: **0**
+- Auto-flagged promising reasoning leads: **181**
+- Auto-flagged promising counterexample leads: **31**
+- Settled `counterexample_proved_as_written`: **EP-129**, **EP-180**
+- Settled `resolved_in_background_as_written`: **EP-281**, **EP-1002**
+- Settled `statement_issue_counterexample_in_background`: **EP-655**
+
 ## Scope
 
 - Total problems tracked: **632**
 - Triaged as `to-check`: **375**
 - Triaged as `harder` (post-2000 reference signal): **257**
-- Records with deep-attempt workflow initialized: **372**
-- Records with at least one explicit attempt/progress status: **375**
-- README last generated (UTC): **2026-03-02T09:14:44.652Z**
+- Records with deep-attempt workflow initialized: **382**
+- Records with at least one explicit attempt/progress status: **382**
+- README last generated (UTC): **2026-03-02T09:47:39.247Z**
 
 ## Progress Status Counts
 
-- `deprioritized_post2000_refs`: 257
+- `deprioritized_post2000_refs`: 250
 - `no_background_partial_result`: 23
 - `statement_issue_malformed_dataset_entry`: 16
 - `not_proved`: 12
 - `partially_resolved_not_fully_closed`: 3
 - `order_known_constant_open`: 3
-- `not_proved_identified_gap`: 3
 - `counterexample_proved_as_written`: 2
 - `adversarial_search_frontier_extended_not_proved`: 2
 - `resolved_in_background_as_written`: 2
 - `two_sided_bounds_known_asymptotic_open`: 2
+- `stronger_than_classical_bounds_known_constant_factor_question_open`: 1
+- `low_k_progress_general_case_open`: 1
+- `large_structural_progress_full_limit_set_open`: 1
+- `infinitude_known_positive_density_open`: 1
 - `strong_finite_coverage_signal_universal_k_open`: 1
-- `heuristic_sqrt_scale_exception_profile_observed_asymptotic_open`: 1
-- `finite_practical_and_factorial_h_values_small_asymptotics_open`: 1
-- `partial_positive_result_not_full_proof`: 1
 
 ## Data and Notes
 
@@ -50,15 +62,15 @@ node scripts/generate_readme_progress.mjs
 
 | Problem | Title | Bucket | Rank | Latest Ref | Progress | Note |
 |---|---|---:|---:|---:|---|---|
-| EP-1 | Erdős Problem #1 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-3 | Erdős Problem #3 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-5 | Erdős Problem #5 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-9 | Erdős Problem #9 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
+| EP-1 | Erdős Problem #1 | harder |  | 2023 | stronger_than_classical_bounds_known_constant_factor_question_open | recorded exact bound N>=binom(n,floor(n/2)) and relation to original N>>2^n target |
+| EP-3 | Erdős Problem #3 | harder |  | 2024 | low_k_progress_general_case_open | documented that current technology handles short progression lengths far better than arbitrary length |
+| EP-5 | Erdős Problem #5 | harder |  | 2020 | large_structural_progress_full_limit_set_open | recorded known inclusion results and endpoint membership for limit-point set S |
+| EP-9 | Erdős Problem #9 | harder |  | 2011 | infinitude_known_positive_density_open | recorded known N^{1-eps}-type lower bounds for exceptional-count growth |
 | EP-10 | Erdős Problem #10 | to-check | 362 | 1998 | strong_finite_coverage_signal_universal_k_open | up to 250000, all n>=2 were representable for k=3 (and k=4); k=2 left sparse exceptions |
-| EP-12 | Erdős Problem #12 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
+| EP-12 | Erdős Problem #12 | harder |  | 2017 | density_zero_known_finer_asymptotics_open | recorded near-N^{1/2} constructive lower side and unresolved reciprocal-sum finiteness question |
 | EP-14 | Erdős Problem #14 | to-check | 310 | 1991 | heuristic_sqrt_scale_exception_profile_observed_asymptotic_open | Quick searches for N up to 360 found bad counts 68, 97, 146, 215, consistent with square-root-scale growth. |
-| EP-15 | Erdős Problem #15 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-17 | Erdős Problem #17 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
+| EP-15 | Erdős Problem #15 | harder |  | 2023 | finite_numeric_behavior_convergent_like_unconditional_proof_open | partial sums stayed small and stable in range [-0.5,0.1667], ending near -0.0213 at n=2e6 |
+| EP-17 | Erdős Problem #17 | harder |  | 2004 | strong_finite_abundance_signal_infinitude_open | found 3618 cluster primes up to 300000, largest 299393 |
 | EP-18 | Erdős Problem #18 | to-check | 285 | 1985 | finite_practical_and_factorial_h_values_small_asymptotics_open | For practical m<=12000 sampled values of h(m) are single digits; additionally h(3!)..h(8!) = 2,3,4,5,5,6. |
 | EP-20 | Erdős Problem #20 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-25 | Erdős Problem #25 | to-check | 1 |  | partial_positive_result_not_full_proof | proved logarithmic density exists when sum_i 1/n_i converges; also proved existence for pairwise-coprime moduli (density given by product, including zero in divergent case) |
@@ -394,7 +406,7 @@ node scripts/generate_readme_progress.mjs
 | EP-625 | Erdős Problem #625 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-626 | Erdős Problem #626 | to-check | 297 | 1988 | log_scale_bounds_known_limit_existence_and_value_open | Known two-sided bounds place g_k(n) on a log n scale and constrain h^{(m)} growth exponents, but do not settle limit existence/value. |
 | EP-627 | Erdős Problem #627 | to-check | 183 | 1967 | asymptotic_order_known_limit_existence_open | Background gives f(n) asy n/(log n)^2 and interval constraints for a possible limit value. |
-| EP-629 | Erdős Problem #629 | to-check | 373 | 2000 | not_proved_identified_gap | Tried probabilistic construction and extremal counting inequalities. Hard point: A problem of Erdos, Rubin, and Taylor \cite{ERT80}, who proved that $ 2^{k-1}<n(k) <k^22^{k+2}. |
+| EP-629 | Erdős Problem #629 | to-check | 373 | 2000 | tight_exponential_bounds_known_exact_asymptotics_open | recorded strongest available sandwich bounds and small-k exact values n(2)=6, n(3)=14 |
 | EP-633 | Erdős Problem #633 | harder |  | 2009 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-634 | Erdős Problem #634 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-635 | Erdős Problem #635 | to-check | 77 |  | t1_exact_t2_lower_known_general_open | Background gives exact maximum for t=1 and a t=2 construction with \|A\|>=N/2 + c log N. |
@@ -530,7 +542,7 @@ node scripts/generate_readme_progress.mjs
 | EP-872 | Erdős Problem #872 | harder |  | 2016 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-873 | Erdős Problem #873 | to-check | 120 |  | k3_scale_known_general_epsilon_k_open | Background gives matching-order upper/lower behavior for k=3: X^{1/3} log X scale. |
 | EP-875 | Erdős Problem #875 | to-check | 121 |  | no_background_partial_result | Background mostly states difficulty/context without a proved quantitative bound. |
-| EP-876 | Erdős Problem #876 | to-check | 375 | 2000 | not_proved_identified_gap | Tried an additive-energy/density-increment reduction and small-parameter sanity checks. Hard point: Erdos \cite{Er98} writes that Graham 'recently proved' that there is such a sequence for which $a_{n+1}-a_n<n^{1+o(1)}$, and that Melfi proved a somewhat weaker result. |
+| EP-876 | Erdős Problem #876 | to-check | 375 | 2000 | finite_prefix_feasible_infinite_statement_open | constructed prefix 4,33,34,36,39,...,68 of length 20 satisfying constraints in search model |
 | EP-878 | Erdős Problem #878 | to-check | 281 | 1984 | statement_issue_malformed_dataset_entry_with_partial_background_results | Record text is split mid-sentence; however, background notes partial progress for some subquestions (for example max f(n) along subsequences). |
 | EP-879 | Erdős Problem #879 | to-check | 122 |  | strong_bounds_known_strongest_forms_open | Background gives H(n)-n^{3/2-o(1)}<G(n)<H(n), plus k=2 case of second claim. |
 | EP-881 | Erdős Problem #881 | to-check | 123 |  | statement_issue_malformed_dataset_entry | Statement contains injected text fragment and background is empty in this dataset copy. |
@@ -665,7 +677,7 @@ node scripts/generate_readme_progress.mjs
 | EP-1103 | Erdős Problem #1103 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1104 | Erdős Problem #1104 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-1105 | Erdős Problem #1105 | harder |  | 2021 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-1106 | Erdős Problem #1106 | to-check | 374 | 2000 | not_proved_identified_gap | Tried minimal-counterexample plus modular/sieve-style reductions. Hard point: Schinzel and Wirsing \cite{ScWi87} have proved $F(n) \gg \log n$. |
+| EP-1106 | Erdős Problem #1106 | to-check | 374 | 2000 | first_question_resolved_second_open | recorded established F(n)->infinity and known quantitative lower bound F(n)>>log n |
 | EP-1107 | Erdős Problem #1107 | to-check | 294 | 1988 | weaker_unconditional_waring_bound_proved_sharp_rplus1_open | Using Hilbert-Waring, every positive integer is a sum of at most W(r)=g(r) many r-powerful numbers for each fixed r>=2; exact scans to n=1e8 additionally show strong finite eventual-coverage signals for r=3..7. |
 | EP-1108 | Erdős Problem #1108 | to-check | 314 | 1991 | finite_prefix_evidence_and_fixed_r_partial_theory_global_finiteness_open | scanned subset sums from {1!,...,10!}: found 22 powerful and 17 perfect-power values in finite prefix; this confirms only local abundance/rarity patterns |
 | EP-1109 | Erdős Problem #1109 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |

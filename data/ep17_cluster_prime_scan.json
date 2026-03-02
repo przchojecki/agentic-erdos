@@ -1,0 +1,1349 @@
+{
+  "script": "ep17_cluster_prime_scan.mjs",
+  "p_max": 300000,
+  "cluster_primes_count": 3618,
+  "largest_cluster_prime_found": 299393,
+  "first_cluster_primes": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    101,
+    103,
+    107,
+    109,
+    113,
+    131,
+    137,
+    139,
+    151,
+    157,
+    163,
+    167,
+    173,
+    179,
+    181,
+    193,
+    197,
+    199,
+    233,
+    239,
+    241,
+    271,
+    277,
+    281,
+    283,
+    311,
+    313,
+    317,
+    353,
+    359,
+    389,
+    401,
+    421,
+    433,
+    439,
+    443,
+    449,
+    461,
+    463,
+    467,
+    491,
+    503,
+    509,
+    523,
+    571,
+    577,
+    601,
+    607,
+    613,
+    617,
+    619,
+    643,
+    647,
+    653,
+    659,
+    661
+  ],
+  "last_cluster_primes": [
+    294341,
+    294347,
+    294353,
+    294803,
+    294809,
+    294923,
+    294953,
+    295081,
+    295873,
+    295877,
+    295879,
+    295903,
+    295909,
+    296273,
+    296279,
+    296507,
+    296509,
+    296581,
+    296587,
+    296591,
+    296753,
+    296771,
+    296773,
+    296831,
+    296833,
+    296983,
+    296987,
+    297629,
+    297811,
+    297911,
+    297991,
+    298171,
+    298349,
+    298681,
+    298687,
+    298691,
+    298693,
+    298819,
+    299363,
+    299393
+  ],
+  "checkpoints": [
+    {
+      "p": 2,
+      "cluster_count": 1
+    },
+    {
+      "p": 3,
+      "cluster_count": 2
+    },
+    {
+      "p": 5,
+      "cluster_count": 3
+    },
+    {
+      "p": 7,
+      "cluster_count": 4
+    },
+    {
+      "p": 11,
+      "cluster_count": 5
+    },
+    {
+      "p": 13,
+      "cluster_count": 6
+    },
+    {
+      "p": 17,
+      "cluster_count": 7
+    },
+    {
+      "p": 19,
+      "cluster_count": 8
+    },
+    {
+      "p": 23,
+      "cluster_count": 9
+    },
+    {
+      "p": 29,
+      "cluster_count": 10
+    },
+    {
+      "p": 31,
+      "cluster_count": 11
+    },
+    {
+      "p": 37,
+      "cluster_count": 12
+    },
+    {
+      "p": 41,
+      "cluster_count": 13
+    },
+    {
+      "p": 43,
+      "cluster_count": 14
+    },
+    {
+      "p": 47,
+      "cluster_count": 15
+    },
+    {
+      "p": 53,
+      "cluster_count": 16
+    },
+    {
+      "p": 59,
+      "cluster_count": 17
+    },
+    {
+      "p": 61,
+      "cluster_count": 18
+    },
+    {
+      "p": 67,
+      "cluster_count": 19
+    },
+    {
+      "p": 71,
+      "cluster_count": 20
+    },
+    {
+      "p": 73,
+      "cluster_count": 21
+    },
+    {
+      "p": 79,
+      "cluster_count": 22
+    },
+    {
+      "p": 83,
+      "cluster_count": 23
+    },
+    {
+      "p": 89,
+      "cluster_count": 24
+    },
+    {
+      "p": 97,
+      "cluster_count": 24
+    },
+    {
+      "p": 101,
+      "cluster_count": 25
+    },
+    {
+      "p": 103,
+      "cluster_count": 26
+    },
+    {
+      "p": 107,
+      "cluster_count": 27
+    },
+    {
+      "p": 109,
+      "cluster_count": 28
+    },
+    {
+      "p": 113,
+      "cluster_count": 29
+    },
+    {
+      "p": 127,
+      "cluster_count": 29
+    },
+    {
+      "p": 131,
+      "cluster_count": 30
+    },
+    {
+      "p": 137,
+      "cluster_count": 31
+    },
+    {
+      "p": 139,
+      "cluster_count": 32
+    },
+    {
+      "p": 149,
+      "cluster_count": 32
+    },
+    {
+      "p": 151,
+      "cluster_count": 33
+    },
+    {
+      "p": 157,
+      "cluster_count": 34
+    },
+    {
+      "p": 163,
+      "cluster_count": 35
+    },
+    {
+      "p": 167,
+      "cluster_count": 36
+    },
+    {
+      "p": 173,
+      "cluster_count": 37
+    },
+    {
+      "p": 179,
+      "cluster_count": 38
+    },
+    {
+      "p": 181,
+      "cluster_count": 39
+    },
+    {
+      "p": 191,
+      "cluster_count": 39
+    },
+    {
+      "p": 193,
+      "cluster_count": 40
+    },
+    {
+      "p": 197,
+      "cluster_count": 41
+    },
+    {
+      "p": 199,
+      "cluster_count": 42
+    },
+    {
+      "p": 211,
+      "cluster_count": 42
+    },
+    {
+      "p": 223,
+      "cluster_count": 42
+    },
+    {
+      "p": 227,
+      "cluster_count": 42
+    },
+    {
+      "p": 229,
+      "cluster_count": 42
+    },
+    {
+      "p": 233,
+      "cluster_count": 43
+    },
+    {
+      "p": 239,
+      "cluster_count": 44
+    },
+    {
+      "p": 241,
+      "cluster_count": 45
+    },
+    {
+      "p": 251,
+      "cluster_count": 45
+    },
+    {
+      "p": 257,
+      "cluster_count": 45
+    },
+    {
+      "p": 263,
+      "cluster_count": 45
+    },
+    {
+      "p": 269,
+      "cluster_count": 45
+    },
+    {
+      "p": 271,
+      "cluster_count": 46
+    },
+    {
+      "p": 277,
+      "cluster_count": 47
+    },
+    {
+      "p": 281,
+      "cluster_count": 48
+    },
+    {
+      "p": 283,
+      "cluster_count": 49
+    },
+    {
+      "p": 293,
+      "cluster_count": 49
+    },
+    {
+      "p": 307,
+      "cluster_count": 49
+    },
+    {
+      "p": 311,
+      "cluster_count": 50
+    },
+    {
+      "p": 313,
+      "cluster_count": 51
+    },
+    {
+      "p": 317,
+      "cluster_count": 52
+    },
+    {
+      "p": 331,
+      "cluster_count": 52
+    },
+    {
+      "p": 337,
+      "cluster_count": 52
+    },
+    {
+      "p": 347,
+      "cluster_count": 52
+    },
+    {
+      "p": 349,
+      "cluster_count": 52
+    },
+    {
+      "p": 353,
+      "cluster_count": 53
+    },
+    {
+      "p": 359,
+      "cluster_count": 54
+    },
+    {
+      "p": 367,
+      "cluster_count": 54
+    },
+    {
+      "p": 373,
+      "cluster_count": 54
+    },
+    {
+      "p": 379,
+      "cluster_count": 54
+    },
+    {
+      "p": 383,
+      "cluster_count": 54
+    },
+    {
+      "p": 389,
+      "cluster_count": 55
+    },
+    {
+      "p": 397,
+      "cluster_count": 55
+    },
+    {
+      "p": 401,
+      "cluster_count": 56
+    },
+    {
+      "p": 409,
+      "cluster_count": 56
+    },
+    {
+      "p": 419,
+      "cluster_count": 56
+    },
+    {
+      "p": 421,
+      "cluster_count": 57
+    },
+    {
+      "p": 431,
+      "cluster_count": 57
+    },
+    {
+      "p": 433,
+      "cluster_count": 58
+    },
+    {
+      "p": 439,
+      "cluster_count": 59
+    },
+    {
+      "p": 443,
+      "cluster_count": 60
+    },
+    {
+      "p": 449,
+      "cluster_count": 61
+    },
+    {
+      "p": 457,
+      "cluster_count": 61
+    },
+    {
+      "p": 461,
+      "cluster_count": 62
+    },
+    {
+      "p": 463,
+      "cluster_count": 63
+    },
+    {
+      "p": 467,
+      "cluster_count": 64
+    },
+    {
+      "p": 479,
+      "cluster_count": 64
+    },
+    {
+      "p": 487,
+      "cluster_count": 64
+    },
+    {
+      "p": 491,
+      "cluster_count": 65
+    },
+    {
+      "p": 499,
+      "cluster_count": 65
+    },
+    {
+      "p": 503,
+      "cluster_count": 66
+    },
+    {
+      "p": 509,
+      "cluster_count": 67
+    },
+    {
+      "p": 521,
+      "cluster_count": 67
+    },
+    {
+      "p": 523,
+      "cluster_count": 68
+    },
+    {
+      "p": 541,
+      "cluster_count": 68
+    },
+    {
+      "p": 547,
+      "cluster_count": 68
+    },
+    {
+      "p": 557,
+      "cluster_count": 68
+    },
+    {
+      "p": 563,
+      "cluster_count": 68
+    },
+    {
+      "p": 569,
+      "cluster_count": 68
+    },
+    {
+      "p": 571,
+      "cluster_count": 69
+    },
+    {
+      "p": 577,
+      "cluster_count": 70
+    },
+    {
+      "p": 587,
+      "cluster_count": 70
+    },
+    {
+      "p": 593,
+      "cluster_count": 70
+    },
+    {
+      "p": 599,
+      "cluster_count": 70
+    },
+    {
+      "p": 601,
+      "cluster_count": 71
+    },
+    {
+      "p": 607,
+      "cluster_count": 72
+    },
+    {
+      "p": 613,
+      "cluster_count": 73
+    },
+    {
+      "p": 617,
+      "cluster_count": 74
+    },
+    {
+      "p": 619,
+      "cluster_count": 75
+    },
+    {
+      "p": 631,
+      "cluster_count": 75
+    },
+    {
+      "p": 641,
+      "cluster_count": 75
+    },
+    {
+      "p": 643,
+      "cluster_count": 76
+    },
+    {
+      "p": 647,
+      "cluster_count": 77
+    },
+    {
+      "p": 653,
+      "cluster_count": 78
+    },
+    {
+      "p": 659,
+      "cluster_count": 79
+    },
+    {
+      "p": 661,
+      "cluster_count": 80
+    },
+    {
+      "p": 673,
+      "cluster_count": 80
+    },
+    {
+      "p": 677,
+      "cluster_count": 81
+    },
+    {
+      "p": 683,
+      "cluster_count": 82
+    },
+    {
+      "p": 691,
+      "cluster_count": 82
+    },
+    {
+      "p": 701,
+      "cluster_count": 82
+    },
+    {
+      "p": 709,
+      "cluster_count": 82
+    },
+    {
+      "p": 719,
+      "cluster_count": 82
+    },
+    {
+      "p": 727,
+      "cluster_count": 82
+    },
+    {
+      "p": 733,
+      "cluster_count": 82
+    },
+    {
+      "p": 739,
+      "cluster_count": 82
+    },
+    {
+      "p": 743,
+      "cluster_count": 82
+    },
+    {
+      "p": 751,
+      "cluster_count": 82
+    },
+    {
+      "p": 757,
+      "cluster_count": 82
+    },
+    {
+      "p": 761,
+      "cluster_count": 83
+    },
+    {
+      "p": 769,
+      "cluster_count": 83
+    },
+    {
+      "p": 773,
+      "cluster_count": 84
+    },
+    {
+      "p": 787,
+      "cluster_count": 84
+    },
+    {
+      "p": 797,
+      "cluster_count": 84
+    },
+    {
+      "p": 809,
+      "cluster_count": 84
+    },
+    {
+      "p": 811,
+      "cluster_count": 85
+    },
+    {
+      "p": 821,
+      "cluster_count": 85
+    },
+    {
+      "p": 823,
+      "cluster_count": 86
+    },
+    {
+      "p": 827,
+      "cluster_count": 87
+    },
+    {
+      "p": 829,
+      "cluster_count": 88
+    },
+    {
+      "p": 839,
+      "cluster_count": 88
+    },
+    {
+      "p": 853,
+      "cluster_count": 88
+    },
+    {
+      "p": 857,
+      "cluster_count": 89
+    },
+    {
+      "p": 859,
+      "cluster_count": 90
+    },
+    {
+      "p": 863,
+      "cluster_count": 91
+    },
+    {
+      "p": 877,
+      "cluster_count": 91
+    },
+    {
+      "p": 881,
+      "cluster_count": 92
+    },
+    {
+      "p": 883,
+      "cluster_count": 93
+    },
+    {
+      "p": 887,
+      "cluster_count": 94
+    },
+    {
+      "p": 907,
+      "cluster_count": 94
+    },
+    {
+      "p": 911,
+      "cluster_count": 94
+    },
+    {
+      "p": 919,
+      "cluster_count": 94
+    },
+    {
+      "p": 929,
+      "cluster_count": 94
+    },
+    {
+      "p": 937,
+      "cluster_count": 94
+    },
+    {
+      "p": 941,
+      "cluster_count": 95
+    },
+    {
+      "p": 947,
+      "cluster_count": 96
+    },
+    {
+      "p": 953,
+      "cluster_count": 97
+    },
+    {
+      "p": 967,
+      "cluster_count": 97
+    },
+    {
+      "p": 971,
+      "cluster_count": 98
+    },
+    {
+      "p": 977,
+      "cluster_count": 99
+    },
+    {
+      "p": 983,
+      "cluster_count": 100
+    },
+    {
+      "p": 991,
+      "cluster_count": 100
+    },
+    {
+      "p": 997,
+      "cluster_count": 100
+    },
+    {
+      "p": 1009,
+      "cluster_count": 100
+    },
+    {
+      "p": 1013,
+      "cluster_count": 101
+    },
+    {
+      "p": 1019,
+      "cluster_count": 102
+    },
+    {
+      "p": 1021,
+      "cluster_count": 103
+    },
+    {
+      "p": 1031,
+      "cluster_count": 103
+    },
+    {
+      "p": 1033,
+      "cluster_count": 104
+    },
+    {
+      "p": 1039,
+      "cluster_count": 105
+    },
+    {
+      "p": 1049,
+      "cluster_count": 105
+    },
+    {
+      "p": 1051,
+      "cluster_count": 106
+    },
+    {
+      "p": 1061,
+      "cluster_count": 106
+    },
+    {
+      "p": 1063,
+      "cluster_count": 107
+    },
+    {
+      "p": 1069,
+      "cluster_count": 108
+    },
+    {
+      "p": 1087,
+      "cluster_count": 108
+    },
+    {
+      "p": 1091,
+      "cluster_count": 109
+    },
+    {
+      "p": 1093,
+      "cluster_count": 110
+    },
+    {
+      "p": 1097,
+      "cluster_count": 111
+    },
+    {
+      "p": 1103,
+      "cluster_count": 112
+    },
+    {
+      "p": 1109,
+      "cluster_count": 113
+    },
+    {
+      "p": 1117,
+      "cluster_count": 113
+    },
+    {
+      "p": 1123,
+      "cluster_count": 113
+    },
+    {
+      "p": 1129,
+      "cluster_count": 113
+    },
+    {
+      "p": 1151,
+      "cluster_count": 113
+    },
+    {
+      "p": 1153,
+      "cluster_count": 114
+    },
+    {
+      "p": 1163,
+      "cluster_count": 114
+    },
+    {
+      "p": 1171,
+      "cluster_count": 114
+    },
+    {
+      "p": 1181,
+      "cluster_count": 114
+    },
+    {
+      "p": 1187,
+      "cluster_count": 114
+    },
+    {
+      "p": 1193,
+      "cluster_count": 114
+    },
+    {
+      "p": 1201,
+      "cluster_count": 114
+    },
+    {
+      "p": 1213,
+      "cluster_count": 114
+    },
+    {
+      "p": 1217,
+      "cluster_count": 114
+    },
+    {
+      "p": 1223,
+      "cluster_count": 115
+    },
+    {
+      "p": 1229,
+      "cluster_count": 116
+    },
+    {
+      "p": 1231,
+      "cluster_count": 117
+    },
+    {
+      "p": 1237,
+      "cluster_count": 118
+    },
+    {
+      "p": 1249,
+      "cluster_count": 118
+    },
+    {
+      "p": 1259,
+      "cluster_count": 118
+    },
+    {
+      "p": 1277,
+      "cluster_count": 118
+    },
+    {
+      "p": 1279,
+      "cluster_count": 119
+    },
+    {
+      "p": 1283,
+      "cluster_count": 120
+    },
+    {
+      "p": 1289,
+      "cluster_count": 121
+    },
+    {
+      "p": 1291,
+      "cluster_count": 122
+    },
+    {
+      "p": 1297,
+      "cluster_count": 123
+    },
+    {
+      "p": 1301,
+      "cluster_count": 124
+    },
+    {
+      "p": 1303,
+      "cluster_count": 125
+    },
+    {
+      "p": 1307,
+      "cluster_count": 126
+    },
+    {
+      "p": 1319,
+      "cluster_count": 126
+    },
+    {
+      "p": 1321,
+      "cluster_count": 127
+    },
+    {
+      "p": 1327,
+      "cluster_count": 128
+    },
+    {
+      "p": 1361,
+      "cluster_count": 128
+    },
+    {
+      "p": 1367,
+      "cluster_count": 128
+    },
+    {
+      "p": 1373,
+      "cluster_count": 128
+    },
+    {
+      "p": 1381,
+      "cluster_count": 128
+    },
+    {
+      "p": 1399,
+      "cluster_count": 128
+    },
+    {
+      "p": 1409,
+      "cluster_count": 128
+    },
+    {
+      "p": 1423,
+      "cluster_count": 128
+    },
+    {
+      "p": 1427,
+      "cluster_count": 129
+    },
+    {
+      "p": 1429,
+      "cluster_count": 130
+    },
+    {
+      "p": 1433,
+      "cluster_count": 131
+    },
+    {
+      "p": 1439,
+      "cluster_count": 132
+    },
+    {
+      "p": 1447,
+      "cluster_count": 132
+    },
+    {
+      "p": 1451,
+      "cluster_count": 133
+    },
+    {
+      "p": 1453,
+      "cluster_count": 134
+    },
+    {
+      "p": 1459,
+      "cluster_count": 135
+    },
+    {
+      "p": 1471,
+      "cluster_count": 135
+    },
+    {
+      "p": 1481,
+      "cluster_count": 135
+    },
+    {
+      "p": 1483,
+      "cluster_count": 136
+    },
+    {
+      "p": 1487,
+      "cluster_count": 137
+    },
+    {
+      "p": 1489,
+      "cluster_count": 138
+    },
+    {
+      "p": 1493,
+      "cluster_count": 139
+    },
+    {
+      "p": 1499,
+      "cluster_count": 140
+    },
+    {
+      "p": 1511,
+      "cluster_count": 140
+    },
+    {
+      "p": 1523,
+      "cluster_count": 140
+    },
+    {
+      "p": 1531,
+      "cluster_count": 140
+    },
+    {
+      "p": 1543,
+      "cluster_count": 140
+    },
+    {
+      "p": 1549,
+      "cluster_count": 140
+    },
+    {
+      "p": 1553,
+      "cluster_count": 141
+    },
+    {
+      "p": 1559,
+      "cluster_count": 142
+    },
+    {
+      "p": 1567,
+      "cluster_count": 142
+    },
+    {
+      "p": 1571,
+      "cluster_count": 143
+    },
+    {
+      "p": 1579,
+      "cluster_count": 143
+    },
+    {
+      "p": 1583,
+      "cluster_count": 144
+    },
+    {
+      "p": 1597,
+      "cluster_count": 144
+    },
+    {
+      "p": 1601,
+      "cluster_count": 145
+    },
+    {
+      "p": 1607,
+      "cluster_count": 146
+    },
+    {
+      "p": 1609,
+      "cluster_count": 147
+    },
+    {
+      "p": 1613,
+      "cluster_count": 148
+    },
+    {
+      "p": 1619,
+      "cluster_count": 149
+    },
+    {
+      "p": 1621,
+      "cluster_count": 150
+    },
+    {
+      "p": 1627,
+      "cluster_count": 151
+    },
+    {
+      "p": 1637,
+      "cluster_count": 151
+    },
+    {
+      "p": 1657,
+      "cluster_count": 151
+    },
+    {
+      "p": 1663,
+      "cluster_count": 151
+    },
+    {
+      "p": 1667,
+      "cluster_count": 151
+    },
+    {
+      "p": 1669,
+      "cluster_count": 151
+    },
+    {
+      "p": 1693,
+      "cluster_count": 151
+    },
+    {
+      "p": 1697,
+      "cluster_count": 151
+    },
+    {
+      "p": 1699,
+      "cluster_count": 151
+    },
+    {
+      "p": 1709,
+      "cluster_count": 151
+    },
+    {
+      "p": 1721,
+      "cluster_count": 151
+    },
+    {
+      "p": 1723,
+      "cluster_count": 152
+    },
+    {
+      "p": 1733,
+      "cluster_count": 152
+    },
+    {
+      "p": 1741,
+      "cluster_count": 152
+    },
+    {
+      "p": 1747,
+      "cluster_count": 152
+    },
+    {
+      "p": 1753,
+      "cluster_count": 152
+    },
+    {
+      "p": 1759,
+      "cluster_count": 152
+    },
+    {
+      "p": 1777,
+      "cluster_count": 152
+    },
+    {
+      "p": 1783,
+      "cluster_count": 152
+    },
+    {
+      "p": 1787,
+      "cluster_count": 152
+    },
+    {
+      "p": 1789,
+      "cluster_count": 152
+    },
+    {
+      "p": 1801,
+      "cluster_count": 152
+    },
+    {
+      "p": 1811,
+      "cluster_count": 152
+    },
+    {
+      "p": 1823,
+      "cluster_count": 152
+    },
+    {
+      "p": 1831,
+      "cluster_count": 152
+    },
+    {
+      "p": 1847,
+      "cluster_count": 152
+    },
+    {
+      "p": 1861,
+      "cluster_count": 152
+    },
+    {
+      "p": 1867,
+      "cluster_count": 152
+    },
+    {
+      "p": 1871,
+      "cluster_count": 152
+    },
+    {
+      "p": 1873,
+      "cluster_count": 152
+    },
+    {
+      "p": 1877,
+      "cluster_count": 152
+    },
+    {
+      "p": 1879,
+      "cluster_count": 152
+    },
+    {
+      "p": 1889,
+      "cluster_count": 152
+    },
+    {
+      "p": 1901,
+      "cluster_count": 152
+    },
+    {
+      "p": 1907,
+      "cluster_count": 152
+    },
+    {
+      "p": 1913,
+      "cluster_count": 152
+    },
+    {
+      "p": 1931,
+      "cluster_count": 152
+    },
+    {
+      "p": 1933,
+      "cluster_count": 153
+    },
+    {
+      "p": 1949,
+      "cluster_count": 153
+    },
+    {
+      "p": 1951,
+      "cluster_count": 154
+    },
+    {
+      "p": 1973,
+      "cluster_count": 154
+    },
+    {
+      "p": 1979,
+      "cluster_count": 154
+    },
+    {
+      "p": 1987,
+      "cluster_count": 154
+    },
+    {
+      "p": 1993,
+      "cluster_count": 154
+    },
+    {
+      "p": 1997,
+      "cluster_count": 155
+    },
+    {
+      "p": 1999,
+      "cluster_count": 156
+    },
+    {
+      "p": 150001,
+      "cluster_count": 2325
+    }
+  ],
+  "timestamp_utc": "2026-03-02T09:41:03.978Z"
+}
