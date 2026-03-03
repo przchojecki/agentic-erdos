@@ -1,0 +1,553 @@
+{
+  "script": "harder_batch5_quick_compute.mjs",
+  "generated_utc": "2026-03-03T16:51:42.404Z",
+  "results": {
+    "ep131": {
+      "description": "Random-greedy finite profile for non-dividing sets in [1,N].",
+      "rows": [
+        {
+          "N": 80,
+          "restarts": 120,
+          "best_size_found": 7,
+          "best_size_over_N_pow_quarter": 2.340591,
+          "best_size_over_sqrtN": 0.782624
+        },
+        {
+          "N": 120,
+          "restarts": 100,
+          "best_size_found": 7,
+          "best_size_over_N_pow_quarter": 2.114963,
+          "best_size_over_sqrtN": 0.63901
+        },
+        {
+          "N": 180,
+          "restarts": 80,
+          "best_size_found": 8,
+          "best_size_over_N_pow_quarter": 2.184097,
+          "best_size_over_sqrtN": 0.596285
+        },
+        {
+          "N": 260,
+          "restarts": 60,
+          "best_size_found": 8,
+          "best_size_over_N_pow_quarter": 1.992263,
+          "best_size_over_sqrtN": 0.496139
+        }
+      ]
+    },
+    "ep132": {
+      "description": "Distance-multiplicity finite profiles for representative planar point models.",
+      "rows": [
+        {
+          "model": "n4_two_equilateral_triangles_sharing_edge",
+          "n": 4,
+          "distances_with_multiplicity_le_n": 1,
+          "top_multiplicities": [
+            5,
+            1
+          ]
+        },
+        {
+          "model": "grid",
+          "n": 36,
+          "distinct_distance_count": 19,
+          "distances_with_multiplicity_le_n": 12,
+          "distances_with_multiplicity_gt_n": 7,
+          "top3_multiplicities": [
+            80,
+            60,
+            60
+          ]
+        },
+        {
+          "model": "tri_patch",
+          "n": 36,
+          "distinct_distance_count": 19,
+          "distances_with_multiplicity_le_n": 13,
+          "distances_with_multiplicity_gt_n": 6,
+          "top3_multiplicities": [
+            90,
+            84,
+            63
+          ]
+        },
+        {
+          "model": "random",
+          "n": 36,
+          "distinct_distance_count": 630,
+          "distances_with_multiplicity_le_n": 630,
+          "distances_with_multiplicity_gt_n": 0,
+          "top3_multiplicities": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "model": "grid",
+          "n": 64,
+          "distinct_distance_count": 33,
+          "distances_with_multiplicity_le_n": 20,
+          "distances_with_multiplicity_gt_n": 13,
+          "top3_multiplicities": [
+            168,
+            140,
+            128
+          ]
+        },
+        {
+          "model": "tri_patch",
+          "n": 64,
+          "distinct_distance_count": 34,
+          "distances_with_multiplicity_le_n": 22,
+          "distances_with_multiplicity_gt_n": 12,
+          "top3_multiplicities": [
+            211,
+            163,
+            160
+          ]
+        },
+        {
+          "model": "random",
+          "n": 64,
+          "distinct_distance_count": 2016,
+          "distances_with_multiplicity_le_n": 2016,
+          "distances_with_multiplicity_gt_n": 0,
+          "top3_multiplicities": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "model": "grid",
+          "n": 100,
+          "distinct_distance_count": 50,
+          "distances_with_multiplicity_le_n": 29,
+          "distances_with_multiplicity_gt_n": 21,
+          "top3_multiplicities": [
+            288,
+            268,
+            252
+          ]
+        },
+        {
+          "model": "tri_patch",
+          "n": 100,
+          "distinct_distance_count": 52,
+          "distances_with_multiplicity_le_n": 32,
+          "distances_with_multiplicity_gt_n": 20,
+          "top3_multiplicities": [
+            375,
+            312,
+            259
+          ]
+        },
+        {
+          "model": "random",
+          "n": 100,
+          "distinct_distance_count": 4950,
+          "distances_with_multiplicity_le_n": 4950,
+          "distances_with_multiplicity_gt_n": 0,
+          "top3_multiplicities": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "model": "grid",
+          "n": 144,
+          "distinct_distance_count": 70,
+          "distances_with_multiplicity_le_n": 42,
+          "distances_with_multiplicity_gt_n": 28,
+          "top3_multiplicities": [
+            456,
+            440,
+            396
+          ]
+        },
+        {
+          "model": "tri_patch",
+          "n": 144,
+          "distinct_distance_count": 74,
+          "distances_with_multiplicity_le_n": 45,
+          "distances_with_multiplicity_gt_n": 29,
+          "top3_multiplicities": [
+            585,
+            504,
+            429
+          ]
+        },
+        {
+          "model": "random",
+          "n": 144,
+          "distinct_distance_count": 10296,
+          "distances_with_multiplicity_le_n": 10296,
+          "distances_with_multiplicity_gt_n": 0,
+          "top3_multiplicities": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "ep138": {
+      "description": "Finite coloring search at small k and classical Berlekamp lower-root profile.",
+      "known_exact_small_k": [
+        {
+          "k": 3,
+          "exact_W_k": 27
+        },
+        {
+          "k": 4,
+          "exact_W_k": 35
+        }
+      ],
+      "search_rows": [
+        {
+          "k": 4,
+          "N_tested": 34,
+          "found_coloring_without_monochromatic_kAP": true
+        },
+        {
+          "k": 4,
+          "N_tested": 35,
+          "found_coloring_without_monochromatic_kAP": false
+        },
+        {
+          "k": 4,
+          "N_tested": 40,
+          "found_coloring_without_monochromatic_kAP": false
+        }
+      ],
+      "berlekamp_rows": [
+        {
+          "prime_p": 2,
+          "k": 3,
+          "lower_bound_W_of_k": 8,
+          "lower_root_bound": "2.000000"
+        },
+        {
+          "prime_p": 3,
+          "k": 4,
+          "lower_bound_W_of_k": 24,
+          "lower_root_bound": "2.213364"
+        },
+        {
+          "prime_p": 5,
+          "k": 6,
+          "lower_bound_W_of_k": 160,
+          "lower_root_bound": "2.329986"
+        },
+        {
+          "prime_p": 7,
+          "k": 8,
+          "lower_bound_W_of_k": 896,
+          "lower_root_bound": "2.339045"
+        },
+        {
+          "prime_p": 11,
+          "k": 12,
+          "lower_bound_W_of_k": 22528,
+          "lower_root_bound": "2.305297"
+        },
+        {
+          "prime_p": 13,
+          "k": 14,
+          "lower_bound_W_of_k": 106496,
+          "lower_root_bound": "2.286100"
+        }
+      ]
+    },
+    "ep141": {
+      "description": "Counts of consecutive-prime arithmetic progressions up to 5e6.",
+      "prime_limit": 5000000,
+      "rows": [
+        {
+          "k": 3,
+          "count_up_to_5e6": 11896,
+          "first_example": {
+            "start": 3,
+            "diff": 2
+          },
+          "last_example": {
+            "start": 4999391,
+            "diff": 18
+          }
+        },
+        {
+          "k": 4,
+          "count_up_to_5e6": 882,
+          "first_example": {
+            "start": 251,
+            "diff": 6
+          },
+          "last_example": {
+            "start": 4995871,
+            "diff": 6
+          }
+        },
+        {
+          "k": 5,
+          "count_up_to_5e6": 0,
+          "first_example": null,
+          "last_example": null
+        },
+        {
+          "k": 6,
+          "count_up_to_5e6": 0,
+          "first_example": null,
+          "last_example": null
+        },
+        {
+          "k": 7,
+          "count_up_to_5e6": 0,
+          "first_example": null,
+          "last_example": null
+        }
+      ]
+    },
+    "ep142": {
+      "description": "Finite greedy AP-free set sizes for k=3 and k=4.",
+      "rows": [
+        {
+          "k": 3,
+          "N": 10000,
+          "greedy_size": 512,
+          "density": 0.0512,
+          "size_over_N_div_logN": 0.471569
+        },
+        {
+          "k": 3,
+          "N": 20000,
+          "greedy_size": 560,
+          "density": 0.028,
+          "size_over_N_div_logN": 0.277298
+        },
+        {
+          "k": 3,
+          "N": 50000,
+          "greedy_size": 1024,
+          "density": 0.02048,
+          "size_over_N_div_logN": 0.221589
+        },
+        {
+          "k": 4,
+          "N": 4000,
+          "greedy_size": 565,
+          "density": 0.14125,
+          "size_over_N_div_sqrtlogN": 0.406791
+        },
+        {
+          "k": 4,
+          "N": 8000,
+          "greedy_size": 925,
+          "density": 0.115625,
+          "size_over_N_div_sqrtlogN": 0.346628
+        },
+        {
+          "k": 4,
+          "N": 12000,
+          "greedy_size": 1239,
+          "density": 0.10325,
+          "size_over_N_div_sqrtlogN": 0.316435
+        }
+      ]
+    },
+    "ep143": {
+      "description": "Finite discrete proxy search for the |kx-y|>=1 sparsity condition.",
+      "rows": [
+        {
+          "M": 50,
+          "finite_k_cutoff_K": 60,
+          "best_proxy_size_found": 21,
+          "best_proxy_harmonic_sum": 0.627332,
+          "primes_count_le_M": 15,
+          "primes_harmonic_sum_le_M": 1.661647
+        },
+        {
+          "M": 100,
+          "finite_k_cutoff_K": 60,
+          "best_proxy_size_found": 43,
+          "best_proxy_harmonic_sum": 0.729906,
+          "primes_count_le_M": 25,
+          "primes_harmonic_sum_le_M": 1.802817
+        },
+        {
+          "M": 150,
+          "finite_k_cutoff_K": 60,
+          "best_proxy_size_found": 60,
+          "best_proxy_harmonic_sum": 0.676091,
+          "primes_count_le_M": 35,
+          "primes_harmonic_sum_le_M": 1.886509
+        }
+      ]
+    },
+    "ep145": {
+      "description": "Empirical moments of squarefree gaps over growing ranges.",
+      "rows": [
+        {
+          "X": 200000,
+          "squarefree_count_le_X": 121581,
+          "moment_alpha_1": 1,
+          "moment_alpha_2": 2.04094,
+          "moment_alpha_3": 5.04553,
+          "moment_alpha_3_5": 8.421332,
+          "moment_alpha_3_75": 11.023032,
+          "moment_alpha_4": 14.54716
+        },
+        {
+          "X": 500000,
+          "squarefree_count_le_X": 303958,
+          "moment_alpha_1": 1,
+          "moment_alpha_2": 2.040916,
+          "moment_alpha_3": 5.04496,
+          "moment_alpha_3_5": 8.419084,
+          "moment_alpha_3_75": 11.018754,
+          "moment_alpha_4": 14.539204
+        },
+        {
+          "X": 1000000,
+          "squarefree_count_le_X": 607926,
+          "moment_alpha_1": 1,
+          "moment_alpha_2": 2.040726,
+          "moment_alpha_3": 5.043028,
+          "moment_alpha_3_5": 8.413489,
+          "moment_alpha_3_75": 11.009337,
+          "moment_alpha_4": 14.523438
+        },
+        {
+          "X": 2000000,
+          "squarefree_count_le_X": 1215877,
+          "moment_alpha_1": 1,
+          "moment_alpha_2": 2.040622,
+          "moment_alpha_3": 5.042461,
+          "moment_alpha_3_5": 8.412506,
+          "moment_alpha_3_75": 11.008211,
+          "moment_alpha_4": 14.522404
+        }
+      ]
+    },
+    "ep146": {
+      "description": "Finite random-greedy H-free edge profiles for r=2-degenerate examples (C4 and K2,3).",
+      "rows": [
+        {
+          "n": 40,
+          "best_edges_C4_free_found": 262,
+          "C4_ratio_over_n_3_over_2": 1.035646,
+          "best_edges_K2_3_free_found": 152,
+          "K23_ratio_over_n_3_over_2": 0.600833
+        },
+        {
+          "n": 60,
+          "best_edges_C4_free_found": 497,
+          "C4_ratio_over_n_3_over_2": 1.069374,
+          "best_edges_K2_3_free_found": 266,
+          "K23_ratio_over_n_3_over_2": 0.572341
+        },
+        {
+          "n": 80,
+          "best_edges_C4_free_found": 797,
+          "C4_ratio_over_n_3_over_2": 1.113841,
+          "best_edges_K2_3_free_found": 398,
+          "K23_ratio_over_n_3_over_2": 0.556222
+        },
+        {
+          "n": 100,
+          "best_edges_C4_free_found": 1143,
+          "C4_ratio_over_n_3_over_2": 1.143,
+          "best_edges_K2_3_free_found": 544,
+          "K23_ratio_over_n_3_over_2": 0.544
+        }
+      ]
+    },
+    "ep148": {
+      "description": "Exact small-k values for the number of distinct-denominator Egyptian-fraction representations of 1.",
+      "rows": [
+        {
+          "k": 2,
+          "exact_F_k_small_k": 0,
+          "log2_F_k": 0
+        },
+        {
+          "k": 3,
+          "exact_F_k_small_k": 1,
+          "log2_F_k": 0
+        },
+        {
+          "k": 4,
+          "exact_F_k_small_k": 6,
+          "log2_F_k": 2.584963
+        },
+        {
+          "k": 5,
+          "exact_F_k_small_k": 72,
+          "log2_F_k": 6.169925
+        }
+      ]
+    },
+    "ep149": {
+      "description": "Finite strong-edge-coloring profiles for extremal blowup and random bounded-degree graphs.",
+      "blowup_rows": [
+        {
+          "construction": "C5_blowup",
+          "t": 2,
+          "n_vertices": 10,
+          "edge_count": 20,
+          "Delta": 4,
+          "target_5_over_4_Delta_sq": 20,
+          "greedy_strong_color_count": 20,
+          "greedy_over_Delta_sq": 1.25
+        },
+        {
+          "construction": "C5_blowup",
+          "t": 3,
+          "n_vertices": 15,
+          "edge_count": 45,
+          "Delta": 6,
+          "target_5_over_4_Delta_sq": 45,
+          "greedy_strong_color_count": 45,
+          "greedy_over_Delta_sq": 1.25
+        },
+        {
+          "construction": "C5_blowup",
+          "t": 4,
+          "n_vertices": 20,
+          "edge_count": 80,
+          "Delta": 8,
+          "target_5_over_4_Delta_sq": 80,
+          "greedy_strong_color_count": 80,
+          "greedy_over_Delta_sq": 1.25
+        }
+      ],
+      "random_rows": [
+        {
+          "n": 42,
+          "Delta_target": 4,
+          "trials": 18,
+          "max_greedy_strong_colors_found": 14,
+          "ratio_over_Delta_sq": 0.875,
+          "ratio_over_5_over_4_Delta_sq": 0.7
+        },
+        {
+          "n": 42,
+          "Delta_target": 6,
+          "trials": 18,
+          "max_greedy_strong_colors_found": 27,
+          "ratio_over_Delta_sq": 0.75,
+          "ratio_over_5_over_4_Delta_sq": 0.6
+        },
+        {
+          "n": 42,
+          "Delta_target": 8,
+          "trials": 18,
+          "max_greedy_strong_colors_found": 41,
+          "ratio_over_Delta_sq": 0.640625,
+          "ratio_over_5_over_4_Delta_sq": 0.5125
+        }
+      ]
+    }
+  }
+}
