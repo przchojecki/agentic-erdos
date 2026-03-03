@@ -30,3 +30,14 @@ Strengthened the rigorous interval-exclusion parameters to:
 - denominator cap `q<=5,000,000`.
 
 Result stayed negative: no rational candidate interval witness was found.
+
+## Additional extension (2026-03-03, remaining-7 batch)
+Pushed one more denominator-exclusion run:
+- partial-sum cutoff `N=26`,
+- denominator cap `q<=10,000,000`.
+
+Saved:
+- `data/ep68_rational_denominator_exclusion_N26_Q1e7.json`
+
+Result:
+- still no rational candidate in the rigorous interval (`has_candidate=false`).

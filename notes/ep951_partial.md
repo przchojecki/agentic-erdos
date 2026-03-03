@@ -62,3 +62,20 @@ Results:
 - `truncated_pass_count = 0` in both runs.
 - strongest density surplus reached `count{a_i<=x}-pi(x)=56` (Run B), but still
   with near-collisions violating the truncated separation check.
+
+## Additional extension (2026-03-03, remaining-7 batch)
+I pushed parameters further:
+- `x in {90,110}`,
+- `product_bound=200000`,
+- `max_products=600000`,
+- `random_families=180`.
+
+Saved:
+- `data/ep951_dense_beurling_counterexample_search_X90_110_B200k.json`
+
+Result:
+- `tested_family_count = 398`,
+- `truncated_pass_count = 0`,
+- strongest density surplus reached `count{a_i<=x}-pi(x)=79`.
+
+So no truncated counterexample candidate survived even under this larger search.

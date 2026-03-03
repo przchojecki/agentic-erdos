@@ -45,3 +45,13 @@ Result:
 - total failures: `320,136`,
 - final bad ratio on `[2..30,000,000]`: about `0.010671`,
 - failures continue to occur near the top of range.
+
+## Additional extension (2026-03-03, remaining-7 batch)
+I extended further to:
+- `n<=40,000,000`
+- saved at `data/ep681_composite_lpf_k2_scan_N40000000.json`
+
+Result:
+- total failures: `382,779`,
+- final bad ratio on `[2..40,000,000]`: about `0.009569`,
+- failures still persist near the top of range.

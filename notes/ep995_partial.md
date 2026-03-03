@@ -59,6 +59,24 @@ I pushed the heavy-step exact-modular search further:
 These extended runs still show no counterexample trajectory; normalized maxima
 stay small and weaken at larger `N`.
 
+## Additional extension (2026-03-03, remaining-7 batch)
+I extended the heavy-step modular sweep to larger `N`:
+- `q in {1000003,1000033}`,
+- `bases in {2,3}`,
+- `M in {8,16,32,64}`,
+- `260` samples per `q`,
+- `N` up to `524288`.
+
+Saved:
+- `data/ep995_heavy_step_counterexample_scan_N524k_samples260.json`
+
+Result:
+- global maximum observed
+  `max |S_N|/(N*sqrt(loglog N)) ~= 0.05271`
+  (at `q=1000033, base=3, M=64, N=8192`).
+
+This is even smaller than previous extended runs, with no blow-up signal.
+
 ## Context from background
 Background also reports strong lower-bound constructions in other lacunary/`L^2`
 choices and upper bounds with logarithmic losses.

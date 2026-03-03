@@ -54,3 +54,21 @@ New summary:
 - Equispaced nodes: median sampled min-sup `~429.3`, p90 `~1068.8`.
 
 This widens the geometry gap seen in the earlier run.
+
+## Additional extension (2026-03-03, remaining-7 batch)
+I ran an even larger scan:
+- `n=36`, `epsilon=0.2` (`t=28`),
+- `220` random labelings,
+- `220` sampled subsets per labeling,
+- grid size `1601`.
+
+Saved:
+- `data/ep1133_subset_fit_scan_N36_eps0.2.json`
+
+Summary:
+- Chebyshev nodes: median min-sup `~2.861`, p90 `~3.835`,
+  fraction with sampled fit `<=3` about `0.582`, `<=8` is `1`.
+- Equispaced nodes: median min-sup `~1721.7`, p90 `~4615.7`,
+  fraction with sampled fit `<=3` is `0`, `<=8` is `0`.
+
+This strengthens the finite geometry-separation signal.

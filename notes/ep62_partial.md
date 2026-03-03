@@ -11,3 +11,23 @@ Upgrading from guaranteed common `3`-chromatic structures to a common subgraph w
 
 ## Status
 Open in this batch; no proof/counterexample.
+
+## Additional finite-analogue hunt (2026-03-03, remaining-7 batch)
+I added and ran:
+- `scripts/ep62_finite_intersection_analogue_scan.mjs`
+- output snapshot:
+  `data/ep62_finite_intersection_analogue_scan_n10_16.json`
+
+What was tested (finite labeled analogue only):
+- random graph pairs `(G1,G2)` on `n` shared vertices,
+- require `chi(G1)>=4` and `chi(G2)>=4`,
+- look for `chi(G1 ∩ G2)<=3`.
+
+Findings:
+- witnesses were found quickly for every tested configuration
+  (`n in {10,12,14,16}`, `p in {0.45,0.55}`).
+
+Interpretation:
+- this gives strong finite labelled-analogue counterexample signal,
+  but it is not equivalent to the original infinitary uncountable-chromatic
+  statement.

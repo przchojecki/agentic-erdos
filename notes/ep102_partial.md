@@ -12,3 +12,27 @@ Having `cn^2` many lines with `>3` points does not force a strong per-line conce
 
 ## Status
 No new bound proved in this batch.
+
+## Additional finite construction metrics (2026-03-03, remaining-7 batch)
+I added and ran:
+- `scripts/ep102_grid_projection_counterexample_signal.mjs`
+- output snapshot:
+  `data/ep102_grid_projection_counterexample_signal_d4to6.json`
+
+Computed exact pair-line metrics in grids `[0..m-1]^d` (projectable to `R^2`):
+- `(d,m)=(4,6)`, `n=1296`:
+  rich-pair ratio (`>=4` points per line) `~0.0304`,
+  rich-line lower bound ratio `~0.00203`,
+  max line multiplicity `6`.
+- `(d,m)=(5,5)`, `n=3125`:
+  rich-pair ratio `~0.0158`,
+  rich-line lower bound ratio `~0.00158`,
+  max line multiplicity `5`.
+- `(d,m)=(6,4)`, `n=4096`:
+  rich-pair ratio `~0.00761`,
+  rich-line lower bound ratio `~0.00127`,
+  max line multiplicity `4`.
+
+These finite metrics support the projected-grid counterexample mechanism
+mentioned in the background: many rich incidences can coexist with relatively
+small maximum collinearity.
