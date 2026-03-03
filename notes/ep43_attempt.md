@@ -79,6 +79,20 @@ So the data remains compatible with a `+O(1)` correction through `N=40`, but doe
 
 With the `N<=50` extension, the strongest empirical correction seen so far is `+8`.
 
+## Further exact targeted extension (`N=51..60`)
+
+Using `scripts/ep43_search_targeted.mjs`, I computed exact optima for `N=51..60`
+and saved a summary at:
+- `data/ep43_targeted_N51_60.json`
+
+Observed gaps `best(N)-C(f(N),2)`:
+- `N=51..55`: `6,7,7,7,7`
+- `N=56..58`: `1,1,1`
+- `N=59..60`: `4,4`
+
+So through `N<=60`, the global maximum observed gap remains `8`
+(previously at `N=43,44`), i.e. no new growth signal against a `+O(1)` correction.
+
 ## Runtime break-point profile (exact search)
 
 Using `scripts/ep43_search_bb.mjs`:

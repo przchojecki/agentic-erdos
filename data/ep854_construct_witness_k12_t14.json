@@ -1,0 +1,41 @@
+{
+  "problem": "EP-854",
+  "script": "ep854_construct_fixed_gap_witness.mjs",
+  "params": {
+    "k": 12,
+    "t": 14,
+    "flex_primes": 6,
+    "choices_per_prime": 2
+  },
+  "nk": "7420738134810",
+  "primes": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37
+  ],
+  "used_primes_for_interior_points": [
+    17,
+    19,
+    23,
+    29,
+    31,
+    37
+  ],
+  "remaining_primes_count": 6,
+  "tested_assignments": 1,
+  "witness_found": true,
+  "witness": {
+    "x": "306579779507",
+    "x_plus_t": "306579779521"
+  },
+  "generated_utc": "2026-03-02T12:41:08.442Z"
+}

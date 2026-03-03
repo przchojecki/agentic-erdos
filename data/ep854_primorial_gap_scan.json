@@ -1,0 +1,194 @@
+{
+  "problem": "EP-854",
+  "script": "ep854_primorial_gap_scan.mjs",
+  "method": "exact_reduced_residue_gap_spectrum_scan_for_primorials",
+  "params": {
+    "kmax": 9,
+    "n_limit": 300000000
+  },
+  "rows": [
+    {
+      "k": 1,
+      "n_k": 2,
+      "prime_factors": [
+        2
+      ],
+      "phi_nk": 1,
+      "gap_count": 0,
+      "max_gap": 0,
+      "max_gap_occurrences": 0,
+      "first_index_with_max_gap": -1,
+      "represented_even_gap_count_up_to_max": 0,
+      "missing_even_gaps_up_to_max": [],
+      "first_missing_even_gap": null
+    },
+    {
+      "k": 2,
+      "n_k": 6,
+      "prime_factors": [
+        2,
+        3
+      ],
+      "phi_nk": 2,
+      "gap_count": 1,
+      "max_gap": 4,
+      "max_gap_occurrences": 1,
+      "first_index_with_max_gap": 1,
+      "represented_even_gap_count_up_to_max": 1,
+      "missing_even_gaps_up_to_max": [
+        2
+      ],
+      "first_missing_even_gap": 2
+    },
+    {
+      "k": 3,
+      "n_k": 30,
+      "prime_factors": [
+        2,
+        3,
+        5
+      ],
+      "phi_nk": 8,
+      "gap_count": 7,
+      "max_gap": 6,
+      "max_gap_occurrences": 2,
+      "first_index_with_max_gap": 1,
+      "represented_even_gap_count_up_to_max": 3,
+      "missing_even_gaps_up_to_max": [],
+      "first_missing_even_gap": null
+    },
+    {
+      "k": 4,
+      "n_k": 210,
+      "prime_factors": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "phi_nk": 48,
+      "gap_count": 47,
+      "max_gap": 10,
+      "max_gap_occurrences": 2,
+      "first_index_with_max_gap": 1,
+      "represented_even_gap_count_up_to_max": 5,
+      "missing_even_gaps_up_to_max": [],
+      "first_missing_even_gap": null
+    },
+    {
+      "k": 5,
+      "n_k": 2310,
+      "prime_factors": [
+        2,
+        3,
+        5,
+        7,
+        11
+      ],
+      "phi_nk": 480,
+      "gap_count": 479,
+      "max_gap": 14,
+      "max_gap_occurrences": 2,
+      "first_index_with_max_gap": 26,
+      "represented_even_gap_count_up_to_max": 7,
+      "missing_even_gaps_up_to_max": [],
+      "first_missing_even_gap": null
+    },
+    {
+      "k": 6,
+      "n_k": 30030,
+      "prime_factors": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "phi_nk": 5760,
+      "gap_count": 5759,
+      "max_gap": 22,
+      "max_gap_occurrences": 2,
+      "first_index_with_max_gap": 1813,
+      "represented_even_gap_count_up_to_max": 10,
+      "missing_even_gaps_up_to_max": [
+        20
+      ],
+      "first_missing_even_gap": 20
+    },
+    {
+      "k": 7,
+      "n_k": 510510,
+      "prime_factors": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17
+      ],
+      "phi_nk": 92160,
+      "gap_count": 92159,
+      "max_gap": 26,
+      "max_gap_occurrences": 2,
+      "first_index_with_max_gap": 39199,
+      "represented_even_gap_count_up_to_max": 13,
+      "missing_even_gaps_up_to_max": [],
+      "first_missing_even_gap": null
+    },
+    {
+      "k": 8,
+      "n_k": 9699690,
+      "prime_factors": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19
+      ],
+      "phi_nk": 1658880,
+      "gap_count": 1658879,
+      "max_gap": 34,
+      "max_gap_occurrences": 2,
+      "first_index_with_max_gap": 10276,
+      "represented_even_gap_count_up_to_max": 16,
+      "missing_even_gaps_up_to_max": [
+        32
+      ],
+      "first_missing_even_gap": 32
+    },
+    {
+      "k": 9,
+      "n_k": 223092870,
+      "prime_factors": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "phi_nk": 36495360,
+      "gap_count": 36495359,
+      "max_gap": 40,
+      "max_gap_occurrences": 12,
+      "first_index_with_max_gap": 3326157,
+      "represented_even_gap_count_up_to_max": 20,
+      "missing_even_gaps_up_to_max": [],
+      "first_missing_even_gap": null
+    }
+  ],
+  "first_k_with_missing_even_gap_up_to_max": {
+    "k": 6,
+    "n_k": 30030,
+    "first_missing_even_gap": 20
+  },
+  "generated_utc": "2026-03-02T12:02:23.883Z"
+}

@@ -4,7 +4,13 @@
 Reviewed the conjecture against known asymptotic minimizers (triangular-lattice behavior) and exceptions at small `n`.
 
 ## What is resolved from background
-- The statement fails for small `n` (e.g. `n=4` square), so the real question is strictly asymptotic.
+- The statement fails for small `n`; explicit witness at `n=4`:
+  vertices of a unit square
+  `(0,0),(1,0),(0,1),(1,1)`.
+  This configuration has minimum distance `1` and no unit equilateral triangle.
+  (Background references this as a counterexample to the literal unrestricted statement.)
+
+So the meaningful remaining problem is strictly asymptotic ("for sufficiently large n").
 
 ## Hard point
 Proving that every asymptotically diameter-minimizing configuration must contain a unit equilateral triangle requires strong structural stability for near-optimal packings.
