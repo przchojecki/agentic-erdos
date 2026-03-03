@@ -3,8 +3,8 @@
   "script": "ep386_binomial_consecutive_primes_scan.mjs",
   "method": "exact_incremental_factorization_scan_of_binomials",
   "params": {
-    "nmax": 3000000,
-    "kmax": 14
+    "nmax": 5000000,
+    "kmax": 16
   },
   "total_hits": 9,
   "per_k": [
@@ -110,6 +110,16 @@
     },
     {
       "k": 14,
+      "hit_count": 0,
+      "first_hit": null
+    },
+    {
+      "k": 15,
+      "hit_count": 0,
+      "first_hit": null
+    },
+    {
+      "k": 16,
       "hit_count": 0,
       "first_hit": null
     }
@@ -218,5 +228,5 @@
       "product_is_to": 13
     }
   ],
-  "generated_utc": "2026-03-03T08:50:24.432Z"
+  "generated_utc": "2026-03-03T09:49:50.734Z"
 }
