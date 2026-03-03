@@ -1,0 +1,17 @@
+{
+  "problem": "EP-42",
+  "method": "exact_search_fixed_N_fixed_k",
+  "N": 99,
+  "k": 12,
+  "anchoring": "min(A)=1",
+  "result": {
+    "found_counterexample_A_for_M3": false,
+    "witness_A": null
+  },
+  "stats": {
+    "leaves_checked": 3052,
+    "nodes_visited": 3798438741,
+    "runtime_seconds": 503.51
+  },
+  "notes": "This certifies no M=3 counterexample at N=99 with |A|=12. The |A|=11 layer remains unresolved in exact mode."
+}

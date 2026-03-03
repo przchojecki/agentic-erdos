@@ -1,0 +1,350 @@
+{
+  "problem": "EP-42",
+  "script": "ep42_m3_exact_threshold_scan.mjs",
+  "method": "exact_search_over_sidon_A_for_M3_via_distinct_schur_obstruction",
+  "params": {
+    "start_n": 74,
+    "end_n": 82
+  },
+  "rows": [
+    {
+      "N": 74,
+      "n": 73,
+      "k_min_feasible": 9,
+      "k_max_feasible": 12,
+      "found_counterexample_A_for_M3": true,
+      "witness": {
+        "k": 10,
+        "A": [
+          1,
+          14,
+          17,
+          19,
+          31,
+          39,
+          40,
+          46,
+          50,
+          74
+        ],
+        "direct_disjoint_sidon_triple_exists": false,
+        "direct_disjoint_sidon_triple_witness": null
+      },
+      "by_k": [
+        {
+          "k": 9,
+          "nodes": 84099606,
+          "leaves_checked": 14112962,
+          "runtime_ms": 11834,
+          "found_witness": false
+        },
+        {
+          "k": 10,
+          "nodes": 76766107,
+          "leaves_checked": 224315,
+          "runtime_ms": 7245,
+          "found_witness": true
+        }
+      ],
+      "total_runtime_ms": 19079
+    },
+    {
+      "N": 75,
+      "n": 74,
+      "k_min_feasible": 9,
+      "k_max_feasible": 12,
+      "found_counterexample_A_for_M3": true,
+      "witness": {
+        "k": 10,
+        "A": [
+          1,
+          14,
+          17,
+          19,
+          31,
+          39,
+          40,
+          46,
+          50,
+          74
+        ],
+        "direct_disjoint_sidon_triple_exists": false,
+        "direct_disjoint_sidon_triple_witness": null
+      },
+      "by_k": [
+        {
+          "k": 9,
+          "nodes": 96080995,
+          "leaves_checked": 18042436,
+          "runtime_ms": 15104,
+          "found_witness": false
+        },
+        {
+          "k": 10,
+          "nodes": 88979897,
+          "leaves_checked": 345000,
+          "runtime_ms": 9049,
+          "found_witness": true
+        }
+      ],
+      "total_runtime_ms": 24153
+    },
+    {
+      "N": 76,
+      "n": 75,
+      "k_min_feasible": 10,
+      "k_max_feasible": 12,
+      "found_counterexample_A_for_M3": true,
+      "witness": {
+        "k": 10,
+        "A": [
+          1,
+          14,
+          17,
+          19,
+          31,
+          39,
+          40,
+          46,
+          50,
+          74
+        ],
+        "direct_disjoint_sidon_triple_exists": false,
+        "direct_disjoint_sidon_triple_witness": null
+      },
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 104047234,
+          "leaves_checked": 541058,
+          "runtime_ms": 10660,
+          "found_witness": true
+        }
+      ],
+      "total_runtime_ms": 10660
+    },
+    {
+      "N": 77,
+      "n": 76,
+      "k_min_feasible": 10,
+      "k_max_feasible": 12,
+      "found_counterexample_A_for_M3": true,
+      "witness": {
+        "k": 10,
+        "A": [
+          1,
+          14,
+          17,
+          19,
+          31,
+          39,
+          40,
+          46,
+          50,
+          74
+        ],
+        "direct_disjoint_sidon_triple_exists": false,
+        "direct_disjoint_sidon_triple_witness": null
+      },
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 120474032,
+          "leaves_checked": 807314,
+          "runtime_ms": 12187,
+          "found_witness": true
+        }
+      ],
+      "total_runtime_ms": 12187
+    },
+    {
+      "N": 78,
+      "n": 77,
+      "k_min_feasible": 10,
+      "k_max_feasible": 12,
+      "found_counterexample_A_for_M3": false,
+      "witness": null,
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 181863602,
+          "leaves_checked": 1252824,
+          "runtime_ms": 17879,
+          "found_witness": false
+        },
+        {
+          "k": 11,
+          "nodes": 183116426,
+          "leaves_checked": 268,
+          "runtime_ms": 17288,
+          "found_witness": false
+        },
+        {
+          "k": 12,
+          "nodes": 183116694,
+          "leaves_checked": 0,
+          "runtime_ms": 17468,
+          "found_witness": false
+        }
+      ],
+      "total_runtime_ms": 52635
+    },
+    {
+      "N": 79,
+      "n": 78,
+      "k_min_feasible": 10,
+      "k_max_feasible": 13,
+      "found_counterexample_A_for_M3": false,
+      "witness": null,
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 210442671,
+          "leaves_checked": 1811792,
+          "runtime_ms": 22117,
+          "found_witness": false
+        },
+        {
+          "k": 11,
+          "nodes": 212254463,
+          "leaves_checked": 488,
+          "runtime_ms": 20146,
+          "found_witness": false
+        },
+        {
+          "k": 12,
+          "nodes": 212254951,
+          "leaves_checked": 0,
+          "runtime_ms": 20333,
+          "found_witness": false
+        },
+        {
+          "k": 13,
+          "nodes": 212254951,
+          "leaves_checked": 0,
+          "runtime_ms": 20613,
+          "found_witness": false
+        }
+      ],
+      "total_runtime_ms": 83209
+    },
+    {
+      "N": 80,
+      "n": 79,
+      "k_min_feasible": 10,
+      "k_max_feasible": 13,
+      "found_counterexample_A_for_M3": false,
+      "witness": null,
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 245528090,
+          "leaves_checked": 2662140,
+          "runtime_ms": 25070,
+          "found_witness": false
+        },
+        {
+          "k": 11,
+          "nodes": 248190230,
+          "leaves_checked": 1004,
+          "runtime_ms": 24082,
+          "found_witness": false
+        },
+        {
+          "k": 12,
+          "nodes": 248191234,
+          "leaves_checked": 0,
+          "runtime_ms": 23861,
+          "found_witness": false
+        },
+        {
+          "k": 13,
+          "nodes": 248191234,
+          "leaves_checked": 0,
+          "runtime_ms": 24061,
+          "found_witness": false
+        }
+      ],
+      "total_runtime_ms": 97074
+    },
+    {
+      "N": 81,
+      "n": 80,
+      "k_min_feasible": 10,
+      "k_max_feasible": 13,
+      "found_counterexample_A_for_M3": false,
+      "witness": null,
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 283652261,
+          "leaves_checked": 3776988,
+          "runtime_ms": 30134,
+          "found_witness": false
+        },
+        {
+          "k": 11,
+          "nodes": 287429249,
+          "leaves_checked": 2056,
+          "runtime_ms": 28639,
+          "found_witness": false
+        },
+        {
+          "k": 12,
+          "nodes": 287431305,
+          "leaves_checked": 0,
+          "runtime_ms": 28210,
+          "found_witness": false
+        },
+        {
+          "k": 13,
+          "nodes": 287431305,
+          "leaves_checked": 0,
+          "runtime_ms": 28571,
+          "found_witness": false
+        }
+      ],
+      "total_runtime_ms": 115554
+    },
+    {
+      "N": 82,
+      "n": 81,
+      "k_min_feasible": 10,
+      "k_max_feasible": 13,
+      "found_counterexample_A_for_M3": false,
+      "witness": null,
+      "by_k": [
+        {
+          "k": 10,
+          "nodes": 330412580,
+          "leaves_checked": 5432404,
+          "runtime_ms": 35361,
+          "found_witness": false
+        },
+        {
+          "k": 11,
+          "nodes": 335844984,
+          "leaves_checked": 4184,
+          "runtime_ms": 32364,
+          "found_witness": false
+        },
+        {
+          "k": 12,
+          "nodes": 335849168,
+          "leaves_checked": 0,
+          "runtime_ms": 32095,
+          "found_witness": false
+        },
+        {
+          "k": 13,
+          "nodes": 335849168,
+          "leaves_checked": 0,
+          "runtime_ms": 32428,
+          "found_witness": false
+        }
+      ],
+      "total_runtime_ms": 132248
+    }
+  ],
+  "generated_utc": "2026-03-03T12:34:21.939Z"
+}

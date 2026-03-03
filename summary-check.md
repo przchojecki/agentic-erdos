@@ -1,6 +1,6 @@
 # To-Check Attempt Summary
 
-Generated: **2026-03-03T12:01:27.328Z**
+Generated: **2026-03-03T13:07:05.263Z**
 
 ## Snapshot
 
@@ -8,7 +8,7 @@ Generated: **2026-03-03T12:01:27.328Z**
 - Attempted (deep_attempt_done=true): **375**
 - Remaining unattempted: **0**
 - Auto-flagged promising reasoning items: **277**
-- Auto-flagged promising counterexample items: **51**
+- Auto-flagged promising counterexample items: **52**
 
 ## Status Distribution (Top)
 
@@ -22,7 +22,7 @@ Generated: **2026-03-03T12:01:27.328Z**
 - `resolved_in_background_as_written`: 2
 - `partial_positive_result_not_full_proof`: 1
 - `log_case_reduced_not_solved`: 1
-- `strong_finite_obstruction_for_M_ge_3_eventual_large_N_case_open`: 1
+- `exact_M3_nonmonotone_finite_behavior_mixed`: 1
 - `attempted_not_proved_runtime_profiled`: 1
 - `no_progress_transfinite_stepup_gap`: 1
 - `extremal_geometry_structure_gap_no_progress`: 1
@@ -319,6 +319,7 @@ Generated: **2026-03-03T12:01:27.328Z**
 
 | Problem | Rank | Status | Counterexample Signal | Notes |
 |---|---|---|---|---|
+| EP-42 | 3 | exact_M3_nonmonotone_finite_behavior_mixed | Exact search gives counterexamples for N=74..77 and N=86..98, while N=78..85 have no counterexample (all Sidon A admit a disjoint Sidon triple). | [ep42_partial.md](notes/ep42_partial.md) |
 | EP-129 | 7 | counterexample_proved_as_written | For every fixed r>=2, random r-colorings plus Steiner-triple-system decomposition for n≡1,3 (mod 6) give R(n;3,r) >= exp(c_r n) on infinitely many n, contradicting any C(r)^{sqrt(n)} upper bound. |  |
 | EP-155 | 10 | exact_FN_increment_profile_to_72_supports_small_k_no_counterexample | Exact profile to N<=72 gives F(N+1)-F(N) in {0,1} throughout tested range (also max increment 1 for k=2,3 in range). | [ep155_partial.md](notes/ep155_partial.md) |
 | EP-180 | 13 | counterexample_proved_as_written | Explicit finite family counterexample: F={K_{1,2},2K_2}. Then ex(n;F)=1 for n>=2, while ex(n;K_{1,2})=floor(n/2)=Theta(n) and ex(n;2K_2)=n-1=Theta(n), so no G in F satisfies ex(n;G)<<_F ex(n;F). |  |
@@ -377,7 +378,7 @@ Generated: **2026-03-03T12:01:27.328Z**
 |---|---|---|---|---|---|---|---|
 | EP-25 | 1 | partial_positive_result_not_full_proof | yes |  | proved logarithmic density exists when sum_i 1/n_i converges; also proved existence for pairwise-coprime moduli (density given by product, including zero in divergent case) | [ep25_attempt.md](notes/ep25_attempt.md) | [ep25_experiments.json](data/ep25_experiments.json) |
 | EP-40 | 2 | log_case_reduced_not_solved | yes |  | reduced g(N)=log N case to dense bounded-representation growth statement: for each fixed K, must have A(N)=o(sqrt(N)/log N) if implication is true | [ep40_attempt.md](notes/ep40_attempt.md) | [ep40_experiments.json](data/ep40_experiments.json) |
-| EP-42 | 3 | strong_finite_obstruction_for_M_ge_3_eventual_large_N_case_open |  |  | Exhaustive scan for 10<=N<=40 shows M=2 always feasible (every Sidon A admits a size-2 Sidon B with disjoint difference set), while M=3..7 fail for every tested N. | [ep42_partial.md](notes/ep42_partial.md) | [ep42_smallN_scan.json](data/ep42_smallN_scan.json) |
+| EP-42 | 3 | exact_M3_nonmonotone_finite_behavior_mixed |  | yes | Exact search gives counterexamples for N=74..77 and N=86..98, while N=78..85 have no counterexample (all Sidon A admit a disjoint Sidon triple). | [ep42_partial.md](notes/ep42_partial.md) | [ep42_m3_exact_threshold_scan_74_82.json](data/ep42_m3_exact_threshold_scan_74_82.json) |
 | EP-43 | 4 | attempted_not_proved_runtime_profiled | yes |  | cannot bridge from two-color disjoint-difference constraints to single Sidon extremal scale C(f(N),2)+O(1) |  |  |
 | EP-70 | 5 | no_progress_transfinite_stepup_gap |  |  | No new partition-relation transfer from c->(omega+n,4)^3_2 to c->(beta,n)^3_2 for arbitrary countable beta was obtained in this batch. | [ep70_partial.md](notes/ep70_partial.md) |  |
 | EP-103 | 6 | extremal_geometry_structure_gap_no_progress | yes |  | No new lower-bound mechanism for h(n) was found; even eventual h(n)>=2 remains unresolved in the supplied background. | [ep103_partial.md](notes/ep103_partial.md) |  |

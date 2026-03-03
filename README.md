@@ -71,7 +71,7 @@ node scripts/generate_readme_progress.mjs
 | EP-39 | Erdős Problem #39 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-40 | Erdős Problem #40 | to-check | 2 |  | log_case_reduced_not_solved | reduced g(N)=log N case to dense bounded-representation growth statement: for each fixed K, must have A(N)=o(sqrt(N)/log N) if implication is true |
 | EP-41 | Erdős Problem #41 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-42 | Erdős Problem #42 | to-check | 3 |  | strong_finite_obstruction_for_M_ge_3_eventual_large_N_case_open | Exhaustive scan for 10<=N<=40 shows M=2 always feasible (every Sidon A admits a size-2 Sidon B with disjoint difference set), while M=3..7 fail for every tested N. |
+| EP-42 | Erdős Problem #42 | to-check | 3 |  | exact_M3_nonmonotone_finite_behavior_mixed | Exact M=3 search finds counterexamples at N=74..77 and N=86..98, but no counterexample at N=78..85 (all Sidon A admit a disjoint Sidon triple). |
 | EP-43 | Erdős Problem #43 | to-check | 4 |  | attempted_not_proved_runtime_profiled | cannot bridge from two-color disjoint-difference constraints to single Sidon extremal scale C(f(N),2)+O(1) |
 | EP-44 | Erdős Problem #44 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-50 | Erdős Problem #50 | to-check | 338 | 1995 | singularity_known_derivative_positive_point_question_open | computed empirical CDF slopes for n<=300000; observed irregular spike profile compatible with singular behavior |

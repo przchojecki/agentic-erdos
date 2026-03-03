@@ -42,5 +42,47 @@ This annealed search (difference-complement Schur obstruction objective) did not
 find new `bad=0` witnesses for `N in {74,75,76,78,80}` under tested budgets;
 best values remained positive.
 
+A later larger-`N` heuristic run (`N in {99,110,120}`, `RESTARTS=400`,
+`STEPS=120000`) also found no `bad=0` witness; best objective values were
+`38, 82, 164` respectively (all at `|A|=12` in that run).
+This remains non-certificate evidence only.
+
+## Exact `M=3` certification around the transition window
+I added:
+- `scripts/ep42_m3_exact_threshold_scan.mjs`
+
+This script performs exact search over Sidon `A` (anchored at `min(A)=1`, which is
+w.l.o.g. by translation invariance of difference sets), and checks
+`bad=0` exactly via the complement-Schur criterion:
+there is no Sidon triple `B` disjoint from `A-A` iff
+`C=[1..N-1]\\D(A)` has no distinct `a,b` with `a+b in C`.
+
+Data:
+- `data/ep42_m3_exact_threshold_scan_74_82.json`
+- `data/ep42_m3_exact_threshold_scan_83_85.json`
+- `data/ep42_m3_exact_threshold_scan_86_86.json`
+
+Certified results:
+- Counterexamples exist for `N=74,75,76,77` (all with `|A|=10`), e.g.
+  `A={1,14,17,19,31,39,40,46,50,74}`.
+- No counterexample exists for each `N=78,79,80,81,82,83,84,85`.
+  (So for these `N`, every Sidon `A` admits a disjoint Sidon triple `B`.)
+- Counterexample reappears at `N=86` with `|A|=12`, e.g.
+  `A={1,3,7,25,30,41,44,56,69,76,77,86}`.
+- Direct triple-check shows this `N=86` witness `A` remains a counterexample for
+  `N=87..98` as well.
+
+## `N=99` focused exact follow-up
+- Data:
+  - `data/ep42_m3_exact_N99_k12_no_witness.json`
+- Exact enumeration at `N=99` for `|A|=12` found no counterexample witness
+  (`3052` complete Sidon sets checked with `min(A)=1`).
+- Enumeration statistics show `|A|=11` is the dominant hard layer
+  (`13,408,076` complete Sidon sets with `min(A)=1`), so full exact
+  certification at `N=99` is currently computationally heavy without stronger
+  pruning.
+
 ## Status
-Not proved/disproved. Strong finite obstruction signal for `M>=3`.
+Not proved/disproved. For `M=3`, finite behavior is now rigorously
+non-monotone (`counterexample -> all-good block -> counterexample again`),
+so no finite-threshold claim is currently justified.
