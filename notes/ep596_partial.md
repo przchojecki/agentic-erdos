@@ -16,3 +16,14 @@ A full characterization of all such pairs is not provided in this entry.
 ## Status
 - nonexistence conjecture: false.
 - complete classification: unresolved.
+
+## Counterexample-hunt note (2026-03-03)
+I attempted to set up a computational hunt, but the core quantifiers are
+infinitary:
+- "for every finite number of colors there exists H ...",
+- and a separate `aleph_0`-coloring condition over all `G1`-free graphs.
+
+Finite exhaustive/random graph checks can only provide weak lower-bound signals
+for small finite analogues and cannot resolve or decisively refute the actual
+statement. No decisive computational counterexample test is available in this
+framework.

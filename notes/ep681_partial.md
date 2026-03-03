@@ -35,3 +35,13 @@ I extended the exact SPF scan substantially:
 - up to `n<=20,000,000`: `247,648` failures.
 
 Failures remain abundant and persist near the top of each tested range.
+
+## Additional extension (2026-03-03, next hunt batch)
+I extended one more step:
+- up to `n<=30,000,000`
+- saved at `data/ep681_composite_lpf_k2_scan_N30000000.json`
+
+Result:
+- total failures: `320,136`,
+- final bad ratio on `[2..30,000,000]`: about `0.010671`,
+- failures continue to occur near the top of range.

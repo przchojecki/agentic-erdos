@@ -42,3 +42,13 @@ Outcome:
 
 So finite evidence still strongly suggests extreme sparsity beyond the known
 small examples.
+
+## Additional extension (2026-03-03, next hunt batch)
+I extended again to:
+- `n<=5,000,000`, `k<=16`
+- saved at `data/ep386_binomial_consecutive_primes_scan_N5000000_K16.json`
+
+Outcome:
+- total hit count still `9` (no new hits),
+- no hits for `k=5` or any `k>=7`,
+- newly tested `k=15,16` also had zero hits.

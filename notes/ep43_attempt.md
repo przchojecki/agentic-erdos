@@ -93,6 +93,19 @@ Observed gaps `best(N)-C(f(N),2)`:
 So through `N<=60`, the global maximum observed gap remains `8`
 (previously at `N=43,44`), i.e. no new growth signal against a `+O(1)` correction.
 
+## New exact targeted run (`N=62`)
+I ran:
+- `node scripts/ep43_search_targeted.mjs 62`
+- output: `data/ep43_exact_targeted_N62.json`
+
+Result:
+- `f(62)=10`, so baseline `C(f(62),2)=45`.
+- exact optimum found: `best(62)=51`.
+- gap: `best(62)-C(f(62),2)=6`.
+- runtime: about `62.5s`.
+
+So this extension still does not exceed the previously observed max gap `8`.
+
 ## Runtime break-point profile (exact search)
 
 Using `scripts/ep43_search_bb.mjs`:

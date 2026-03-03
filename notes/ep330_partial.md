@@ -49,3 +49,20 @@ I extended the finite surrogate to larger windows:
 Interpretation: the finite model still finds dense near-bases where every chosen
 element is essential somewhere, but essentiality fractions remain tiny and trend
 downward as `N` grows.
+
+## Additional extension (2026-03-03, next hunt batch)
+I pushed the finite surrogate to a larger window:
+- `N=700`, window `[700,1400]`,
+- `45` restarts, `4200` steps.
+
+Saved:
+- `data/ep330_finite_minimal_basis_search_N700.json`
+
+Best found:
+- density `~0.1114`,
+- cover ratio `~0.9886`,
+- min essential ratio `~0.00143`,
+- `zero_essential_count=0`.
+
+This continues the trend of shrinking minimum essential fractions at larger `N`
+in the surrogate model.
