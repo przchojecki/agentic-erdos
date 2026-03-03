@@ -1,6 +1,10 @@
 # Agentic Erdős
 
-Tracking repository for experimental progress on Erdős problems from the `ulamai/UnsolvedMath` dataset subset we downloaded locally.
+This repository tracks an ongoing, agent-assisted research sprint across Erdős problems from the `ulamai/UnsolvedMath` dataset, with a practical focus on quickly separating tractable statements from genuinely deep ones. The core objective is not to claim breakthroughs prematurely, but to build a reproducible pipeline that combines theorem-style reasoning, targeted counterexample hunting, and explicit literature checks into a single auditable workflow.
+
+Each problem is treated as a research object with structured state: we record triage signals, attempted proof routes, computational probes, obstacles, and current status in machine-readable fields. That allows us to revisit hard cases with better context instead of restarting from scratch, and to distinguish between “not solved yet” and “almost certainly false as written,” “resolved in background,” or “promising but blocked by a specific technical gap.”
+
+The project is intentionally cumulative. As batches are processed, we preserve scripts, experiment artifacts, and concise notes so that every claim in the table has a traceable path behind it. Over time this creates a live map of what has already been ruled out, what has partial structure, where counterexamples are likely, and which open problems still look genuinely high-value for deeper proof work.
 
 ## Scope
 
