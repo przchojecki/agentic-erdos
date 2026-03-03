@@ -83,7 +83,7 @@ node scripts/generate_readme_progress.mjs
 | EP-39 | Erdős Problem #39 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-40 | Erdős Problem #40 | to-check | 2 |  | log_case_reduced_not_solved | reduced g(N)=log N case to dense bounded-representation growth statement: for each fixed K, must have A(N)=o(sqrt(N)/log N) if implication is true |
 | EP-41 | Erdős Problem #41 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-42 | Erdős Problem #42 | to-check | 3 |  | not_proved | Tried a random-greedy construction of B avoiding nonzero differences from A-A while preserving Sidon constraints in B. |
+| EP-42 | Erdős Problem #42 | to-check | 3 |  | strong_finite_obstruction_for_M_ge_3_eventual_large_N_case_open | exhaustive 10<=N<=40 scan: M=2 always feasible, while M=3..7 fail for every tested N |
 | EP-43 | Erdős Problem #43 | to-check | 4 |  | attempted_not_proved_runtime_profiled | cannot bridge from two-color disjoint-difference constraints to single Sidon extremal scale C(f(N),2)+O(1) |
 | EP-44 | Erdős Problem #44 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-50 | Erdős Problem #50 | to-check | 338 | 1995 | singularity_known_derivative_positive_point_question_open | computed empirical CDF slopes for n<=300000; observed irregular spike profile compatible with singular behavior |
@@ -95,7 +95,7 @@ node scripts/generate_readme_progress.mjs
 | EP-65 | Erdős Problem #65 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-66 | Erdős Problem #66 | harder |  | 2007 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-68 | Erdős Problem #68 | to-check | 295 | 1988 | shifted_factorial_denominator_irrationality_open | No rigorous irrationality proof or counterexample was found for sum_{n>=2} 1/(n!-1) in this batch. |
-| EP-70 | Erdős Problem #70 | to-check | 5 |  | not_proved | Tried to lift known continuum partition relations from (omega+n,4)_2^3 toward (beta,n)_2^3 for arbitrary countable beta via transfinite recursion. |
+| EP-70 | Erdős Problem #70 | to-check | 5 |  | no_progress_transfinite_stepup_gap | no new transfer from c->(omega+n,4)^3_2 to c->(beta,n)^3_2 for arbitrary countable beta |
 | EP-74 | Erdős Problem #74 | to-check | 269 | 1982 | linear_f_case_constructed_sublinear_open | Background gives Rodl's construction for graphs with chromatic number aleph_0 when f(n)=epsilon*n (any fixed epsilon>0). |
 | EP-75 | Erdős Problem #75 | to-check | 342 | 1995 | attempted_not_proved_set_theoretic_construction_open | isolated the competing global-coloring and local-independence requirements but found no bridge |
 | EP-77 | Erdős Problem #77 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -116,7 +116,7 @@ node scripts/generate_readme_progress.mjs
 | EP-100 | Erdős Problem #100 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-101 | Erdős Problem #101 | harder |  | 2013 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-102 | Erdős Problem #102 | to-check | 339 | 1995 | attempted_not_proved_even_weak_growth_open | isolated that known constructions permit comparatively small maximum line multiplicity despite many rich lines |
-| EP-103 | Erdős Problem #103 | to-check | 6 |  | not_proved | Attempted rigidity approach for minimum-diameter point sets with pairwise distance >=1, seeking multiple noncongruent minimizers for large n. |
+| EP-103 | Erdős Problem #103 | to-check | 6 |  | extremal_geometry_structure_gap_no_progress | no new mechanism toward h(n)->infinity; even eventual h(n)>=2 remains unresolved in background |
 | EP-104 | Erdős Problem #104 | to-check | 324 | 1992 | explicit_linear_construction_verified_quadratic_gap_open | triangular-lattice hex patches give n lattice-centered unit circles with at least 3 selected points for tested n up to 2437 |
 | EP-108 | Erdős Problem #108 | to-check | 247 | 1979 | r4_case_solved_general_higher_girth_open | Rödl solved the r=4 case (per background); no full resolution for general r>=5 is provided here. |
 | EP-111 | Erdős Problem #111 | to-check | 273 | 1982 | n_to_n3over2_bounds_known_growth_open | Background gives h_G(n)>>n for every chi(G)=aleph_1 graph, and existence of one with h_G(n)<<n^{3/2}. |
@@ -146,13 +146,13 @@ node scripts/generate_readme_progress.mjs
 | EP-151 | Erdős Problem #151 | to-check | 320 | 1992 | attempted_not_proved_statement_may_be_delicate | reduced task to a missing transfer principle from triangle-free independence thresholds to arbitrary-graph clique-transversal bounds |
 | EP-152 | Erdős Problem #152 | to-check | 8 |  | adversarial_search_frontier_extended_not_proved | Extended fixed-m adversarial search up to m=80: best-known isolated counts remain large (18 at m=11, 82 at m=20, 228 at m=30, 455 at m=40, 764 at m=50, 1156 at m=60, 1640 at m=70, 2206 at m=80). |
 | EP-153 | Erdős Problem #153 | to-check | 9 |  | adversarial_search_frontier_extended_not_proved | Extended fixed-m adversarial search up to m=80: best-known average squared gaps keep increasing (11.27 at m=11, 28.08 at m=20, 66.16 at m=30, 121.56 at m=40, 154.65 at m=50, 218.26 at m=60, 301.62 at m=70, 373.09 at m=80). |
-| EP-155 | Erdős Problem #155 | to-check | 10 |  | not_proved | Studied local increments of F(N), aiming to show eventual one-step growth under fixed k-shifts. |
+| EP-155 | Erdős Problem #155 | to-check | 10 |  | exact_FN_increment_profile_to_72_supports_small_k_no_counterexample | exact F(N) to N=72 gives F(N+1)-F(N) in {0,1} throughout tested range |
 | EP-156 | Erdős Problem #156 | to-check | 360 | 1998 | finite_heuristic_support_for_n_cuberoot_scale_open | for N=200..3200, minimum found maximal Sidon sizes were 11,15,20,27,36 with stable ratios to N^(1/3) |
-| EP-158 | Erdős Problem #158 | to-check | 11 |  | not_proved | Tried to adapt Sidon liminf arguments to the weaker "at most 2 representations" condition via representation counting. |
+| EP-158 | Erdős Problem #158 | to-check | 11 |  | finite_B2_2_sqrtN_scale_constructions_found_liminf_open | random-order greedy B2[2] constructions up to N=5000 keep best |A|/sqrt(N) around 1.23..1.70 |
 | EP-159 | Erdős Problem #159 | to-check | 238 | 1978 | log_saving_known_power_saving_open | Background bounds remain n^(3/2)/(log n)^(3/2) << R(C4,Kn) << n^2/(log n)^2. |
 | EP-160 | Erdős Problem #160 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-161 | Erdős Problem #161 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-162 | Erdős Problem #162 | to-check | 12 |  | not_proved | Reproduced the logarithmic-scale window via probabilistic method heuristics and searched for constant-level sharpening. |
+| EP-162 | Erdős Problem #162 | to-check | 12 |  | log_scale_known_constant_identification_open_no_new_bound | logarithmic-order window remains, but no new estimate of the asymptotic constant c_alpha was obtained |
 | EP-165 | Erdős Problem #165 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-168 | Erdős Problem #168 | to-check | 229 | 1977 | exact_finite_frontier_extended_with_certified_values | Machine-verified exact values computed for F(N) on sampled N from 20 to 75 in steps of 5; ratios are mostly 0.8 with one sampled value 0.82. |
 | EP-169 | Erdős Problem #169 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -168,15 +168,15 @@ node scripts/generate_readme_progress.mjs
 | EP-184 | Erdős Problem #184 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-187 | Erdős Problem #187 | to-check | 251 | 1980 | finite_coloring_profiles_logscale_consistent_exact_order_open | On N=7000, d<=180, best random profiles stayed on low logarithmic scale relative to d. |
 | EP-188 | Erdős Problem #188 | harder |  | 2017 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-190 | Erdős Problem #190 | to-check | 14 |  | not_proved | Attempted canonical-Ramsey lower/upper growth comparison using Szemeredi-driven existence plus anti-rainbow constructions. |
+| EP-190 | Erdős Problem #190 | to-check | 14 |  | k3_case_solved_exact_H3_equals_9_general_k_open | exact k=3 search gives H(3)=9 (avoiders exist to N=8, fail at N=9) |
 | EP-193 | Erdős Problem #193 | to-check | 241 | 1979 | finite_construction_attempts_stall_no_general_proof | For target length 180, best achieved lengths were 17 (axis6), 8 (positive3), 41 (diag6), 58 (mixed8). |
 | EP-195 | Erdős Problem #195 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-196 | Erdős Problem #196 | to-check | 230 | 1977 | finite_avoidance_witnesses_found_no_infinite_resolution | Full avoiding permutations were found for N=12 and N=14; no full witness found in this run for N=16,18,20,22. |
-| EP-197 | Erdős Problem #197 | to-check | 15 |  | not_proved | Tried recursive block permutations in two-color partition classes to suppress monotone 3-term APs after permutation. |
-| EP-200 | Erdős Problem #200 | to-check | 16 |  | not_proved | Used random-primes heuristic and existing AP-in-primes framework to test plausibility of sub-logarithmic maximal progression length. |
+| EP-197 | Erdős Problem #197 | to-check | 15 |  | two_partition_permutation_approach_stalled_cross_block_obstruction | no two-class infinite construction/proof; cross-block monotone 3-AP interactions remain uncontrolled |
+| EP-200 | Erdős Problem #200 | to-check | 16 |  | exact_prime_AP_profile_to_1e6_sublog_open | exact scans to N=10^6 found longest prime AP length 13; asymptotic o(log N) remains open |
 | EP-201 | Erdős Problem #201 | to-check | 217 | 1975 | interval_model_matches_R3_on_small_N_relation_open | For N=6..9 in the interval model, worst-case AP-free size equals exact R_3(N) (ratio 1). |
 | EP-202 | Erdős Problem #202 | harder |  | 2013 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-203 | Erdős Problem #203 | to-check | 17 |  | not_proved | Attempted a covering-congruence construction assigning prime divisors to all values 2^k 3^l m + 1 across exponent classes. |
+| EP-203 | Erdős Problem #203 | to-check | 17 |  | finite_box_scan_no_candidate_up_to_m50000_exponents_8_6 | for m<=50000 (m,6)=1, each m has some prime 2^k3^l m+1 within 0<=k<=8,0<=l<=6 |
 | EP-208 | Erdős Problem #208 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-212 | Erdős Problem #212 | harder |  | 2020 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-213 | Erdős Problem #213 | harder |  | 2024 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
@@ -184,14 +184,14 @@ node scripts/generate_readme_progress.mjs
 | EP-218 | Erdős Problem #218 | to-check | 283 | 1985 | finite_density_estimates_near_half_equal_gaps_seen_asymptotic_open | Up to n=10^6, proportions of d_{n+1}>=d_n and d_{n+1}<=d_n are both about 0.516, with many equal-gap events observed. |
 | EP-222 | Erdős Problem #222 | harder |  | 2023 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-233 | Erdős Problem #233 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-234 | Erdős Problem #234 | to-check | 18 |  | not_proved_statement_text_noisy | Interpreted the problem as existence/continuity of distribution for normalized prime gaps (p_{n+1}-p_n)/log n below threshold c. |
+| EP-234 | Erdős Problem #234 | to-check | 18 |  | statement_issue_malformed_dataset_entry_blocked | Local statement text is malformed/injected in this dataset copy, so proof attempt is blocked pending statement repair. |
 | EP-236 | Erdős Problem #236 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-238 | Erdős Problem #238 | to-check | 150 | 1949 | small_c1_case_solved_full_range_open | Background records Erdos proved the claim for any fixed c2>0 when c1 is sufficiently small. |
 | EP-241 | Erdős Problem #241 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-243 | Erdős Problem #243 | harder |  | 2001 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-244 | Erdős Problem #244 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-247 | Erdős Problem #247 | to-check | 302 | 1988 | stronger_sparsity_regime_solved_weaker_limsup_ratio_open | Background gives transcendence under much stronger growth conditions; the stated weaker limsup(a_n/n)=infinity regime remains unresolved here. |
-| EP-249 | Erdős Problem #249 | to-check | 19 |  | not_proved | Rewrote sum phi(n)/2^n via divisor-sum identities to express it as a rapidly convergent arithmetic series amenable to irrationality criteria. |
+| EP-249 | Erdős Problem #249 | to-check | 19 |  | finite_denominator_exclusion_to_5e6_no_irrationality_proof | Exact partial-sum/tail interval excludes all rationals p/q with q<=5,000,000; irrationality remains unproved. |
 | EP-251 | Erdős Problem #251 | to-check | 300 | 1988 | factorial_denominator_variant_solved_power_two_denominator_open | Known irrationality for prime-weighted factorial-denominator series does not resolve the 2^n-denominator case in this batch. |
 | EP-252 | Erdős Problem #252 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-254 | Erdős Problem #254 | to-check | 161 | 1960 | stronger_hypotheses_case_known_weaker_open | Cassels proved the conclusion under stronger growth and square-fractional-sum divergence assumptions. |
@@ -207,33 +207,33 @@ node scripts/generate_readme_progress.mjs
 | EP-269 | Erdős Problem #269 | to-check | 296 | 1988 | infinite_P_case_easy_finite_P_case_open | Background records irrationality for infinite P and for a modified duplicate-removed finite-P variant, while the stated finite-P sum remains open here. |
 | EP-271 | Erdős Problem #271 | harder |  | 2011 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-272 | Erdős Problem #272 | to-check | 367 | 1999 | asymptotic_resolved_exact_open | Background gives Szabo (1999): t(N)=N^2/2 + O(N^{5/3}(log N)^3), resolving the asymptotic leading term. |
-| EP-273 | Erdős Problem #273 | to-check | 20 |  | not_proved | Tried covering-system construction with allowed moduli p-1 (p>=5), balancing congruence classes to achieve full integer coverage. |
+| EP-273 | Erdős Problem #273 | to-check | 20 |  | bounded_distinct_pminus1_cover_search_no_full_cover_found | Randomized greedy search with distinct moduli p-1 up to 400 reached about 91.3% finite-prefix coverage, with no full cover found. |
 | EP-274 | Erdős Problem #274 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-276 | Erdős Problem #276 | harder |  | 2014 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-278 | Erdős Problem #278 | to-check | 286 | 1986 | structured_family_reduction_obtained_general_max_density_open | For A={3}U{3p:p in P}, maximizing covered density reduces exactly to minimizing prod_{p in P1}(1-1/p)+prod_{p in P2}(1-1/p) over partitions P=P1 sqcup P2. |
-| EP-279 | Erdős Problem #279 | to-check | 21 |  | k1_k2_analogue_known_kge3_open | Background states analogous covering property is known in k=1 and k=2 settings under divergent harmonic-sum assumptions. |
+| EP-279 | Erdős Problem #279 | to-check | 21 |  | k3_finite_prefix_residue_cover_scan_high_but_incomplete_coverage | For k=3 and primes<=300, best finite-prefix coverage is about 90.44% on [5000,300000]; no near-complete cover found. |
 | EP-281 | Erdős Problem #281 | to-check | 178 | 1966 | resolved_in_background_as_written | Finite-truncation conclusion follows from background argument combining density limit for multiples and Rogers' extremal residue-class principle. |
 | EP-282 | Erdős Problem #282 | to-check | 168 | 1964 | finite_exhaustive_tests_support_termination_not_proof | Exhaustive tests: all 8150 cases (n<=199) and all 32764 cases (n<=401) terminated. |
 | EP-283 | Erdős Problem #283 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-288 | Erdős Problem #288 | to-check | 22 |  | open_even_singleton_interval_case | Background reports the finiteness question is still open even when one interval has length one. |
+| EP-288 | Erdős Problem #288 | to-check | 22 |  | singleton_second_interval_exact_scan_few_small_solutions_only | In the |I2|=1 restricted scan up to endpoint 220, only three disjoint solutions appear (including [3,6] with c=20). |
 | EP-289 | Erdős Problem #289 | to-check | 252 | 1980 | exact_randomized_search_no_witness_in_tested_ranges | No exact decomposition of 1 was found for tested k ranges up to 10 (Nmax 90) and up to 8 (Nmax 140) under current search budgets. |
 | EP-291 | Erdős Problem #291 | harder |  | 2022 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-293 | Erdős Problem #293 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-295 | Erdős Problem #295 | to-check | 197 | 1971 | rigorous_harmonic_lower_bound_curve_established | Computed k_harm-(e-1)N on N<=2e4; observed range about [-0.8591,0.1419]. |
-| EP-301 | Erdős Problem #301 | to-check | 23 |  | density_bounds_known_constant_open | Background gives f(N)>=(1/2+o(1))N and f(N)<=(25/28+o(1))N. |
+| EP-301 | Erdős Problem #301 | to-check | 23 |  | bounds_window_rechecked_no_constant_improvement | Rechecked local configuration arguments; no improvement beyond known density window 1/2 to 25/28. |
 | EP-302 | Erdős Problem #302 | to-check | 311 | 1991 | half_density_guess_false_bounds_known | Background records f(N)>=(5/8+o(1))N and f(N)<=(9/10+o(1))N, so the subquestion f(N)=(1/2+o(1))N is ruled out by these bounds. |
 | EP-304 | Erdős Problem #304 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-306 | Erdős Problem #306 | harder |  | 2015 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-311 | Erdős Problem #311 | to-check | 253 | 1980 | exact_small_N_exponential_decay_signal_constant_open | Exact delta(N) for N=10..30 gives -log(delta(N))/N roughly between 0.54 and 0.65. |
-| EP-312 | Erdős Problem #312 | to-check | 24 |  | poly_error_known_exp_error_open | Background says Erdos-Graham proved a version with error term comparable to c/K^2 instead of exp(-cK). |
-| EP-313 | Erdős Problem #313 | to-check | 25 |  | finite_examples_known_infinitude_open | Background identifies these m as primary pseudoperfect numbers and reports eight known; local search up to 10^7 finds m=2,6,42,1806,47058. |
-| EP-317 | Erdős Problem #317 | to-check | 26 |  | weak_first_scale_known_strict_second_open | Background gives a weak first-question bound of size 2^{-n*(logloglog n)^{1+o(1)}/log n}; non-strict lcm lower barrier for second question is immediate. |
+| EP-312 | Erdős Problem #312 | to-check | 24 |  | no_new_quantitative_progress_toward_exponential_gap | No new bound improving the known polynomial-gap approximation near 1 was derived in this batch. |
+| EP-313 | Erdős Problem #313 | to-check | 25 |  | primary_pseudoperfect_scan_extended_to_1e8_no_new_values | Exact scan to m<=10^8 still finds only m in {2,6,42,1806,47058}. |
+| EP-317 | Erdős Problem #317 | to-check | 26 |  | exact_signed_harmonic_min_profile_to_n26 | Exact profile for n<=26 shows equality with 1/[1..n] at n=3,4 and strict inequality for every n=5..26 tested. |
 | EP-318 | Erdős Problem #318 | to-check | 277 | 1982 | first_yes_second_false_third_open | Arithmetic-progression version is true (Sattler, per background). Positive-density version is false: if A has exactly one even element e, choosing f(e)=1 and f(odd)=-1 prevents any finite zero-sum reciprocal subset. |
 | EP-319 | Erdős Problem #319 | harder |  | 2001 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-320 | Erdős Problem #320 | harder |  | 2025 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-321 | Erdős Problem #321 | to-check | 226 | 1976 | exact_small_N_frontier_supports_N_over_logN_scale_not_asymptotic | Exact values computed for 8<=N<=25; R(25)=18 and R(N)/(N/log N) lies roughly in [1.82,2.33] on this range. |
 | EP-322 | Erdős Problem #322 | harder |  | 2004 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
-| EP-323 | Erdős Problem #323 | to-check | 27 |  | k2_case_solved_general_open | Diagonal k=2 case is resolved in background: f_{2,2}(x)~c x/sqrt(log x) (Landau). |
+| EP-323 | Erdős Problem #323 | to-check | 27 |  | finite_fkmx_profiles_added_selected_km_pairs | Exact counts up to x=10^6 for selected (k,m) pairs were recorded; asymptotic conjectures remain open. |
 | EP-324 | Erdős Problem #324 | to-check | 28 |  | finite_range_evidence_no_global_proof | Local computation found no collisions for a^5+b^5 with 0<=a<b<=1200 (720600 pairs). |
 | EP-325 | Erdős Problem #325 | harder |  | 2019 | deprioritized_post2000_refs | Triaged as harder due to reference activity after 2000. |
 | EP-326 | Erdős Problem #326 | to-check | 158 | 1957 | stronger_AeqB_false_current_open | Background: the original version with A=B was disproved by Cassels. |

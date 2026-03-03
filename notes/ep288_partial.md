@@ -8,6 +8,17 @@ Are there only finitely many interval pairs `(I1,I2)` with
 ## What is resolved
 Background gives explicit examples where such an integer value occurs.
 
+## Evidence from this batch (`|I2|=1` restricted case)
+Exact bounded scan:
+- script: `scripts/ep288_interval_singleton_scan.mjs`
+- data: `data/ep288_interval_singleton_scan.json`
+
+For endpoint bound `<=220`, found only three disjoint singleton-second-interval
+solutions:
+- `[1,3]` with `c=6`,
+- `[2,3]` with `c=6`,
+- `[3,6]` with `c=20`.
+
 ## What remains open in this note
 The finiteness question is open even in the restricted case `|I2|=1`.
 

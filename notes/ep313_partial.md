@@ -11,8 +11,10 @@ with distinct primes `p1<...<pk` and integer `m>=2`?
 Background identifies these `m` as primary pseudoperfect numbers and reports a
 finite known list (eight known values).
 
-A local exhaustive check in this workspace up to `m<=10^7` found exactly
-`m in {2,6,42,1806,47058}`.
+An extended exact scan in this workspace up to `m<=10^8` found exactly
+`m in {2,6,42,1806,47058}`:
+- script: `scripts/ep313_primary_pseudoperfect_scan.mjs`
+- data: `data/ep313_primary_pseudoperfect_scan.json`
 
 ## What remains open in this note
 Infinitude is not proved or disproved by the cited material.

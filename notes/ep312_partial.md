@@ -14,6 +14,10 @@ Background says Erd"os-Graham proved a weaker quantitative form with
 The stronger exponential-accuracy gap in the statement is not proved in the
 provided background.
 
+## Attempt in this batch
+Tried to refine the near-`1` subset-sum approximation route beyond polynomial
+error, but no new quantitative bound was derived.
+
 ## Status
 - polynomial-size gap near 1: known.
 - exponential-size gap near 1: unresolved.

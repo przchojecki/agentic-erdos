@@ -1,0 +1,13 @@
+# EP-234 partial
+
+## Statement issue
+In this dataset copy, the EP-234 statement is malformed and contains injected JSON
+fragment text:
+
+`... is a continuous function of c. ", "difficulty": "L1" },{`
+
+So the local record is not reliable enough for a mathematical proof attempt
+without first restoring the clean statement.
+
+## Status
+Blocked by dataset text corruption in this workspace copy.

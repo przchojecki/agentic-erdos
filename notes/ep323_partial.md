@@ -18,6 +18,19 @@ For `k>2`, background says even the coarse question `f_{k,k}(x)=o(x)` is not kno
 Thus the stated lower-bound targets are unresolved in general. The `m<k` question is
 also open in general in the provided record.
 
+## Evidence from this batch
+Finite exact counting for selected `(k,m)` pairs and `x<=10^6`:
+- script: `scripts/ep323_power_sum_count_scan.mjs`
+- data: `data/ep323_power_sum_count_scan.json`
+
+Observed examples:
+- `f_{3,2}(x)/x^{2/3}` near `0.45` in this range,
+- `f_{4,2}(x)/x^{1/2}` near `0.49`,
+- diagonal densities `f_{3,3}(x)/x`, `f_{4,4}(x)/x`, `f_{5,5}(x)/x` are positive
+  on this range but decreasing with `x`.
+
+Finite data does not decide the asymptotic statements.
+
 ## Status
 - `k=2` diagonal case: resolved.
 - general `k>2` / `m<k` claims: unresolved.

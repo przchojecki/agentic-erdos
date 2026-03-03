@@ -1,0 +1,27 @@
+{
+  "problem": "EP-249",
+  "script": "ep249_phi_over_2n_rational_exclusion.mjs",
+  "method": "partial_sum_with_rigorous_tail_and_denominator_scan",
+  "params": {
+    "N": 140,
+    "QMAX": 5000000
+  },
+  "interval": {
+    "lower": {
+      "num": "476549781886407384530068788300518437153133",
+      "den": "348449143727040986586495598010130648530944"
+    },
+    "upper": {
+      "num": "953099563772814769060137576601036874306337",
+      "den": "696898287454081973172991196020261297061888"
+    },
+    "tail_bound": {
+      "num": "142",
+      "den": "1393796574908163946345982392040522594123776"
+    }
+  },
+  "checked_denominators": 5000000,
+  "candidate_found": false,
+  "first_candidate": null,
+  "generated_utc": "2026-03-02T14:16:42.049Z"
+}

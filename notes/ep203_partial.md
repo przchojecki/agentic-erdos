@@ -1,0 +1,20 @@
+# EP-203 partial
+
+## Evidence from this batch
+Counterexample-oriented finite box scan for candidates `m` (`gcd(m,6)=1`) with
+all values `2^k 3^l m + 1` composite in a tested exponent window:
+- script: `scripts/ep203_2k3l_m_plus_1_scan.mjs`
+- data: `data/ep203_2k3l_m_plus_1_scan.json`
+
+Parameters used in the recorded run:
+- `m <= 50000`,
+- `0<=k<=8`,
+- `0<=l<=6`.
+
+## Finite result
+No surviving `m` in this tested box (`survivors_count = 0`).
+
+This gives strong finite obstruction but does not prove the infinite statement.
+
+## Status
+Open; finite counterexample search found no candidate in the tested range.

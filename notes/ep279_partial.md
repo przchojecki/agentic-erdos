@@ -8,6 +8,15 @@ all sufficiently large integers lie in some progression `a_p + t p` with `t>=k`.
 Background states that analogous covering behavior is known for `k=1` and `k=2`
 under a divergent harmonic-sum condition on the underlying set.
 
+## Evidence from this batch
+Finite-prefix heuristic for `k=3`:
+- script: `scripts/ep279_residue_cover_greedy_scan.mjs`
+- data: `data/ep279_residue_cover_greedy_scan.json`
+
+Best run (primes `<=300`, `N=300000`, `120` restarts) covered about
+`90.44%` of the tail interval `[5000,300000]` with one residue class per prime.
+No near-complete finite-prefix cover was found in this regime.
+
 ## What remains open in this note
 The target regime `k>=3` is explicitly described as difficult in the cited text.
 

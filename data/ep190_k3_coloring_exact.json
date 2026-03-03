@@ -1,0 +1,389 @@
+{
+  "problem": "EP-190",
+  "script": "ep190_k3_coloring_exact.mjs",
+  "method": "exact_backtracking_canonical_color_labels_for_k3",
+  "n_max": 50,
+  "rows": [
+    {
+      "N": 3,
+      "avoider_exists": true,
+      "color_count": 2,
+      "coloring_prefix": [
+        0,
+        0,
+        1
+      ],
+      "runtime_ms": 0
+    },
+    {
+      "N": 4,
+      "avoider_exists": true,
+      "color_count": 2,
+      "coloring_prefix": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "runtime_ms": 0
+    },
+    {
+      "N": 5,
+      "avoider_exists": true,
+      "color_count": 2,
+      "coloring_prefix": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "runtime_ms": 0
+    },
+    {
+      "N": 6,
+      "avoider_exists": true,
+      "color_count": 2,
+      "coloring_prefix": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "runtime_ms": 0
+    },
+    {
+      "N": 7,
+      "avoider_exists": true,
+      "color_count": 2,
+      "coloring_prefix": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "runtime_ms": 0
+    },
+    {
+      "N": 8,
+      "avoider_exists": true,
+      "color_count": 3,
+      "coloring_prefix": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1
+      ],
+      "runtime_ms": 0
+    },
+    {
+      "N": 9,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 10,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 11,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 1
+    },
+    {
+      "N": 12,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 13,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 14,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 15,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 16,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 17,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 18,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 19,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 20,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 21,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 22,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 23,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 24,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 25,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 26,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 27,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 28,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 29,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 30,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 31,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 32,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 33,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 1
+    },
+    {
+      "N": 34,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 35,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 36,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 37,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 38,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 39,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 40,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 41,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 42,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 43,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 44,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 45,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 46,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 47,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 48,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 49,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    },
+    {
+      "N": 50,
+      "avoider_exists": false,
+      "color_count": null,
+      "coloring_prefix": null,
+      "runtime_ms": 0
+    }
+  ],
+  "summary": {
+    "max_N_with_avoider": 8,
+    "first_N_without_avoider": 9,
+    "lower_bound_H3": 9
+  },
+  "generated_utc": "2026-03-02T14:04:36.419Z"
+}

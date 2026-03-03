@@ -16,6 +16,18 @@ known to fail for small `n`.
 Sharp order for (1) and eventual strict inequality behavior for (2) remain open
 in the record.
 
+## Evidence from this batch
+Exact meet-in-the-middle profile for `3<=n<=26`:
+- script: `scripts/ep317_signed_harmonic_min_exact.mjs`
+- data: `data/ep317_signed_harmonic_min_exact.json`
+
+Findings:
+- equality `|sum|=1/[1..n]` occurs at `n=3,4`,
+- from `n=5` through `n=26`, the minimum nonzero value is strictly larger than
+  `1/[1..n]` in this tested range.
+
+This is finite evidence only, not an eventual proof.
+
 ## Status
 - weak form and baseline barriers: known.
 - sharp asymptotics and strict large-`n` behavior: unresolved.

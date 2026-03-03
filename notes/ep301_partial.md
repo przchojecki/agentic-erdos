@@ -22,6 +22,10 @@ from an elementary disjoint-configuration argument.
 ## What remains open in this note
 The exact asymptotic constant is not determined by these bounds.
 
+## Attempt in this batch
+Rechecked whether the known `25/28` upper-bound mechanism can be tightened by
+local forbidden-configuration amplification; no improvement was obtained.
+
 ## Status
 - two-sided density bounds: known.
 - exact asymptotic constant: unresolved.
