@@ -1,0 +1,86 @@
+{
+  "problem": "EP-42",
+  "script": "ep42_m3_counterexample_search.mjs",
+  "method": "annealed_search_for_M3_counterexample_via_complement_distinct_schur_obstruction",
+  "params": {
+    "n_list": [
+      63
+    ],
+    "m_min": 8,
+    "m_max": 14,
+    "restarts": 80,
+    "steps": 30000,
+    "verify_direct": true,
+    "seed": 20260303
+  },
+  "results": [
+    {
+      "N": 63,
+      "params": {
+        "m_min": 8,
+        "m_max": 14,
+        "restarts": 80,
+        "steps": 30000
+      },
+      "found_exact_bad0": null,
+      "certification": null,
+      "global_best": {
+        "m": 10,
+        "restart": 32,
+        "best_bad_distinct_schur": 5,
+        "best_c_size": 17,
+        "sample_bad_triple": [
+          8,
+          27,
+          35
+        ],
+        "A": [
+          1,
+          8,
+          10,
+          20,
+          26,
+          31,
+          46,
+          59,
+          60,
+          63
+        ]
+      },
+      "tried_by_m": [
+        {
+          "m": 8,
+          "best_bad_distinct_schur": 57,
+          "best_c_size": 34,
+          "sample_bad_triple": [
+            13,
+            21,
+            34
+          ]
+        },
+        {
+          "m": 9,
+          "best_bad_distinct_schur": 22,
+          "best_c_size": 26,
+          "sample_bad_triple": [
+            12,
+            24,
+            36
+          ]
+        },
+        {
+          "m": 10,
+          "best_bad_distinct_schur": 5,
+          "best_c_size": 17,
+          "sample_bad_triple": [
+            8,
+            27,
+            35
+          ]
+        }
+      ],
+      "runtime_ms": 565
+    }
+  ],
+  "generated_utc": "2026-03-03T09:29:39.015Z"
+}
