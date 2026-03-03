@@ -1,0 +1,1646 @@
+{
+  "script": "harder_batch12_quick_compute.mjs",
+  "generated_utc": "2026-03-03T19:42:39.714Z",
+  "results": {
+    "ep406": {
+      "description": "Finite ternary-digit profile for powers of two.",
+      "exponent_limit": 20000,
+      "exponents_with_only_digits_0_1": [
+        0,
+        2,
+        8
+      ],
+      "exponents_with_only_digits_1_2": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        15
+      ],
+      "counts_missing_digit_after_n_ge_16": {
+        "missing_0": 0,
+        "missing_1": 0,
+        "missing_2": 0
+      },
+      "rows": [
+        {
+          "n": 100,
+          "count_hits_01_up_to_n": 3,
+          "count_hits_12_up_to_n": 6
+        },
+        {
+          "n": 1000,
+          "count_hits_01_up_to_n": 3,
+          "count_hits_12_up_to_n": 6
+        },
+        {
+          "n": 5000,
+          "count_hits_01_up_to_n": 3,
+          "count_hits_12_up_to_n": 6
+        },
+        {
+          "n": 10000,
+          "count_hits_01_up_to_n": 3,
+          "count_hits_12_up_to_n": 6
+        },
+        {
+          "n": 20000,
+          "count_hits_01_up_to_n": 3,
+          "count_hits_12_up_to_n": 6
+        }
+      ]
+    },
+    "ep408": {
+      "description": "Finite distribution proxies for f(n)=min{k:phi_k(n)=1} and lpf(phi_{loglog n}(n)).",
+      "rows": [
+        {
+          "X": 10000,
+          "mean_f_over_log": 1.273735,
+          "std_f_over_log": 0.09143868,
+          "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.0484097,
+          "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
+        },
+        {
+          "X": 50000,
+          "mean_f_over_log": 1.264757,
+          "std_f_over_log": 0.08102095,
+          "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.024941,
+          "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
+        },
+        {
+          "X": 100000,
+          "mean_f_over_log": 1.261696,
+          "std_f_over_log": 0.07751201,
+          "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.0969819,
+          "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
+        },
+        {
+          "X": 200000,
+          "mean_f_over_log": 1.259083,
+          "std_f_over_log": 0.07446091,
+          "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.133866,
+          "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
+        },
+        {
+          "X": 300000,
+          "mean_f_over_log": 1.257701,
+          "std_f_over_log": 0.07281652,
+          "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.138188,
+          "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
+        }
+      ]
+    },
+    "ep409": {
+      "description": "Finite iteration profile for T(n)=phi(n)+1 and terminal-prime basins.",
+      "rows": [
+        {
+          "X": 10000,
+          "mean_iterations_to_prime": 3.1419,
+          "max_iterations_up_to_X": 12,
+          "argmax_n": 4531,
+          "density_reaching_prime_2": 0.0002,
+          "density_reaching_prime_3": 0.0003,
+          "density_reaching_prime_5": 0.0004
+        },
+        {
+          "X": 50000,
+          "mean_iterations_to_prime": 3.48352,
+          "max_iterations_up_to_X": 14,
+          "argmax_n": 22957,
+          "density_reaching_prime_2": 0.00004,
+          "density_reaching_prime_3": 0.00006,
+          "density_reaching_prime_5": 0.00008
+        },
+        {
+          "X": 100000,
+          "mean_iterations_to_prime": 3.65398,
+          "max_iterations_up_to_X": 19,
+          "argmax_n": 98581,
+          "density_reaching_prime_2": 0.00002,
+          "density_reaching_prime_3": 0.00003,
+          "density_reaching_prime_5": 0.00004
+        },
+        {
+          "X": 200000,
+          "mean_iterations_to_prime": 3.868315,
+          "max_iterations_up_to_X": 21,
+          "argmax_n": 115243,
+          "density_reaching_prime_2": 0.00001,
+          "density_reaching_prime_3": 0.000015,
+          "density_reaching_prime_5": 0.00002
+        },
+        {
+          "X": 300000,
+          "mean_iterations_to_prime": 3.979013,
+          "max_iterations_up_to_X": 23,
+          "argmax_n": 291149,
+          "density_reaching_prime_2": 0.00000666667,
+          "density_reaching_prime_3": 0.00001,
+          "density_reaching_prime_5": 0.0000133333
+        }
+      ],
+      "top_terminal_prime_basins": [
+        {
+          "prime": 21089,
+          "count": 3973,
+          "density": 0.0132433
+        },
+        {
+          "prime": 36721,
+          "count": 3031,
+          "density": 0.0101033
+        },
+        {
+          "prime": 63361,
+          "count": 2808,
+          "density": 0.00936
+        },
+        {
+          "prime": 23509,
+          "count": 2485,
+          "density": 0.00828333
+        },
+        {
+          "prime": 3313,
+          "count": 2122,
+          "density": 0.00707333
+        },
+        {
+          "prime": 28081,
+          "count": 1969,
+          "density": 0.00656333
+        },
+        {
+          "prime": 24337,
+          "count": 1955,
+          "density": 0.00651667
+        },
+        {
+          "prime": 44501,
+          "count": 1908,
+          "density": 0.00636
+        }
+      ]
+    },
+    "ep410": {
+      "description": "Finite growth profile for sigma iterates sigma_k(n).",
+      "rows": [
+        {
+          "seed": 2,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 15748,
+          "profile": [
+            {
+              "k": 1,
+              "value": 3,
+              "root_k": 3,
+              "log_over_k": 1.098612
+            },
+            {
+              "k": 2,
+              "value": 4,
+              "root_k": 2,
+              "log_over_k": 0.6931472
+            },
+            {
+              "k": 3,
+              "value": 7,
+              "root_k": 1.912931,
+              "log_over_k": 0.6486367
+            },
+            {
+              "k": 4,
+              "value": 8,
+              "root_k": 1.681793,
+              "log_over_k": 0.5198604
+            },
+            {
+              "k": 5,
+              "value": 15,
+              "root_k": 1.718772,
+              "log_over_k": 0.54161
+            },
+            {
+              "k": 6,
+              "value": 24,
+              "root_k": 1.698381,
+              "log_over_k": 0.5296756
+            },
+            {
+              "k": 7,
+              "value": 60,
+              "root_k": 1.794823,
+              "log_over_k": 0.5849064
+            },
+            {
+              "k": 8,
+              "value": 168,
+              "root_k": 1.897421,
+              "log_over_k": 0.6404955
+            },
+            {
+              "k": 9,
+              "value": 480,
+              "root_k": 1.985709,
+              "log_over_k": 0.6859762
+            },
+            {
+              "k": 10,
+              "value": 1512,
+              "root_k": 2.079482,
+              "log_over_k": 0.7321189
+            },
+            {
+              "k": 11,
+              "value": 4800,
+              "root_k": 2.161018,
+              "log_over_k": 0.7705792
+            },
+            {
+              "k": 12,
+              "value": 15748,
+              "root_k": 2.23753,
+              "log_over_k": 0.8053724
+            }
+          ]
+        },
+        {
+          "seed": 3,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 28672,
+          "profile": [
+            {
+              "k": 1,
+              "value": 4,
+              "root_k": 4,
+              "log_over_k": 1.386294
+            },
+            {
+              "k": 2,
+              "value": 7,
+              "root_k": 2.645751,
+              "log_over_k": 0.9729551
+            },
+            {
+              "k": 3,
+              "value": 8,
+              "root_k": 2,
+              "log_over_k": 0.6931472
+            },
+            {
+              "k": 4,
+              "value": 15,
+              "root_k": 1.96799,
+              "log_over_k": 0.6770126
+            },
+            {
+              "k": 5,
+              "value": 24,
+              "root_k": 1.888175,
+              "log_over_k": 0.6356108
+            },
+            {
+              "k": 6,
+              "value": 60,
+              "root_k": 1.978602,
+              "log_over_k": 0.6823908
+            },
+            {
+              "k": 7,
+              "value": 168,
+              "root_k": 2.079224,
+              "log_over_k": 0.7319949
+            },
+            {
+              "k": 8,
+              "value": 480,
+              "root_k": 2.163491,
+              "log_over_k": 0.7717233
+            },
+            {
+              "k": 9,
+              "value": 1512,
+              "root_k": 2.255711,
+              "log_over_k": 0.8134654
+            },
+            {
+              "k": 10,
+              "value": 4800,
+              "root_k": 2.334125,
+              "log_over_k": 0.8476371
+            },
+            {
+              "k": 11,
+              "value": 15748,
+              "root_k": 2.407498,
+              "log_over_k": 0.8785881
+            },
+            {
+              "k": 12,
+              "value": 28672,
+              "root_k": 2.352095,
+              "log_over_k": 0.8553064
+            }
+          ]
+        },
+        {
+          "seed": 4,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 65528,
+          "profile": [
+            {
+              "k": 1,
+              "value": 7,
+              "root_k": 7,
+              "log_over_k": 1.94591
+            },
+            {
+              "k": 2,
+              "value": 8,
+              "root_k": 2.828427,
+              "log_over_k": 1.039721
+            },
+            {
+              "k": 3,
+              "value": 15,
+              "root_k": 2.466212,
+              "log_over_k": 0.9026834
+            },
+            {
+              "k": 4,
+              "value": 24,
+              "root_k": 2.213364,
+              "log_over_k": 0.7945135
+            },
+            {
+              "k": 5,
+              "value": 60,
+              "root_k": 2.267933,
+              "log_over_k": 0.8188689
+            },
+            {
+              "k": 6,
+              "value": 168,
+              "root_k": 2.34901,
+              "log_over_k": 0.853994
+            },
+            {
+              "k": 7,
+              "value": 480,
+              "root_k": 2.415653,
+              "log_over_k": 0.8819694
+            },
+            {
+              "k": 8,
+              "value": 1512,
+              "root_k": 2.497146,
+              "log_over_k": 0.9151486
+            },
+            {
+              "k": 9,
+              "value": 4800,
+              "root_k": 2.564642,
+              "log_over_k": 0.941819
+            },
+            {
+              "k": 10,
+              "value": 15748,
+              "root_k": 2.628588,
+              "log_over_k": 0.9664469
+            },
+            {
+              "k": 11,
+              "value": 28672,
+              "root_k": 2.54228,
+              "log_over_k": 0.9330615
+            },
+            {
+              "k": 12,
+              "value": 65528,
+              "root_k": 2.519816,
+              "log_over_k": 0.9241861
+            }
+          ]
+        },
+        {
+          "seed": 5,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 196584,
+          "profile": [
+            {
+              "k": 1,
+              "value": 6,
+              "root_k": 6,
+              "log_over_k": 1.791759
+            },
+            {
+              "k": 2,
+              "value": 12,
+              "root_k": 3.464102,
+              "log_over_k": 1.242453
+            },
+            {
+              "k": 3,
+              "value": 28,
+              "root_k": 3.036589,
+              "log_over_k": 1.110735
+            },
+            {
+              "k": 4,
+              "value": 56,
+              "root_k": 2.735565,
+              "log_over_k": 1.006338
+            },
+            {
+              "k": 5,
+              "value": 120,
+              "root_k": 2.605171,
+              "log_over_k": 0.9574983
+            },
+            {
+              "k": 6,
+              "value": 360,
+              "root_k": 2.667168,
+              "log_over_k": 0.9810173
+            },
+            {
+              "k": 7,
+              "value": 1170,
+              "root_k": 2.743546,
+              "log_over_k": 1.009251
+            },
+            {
+              "k": 8,
+              "value": 3276,
+              "root_k": 2.75054,
+              "log_over_k": 1.011797
+            },
+            {
+              "k": 9,
+              "value": 10192,
+              "root_k": 2.788445,
+              "log_over_k": 1.025484
+            },
+            {
+              "k": 10,
+              "value": 24738,
+              "root_k": 2.750024,
+              "log_over_k": 1.01161
+            },
+            {
+              "k": 11,
+              "value": 61440,
+              "root_k": 2.724669,
+              "log_over_k": 1.002347
+            },
+            {
+              "k": 12,
+              "value": 196584,
+              "root_k": 2.761398,
+              "log_over_k": 1.015737
+            }
+          ]
+        },
+        {
+          "seed": 6,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 491520,
+          "profile": [
+            {
+              "k": 1,
+              "value": 12,
+              "root_k": 12,
+              "log_over_k": 2.484907
+            },
+            {
+              "k": 2,
+              "value": 28,
+              "root_k": 5.291503,
+              "log_over_k": 1.666102
+            },
+            {
+              "k": 3,
+              "value": 56,
+              "root_k": 3.825862,
+              "log_over_k": 1.341784
+            },
+            {
+              "k": 4,
+              "value": 120,
+              "root_k": 3.309751,
+              "log_over_k": 1.196873
+            },
+            {
+              "k": 5,
+              "value": 360,
+              "root_k": 3.245342,
+              "log_over_k": 1.177221
+            },
+            {
+              "k": 6,
+              "value": 1170,
+              "root_k": 3.246118,
+              "log_over_k": 1.17746
+            },
+            {
+              "k": 7,
+              "value": 3276,
+              "root_k": 3.178279,
+              "log_over_k": 1.15634
+            },
+            {
+              "k": 8,
+              "value": 10192,
+              "root_k": 3.169804,
+              "log_over_k": 1.15367
+            },
+            {
+              "k": 9,
+              "value": 24738,
+              "root_k": 3.077171,
+              "log_over_k": 1.124011
+            },
+            {
+              "k": 10,
+              "value": 61440,
+              "root_k": 3.011932,
+              "log_over_k": 1.102582
+            },
+            {
+              "k": 11,
+              "value": 196584,
+              "root_k": 3.028528,
+              "log_over_k": 1.108077
+            },
+            {
+              "k": 12,
+              "value": 491520,
+              "root_k": 2.980541,
+              "log_over_k": 1.092105
+            }
+          ]
+        },
+        {
+          "seed": 10,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 491520,
+          "profile": [
+            {
+              "k": 1,
+              "value": 18,
+              "root_k": 18,
+              "log_over_k": 2.890372
+            },
+            {
+              "k": 2,
+              "value": 39,
+              "root_k": 6.244998,
+              "log_over_k": 1.831781
+            },
+            {
+              "k": 3,
+              "value": 56,
+              "root_k": 3.825862,
+              "log_over_k": 1.341784
+            },
+            {
+              "k": 4,
+              "value": 120,
+              "root_k": 3.309751,
+              "log_over_k": 1.196873
+            },
+            {
+              "k": 5,
+              "value": 360,
+              "root_k": 3.245342,
+              "log_over_k": 1.177221
+            },
+            {
+              "k": 6,
+              "value": 1170,
+              "root_k": 3.246118,
+              "log_over_k": 1.17746
+            },
+            {
+              "k": 7,
+              "value": 3276,
+              "root_k": 3.178279,
+              "log_over_k": 1.15634
+            },
+            {
+              "k": 8,
+              "value": 10192,
+              "root_k": 3.169804,
+              "log_over_k": 1.15367
+            },
+            {
+              "k": 9,
+              "value": 24738,
+              "root_k": 3.077171,
+              "log_over_k": 1.124011
+            },
+            {
+              "k": 10,
+              "value": 61440,
+              "root_k": 3.011932,
+              "log_over_k": 1.102582
+            },
+            {
+              "k": 11,
+              "value": 196584,
+              "root_k": 3.028528,
+              "log_over_k": 1.108077
+            },
+            {
+              "k": 12,
+              "value": 491520,
+              "root_k": 2.980541,
+              "log_over_k": 1.092105
+            }
+          ]
+        },
+        {
+          "seed": 12,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 1572840,
+          "profile": [
+            {
+              "k": 1,
+              "value": 28,
+              "root_k": 28,
+              "log_over_k": 3.332205
+            },
+            {
+              "k": 2,
+              "value": 56,
+              "root_k": 7.483315,
+              "log_over_k": 2.012676
+            },
+            {
+              "k": 3,
+              "value": 120,
+              "root_k": 4.932424,
+              "log_over_k": 1.595831
+            },
+            {
+              "k": 4,
+              "value": 360,
+              "root_k": 4.355877,
+              "log_over_k": 1.471526
+            },
+            {
+              "k": 5,
+              "value": 1170,
+              "root_k": 4.108064,
+              "log_over_k": 1.412952
+            },
+            {
+              "k": 6,
+              "value": 3276,
+              "root_k": 3.853813,
+              "log_over_k": 1.349063
+            },
+            {
+              "k": 7,
+              "value": 10192,
+              "root_k": 3.737735,
+              "log_over_k": 1.31848
+            },
+            {
+              "k": 8,
+              "value": 24738,
+              "root_k": 3.541364,
+              "log_over_k": 1.264512
+            },
+            {
+              "k": 9,
+              "value": 61440,
+              "root_k": 3.404475,
+              "log_over_k": 1.225091
+            },
+            {
+              "k": 10,
+              "value": 196584,
+              "root_k": 3.383411,
+              "log_over_k": 1.218885
+            },
+            {
+              "k": 11,
+              "value": 491520,
+              "root_k": 3.291644,
+              "log_over_k": 1.191387
+            },
+            {
+              "k": 12,
+              "value": 1572840,
+              "root_k": 3.283903,
+              "log_over_k": 1.189033
+            }
+          ]
+        },
+        {
+          "seed": 30,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 10118400,
+          "profile": [
+            {
+              "k": 1,
+              "value": 72,
+              "root_k": 72,
+              "log_over_k": 4.276666
+            },
+            {
+              "k": 2,
+              "value": 195,
+              "root_k": 13.96424,
+              "log_over_k": 2.6365
+            },
+            {
+              "k": 3,
+              "value": 336,
+              "root_k": 6.952053,
+              "log_over_k": 1.939037
+            },
+            {
+              "k": 4,
+              "value": 992,
+              "root_k": 5.612133,
+              "log_over_k": 1.724931
+            },
+            {
+              "k": 5,
+              "value": 2016,
+              "root_k": 4.580344,
+              "log_over_k": 1.521774
+            },
+            {
+              "k": 6,
+              "value": 6552,
+              "root_k": 4.325759,
+              "log_over_k": 1.464588
+            },
+            {
+              "k": 7,
+              "value": 21840,
+              "root_k": 4.167669,
+              "log_over_k": 1.427357
+            },
+            {
+              "k": 8,
+              "value": 83328,
+              "root_k": 4.121913,
+              "log_over_k": 1.416317
+            },
+            {
+              "k": 9,
+              "value": 261120,
+              "root_k": 3.998261,
+              "log_over_k": 1.385859
+            },
+            {
+              "k": 10,
+              "value": 884304,
+              "root_k": 3.932422,
+              "log_over_k": 1.369256
+            },
+            {
+              "k": 11,
+              "value": 2678400,
+              "root_k": 3.840186,
+              "log_over_k": 1.345521
+            },
+            {
+              "k": 12,
+              "value": 10118400,
+              "root_k": 3.834947,
+              "log_over_k": 1.344156
+            }
+          ]
+        },
+        {
+          "seed": 70,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 5504352,
+          "profile": [
+            {
+              "k": 1,
+              "value": 144,
+              "root_k": 144,
+              "log_over_k": 4.969813
+            },
+            {
+              "k": 2,
+              "value": 403,
+              "root_k": 20.07486,
+              "log_over_k": 2.999468
+            },
+            {
+              "k": 3,
+              "value": 448,
+              "root_k": 7.651725,
+              "log_over_k": 2.034931
+            },
+            {
+              "k": 4,
+              "value": 1016,
+              "root_k": 5.645773,
+              "log_over_k": 1.730907
+            },
+            {
+              "k": 5,
+              "value": 1920,
+              "root_k": 4.535866,
+              "log_over_k": 1.512016
+            },
+            {
+              "k": 6,
+              "value": 6120,
+              "root_k": 4.276862,
+              "log_over_k": 1.45322
+            },
+            {
+              "k": 7,
+              "value": 21060,
+              "root_k": 4.146073,
+              "log_over_k": 1.422162
+            },
+            {
+              "k": 8,
+              "value": 71148,
+              "root_k": 4.041293,
+              "log_over_k": 1.396565
+            },
+            {
+              "k": 9,
+              "value": 212268,
+              "root_k": 3.907294,
+              "log_over_k": 1.362845
+            },
+            {
+              "k": 10,
+              "value": 608076,
+              "root_k": 3.787876,
+              "log_over_k": 1.331806
+            },
+            {
+              "k": 11,
+              "value": 1863680,
+              "root_k": 3.715641,
+              "log_over_k": 1.312551
+            },
+            {
+              "k": 12,
+              "value": 5504352,
+              "root_k": 3.645235,
+              "log_over_k": 1.293421
+            }
+          ]
+        },
+        {
+          "seed": 210,
+          "steps_computed": 12,
+          "stopped_early": false,
+          "last_value": 22032000,
+          "profile": [
+            {
+              "k": 1,
+              "value": 576,
+              "root_k": 576,
+              "log_over_k": 6.356108
+            },
+            {
+              "k": 2,
+              "value": 1651,
+              "root_k": 40.6325,
+              "log_over_k": 3.704568
+            },
+            {
+              "k": 3,
+              "value": 1792,
+              "root_k": 12.14636,
+              "log_over_k": 2.497029
+            },
+            {
+              "k": 4,
+              "value": 4088,
+              "root_k": 7.996091,
+              "log_over_k": 2.078953
+            },
+            {
+              "k": 5,
+              "value": 8880,
+              "root_k": 6.161445,
+              "log_over_k": 1.818311
+            },
+            {
+              "k": 6,
+              "value": 28272,
+              "root_k": 5.519411,
+              "log_over_k": 1.708271
+            },
+            {
+              "k": 7,
+              "value": 79360,
+              "root_k": 5.011216,
+              "log_over_k": 1.611679
+            },
+            {
+              "k": 8,
+              "value": 196416,
+              "root_k": 4.58825,
+              "log_over_k": 1.523499
+            },
+            {
+              "k": 9,
+              "value": 633984,
+              "root_k": 4.412405,
+              "log_over_k": 1.48442
+            },
+            {
+              "k": 10,
+              "value": 1827840,
+              "root_k": 4.228573,
+              "log_over_k": 1.441865
+            },
+            {
+              "k": 11,
+              "value": 7074432,
+              "root_k": 4.194684,
+              "log_over_k": 1.433818
+            },
+            {
+              "k": 12,
+              "value": 22032000,
+              "root_k": 4.091864,
+              "log_over_k": 1.409001
+            }
+          ]
+        }
+      ]
+    },
+    "ep411": {
+      "description": "Finite-window search for eventual doubling under iterates of g(n)=n+phi(n).",
+      "scan_limit_n": 20000,
+      "scan_limit_r": 6,
+      "candidate_hits_first_40": [
+        {
+          "n": 4,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 6,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 8,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 10,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 12,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 14,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 16,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 18,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 20,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 22,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 24,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 26,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 28,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 30,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 32,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 34,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 36,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 38,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 40,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 42,
+          "r": 2,
+          "witness_K": 3
+        },
+        {
+          "n": 44,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 46,
+          "r": 2,
+          "witness_K": 3
+        },
+        {
+          "n": 48,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 50,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 52,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 54,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 56,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 58,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 60,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 62,
+          "r": 2,
+          "witness_K": 4
+        },
+        {
+          "n": 64,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 66,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 68,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 70,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 72,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 74,
+          "r": 2,
+          "witness_K": 6
+        },
+        {
+          "n": 76,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 78,
+          "r": 2,
+          "witness_K": 4
+        },
+        {
+          "n": 80,
+          "r": 2,
+          "witness_K": 2
+        },
+        {
+          "n": 82,
+          "r": 2,
+          "witness_K": 7
+        }
+      ],
+      "hit_count_total": 1090,
+      "known_case_checks": [
+        {
+          "n": 10,
+          "r": 2,
+          "holds_on_checked_window": true
+        },
+        {
+          "n": 94,
+          "r": 2,
+          "holds_on_checked_window": true
+        }
+      ]
+    },
+    "ep413": {
+      "description": "Finite barrier profiles for m + eps*omega(m) <= n variants.",
+      "profiles": [
+        {
+          "eps": 1,
+          "first_30_barriers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            12,
+            14,
+            17,
+            18,
+            20,
+            24,
+            26,
+            28,
+            30,
+            33,
+            38,
+            42,
+            48,
+            50,
+            54,
+            60,
+            65,
+            74,
+            82,
+            84,
+            90
+          ],
+          "rows": [
+            {
+              "X": 10000,
+              "barrier_count_up_to_X": 284,
+              "density": 0.0284
+            },
+            {
+              "X": 50000,
+              "barrier_count_up_to_X": 765,
+              "density": 0.0153
+            },
+            {
+              "X": 100000,
+              "barrier_count_up_to_X": 1189,
+              "density": 0.01189
+            },
+            {
+              "X": 200000,
+              "barrier_count_up_to_X": 1904,
+              "density": 0.00952
+            },
+            {
+              "X": 500000,
+              "barrier_count_up_to_X": 3629,
+              "density": 0.007258
+            }
+          ]
+        },
+        {
+          "eps": 0.5,
+          "first_30_barriers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "rows": [
+            {
+              "X": 10000,
+              "barrier_count_up_to_X": 5345,
+              "density": 0.5345
+            },
+            {
+              "X": 50000,
+              "barrier_count_up_to_X": 22517,
+              "density": 0.45034
+            },
+            {
+              "X": 100000,
+              "barrier_count_up_to_X": 41959,
+              "density": 0.41959
+            },
+            {
+              "X": 200000,
+              "barrier_count_up_to_X": 78362,
+              "density": 0.39181
+            },
+            {
+              "X": 500000,
+              "barrier_count_up_to_X": 179529,
+              "density": 0.359058
+            }
+          ]
+        },
+        {
+          "eps": 0.25,
+          "first_30_barriers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "rows": [
+            {
+              "X": 10000,
+              "barrier_count_up_to_X": 9967,
+              "density": 0.9967
+            },
+            {
+              "X": 50000,
+              "barrier_count_up_to_X": 49378,
+              "density": 0.98756
+            },
+            {
+              "X": 100000,
+              "barrier_count_up_to_X": 98159,
+              "density": 0.98159
+            },
+            {
+              "X": 200000,
+              "barrier_count_up_to_X": 194917,
+              "density": 0.974585
+            },
+            {
+              "X": 500000,
+              "barrier_count_up_to_X": 481996,
+              "density": 0.963992
+            }
+          ]
+        }
+      ]
+    },
+    "ep416": {
+      "description": "Finite image-of-totient proxy V(x) from m<=1e6.",
+      "rows": [
+        {
+          "X": 20000,
+          "V_proxy_X": 4486,
+          "V_proxy_2X": 8563,
+          "ratio_V2X_over_VX": 1.90883,
+          "V_over_X_over_logX": 2.22135
+        },
+        {
+          "X": 50000,
+          "V_proxy_X": 10562,
+          "V_proxy_2X": 20254,
+          "ratio_V2X_over_VX": 1.91763,
+          "V_over_X_over_logX": 2.28557
+        },
+        {
+          "X": 100000,
+          "V_proxy_X": 20254,
+          "V_proxy_2X": 38992,
+          "ratio_V2X_over_VX": 1.92515,
+          "V_over_X_over_logX": 2.33183
+        },
+        {
+          "X": 200000,
+          "V_proxy_X": 38992,
+          "V_proxy_2X": 75269,
+          "ratio_V2X_over_VX": 1.93037,
+          "V_over_X_over_logX": 2.3797
+        },
+        {
+          "X": 500000,
+          "V_proxy_X": 93080,
+          "V_proxy_2X": 163861,
+          "ratio_V2X_over_VX": 1.76043,
+          "V_over_X_over_logX": 2.44286
+        }
+      ]
+    },
+    "ep431": {
+      "description": "Random finite sumset coverage of primes up to X by A+B with bounded A,B.",
+      "X": 5000,
+      "prime_count_up_to_X": 669,
+      "rows": [
+        {
+          "size_A": 12,
+          "size_B": 12,
+          "trials": 250,
+          "best_prime_coverage_ratio": 0.0478326,
+          "avg_prime_coverage_ratio": 0.0300867
+        },
+        {
+          "size_A": 20,
+          "size_B": 20,
+          "trials": 250,
+          "best_prime_coverage_ratio": 0.103139,
+          "avg_prime_coverage_ratio": 0.0766278
+        },
+        {
+          "size_A": 30,
+          "size_B": 30,
+          "trials": 250,
+          "best_prime_coverage_ratio": 0.174888,
+          "avg_prime_coverage_ratio": 0.144765
+        },
+        {
+          "size_A": 40,
+          "size_B": 40,
+          "trials": 250,
+          "best_prime_coverage_ratio": 0.237668,
+          "avg_prime_coverage_ratio": 0.206248
+        },
+        {
+          "size_A": 50,
+          "size_B": 50,
+          "trials": 250,
+          "best_prime_coverage_ratio": 0.278027,
+          "avg_prime_coverage_ratio": 0.251599
+        }
+      ]
+    },
+    "ep450": {
+      "description": "Finite x-window density profile for having a divisor in (n,2n).",
+      "rows": [
+        {
+          "n": 120,
+          "y": 240,
+          "min_density_over_x": 0.245833,
+          "max_density_over_x": 0.745833,
+          "mean_density_over_x": 0.362071
+        },
+        {
+          "n": 120,
+          "y": 480,
+          "min_density_over_x": 0.258333,
+          "max_density_over_x": 0.664583,
+          "mean_density_over_x": 0.36191
+        },
+        {
+          "n": 120,
+          "y": 960,
+          "min_density_over_x": 0.265625,
+          "max_density_over_x": 0.594792,
+          "mean_density_over_x": 0.36167
+        },
+        {
+          "n": 120,
+          "y": 1920,
+          "min_density_over_x": 0.269792,
+          "max_density_over_x": 0.535937,
+          "mean_density_over_x": 0.361323
+        },
+        {
+          "n": 120,
+          "y": 2880,
+          "min_density_over_x": 0.272222,
+          "max_density_over_x": 0.511806,
+          "mean_density_over_x": 0.36105
+        },
+        {
+          "n": 300,
+          "y": 600,
+          "min_density_over_x": 0.238333,
+          "max_density_over_x": 0.748333,
+          "mean_density_over_x": 0.338499
+        },
+        {
+          "n": 300,
+          "y": 1200,
+          "min_density_over_x": 0.249167,
+          "max_density_over_x": 0.665833,
+          "mean_density_over_x": 0.33794
+        },
+        {
+          "n": 300,
+          "y": 2400,
+          "min_density_over_x": 0.252917,
+          "max_density_over_x": 0.594167,
+          "mean_density_over_x": 0.337013
+        },
+        {
+          "n": 300,
+          "y": 4800,
+          "min_density_over_x": 0.255417,
+          "max_density_over_x": 0.535417,
+          "mean_density_over_x": 0.335539
+        },
+        {
+          "n": 300,
+          "y": 7200,
+          "min_density_over_x": 0.257222,
+          "max_density_over_x": 0.509167,
+          "mean_density_over_x": 0.334286
+        },
+        {
+          "n": 700,
+          "y": 1400,
+          "min_density_over_x": 0.358571,
+          "max_density_over_x": 0.749286,
+          "mean_density_over_x": 0.402683
+        },
+        {
+          "n": 700,
+          "y": 2800,
+          "min_density_over_x": 0.363214,
+          "max_density_over_x": 0.666071,
+          "mean_density_over_x": 0.401711
+        },
+        {
+          "n": 700,
+          "y": 5600,
+          "min_density_over_x": 0.365179,
+          "max_density_over_x": 0.594821,
+          "mean_density_over_x": 0.400217
+        },
+        {
+          "n": 700,
+          "y": 11200,
+          "min_density_over_x": 0.365893,
+          "max_density_over_x": 0.534821,
+          "mean_density_over_x": 0.398075
+        },
+        {
+          "n": 700,
+          "y": 16800,
+          "min_density_over_x": 0.365476,
+          "max_density_over_x": 0.508155,
+          "mean_density_over_x": 0.396432
+        }
+      ]
+    },
+    "ep470": {
+      "description": "Finite weird-number and odd-weird search proxies.",
+      "weird_search_limit": 30000,
+      "odd_search_limit": 300000,
+      "weird_count": 57,
+      "first_25_weird": [
+        70,
+        836,
+        4030,
+        5830,
+        7192,
+        7912,
+        9272,
+        10430,
+        10570,
+        10792,
+        10990,
+        11410,
+        11690,
+        12110,
+        12530,
+        12670,
+        13370,
+        13510,
+        13790,
+        13930,
+        14770,
+        15610,
+        15890,
+        16030,
+        16310
+      ],
+      "primitive_weird_count": 9,
+      "first_25_primitive_weird": [
+        70,
+        836,
+        4030,
+        5830,
+        7192,
+        7912,
+        9272,
+        10792,
+        17272
+      ],
+      "odd_candidates_checked_count": 2,
+      "odd_candidates_checked_first_20": [
+        255255,
+        285285
+      ],
+      "odd_weird_found": []
+    }
+  }
+}

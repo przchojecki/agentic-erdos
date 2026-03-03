@@ -1,0 +1,448 @@
+{
+  "script": "harder_batch11_quick_compute.mjs",
+  "generated_utc": "2026-03-03T19:36:15.711Z",
+  "results": {
+    "ep365": {
+      "description": "Finite profile of consecutive powerful numbers n,n+1.",
+      "first_pair_starts": [
+        8,
+        288,
+        675,
+        9800,
+        12167,
+        235224,
+        332928,
+        465124,
+        1825200
+      ],
+      "first_both_non_square_pair_starts": [
+        12167
+      ],
+      "rows": [
+        {
+          "X": 10000,
+          "pair_count_up_to_X": 4,
+          "both_non_square_count_up_to_X": 0,
+          "pair_count_over_log2": 0.0471529
+        },
+        {
+          "X": 100000,
+          "pair_count_up_to_X": 5,
+          "both_non_square_count_up_to_X": 1,
+          "pair_count_over_log2": 0.0377223
+        },
+        {
+          "X": 500000,
+          "pair_count_up_to_X": 8,
+          "both_non_square_count_up_to_X": 1,
+          "pair_count_over_log2": 0.0464586
+        },
+        {
+          "X": 1000000,
+          "pair_count_up_to_X": 8,
+          "both_non_square_count_up_to_X": 1,
+          "pair_count_over_log2": 0.0419137
+        },
+        {
+          "X": 2000000,
+          "pair_count_up_to_X": 9,
+          "both_non_square_count_up_to_X": 1,
+          "pair_count_over_log2": 0.0427551
+        },
+        {
+          "X": 3000000,
+          "pair_count_up_to_X": 9,
+          "both_non_square_count_up_to_X": 1,
+          "pair_count_over_log2": 0.040462
+        }
+      ]
+    },
+    "ep368": {
+      "description": "Finite behavior of F(n)=P(n(n+1)) relative to logarithmic scales.",
+      "rows": [
+        {
+          "X": 10000,
+          "min_F_up_to_X": 3,
+          "max_F_up_to_X": 9973,
+          "count_n_with_F_le_log2_up_to_X": 685,
+          "proportion_F_le_log2": 0.0685069
+        },
+        {
+          "X": 100000,
+          "min_F_up_to_X": 3,
+          "max_F_up_to_X": 99991,
+          "count_n_with_F_le_log2_up_to_X": 2777,
+          "proportion_F_le_log2": 0.0277703
+        },
+        {
+          "X": 500000,
+          "min_F_up_to_X": 3,
+          "max_F_up_to_X": 499979,
+          "count_n_with_F_le_log2_up_to_X": 6938,
+          "proportion_F_le_log2": 0.013876
+        },
+        {
+          "X": 1000000,
+          "min_F_up_to_X": 3,
+          "max_F_up_to_X": 999983,
+          "count_n_with_F_le_log2_up_to_X": 10263,
+          "proportion_F_le_log2": 0.010263
+        },
+        {
+          "X": 2000000,
+          "min_F_up_to_X": 3,
+          "max_F_up_to_X": 1999993,
+          "count_n_with_F_le_log2_up_to_X": 15255,
+          "proportion_F_le_log2": 0.0076275
+        },
+        {
+          "X": 3000000,
+          "min_F_up_to_X": 3,
+          "max_F_up_to_X": 2999999,
+          "count_n_with_F_le_log2_up_to_X": 18883,
+          "proportion_F_le_log2": 0.00629434
+        }
+      ]
+    },
+    "ep371": {
+      "description": "Finite density profile of {n: P(n)<P(n+1)}.",
+      "rows": [
+        {
+          "X": 10000,
+          "count": 5009,
+          "density": 0.5009,
+          "signed_error_from_half": 0.0009
+        },
+        {
+          "X": 100000,
+          "count": 50080,
+          "density": 0.5008,
+          "signed_error_from_half": 0.0008
+        },
+        {
+          "X": 500000,
+          "count": 250193,
+          "density": 0.500386,
+          "signed_error_from_half": 0.000386
+        },
+        {
+          "X": 1000000,
+          "count": 500149,
+          "density": 0.500149,
+          "signed_error_from_half": 0.000149
+        },
+        {
+          "X": 2000000,
+          "count": 1000308,
+          "density": 0.500154,
+          "signed_error_from_half": 0.000154
+        },
+        {
+          "X": 3000000,
+          "count": 1500197,
+          "density": 0.50006567,
+          "signed_error_from_half": 0.0000656667
+        }
+      ]
+    },
+    "ep373": {
+      "description": "Finite search for n! = product of 2 or 3 factorials with top index <= n-2.",
+      "search_limits": {
+        "N2": 400,
+        "N3": 150
+      },
+      "k2_solution_count": 1,
+      "k2_solutions": [
+        {
+          "n": 10,
+          "a": 7,
+          "b": 6
+        }
+      ],
+      "k3_solution_count": 2,
+      "k3_solutions_first_40": [
+        {
+          "n": 10,
+          "a": 7,
+          "b": 5,
+          "c": 3
+        },
+        {
+          "n": 16,
+          "a": 14,
+          "b": 5,
+          "c": 2
+        }
+      ]
+    },
+    "ep374": {
+      "description": "Exact finite counts for D2 and D3 via square-parity signatures up to m<=600.",
+      "rows": [
+        {
+          "X": 100,
+          "D2_count": 9,
+          "D3_count": 20,
+          "unresolved_or_ge4_count": 70,
+          "prime_count_in_D2_or_D3": 0
+        },
+        {
+          "X": 200,
+          "D2_count": 13,
+          "D3_count": 32,
+          "unresolved_or_ge4_count": 154,
+          "prime_count_in_D2_or_D3": 0
+        },
+        {
+          "X": 300,
+          "D2_count": 16,
+          "D3_count": 43,
+          "unresolved_or_ge4_count": 240,
+          "prime_count_in_D2_or_D3": 0
+        },
+        {
+          "X": 400,
+          "D2_count": 19,
+          "D3_count": 52,
+          "unresolved_or_ge4_count": 328,
+          "prime_count_in_D2_or_D3": 0
+        },
+        {
+          "X": 500,
+          "D2_count": 21,
+          "D3_count": 59,
+          "unresolved_or_ge4_count": 419,
+          "prime_count_in_D2_or_D3": 0
+        },
+        {
+          "X": 600,
+          "D2_count": 23,
+          "D3_count": 64,
+          "unresolved_or_ge4_count": 512,
+          "prime_count_in_D2_or_D3": 0
+        }
+      ]
+    },
+    "ep376": {
+      "description": "Finite count of n with C(2n,n) coprime to 3*5*7 (digit/no-carry criterion).",
+      "first_terms": [
+        1,
+        10,
+        756,
+        757,
+        3160,
+        3186,
+        3187,
+        3250,
+        7560,
+        7561,
+        7651,
+        20007
+      ],
+      "rows": [
+        {
+          "X": 10000,
+          "count_up_to_X": 11,
+          "density": 0.0011,
+          "max_gap_so_far": 4310
+        },
+        {
+          "X": 50000,
+          "count_up_to_X": 12,
+          "density": 0.00024,
+          "max_gap_so_far": 12356
+        },
+        {
+          "X": 100000,
+          "count_up_to_X": 12,
+          "density": 0.00012,
+          "max_gap_so_far": 12356
+        },
+        {
+          "X": 500000,
+          "count_up_to_X": 12,
+          "density": 0.000024,
+          "max_gap_so_far": 12356
+        },
+        {
+          "X": 1000000,
+          "count_up_to_X": 12,
+          "density": 0.000012,
+          "max_gap_so_far": 12356
+        },
+        {
+          "X": 2000000,
+          "count_up_to_X": 12,
+          "density": 0.000006,
+          "max_gap_so_far": 12356
+        }
+      ]
+    },
+    "ep377": {
+      "description": "Finite profile of harmonic sum over primes not dividing C(2n,n).",
+      "rows": [
+        {
+          "X": 1000,
+          "average_f_up_to_X": 0.45149635,
+          "max_f_up_to_X": 1.0769774,
+          "argmax_n_up_to_X": 756
+        },
+        {
+          "X": 5000,
+          "average_f_up_to_X": 0.45640246,
+          "max_f_up_to_X": 1.1792429,
+          "argmax_n_up_to_X": 3250
+        },
+        {
+          "X": 10000,
+          "average_f_up_to_X": 0.46570439,
+          "max_f_up_to_X": 1.1792429,
+          "argmax_n_up_to_X": 3250
+        },
+        {
+          "X": 15000,
+          "average_f_up_to_X": 0.45796008,
+          "max_f_up_to_X": 1.1792429,
+          "argmax_n_up_to_X": 3250
+        },
+        {
+          "X": 20000,
+          "average_f_up_to_X": 0.45994023,
+          "max_f_up_to_X": 1.1792429,
+          "argmax_n_up_to_X": 3250
+        }
+      ]
+    },
+    "ep387": {
+      "description": "Finite divisor-in-interval profile for C(n,k), n<=600 and k<=20.",
+      "total_pairs_checked": 11790,
+      "fail_count_interval_n_minus_k": 0,
+      "fail_rates_c_intervals": [
+        {
+          "c": 0.3,
+          "fail_count": 0,
+          "fail_rate": 0
+        },
+        {
+          "c": 0.4,
+          "fail_count": 0,
+          "fail_rate": 0
+        },
+        {
+          "c": 0.5,
+          "fail_count": 0,
+          "fail_rate": 0
+        }
+      ],
+      "global_min_best_divisor_ratio": 0.75,
+      "global_min_best_divisor_witness": {
+        "n": 4,
+        "k": 2,
+        "best_divisor": 3
+      },
+      "rows": [
+        {
+          "n": 150,
+          "min_best_divisor_ratio_over_k_le_20": 0.993333
+        },
+        {
+          "n": 300,
+          "min_best_divisor_ratio_over_k_le_20": 0.996667
+        },
+        {
+          "n": 450,
+          "min_best_divisor_ratio_over_k_le_20": 0.997778
+        },
+        {
+          "n": 600,
+          "min_best_divisor_ratio_over_k_le_20": 0.998333
+        }
+      ]
+    },
+    "ep393": {
+      "description": "Finite proxies for small-width interval factorizations of n! using exact consecutive products.",
+      "search_limits": {
+        "N1": 1000,
+        "N3": 200
+      },
+      "two_consecutive_solutions": [
+        {
+          "n": 2,
+          "x": "1"
+        },
+        {
+          "n": 3,
+          "x": "2"
+        }
+      ],
+      "three_consecutive_solutions": [
+        {
+          "n": 3,
+          "x": "1"
+        },
+        {
+          "n": 4,
+          "x": "2"
+        },
+        {
+          "n": 5,
+          "x": "4"
+        },
+        {
+          "n": 6,
+          "x": "8"
+        }
+      ]
+    },
+    "ep396": {
+      "description": "Finite search for divisibility of descending products by C(2n,n), k<=8.",
+      "search_limit_n": 8000,
+      "rows": [
+        {
+          "k": 0,
+          "first_n_found": 2,
+          "hit_count_in_range": 836
+        },
+        {
+          "k": 1,
+          "first_n_found": 2,
+          "hit_count_in_range": 56
+        },
+        {
+          "k": 2,
+          "first_n_found": 2480,
+          "hit_count_in_range": 2
+        },
+        {
+          "k": 3,
+          "first_n_found": null,
+          "hit_count_in_range": 0
+        },
+        {
+          "k": 4,
+          "first_n_found": null,
+          "hit_count_in_range": 0
+        },
+        {
+          "k": 5,
+          "first_n_found": null,
+          "hit_count_in_range": 0
+        },
+        {
+          "k": 6,
+          "first_n_found": null,
+          "hit_count_in_range": 0
+        },
+        {
+          "k": 7,
+          "first_n_found": null,
+          "hit_count_in_range": 0
+        },
+        {
+          "k": 8,
+          "first_n_found": null,
+          "hit_count_in_range": 0
+        }
+      ]
+    }
+  }
+}
