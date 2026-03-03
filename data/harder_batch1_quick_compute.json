@@ -1,0 +1,496 @@
+{
+  "script": "harder_batch1_quick_compute.mjs",
+  "generated_utc": "2026-03-03T15:38:58.045Z",
+  "results": {
+    "ep1": {
+      "description": "Central-binomial lower bound profile against 2^n scale.",
+      "rows": [
+        {
+          "n": 8,
+          "lower_bound_binom_central": "70",
+          "ratio_binom_over_2pow_n": 0.2734375,
+          "scaled_ratio_times_sqrt_n": 0.77339804
+        },
+        {
+          "n": 12,
+          "lower_bound_binom_central": "924",
+          "ratio_binom_over_2pow_n": 0.22558594,
+          "scaled_ratio_times_sqrt_n": 0.78145261
+        },
+        {
+          "n": 16,
+          "lower_bound_binom_central": "12870",
+          "ratio_binom_over_2pow_n": 0.19638062,
+          "scaled_ratio_times_sqrt_n": 0.78552246
+        },
+        {
+          "n": 20,
+          "lower_bound_binom_central": "184756",
+          "ratio_binom_over_2pow_n": 0.17619705,
+          "scaled_ratio_times_sqrt_n": 0.78797717
+        },
+        {
+          "n": 24,
+          "lower_bound_binom_central": "2704156",
+          "ratio_binom_over_2pow_n": 0.16118026,
+          "scaled_ratio_times_sqrt_n": 0.78961878
+        },
+        {
+          "n": 28,
+          "lower_bound_binom_central": "40116600",
+          "ratio_binom_over_2pow_n": 0.14944598,
+          "scaled_ratio_times_sqrt_n": 0.7907938
+        },
+        {
+          "n": 32,
+          "lower_bound_binom_central": "601080390",
+          "ratio_binom_over_2pow_n": 0.13994993,
+          "scaled_ratio_times_sqrt_n": 0.79167638
+        },
+        {
+          "n": 40,
+          "lower_bound_binom_central": "137846528820",
+          "ratio_binom_over_2pow_n": 0.12537069,
+          "scaled_ratio_times_sqrt_n": 0.79291385
+        },
+        {
+          "n": 48,
+          "lower_bound_binom_central": "32247603683100",
+          "ratio_binom_over_2pow_n": 0.1145665,
+          "scaled_ratio_times_sqrt_n": 0.79374001
+        },
+        {
+          "n": 56,
+          "lower_bound_binom_central": "7648690600760440",
+          "ratio_binom_over_2pow_n": 0.10614691,
+          "scaled_ratio_times_sqrt_n": 0.7943307
+        },
+        {
+          "n": 64,
+          "lower_bound_binom_central": "1832624140942590534",
+          "ratio_binom_over_2pow_n": 0.09934675,
+          "scaled_ratio_times_sqrt_n": 0.79477403
+        }
+      ]
+    },
+    "ep3": {
+      "description": "Ascending greedy 3-AP-free set profile (finite proxy only).",
+      "rows": [
+        {
+          "N": 1000,
+          "greedy_3ap_free_size": 105,
+          "size_over_sqrtN": 3.320392,
+          "harmonic_sum_over_set": 2.842751
+        },
+        {
+          "N": 3000,
+          "greedy_3ap_free_size": 210,
+          "size_over_sqrtN": 3.834058,
+          "harmonic_sum_over_set": 2.897799
+        },
+        {
+          "N": 10000,
+          "greedy_3ap_free_size": 512,
+          "size_over_sqrtN": 5.12,
+          "harmonic_sum_over_set": 2.944226
+        },
+        {
+          "N": 30000,
+          "greedy_3ap_free_size": 1024,
+          "size_over_sqrtN": 5.912067,
+          "harmonic_sum_over_set": 2.965463
+        },
+        {
+          "N": 100000,
+          "greedy_3ap_free_size": 2048,
+          "size_over_sqrtN": 6.476345,
+          "harmonic_sum_over_set": 2.979622
+        }
+      ]
+    },
+    "ep5": {
+      "description": "Normalized prime-gap empirical distribution for first 4e5 prime indices.",
+      "n_primes_used": 400000,
+      "min_value": 0.155048,
+      "max_value": 12.419947,
+      "argmax_index_n": 149689,
+      "q05": 0.166029,
+      "q50": 0.94926,
+      "q95": 3.216941,
+      "occupied_bins_in_0_10_step_0_25": 40,
+      "total_bins_in_0_10_step_0_25": 40
+    },
+    "ep9": {
+      "description": "Finite scan of exceptional odd integers for p + 2^a + 2^b up to 1e6.",
+      "N_max": 1000000,
+      "exceptional_odds": 2,
+      "odd_count": 500000,
+      "exceptional_density_among_odds": 0.000004,
+      "checkpoints": [
+        {
+          "N": 100000,
+          "exceptional_odds": 2,
+          "odd_count": 50000,
+          "exceptional_density_among_odds": 0.00004
+        },
+        {
+          "N": 200000,
+          "exceptional_odds": 2,
+          "odd_count": 100000,
+          "exceptional_density_among_odds": 0.00002
+        },
+        {
+          "N": 400000,
+          "exceptional_odds": 2,
+          "odd_count": 200000,
+          "exceptional_density_among_odds": 0.00001
+        },
+        {
+          "N": 600000,
+          "exceptional_odds": 2,
+          "odd_count": 300000,
+          "exceptional_density_among_odds": 0.000007
+        },
+        {
+          "N": 800000,
+          "exceptional_odds": 2,
+          "odd_count": 400000,
+          "exceptional_density_among_odds": 0.000005
+        },
+        {
+          "N": 1000000,
+          "exceptional_odds": 2,
+          "odd_count": 500000,
+          "exceptional_density_among_odds": 0.000004
+        }
+      ]
+    },
+    "ep12": {
+      "description": "Classical p^2 (p = 3 mod 4) construction profile and local property check.",
+      "rows": [
+        {
+          "N": 10000,
+          "count": 13,
+          "count_times_logN_over_sqrtN": 1.197344,
+          "reciprocal_sum_partial": 0.14749209
+        },
+        {
+          "N": 100000,
+          "count": 34,
+          "count_times_logN_over_sqrtN": 1.23784,
+          "reciprocal_sum_partial": 0.14820382
+        },
+        {
+          "N": 1000000,
+          "count": 87,
+          "count_times_logN_over_sqrtN": 1.201949,
+          "reciprocal_sum_partial": 0.1483705
+        },
+        {
+          "N": 10000000,
+          "count": 225,
+          "count_times_logN_over_sqrtN": 1.146823,
+          "reciprocal_sum_partial": 0.14841569
+        },
+        {
+          "N": 100000000,
+          "count": 619,
+          "count_times_logN_over_sqrtN": 1.14024,
+          "reciprocal_sum_partial": 0.14842871
+        }
+      ],
+      "local_property_check_first_terms": {
+        "checked_terms": 120,
+        "found_violation_a_divides_b_plus_c": false,
+        "witness_if_any": null
+      }
+    },
+    "ep15": {
+      "description": "Partial sums of sum (-1)^n n / p_n up to n=1e6.",
+      "n_max": 1000000,
+      "partial_sum_at_n_max": -0.019859216298,
+      "min_partial_sum": -0.5,
+      "argmin_n": 1,
+      "max_partial_sum": 0.166666666667,
+      "argmax_n": 2,
+      "checkpoints": [
+        {
+          "n": 1000,
+          "partial_sum": 0.0118688917
+        },
+        {
+          "n": 10000,
+          "partial_sum": -0.0032901792
+        },
+        {
+          "n": 100000,
+          "partial_sum": -0.0135356832
+        },
+        {
+          "n": 500000,
+          "partial_sum": -0.018248073
+        },
+        {
+          "n": 1000000,
+          "partial_sum": -0.0198592163
+        }
+      ]
+    },
+    "ep17": {
+      "description": "Finite scan for cluster primes up to 2e5.",
+      "p_max": 200000,
+      "cluster_primes_count": 2801,
+      "largest_cluster_prime_found": 199933,
+      "first_cluster_primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71,
+        73,
+        79,
+        83,
+        89,
+        101,
+        103,
+        107,
+        109,
+        113,
+        131,
+        137,
+        139,
+        151,
+        157,
+        163,
+        167,
+        173,
+        179,
+        181,
+        193,
+        197,
+        199,
+        233,
+        239,
+        241,
+        271,
+        277,
+        281,
+        283,
+        311
+      ],
+      "last_cluster_primes": [
+        197279,
+        197297,
+        197299,
+        197383,
+        197389,
+        197713,
+        197963,
+        197969,
+        197971,
+        198259,
+        198281,
+        198647,
+        198839,
+        198841,
+        198943,
+        198971,
+        198977,
+        199501,
+        199679,
+        199741,
+        199753,
+        199811,
+        199813,
+        199819,
+        199933
+      ]
+    },
+    "ep20": {
+      "description": "Small-scale random greedy profile for 3-sunflower-free m-uniform families.",
+      "rows": [
+        {
+          "m": 3,
+          "universe_size": 12,
+          "candidate_sets_total": 220,
+          "trials": 60,
+          "best_family_size_found": 14,
+          "avg_family_size": 11.5167,
+          "best_size_to_the_1_over_m": 2.410142
+        },
+        {
+          "m": 4,
+          "universe_size": 14,
+          "candidate_sets_total": 1001,
+          "trials": 60,
+          "best_family_size_found": 27,
+          "avg_family_size": 24.2167,
+          "best_size_to_the_1_over_m": 2.279507
+        },
+        {
+          "m": 5,
+          "universe_size": 16,
+          "candidate_sets_total": 4368,
+          "trials": 60,
+          "best_family_size_found": 52,
+          "avg_family_size": 47.0667,
+          "best_size_to_the_1_over_m": 2.203945
+        }
+      ]
+    },
+    "ep28": {
+      "description": "Random finite proxies: near-full sumset coverage versus peak representation multiplicity.",
+      "rows": [
+        {
+          "N": 500,
+          "densities": [
+            0.1,
+            0.13,
+            0.16,
+            0.2,
+            0.24
+          ],
+          "trials_per_density": 60,
+          "best_coverage_found": 0.985986,
+          "min_observed_max_rep_if_coverage_ge_0_99": null,
+          "min_observed_max_rep_if_coverage_ge_0_995": null
+        },
+        {
+          "N": 1000,
+          "densities": [
+            0.1,
+            0.13,
+            0.16,
+            0.2,
+            0.24
+          ],
+          "trials_per_density": 60,
+          "best_coverage_found": 0.991496,
+          "min_observed_max_rep_if_coverage_ge_0_99": 58,
+          "min_observed_max_rep_if_coverage_ge_0_995": null
+        },
+        {
+          "N": 2000,
+          "densities": [
+            0.1,
+            0.13,
+            0.16,
+            0.2,
+            0.24
+          ],
+          "trials_per_density": 60,
+          "best_coverage_found": 0.993748,
+          "min_observed_max_rep_if_coverage_ge_0_99": 112,
+          "min_observed_max_rep_if_coverage_ge_0_995": null
+        }
+      ]
+    },
+    "ep30": {
+      "description": "Random greedy Sidon lower-bound profile against sqrt(N) and refined N^(1/4) correction scale.",
+      "rows": [
+        {
+          "N": 500,
+          "trials": 300,
+          "min_size_found": 17,
+          "avg_size_found": 18.5533,
+          "max_size_found": 20,
+          "max_minus_sqrtN": -2.36068,
+          "refined_upper_sqrt_plus_0_98183_N_quarter": 27.003467,
+          "refined_upper_minus_max_found": 7.003467
+        },
+        {
+          "N": 1000,
+          "trials": 300,
+          "min_size_found": 22,
+          "avg_size_found": 24.3167,
+          "max_size_found": 26,
+          "max_minus_sqrtN": -5.622777,
+          "refined_upper_sqrt_plus_0_98183_N_quarter": 37.144012,
+          "refined_upper_minus_max_found": 11.144012
+        },
+        {
+          "N": 2000,
+          "trials": 300,
+          "min_size_found": 30,
+          "avg_size_found": 32.0767,
+          "max_size_found": 35,
+          "max_minus_sqrtN": -9.72136,
+          "refined_upper_sqrt_plus_0_98183_N_quarter": 51.287252,
+          "refined_upper_minus_max_found": 16.287252
+        },
+        {
+          "N": 5000,
+          "trials": 300,
+          "min_size_found": 43,
+          "avg_size_found": 45.57,
+          "max_size_found": 48,
+          "max_minus_sqrtN": -22.710678,
+          "refined_upper_sqrt_plus_0_98183_N_quarter": 78.966851,
+          "refined_upper_minus_max_found": 30.966851
+        },
+        {
+          "N": 10000,
+          "trials": 300,
+          "min_size_found": 57,
+          "avg_size_found": 59.45,
+          "max_size_found": 63,
+          "max_minus_sqrtN": -37,
+          "refined_upper_sqrt_plus_0_98183_N_quarter": 109.8183,
+          "refined_upper_minus_max_found": 46.8183
+        }
+      ],
+      "structured_prime_power_family_profile": [
+        {
+          "q_prime": 31,
+          "N_q2_plus_q_plus_1": 993,
+          "lower_bound_size_q_plus_1": 32,
+          "ratio_over_sqrtN": 1.015489,
+          "lower_bound_minus_sqrtN": 0.488097
+        },
+        {
+          "q_prime": 61,
+          "N_q2_plus_q_plus_1": 3783,
+          "lower_bound_size_q_plus_1": 62,
+          "ratio_over_sqrtN": 1.00803,
+          "lower_bound_minus_sqrtN": 0.493903
+        },
+        {
+          "q_prime": 127,
+          "N_q2_plus_q_plus_1": 16257,
+          "lower_bound_size_q_plus_1": 128,
+          "ratio_over_sqrtN": 1.003898,
+          "lower_bound_minus_sqrtN": 0.497059
+        },
+        {
+          "q_prime": 251,
+          "N_q2_plus_q_plus_1": 63253,
+          "lower_bound_size_q_plus_1": 252,
+          "ratio_over_sqrtN": 1.001982,
+          "lower_bound_minus_sqrtN": 0.498509
+        },
+        {
+          "q_prime": 509,
+          "N_q2_plus_q_plus_1": 259591,
+          "lower_bound_size_q_plus_1": 510,
+          "ratio_over_sqrtN": 1.00098,
+          "lower_bound_minus_sqrtN": 0.499264
+        }
+      ]
+    }
+  }
+}

@@ -5,57 +5,57 @@ Ran exhaustive finite checks using:
 - `scripts/ep42_scan_smallN.mjs`
 - output: `data/ep42_smallN_scan.json`
 
-Scanned all Sidon `A subseteq [1..N]` for `10<=N<=40`, asking whether there exists
-a Sidon `B subseteq [1..N]` of fixed size `M` with
-`(A-A) cap (B-B) = {0}`.
+Scanned all Sidon $A\subseteq[1,N]$ for $10\le N\le 40$, asking whether there exists
+a Sidon $B\subseteq[1,N]$ of fixed size $M$ with
+$(A-A)\cap(B-B)=\{0\}$.
 
 ## Finite findings
-- `M=2`: no counterexample in the full tested window (`N=10..40`).
-- `M=3,4,5,6,7`: counterexamples already at `N=10`, and for every tested `N`.
+- $M=2$: no counterexample in the full tested window ($10\le N\le 40$).
+- $M\in\{3,4,5,6,7\}$: counterexamples already at $N=10$, and for every tested $N$.
 
-So finite data is strongly negative for larger fixed `M` at small/moderate `N`,
+So finite data is strongly negative for larger fixed $M$ at small/moderate $N$,
 but does not rule out an eventual positive statement for sufficiently large `N`
 in terms of `M`.
 
-## New counterexample extension for `M=3` (explicit certificate)
+## New counterexample extension for $M=3$ (explicit certificate)
 Using the previously found Sidon set
-`A = {1,2,7,11,24,27,35,42,54,56}`,
-I directly checked larger `N` by exhaustive triple testing for `B={x<y<z}`.
+$A=\{1,2,7,11,24,27,35,42,54,56\}$,
+I directly checked larger $N$ by exhaustive triple testing for $B=\{x<y<z\}$.
 
 Data:
 - `data/ep42_m3_explicit_A_extension_N63_80.json`
 
 Result:
-- The same `A` is still a valid counterexample for every `63 <= N <= 73`.
-  (No disjoint Sidon triple `B` exists.)
-- First failure for this `A` occurs at `N=74`, with witness
-  `B={1,37,74}` and differences `{36,37,73}`.
+- The same $A$ is still a valid counterexample for every $63 \le N \le 73$.
+  (No disjoint Sidon triple $B$ exists.)
+- First failure for this $A$ occurs at $N=74$, with witness
+  $B=\{1,37,74\}$ and differences $\{36,37,73\}$.
 
-This pushes the rigorous finite counterexample frontier from `N<=63`
-to `N<=73` for `M=3`.
+This pushes the rigorous finite counterexample frontier from $N\le 63$
+to $N\le 73$ for $M=3$.
 
 ## Additional heuristic search attempt
 I added:
 - `scripts/ep42_m3_counterexample_search.mjs`
 
 This annealed search (difference-complement Schur obstruction objective) did not
-find new `bad=0` witnesses for `N in {74,75,76,78,80}` under tested budgets;
+find new $bad=0$ witnesses for $N\in\{74,75,76,78,80\}$ under tested budgets;
 best values remained positive.
 
-A later larger-`N` heuristic run (`N in {99,110,120}`, `RESTARTS=400`,
-`STEPS=120000`) also found no `bad=0` witness; best objective values were
-`38, 82, 164` respectively (all at `|A|=12` in that run).
+A later larger-$N$ heuristic run ($N\in\{99,110,120\}$, `RESTARTS=400`,
+`STEPS=120000`) also found no $bad=0$ witness; best objective values were
+$38, 82, 164$ respectively (all at $\lvert A\rvert=12$ in that run).
 This remains non-certificate evidence only.
 
-## Exact `M=3` certification around the transition window
+## Exact $M=3$ certification around the transition window
 I added:
 - `scripts/ep42_m3_exact_threshold_scan.mjs`
 
-This script performs exact search over Sidon `A` (anchored at `min(A)=1`, which is
+This script performs exact search over Sidon $A$ (anchored at $\min(A)=1$, which is
 w.l.o.g. by translation invariance of difference sets), and checks
-`bad=0` exactly via the complement-Schur criterion:
-there is no Sidon triple `B` disjoint from `A-A` iff
-`C=[1..N-1]\\D(A)` has no distinct `a,b` with `a+b in C`.
+$bad=0$ exactly via the complement-Schur criterion:
+there is no Sidon triple $B$ disjoint from $A-A$ iff
+$C=[1..N-1]\setminus D(A)$ has no distinct $a,b$ with $a+b\in C$.
 
 Data:
 - `data/ep42_m3_exact_threshold_scan_74_82.json`
@@ -63,26 +63,26 @@ Data:
 - `data/ep42_m3_exact_threshold_scan_86_86.json`
 
 Certified results:
-- Counterexamples exist for `N=74,75,76,77` (all with `|A|=10`), e.g.
-  `A={1,14,17,19,31,39,40,46,50,74}`.
-- No counterexample exists for each `N=78,79,80,81,82,83,84,85`.
-  (So for these `N`, every Sidon `A` admits a disjoint Sidon triple `B`.)
-- Counterexample reappears at `N=86` with `|A|=12`, e.g.
-  `A={1,3,7,25,30,41,44,56,69,76,77,86}`.
-- Direct triple-check shows this `N=86` witness `A` remains a counterexample for
-  `N=87..98` as well.
+- Counterexamples exist for $N=74,75,76,77$ (all with $\lvert A\rvert=10$), e.g.
+  $A=\{1,14,17,19,31,39,40,46,50,74\}$.
+- No counterexample exists for each $N=78,79,80,81,82,83,84,85$.
+  (So for these $N$, every Sidon $A$ admits a disjoint Sidon triple $B$.)
+- Counterexample reappears at $N=86$ with $\lvert A\rvert=12$, e.g.
+  $A=\{1,3,7,25,30,41,44,56,69,76,77,86\}$.
+- Direct triple-check shows this $N=86$ witness $A$ remains a counterexample for
+  $N=87..98$ as well.
 
-## `N=99` focused exact follow-up
+## $N=99$ focused exact follow-up
 - Data:
   - `data/ep42_m3_exact_N99_k12_no_witness.json`
-- Exact enumeration at `N=99` for `|A|=12` found no counterexample witness
-  (`3052` complete Sidon sets checked with `min(A)=1`).
-- Enumeration statistics show `|A|=11` is the dominant hard layer
-  (`13,408,076` complete Sidon sets with `min(A)=1`), so full exact
-  certification at `N=99` is currently computationally heavy without stronger
+- Exact enumeration at $N=99$ for $\lvert A\rvert=12$ found no counterexample witness
+  ($3052$ complete Sidon sets checked with $\min(A)=1$).
+- Enumeration statistics show $\lvert A\rvert=11$ is the dominant hard layer
+  ($13,408,076$ complete Sidon sets with $\min(A)=1$), so full exact
+  certification at $N=99$ is currently computationally heavy without stronger
   pruning.
 
 ## Status
-Not proved/disproved. For `M=3`, finite behavior is now rigorously
-non-monotone (`counterexample -> all-good block -> counterexample again`),
+Not proved/disproved. For $M=3$, finite behavior is now rigorously
+non-monotone ($\text{counterexample} \to \text{all-good block} \to \text{counterexample again}$),
 so no finite-threshold claim is currently justified.

@@ -37,6 +37,11 @@ Tracking repository for experimental progress on Erdős problems from the `ulama
 - Formal proved-results writeup: `notes/proved_results.md`
 - Analysis / search scripts directory: `scripts/`
 
+## Math Formatting
+
+- Inline math uses `$...$`, for example $h(N)=N^{1/2}+O_\varepsilon(N^\varepsilon)$.
+- Display math uses `$$...$$`.
+
 ## Regenerate This README
 
 ```bash

@@ -1,0 +1,586 @@
+{
+  "script": "harder_batch2_quick_compute.mjs",
+  "generated_utc": "2026-03-03T15:51:17.566Z",
+  "results": {
+    "ep32": {
+      "description": "Random finite coverage proxies for representations n=p+a on [X/2, X].",
+      "rows": [
+        {
+          "X": 50000,
+          "low": 25000,
+          "B": 4024,
+          "k": 8,
+          "trials": 120,
+          "best_coverage_fraction": 0.594416,
+          "k_over_logX": 0.7394
+        },
+        {
+          "X": 50000,
+          "low": 25000,
+          "B": 4024,
+          "k": 12,
+          "trials": 120,
+          "best_coverage_fraction": 0.74493,
+          "k_over_logX": 1.1091
+        },
+        {
+          "X": 50000,
+          "low": 25000,
+          "B": 4024,
+          "k": 16,
+          "trials": 120,
+          "best_coverage_fraction": 0.844206,
+          "k_over_logX": 1.4788
+        },
+        {
+          "X": 50000,
+          "low": 25000,
+          "B": 4024,
+          "k": 20,
+          "trials": 120,
+          "best_coverage_fraction": 0.896124,
+          "k_over_logX": 1.8485
+        },
+        {
+          "X": 50000,
+          "low": 25000,
+          "B": 4024,
+          "k": 24,
+          "trials": 120,
+          "best_coverage_fraction": 0.938722,
+          "k_over_logX": 2.2182
+        },
+        {
+          "X": 100000,
+          "low": 50000,
+          "B": 5692,
+          "k": 8,
+          "trials": 120,
+          "best_coverage_fraction": 0.570549,
+          "k_over_logX": 0.6949
+        },
+        {
+          "X": 100000,
+          "low": 50000,
+          "B": 5692,
+          "k": 12,
+          "trials": 120,
+          "best_coverage_fraction": 0.718586,
+          "k_over_logX": 1.0423
+        },
+        {
+          "X": 100000,
+          "low": 50000,
+          "B": 5692,
+          "k": 16,
+          "trials": 120,
+          "best_coverage_fraction": 0.818284,
+          "k_over_logX": 1.3897
+        },
+        {
+          "X": 100000,
+          "low": 50000,
+          "B": 5692,
+          "k": 20,
+          "trials": 120,
+          "best_coverage_fraction": 0.879842,
+          "k_over_logX": 1.7372
+        },
+        {
+          "X": 100000,
+          "low": 50000,
+          "B": 5692,
+          "k": 24,
+          "trials": 120,
+          "best_coverage_fraction": 0.924042,
+          "k_over_logX": 2.0846
+        },
+        {
+          "X": 200000,
+          "low": 100000,
+          "B": 8049,
+          "k": 8,
+          "trials": 120,
+          "best_coverage_fraction": 0.540355,
+          "k_over_logX": 0.6554
+        },
+        {
+          "X": 200000,
+          "low": 100000,
+          "B": 8049,
+          "k": 12,
+          "trials": 120,
+          "best_coverage_fraction": 0.688773,
+          "k_over_logX": 0.9831
+        },
+        {
+          "X": 200000,
+          "low": 100000,
+          "B": 8049,
+          "k": 16,
+          "trials": 120,
+          "best_coverage_fraction": 0.788442,
+          "k_over_logX": 1.3108
+        },
+        {
+          "X": 200000,
+          "low": 100000,
+          "B": 8049,
+          "k": 20,
+          "trials": 120,
+          "best_coverage_fraction": 0.859061,
+          "k_over_logX": 1.6385
+        },
+        {
+          "X": 200000,
+          "low": 100000,
+          "B": 8049,
+          "k": 24,
+          "trials": 120,
+          "best_coverage_fraction": 0.906771,
+          "k_over_logX": 1.9662
+        }
+      ]
+    },
+    "ep33": {
+      "description": "Greedy finite interval coverage by n = square + a with bounded a.",
+      "rows": [
+        {
+          "X": 20000,
+          "interval": [
+            10000,
+            20000
+          ],
+          "candidate_a_max": 565,
+          "profile": [
+            {
+              "t": 20,
+              "coverage_fraction": 0.084492,
+              "t_over_sqrtX": 0.141421
+            },
+            {
+              "t": 40,
+              "coverage_fraction": 0.168483,
+              "t_over_sqrtX": 0.282843
+            },
+            {
+              "t": 60,
+              "coverage_fraction": 0.252475,
+              "t_over_sqrtX": 0.424264
+            },
+            {
+              "t": 80,
+              "coverage_fraction": 0.336466,
+              "t_over_sqrtX": 0.565685
+            },
+            {
+              "t": 100,
+              "coverage_fraction": 0.420458,
+              "t_over_sqrtX": 0.707107
+            },
+            {
+              "t": 120,
+              "coverage_fraction": 0.50395,
+              "t_over_sqrtX": 0.848528
+            }
+          ],
+          "final_step_count": 120,
+          "final_coverage_fraction": 0.50395
+        },
+        {
+          "X": 50000,
+          "interval": [
+            25000,
+            50000
+          ],
+          "candidate_a_max": 894,
+          "profile": [
+            {
+              "t": 20,
+              "coverage_fraction": 0.053598,
+              "t_over_sqrtX": 0.089443
+            },
+            {
+              "t": 40,
+              "coverage_fraction": 0.107196,
+              "t_over_sqrtX": 0.178885
+            },
+            {
+              "t": 60,
+              "coverage_fraction": 0.160514,
+              "t_over_sqrtX": 0.268328
+            },
+            {
+              "t": 80,
+              "coverage_fraction": 0.213311,
+              "t_over_sqrtX": 0.357771
+            },
+            {
+              "t": 100,
+              "coverage_fraction": 0.266109,
+              "t_over_sqrtX": 0.447214
+            },
+            {
+              "t": 120,
+              "coverage_fraction": 0.318907,
+              "t_over_sqrtX": 0.536656
+            }
+          ],
+          "final_step_count": 120,
+          "final_coverage_fraction": 0.318907
+        },
+        {
+          "X": 100000,
+          "interval": [
+            50000,
+            100000
+          ],
+          "candidate_a_max": 1264,
+          "profile": [
+            {
+              "t": 20,
+              "coverage_fraction": 0.037599,
+              "t_over_sqrtX": 0.063246
+            },
+            {
+              "t": 40,
+              "coverage_fraction": 0.075198,
+              "t_over_sqrtX": 0.126491
+            },
+            {
+              "t": 60,
+              "coverage_fraction": 0.112798,
+              "t_over_sqrtX": 0.189737
+            },
+            {
+              "t": 80,
+              "coverage_fraction": 0.149997,
+              "t_over_sqrtX": 0.252982
+            },
+            {
+              "t": 100,
+              "coverage_fraction": 0.187196,
+              "t_over_sqrtX": 0.316228
+            },
+            {
+              "t": 120,
+              "coverage_fraction": 0.224396,
+              "t_over_sqrtX": 0.379473
+            }
+          ],
+          "final_step_count": 120,
+          "final_coverage_fraction": 0.224396
+        }
+      ]
+    },
+    "ep36": {
+      "description": "Finite local-search profile for minimum overlap constant c.",
+      "rows": [
+        {
+          "N": 120,
+          "best_max_overlap_found": 51,
+          "best_ratio_over_N": 0.425,
+          "restarts": 18
+        },
+        {
+          "N": 200,
+          "best_max_overlap_found": 84,
+          "best_ratio_over_N": 0.42,
+          "restarts": 18
+        },
+        {
+          "N": 300,
+          "best_max_overlap_found": 128,
+          "best_ratio_over_N": 0.426667,
+          "restarts": 18
+        }
+      ]
+    },
+    "ep39": {
+      "description": "Ascending greedy Sidon sequence finite growth profile.",
+      "rows": [
+        {
+          "N": 10000,
+          "count": 66,
+          "count_over_N_pow_1_3": 3.063449,
+          "count_over_N_pow_sqrt2_minus1": 1.454419
+        },
+        {
+          "N": 100000,
+          "count": 161,
+          "count_over_N_pow_1_3": 3.46864,
+          "count_over_N_pow_sqrt2_minus1": 1.366967
+        },
+        {
+          "N": 500000,
+          "count": 296,
+          "count_over_N_pow_1_3": 3.729366,
+          "count_over_N_pow_sqrt2_minus1": 1.290331
+        },
+        {
+          "N": 1000000,
+          "count": 381,
+          "count_over_N_pow_1_3": 3.81,
+          "count_over_N_pow_sqrt2_minus1": 1.24636
+        },
+        {
+          "N": 2000000,
+          "count": 490,
+          "count_over_N_pow_1_3": 3.889133,
+          "count_over_N_pow_sqrt2_minus1": 1.202885
+        }
+      ],
+      "last_term_in_prefix": 1995385
+    },
+    "ep41": {
+      "description": "Greedy finite B3-type sequence profile.",
+      "rows": [
+        {
+          "N": 2000,
+          "count": 13,
+          "count_over_N_pow_1_3": 1.031811
+        },
+        {
+          "N": 5000,
+          "count": 16,
+          "count_over_N_pow_1_3": 0.935686
+        },
+        {
+          "N": 10000,
+          "count": 19,
+          "count_over_N_pow_1_3": 0.881902
+        },
+        {
+          "N": 30000,
+          "count": 25,
+          "count_over_N_pow_1_3": 0.804574
+        },
+        {
+          "N": 60000,
+          "count": 29,
+          "count_over_N_pow_1_3": 0.740766
+        }
+      ],
+      "last_term_in_prefix": 50877
+    },
+    "ep44": {
+      "description": "Finite random extension tests from initial Sidon sets into [N+1,3N].",
+      "rows": [
+        {
+          "N": 120,
+          "M_test": 360,
+          "epsilon": 0.2,
+          "trials": 18,
+          "success_count": 17,
+          "success_fraction": 0.944444,
+          "avg_final_ratio_over_sqrtM": 0.866698
+        },
+        {
+          "N": 180,
+          "M_test": 540,
+          "epsilon": 0.2,
+          "trials": 18,
+          "success_count": 15,
+          "success_fraction": 0.833333,
+          "avg_final_ratio_over_sqrtM": 0.827193
+        },
+        {
+          "N": 240,
+          "M_test": 720,
+          "epsilon": 0.2,
+          "trials": 18,
+          "success_count": 9,
+          "success_fraction": 0.5,
+          "avg_final_ratio_over_sqrtM": 0.801258
+        }
+      ]
+    },
+    "ep51": {
+      "description": "Finite profile of minimal preimage ratio n_a/a for Euler totient values up to 5e5.",
+      "limit": 500000,
+      "max_ratio_found": 2.035496,
+      "argmax_a": 5888,
+      "min_n_for_argmax": 11985,
+      "sampled_points": [
+        {
+          "a": 50000,
+          "ratio_min_n_over_a": 1.2625,
+          "preimage_count_within_limit": 15
+        },
+        {
+          "a": 100000,
+          "ratio_min_n_over_a": 1.00651,
+          "preimage_count_within_limit": 24
+        },
+        {
+          "a": 150000,
+          "ratio_min_n_over_a": 1.000007,
+          "preimage_count_within_limit": 51
+        },
+        {
+          "a": 200000,
+          "ratio_min_n_over_a": 1.253125,
+          "preimage_count_within_limit": 13
+        },
+        {
+          "a": 250000,
+          "ratio_min_n_over_a": 1.115444,
+          "preimage_count_within_limit": 5
+        },
+        {
+          "a": 300000,
+          "ratio_min_n_over_a": 1.003837,
+          "preimage_count_within_limit": 20
+        },
+        {
+          "a": 350000,
+          "ratio_min_n_over_a": 1.251786,
+          "preimage_count_within_limit": 4
+        },
+        {
+          "a": 400000,
+          "ratio_min_n_over_a": 1.004628,
+          "preimage_count_within_limit": 4
+        },
+        {
+          "a": 450000,
+          "ratio_min_n_over_a": 1.000002,
+          "preimage_count_within_limit": 11
+        }
+      ]
+    },
+    "ep52": {
+      "description": "Finite effective exponent profile for max(|A+A|,|AA|).",
+      "rows": [
+        {
+          "m": 20,
+          "AP_max_sum_or_product_size": 152,
+          "AP_effective_exponent": 1.677013,
+          "random_trials": 240,
+          "best_random_effective_exponent": 1.763577,
+          "best_random_pair": {
+            "sumset": 149,
+            "prodset": 197
+          }
+        },
+        {
+          "m": 30,
+          "AP_max_sum_or_product_size": 308,
+          "AP_effective_exponent": 1.68473,
+          "random_trials": 240,
+          "best_random_effective_exponent": 1.786913,
+          "best_random_pair": {
+            "sumset": 291,
+            "prodset": 436
+          }
+        },
+        {
+          "m": 40,
+          "AP_max_sum_or_product_size": 517,
+          "AP_effective_exponent": 1.693751,
+          "random_trials": 240,
+          "best_random_effective_exponent": 1.807312,
+          "best_random_pair": {
+            "sumset": 390,
+            "prodset": 786
+          }
+        },
+        {
+          "m": 60,
+          "AP_max_sum_or_product_size": 1116,
+          "AP_effective_exponent": 1.713951,
+          "random_trials": 240,
+          "best_random_effective_exponent": 1.822707,
+          "best_random_pair": {
+            "sumset": 770,
+            "prodset": 1742
+          }
+        }
+      ]
+    },
+    "ep60": {
+      "description": "Small-n random lower-envelope search for C4 counts at ex(n,C4)+1 edges.",
+      "rows": [
+        {
+          "n": 20,
+          "ex_n_C4_assumed_exact_small_n": 46,
+          "tested_edges": 47,
+          "random_trials": 320,
+          "min_C4_found": 28,
+          "min_C4_over_sqrt_n": 6.26099
+        },
+        {
+          "n": 24,
+          "ex_n_C4_assumed_exact_small_n": 59,
+          "tested_edges": 60,
+          "random_trials": 320,
+          "min_C4_found": 37,
+          "min_C4_over_sqrt_n": 7.552593
+        },
+        {
+          "n": 28,
+          "ex_n_C4_assumed_exact_small_n": 76,
+          "tested_edges": 77,
+          "random_trials": 320,
+          "min_C4_found": 60,
+          "min_C4_over_sqrt_n": 11.338934
+        },
+        {
+          "n": 32,
+          "ex_n_C4_assumed_exact_small_n": 92,
+          "tested_edges": 93,
+          "random_trials": 320,
+          "min_C4_found": 83,
+          "min_C4_over_sqrt_n": 14.672466
+        },
+        {
+          "n": 36,
+          "ex_n_C4_assumed_exact_small_n": 110,
+          "tested_edges": 111,
+          "random_trials": 320,
+          "min_C4_found": 115,
+          "min_C4_over_sqrt_n": 19.166667
+        }
+      ],
+      "caveat": "Uses known small exact ex(n,C4) table values only for n<=39."
+    },
+    "ep61": {
+      "description": "Finite proxy on random cographs (P4-free subclass) for EH-type growth.",
+      "rows": [
+        {
+          "n": 64,
+          "trials": 400,
+          "min_max_clique_or_independent_found": 14,
+          "avg_max_clique_or_independent_found": 22.68,
+          "min_over_sqrt_n": 1.75,
+          "min_effective_exponent": 0.634559
+        },
+        {
+          "n": 128,
+          "trials": 400,
+          "min_max_clique_or_independent_found": 22,
+          "avg_max_clique_or_independent_found": 37.2575,
+          "min_over_sqrt_n": 1.944544,
+          "min_effective_exponent": 0.637062
+        },
+        {
+          "n": 256,
+          "trials": 400,
+          "min_max_clique_or_independent_found": 38,
+          "avg_max_clique_or_independent_found": 61.24,
+          "min_over_sqrt_n": 2.375,
+          "min_effective_exponent": 0.655991
+        },
+        {
+          "n": 512,
+          "trials": 400,
+          "min_max_clique_or_independent_found": 58,
+          "avg_max_clique_or_independent_found": 100.46,
+          "min_over_sqrt_n": 2.563262,
+          "min_effective_exponent": 0.650887
+        }
+      ],
+      "caveat": "This probes a special forbidden-induced-subgraph class, not general H."
+    }
+  }
+}
