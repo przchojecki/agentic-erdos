@@ -1,0 +1,652 @@
+{
+  "script": "harder_batch8_quick_compute.mjs",
+  "generated_utc": "2026-03-03T19:03:33.452Z",
+  "results": {
+    "ep241": {
+      "description": "Finite greedy profiles for B3-type sets with distinct triple sums.",
+      "rows": [
+        {
+          "N": 5000,
+          "greedy_size": 16,
+          "random_best_of_20": 16,
+          "greedy_over_N_pow_1_over_3": 0.935686,
+          "random_over_N_pow_1_over_3": 0.935686
+        },
+        {
+          "N": 10000,
+          "greedy_size": 19,
+          "random_best_of_20": 19,
+          "greedy_over_N_pow_1_over_3": 0.881902,
+          "random_over_N_pow_1_over_3": 0.881902
+        },
+        {
+          "N": 20000,
+          "greedy_size": 23,
+          "random_best_of_20": 22,
+          "greedy_over_N_pow_1_over_3": 0.847327,
+          "random_over_N_pow_1_over_3": 0.810487
+        },
+        {
+          "N": 50000,
+          "greedy_size": 28,
+          "random_best_of_20": 27,
+          "greedy_over_N_pow_1_over_3": 0.760037,
+          "random_over_N_pow_1_over_3": 0.732893
+        }
+      ]
+    },
+    "ep243": {
+      "description": "Exact telescoping residual check for Sylvester recurrence and perturbed variants.",
+      "rows": [
+        {
+          "model": "exact_sylvester",
+          "a1": 2,
+          "terms_checked": 8,
+          "residual_numerator": "0",
+          "residual_denominator": "1",
+          "residual_as_number": 0
+        },
+        {
+          "model": "single_perturbation_at_index5",
+          "a1": 2,
+          "terms_checked": 8,
+          "residual_numerator": "-1",
+          "residual_denominator": "3267056",
+          "residual_as_number": -3.0608596852946504e-7
+        },
+        {
+          "model": "exact_sylvester",
+          "a1": 3,
+          "terms_checked": 8,
+          "residual_numerator": "0",
+          "residual_denominator": "1",
+          "residual_as_number": 0
+        },
+        {
+          "model": "single_perturbation_at_index5",
+          "a1": 3,
+          "terms_checked": 8,
+          "residual_numerator": "-1",
+          "residual_denominator": "10650063477692",
+          "residual_as_number": -9.38961539613952e-14
+        },
+        {
+          "model": "exact_sylvester",
+          "a1": 5,
+          "terms_checked": 8,
+          "residual_numerator": "0",
+          "residual_denominator": "1",
+          "residual_as_number": 0
+        },
+        {
+          "model": "single_perturbation_at_index5",
+          "a1": 5,
+          "terms_checked": 8,
+          "residual_numerator": "-1",
+          "residual_denominator": "977530816259732676062",
+          "residual_as_number": -1.0229856525917411e-21
+        }
+      ]
+    },
+    "ep244": {
+      "description": "Finite density profile for representations n = p + floor(C^k).",
+      "X": 200000,
+      "rows": [
+        {
+          "C": 1.3,
+          "shifts_count": 44,
+          "density_1_to_X": 0.983125,
+          "density_tail_half": 0.98341
+        },
+        {
+          "C": 1.414214,
+          "shifts_count": 34,
+          "density_1_to_X": 0.856375,
+          "density_tail_half": 0.857101
+        },
+        {
+          "C": 1.618034,
+          "shifts_count": 25,
+          "density_1_to_X": 0.8772,
+          "density_tail_half": 0.873791
+        },
+        {
+          "C": 3.141593,
+          "shifts_count": 11,
+          "density_1_to_X": 0.60639,
+          "density_tail_half": 0.614524
+        },
+        {
+          "C": 2,
+          "shifts_count": 18,
+          "density_1_to_X": 0.55436,
+          "density_tail_half": 0.546625
+        },
+        {
+          "C": 3,
+          "shifts_count": 12,
+          "density_1_to_X": 0.366705,
+          "density_tail_half": 0.362556
+        }
+      ]
+    },
+    "ep252": {
+      "description": "Finite high-truncation approximants for alpha_k = sum sigma_k(n)/n! (k<=6).",
+      "rows": [
+        {
+          "k": 1,
+          "partial_sum_N40": 3.527000471853,
+          "extended_sum_N140": 3.527000471853,
+          "N40_to_N140_tail_size": 0,
+          "best_rational_q_le_20000": "52055/14759",
+          "approx_error": 2.4339e-9
+        },
+        {
+          "k": 2,
+          "partial_sum_N40": 6.3400966688922,
+          "extended_sum_N140": 6.3400966688922,
+          "N40_to_N140_tail_size": 0,
+          "best_rational_q_le_20000": "119365/18827",
+          "approx_error": 7.8436e-10
+        },
+        {
+          "k": 3,
+          "partial_sum_N40": 14.693532847269,
+          "extended_sum_N140": 14.693532847269,
+          "N40_to_N140_tail_size": 0,
+          "best_rational_q_le_20000": "259238/17643",
+          "approx_error": 1.3814e-9
+        },
+        {
+          "k": 4,
+          "partial_sum_N40": 42.301047503734,
+          "extended_sum_N140": 42.301047503734,
+          "N40_to_N140_tail_size": 0,
+          "best_rational_q_le_20000": "573433/13556",
+          "approx_error": 2.9056e-9
+        },
+        {
+          "k": 5,
+          "partial_sum_N40": 143.81196393274,
+          "extended_sum_N140": 143.81196393274,
+          "N40_to_N140_tail_size": 0,
+          "best_rational_q_le_20000": "653913/4547",
+          "approx_error": 4.7521e-10
+        },
+        {
+          "k": 6,
+          "partial_sum_N40": 556.40716454558,
+          "extended_sum_N140": 556.40716454558,
+          "N40_to_N140_tail_size": 0,
+          "best_rational_q_le_20000": "4582013/8235",
+          "approx_error": 3.9939e-9
+        }
+      ]
+    },
+    "ep256": {
+      "description": "Grid-based finite profile for log max_{|z|=1} prod_i |1-z^{a_i}| over candidate exponent sets.",
+      "rows": [
+        {
+          "n": 8,
+          "log_max_product_consecutive": 2.894137,
+          "log_max_product_powers_of_2": 4.436866,
+          "min_log_max_product_random_60": 3.671172
+        },
+        {
+          "n": 12,
+          "log_max_product_consecutive": 3.875716,
+          "log_max_product_powers_of_2": 6.591674,
+          "min_log_max_product_random_60": 5.008533
+        },
+        {
+          "n": 16,
+          "log_max_product_consecutive": 4.805593,
+          "log_max_product_powers_of_2": 8.788898,
+          "min_log_max_product_random_60": 6.23874
+        },
+        {
+          "n": 20,
+          "log_max_product_consecutive": 5.705961,
+          "log_max_product_powers_of_2": 10.986123,
+          "min_log_max_product_random_60": 7.170132
+        },
+        {
+          "n": 24,
+          "log_max_product_consecutive": 6.588988,
+          "log_max_product_powers_of_2": 13.183347,
+          "min_log_max_product_random_60": 8.319463
+        }
+      ]
+    },
+    "ep257": {
+      "description": "Finite partial-sum profile of sum_{n in A} 1/(2^n-1) for representative infinite sets A.",
+      "rows": [
+        {
+          "family": "primes",
+          "terms_up_to_400": 78,
+          "partial_sum_L200": 0.51694281980564,
+          "partial_sum_L400": 0.51694281980564,
+          "delta_200_to_400": 0,
+          "best_rational_q_le_50000": "20061/38807",
+          "approx_error": 2.1124e-10
+        },
+        {
+          "family": "prime_powers",
+          "terms_up_to_400": 97,
+          "partial_sum_L200": 0.58950329876982,
+          "partial_sum_L400": 0.58950329876982,
+          "delta_200_to_400": 0,
+          "best_rational_q_le_50000": "29125/49406",
+          "approx_error": 4.2461e-10
+        },
+        {
+          "family": "powers_of_2",
+          "terms_up_to_400": 9,
+          "partial_sum_L200": 1.4039368278822,
+          "partial_sum_L400": 1.4039368278822,
+          "delta_200_to_400": 0,
+          "best_rational_q_le_50000": "30669/21845",
+          "approx_error": 2.3283e-10
+        },
+        {
+          "family": "squares",
+          "terms_up_to_400": 20,
+          "partial_sum_L200": 1.0686389026679,
+          "partial_sum_L400": 1.0686389026679,
+          "delta_200_to_400": 0,
+          "best_rational_q_le_50000": "50319/47087",
+          "approx_error": 2.1071e-10
+        }
+      ]
+    },
+    "ep261": {
+      "description": "Finite coverage profile from subset-offset representation ansatz a_i = n + i.",
+      "Nmax": 5000,
+      "rows": [
+        {
+          "offset_window_L": 8,
+          "represented_n_count_up_to_Nmax": 13,
+          "density_up_to_Nmax": 0.0026,
+          "largest_represented_n_up_to_Nmax": 502
+        },
+        {
+          "offset_window_L": 10,
+          "represented_n_count_up_to_Nmax": 18,
+          "density_up_to_Nmax": 0.0036,
+          "largest_represented_n_up_to_Nmax": 2036
+        },
+        {
+          "offset_window_L": 12,
+          "represented_n_count_up_to_Nmax": 24,
+          "density_up_to_Nmax": 0.0048,
+          "largest_represented_n_up_to_Nmax": 4083
+        },
+        {
+          "offset_window_L": 15,
+          "represented_n_count_up_to_Nmax": 36,
+          "density_up_to_Nmax": 0.0072,
+          "largest_represented_n_up_to_Nmax": 4083
+        },
+        {
+          "offset_window_L": 20,
+          "represented_n_count_up_to_Nmax": 50,
+          "density_up_to_Nmax": 0.01,
+          "largest_represented_n_up_to_Nmax": 4083
+        }
+      ],
+      "union_over_L_up_to_20": {
+        "represented_count": 50,
+        "represented_density": 0.01,
+        "largest_represented_n": 4083
+      }
+    },
+    "ep263": {
+      "description": "Growth-diagnostic metrics relevant to irrationality-sequence criteria (type [263]).",
+      "rows": [
+        {
+          "sequence": "pow2pow2",
+          "n": 4,
+          "log_a_n": 11.09035,
+          "log_ratio_a_next_over_a_n_sq": 0,
+          "log_a_n_over_2_pow_n": 0.6931472
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 6,
+          "log_a_n": 44.36142,
+          "log_ratio_a_next_over_a_n_sq": 0,
+          "log_a_n_over_2_pow_n": 0.6931472
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 8,
+          "log_a_n": 177.4457,
+          "log_ratio_a_next_over_a_n_sq": 0,
+          "log_a_n_over_2_pow_n": 0.6931472
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 10,
+          "log_a_n": 709.7827,
+          "log_ratio_a_next_over_a_n_sq": 0,
+          "log_a_n_over_2_pow_n": 0.6931472
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 12,
+          "log_a_n": 2839.131,
+          "log_ratio_a_next_over_a_n_sq": 0,
+          "log_a_n_over_2_pow_n": 0.6931472
+        },
+        {
+          "sequence": "pow2n",
+          "n": 4,
+          "log_a_n": 2.772589,
+          "log_ratio_a_next_over_a_n_sq": -2.079442,
+          "log_a_n_over_2_pow_n": 0.1732868
+        },
+        {
+          "sequence": "pow2n",
+          "n": 6,
+          "log_a_n": 4.158883,
+          "log_ratio_a_next_over_a_n_sq": -3.465736,
+          "log_a_n_over_2_pow_n": 0.06498255
+        },
+        {
+          "sequence": "pow2n",
+          "n": 8,
+          "log_a_n": 5.545177,
+          "log_ratio_a_next_over_a_n_sq": -4.85203,
+          "log_a_n_over_2_pow_n": 0.02166085
+        },
+        {
+          "sequence": "pow2n",
+          "n": 10,
+          "log_a_n": 6.931472,
+          "log_ratio_a_next_over_a_n_sq": -6.238325,
+          "log_a_n_over_2_pow_n": 0.006769015
+        },
+        {
+          "sequence": "pow2n",
+          "n": 12,
+          "log_a_n": 8.317766,
+          "log_ratio_a_next_over_a_n_sq": -7.624619,
+          "log_a_n_over_2_pow_n": 0.002030705
+        },
+        {
+          "sequence": "factorial",
+          "n": 4,
+          "log_a_n": 3.178054,
+          "log_ratio_a_next_over_a_n_sq": -1.568616,
+          "log_a_n_over_2_pow_n": 0.1986284
+        },
+        {
+          "sequence": "factorial",
+          "n": 6,
+          "log_a_n": 6.579251,
+          "log_ratio_a_next_over_a_n_sq": -4.633341,
+          "log_a_n_over_2_pow_n": 0.1028008
+        },
+        {
+          "sequence": "factorial",
+          "n": 8,
+          "log_a_n": 10.6046,
+          "log_ratio_a_next_over_a_n_sq": -8.407378,
+          "log_a_n_over_2_pow_n": 0.04142423
+        },
+        {
+          "sequence": "factorial",
+          "n": 10,
+          "log_a_n": 15.10441,
+          "log_ratio_a_next_over_a_n_sq": -12.70652,
+          "log_a_n_over_2_pow_n": 0.0147504
+        },
+        {
+          "sequence": "factorial",
+          "n": 12,
+          "log_a_n": 19.98721,
+          "log_ratio_a_next_over_a_n_sq": -17.42227,
+          "log_a_n_over_2_pow_n": 0.004879691
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 4,
+          "log_a_n": 11.02318,
+          "log_ratio_a_next_over_a_n_sq": -1.960816,
+          "log_a_n_over_2_pow_n": 0.6889485
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 6,
+          "log_a_n": 36.59823,
+          "log_ratio_a_next_over_a_n_sq": -6.510138,
+          "log_a_n_over_2_pow_n": 0.5718474
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 8,
+          "log_a_n": 121.5104,
+          "log_ratio_a_next_over_a_n_sq": -21.61442,
+          "log_a_n_over_2_pow_n": 0.4746501
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 10,
+          "log_a_n": 403.4288,
+          "log_ratio_a_next_over_a_n_sq": -71.7624,
+          "log_a_n_over_2_pow_n": 0.3939734
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 12,
+          "log_a_n": 1339.431,
+          "log_ratio_a_next_over_a_n_sq": -238.2596,
+          "log_a_n_over_2_pow_n": 0.3270095
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 4,
+          "log_a_n": 24.53253,
+          "log_ratio_a_next_over_a_n_sq": 5.53309,
+          "log_a_n_over_2_pow_n": 1.533283
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 6,
+          "log_a_n": 121.5104,
+          "log_ratio_a_next_over_a_n_sq": 27.40557,
+          "log_a_n_over_2_pow_n": 1.8986
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 8,
+          "log_a_n": 601.845,
+          "log_ratio_a_next_over_a_n_sq": 135.7407,
+          "log_a_n_over_2_pow_n": 2.350957
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 10,
+          "log_a_n": 2980.958,
+          "log_ratio_a_next_over_a_n_sq": 672.328,
+          "log_a_n_over_2_pow_n": 2.911092
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 12,
+          "log_a_n": 14764.78,
+          "log_ratio_a_next_over_a_n_sq": 3330.063,
+          "log_a_n_over_2_pow_n": 3.604683
+        }
+      ]
+    },
+    "ep264": {
+      "description": "Criterion-profile values a_n^2 * sum_{k>n} 1/a_k^2 for representative sequences (type [264]).",
+      "rows": [
+        {
+          "sequence": "pow2pow2",
+          "n": 4,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 2.328306e-10
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 6,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 2.938736e-39
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 8,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 7.458341e-155
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 10,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+        },
+        {
+          "sequence": "pow2pow2",
+          "n": 12,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+        },
+        {
+          "sequence": "pow2n",
+          "n": 4,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+        },
+        {
+          "sequence": "pow2n",
+          "n": 6,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+        },
+        {
+          "sequence": "pow2n",
+          "n": 8,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+        },
+        {
+          "sequence": "pow2n",
+          "n": 10,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+        },
+        {
+          "sequence": "pow2n",
+          "n": 12,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+        },
+        {
+          "sequence": "factorial",
+          "n": 4,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.04113415
+        },
+        {
+          "sequence": "factorial",
+          "n": 6,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.02073102
+        },
+        {
+          "sequence": "factorial",
+          "n": 8,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.01247016
+        },
+        {
+          "sequence": "factorial",
+          "n": 10,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.008322196
+        },
+        {
+          "sequence": "factorial",
+          "n": 12,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.005947484
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 4,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 1.344416e-8
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 6,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 7.341949e-27
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 8,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 1.703876e-87
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 10,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 8.283788e-289
+        },
+        {
+          "sequence": "exp_exp_0.6",
+          "n": 12,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 4,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 7.679526e-27
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 6,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 4.500022e-130
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 8,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 10,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+        },
+        {
+          "sequence": "exp_exp_0.8",
+          "n": 12,
+          "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+        }
+      ]
+    },
+    "ep265": {
+      "description": "Finite partial-sum and growth profiles for canonical constructions related to dual-shift rationality phenomena.",
+      "rows": [
+        {
+          "family": "triangular_choose_n_2_start_n=3",
+          "terms_used": 79998,
+          "partial_sum_shift_0": 0.99997499999999,
+          "partial_sum_shift_1": 1.2221972222222,
+          "best_rational_shift_0_q<=5000": "1/1",
+          "best_rational_shift_1_q<=5000": "5429/4442"
+        },
+        {
+          "family": "cubic_n3+6n2+5n_start_n=2",
+          "terms_used": 49999,
+          "partial_sum_shift_0": 0.05249999980002,
+          "partial_sum_shift_12": 0.064166666466686,
+          "best_rational_shift_0_q<=5000": "21/400",
+          "best_rational_shift_12_q<=5000": "77/1200"
+        }
+      ],
+      "growth_rows": [
+        {
+          "family": "triangular",
+          "n": 2000,
+          "root_n": 1.00728
+        },
+        {
+          "family": "cubic_shifted",
+          "n": 2000,
+          "root_n": 1.011468
+        },
+        {
+          "family": "double_exponential_model_2^(2^n)",
+          "n": 10,
+          "root_n": null
+        }
+      ]
+    }
+  }
+}

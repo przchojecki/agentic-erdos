@@ -1,0 +1,633 @@
+{
+  "script": "harder_batch9_quick_compute.mjs",
+  "generated_utc": "2026-03-03T19:14:05.299Z",
+  "results": {
+    "ep271": {
+      "description": "Greedy finite profiles for A(n) no-3AP sequence growth exponents.",
+      "rows": [
+        {
+          "n": 1,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 3028,
+          "fitted_growth_exponent": 1.572925,
+          "ratio_last_over_k_pow_log2_3": 0.5910711,
+          "first_15_terms": [
+            0,
+            1,
+            3,
+            4,
+            9,
+            10,
+            12,
+            13,
+            27,
+            28,
+            30,
+            31,
+            36,
+            37,
+            39
+          ]
+        },
+        {
+          "n": 2,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 3029,
+          "fitted_growth_exponent": 1.572039,
+          "ratio_last_over_k_pow_log2_3": 0.5912663,
+          "first_15_terms": [
+            0,
+            2,
+            3,
+            5,
+            9,
+            11,
+            12,
+            14,
+            27,
+            29,
+            30,
+            32,
+            36,
+            38,
+            39
+          ]
+        },
+        {
+          "n": 3,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 3031,
+          "fitted_growth_exponent": 1.570292,
+          "ratio_last_over_k_pow_log2_3": 0.5916567,
+          "first_15_terms": [
+            0,
+            3,
+            4,
+            7,
+            9,
+            12,
+            13,
+            16,
+            27,
+            30,
+            31,
+            34,
+            36,
+            39,
+            40
+          ]
+        },
+        {
+          "n": 4,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 4339,
+          "fitted_growth_exponent": 1.685317,
+          "ratio_last_over_k_pow_log2_3": 0.8469807,
+          "first_15_terms": [
+            0,
+            4,
+            5,
+            7,
+            11,
+            12,
+            16,
+            23,
+            26,
+            31,
+            33,
+            37,
+            38,
+            44,
+            49
+          ]
+        },
+        {
+          "n": 5,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 4894,
+          "fitted_growth_exponent": 1.679082,
+          "ratio_last_over_k_pow_log2_3": 0.9553177,
+          "first_15_terms": [
+            0,
+            5,
+            6,
+            8,
+            9,
+            14,
+            15,
+            17,
+            27,
+            31,
+            32,
+            36,
+            38,
+            42,
+            43
+          ]
+        },
+        {
+          "n": 7,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 4220,
+          "fitted_growth_exponent": 1.665791,
+          "ratio_last_over_k_pow_log2_3": 0.8237516,
+          "first_15_terms": [
+            0,
+            7,
+            8,
+            10,
+            11,
+            17,
+            18,
+            21,
+            30,
+            33,
+            37,
+            38,
+            40,
+            51,
+            54
+          ]
+        },
+        {
+          "n": 10,
+          "terms_used": 220,
+          "last_index": 219,
+          "last_value": 4563,
+          "fitted_growth_exponent": 1.686927,
+          "ratio_last_over_k_pow_log2_3": 0.8907059,
+          "first_15_terms": [
+            0,
+            10,
+            11,
+            13,
+            14,
+            19,
+            21,
+            30,
+            33,
+            34,
+            37,
+            43,
+            48,
+            51,
+            70
+          ]
+        }
+      ]
+    },
+    "ep274": {
+      "description": "Brute-force exact-cover search in small cyclic groups for distinct-index coset partitions.",
+      "rows": [
+        {
+          "n": 6,
+          "has_partition": false
+        },
+        {
+          "n": 8,
+          "has_partition": false
+        },
+        {
+          "n": 10,
+          "has_partition": false
+        },
+        {
+          "n": 12,
+          "has_partition": false
+        },
+        {
+          "n": 14,
+          "has_partition": false
+        },
+        {
+          "n": 16,
+          "has_partition": false
+        },
+        {
+          "n": 18,
+          "has_partition": false
+        },
+        {
+          "n": 20,
+          "has_partition": false
+        },
+        {
+          "n": 24,
+          "has_partition": false
+        },
+        {
+          "n": 30,
+          "has_partition": false
+        }
+      ],
+      "any_partition_found": false
+    },
+    "ep276": {
+      "description": "Small-seed Lucas scan for long initial composite runs and gcd behavior.",
+      "seed_range": [
+        4,
+        120
+      ],
+      "terms_tested": 28,
+      "best_overall": {
+        "a0": 65,
+        "a1": 112,
+        "composite_prefix_len": 28,
+        "gcd_prefix": 1,
+        "prefix_tail_value": 29889361
+      },
+      "best_with_prefix_gcd_1": {
+        "a0": 65,
+        "a1": 112,
+        "composite_prefix_len": 28,
+        "gcd_prefix": 1,
+        "prefix_tail_value": 29889361
+      }
+    },
+    "ep283": {
+      "description": "Random split-generated Egyptian decompositions and resulting m=Σp(n_i) coverage proxies for p(x)=x and p(x)=x^2.",
+      "generation": {
+        "restarts": 6000,
+        "maxSteps": 14,
+        "maxDen": 200000,
+        "best_terms_found": 17
+      },
+      "linear_p_of_x_rows": [
+        {
+          "M": 10000,
+          "covered_count": 776,
+          "covered_density": 0.0776,
+          "tail_window": 2000,
+          "tail_density": 0.065
+        },
+        {
+          "M": 25000,
+          "covered_count": 1333,
+          "covered_density": 0.05332,
+          "tail_window": 5000,
+          "tail_density": 0.0208
+        },
+        {
+          "M": 50000,
+          "covered_count": 1942,
+          "covered_density": 0.03884,
+          "tail_window": 10000,
+          "tail_density": 0.0103
+        }
+      ],
+      "quadratic_p_of_x_rows": [
+        {
+          "M": 20000,
+          "covered_count": 25,
+          "covered_density": 0.00125,
+          "tail_window": 4000,
+          "tail_density": 0.00125
+        },
+        {
+          "M": 50000,
+          "covered_count": 49,
+          "covered_density": 0.00098,
+          "tail_window": 10000,
+          "tail_density": 0.0004
+        },
+        {
+          "M": 100000,
+          "covered_count": 63,
+          "covered_density": 0.00063,
+          "tail_window": 20000,
+          "tail_density": 0
+        }
+      ]
+    },
+    "ep291": {
+      "description": "Exact finite profile of gcd(a_n,L_n) for n<=500 via BigInt harmonic arithmetic.",
+      "first_n_with_gcd_eq_1": 1,
+      "first_n_with_gcd_gt_1": 6,
+      "rows": [
+        {
+          "n": 100,
+          "coprime_count_up_to_n": 37,
+          "nontrivial_count_up_to_n": 63,
+          "coprime_density": 0.37
+        },
+        {
+          "n": 200,
+          "coprime_count_up_to_n": 68,
+          "nontrivial_count_up_to_n": 132,
+          "coprime_density": 0.34
+        },
+        {
+          "n": 300,
+          "coprime_count_up_to_n": 102,
+          "nontrivial_count_up_to_n": 198,
+          "coprime_density": 0.34
+        },
+        {
+          "n": 400,
+          "coprime_count_up_to_n": 104,
+          "nontrivial_count_up_to_n": 296,
+          "coprime_density": 0.26
+        },
+        {
+          "n": 500,
+          "coprime_count_up_to_n": 106,
+          "nontrivial_count_up_to_n": 394,
+          "coprime_density": 0.212
+        }
+      ]
+    },
+    "ep293": {
+      "description": "Exact finite-k denominator-appearance scan for 1=sum 1/n_i, yielding a proxy for v(k).",
+      "rows": [
+        {
+          "k": 3,
+          "max_denom_searched": 400,
+          "solution_count": 1,
+          "distinct_denominators_seen": 3,
+          "v_proxy_min_missing_from_2": 4
+        },
+        {
+          "k": 4,
+          "max_denom_searched": 800,
+          "solution_count": 6,
+          "distinct_denominators_seen": 15,
+          "v_proxy_min_missing_from_2": 11
+        },
+        {
+          "k": 5,
+          "max_denom_searched": 1500,
+          "solution_count": 71,
+          "distinct_denominators_seen": 75,
+          "v_proxy_min_missing_from_2": 17
+        },
+        {
+          "k": 6,
+          "max_denom_searched": 2200,
+          "solution_count": 1669,
+          "distinct_denominators_seen": 503,
+          "v_proxy_min_missing_from_2": 53
+        }
+      ]
+    },
+    "ep304": {
+      "description": "Finite search profile for minimal Egyptian lengths N(a,b) on small denominators b.",
+      "search_limits": {
+        "maxDen": 600,
+        "kMax": 8
+      },
+      "rows": [
+        {
+          "b": 8,
+          "solved_count": 7,
+          "unresolved_count": 0,
+          "max_min_length_among_solved": 3,
+          "loglog_b": 0.732099
+        },
+        {
+          "b": 10,
+          "solved_count": 9,
+          "unresolved_count": 0,
+          "max_min_length_among_solved": 3,
+          "loglog_b": 0.834032
+        },
+        {
+          "b": 12,
+          "solved_count": 11,
+          "unresolved_count": 0,
+          "max_min_length_among_solved": 3,
+          "loglog_b": 0.910235
+        },
+        {
+          "b": 15,
+          "solved_count": 14,
+          "unresolved_count": 0,
+          "max_min_length_among_solved": 3,
+          "loglog_b": 0.996229
+        },
+        {
+          "b": 18,
+          "solved_count": 17,
+          "unresolved_count": 0,
+          "max_min_length_among_solved": 3,
+          "loglog_b": 1.06139
+        },
+        {
+          "b": 24,
+          "solved_count": 23,
+          "unresolved_count": 0,
+          "max_min_length_among_solved": 3,
+          "loglog_b": 1.15627
+        }
+      ]
+    },
+    "ep306": {
+      "description": "Finite representability profile for a/b using distinct semiprime denominators.",
+      "semiprime_count_up_to_maxDen": 203,
+      "search_limits": {
+        "maxDen": 700,
+        "kMax": 8
+      },
+      "rows": [
+        {
+          "b": 6,
+          "represented_coprime_a_count": 1,
+          "unresolved_coprime_a_count": 1,
+          "max_min_length_among_represented": 1
+        },
+        {
+          "b": 10,
+          "represented_coprime_a_count": 2,
+          "unresolved_coprime_a_count": 2,
+          "max_min_length_among_represented": 5
+        },
+        {
+          "b": 14,
+          "represented_coprime_a_count": 3,
+          "unresolved_coprime_a_count": 3,
+          "max_min_length_among_represented": 6
+        },
+        {
+          "b": 15,
+          "represented_coprime_a_count": 4,
+          "unresolved_coprime_a_count": 4,
+          "max_min_length_among_represented": 8
+        },
+        {
+          "b": 21,
+          "represented_coprime_a_count": 6,
+          "unresolved_coprime_a_count": 6,
+          "max_min_length_among_represented": 8
+        },
+        {
+          "b": 30,
+          "represented_coprime_a_count": 4,
+          "unresolved_coprime_a_count": 4,
+          "max_min_length_among_represented": 5
+        }
+      ]
+    },
+    "ep319": {
+      "description": "Randomized split construction lower-bound proxy for large minimal signed harmonic relation sets.",
+      "rows": [
+        {
+          "N": 30,
+          "best_B_size_found": 5,
+          "implied_A_size_lower_bound": 6,
+          "implied_A_over_N": 0.2,
+          "proper_subset_sum_1_exists": false,
+          "sample_B_prefix": [
+            2,
+            5,
+            6,
+            12,
+            20
+          ]
+        },
+        {
+          "N": 40,
+          "best_B_size_found": 5,
+          "implied_A_size_lower_bound": 6,
+          "implied_A_over_N": 0.15,
+          "proper_subset_sum_1_exists": false,
+          "sample_B_prefix": [
+            2,
+            5,
+            6,
+            12,
+            20
+          ]
+        },
+        {
+          "N": 50,
+          "best_B_size_found": 7,
+          "implied_A_size_lower_bound": 8,
+          "implied_A_over_N": 0.16,
+          "proper_subset_sum_1_exists": false,
+          "sample_B_prefix": [
+            3,
+            5,
+            6,
+            7,
+            12,
+            20,
+            42
+          ]
+        },
+        {
+          "N": 60,
+          "best_B_size_found": 8,
+          "implied_A_size_lower_bound": 9,
+          "implied_A_over_N": 0.15,
+          "proper_subset_sum_1_exists": false,
+          "sample_B_prefix": [
+            3,
+            5,
+            6,
+            8,
+            12,
+            20,
+            42,
+            56
+          ]
+        },
+        {
+          "N": 80,
+          "best_B_size_found": 9,
+          "implied_A_size_lower_bound": 10,
+          "implied_A_over_N": 0.125,
+          "proper_subset_sum_1_exists": false,
+          "sample_B_prefix": [
+            3,
+            5,
+            6,
+            9,
+            12,
+            20,
+            42,
+            56,
+            72
+          ]
+        },
+        {
+          "N": 100,
+          "best_B_size_found": 10,
+          "implied_A_size_lower_bound": 11,
+          "implied_A_over_N": 0.11,
+          "proper_subset_sum_1_exists": false,
+          "sample_B_prefix": [
+            3,
+            5,
+            6,
+            10,
+            12,
+            20,
+            42,
+            56,
+            72,
+            90
+          ]
+        }
+      ]
+    },
+    "ep320": {
+      "description": "Exact S(N) for small N using subset-sum DP over common denominator lcm(1..N).",
+      "rows": [
+        {
+          "N": 8,
+          "S_N": 208,
+          "log_S_N": 5.3375381,
+          "lcm_digits": 3,
+          "log_S_over_N_over_logN": 1.38739
+        },
+        {
+          "N": 10,
+          "S_N": 832,
+          "log_S_N": 6.7238324,
+          "lcm_digits": 4,
+          "log_S_over_N_over_logN": 1.54822
+        },
+        {
+          "N": 12,
+          "S_N": 1856,
+          "log_S_N": 7.5261789,
+          "lcm_digits": 5,
+          "log_S_over_N_over_logN": 1.55849
+        },
+        {
+          "N": 14,
+          "S_N": 7424,
+          "log_S_N": 8.9124733,
+          "lcm_digits": 6,
+          "log_S_over_N_over_logN": 1.68004
+        },
+        {
+          "N": 16,
+          "S_N": 19328,
+          "log_S_N": 9.8693101,
+          "lcm_digits": 6,
+          "log_S_over_N_over_logN": 1.71022
+        },
+        {
+          "N": 18,
+          "S_N": 59264,
+          "log_S_N": 10.989757,
+          "lcm_digits": 8,
+          "log_S_over_N_over_logN": 1.76469
+        },
+        {
+          "N": 20,
+          "S_N": 126976,
+          "log_S_N": 11.751753,
+          "lcm_digits": 9,
+          "log_S_over_N_over_logN": 1.76026
+        }
+      ]
+    }
+  }
+}
