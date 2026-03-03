@@ -1,0 +1,106 @@
+{
+  "problem": "EP-1133",
+  "script": "ep1133_subset_fit_scan.mjs",
+  "method": "random_label_subset_interpolation_supnorm_scan",
+  "params": {
+    "n": 32,
+    "epsilon": 0.2,
+    "t": 25,
+    "y_samples": 180,
+    "subset_samples": 180,
+    "grid_points": 1401,
+    "c_list": [
+      2,
+      3,
+      5,
+      8,
+      12
+    ],
+    "node_types": [
+      "chebyshev",
+      "equispaced"
+    ],
+    "seed": 20260302
+  },
+  "summaries": [
+    {
+      "node_type": "chebyshev",
+      "n": 32,
+      "epsilon": 0.2,
+      "t": 25,
+      "y_samples": 180,
+      "subset_samples_per_y": 180,
+      "grid_points": 1401,
+      "min_sup_stats": {
+        "mean": 2.679583548063235,
+        "p10": 1.8019723415485887,
+        "p50": 2.6145880056861808,
+        "p90": 3.658416086243155,
+        "min": 1.4717383037839546,
+        "max": 6.249866694365197
+      },
+      "C_stats": [
+        {
+          "C": 2,
+          "fraction_with_some_sampled_fit_le_C": 0.2
+        },
+        {
+          "C": 3,
+          "fraction_with_some_sampled_fit_le_C": 0.7
+        },
+        {
+          "C": 5,
+          "fraction_with_some_sampled_fit_le_C": 0.9944444444444445
+        },
+        {
+          "C": 8,
+          "fraction_with_some_sampled_fit_le_C": 1
+        },
+        {
+          "C": 12,
+          "fraction_with_some_sampled_fit_le_C": 1
+        }
+      ]
+    },
+    {
+      "node_type": "equispaced",
+      "n": 32,
+      "epsilon": 0.2,
+      "t": 25,
+      "y_samples": 180,
+      "subset_samples_per_y": 180,
+      "grid_points": 1401,
+      "min_sup_stats": {
+        "mean": 570.0944493285114,
+        "p10": 150.6210497307903,
+        "p50": 429.3231844737693,
+        "p90": 1068.841874149235,
+        "min": 1,
+        "max": 4345.69055142348
+      },
+      "C_stats": [
+        {
+          "C": 2,
+          "fraction_with_some_sampled_fit_le_C": 0.005555555555555556
+        },
+        {
+          "C": 3,
+          "fraction_with_some_sampled_fit_le_C": 0.005555555555555556
+        },
+        {
+          "C": 5,
+          "fraction_with_some_sampled_fit_le_C": 0.005555555555555556
+        },
+        {
+          "C": 8,
+          "fraction_with_some_sampled_fit_le_C": 0.005555555555555556
+        },
+        {
+          "C": 12,
+          "fraction_with_some_sampled_fit_le_C": 0.005555555555555556
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-03-03T08:51:15.226Z"
+}

@@ -18,8 +18,45 @@ Data file:
 - In this scan (`N<=220`), no equal-length counterexample was found for
   `r=2` with `k>=4`, or `r=3` with `k>=6`.
 
-## Hard point
-This is finite-window evidence only, and only for equal lengths.
-The full statement allows arbitrary disjoint intervals and requires a proof
-for all sufficiently large lengths.
+## New variable-length search (r=2)
+I then searched disjoint intervals with lengths in `[k, k+4]` (not necessarily
+equal), exact exponent-gcd test, up to `N<=1200`.
 
+Data / script:
+- `scripts/ep930_variable_interval_counterexample_search.mjs`
+- `data/ep930_variable_interval_counterexample_search.json`
+
+### New finding
+- For `r=2`, `k=4` already has a counterexample:
+  - `I1=[8,14]` (length `7`)
+  - `I2=[63,66]` (length `4`)
+  - Product factorization:
+    `2^14 * 3^6 * 5^2 * 7^2 * 11^2 * 13^2` (a perfect square).
+
+### Additional finite evidence
+- In this search window, no `r=2` counterexample was found for
+  `k=5,6,7,8,9,10,11,12` under `N<=1200` and length range `[k, k+4]`.
+
+## Hard point
+All results remain finite-window. The global statement quantifies over all
+large lengths and all disjoint interval placements, so this is not a full
+disproof.
+
+## Additional computational extension (2026-03-03)
+- New exact variable-length `r=2` scan with `N<=1500`, lengths in `[k,k+6]`,
+  and `k=6,7,8` found no witnesses:
+  - `k=6`: none after `53,919,110` checks
+  - `k=7`: none after `53,773,825` checks
+  - `k=8`: none after `53,628,736` checks
+- Snapshot file for this finished run:
+  - `data/ep930_variable_interval_counterexample_search_N1500_k6_8_len6.json`
+- A larger run (`N<=2500`, lengths in `[k,k+8]`) is still in progress; current
+  partial progress has:
+  - `k=5`: none after `249,795,306` checks
+  - `k=6`: none after `249,393,141` checks
+  - `k=7`: none after `248,991,300` checks
+  - `k=8`: none after `248,589,783` checks
+  - `k=9`: none after `248,188,590` checks
+  - `k=10`: none after `247,787,721` checks
+
+Run was manually stopped after the `k=10` report to wrap the batch.

@@ -1,0 +1,793 @@
+{
+  "problem": "EP-995",
+  "script": "ep995_heavy_step_counterexample_scan.mjs",
+  "method": "exact_modular_scan_lacunary_bases_with_mean_zero_heavy_step_L2_functions",
+  "params": {
+    "q_list": [
+      1000003
+    ],
+    "bases": [
+      2,
+      3
+    ],
+    "m_list": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "samples_per_q": 220,
+    "n_list": [
+      4096,
+      8192,
+      16384,
+      32768,
+      65536,
+      131072,
+      262144
+    ],
+    "seed": 20260302
+  },
+  "global_max_over_Nsqrtloglog": {
+    "q": 1000003,
+    "base": 2,
+    "M": 64,
+    "N": 4096,
+    "value": 0.0751720794810874
+  },
+  "configs": [
+    {
+      "q": 1000003,
+      "base": 2,
+      "M": 8,
+      "threshold_t": 15625,
+      "p_estimate": 0.0156249687500625,
+      "c_neg": 0.12698386898515507,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 91.17000158937641,
+          "p90_abs": 178.79468536953638,
+          "p99_abs": 299.15323596549,
+          "max_abs": 316.9513306385767,
+          "mean_over_sqrtNloglog": 0.9787429511139776,
+          "max_over_sqrtNloglog": 3.4025872030351074,
+          "mean_over_Nsqrtloglog": 0.0152928586111559,
+          "max_over_Nsqrtloglog": 0.05316542504742355
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 128.70187181611198,
+          "p90_abs": 260.8778465974076,
+          "p99_abs": 429.18472820888223,
+          "max_abs": 438.8592094288193,
+          "mean_over_sqrtNloglog": 0.9590316383066211,
+          "max_over_sqrtNloglog": 3.2701922719959997,
+          "mean_over_Nsqrtloglog": 0.010595902731547752,
+          "max_over_Nsqrtloglog": 0.03613086142675335
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 170.77680286386484,
+          "p90_abs": 374.65062755433246,
+          "p99_abs": 575.8822379636546,
+          "max_abs": 788.3132742839682,
+          "mean_over_sqrtNloglog": 0.8850396339905043,
+          "max_over_sqrtNloglog": 4.085382089617308,
+          "mean_over_Nsqrtloglog": 0.006914372140550815,
+          "max_over_Nsqrtloglog": 0.03191704757513522
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 221.5327546624514,
+          "p90_abs": 489.23610689792474,
+          "p99_abs": 632.3522928303219,
+          "max_abs": 723.3098863549504,
+          "mean_over_sqrtNloglog": 0.7997650878322649,
+          "max_over_sqrtNloglog": 2.6112526595538306,
+          "mean_over_Nsqrtloglog": 0.004418119663769135,
+          "max_over_Nsqrtloglog": 0.014425269241890006
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 327.624187074706,
+          "p90_abs": 676.1783731240282,
+          "p99_abs": 912.5956626792208,
+          "max_abs": 1064.6515308678747,
+          "mean_over_sqrtNloglog": 0.8250520322310343,
+          "max_over_sqrtNloglog": 2.681099087962415,
+          "mean_over_Nsqrtloglog": 0.0032228595009024777,
+          "max_over_Nsqrtloglog": 0.010473043312353183
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 403.61194017782003,
+          "p90_abs": 805.4107318654355,
+          "p99_abs": 1076.696111024503,
+          "max_abs": 1162.1919813220638,
+          "mean_over_sqrtNloglog": 0.7098242599011575,
+          "max_over_sqrtNloglog": 2.043923830998516,
+          "mean_over_Nsqrtloglog": 0.001960631045417308,
+          "max_over_Nsqrtloglog": 0.005645595316905615
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 332.9168643170152,
+          "p90_abs": 658.3522695067234,
+          "p99_abs": 963.95625042143,
+          "max_abs": 1227.1079880988937,
+          "mean_over_sqrtNloglog": 0.4092920453621208,
+          "max_over_sqrtNloglog": 1.508621497320536,
+          "mean_over_Nsqrtloglog": 0.0007993985260978922,
+          "max_over_Nsqrtloglog": 0.002946526361954172
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 2,
+      "M": 16,
+      "threshold_t": 3906,
+      "p_estimate": 0.003905992188015624,
+      "c_neg": 0.06274094063222821,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 89.22091627531985,
+          "p90_abs": 176.67318812645522,
+          "p99_abs": 270.0251917887227,
+          "max_abs": 369.4600038550168,
+          "mean_over_sqrtNloglog": 0.9578188151153343,
+          "max_over_sqrtNloglog": 3.9662868069290114,
+          "mean_over_Nsqrtloglog": 0.014965918986177098,
+          "max_over_Nsqrtloglog": 0.0619732313582658
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 124.63165039952379,
+          "p90_abs": 273.0326715497552,
+          "p99_abs": 369.46407478792366,
+          "max_abs": 465.85341171929434,
+          "mean_over_sqrtNloglog": 0.9287020785392348,
+          "max_over_sqrtNloglog": 3.471341592375765,
+          "mean_over_Nsqrtloglog": 0.010260805272455228,
+          "max_over_Nsqrtloglog": 0.038353268434122054
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 183.17962386977317,
+          "p90_abs": 353.4481495758132,
+          "p99_abs": 494.9351146876462,
+          "max_abs": 530.1382999227392,
+          "mean_over_sqrtNloglog": 0.9493164443033731,
+          "max_over_sqrtNloglog": 2.7474071364480808,
+          "mean_over_Nsqrtloglog": 0.007416534721120103,
+          "max_over_Nsqrtloglog": 0.02146411825350063
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 195.4247454791082,
+          "p90_abs": 401.7042212796181,
+          "p99_abs": 694.688616036746,
+          "max_abs": 931.7746723204118,
+          "mean_over_sqrtNloglog": 0.7055114218700588,
+          "max_over_sqrtNloglog": 3.363840501977568,
+          "mean_over_Nsqrtloglog": 0.0038974368016318883,
+          "max_over_Nsqrtloglog": 0.018582768982642956
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 271.83424861574275,
+          "p90_abs": 531.8938415570872,
+          "p99_abs": 835.5339244405803,
+          "max_abs": 996.1613338467623,
+          "mean_over_sqrtNloglog": 0.6845569042168254,
+          "max_over_sqrtNloglog": 2.5086210522449615,
+          "mean_over_Nsqrtloglog": 0.002674050407096974,
+          "max_over_Nsqrtloglog": 0.00979930098533188
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 344.7648305529798,
+          "p90_abs": 722.2805512731863,
+          "p99_abs": 880.0623005017093,
+          "max_abs": 979.28440632322,
+          "mean_over_sqrtNloglog": 0.6063310232581302,
+          "max_over_sqrtNloglog": 1.7222479311312588,
+          "mean_over_Nsqrtloglog": 0.0016747686648031332,
+          "max_over_Nsqrtloglog": 0.004757082777294591
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 256.0290162613996,
+          "p90_abs": 546.6538839648407,
+          "p99_abs": 750.8113213201752,
+          "max_abs": 836.3481110227517,
+          "mean_over_sqrtNloglog": 0.3147651890590156,
+          "max_over_sqrtNloglog": 1.0282165479886531,
+          "mean_over_Nsqrtloglog": 0.0006147757598808899,
+          "max_over_Nsqrtloglog": 0.002008235445290338
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 2,
+      "M": 32,
+      "threshold_t": 976,
+      "p_estimate": 0.000975998048003904,
+      "c_neg": 0.03126244962593566,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 85.60073016572866,
+          "p90_abs": 128.1991059291857,
+          "p99_abs": 314.300740761467,
+          "max_abs": 352.41794307654425,
+          "mean_over_sqrtNloglog": 0.9189548074953543,
+          "max_over_sqrtNloglog": 3.7833341188890275,
+          "mean_over_Nsqrtloglog": 0.014358668867114911,
+          "max_over_Nsqrtloglog": 0.059114595607641054
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 131.61263696294276,
+          "p90_abs": 224.3669494087301,
+          "p99_abs": 320.46073675751046,
+          "max_abs": 320.46073675755406,
+          "mean_over_sqrtNloglog": 0.9807214228303415,
+          "max_over_sqrtNloglog": 2.387937184197732,
+          "mean_over_Nsqrtloglog": 0.010835543258410216,
+          "max_over_Nsqrtloglog": 0.026383227749901973
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 169.30735743885822,
+          "p90_abs": 320.6088490187745,
+          "p99_abs": 416.1101873225956,
+          "max_abs": 480.1727122218475,
+          "mean_over_sqrtNloglog": 0.8774243289882576,
+          "max_over_sqrtNloglog": 2.4884637395151326,
+          "mean_over_Nsqrtloglog": 0.006854877570220763,
+          "max_over_Nsqrtloglog": 0.019441122964961973
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 169.45833998677574,
+          "p90_abs": 383.7827003503248,
+          "p99_abs": 571.0692332727632,
+          "max_abs": 705.2802229365483,
+          "mean_over_sqrtNloglog": 0.6117689655867605,
+          "max_over_sqrtNloglog": 2.546162982998436,
+          "mean_over_Nsqrtloglog": 0.0033795780006709224,
+          "max_over_Nsqrtloglog": 0.014065696181909079
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 239.6736253838842,
+          "p90_abs": 479.284038654014,
+          "p99_abs": 609.3286233588401,
+          "max_abs": 639.4403509024861,
+          "mean_over_sqrtNloglog": 0.6035671952695701,
+          "max_over_sqrtNloglog": 1.6102949104985438,
+          "mean_over_Nsqrtloglog": 0.0023576843565217584,
+          "max_over_Nsqrtloglog": 0.006290214494134937
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 291.09599411641454,
+          "p90_abs": 577.3960541586537,
+          "p99_abs": 924.2899448047735,
+          "max_abs": 1027.370194567016,
+          "mean_over_sqrtNloglog": 0.5119447122719948,
+          "max_over_sqrtNloglog": 1.8068154467426119,
+          "mean_over_Nsqrtloglog": 0.001414060850156732,
+          "max_over_Nsqrtloglog": 0.00499066974509493
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 269.3225464877471,
+          "p90_abs": 539.7918692828097,
+          "p99_abs": 903.2165040704958,
+          "max_abs": 1093.802515645008,
+          "mean_over_sqrtNloglog": 0.3311084169323981,
+          "max_over_sqrtNloglog": 1.34473412684879,
+          "mean_over_Nsqrtloglog": 0.0006466961268210901,
+          "max_over_Nsqrtloglog": 0.002626433841501543
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 2,
+      "M": 64,
+      "threshold_t": 244,
+      "p_estimate": 0.000243999512000976,
+      "c_neg": 0.015619779986756795,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 73.8981789229353,
+          "p90_abs": 128.06824051418272,
+          "p99_abs": 435.9833716559265,
+          "max_abs": 448.14633941413626,
+          "mean_over_sqrtNloglog": 0.793323686081962,
+          "max_over_sqrtNloglog": 4.811013086789593,
+          "mean_over_Nsqrtloglog": 0.012395682595030657,
+          "max_over_Nsqrtloglog": 0.0751720794810874
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 123.36008499509806,
+          "p90_abs": 192.12086124841292,
+          "p99_abs": 384.167720588386,
+          "max_abs": 640.2301997082848,
+          "mean_over_sqrtNloglog": 0.919226913681005,
+          "max_over_sqrtNloglog": 4.77072328984376,
+          "mean_over_Nsqrtloglog": 0.010156118501765935,
+          "max_over_Nsqrtloglog": 0.05270954358457996
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 165.5636346904958,
+          "p90_abs": 256.2104829368185,
+          "p99_abs": 448.2573422768028,
+          "max_abs": 512.2729620567131,
+          "mean_over_sqrtNloglog": 0.8580227302031238,
+          "max_over_sqrtNloglog": 2.6548211890541094,
+          "mean_over_Nsqrtloglog": 0.006703302579711905,
+          "max_over_Nsqrtloglog": 0.02074079053948523
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 188.57931706744841,
+          "p90_abs": 383.79771104622563,
+          "p99_abs": 576.4365856535455,
+          "max_abs": 640.452205433585,
+          "mean_over_sqrtNloglog": 0.6807984413302627,
+          "max_over_sqrtNloglog": 2.312124521321523,
+          "mean_over_Nsqrtloglog": 0.003760915581920787,
+          "max_over_Nsqrtloglog": 0.012772804124798042
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 225.24011741749342,
+          "p90_abs": 519.0001324319635,
+          "p99_abs": 640.5232472658337,
+          "max_abs": 768.7794526273515,
+          "mean_over_sqrtNloglog": 0.5672194665312822,
+          "max_over_sqrtNloglog": 1.9360080078062951,
+          "mean_over_Nsqrtloglog": 0.002215701041137821,
+          "max_over_Nsqrtloglog": 0.00756253128049334
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 270.01875952157536,
+          "p90_abs": 574.9565474850161,
+          "p99_abs": 897.4027074543219,
+          "max_abs": 959.0502661652104,
+          "mean_over_sqrtNloglog": 0.4748766006585144,
+          "max_over_sqrtNloglog": 1.6866625528689914,
+          "mean_over_Nsqrtloglog": 0.0013116736896580143,
+          "max_over_Nsqrtloglog": 0.004658791127762021
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 242.32183141032414,
+          "p90_abs": 509.75689716977223,
+          "p99_abs": 637.7881367302606,
+          "max_abs": 898.5867379887056,
+          "mean_over_sqrtNloglog": 0.29791340915485587,
+          "max_over_sqrtNloglog": 1.1047334735691137,
+          "mean_over_Nsqrtloglog": 0.0005818621272555779,
+          "max_over_Nsqrtloglog": 0.002157682565564675
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 3,
+      "M": 8,
+      "threshold_t": 15625,
+      "p_estimate": 0.0156249687500625,
+      "c_neg": 0.12698386898515507,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 76.13502469074459,
+          "p90_abs": 154.41165325885277,
+          "p99_abs": 240.72022194747055,
+          "max_abs": 260.0624435556624,
+          "mean_over_sqrtNloglog": 0.8173370346594132,
+          "max_over_sqrtNloglog": 2.791864418583501,
+          "mean_over_Nsqrtloglog": 0.012770891166553331,
+          "max_over_Nsqrtloglog": 0.043622881540367205
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 96.23097174429081,
+          "p90_abs": 195.04969335938577,
+          "p99_abs": 305.7384230635297,
+          "max_abs": 365.71219360066755,
+          "mean_over_sqrtNloglog": 0.7170722941747607,
+          "max_over_sqrtNloglog": 2.7251318044439596,
+          "mean_over_Nsqrtloglog": 0.007922604403312002,
+          "max_over_Nsqrtloglog": 0.030108737164835253
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 153.71066632176172,
+          "p90_abs": 342.149349690173,
+          "p99_abs": 445.4425656836216,
+          "max_abs": 487.6148711318749,
+          "mean_over_sqrtNloglog": 0.7965954952927253,
+          "max_over_sqrtNloglog": 2.5270322423057623,
+          "mean_over_Nsqrtloglog": 0.006223402306974417,
+          "max_over_Nsqrtloglog": 0.019742439393013768
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 234.5006524200306,
+          "p90_abs": 504.6923558756757,
+          "p99_abs": 811.1625819785041,
+          "max_abs": 910.2305153414497,
+          "mean_over_sqrtNloglog": 0.8465810627651493,
+          "max_over_sqrtNloglog": 3.286062998489177,
+          "mean_over_Nsqrtloglog": 0.004676743830510557,
+          "max_over_Nsqrtloglog": 0.018153104919046068
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 352.49157323033177,
+          "p90_abs": 675.3357154826194,
+          "p99_abs": 950.8404686413737,
+          "max_abs": 1023.9833234612271,
+          "mean_over_sqrtNloglog": 0.8876752703599536,
+          "max_over_sqrtNloglog": 2.5786848325692473,
+          "mean_over_Nsqrtloglog": 0.003467481524843569,
+          "max_over_Nsqrtloglog": 0.010072987627223622
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 508.23776825343896,
+          "p90_abs": 862.2397004382522,
+          "p99_abs": 1284.0301632419885,
+          "max_abs": 1324.665082586878,
+          "mean_over_sqrtNloglog": 0.8938276145779355,
+          "max_over_sqrtNloglog": 2.329662029943603,
+          "mean_over_Nsqrtloglog": 0.0024688733104681797,
+          "max_over_Nsqrtloglog": 0.006434843043929451
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 398.0744462371942,
+          "p90_abs": 724.1808388463069,
+          "p99_abs": 939.6831521235879,
+          "max_abs": 950.9236887882364,
+          "mean_over_sqrtNloglog": 0.48939756969376097,
+          "max_over_sqrtNloglog": 1.1690771579441974,
+          "mean_over_Nsqrtloglog": 0.0009558546283081269,
+          "max_over_Nsqrtloglog": 0.0022833538241097606
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 3,
+      "M": 16,
+      "threshold_t": 3906,
+      "p_estimate": 0.003905992188015624,
+      "c_neg": 0.06274094063222821,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 76.29863627601931,
+          "p90_abs": 146.1845123361489,
+          "p99_abs": 224.89533538934674,
+          "max_abs": 305.2090400925023,
+          "mean_over_sqrtNloglog": 0.8190934642197575,
+          "max_over_sqrtNloglog": 3.27652946582386,
+          "mean_over_Nsqrtloglog": 0.01279833537843371,
+          "max_over_Nsqrtloglog": 0.05119577290349781
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 98.42511214691015,
+          "p90_abs": 178.32356399383912,
+          "p99_abs": 289.1503700847822,
+          "max_abs": 497.9788936005558,
+          "mean_over_sqrtNloglog": 0.7334220957379058,
+          "max_over_sqrtNloglog": 3.7107270269869725,
+          "mean_over_Nsqrtloglog": 0.008103245896380038,
+          "max_over_Nsqrtloglog": 0.040998128811166955
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 145.29355943786075,
+          "p90_abs": 337.3854086351674,
+          "p99_abs": 433.7360717038604,
+          "max_abs": 530.1382999228459,
+          "mean_over_sqrtNloglog": 0.7529743882637746,
+          "max_over_sqrtNloglog": 2.7474071364486337,
+          "mean_over_Nsqrtloglog": 0.005882612408310739,
+          "max_over_Nsqrtloglog": 0.02146411825350495
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 233.65467161981533,
+          "p90_abs": 451.47157864283565,
+          "p99_abs": 620.2589225135724,
+          "max_abs": 674.4994217427635,
+          "mean_over_sqrtNloglog": 0.8435269504736307,
+          "max_over_sqrtNloglog": 2.4350398662033403,
+          "mean_over_Nsqrtloglog": 0.0046598720843243225,
+          "max_over_Nsqrtloglog": 0.01345182188946848
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 352.1933679995345,
+          "p90_abs": 642.292521203194,
+          "p99_abs": 919.1598959142368,
+          "max_abs": 947.4303199697529,
+          "mean_over_sqrtNloglog": 0.8869243037299009,
+          "max_over_sqrtNloglog": 2.3859023287255114,
+          "mean_over_Nsqrtloglog": 0.0034645480614449256,
+          "max_over_Nsqrtloglog": 0.009319930971584029
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 583.7938218440297,
+          "p90_abs": 949.8507806468219,
+          "p99_abs": 1137.0661555520248,
+          "max_abs": 1155.9745566702886,
+          "mean_over_sqrtNloglog": 1.026706537330728,
+          "max_over_sqrtNloglog": 2.032989370412456,
+          "mean_over_Nsqrtloglog": 0.002835902948574676,
+          "max_over_Nsqrtloglog": 0.005615392851167256
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 373.0147131493968,
+          "p90_abs": 678.9332498053379,
+          "p99_abs": 900.5990747859732,
+          "max_abs": 948.7872976079545,
+          "mean_over_sqrtNloglog": 0.4585888288005193,
+          "max_over_sqrtNloglog": 1.1664506526223206,
+          "mean_over_Nsqrtloglog": 0.0008956813062510143,
+          "max_over_Nsqrtloglog": 0.00227822393090297
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 3,
+      "M": 32,
+      "threshold_t": 976,
+      "p_estimate": 0.000975998048003904,
+      "c_neg": 0.03126244962593566,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 76.001449994114,
+          "p90_abs": 131.40223217415274,
+          "p99_abs": 256.32415572768673,
+          "max_abs": 288.3554181773012,
+          "mean_over_sqrtNloglog": 0.8159030619655966,
+          "max_over_sqrtNloglog": 3.0955997371556836,
+          "mean_over_Nsqrtloglog": 0.012748485343212447,
+          "max_over_Nsqrtloglog": 0.048368745893057556
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 99.88737903445501,
+          "p90_abs": 192.33568695909509,
+          "p99_abs": 314.3747968921488,
+          "max_abs": 352.49199920717024,
+          "mean_over_sqrtNloglog": 0.7443182869821742,
+          "max_over_sqrtNloglog": 2.626620535656488,
+          "mean_over_Nsqrtloglog": 0.008223632938847657,
+          "max_over_Nsqrtloglog": 0.029020331130727255
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 137.59152483609327,
+          "p90_abs": 256.0131199788241,
+          "p99_abs": 506.710483851053,
+          "max_abs": 576.8589486158262,
+          "mean_over_sqrtNloglog": 0.7130590966631679,
+          "max_over_sqrtNloglog": 2.989533848774992,
+          "mean_over_Nsqrtloglog": 0.005570774192680999,
+          "max_over_Nsqrtloglog": 0.023355733193554624
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 219.67841157285082,
+          "p90_abs": 416.99886089009647,
+          "p99_abs": 577.1551731383571,
+          "max_abs": 673.2489604873988,
+          "mean_over_sqrtNloglog": 0.793070642732328,
+          "max_over_sqrtNloglog": 2.430525521328013,
+          "mean_over_Nsqrtloglog": 0.004381137729968772,
+          "max_over_Nsqrtloglog": 0.013426883421703178
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 382.80590167546734,
+          "p90_abs": 671.4716133522603,
+          "p99_abs": 827.9117819144441,
+          "max_abs": 866.0289842295896,
+          "mean_over_sqrtNloglog": 0.9640154774511812,
+          "max_over_sqrtNloglog": 2.180910328353365,
+          "mean_over_Nsqrtloglog": 0.0037656854587936766,
+          "max_over_Nsqrtloglog": 0.008519180970130331
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 604.5224889769514,
+          "p90_abs": 995.3389321187339,
+          "p99_abs": 1213.4718294000227,
+          "max_abs": 1283.6202941645831,
+          "mean_over_sqrtNloglog": 1.0631616303091003,
+          "max_over_sqrtNloglog": 2.2574773801242265,
+          "mean_over_Nsqrtloglog": 0.002936596868316055,
+          "max_over_Nsqrtloglog": 0.0062354592338323515
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 413.41280370685615,
+          "p90_abs": 799.2450951261172,
+          "p99_abs": 1015.9759112602669,
+          "max_abs": 1084.3233309278678,
+          "mean_over_sqrtNloglog": 0.508254733070367,
+          "max_over_sqrtNloglog": 1.333080301773863,
+          "mean_over_Nsqrtloglog": 0.0009926850255280604,
+          "max_over_Nsqrtloglog": 0.0026036724644020763
+        }
+      ]
+    },
+    {
+      "q": 1000003,
+      "base": 3,
+      "M": 64,
+      "threshold_t": 244,
+      "p_estimate": 0.000243999512000976,
+      "c_neg": 0.015619779986756795,
+      "rows": [
+        {
+          "N": 4096,
+          "samples": 220,
+          "mean_abs": 75.07185407959636,
+          "p90_abs": 192.08386029417255,
+          "p99_abs": 320.1150998541502,
+          "max_abs": 384.13071963412756,
+          "mean_over_sqrtNloglog": 0.8059235135082398,
+          "max_over_sqrtNloglog": 4.123782248480857,
+          "mean_over_Nsqrtloglog": 0.012592554898566246,
+          "max_over_Nsqrtloglog": 0.06443409763251338
+        },
+        {
+          "N": 8192,
+          "samples": 220,
+          "mean_abs": 101.55406961210643,
+          "p90_abs": 192.12086124841542,
+          "p99_abs": 320.1521008083614,
+          "max_abs": 320.15210080837824,
+          "mean_over_sqrtNloglog": 0.7567377566657157,
+          "max_over_sqrtNloglog": 2.3856373603039405,
+          "mean_over_Nsqrtloglog": 0.008360849989347236,
+          "max_over_Nsqrtloglog": 0.026357818045670178
+        },
+        {
+          "N": 16384,
+          "samples": 220,
+          "mean_abs": 139.69062549499486,
+          "p90_abs": 256.2104829368231,
+          "p99_abs": 436.094374518544,
+          "max_abs": 640.3042016167076,
+          "mean_over_sqrtNloglog": 0.723937548816558,
+          "max_over_sqrtNloglog": 3.318334731287685,
+          "mean_over_Nsqrtloglog": 0.00565576210012936,
+          "max_over_Nsqrtloglog": 0.02592449008818504
+        },
+        {
+          "N": 32768,
+          "samples": 220,
+          "mean_abs": 216.21973463030668,
+          "p90_abs": 448.4053460935435,
+          "p99_abs": 640.4522054336252,
+          "max_abs": 704.4678252134657,
+          "mean_over_sqrtNloglog": 0.7805843218135456,
+          "max_over_sqrtNloglog": 2.543230110442656,
+          "mean_over_Nsqrtloglog": 0.00431215990033016,
+          "max_over_Nsqrtloglog": 0.014049494196967298
+        },
+        {
+          "N": 65536,
+          "samples": 220,
+          "mean_abs": 354.72087547000547,
+          "p90_abs": 640.7482130671439,
+          "p99_abs": 832.5701066055769,
+          "max_abs": 896.810692187066,
+          "mean_over_sqrtNloglog": 0.8932892952575738,
+          "max_over_sqrtNloglog": 2.258427531624035,
+          "mean_over_Nsqrtloglog": 0.003489411309599898,
+          "max_over_Nsqrtloglog": 0.008821982545406388
+        },
+        {
+          "N": 131072,
+          "samples": 220,
+          "mean_abs": 518.5588119597409,
+          "p90_abs": 1023.0658859451133,
+          "p99_abs": 1424.8914144413616,
+          "max_abs": 1473.5432854742148,
+          "mean_over_sqrtNloglog": 0.9119790280544684,
+          "max_over_sqrtNloglog": 2.5914911525740183,
+          "mean_over_Nsqrtloglog": 0.0025190099806141845,
+          "max_over_Nsqrtloglog": 0.00715805065378918
+        },
+        {
+          "N": 262144,
+          "samples": 220,
+          "mean_abs": 363.81122369794537,
+          "p90_abs": 834.5711182091961,
+          "p99_abs": 950.4393900107223,
+          "max_abs": 962.6023577688927,
+          "mean_over_sqrtNloglog": 0.44727394684108135,
+          "max_over_sqrtNloglog": 1.1834350557455184,
+          "mean_over_Nsqrtloglog": 0.000873581927423987,
+          "max_over_Nsqrtloglog": 0.0023113965932529657
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-03-03T08:52:39.660Z"
+}

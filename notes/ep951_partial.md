@@ -1,4 +1,4 @@
-# EP-951 deep attempt (open)
+# EP-951 deeper attempt (integer subcase + dense real search)
 
 ## Statement
 For a multiplicatively separated sequence of reals a_i (distance at least 1 between
@@ -8,9 +8,57 @@ distinct generalized products), ask whether count{a_i<=x}<=pi(x).
 Compared the spacing condition with Beurling-prime heuristics and uniqueness of
 factorization-type constraints.
 
+## New partial result (integer-valued subcase)
+If all `a_i` in `[1,x]` are integers, then the target bound holds:
+`#{a_i <= x} <= pi(x)`.
+
+Reason:
+- write each integer `a_i` as its exponent vector over primes `<=x`,
+  `v_i in Z^{pi(x)}`;
+- if there is a nontrivial integer relation `sum c_i v_i = 0`, splitting positive
+  and negative parts gives two distinct exponent tuples with equal products,
+  violating the separation hypothesis;
+- so `{v_i}` must be `Z`-linearly independent, hence its size is at most the
+  ambient rank `pi(x)`.
+
+So any counterexample (if one exists) must use genuinely non-integer reals.
+
+## Dense real-sequence counterexample search (finite truncation)
+I tested families with `#{a_i<=x} > pi(x)` and checked a strong finite truncation
+of the product-separation condition:
+all generated products `<=B` must be pairwise at distance at least `1`.
+
+Script / data:
+- `scripts/ep951_dense_beurling_counterexample_search.mjs`
+- `data/ep951_dense_beurling_counterexample_search.json`
+
+Run parameters:
+- `x in {30,40,50}`
+- `B=20000`
+- `177` dense families (shifted-integer and random monotone-shift models)
+
+Result:
+- `0/177` families passed the truncated check.
+- In all tested dense families, near-collisions appeared quickly (`min gap < 1`).
+
 ## Obstacle
-Background gives related Beurling conjectural context but no direct theorem proving
-this pi(x)-upper-bound statement.
+These are finite truncation checks only. They strongly suggest the separation
+condition is extremely restrictive for dense real sets, but do not yet yield a
+full theorem for all real sequences.
 
 ## Status
-- no proof or counterexample obtained in this attempt.
+- no full proof or counterexample.
+- new rigorous partial theorem for integer-valued sequences.
+- new negative computational evidence against dense real counterexamples.
+
+## Additional computational extension (2026-03-03)
+I expanded the dense-family finite truncation search:
+- Run A: `x in {50,65}`, `B=50000`, `max_products=300000`, `80` random
+  families (`198` dense families tested total).
+- Run B: `x=80`, `B=100000`, `max_products=500000`, `120` random families
+  (`139` dense families tested total).
+
+Results:
+- `truncated_pass_count = 0` in both runs.
+- strongest density surplus reached `count{a_i<=x}-pi(x)=56` (Run B), but still
+  with near-collisions violating the truncated separation check.

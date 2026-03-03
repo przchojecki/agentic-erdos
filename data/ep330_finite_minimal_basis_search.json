@@ -1,0 +1,438 @@
+{
+  "problem": "EP-330",
+  "script": "ep330_finite_minimal_basis_search.mjs",
+  "method": "finite_window_hillclimb_for_dense_basis_like_sets_with_elementwise_essentiality",
+  "params": {
+    "N": 520,
+    "window": [
+      520,
+      1040
+    ],
+    "restarts": 35,
+    "steps": 3000,
+    "init_density": 0.14,
+    "seed": 20260302,
+    "objective_weights": {
+      "cover": 1,
+      "min_essential": 20,
+      "mean_essential": 0,
+      "density": 0.1,
+      "zero_essential_penalty": 0.8
+    }
+  },
+  "best": {
+    "score": 1.0453218662335746,
+    "N": 520,
+    "window": [
+      520,
+      1040
+    ],
+    "sizeA": 66,
+    "density": 0.12692307692307692,
+    "cover_ratio": 0.9942418426103646,
+    "min_essential_ratio": 0.0019193857965451055,
+    "mean_essential_ratio": 0.003635200372244515,
+    "zero_essential_count": 0,
+    "sample_essential": [
+      {
+        "a": 1,
+        "essential_ratio": 0.0019193857965451055
+      },
+      {
+        "a": 32,
+        "essential_ratio": 0.0019193857965451055
+      },
+      {
+        "a": 48,
+        "essential_ratio": 0.003838771593090211
+      },
+      {
+        "a": 102,
+        "essential_ratio": 0.0019193857965451055
+      },
+      {
+        "a": 103,
+        "essential_ratio": 0.003838771593090211
+      },
+      {
+        "a": 109,
+        "essential_ratio": 0.003838771593090211
+      },
+      {
+        "a": 134,
+        "essential_ratio": 0.0019193857965451055
+      },
+      {
+        "a": 146,
+        "essential_ratio": 0.0019193857965451055
+      },
+      {
+        "a": 159,
+        "essential_ratio": 0.003838771593090211
+      },
+      {
+        "a": 160,
+        "essential_ratio": 0.0019193857965451055
+      },
+      {
+        "a": 162,
+        "essential_ratio": 0.003838771593090211
+      },
+      {
+        "a": 175,
+        "essential_ratio": 0.0019193857965451055
+      }
+    ],
+    "elements_sample": [
+      1,
+      32,
+      48,
+      102,
+      103,
+      109,
+      134,
+      146,
+      159,
+      160,
+      162,
+      175,
+      182,
+      185,
+      199,
+      219,
+      245,
+      267,
+      269,
+      270,
+      295,
+      301,
+      304,
+      308,
+      309,
+      320,
+      330,
+      333,
+      349,
+      378,
+      383,
+      384,
+      389,
+      405,
+      406,
+      423,
+      428,
+      430,
+      437,
+      444,
+      447,
+      450,
+      459,
+      469,
+      471,
+      472,
+      474,
+      479,
+      480,
+      481,
+      485,
+      486,
+      495,
+      497,
+      498,
+      499,
+      502,
+      507,
+      509,
+      513,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520
+    ]
+  },
+  "history": [
+    {
+      "restart": 1,
+      "best_score": 1.0315015502731435,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 2,
+      "best_score": 1.0140347704119297,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.963531669865643,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 3,
+      "best_score": 1.0353403218662336,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9846449136276392,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 4,
+      "best_score": 1.0276627786800532,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9769673704414588,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 5,
+      "best_score": 0.9933061420345488,
+      "sizeA": 65,
+      "density": 0.125,
+      "cover_ratio": 0.9424184261036468,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 6,
+      "best_score": 1.0313092425808357,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 7,
+      "best_score": 1.0353403218662336,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9846449136276392,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 8,
+      "best_score": 1.031886165657759,
+      "sizeA": 66,
+      "density": 0.12692307692307692,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 9,
+      "best_score": 1.0299667798612138,
+      "sizeA": 66,
+      "density": 0.12692307692307692,
+      "cover_ratio": 0.9788867562380038,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 10,
+      "best_score": 1.0140347704119297,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.963531669865643,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 11,
+      "best_score": 1.0334209360696884,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.982725527831094,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 12,
+      "best_score": 1.0065495349180569,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9558541266794626,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 13,
+      "best_score": 1.0334209360696884,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.982725527831094,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 14,
+      "best_score": 1.0453218662335746,
+      "sizeA": 66,
+      "density": 0.12692307692307692,
+      "cover_ratio": 0.9942418426103646,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 15,
+      "best_score": 1.0338055514543039,
+      "sizeA": 66,
+      "density": 0.12692307692307692,
+      "cover_ratio": 0.982725527831094,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 16,
+      "best_score": 1.02171231359811,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.9712092130518234,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 17,
+      "best_score": 1.0276627786800532,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9769673704414588,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 18,
+      "best_score": 1.0334209360696884,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.982725527831094,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 19,
+      "best_score": 1.002518455632659,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.9520153550863724,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 20,
+      "best_score": 1.0199852354938728,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9692898272552783,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 21,
+      "best_score": 1.0322707810423741,
+      "sizeA": 68,
+      "density": 0.13076923076923078,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 22,
+      "best_score": 1.0315015502731435,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 23,
+      "best_score": 1.0410984792558688,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9904030710172744,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 24,
+      "best_score": 1.0125,
+      "sizeA": 65,
+      "density": 0.125,
+      "cover_ratio": 0.9616122840690979,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 25,
+      "best_score": 1.0395637088439393,
+      "sizeA": 66,
+      "density": 0.12692307692307692,
+      "cover_ratio": 0.9884836852207294,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 26,
+      "best_score": 1.0374520153550864,
+      "sizeA": 65,
+      "density": 0.125,
+      "cover_ratio": 0.9865642994241842,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 27,
+      "best_score": 1.0334209360696884,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.982725527831094,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 28,
+      "best_score": 1.0309246271962205,
+      "sizeA": 61,
+      "density": 0.11730769230769231,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 29,
+      "best_score": 1.0315015502731435,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.980806142034549,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 30,
+      "best_score": 1.0159541562084748,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.9654510556621881,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 31,
+      "best_score": 1.0295821644765983,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9788867562380038,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 32,
+      "best_score": 1.0410984792558688,
+      "sizeA": 64,
+      "density": 0.12307692307692308,
+      "cover_ratio": 0.9904030710172744,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 33,
+      "best_score": 1.0159541562084748,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.9654510556621881,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 34,
+      "best_score": 1.0215200059058025,
+      "sizeA": 62,
+      "density": 0.11923076923076924,
+      "cover_ratio": 0.9712092130518234,
+      "min_essential_ratio": 0.0019193857965451055
+    },
+    {
+      "restart": 35,
+      "best_score": 1.038986785767016,
+      "sizeA": 63,
+      "density": 0.12115384615384615,
+      "cover_ratio": 0.9884836852207294,
+      "min_essential_ratio": 0.0019193857965451055
+    }
+  ],
+  "generated_utc": "2026-03-03T08:51:24.365Z"
+}
