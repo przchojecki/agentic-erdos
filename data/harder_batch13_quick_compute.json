@@ -1,0 +1,468 @@
+{
+  "script": "harder_batch13_quick_compute.mjs",
+  "generated_utc": "2026-03-03T21:44:19.727Z",
+  "results": {
+    "ep478": {
+      "description": "Finite profile of |A_p| for factorial residues modulo p.",
+      "sample_rows": [
+        {
+          "p": 101,
+          "size_A_p": 64,
+          "ratio_A_p_over_p": 0.63366337,
+          "ratio_over_target_1_minus_1_over_e": 1.0024407,
+          "deficit_from_p_minus_2": 35
+        },
+        {
+          "p": 503,
+          "size_A_p": 316,
+          "ratio_A_p_over_p": 0.62823062,
+          "ratio_over_target_1_minus_1_over_e": 0.9938462,
+          "deficit_from_p_minus_2": 185
+        },
+        {
+          "p": 1009,
+          "size_A_p": 615,
+          "ratio_A_p_over_p": 0.60951437,
+          "ratio_over_target_1_minus_1_over_e": 0.96423754,
+          "deficit_from_p_minus_2": 392
+        },
+        {
+          "p": 5003,
+          "size_A_p": 3165,
+          "ratio_A_p_over_p": 0.63262043,
+          "ratio_over_target_1_minus_1_over_e": 1.0007908,
+          "deficit_from_p_minus_2": 1836
+        },
+        {
+          "p": 10007,
+          "size_A_p": 6348,
+          "ratio_A_p_over_p": 0.63435595,
+          "ratio_over_target_1_minus_1_over_e": 1.0035363,
+          "deficit_from_p_minus_2": 3657
+        },
+        {
+          "p": 20011,
+          "size_A_p": 12643,
+          "ratio_A_p_over_p": 0.63180251,
+          "ratio_over_target_1_minus_1_over_e": 0.99949685,
+          "deficit_from_p_minus_2": 7366
+        },
+        {
+          "p": 50021,
+          "size_A_p": 31599,
+          "ratio_A_p_over_p": 0.63171468,
+          "ratio_over_target_1_minus_1_over_e": 0.99935791,
+          "deficit_from_p_minus_2": 18420
+        },
+        {
+          "p": 100003,
+          "size_A_p": 63243,
+          "ratio_A_p_over_p": 0.63241103,
+          "ratio_over_target_1_minus_1_over_e": 1.0004595,
+          "deficit_from_p_minus_2": 36758
+        },
+        {
+          "p": 200003,
+          "size_A_p": 126283,
+          "ratio_A_p_over_p": 0.63140553,
+          "ratio_over_target_1_minus_1_over_e": 0.99886884,
+          "deficit_from_p_minus_2": 73718
+        },
+        {
+          "p": 500009,
+          "size_A_p": 316352,
+          "ratio_A_p_over_p": 0.63269261,
+          "ratio_over_target_1_minus_1_over_e": 1.000905,
+          "deficit_from_p_minus_2": 183655
+        }
+      ],
+      "exhaustive_small_prime_scan_limit": 20000,
+      "primes_scanned": 2262,
+      "count_with_A_p_equal_p_minus_2": 1
+    },
+    "ep483": {
+      "description": "Exact small-k and heuristic larger-k profiles for Schur-number growth.",
+      "exact_rows": [
+        {
+          "k": 1,
+          "exact_max_sum_free_coloring_length": 1
+        },
+        {
+          "k": 2,
+          "exact_max_sum_free_coloring_length": 4
+        },
+        {
+          "k": 3,
+          "exact_max_sum_free_coloring_length": 13
+        },
+        {
+          "k": 4,
+          "exact_max_sum_free_coloring_length": 45,
+          "source": "known_value_background"
+        }
+      ],
+      "heuristic_rows": [
+        {
+          "k": 5,
+          "trials": 180,
+          "search_cap": 350,
+          "best_greedy_length": 67,
+          "avg_greedy_length": 37.15,
+          "best_over_3p2806_pow_k": 0.1763228
+        },
+        {
+          "k": 6,
+          "trials": 180,
+          "search_cap": 500,
+          "best_greedy_length": 98,
+          "avg_greedy_length": 60.05,
+          "best_over_3p2806_pow_k": 0.07861518
+        },
+        {
+          "k": 7,
+          "trials": 180,
+          "search_cap": 700,
+          "best_greedy_length": 144,
+          "avg_greedy_length": 92.00556,
+          "best_over_3p2806_pow_k": 0.03521191
+        }
+      ]
+    },
+    "ep488": {
+      "description": "Finite ratio profiles for density(B∩[1,m])/m relative to density at n.",
+      "singleton_rows": [
+        {
+          "family": "singleton_a_10",
+          "n": 19,
+          "m": 20,
+          "ratio_dm_over_dn": 1.9,
+          "gap_to_2": 0.1
+        },
+        {
+          "family": "singleton_a_25",
+          "n": 49,
+          "m": 50,
+          "ratio_dm_over_dn": 1.96,
+          "gap_to_2": 0.04
+        },
+        {
+          "family": "singleton_a_50",
+          "n": 99,
+          "m": 100,
+          "ratio_dm_over_dn": 1.98,
+          "gap_to_2": 0.02
+        },
+        {
+          "family": "singleton_a_100",
+          "n": 199,
+          "m": 200,
+          "ratio_dm_over_dn": 1.99,
+          "gap_to_2": 0.01
+        },
+        {
+          "family": "singleton_a_200",
+          "n": 399,
+          "m": 400,
+          "ratio_dm_over_dn": 1.995,
+          "gap_to_2": 0.005
+        }
+      ],
+      "random_search_best": {
+        "A": [
+          106,
+          108,
+          116
+        ],
+        "ratio": 1.9071869,
+        "n": 211,
+        "m": 1512,
+        "density_n": 0.014218009,
+        "density_m": 0.027116402
+      }
+    },
+    "ep500": {
+      "description": "Finite random-greedy lower-bound densities for K4^3-free 3-graphs.",
+      "rows": [
+        {
+          "n": 12,
+          "random_greedy_best_density": 0.5590909,
+          "turan_construction_density": 0.6181818,
+          "razborov_upper_density": 0.5611666
+        },
+        {
+          "n": 16,
+          "random_greedy_best_density": 0.5035714,
+          "turan_construction_density": 0.5982143,
+          "razborov_upper_density": 0.5611666
+        },
+        {
+          "n": 20,
+          "random_greedy_best_density": 0.472807,
+          "turan_construction_density": 0.5894737,
+          "razborov_upper_density": 0.5611666
+        }
+      ]
+    },
+    "ep503": {
+      "description": "Validity checks for known explicit lower constructions in the all-triples-isosceles problem.",
+      "rows": [
+        {
+          "d": 2,
+          "base_size_binom_dplus1_2": 3,
+          "base_valid": true,
+          "plus1_size": 4,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 6
+        },
+        {
+          "d": 3,
+          "base_size_binom_dplus1_2": 6,
+          "base_valid": true,
+          "plus1_size": 7,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 10
+        },
+        {
+          "d": 4,
+          "base_size_binom_dplus1_2": 10,
+          "base_valid": true,
+          "plus1_size": 11,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 15
+        },
+        {
+          "d": 5,
+          "base_size_binom_dplus1_2": 15,
+          "base_valid": true,
+          "plus1_size": 16,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 21
+        },
+        {
+          "d": 6,
+          "base_size_binom_dplus1_2": 21,
+          "base_valid": true,
+          "plus1_size": 22,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 28
+        },
+        {
+          "d": 7,
+          "base_size_binom_dplus1_2": 28,
+          "base_valid": true,
+          "plus1_size": 29,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 36
+        },
+        {
+          "d": 8,
+          "base_size_binom_dplus1_2": 36,
+          "base_valid": true,
+          "plus1_size": 37,
+          "plus1_valid": true,
+          "upper_bound_binom_dplus2_2": 45
+        }
+      ]
+    },
+    "ep507": {
+      "description": "Random finite upper-bound probes for Heilbronn triangle parameter alpha(n).",
+      "rows": [
+        {
+          "n": 20,
+          "restarts": 200,
+          "best_min_area_found": 0.001215673,
+          "avg_min_area": 0.0002740125,
+          "best_times_n_sq": 0.4862692,
+          "best_times_n_pow_7_over_6": 0.04005762
+        },
+        {
+          "n": 40,
+          "restarts": 180,
+          "best_min_area_found": 0.0001998167,
+          "avg_min_area": 0.00002996282,
+          "best_times_n_sq": 0.3197068,
+          "best_times_n_pow_7_over_6": 0.01478093
+        },
+        {
+          "n": 70,
+          "restarts": 150,
+          "best_min_area_found": 0.00002712856,
+          "avg_min_area": 0.000004219042,
+          "best_times_n_sq": 0.1329299,
+          "best_times_n_pow_7_over_6": 0.003855149
+        },
+        {
+          "n": 100,
+          "restarts": 120,
+          "best_min_area_found": 0.00001033927,
+          "avg_min_area": 0.00000193026,
+          "best_times_n_sq": 0.1033927,
+          "best_times_n_pow_7_over_6": 0.002227529
+        }
+      ]
+    },
+    "ep508": {
+      "description": "Finite chromatic checks on benchmark unit-distance graphs in the plane.",
+      "rows": [
+        {
+          "graph": "moser_spindle_7v",
+          "vertices": 7,
+          "edges": 11,
+          "chromatic_number_exact": 4
+        },
+        {
+          "graph": "triangular_patch_m_2",
+          "vertices": 9,
+          "edges": 16,
+          "chromatic_number_exact": 3
+        },
+        {
+          "graph": "triangular_patch_m_3",
+          "vertices": 16,
+          "edges": 33,
+          "chromatic_number_exact": 3
+        },
+        {
+          "graph": "triangular_patch_m_4",
+          "vertices": 25,
+          "edges": 56,
+          "chromatic_number_exact": 3
+        }
+      ]
+    },
+    "ep510": {
+      "description": "Grid-minimum cosine-sum profiles for random and structured sets A.",
+      "rows": [
+        {
+          "family": "random",
+          "N": 40,
+          "trials": 120,
+          "best_negative_min": 22,
+          "avg_negative_min": 14.10124,
+          "best_over_sqrtN": 3.478505,
+          "best_over_N_pow_1_over_7": 12.98844
+        },
+        {
+          "family": "random",
+          "N": 80,
+          "trials": 100,
+          "best_negative_min": 37.9712,
+          "avg_negative_min": 21.67362,
+          "best_over_sqrtN": 4.245309,
+          "best_over_N_pow_1_over_7": 20.30413
+        },
+        {
+          "family": "random",
+          "N": 160,
+          "trials": 80,
+          "best_negative_min": 60.36427,
+          "avg_negative_min": 34.86125,
+          "best_over_sqrtN": 4.772214,
+          "best_over_N_pow_1_over_7": 29.23517
+        },
+        {
+          "family": "random",
+          "N": 320,
+          "trials": 60,
+          "best_negative_min": 91.53431,
+          "avg_negative_min": 66.9375,
+          "best_over_sqrtN": 5.116923,
+          "best_over_N_pow_1_over_7": 40.15183
+        },
+        {
+          "family": "sidon_difference_B_minus_B",
+          "N": 381,
+          "trials": 1,
+          "best_negative_min": 18.98803,
+          "avg_negative_min": 18.98803,
+          "best_over_sqrtN": 0.972786,
+          "best_over_N_pow_1_over_7": 8.124118
+        }
+      ]
+    },
+    "ep520": {
+      "description": "Monte-Carlo limsup proxies for partial sums of random Rademacher multiplicative functions.",
+      "N": 300000,
+      "trials": 24,
+      "summary": {
+        "lil_norm_mean": 1.01796,
+        "lil_norm_median": 0.8870429,
+        "lil_norm_q90": 1.269136,
+        "quarter_norm_mean": 1.271113,
+        "quarter_norm_median": 1.078206,
+        "quarter_norm_q90": 1.86168
+      },
+      "sample_path_trial_1": [
+        {
+          "n": 5000,
+          "S_n": 30,
+          "S_over_sqrt_n_loglog_n": 0.2898796,
+          "absS_over_sqrt_n_loglog_quarter": 0.3506929
+        },
+        {
+          "n": 20000,
+          "S_n": 16,
+          "S_over_sqrt_n_loglog_n": 0.07471601,
+          "absS_over_sqrt_n_loglog_quarter": 0.09194102
+        },
+        {
+          "n": 50000,
+          "S_n": -149,
+          "S_over_sqrt_n_loglog_n": -0.4318046,
+          "absS_over_sqrt_n_loglog_quarter": 0.5364068
+        },
+        {
+          "n": 100000,
+          "S_n": 18,
+          "S_over_sqrt_n_loglog_n": 0.03641405,
+          "absS_over_sqrt_n_loglog_quarter": 0.04552718
+        },
+        {
+          "n": 200000,
+          "S_n": 65,
+          "S_over_sqrt_n_loglog_n": 0.09188835,
+          "absS_over_sqrt_n_loglog_quarter": 0.1155658
+        },
+        {
+          "n": 300000,
+          "S_n": -224,
+          "S_over_sqrt_n_loglog_n": -0.2568808,
+          "absS_over_sqrt_n_loglog_quarter": 0.3241228
+        }
+      ]
+    },
+    "ep521": {
+      "description": "Approximate root-count profile in [-1,1] for random ±1-coefficient polynomials.",
+      "rows": [
+        {
+          "n": 150,
+          "trials": 80,
+          "approx_avg_roots_in_minus1_1": 1.675,
+          "approx_avg_over_log_n": 0.3342889,
+          "approx_max_roots_in_minus1_1": 4
+        },
+        {
+          "n": 300,
+          "trials": 70,
+          "approx_avg_roots_in_minus1_1": 1.928571,
+          "approx_avg_over_log_n": 0.3381215,
+          "approx_max_roots_in_minus1_1": 4
+        },
+        {
+          "n": 600,
+          "trials": 60,
+          "approx_avg_roots_in_minus1_1": 2.25,
+          "approx_avg_over_log_n": 0.3517312,
+          "approx_max_roots_in_minus1_1": 5
+        },
+        {
+          "n": 900,
+          "trials": 50,
+          "approx_avg_roots_in_minus1_1": 2.2,
+          "approx_avg_over_log_n": 0.3234155,
+          "approx_max_roots_in_minus1_1": 5
+        }
+      ]
+    }
+  }
+}
