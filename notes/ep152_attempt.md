@@ -94,3 +94,16 @@ could keep isolated-count comparatively low.
 - Not solved.
 - Strong computational and family-based positive signal.
 - Missing piece: a general lower bound `isolated(A+A) >= f(|A|)` with `f(m) -> infinity` proved for all Sidon sets.
+
+## Step 1 extension (2026-03-04)
+
+Extended adversarial fixed-`m` search:
+- script: `scripts/ep152_ep153_adversarial_search.mjs`
+- new data: `data/ep152_ep153_adversarial_m81_100.json`
+
+Best-known isolated counts now include:
+- `m=81 -> 2256`
+- `m=90 -> 2870`
+- `m=100 -> 3614`
+
+The new points continue the strong superlinear signal (roughly quadratic scale in the tested range), but remain heuristic/non-certifying.

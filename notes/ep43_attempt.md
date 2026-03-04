@@ -130,3 +130,20 @@ For `N=50` it confirms the same exact optimum in about `1.5s` by checking only f
 - No full proof of the first question.
 - We have a clean set of derived lemmas and exact low-`N` evidence.
 - The key unresolved step is converting the two-color disjoint-difference constraints into an upper bound at the single Sidon extremal scale.
+
+## Step 1 extension (2026-03-04)
+
+New exact targeted run:
+- `data/ep43_exact_targeted_N63.json`
+
+Result:
+- `N=63`: `f(63)=10`, baseline `C(f(63),2)=45`, exact optimum `best(63)=51`, gap `6`.
+- Runtime at `N=63`: about `94.8s`.
+
+Boundary finding:
+- Attempted `N=64` with `scripts/ep43_search_targeted.mjs` hits `RangeError: Map maximum size exceeded`.
+- So this implementation currently has a practical memory wall between `N=63` and `N=64`.
+
+Takeaway:
+- Through all exact targeted runs up to `N=63`, max observed gap remains `8` (attained earlier at `N=43,44`).
+- This is still consistent with a `+O(1)` correction and gives no growth signal against it.

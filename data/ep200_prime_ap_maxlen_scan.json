@@ -11,7 +11,12 @@
     300000,
     500000,
     800000,
-    1000000
+    1000000,
+    1200000,
+    1400000,
+    1600000,
+    1800000,
+    2000000
   ],
   "rows": [
     {
@@ -48,7 +53,7 @@
         "len": 10
       },
       "ratio_len_over_logN": 0.924233,
-      "runtime_ms": 7
+      "runtime_ms": 6
     },
     {
       "N": 100000,
@@ -72,7 +77,7 @@
         "len": 10
       },
       "ratio_len_over_logN": 0.819264,
-      "runtime_ms": 63
+      "runtime_ms": 74
     },
     {
       "N": 300000,
@@ -84,7 +89,7 @@
         "len": 12
       },
       "ratio_len_over_logN": 0.95151,
-      "runtime_ms": 121
+      "runtime_ms": 133
     },
     {
       "N": 500000,
@@ -96,7 +101,7 @@
         "len": 12
       },
       "ratio_len_over_logN": 0.914469,
-      "runtime_ms": 282
+      "runtime_ms": 301
     },
     {
       "N": 800000,
@@ -108,7 +113,7 @@
         "len": 13
       },
       "ratio_len_over_logN": 0.956419,
-      "runtime_ms": 616
+      "runtime_ms": 677
     },
     {
       "N": 1000000,
@@ -120,8 +125,68 @@
         "len": 13
       },
       "ratio_len_over_logN": 0.940971,
-      "runtime_ms": 930
+      "runtime_ms": 980
+    },
+    {
+      "N": 1200000,
+      "prime_count": 92938,
+      "longest_ap_len": 13,
+      "best_progression": {
+        "start": 4943,
+        "diff": 60060,
+        "len": 13
+      },
+      "ratio_len_over_logN": 0.928715,
+      "runtime_ms": 1368
+    },
+    {
+      "N": 1400000,
+      "prime_count": 107126,
+      "longest_ap_len": 13,
+      "best_progression": {
+        "start": 4943,
+        "diff": 60060,
+        "len": 13
+      },
+      "ratio_len_over_logN": 0.918599,
+      "runtime_ms": 1840
+    },
+    {
+      "N": 1600000,
+      "prime_count": 121127,
+      "longest_ap_len": 13,
+      "best_progression": {
+        "start": 4943,
+        "diff": 60060,
+        "len": 13
+      },
+      "ratio_len_over_logN": 0.910013,
+      "runtime_ms": 2333
+    },
+    {
+      "N": 1800000,
+      "prime_count": 135072,
+      "longest_ap_len": 13,
+      "best_progression": {
+        "start": 4943,
+        "diff": 60060,
+        "len": 13
+      },
+      "ratio_len_over_logN": 0.902571,
+      "runtime_ms": 2908
+    },
+    {
+      "N": 2000000,
+      "prime_count": 148933,
+      "longest_ap_len": 13,
+      "best_progression": {
+        "start": 4943,
+        "diff": 60060,
+        "len": 13
+      },
+      "ratio_len_over_logN": 0.896017,
+      "runtime_ms": 3512
     }
   ],
-  "generated_utc": "2026-03-02T14:04:04.811Z"
+  "generated_utc": "2026-03-04T12:43:40.785Z"
 }

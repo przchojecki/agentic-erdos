@@ -18,3 +18,17 @@ This finite behavior does not settle whether `L(N)=o(log N)`.
 
 ## Status
 Open; exact finite profile added.
+
+## Step 1 extension (2026-03-04)
+
+Extended exact scan window to `N <= 2,000,000`:
+- script: `scripts/ep200_prime_ap_maxlen_scan.mjs`
+- updated data: `data/ep200_prime_ap_maxlen_scan.json`
+
+Updated finite profile:
+- longest prime AP length remains `13` through `N=2,000,000`.
+- the same best progression persists in the tail window:
+  start `4943`, difference `60060`, length `13`.
+- normalized ratio `L(N)/log N` in the tail declines from about `0.929` (`N=1.2e6`) to `0.896` (`N=2e6`).
+
+This remains finite-range evidence only; no asymptotic conclusion yet.

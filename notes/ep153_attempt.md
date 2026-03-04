@@ -90,3 +90,17 @@ evidence from exhaustive small search and known constructions.
 - Not solved.
 - Positive computational signal for divergence.
 - Main gap: proving a general lower bound that increases with `|A|` for all Sidon sets.
+
+## Step 1 extension (2026-03-04)
+
+Extended adversarial fixed-`m` search:
+- script: `scripts/ep152_ep153_adversarial_search.mjs`
+- new data: `data/ep152_ep153_adversarial_m81_100.json`
+- combined frontier summary: `data/ep152_ep153_frontier_summary_11_100.json`
+
+Best-known average squared gaps now include:
+- `m=81 -> 353.57`
+- `m=90 -> 417.53`
+- `m=100 -> 594.15`
+
+Empirical `avg_sq_gap/m` in the extension window stays clearly above constant (`>= 4.18` in `m=81..100`), reinforcing divergence signal but still not a proof.
