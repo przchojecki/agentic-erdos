@@ -113,6 +113,34 @@ function deriveProgress(record) {
   return { status: cleanText(status), note: repairEllipsisNote(record, cleaned) };
 }
 
+function deriveClosureState(record, statusOverride = '') {
+  const explicit = cleanText(record.closure_state).toLowerCase();
+  if (explicit === 'open' || explicit === 'counterexample' || explicit === 'resolved' || explicit === 'dataset_issue') {
+    return explicit;
+  }
+
+  const status = cleanText(statusOverride || deriveProgress(record).status).toLowerCase();
+
+  if (
+    status.includes('statement_issue_malformed_dataset_entry') ||
+    status.includes('statement_issue_likely_malformed_as_written')
+  ) {
+    return 'dataset_issue';
+  }
+  if (
+    status.includes('counterexample_proved_as_written') ||
+    status.includes('statement_issue_counterexample_in_background') ||
+    status.includes('explicit_small_n_counterexample_written_asymptotic_open') ||
+    status.includes('original_form_false') ||
+    status.includes('false_as_written')
+  ) {
+    return 'counterexample';
+  }
+  if (status === 'resolved_in_background_as_written') return 'resolved';
+
+  return 'open';
+}
+
 function statusSummary(records) {
   const map = new Map();
   for (const r of records) {
@@ -125,12 +153,14 @@ function statusSummary(records) {
 function buildRows(records) {
   return records.map((r) => {
     const progress = deriveProgress(r);
+    const closureState = deriveClosureState(r, progress.status);
     return {
       problem_number: r.problem_number,
       title: cleanText(r.title),
       classification: r.classification || '',
       to_check_rank: r.to_check_rank ?? '',
       latest_reference_year: r.latest_reference_year ?? '',
+      closure_state: closureState,
       status: progress.status,
       note: progress.note,
     };
@@ -146,17 +176,32 @@ function buildReadme(records, rows) {
     const { status } = deriveProgress(r);
     return status !== 'deprioritized_post2000_refs' && status !== 'unattempted';
   }).length;
+  const closureCounts = { open: 0, counterexample: 0, resolved: 0, dataset_issue: 0 };
+  for (const r of records) {
+    const { status } = deriveProgress(r);
+    const closureState = deriveClosureState(r, status);
+    closureCounts[closureState] = (closureCounts[closureState] || 0) + 1;
+  }
 
   const statuses = statusSummary(records).slice(0, 15);
   const summaryLines = statuses.map(([status, count]) => `- \`${status}\`: ${count}`).join('\n');
+  const closureLines = [
+    `- \`open\`: ${closureCounts.open || 0}`,
+    `- \`counterexample\`: ${closureCounts.counterexample || 0}`,
+    `- \`resolved\`: ${closureCounts.resolved || 0}`,
+    `- \`dataset_issue\`: ${closureCounts.dataset_issue || 0}`,
+  ].join('\n');
 
-  const tableHeader = '| Problem | Title | Bucket | Rank | Latest Ref | Progress | Note |\n|---|---|---:|---:|---:|---|---|';
+  const tableHeader =
+    '| Problem | Title | Bucket | Rank | Latest Ref | Closure | Progress | Note |\n|---|---|---:|---:|---:|---|---|---|';
   const tableRows = rows
     .map(
       (r) =>
         `| ${mdEscape(r.problem_number)} | ${mdEscape(r.title)} | ${mdEscape(r.classification)} | ${mdEscape(
           r.to_check_rank
-        )} | ${mdEscape(r.latest_reference_year)} | ${mdEscape(r.status)} | ${mdEscape(r.note)} |`
+        )} | ${mdEscape(r.latest_reference_year)} | ${mdEscape(r.closure_state)} | ${mdEscape(r.status)} | ${mdEscape(
+          r.note
+        )} |`
     )
     .join('\n');
 
@@ -172,7 +217,15 @@ Tracking repository for experimental progress on Erdős problems from the \`ulam
 - Triaged as \`harder\` (post-2000 reference signal): **${harder}**
 - Records with deep-attempt workflow initialized: **${deepAttempted}**
 - Records with at least one explicit attempt/progress status: **${withAnyAttempt}**
+- Open statements (\`closure_state=open\`): **${closureCounts.open || 0}**
+- Counterexamples established (\`closure_state=counterexample\`): **${closureCounts.counterexample || 0}**
+- Resolved as written (\`closure_state=resolved\`): **${closureCounts.resolved || 0}**
+- Dataset issues (\`closure_state=dataset_issue\`): **${closureCounts.dataset_issue || 0}**
 - README last generated (UTC): **${now}**
+
+## Closure State Counts
+
+${closureLines}
 
 ## Progress Status Counts
 
@@ -211,6 +264,7 @@ function toCsv(rows) {
     'classification',
     'to_check_rank',
     'latest_reference_year',
+    'closure_state',
     'status',
     'note',
   ];
