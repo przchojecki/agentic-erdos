@@ -1,0 +1,703 @@
+{
+  "script": "harder_batch22_quick_compute.mjs",
+  "generated_utc": "2026-03-04T09:34:53.027Z",
+  "results": {
+    "ep970": {
+      "description": "Finite Jacobsthal-profile computation for squarefree moduli (primorial baseline + random samples).",
+      "primorial_rows": [
+        {
+          "k": 1,
+          "n": 2,
+          "j_of_n": 2,
+          "j_over_k2": 2
+        },
+        {
+          "k": 2,
+          "n": 6,
+          "j_of_n": 4,
+          "j_over_k2": 1
+        },
+        {
+          "k": 3,
+          "n": 30,
+          "j_of_n": 6,
+          "j_over_k2": 0.6666667
+        },
+        {
+          "k": 4,
+          "n": 210,
+          "j_of_n": 10,
+          "j_over_k2": 0.625
+        },
+        {
+          "k": 5,
+          "n": 2310,
+          "j_of_n": 14,
+          "j_over_k2": 0.56
+        },
+        {
+          "k": 6,
+          "n": 30030,
+          "j_of_n": 22,
+          "j_over_k2": 0.6111111
+        },
+        {
+          "k": 7,
+          "n": 510510,
+          "j_of_n": 26,
+          "j_over_k2": 0.5306122
+        },
+        {
+          "k": 8,
+          "n": 9699690,
+          "j_of_n": 34,
+          "j_over_k2": 0.53125
+        }
+      ],
+      "sampled_rows": [
+        {
+          "k": 2,
+          "best_sampled_n": 14,
+          "best_sampled_j_n": 4,
+          "factorization": "2 * 7"
+        },
+        {
+          "k": 3,
+          "best_sampled_n": 374,
+          "best_sampled_j_n": 6,
+          "factorization": "2 * 11 * 17"
+        },
+        {
+          "k": 4,
+          "best_sampled_n": 714,
+          "best_sampled_j_n": 10,
+          "factorization": "2 * 3 * 7 * 17"
+        },
+        {
+          "k": 5,
+          "best_sampled_n": 17670,
+          "best_sampled_j_n": 14,
+          "factorization": "2 * 3 * 5 * 19 * 31"
+        },
+        {
+          "k": 6,
+          "best_sampled_n": 188790,
+          "best_sampled_j_n": 22,
+          "factorization": "2 * 3 * 5 * 7 * 29 * 31"
+        },
+        {
+          "k": 7,
+          "best_sampled_n": 930930,
+          "best_sampled_j_n": 26,
+          "factorization": "2 * 3 * 5 * 7 * 11 * 13 * 31"
+        }
+      ]
+    },
+    "ep978": {
+      "description": "Exact finite scan of squarefreeness for n^4+2 using 64-bit-safe Pollard-rho factorization.",
+      "N": 3000,
+      "rows": [
+        {
+          "n": 500,
+          "squarefree_values_count": 379,
+          "squarefree_density": 0.758
+        },
+        {
+          "n": 1000,
+          "squarefree_values_count": 759,
+          "squarefree_density": 0.759
+        },
+        {
+          "n": 2000,
+          "squarefree_values_count": 1514,
+          "squarefree_density": 0.757
+        },
+        {
+          "n": 3000,
+          "squarefree_values_count": 2271,
+          "squarefree_density": 0.757
+        }
+      ],
+      "sample_non_squarefree_values": [
+        {
+          "n": 2,
+          "value": "18",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 7,
+          "value": "2403",
+          "repeated_prime_factors": [
+            "3^3"
+          ]
+        },
+        {
+          "n": 11,
+          "value": "14643",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 16,
+          "value": "65538",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 20,
+          "value": "160002",
+          "repeated_prime_factors": [
+            "3^3"
+          ]
+        },
+        {
+          "n": 25,
+          "value": "390627",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 29,
+          "value": "707283",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 34,
+          "value": "1336338",
+          "repeated_prime_factors": [
+            "3^4"
+          ]
+        },
+        {
+          "n": 38,
+          "value": "2085138",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 43,
+          "value": "3418803",
+          "repeated_prime_factors": [
+            "3^2"
+          ]
+        },
+        {
+          "n": 47,
+          "value": "4879683",
+          "repeated_prime_factors": [
+            "3^5"
+          ]
+        },
+        {
+          "n": 49,
+          "value": "5764803",
+          "repeated_prime_factors": [
+            "11^2"
+          ]
+        }
+      ]
+    },
+    "ep986": {
+      "description": "Finite k=3 proxy: random triangle-free process with exact alpha(G) on sampled best graphs.",
+      "rows": [
+        {
+          "n": 22,
+          "best_triangle_free_edges_found": 85,
+          "corresponding_independence_number_alpha": 9,
+          "implied_lower_bound_R_3_alpha_plus_1_gt_n": "R(3,10) > 22",
+          "edge_scale_over_n_3_over_2": 0.82373
+        },
+        {
+          "n": 26,
+          "best_triangle_free_edges_found": 112,
+          "corresponding_independence_number_alpha": 10,
+          "implied_lower_bound_R_3_alpha_plus_1_gt_n": "R(3,11) > 26",
+          "edge_scale_over_n_3_over_2": 0.844808
+        },
+        {
+          "n": 30,
+          "best_triangle_free_edges_found": 144,
+          "corresponding_independence_number_alpha": 11,
+          "implied_lower_bound_R_3_alpha_plus_1_gt_n": "R(3,12) > 30",
+          "edge_scale_over_n_3_over_2": 0.8763561
+        }
+      ]
+    },
+    "ep997": {
+      "description": "Finite discrepancy scan for fractional parts of alpha times primes in sliding windows.",
+      "N": 40000,
+      "sampled_alphas": [
+        {
+          "alpha": "sqrt2",
+          "rows": [
+            {
+              "k": 200,
+              "max_relative_deviation_found": 0.09333333,
+              "interval": [
+                0,
+                0.3333333333333333
+              ]
+            },
+            {
+              "k": 500,
+              "max_relative_deviation_found": 0.06,
+              "interval": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "k": 1000,
+              "max_relative_deviation_found": 0.03066667,
+              "interval": [
+                0,
+                0.3333333333333333
+              ]
+            },
+            {
+              "k": 2000,
+              "max_relative_deviation_found": 0.02233333,
+              "interval": [
+                0,
+                0.3333333333333333
+              ]
+            }
+          ]
+        },
+        {
+          "alpha": "pi",
+          "rows": [
+            {
+              "k": 200,
+              "max_relative_deviation_found": 0.095,
+              "interval": [
+                0.2,
+                0.7
+              ]
+            },
+            {
+              "k": 500,
+              "max_relative_deviation_found": 0.06066667,
+              "interval": [
+                0.3333333333333333,
+                0.6666666666666666
+              ]
+            },
+            {
+              "k": 1000,
+              "max_relative_deviation_found": 0.04,
+              "interval": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "k": 2000,
+              "max_relative_deviation_found": 0.027,
+              "interval": [
+                0,
+                0.5
+              ]
+            }
+          ]
+        },
+        {
+          "alpha": "e",
+          "rows": [
+            {
+              "k": 200,
+              "max_relative_deviation_found": 0.115,
+              "interval": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "k": 500,
+              "max_relative_deviation_found": 0.066,
+              "interval": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "k": 1000,
+              "max_relative_deviation_found": 0.04566667,
+              "interval": [
+                0,
+                0.3333333333333333
+              ]
+            },
+            {
+              "k": 2000,
+              "max_relative_deviation_found": 0.026,
+              "interval": [
+                0,
+                0.5
+              ]
+            }
+          ]
+        },
+        {
+          "alpha": "phi",
+          "rows": [
+            {
+              "k": 200,
+              "max_relative_deviation_found": 0.115,
+              "interval": [
+                0.2,
+                0.7
+              ]
+            },
+            {
+              "k": 500,
+              "max_relative_deviation_found": 0.05133333,
+              "interval": [
+                0.3333333333333333,
+                0.6666666666666666
+              ]
+            },
+            {
+              "k": 1000,
+              "max_relative_deviation_found": 0.031,
+              "interval": [
+                0.2,
+                0.7
+              ]
+            },
+            {
+              "k": 2000,
+              "max_relative_deviation_found": 0.02616667,
+              "interval": [
+                0.3333333333333333,
+                0.6666666666666666
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ep1005": {
+      "description": "Exact finite computation of similarly-ordered local window lengths in Farey sequences.",
+      "rows": [
+        {
+          "n": 40,
+          "farey_length": 491,
+          "f_n_exact_in_this_computation": 21,
+          "f_over_n": 0.525
+        },
+        {
+          "n": 60,
+          "farey_length": 1103,
+          "f_n_exact_in_this_computation": 31,
+          "f_over_n": 0.5166667
+        },
+        {
+          "n": 80,
+          "farey_length": 1967,
+          "f_n_exact_in_this_computation": 41,
+          "f_over_n": 0.5125
+        },
+        {
+          "n": 120,
+          "farey_length": 4387,
+          "f_n_exact_in_this_computation": 61,
+          "f_over_n": 0.5083333
+        },
+        {
+          "n": 160,
+          "farey_length": 7807,
+          "f_n_exact_in_this_computation": 81,
+          "f_over_n": 0.50625
+        },
+        {
+          "n": 200,
+          "farey_length": 12233,
+          "f_n_exact_in_this_computation": 101,
+          "f_over_n": 0.505
+        },
+        {
+          "n": 240,
+          "farey_length": 17545,
+          "f_n_exact_in_this_computation": 121,
+          "f_over_n": 0.5041667
+        }
+      ]
+    },
+    "ep1011": {
+      "description": "Finite random triangle-free process search for dense chi>=4 graphs at small n.",
+      "rows": [
+        {
+          "n": 11,
+          "max_edges_seen_with_triangle_free_and_chi_ge_4": -1,
+          "sampled_graphs_with_chi_ge_4": 0,
+          "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 22
+        },
+        {
+          "n": 12,
+          "max_edges_seen_with_triangle_free_and_chi_ge_4": -1,
+          "sampled_graphs_with_chi_ge_4": 0,
+          "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 26
+        },
+        {
+          "n": 13,
+          "max_edges_seen_with_triangle_free_and_chi_ge_4": 30,
+          "sampled_graphs_with_chi_ge_4": 1,
+          "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 31
+        },
+        {
+          "n": 14,
+          "max_edges_seen_with_triangle_free_and_chi_ge_4": 34,
+          "sampled_graphs_with_chi_ge_4": 5,
+          "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 36
+        },
+        {
+          "n": 15,
+          "max_edges_seen_with_triangle_free_and_chi_ge_4": 40,
+          "sampled_graphs_with_chi_ge_4": 9,
+          "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 42
+        },
+        {
+          "n": 16,
+          "max_edges_seen_with_triangle_free_and_chi_ge_4": 45,
+          "sampled_graphs_with_chi_ge_4": 12,
+          "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 48
+        }
+      ]
+    },
+    "ep1016": {
+      "description": "Finite random search profile for small-n pancyclicity threshold n+h.",
+      "rows": [
+        {
+          "n": 8,
+          "minimal_h_found_in_random_search": 2,
+          "witness_edge_count_n_plus_h": 10,
+          "log2_n": 3
+        },
+        {
+          "n": 9,
+          "minimal_h_found_in_random_search": 3,
+          "witness_edge_count_n_plus_h": 12,
+          "log2_n": 3.169925
+        },
+        {
+          "n": 10,
+          "minimal_h_found_in_random_search": 3,
+          "witness_edge_count_n_plus_h": 13,
+          "log2_n": 3.321928
+        },
+        {
+          "n": 11,
+          "minimal_h_found_in_random_search": 4,
+          "witness_edge_count_n_plus_h": 15,
+          "log2_n": 3.459432
+        },
+        {
+          "n": 12,
+          "minimal_h_found_in_random_search": 3,
+          "witness_edge_count_n_plus_h": 15,
+          "log2_n": 3.584963
+        }
+      ],
+      "caveat": "Random search provides upper-bound witnesses only; non-detection is not a lower-bound proof."
+    },
+    "ep1017": {
+      "description": "Finite exact packing checks for K4-free constructions with edges floor(n^2/4)+q.",
+      "rows": [
+        {
+          "n": 20,
+          "edges": 101,
+          "floor_n2_over_4": 100,
+          "q_above_threshold": 1,
+          "total_triangles_in_graph": 10,
+          "best_greedy_edge_disjoint_triangles_found": 1,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 20,
+          "edges": 102,
+          "floor_n2_over_4": 100,
+          "q_above_threshold": 2,
+          "total_triangles_in_graph": 20,
+          "best_greedy_edge_disjoint_triangles_found": 2,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 20,
+          "edges": 103,
+          "floor_n2_over_4": 100,
+          "q_above_threshold": 3,
+          "total_triangles_in_graph": 30,
+          "best_greedy_edge_disjoint_triangles_found": 3,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 20,
+          "edges": 104,
+          "floor_n2_over_4": 100,
+          "q_above_threshold": 4,
+          "total_triangles_in_graph": 40,
+          "best_greedy_edge_disjoint_triangles_found": 4,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 20,
+          "edges": 105,
+          "floor_n2_over_4": 100,
+          "q_above_threshold": 5,
+          "total_triangles_in_graph": 50,
+          "best_greedy_edge_disjoint_triangles_found": 5,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 26,
+          "edges": 170,
+          "floor_n2_over_4": 169,
+          "q_above_threshold": 1,
+          "total_triangles_in_graph": 13,
+          "best_greedy_edge_disjoint_triangles_found": 1,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 26,
+          "edges": 171,
+          "floor_n2_over_4": 169,
+          "q_above_threshold": 2,
+          "total_triangles_in_graph": 26,
+          "best_greedy_edge_disjoint_triangles_found": 2,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 26,
+          "edges": 172,
+          "floor_n2_over_4": 169,
+          "q_above_threshold": 3,
+          "total_triangles_in_graph": 39,
+          "best_greedy_edge_disjoint_triangles_found": 3,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 26,
+          "edges": 173,
+          "floor_n2_over_4": 169,
+          "q_above_threshold": 4,
+          "total_triangles_in_graph": 52,
+          "best_greedy_edge_disjoint_triangles_found": 4,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 26,
+          "edges": 174,
+          "floor_n2_over_4": 169,
+          "q_above_threshold": 5,
+          "total_triangles_in_graph": 65,
+          "best_greedy_edge_disjoint_triangles_found": 5,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 32,
+          "edges": 257,
+          "floor_n2_over_4": 256,
+          "q_above_threshold": 1,
+          "total_triangles_in_graph": 16,
+          "best_greedy_edge_disjoint_triangles_found": 1,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 32,
+          "edges": 258,
+          "floor_n2_over_4": 256,
+          "q_above_threshold": 2,
+          "total_triangles_in_graph": 32,
+          "best_greedy_edge_disjoint_triangles_found": 2,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 32,
+          "edges": 259,
+          "floor_n2_over_4": 256,
+          "q_above_threshold": 3,
+          "total_triangles_in_graph": 48,
+          "best_greedy_edge_disjoint_triangles_found": 3,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 32,
+          "edges": 260,
+          "floor_n2_over_4": 256,
+          "q_above_threshold": 4,
+          "total_triangles_in_graph": 64,
+          "best_greedy_edge_disjoint_triangles_found": 4,
+          "verifies_best_ge_q_in_greedy_trials": true
+        },
+        {
+          "n": 32,
+          "edges": 261,
+          "floor_n2_over_4": 256,
+          "q_above_threshold": 5,
+          "total_triangles_in_graph": 80,
+          "best_greedy_edge_disjoint_triangles_found": 5,
+          "verifies_best_ge_q_in_greedy_trials": true
+        }
+      ]
+    },
+    "ep1021": {
+      "description": "Finite C6-free greedy constructions as a concrete proxy for the k=3 (subdivision/C6) case.",
+      "rows": [
+        {
+          "n": 10,
+          "best_c6_free_edge_count_found": 21,
+          "n_to_7_over_6": 14.67799,
+          "ratio_best_over_n_7_over_6": 1.430713
+        },
+        {
+          "n": 12,
+          "best_c6_free_edge_count_found": 23,
+          "n_to_7_over_6": 18.15703,
+          "ratio_best_over_n_7_over_6": 1.266727
+        },
+        {
+          "n": 14,
+          "best_c6_free_edge_count_found": 29,
+          "n_to_7_over_6": 21.73449,
+          "ratio_best_over_n_7_over_6": 1.334285
+        }
+      ]
+    },
+    "ep1039": {
+      "description": "Finite grid-based geometric estimates for largest inscribed discs in polynomial lemniscate sublevel sets.",
+      "rows": [
+        {
+          "n": 8,
+          "circle_roots_rho_est": 0.1515625,
+          "circle_roots_n_times_rho_est": 1.2125,
+          "random_roots_rho_est": 0.7984375,
+          "random_roots_n_times_rho_est": 6.3875
+        },
+        {
+          "n": 12,
+          "circle_roots_rho_est": 0.10625,
+          "circle_roots_n_times_rho_est": 1.275,
+          "random_roots_rho_est": 0.7984375,
+          "random_roots_n_times_rho_est": 9.58125
+        },
+        {
+          "n": 16,
+          "circle_roots_rho_est": 0.0828125,
+          "circle_roots_n_times_rho_est": 1.325,
+          "random_roots_rho_est": 0.7984375,
+          "random_roots_n_times_rho_est": 12.775
+        }
+      ],
+      "caveat": "These are coarse numerical estimates (grid + boundary sampling), not certified exact radii."
+    }
+  }
+}
