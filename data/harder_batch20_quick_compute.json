@@ -1,0 +1,1248 @@
+{
+  "script": "harder_batch20_quick_compute.mjs",
+  "generated_utc": "2026-03-04T09:01:58.630Z",
+  "results": {
+    "ep860": {
+      "description": "Finite Hall-matching proxy for h(n) over initial m range.",
+      "rows": [
+        {
+          "n": 30,
+          "pi_n": 10,
+          "mMax": 800,
+          "hCap": 600,
+          "finite_worst_required_h": 46,
+          "witness_m": 644
+        },
+        {
+          "n": 50,
+          "pi_n": 15,
+          "mMax": 800,
+          "hCap": 900,
+          "finite_worst_required_h": 47,
+          "witness_m": 47
+        },
+        {
+          "n": 80,
+          "pi_n": 22,
+          "mMax": 800,
+          "hCap": 1500,
+          "finite_worst_required_h": 79,
+          "witness_m": 79
+        }
+      ],
+      "note": "These are finite lower-bound style profiles; true h(n) quantifies over all m>=1."
+    },
+    "ep872": {
+      "description": "Exact minimax game length profile for the divisibility-free saturation game at small n.",
+      "rows": [
+        {
+          "n": 10,
+          "optimal_length_long_player_starts": 5,
+          "optimal_length_short_player_starts": 4,
+          "pi_n": 4,
+          "over_n_long_starts": 0.5
+        },
+        {
+          "n": 12,
+          "optimal_length_long_player_starts": 6,
+          "optimal_length_short_player_starts": 5,
+          "pi_n": 5,
+          "over_n_long_starts": 0.5
+        },
+        {
+          "n": 14,
+          "optimal_length_long_player_starts": 7,
+          "optimal_length_short_player_starts": 6,
+          "pi_n": 6,
+          "over_n_long_starts": 0.5
+        },
+        {
+          "n": 16,
+          "optimal_length_long_player_starts": 7,
+          "optimal_length_short_player_starts": 6,
+          "pi_n": 6,
+          "over_n_long_starts": 0.4375
+        },
+        {
+          "n": 18,
+          "optimal_length_long_player_starts": 8,
+          "optimal_length_short_player_starts": 7,
+          "pi_n": 7,
+          "over_n_long_starts": 0.4444444
+        },
+        {
+          "n": 20,
+          "optimal_length_long_player_starts": 9,
+          "optimal_length_short_player_starts": 8,
+          "pi_n": 8,
+          "over_n_long_starts": 0.45
+        }
+      ],
+      "note": "State space grows quickly; this is exact only for tested n."
+    },
+    "ep885": {
+      "description": "Finite search for k-tuples with at least k common factor differences.",
+      "N": 30000,
+      "rows": [
+        {
+          "k": 2,
+          "found": true,
+          "witness": {
+            "k": 2,
+            "common_differences": [
+              0,
+              9
+            ],
+            "witness_N_values": [
+              36,
+              400
+            ],
+            "intersection_size": 2
+          },
+          "searched_top_diff_supports": [
+            {
+              "d": 0,
+              "support": 173
+            },
+            {
+              "d": 1,
+              "support": 172
+            },
+            {
+              "d": 2,
+              "support": 172
+            },
+            {
+              "d": 3,
+              "support": 171
+            },
+            {
+              "d": 4,
+              "support": 171
+            },
+            {
+              "d": 5,
+              "support": 170
+            },
+            {
+              "d": 6,
+              "support": 170
+            },
+            {
+              "d": 7,
+              "support": 169
+            },
+            {
+              "d": 8,
+              "support": 169
+            },
+            {
+              "d": 9,
+              "support": 168
+            },
+            {
+              "d": 10,
+              "support": 168
+            },
+            {
+              "d": 11,
+              "support": 167
+            }
+          ],
+          "hit_time_limit": false
+        },
+        {
+          "k": 3,
+          "found": true,
+          "witness": {
+            "k": 3,
+            "common_differences": [
+              2,
+              23,
+              142
+            ],
+            "witness_N_values": [
+              288,
+              1848,
+              17160
+            ],
+            "intersection_size": 3
+          },
+          "searched_top_diff_supports": [
+            {
+              "d": 0,
+              "support": 173
+            },
+            {
+              "d": 1,
+              "support": 172
+            },
+            {
+              "d": 2,
+              "support": 172
+            },
+            {
+              "d": 3,
+              "support": 171
+            },
+            {
+              "d": 4,
+              "support": 171
+            },
+            {
+              "d": 5,
+              "support": 170
+            },
+            {
+              "d": 6,
+              "support": 170
+            },
+            {
+              "d": 7,
+              "support": 169
+            },
+            {
+              "d": 8,
+              "support": 169
+            },
+            {
+              "d": 9,
+              "support": 168
+            },
+            {
+              "d": 10,
+              "support": 168
+            },
+            {
+              "d": 11,
+              "support": 167
+            }
+          ],
+          "hit_time_limit": false
+        },
+        {
+          "k": 4,
+          "found": false,
+          "witness": null,
+          "searched_top_diff_supports": [
+            {
+              "d": 0,
+              "support": 173
+            },
+            {
+              "d": 1,
+              "support": 172
+            },
+            {
+              "d": 2,
+              "support": 172
+            },
+            {
+              "d": 3,
+              "support": 171
+            },
+            {
+              "d": 4,
+              "support": 171
+            },
+            {
+              "d": 5,
+              "support": 170
+            },
+            {
+              "d": 6,
+              "support": 170
+            },
+            {
+              "d": 7,
+              "support": 169
+            },
+            {
+              "d": 8,
+              "support": 169
+            },
+            {
+              "d": 9,
+              "support": 168
+            },
+            {
+              "d": 10,
+              "support": 168
+            },
+            {
+              "d": 11,
+              "support": 167
+            }
+          ],
+          "hit_time_limit": false
+        },
+        {
+          "k": 5,
+          "found": false,
+          "witness": null,
+          "searched_top_diff_supports": [
+            {
+              "d": 0,
+              "support": 173
+            },
+            {
+              "d": 1,
+              "support": 172
+            },
+            {
+              "d": 2,
+              "support": 172
+            },
+            {
+              "d": 3,
+              "support": 171
+            },
+            {
+              "d": 4,
+              "support": 171
+            },
+            {
+              "d": 5,
+              "support": 170
+            },
+            {
+              "d": 6,
+              "support": 170
+            },
+            {
+              "d": 7,
+              "support": 169
+            },
+            {
+              "d": 8,
+              "support": 169
+            },
+            {
+              "d": 9,
+              "support": 168
+            },
+            {
+              "d": 10,
+              "support": 168
+            },
+            {
+              "d": 11,
+              "support": 167
+            }
+          ],
+          "hit_time_limit": false
+        },
+        {
+          "k": 6,
+          "found": false,
+          "witness": null,
+          "searched_top_diff_supports": [
+            {
+              "d": 0,
+              "support": 173
+            },
+            {
+              "d": 1,
+              "support": 172
+            },
+            {
+              "d": 2,
+              "support": 172
+            },
+            {
+              "d": 3,
+              "support": 171
+            },
+            {
+              "d": 4,
+              "support": 171
+            },
+            {
+              "d": 5,
+              "support": 170
+            },
+            {
+              "d": 6,
+              "support": 170
+            },
+            {
+              "d": 7,
+              "support": 169
+            },
+            {
+              "d": 8,
+              "support": 169
+            },
+            {
+              "d": 9,
+              "support": 168
+            },
+            {
+              "d": 10,
+              "support": 168
+            },
+            {
+              "d": 11,
+              "support": 167
+            }
+          ],
+          "hit_time_limit": false
+        }
+      ],
+      "note": "Not finding a witness for larger k in this finite bounded search is inconclusive."
+    },
+    "ep889": {
+      "description": "Finite bounded-k profile for v_0(n) type quantity.",
+      "N": 2500,
+      "KMAX": 6000,
+      "max_v0_bounded_found": 5,
+      "argmax_n": 2309,
+      "argmax_k_for_argmax_n": 1,
+      "rows": [
+        {
+          "N_prefix": 200,
+          "min_v0_bounded_over_n_le_N": 1,
+          "avg_v0_bounded_over_n_le_N": 2.29
+        },
+        {
+          "N_prefix": 500,
+          "min_v0_bounded_over_n_le_N": 1,
+          "avg_v0_bounded_over_n_le_N": 2.514
+        },
+        {
+          "N_prefix": 1000,
+          "min_v0_bounded_over_n_le_N": 1,
+          "avg_v0_bounded_over_n_le_N": 2.678
+        },
+        {
+          "N_prefix": 1500,
+          "min_v0_bounded_over_n_le_N": 1,
+          "avg_v0_bounded_over_n_le_N": 2.762
+        },
+        {
+          "N_prefix": 2000,
+          "min_v0_bounded_over_n_le_N": 1,
+          "avg_v0_bounded_over_n_le_N": 2.821
+        },
+        {
+          "N_prefix": 2500,
+          "min_v0_bounded_over_n_le_N": 1,
+          "avg_v0_bounded_over_n_le_N": 2.866
+        }
+      ],
+      "note": "This is max over 0<=k<=KMAX only; unbounded k may be larger."
+    },
+    "ep893": {
+      "description": "Exact finite prefix ratio profile for f(2n)/f(n) using tau(2^k-1) up to k=44.",
+      "KMAX": 44,
+      "min_ratio_in_tested_range": 3,
+      "max_ratio_in_tested_range": 8.0814815,
+      "rows": [
+        {
+          "n": 2,
+          "f_n": 3,
+          "f_2n": 9,
+          "ratio_f_2n_over_f_n": 3
+        },
+        {
+          "n": 3,
+          "f_n": 5,
+          "f_2n": 17,
+          "ratio_f_2n_over_f_n": 3.4
+        },
+        {
+          "n": 4,
+          "f_n": 9,
+          "f_2n": 27,
+          "ratio_f_2n_over_f_n": 3
+        },
+        {
+          "n": 5,
+          "f_n": 11,
+          "f_2n": 39,
+          "ratio_f_2n_over_f_n": 3.5454545
+        },
+        {
+          "n": 6,
+          "f_n": 17,
+          "f_2n": 67,
+          "ratio_f_2n_over_f_n": 3.9411765
+        },
+        {
+          "n": 7,
+          "f_n": 19,
+          "f_2n": 77,
+          "ratio_f_2n_over_f_n": 4.0526316
+        },
+        {
+          "n": 8,
+          "f_n": 27,
+          "f_2n": 101,
+          "ratio_f_2n_over_f_n": 3.7407407
+        },
+        {
+          "n": 9,
+          "f_n": 31,
+          "f_2n": 135,
+          "ratio_f_2n_over_f_n": 4.3548387
+        },
+        {
+          "n": 10,
+          "f_n": 39,
+          "f_2n": 185,
+          "ratio_f_2n_over_f_n": 4.7435897
+        },
+        {
+          "n": 11,
+          "f_n": 43,
+          "f_2n": 213,
+          "ratio_f_2n_over_f_n": 4.9534884
+        },
+        {
+          "n": 12,
+          "f_n": 67,
+          "f_2n": 313,
+          "ratio_f_2n_over_f_n": 4.6716418
+        },
+        {
+          "n": 13,
+          "f_n": 69,
+          "f_2n": 329,
+          "ratio_f_2n_over_f_n": 4.7681159
+        },
+        {
+          "n": 14,
+          "f_n": 77,
+          "f_2n": 401,
+          "ratio_f_2n_over_f_n": 5.2077922
+        },
+        {
+          "n": 15,
+          "f_n": 85,
+          "f_2n": 505,
+          "ratio_f_2n_over_f_n": 5.9411765
+        },
+        {
+          "n": 16,
+          "f_n": 101,
+          "f_2n": 539,
+          "ratio_f_2n_over_f_n": 5.3366337
+        },
+        {
+          "n": 17,
+          "f_n": 103,
+          "f_2n": 563,
+          "ratio_f_2n_over_f_n": 5.4660194
+        },
+        {
+          "n": 18,
+          "f_n": 135,
+          "f_2n": 1091,
+          "ratio_f_2n_over_f_n": 8.0814815
+        },
+        {
+          "n": 19,
+          "f_n": 137,
+          "f_2n": 1103,
+          "ratio_f_2n_over_f_n": 8.0510949
+        },
+        {
+          "n": 20,
+          "f_n": 185,
+          "f_2n": 1311,
+          "ratio_f_2n_over_f_n": 7.0864865
+        },
+        {
+          "n": 21,
+          "f_n": 197,
+          "f_2n": 1459,
+          "ratio_f_2n_over_f_n": 7.4060914
+        },
+        {
+          "n": 22,
+          "f_n": 213,
+          "f_2n": 1595,
+          "ratio_f_2n_over_f_n": 7.4882629
+        }
+      ]
+    },
+    "ep901": {
+      "description": "Greedy constructive finite upper bounds for non-2-colorable n-uniform hypergraphs.",
+      "rows": [
+        {
+          "n": 4,
+          "searched_v_values": [
+            8,
+            9,
+            10
+          ],
+          "best_v_found": 9,
+          "finite_constructive_upper_bound_edges": 30,
+          "smallest_remaining_coloring_count_seen": 0,
+          "trivial_probabilistic_lower_bound_2_pow_n_minus_1": 8,
+          "upper_over_2_pow_n": 1.875
+        },
+        {
+          "n": 5,
+          "searched_v_values": [
+            10,
+            11,
+            12
+          ],
+          "best_v_found": 11,
+          "finite_constructive_upper_bound_edges": 92,
+          "smallest_remaining_coloring_count_seen": 0,
+          "trivial_probabilistic_lower_bound_2_pow_n_minus_1": 16,
+          "upper_over_2_pow_n": 2.875
+        },
+        {
+          "n": 6,
+          "searched_v_values": [
+            12,
+            13,
+            14
+          ],
+          "best_v_found": 13,
+          "finite_constructive_upper_bound_edges": 327,
+          "smallest_remaining_coloring_count_seen": 0,
+          "trivial_probabilistic_lower_bound_2_pow_n_minus_1": 32,
+          "upper_over_2_pow_n": 5.109375
+        }
+      ],
+      "note": "Upper bounds depend on construction heuristic and do not certify exact m(n)."
+    },
+    "ep917": {
+      "description": "Finite verification profile for Dirac join-of-two-odd-cycles construction (k=6 case).",
+      "rows": [
+        {
+          "t": 2,
+          "n": 10,
+          "edge_count": 35,
+          "edge_density_over_n2": 0.35,
+          "chromatic_number": 6,
+          "tested_edge_criticality_on_sample": true,
+          "tested_edges": 35,
+          "dirac_formula_value_4t2_plus8t_plus3": 35
+        },
+        {
+          "t": 3,
+          "n": 14,
+          "edge_count": 63,
+          "edge_density_over_n2": 0.3214286,
+          "chromatic_number": 6,
+          "tested_edge_criticality_on_sample": true,
+          "tested_edges": 63,
+          "dirac_formula_value_4t2_plus8t_plus3": 63
+        },
+        {
+          "t": 4,
+          "n": 18,
+          "edge_count": 99,
+          "edge_density_over_n2": 0.3055556,
+          "chromatic_number": 6,
+          "tested_edge_criticality_on_sample": true,
+          "tested_edges": 99,
+          "dirac_formula_value_4t2_plus8t_plus3": 99
+        },
+        {
+          "t": 5,
+          "n": 22,
+          "edge_count": 143,
+          "edge_density_over_n2": 0.2954545,
+          "chromatic_number": 6,
+          "tested_edge_criticality_on_sample": true,
+          "tested_edges": 143,
+          "dirac_formula_value_4t2_plus8t_plus3": 143
+        }
+      ],
+      "note": "Criticality check is exact on sampled edges only when E is large."
+    },
+    "ep920": {
+      "description": "Finite K4-free high-chromatic profile via Mycielski constructions.",
+      "rows": [
+        {
+          "iteration_from_C5": 0,
+          "n": 5,
+          "edge_count": 5,
+          "k4_free_check": true,
+          "chromatic_number_exact_if_computed": 3,
+          "chromatic_number_from_mycielski_construction": 3,
+          "lower_bound_f4_of_n_from_construction": 3,
+          "chi_over_n_to_2over3": 1.025986
+        },
+        {
+          "iteration_from_C5": 1,
+          "n": 11,
+          "edge_count": 20,
+          "k4_free_check": true,
+          "chromatic_number_exact_if_computed": 4,
+          "chromatic_number_from_mycielski_construction": 4,
+          "lower_bound_f4_of_n_from_construction": 4,
+          "chi_over_n_to_2over3": 0.80872
+        },
+        {
+          "iteration_from_C5": 2,
+          "n": 23,
+          "edge_count": 71,
+          "k4_free_check": true,
+          "chromatic_number_exact_if_computed": 5,
+          "chromatic_number_from_mycielski_construction": 5,
+          "lower_bound_f4_of_n_from_construction": 5,
+          "chi_over_n_to_2over3": 0.618232
+        },
+        {
+          "iteration_from_C5": 3,
+          "n": 47,
+          "edge_count": 236,
+          "k4_free_check": true,
+          "chromatic_number_exact_if_computed": null,
+          "chromatic_number_from_mycielski_construction": 6,
+          "lower_bound_f4_of_n_from_construction": 6,
+          "chi_over_n_to_2over3": 0.4607012
+        },
+        {
+          "iteration_from_C5": 4,
+          "n": 95,
+          "edge_count": 755,
+          "k4_free_check": true,
+          "chromatic_number_exact_if_computed": null,
+          "chromatic_number_from_mycielski_construction": 7,
+          "lower_bound_f4_of_n_from_construction": 7,
+          "chi_over_n_to_2over3": 0.3362139
+        }
+      ],
+      "note": "These are constructive lower bounds for f_4(n), not extremal optima."
+    },
+    "ep928": {
+      "description": "Finite empirical joint density profile for smooth n and n+1 events.",
+      "rows": [
+        {
+          "alpha": 0.5,
+          "beta": 0.5,
+          "N": 1000000,
+          "density_event_a": 0.2681713,
+          "density_event_b": 0.2681713,
+          "density_joint": 0.06310206,
+          "product_density": 0.07191583,
+          "joint_over_product": 0.8774433
+        },
+        {
+          "alpha": 0.5,
+          "beta": 0.7,
+          "N": 1000000,
+          "density_event_a": 0.2681713,
+          "density_event_b": 0.5996616,
+          "density_joint": 0.1519842,
+          "product_density": 0.160812,
+          "joint_over_product": 0.9451045
+        },
+        {
+          "alpha": 0.7,
+          "beta": 0.7,
+          "N": 1000000,
+          "density_event_a": 0.5996606,
+          "density_event_b": 0.5996616,
+          "density_joint": 0.3508324,
+          "product_density": 0.3595934,
+          "joint_over_product": 0.9756361
+        },
+        {
+          "alpha": 0.8,
+          "beta": 0.8,
+          "N": 1000000,
+          "density_event_a": 0.7325167,
+          "density_event_b": 0.7325177,
+          "density_joint": 0.5281375,
+          "product_density": 0.5365815,
+          "joint_over_product": 0.9842634
+        }
+      ]
+    },
+    "ep929": {
+      "description": "Finite positive-density proxy profile for S(k) using bounded-window smooth blocks.",
+      "rows": [
+        {
+          "k": 6,
+          "N": 250000,
+          "eps_density_threshold": 0.0001,
+          "finite_min_x_with_any_occurrence": 7,
+          "finite_min_x_with_density_at_least_eps": null,
+          "profile": [
+            {
+              "x": 2,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 3,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 4,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 5,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 6,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 7,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 8,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 9,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 10,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 11,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 12,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 13,
+              "good_starts": 10,
+              "density": 0.00004
+            },
+            {
+              "x": 14,
+              "good_starts": 10,
+              "density": 0.00004
+            }
+          ]
+        },
+        {
+          "k": 8,
+          "N": 250000,
+          "eps_density_threshold": 0.0001,
+          "finite_min_x_with_any_occurrence": 7,
+          "finite_min_x_with_density_at_least_eps": null,
+          "profile": [
+            {
+              "x": 2,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 3,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 4,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 5,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 6,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 7,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 8,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 9,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 10,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 11,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 12,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 13,
+              "good_starts": 8,
+              "density": 0.000032
+            },
+            {
+              "x": 14,
+              "good_starts": 8,
+              "density": 0.000032
+            },
+            {
+              "x": 15,
+              "good_starts": 8,
+              "density": 0.000032
+            },
+            {
+              "x": 16,
+              "good_starts": 8,
+              "density": 0.000032
+            }
+          ]
+        },
+        {
+          "k": 10,
+          "N": 250000,
+          "eps_density_threshold": 0.0001,
+          "finite_min_x_with_any_occurrence": 11,
+          "finite_min_x_with_density_at_least_eps": null,
+          "profile": [
+            {
+              "x": 2,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 3,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 4,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 5,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 6,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 7,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 8,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 9,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 10,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 11,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 12,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 13,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 14,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 15,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 16,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 17,
+              "good_starts": 8,
+              "density": 0.000032
+            },
+            {
+              "x": 18,
+              "good_starts": 8,
+              "density": 0.000032
+            }
+          ]
+        },
+        {
+          "k": 12,
+          "N": 250000,
+          "eps_density_threshold": 0.0001,
+          "finite_min_x_with_any_occurrence": 13,
+          "finite_min_x_with_density_at_least_eps": null,
+          "profile": [
+            {
+              "x": 2,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 3,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 4,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 5,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 6,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 7,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 8,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 9,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 10,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 11,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 12,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 13,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 14,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 15,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 16,
+              "good_starts": 4,
+              "density": 0.000016
+            },
+            {
+              "x": 17,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 18,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 19,
+              "good_starts": 10,
+              "density": 0.00004
+            },
+            {
+              "x": 20,
+              "good_starts": 10,
+              "density": 0.00004
+            }
+          ]
+        },
+        {
+          "k": 16,
+          "N": 250000,
+          "eps_density_threshold": 0.0001,
+          "finite_min_x_with_any_occurrence": 17,
+          "finite_min_x_with_density_at_least_eps": null,
+          "profile": [
+            {
+              "x": 2,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 3,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 4,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 5,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 6,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 7,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 8,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 9,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 10,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 11,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 12,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 13,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 14,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 15,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 16,
+              "good_starts": 0,
+              "density": 0
+            },
+            {
+              "x": 17,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 18,
+              "good_starts": 2,
+              "density": 0.000008
+            },
+            {
+              "x": 19,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 20,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 21,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 22,
+              "good_starts": 6,
+              "density": 0.000024
+            },
+            {
+              "x": 23,
+              "good_starts": 12,
+              "density": 0.000048
+            },
+            {
+              "x": 24,
+              "good_starts": 12,
+              "density": 0.000048
+            }
+          ]
+        }
+      ],
+      "note": "Finite-N proxy depends on chosen epsilon threshold and search range for x."
+    }
+  }
+}
