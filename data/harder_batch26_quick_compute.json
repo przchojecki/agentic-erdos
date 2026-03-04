@@ -1,0 +1,563 @@
+{
+  "script": "harder_batch26_quick_compute.mjs",
+  "generated_utc": "2026-03-04T12:00:49.945Z",
+  "results": {
+    "ep1111": {
+      "description": "Finite anticomplete-pair chromatic search on Mycielski triangle-free high-chromatic graphs.",
+      "exact_on_mycielski1_n11": {
+        "chi_graph": 4,
+        "best_min_of_chiA_chiB_over_anticomplete_pairs": 2,
+        "witness_pair_summary": {
+          "A_mask": "3",
+          "B_mask": "1288",
+          "chiA": 2,
+          "chiB": 2
+        }
+      },
+      "sampled_on_mycielski2_n23": {
+        "chi_graph": 5,
+        "best_min_of_chiA_chiB_in_samples": 2,
+        "sample_rows": [
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          },
+          {
+            "chiA": 2,
+            "chiB": 2,
+            "minChi": 2
+          }
+        ]
+      }
+    },
+    "ep1112": {
+      "description": "Finite greedy bounded-gap construction tests for avoiding k-fold sumsets against lacunary B.",
+      "N": 1200,
+      "rows": [
+        {
+          "scenario": "k3_gaps2_3_B=2^i",
+          "B_size": 10,
+          "length": 600,
+          "last": 1199,
+          "first_terms": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            29,
+            31,
+            33,
+            35,
+            37,
+            39,
+            41,
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59
+          ]
+        },
+        {
+          "scenario": "k3_gaps2_3_B=3^i",
+          "B_size": 6,
+          "length": 1,
+          "last": 1,
+          "first_terms": [
+            1
+          ]
+        },
+        {
+          "scenario": "k3_gaps2_3_random_lacunary_r2",
+          "B_size": 7,
+          "length": 19,
+          "last": 53,
+          "first_terms": [
+            1,
+            4,
+            7,
+            10,
+            13,
+            15,
+            18,
+            21,
+            24,
+            27,
+            29,
+            32,
+            35,
+            38,
+            41,
+            44,
+            47,
+            50,
+            53
+          ]
+        },
+        {
+          "scenario": "k2_gaps2_3_B=2^i_control",
+          "B_size": 10,
+          "length": 1,
+          "last": 1,
+          "first_terms": [
+            1
+          ]
+        }
+      ]
+    },
+    "ep1113": {
+      "description": "Finite pseudo-Sierpinski scan (composite checks for 2^k m+1 up to k<=14) with greedy covering-prime profile.",
+      "M_MAX": 3000,
+      "K_MAX": 14,
+      "pseudo_sierpinski_count_in_scan": 130,
+      "best_candidates_by_small_cover_size": [
+        {
+          "m": 257,
+          "greedy_cover_size_for_k0_to_kmax": 4,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            17,
+            67
+          ]
+        },
+        {
+          "m": 767,
+          "greedy_cover_size_for_k0_to_kmax": 4,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            17,
+            31
+          ]
+        },
+        {
+          "m": 1277,
+          "greedy_cover_size_for_k0_to_kmax": 4,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            17,
+            7
+          ]
+        },
+        {
+          "m": 2297,
+          "greedy_cover_size_for_k0_to_kmax": 4,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            17,
+            269
+          ]
+        },
+        {
+          "m": 47,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            13,
+            11
+          ]
+        },
+        {
+          "m": 143,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            7,
+            5,
+            23,
+            211
+          ]
+        },
+        {
+          "m": 197,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            19,
+            151,
+            313
+          ]
+        },
+        {
+          "m": 259,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            17,
+            11,
+            59
+          ]
+        },
+        {
+          "m": 263,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            17,
+            19,
+            29
+          ]
+        },
+        {
+          "m": 353,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            7,
+            5,
+            11,
+            149
+          ]
+        },
+        {
+          "m": 383,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            13,
+            7,
+            11
+          ]
+        },
+        {
+          "m": 437,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            13,
+            151
+          ]
+        },
+        {
+          "m": 467,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            11,
+            37,
+            23
+          ]
+        },
+        {
+          "m": 587,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            227,
+            173
+          ]
+        },
+        {
+          "m": 601,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            59,
+            11
+          ]
+        },
+        {
+          "m": 647,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            31,
+            149
+          ]
+        },
+        {
+          "m": 649,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            73,
+            107
+          ]
+        },
+        {
+          "m": 773,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            7,
+            5,
+            17,
+            29
+          ]
+        },
+        {
+          "m": 797,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            11,
+            17
+          ]
+        },
+        {
+          "m": 811,
+          "greedy_cover_size_for_k0_to_kmax": 5,
+          "greedy_cover_primes_sample": [
+            3,
+            5,
+            7,
+            19,
+            191
+          ]
+        }
+      ]
+    },
+    "ep1117": {
+      "description": "Finite circle-maxima counts for polynomial proxies to ν(r) behavior.",
+      "control_rows": [
+        {
+          "family": "z^4+1",
+          "r": 1,
+          "estimated_u_r": 4
+        },
+        {
+          "family": "z^8+1",
+          "r": 1,
+          "estimated_u_r": 8
+        },
+        {
+          "family": "z^16+1",
+          "r": 1,
+          "estimated_u_r": 16
+        },
+        {
+          "family": "z^32+1",
+          "r": 1,
+          "estimated_u_r": 32
+        }
+      ],
+      "lacunary_scan_top_rows": [
+        {
+          "r": 1,
+          "estimated_u_r_for_sum_z_pow_2j": 58
+        },
+        {
+          "r": 1.05,
+          "estimated_u_r_for_sum_z_pow_2j": 48
+        },
+        {
+          "r": 1.1,
+          "estimated_u_r_for_sum_z_pow_2j": 32
+        },
+        {
+          "r": 1.15,
+          "estimated_u_r_for_sum_z_pow_2j": 32
+        },
+        {
+          "r": 1.2,
+          "estimated_u_r_for_sum_z_pow_2j": 32
+        },
+        {
+          "r": 1.25,
+          "estimated_u_r_for_sum_z_pow_2j": 32
+        },
+        {
+          "r": 1.3,
+          "estimated_u_r_for_sum_z_pow_2j": 32
+        },
+        {
+          "r": 1.35,
+          "estimated_u_r_for_sum_z_pow_2j": 32
+        }
+      ]
+    },
+    "ep1122": {
+      "description": "Finite density comparison of descent set A for sample additive functions.",
+      "N": 200000,
+      "rows": [
+        {
+          "x": 10000,
+          "density_A_for_log_n": 0,
+          "density_A_for_Omega": 0.4298,
+          "density_A_for_omega": 0.3645,
+          "density_A_for_random_additive": 0.5009
+        },
+        {
+          "x": 30000,
+          "density_A_for_log_n": 0,
+          "density_A_for_Omega": 0.43,
+          "density_A_for_omega": 0.3708,
+          "density_A_for_random_additive": 0.5011333
+        },
+        {
+          "x": 60000,
+          "density_A_for_log_n": 0,
+          "density_A_for_Omega": 0.43005,
+          "density_A_for_omega": 0.3737167,
+          "density_A_for_random_additive": 0.5009333
+        },
+        {
+          "x": 100000,
+          "density_A_for_log_n": 0,
+          "density_A_for_Omega": 0.43076,
+          "density_A_for_omega": 0.37494,
+          "density_A_for_random_additive": 0.50023
+        },
+        {
+          "x": 150000,
+          "density_A_for_log_n": 0,
+          "density_A_for_Omega": 0.43114,
+          "density_A_for_omega": 0.37652,
+          "density_A_for_random_additive": 0.50012
+        },
+        {
+          "x": 200000,
+          "density_A_for_log_n": 0,
+          "density_A_for_Omega": 0.431205,
+          "density_A_for_omega": 0.377695,
+          "density_A_for_random_additive": 0.49989
+        }
+      ]
+    },
+    "ep1129": {
+      "description": "Finite numerical Lebesgue-constant comparisons and symmetric n=4 canonical search.",
+      "rows": [
+        {
+          "n": 8,
+          "lambda_equispaced_est": 6.9297308,
+          "lambda_chebyshev_est": 2.2870161,
+          "ratio_eq_over_cheb": 3.030032
+        },
+        {
+          "n": 16,
+          "lambda_equispaced_est": 512.34784,
+          "lambda_chebyshev_est": 2.7277779,
+          "ratio_eq_over_cheb": 187.8261
+        }
+      ],
+      "n4_symmetric_search": {
+        "best_t_est": 0.418,
+        "lambda_est": 1.4234317,
+        "reference_t_from_literature_approx": 0.4177
+      }
+    },
+    "ep1135": {
+      "description": "Finite accelerated-Collatz stopping-time verification for all starts n<=2,000,000.",
+      "N": 2000000,
+      "rows": [
+        {
+          "x": 100000,
+          "max_steps_up_to_x": 221,
+          "n_attaining_max_steps": 77031
+        },
+        {
+          "x": 300000,
+          "max_steps_up_to_x": 278,
+          "n_attaining_max_steps": 230631
+        },
+        {
+          "x": 600000,
+          "max_steps_up_to_x": 295,
+          "n_attaining_max_steps": 511935
+        },
+        {
+          "x": 1000000,
+          "max_steps_up_to_x": 329,
+          "n_attaining_max_steps": 837799
+        },
+        {
+          "x": 1500000,
+          "max_steps_up_to_x": 331,
+          "n_attaining_max_steps": 1117065
+        },
+        {
+          "x": 2000000,
+          "max_steps_up_to_x": 349,
+          "n_attaining_max_steps": 1723519
+        }
+      ]
+    }
+  }
+}
