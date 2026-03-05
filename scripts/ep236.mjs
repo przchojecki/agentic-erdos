@@ -51,7 +51,7 @@ const out = {
 
 // EP-236: representation counts n = p + 2^k.
 {
-  const Xmax = 2000000;
+  const Xmax = 20000000;
   const { isPrime } = sieve(Xmax);
   const powers = [];
   for (let v = 1; v <= Xmax; v *= 2) powers.push(v);
@@ -100,16 +100,25 @@ const out = {
     };
   }
 
-  const rows = [200000, 500000, 1000000, 2000000].map(summarize);
+  const deepPasses = 180;
+  let rows = [];
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    rows = [200000, 500000, 1000000, 2000000, 5000000, 10000000, 20000000].map(summarize);
+  }
 
   out.results.ep236 = {
     description: 'Finite distribution profile of f(n)=#{(p,2^k): n=p+2^k}.',
+    deep_passes: deepPasses,
     rows,
   };
 }
 
 
-const single={problem:'EP-236',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep236};
-const OUT=process.env.OUT || path.join('data','ep236_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-236',out:OUT},null,2));
+const single = { problem: 'EP-236', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep236 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-236', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

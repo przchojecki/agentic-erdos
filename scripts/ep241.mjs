@@ -133,9 +133,9 @@ const out = {
   }
 
   const rows = [];
-  for (const N of [5000, 10000, 20000, 50000]) {
+  for (const N of [5000, 10000, 20000, 50000, 100000, 200000, 500000]) {
     const g = greedyB3UpTo(N);
-    const r = randomGreedyB3(N, 20);
+    const r = randomGreedyB3(N, 200);
     rows.push({
       N,
       greedy_size: g,
@@ -152,7 +152,11 @@ const out = {
 }
 
 
-const single={problem:'EP-241',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep241};
-const OUT=process.env.OUT || path.join('data','ep241_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-241',out:OUT},null,2));
+const single = { problem: 'EP-241', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep241 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-241', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

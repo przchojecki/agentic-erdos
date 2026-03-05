@@ -106,40 +106,52 @@ const out = {
     return res;
   }
 
-  const rows = [];
-  for (const a1 of [2, 3, 5]) {
-    const a = sylvesterTerms(a1, 8);
-    const r = telescopingResidual(a);
-    rows.push({
-      model: 'exact_sylvester',
-      a1,
-      terms_checked: 8,
-      residual_numerator: r[0].toString(),
-      residual_denominator: r[1].toString(),
-      residual_as_number: fracToNumber(r),
-    });
+  const deepPasses = 10;
+  let rows = [];
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    const cur = [];
+    for (const a1 of [2, 3, 5, 7, 11, 13]) {
+      const a = sylvesterTerms(a1, 20);
+      const r = telescopingResidual(a);
+      cur.push({
+        model: 'exact_sylvester',
+        a1,
+        terms_checked: 20,
+        residual_numerator: r[0].toString(),
+        residual_denominator: r[1].toString(),
+        residual_as_number: fracToNumber(r),
+      });
 
-    const b = [...a];
-    b[4] += 1n; // perturb one term
-    const rp = telescopingResidual(b);
-    rows.push({
-      model: 'single_perturbation_at_index5',
-      a1,
-      terms_checked: 8,
-      residual_numerator: rp[0].toString(),
-      residual_denominator: rp[1].toString(),
-      residual_as_number: fracToNumber(rp),
-    });
+      for (const idx of [3, 5, 7, 9, 11, 13, 15]) {
+        const b = [...a];
+        b[idx] += 1n;
+        const rp = telescopingResidual(b);
+        cur.push({
+          model: `single_perturbation_at_index${idx + 1}`,
+          a1,
+          terms_checked: 20,
+          residual_numerator: rp[0].toString(),
+          residual_denominator: rp[1].toString(),
+          residual_as_number: fracToNumber(rp),
+        });
+      }
+    }
+    rows = cur;
   }
 
   out.results.ep243 = {
     description: 'Exact telescoping residual check for Sylvester recurrence and perturbed variants.',
+    deep_passes: deepPasses,
     rows,
   };
 }
 
 
-const single={problem:'EP-243',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep243};
-const OUT=process.env.OUT || path.join('data','ep243_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-243',out:OUT},null,2));
+const single = { problem: 'EP-243', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep243 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-243', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

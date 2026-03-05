@@ -44,6 +44,156 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T13-42-44-228Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-265",
+        "script": "ep265.mjs",
+        "generated_utc": "2026-03-05T13:42:44.228Z",
+        "result": {
+          "description": "Deep partial-sum and growth profiles for canonical constructions related to dual-shift rationality.",
+          "deep_passes": 70,
+          "rows": [
+            {
+              "family": "triangular_choose_n_2_start_n=3",
+              "terms_used": 299998,
+              "partial_sum_shift_0": 0.99999333333331,
+              "partial_sum_shift_1": 1.2222155555556,
+              "best_rational_shift_0_q_le_200000": "149999/150000",
+              "best_rational_shift_1_q_le_200000": "203703/166667"
+            },
+            {
+              "family": "cubic_n3+6n2+5n_start_n=2",
+              "terms_used": 219999,
+              "partial_sum_shift_0": 0.052499999989672,
+              "partial_sum_shift_12": 0.064166666656334,
+              "best_rational_shift_0_q_le_200000": "21/400",
+              "best_rational_shift_12_q_le_200000": "77/1200"
+            }
+          ],
+          "growth_rows": [
+            {
+              "family": "triangular",
+              "n": 10000,
+              "root_n": 1.00177432
+            },
+            {
+              "family": "cubic_shifted",
+              "n": 10000,
+              "root_n": 1.00276698
+            },
+            {
+              "family": "double_exponential_model_2^(2^n)",
+              "n": 12,
+              "root_n": null
+            }
+          ]
+        },
+        "runtime_seconds": 0.31
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass2_10x_2026-03-05T13-43-00-319Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-265",
+        "script": "ep265.mjs",
+        "generated_utc": "2026-03-05T13:43:00.319Z",
+        "result": {
+          "description": "Deep partial-sum and growth profiles for canonical constructions related to dual-shift rationality.",
+          "deep_passes": 1600,
+          "rows": [
+            {
+              "family": "triangular_choose_n_2_start_n=3",
+              "terms_used": 299998,
+              "partial_sum_shift_0": 0.99999333333331,
+              "partial_sum_shift_1": 1.2222155555556,
+              "best_rational_shift_0_q_le_2000000": "149999/150000",
+              "best_rational_shift_1_q_le_2000000": "549997/450000"
+            },
+            {
+              "family": "cubic_n3+6n2+5n_start_n=2",
+              "terms_used": 219999,
+              "partial_sum_shift_0": 0.052499999989672,
+              "partial_sum_shift_12": 0.064166666656334,
+              "best_rational_shift_0_q_le_2000000": "21/400",
+              "best_rational_shift_12_q_le_2000000": "77/1200"
+            }
+          ],
+          "growth_rows": [
+            {
+              "family": "triangular",
+              "n": 10000,
+              "root_n": 1.00177432
+            },
+            {
+              "family": "cubic_shifted",
+              "n": 10000,
+              "root_n": 1.00276698
+            },
+            {
+              "family": "double_exponential_model_2^(2^n)",
+              "n": 12,
+              "root_n": null
+            }
+          ]
+        },
+        "runtime_seconds": 15.25
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass3_10x_2026-03-05T13-45-59-817Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-265",
+        "script": "ep265.mjs",
+        "generated_utc": "2026-03-05T13:45:59.817Z",
+        "result": {
+          "description": "Deep partial-sum and growth profiles for canonical constructions related to dual-shift rationality.",
+          "deep_passes": 1600,
+          "rows": [
+            {
+              "family": "triangular_choose_n_2_start_n=3",
+              "terms_used": 299998,
+              "partial_sum_shift_0": 0.99999333333331,
+              "partial_sum_shift_1": 1.2222155555556,
+              "best_rational_shift_0_q_le_2000000": "149999/150000",
+              "best_rational_shift_1_q_le_2000000": "549997/450000"
+            },
+            {
+              "family": "cubic_n3+6n2+5n_start_n=2",
+              "terms_used": 219999,
+              "partial_sum_shift_0": 0.052499999989672,
+              "partial_sum_shift_12": 0.064166666656334,
+              "best_rational_shift_0_q_le_2000000": "21/400",
+              "best_rational_shift_12_q_le_2000000": "77/1200"
+            }
+          ],
+          "growth_rows": [
+            {
+              "family": "triangular",
+              "n": 10000,
+              "root_n": 1.00177432
+            },
+            {
+              "family": "cubic_shifted",
+              "n": 10000,
+              "root_n": 1.00276698
+            },
+            {
+              "family": "double_exponential_model_2^(2^n)",
+              "n": 12,
+              "root_n": null
+            }
+          ]
+        },
+        "runtime_seconds": 14.9
+      }
     }
   ],
   "batch_split_integrations_from_head": {

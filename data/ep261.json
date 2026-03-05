@@ -98,6 +98,124 @@
           }
         }
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass3_10x_2026-03-05T12-50-06-045Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-261",
+        "script": "ep261.mjs",
+        "generated_utc": "2026-03-05T12:50:06.045Z",
+        "result": {
+          "description": "Finite coverage profile from subset-offset representation ansatz a_i = n + i.",
+          "Nmax": 12000,
+          "deep_passes": 8,
+          "rows": [
+            {
+              "offset_window_L": 8,
+              "represented_n_count_up_to_Nmax": 13,
+              "density_up_to_Nmax": 0.001083,
+              "largest_represented_n_up_to_Nmax": 502
+            },
+            {
+              "offset_window_L": 10,
+              "represented_n_count_up_to_Nmax": 18,
+              "density_up_to_Nmax": 0.0015,
+              "largest_represented_n_up_to_Nmax": 2036
+            },
+            {
+              "offset_window_L": 12,
+              "represented_n_count_up_to_Nmax": 25,
+              "density_up_to_Nmax": 0.002083,
+              "largest_represented_n_up_to_Nmax": 8178
+            },
+            {
+              "offset_window_L": 15,
+              "represented_n_count_up_to_Nmax": 38,
+              "density_up_to_Nmax": 0.003167,
+              "largest_represented_n_up_to_Nmax": 8178
+            },
+            {
+              "offset_window_L": 20,
+              "represented_n_count_up_to_Nmax": 54,
+              "density_up_to_Nmax": 0.0045,
+              "largest_represented_n_up_to_Nmax": 11509
+            },
+            {
+              "offset_window_L": 22,
+              "represented_n_count_up_to_Nmax": 62,
+              "density_up_to_Nmax": 0.005167,
+              "largest_represented_n_up_to_Nmax": 11509
+            }
+          ],
+          "union_over_L_up_to_20": {
+            "represented_count": 62,
+            "represented_density": 0.005167,
+            "largest_represented_n": 11509
+          }
+        },
+        "runtime_seconds": 1.78
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass4_10x_2026-03-05T12-50-36-884Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-261",
+        "script": "ep261.mjs",
+        "generated_utc": "2026-03-05T12:50:36.884Z",
+        "result": {
+          "description": "Finite coverage profile from subset-offset representation ansatz a_i = n + i.",
+          "Nmax": 12000,
+          "deep_passes": 60,
+          "rows": [
+            {
+              "offset_window_L": 8,
+              "represented_n_count_up_to_Nmax": 13,
+              "density_up_to_Nmax": 0.001083,
+              "largest_represented_n_up_to_Nmax": 502
+            },
+            {
+              "offset_window_L": 10,
+              "represented_n_count_up_to_Nmax": 18,
+              "density_up_to_Nmax": 0.0015,
+              "largest_represented_n_up_to_Nmax": 2036
+            },
+            {
+              "offset_window_L": 12,
+              "represented_n_count_up_to_Nmax": 25,
+              "density_up_to_Nmax": 0.002083,
+              "largest_represented_n_up_to_Nmax": 8178
+            },
+            {
+              "offset_window_L": 15,
+              "represented_n_count_up_to_Nmax": 38,
+              "density_up_to_Nmax": 0.003167,
+              "largest_represented_n_up_to_Nmax": 8178
+            },
+            {
+              "offset_window_L": 20,
+              "represented_n_count_up_to_Nmax": 54,
+              "density_up_to_Nmax": 0.0045,
+              "largest_represented_n_up_to_Nmax": 11509
+            },
+            {
+              "offset_window_L": 22,
+              "represented_n_count_up_to_Nmax": 62,
+              "density_up_to_Nmax": 0.005167,
+              "largest_represented_n_up_to_Nmax": 11509
+            }
+          ],
+          "union_over_L_up_to_20": {
+            "represented_count": 62,
+            "represented_density": 0.005167,
+            "largest_represented_n": 11509
+          }
+        },
+        "runtime_seconds": 13.27
+      }
     }
   ],
   "batch_split_integrations_from_head": {

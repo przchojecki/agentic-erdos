@@ -110,40 +110,50 @@ const out = {
     return hit;
   }
 
-  const Nmax = 5000;
-  const rows = [];
-  const union = new Uint8Array(Nmax + 1);
-  for (const L of [8, 10, 12, 15, 20]) {
-    const h = generatedNByOffsetSubsets(L, Nmax);
-    let c = 0;
-    let mx = 0;
-    for (let n = 1; n <= Nmax; n += 1) {
-      if (h[n]) {
-        c += 1;
-        mx = n;
-        union[n] = 1;
-      }
-    }
-    rows.push({
-      offset_window_L: L,
-      represented_n_count_up_to_Nmax: c,
-      density_up_to_Nmax: Number((c / Nmax).toFixed(6)),
-      largest_represented_n_up_to_Nmax: mx,
-    });
-  }
-
+  const Nmax = 12000;
+  const deepPasses = 60;
+  let rows = [];
   let unionCount = 0;
   let unionMx = 0;
-  for (let n = 1; n <= Nmax; n += 1) {
-    if (union[n]) {
-      unionCount += 1;
-      unionMx = n;
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    const curRows = [];
+    const union = new Uint8Array(Nmax + 1);
+    for (const L of [8, 10, 12, 15, 20, 22]) {
+      const h = generatedNByOffsetSubsets(L, Nmax);
+      let c = 0;
+      let mx = 0;
+      for (let n = 1; n <= Nmax; n += 1) {
+        if (h[n]) {
+          c += 1;
+          mx = n;
+          union[n] = 1;
+        }
+      }
+      curRows.push({
+        offset_window_L: L,
+        represented_n_count_up_to_Nmax: c,
+        density_up_to_Nmax: Number((c / Nmax).toFixed(6)),
+        largest_represented_n_up_to_Nmax: mx,
+      });
     }
+
+    let cU = 0;
+    let mU = 0;
+    for (let n = 1; n <= Nmax; n += 1) {
+      if (union[n]) {
+        cU += 1;
+        mU = n;
+      }
+    }
+    rows = curRows;
+    unionCount = cU;
+    unionMx = mU;
   }
 
   out.results.ep261 = {
     description: 'Finite coverage profile from subset-offset representation ansatz a_i = n + i.',
     Nmax,
+    deep_passes: deepPasses,
     rows,
     union_over_L_up_to_20: {
       represented_count: unionCount,
@@ -154,7 +164,11 @@ const out = {
 }
 
 
-const single={problem:'EP-261',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep261};
-const OUT=process.env.OUT || path.join('data','ep261_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-261',out:OUT},null,2));
+const single = { problem: 'EP-261', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep261 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-261', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

@@ -179,11 +179,11 @@ const out = {
 
   const rows212 = [];
   const rows213 = [];
-  for (const M of [4, 5, 6, 7]) {
+  for (const M of [4, 5, 6, 7, 8, 9, 10, 12]) {
     const pts = pointsGrid(M);
     const adj = buildIntDistanceAdj(pts);
 
-    const c = maxCliqueGreedy(adj, 450);
+    const c = maxCliqueGreedy(adj, 100000);
     rows212.push({
       M,
       grid_points: pts.length,
@@ -191,7 +191,7 @@ const out = {
       ratio_over_grid_size: Number((c / pts.length).toFixed(6)),
     });
 
-    const g = maxGeneralPositionIntDistSet(pts, adj, 420);
+    const g = maxGeneralPositionIntDistSet(pts, adj, 80000);
     rows213.push({
       M,
       grid_points: pts.length,
@@ -211,7 +211,11 @@ const out = {
 }
 
 
-const single={problem:'EP-212',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep212};
-const OUT=process.env.OUT || path.join('data','ep212_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-212',out:OUT},null,2));
+const single = { problem: 'EP-212', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep212 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-212', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

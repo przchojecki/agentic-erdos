@@ -39,6 +39,96 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T14-03-05-136Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-293",
+        "script": "ep293.mjs",
+        "generated_utc": "2026-03-05T14:03:05.136Z",
+        "result": {
+          "description": "Deep exact finite-k denominator-appearance scan for 1=sum 1/n_i.",
+          "deep_passes": 4,
+          "rows": [
+            {
+              "k": 3,
+              "max_denom_searched": 1000,
+              "solution_count": 1,
+              "distinct_denominators_seen": 3,
+              "v_proxy_min_missing_from_2": 4
+            },
+            {
+              "k": 4,
+              "max_denom_searched": 1800,
+              "solution_count": 6,
+              "distinct_denominators_seen": 15,
+              "v_proxy_min_missing_from_2": 11
+            },
+            {
+              "k": 5,
+              "max_denom_searched": 2600,
+              "solution_count": 72,
+              "distinct_denominators_seen": 77,
+              "v_proxy_min_missing_from_2": 17
+            },
+            {
+              "k": 6,
+              "max_denom_searched": 3200,
+              "solution_count": 1797,
+              "distinct_denominators_seen": 580,
+              "v_proxy_min_missing_from_2": 53
+            }
+          ]
+        },
+        "runtime_seconds": 0.86
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass2_10x_2026-03-05T14-04-53-604Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-293",
+        "script": "ep293.mjs",
+        "generated_utc": "2026-03-05T14:04:53.604Z",
+        "result": {
+          "description": "Deep exact finite-k denominator-appearance scan for 1=sum 1/n_i.",
+          "deep_passes": 80,
+          "rows": [
+            {
+              "k": 3,
+              "max_denom_searched": 1000,
+              "solution_count": 1,
+              "distinct_denominators_seen": 3,
+              "v_proxy_min_missing_from_2": 4
+            },
+            {
+              "k": 4,
+              "max_denom_searched": 1800,
+              "solution_count": 6,
+              "distinct_denominators_seen": 15,
+              "v_proxy_min_missing_from_2": 11
+            },
+            {
+              "k": 5,
+              "max_denom_searched": 2600,
+              "solution_count": 72,
+              "distinct_denominators_seen": 77,
+              "v_proxy_min_missing_from_2": 17
+            },
+            {
+              "k": 6,
+              "max_denom_searched": 3200,
+              "solution_count": 1797,
+              "distinct_denominators_seen": 580,
+              "v_proxy_min_missing_from_2": 53
+            }
+          ]
+        },
+        "runtime_seconds": 14.01
+      }
     }
   ],
   "batch_split_integrations_from_head": {

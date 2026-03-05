@@ -82,6 +82,121 @@
           ]
         }
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_2026-03-05T10-14-09-577Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-241",
+        "script": "ep241.mjs",
+        "generated_utc": "2026-03-05T10:14:09.577Z",
+        "result": {
+          "description": "Finite greedy profiles for B3-type sets with distinct triple sums.",
+          "rows": [
+            {
+              "N": 5000,
+              "greedy_size": 16,
+              "random_best_of_20": 16,
+              "greedy_over_N_pow_1_over_3": 0.935686,
+              "random_over_N_pow_1_over_3": 0.935686
+            },
+            {
+              "N": 10000,
+              "greedy_size": 19,
+              "random_best_of_20": 19,
+              "greedy_over_N_pow_1_over_3": 0.881902,
+              "random_over_N_pow_1_over_3": 0.881902
+            },
+            {
+              "N": 20000,
+              "greedy_size": 23,
+              "random_best_of_20": 22,
+              "greedy_over_N_pow_1_over_3": 0.847327,
+              "random_over_N_pow_1_over_3": 0.810487
+            },
+            {
+              "N": 50000,
+              "greedy_size": 28,
+              "random_best_of_20": 27,
+              "greedy_over_N_pow_1_over_3": 0.760037,
+              "random_over_N_pow_1_over_3": 0.732893
+            },
+            {
+              "N": 100000,
+              "greedy_size": 33,
+              "random_best_of_20": 31,
+              "greedy_over_N_pow_1_over_3": 0.710963,
+              "random_over_N_pow_1_over_3": 0.667875
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass3_10x_2026-03-05T10-36-36-745Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-241",
+        "script": "ep241.mjs",
+        "generated_utc": "2026-03-05T10:36:36.745Z",
+        "result": {
+          "description": "Finite greedy profiles for B3-type sets with distinct triple sums.",
+          "rows": [
+            {
+              "N": 5000,
+              "greedy_size": 16,
+              "random_best_of_20": 16,
+              "greedy_over_N_pow_1_over_3": 0.935686,
+              "random_over_N_pow_1_over_3": 0.935686
+            },
+            {
+              "N": 10000,
+              "greedy_size": 19,
+              "random_best_of_20": 19,
+              "greedy_over_N_pow_1_over_3": 0.881902,
+              "random_over_N_pow_1_over_3": 0.881902
+            },
+            {
+              "N": 20000,
+              "greedy_size": 23,
+              "random_best_of_20": 22,
+              "greedy_over_N_pow_1_over_3": 0.847327,
+              "random_over_N_pow_1_over_3": 0.810487
+            },
+            {
+              "N": 50000,
+              "greedy_size": 28,
+              "random_best_of_20": 27,
+              "greedy_over_N_pow_1_over_3": 0.760037,
+              "random_over_N_pow_1_over_3": 0.732893
+            },
+            {
+              "N": 100000,
+              "greedy_size": 33,
+              "random_best_of_20": 32,
+              "greedy_over_N_pow_1_over_3": 0.710963,
+              "random_over_N_pow_1_over_3": 0.689419
+            },
+            {
+              "N": 200000,
+              "greedy_size": 39,
+              "random_best_of_20": 37,
+              "greedy_over_N_pow_1_over_3": 0.666891,
+              "random_over_N_pow_1_over_3": 0.632691
+            },
+            {
+              "N": 500000,
+              "greedy_size": 48,
+              "random_best_of_20": 45,
+              "greedy_over_N_pow_1_over_3": 0.604762,
+              "random_over_N_pow_1_over_3": 0.566964
+            }
+          ]
+        },
+        "runtime_seconds": 541.89
+      }
     }
   ],
   "batch_split_integrations_from_head": {

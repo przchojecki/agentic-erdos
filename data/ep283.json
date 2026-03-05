@@ -61,6 +61,166 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T13-54-19-989Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-283",
+        "script": "ep283.mjs",
+        "generated_utc": "2026-03-05T13:54:19.989Z",
+        "result": {
+          "description": "Deep random split-generated Egyptian decompositions and resulting m=Σp(n_i) coverage proxies.",
+          "generation": {
+            "restarts": 120000,
+            "maxSteps": 20,
+            "maxDen": 600000,
+            "best_terms_found": 23
+          },
+          "linear_p_of_x_rows": [
+            {
+              "M": 10000,
+              "covered_count": 2817,
+              "covered_density": 0.2817,
+              "tail_window": 2000,
+              "tail_density": 0.3575
+            },
+            {
+              "M": 25000,
+              "covered_count": 7944,
+              "covered_density": 0.31776,
+              "tail_window": 5000,
+              "tail_density": 0.2958
+            },
+            {
+              "M": 50000,
+              "covered_count": 16054,
+              "covered_density": 0.32108,
+              "tail_window": 10000,
+              "tail_density": 0.2726
+            },
+            {
+              "M": 100000,
+              "covered_count": 25836,
+              "covered_density": 0.25836,
+              "tail_window": 20000,
+              "tail_density": 0.1501
+            }
+          ],
+          "quadratic_p_of_x_rows": [
+            {
+              "M": 20000,
+              "covered_count": 26,
+              "covered_density": 0.0013,
+              "tail_window": 4000,
+              "tail_density": 0.0015
+            },
+            {
+              "M": 50000,
+              "covered_count": 59,
+              "covered_density": 0.00118,
+              "tail_window": 10000,
+              "tail_density": 0.0007
+            },
+            {
+              "M": 100000,
+              "covered_count": 92,
+              "covered_density": 0.00092,
+              "tail_window": 20000,
+              "tail_density": 0.00015
+            },
+            {
+              "M": 200000,
+              "covered_count": 137,
+              "covered_density": 0.000685,
+              "tail_window": 40000,
+              "tail_density": 0.000525
+            }
+          ]
+        },
+        "runtime_seconds": 0.73
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass2_10x_2026-03-05T13-54-48-776Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-283",
+        "script": "ep283.mjs",
+        "generated_utc": "2026-03-05T13:54:48.776Z",
+        "result": {
+          "description": "Deep random split-generated Egyptian decompositions and resulting m=Σp(n_i) coverage proxies.",
+          "generation": {
+            "restarts": 2500000,
+            "maxSteps": 20,
+            "maxDen": 600000,
+            "best_terms_found": 23
+          },
+          "linear_p_of_x_rows": [
+            {
+              "M": 10000,
+              "covered_count": 5815,
+              "covered_density": 0.5815,
+              "tail_window": 2000,
+              "tail_density": 0.8545
+            },
+            {
+              "M": 25000,
+              "covered_count": 19903,
+              "covered_density": 0.79612,
+              "tail_window": 5000,
+              "tail_density": 0.9538
+            },
+            {
+              "M": 50000,
+              "covered_count": 44232,
+              "covered_density": 0.88464,
+              "tail_window": 10000,
+              "tail_density": 0.9733
+            },
+            {
+              "M": 100000,
+              "covered_count": 89921,
+              "covered_density": 0.89921,
+              "tail_window": 20000,
+              "tail_density": 0.872
+            }
+          ],
+          "quadratic_p_of_x_rows": [
+            {
+              "M": 20000,
+              "covered_count": 26,
+              "covered_density": 0.0013,
+              "tail_window": 4000,
+              "tail_density": 0.0015
+            },
+            {
+              "M": 50000,
+              "covered_count": 59,
+              "covered_density": 0.00118,
+              "tail_window": 10000,
+              "tail_density": 0.0007
+            },
+            {
+              "M": 100000,
+              "covered_count": 102,
+              "covered_density": 0.00102,
+              "tail_window": 20000,
+              "tail_density": 0.0003
+            },
+            {
+              "M": 200000,
+              "covered_count": 180,
+              "covered_density": 0.0009,
+              "tail_window": 40000,
+              "tail_density": 0.000975
+            }
+          ]
+        },
+        "runtime_seconds": 14.89
+      }
     }
   ],
   "batch_split_integrations_from_head": {

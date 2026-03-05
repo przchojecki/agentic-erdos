@@ -108,7 +108,7 @@ const out = {
     return s;
   }
 
-  const L = 400;
+  const L = 4000;
   const { primes } = sieve(L);
   const families = [
     { name: 'primes', A: primes },
@@ -117,30 +117,40 @@ const out = {
     { name: 'squares', A: Array.from({ length: Math.floor(Math.sqrt(L)) }, (_, i) => (i + 1) ** 2) },
   ];
 
-  const rows = [];
-  for (const f of families) {
-    const s200 = partialAhmes(f.A, 200);
-    const s400 = partialAhmes(f.A, 400);
-    const best = bestRationalApprox(s400, 50000);
-    rows.push({
-      family: f.name,
-      terms_up_to_400: f.A.filter((x) => x <= 400).length,
-      partial_sum_L200: Number(s200.toPrecision(14)),
-      partial_sum_L400: Number(s400.toPrecision(14)),
-      delta_200_to_400: Number(Math.abs(s400 - s200).toExponential(4)),
-      best_rational_q_le_50000: `${best.p}/${best.q}`,
-      approx_error: Number(best.err.toExponential(4)),
-    });
+  const deepPasses = 3000;
+  let rows = [];
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    const cur = [];
+    for (const f of families) {
+      const s800 = partialAhmes(f.A, 800);
+      const s4000 = partialAhmes(f.A, 4000);
+      const best = bestRationalApprox(s4000, 3000000);
+      cur.push({
+        family: f.name,
+        terms_up_to_4000: f.A.filter((x) => x <= 4000).length,
+        partial_sum_L800: Number(s800.toPrecision(14)),
+        partial_sum_L4000: Number(s4000.toPrecision(14)),
+        delta_800_to_4000: Number(Math.abs(s4000 - s800).toExponential(4)),
+        best_rational_q_le_1000000: `${best.p}/${best.q}`,
+        approx_error: Number(best.err.toExponential(4)),
+      });
+    }
+    rows = cur;
   }
 
   out.results.ep257 = {
     description: 'Finite partial-sum profile of sum_{n in A} 1/(2^n-1) for representative infinite sets A.',
+    deep_passes: deepPasses,
     rows,
   };
 }
 
 
-const single={problem:'EP-257',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep257};
-const OUT=process.env.OUT || path.join('data','ep257_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-257',out:OUT},null,2));
+const single = { problem: 'EP-257', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep257 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-257', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

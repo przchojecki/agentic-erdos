@@ -52,6 +52,146 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T14-03-44-990Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-306",
+        "script": "ep306.mjs",
+        "generated_utc": "2026-03-05T14:03:44.990Z",
+        "result": {
+          "description": "Deep finite representability profile for a/b using distinct semiprime denominators.",
+          "deep_passes": 10,
+          "semiprime_count_up_to_maxDen": 342,
+          "search_limits": {
+            "maxDen": 1200,
+            "kMax": 10
+          },
+          "rows": [
+            {
+              "b": 6,
+              "represented_coprime_a_count": 1,
+              "unresolved_coprime_a_count": 1,
+              "max_min_length_among_represented": 1
+            },
+            {
+              "b": 10,
+              "represented_coprime_a_count": 2,
+              "unresolved_coprime_a_count": 2,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 14,
+              "represented_coprime_a_count": 3,
+              "unresolved_coprime_a_count": 3,
+              "max_min_length_among_represented": 6
+            },
+            {
+              "b": 15,
+              "represented_coprime_a_count": 5,
+              "unresolved_coprime_a_count": 3,
+              "max_min_length_among_represented": 10
+            },
+            {
+              "b": 21,
+              "represented_coprime_a_count": 7,
+              "unresolved_coprime_a_count": 5,
+              "max_min_length_among_represented": 9
+            },
+            {
+              "b": 30,
+              "represented_coprime_a_count": 4,
+              "unresolved_coprime_a_count": 4,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 42,
+              "represented_coprime_a_count": 6,
+              "unresolved_coprime_a_count": 6,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 66,
+              "represented_coprime_a_count": 12,
+              "unresolved_coprime_a_count": 8,
+              "max_min_length_among_represented": 10
+            }
+          ]
+        },
+        "runtime_seconds": 1.92
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass2_10x_2026-03-05T14-04-51-313Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-306",
+        "script": "ep306.mjs",
+        "generated_utc": "2026-03-05T14:04:51.313Z",
+        "result": {
+          "description": "Deep finite representability profile for a/b using distinct semiprime denominators.",
+          "deep_passes": 60,
+          "semiprime_count_up_to_maxDen": 342,
+          "search_limits": {
+            "maxDen": 1200,
+            "kMax": 10
+          },
+          "rows": [
+            {
+              "b": 6,
+              "represented_coprime_a_count": 1,
+              "unresolved_coprime_a_count": 1,
+              "max_min_length_among_represented": 1
+            },
+            {
+              "b": 10,
+              "represented_coprime_a_count": 2,
+              "unresolved_coprime_a_count": 2,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 14,
+              "represented_coprime_a_count": 3,
+              "unresolved_coprime_a_count": 3,
+              "max_min_length_among_represented": 6
+            },
+            {
+              "b": 15,
+              "represented_coprime_a_count": 5,
+              "unresolved_coprime_a_count": 3,
+              "max_min_length_among_represented": 10
+            },
+            {
+              "b": 21,
+              "represented_coprime_a_count": 7,
+              "unresolved_coprime_a_count": 5,
+              "max_min_length_among_represented": 9
+            },
+            {
+              "b": 30,
+              "represented_coprime_a_count": 4,
+              "unresolved_coprime_a_count": 4,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 42,
+              "represented_coprime_a_count": 6,
+              "unresolved_coprime_a_count": 6,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 66,
+              "represented_coprime_a_count": 12,
+              "unresolved_coprime_a_count": 8,
+              "max_min_length_among_represented": 10
+            }
+          ]
+        },
+        "runtime_seconds": 11.69
+      }
     }
   ],
   "batch_split_integrations_from_head": {

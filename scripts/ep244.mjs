@@ -85,7 +85,7 @@ const out = {
 
 // EP-244: density of p + floor(C^k) in finite ranges.
 {
-  const X = 200000;
+  const X = 2000000;
   const { isPrime } = sieve(X);
 
   function shiftsForC(C, Xmax) {
@@ -130,17 +130,26 @@ const out = {
     };
   }
 
-  const rows = [1.3, Math.sqrt(2), (1 + Math.sqrt(5)) / 2, Math.PI, 2, 3].map(densityForC);
+  const deepPasses = 25;
+  let rows = [];
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    rows = [1.1, 1.15, 1.2, 1.3, Math.sqrt(2), (1 + Math.sqrt(5)) / 2, Math.PI, 2, 2.25, 2.5, 3].map(densityForC);
+  }
 
   out.results.ep244 = {
     description: 'Finite density profile for representations n = p + floor(C^k).',
     X,
+    deep_passes: deepPasses,
     rows,
   };
 }
 
 
-const single={problem:'EP-244',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep244};
-const OUT=process.env.OUT || path.join('data','ep244_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-244',out:OUT},null,2));
+const single = { problem: 'EP-244', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep244 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-244', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

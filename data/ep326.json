@@ -1,5 +1,132 @@
 {
   "problem": "EP-326",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep326.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:35:43.865Z",
+      "data": {
+        "problem": "EP-326",
+        "script": "ep326.mjs",
+        "method": "standalone_deep_pruning_search_for_irregular_quadratic_ratio_in_order2_subbases",
+        "params": {
+          "N_LIST": [
+            40000,
+            80000,
+            120000,
+            180000
+          ],
+          "RUNS": 70,
+          "STEPS": 120000,
+          "SEED": 3262026
+        },
+        "rows": [
+          {
+            "N": 40000,
+            "explicit_basis_size": 400,
+            "best_found": {
+              "basis_size": 399,
+              "coverage_missing_sums": 0,
+              "amplitude": 0.24504805714257338,
+              "std": 0.09816268589849188,
+              "score": 0.2941294000918193,
+              "tail_start_k": 139,
+              "tail_min_ratio": 0.00495037,
+              "tail_max_ratio": 0.24999843,
+              "tail_std_ratio": 0.09816269,
+              "sample_tail_values": [
+                38400,
+                38600,
+                38800,
+                39000,
+                39200,
+                39400,
+                39600,
+                39800
+              ]
+            }
+          },
+          {
+            "N": 80000,
+            "explicit_basis_size": 565,
+            "best_found": {
+              "basis_size": 565,
+              "coverage_missing_sums": 0,
+              "amplitude": 0.24649048842641721,
+              "std": 0.09868805384593902,
+              "score": 0.2958345153493867,
+              "tail_start_k": 197,
+              "tail_min_ratio": 0.00350873,
+              "tail_max_ratio": 0.24999922,
+              "tail_std_ratio": 0.09868805,
+              "sample_tail_values": [
+                77825,
+                78108,
+                78391,
+                78674,
+                78957,
+                79240,
+                79523,
+                79806
+              ]
+            }
+          },
+          {
+            "N": 120000,
+            "explicit_basis_size": 692,
+            "best_found": {
+              "basis_size": 692,
+              "coverage_missing_sums": 0,
+              "amplitude": 0.24713260587159372,
+              "std": 0.09888052965410052,
+              "score": 0.29657287069864396,
+              "tail_start_k": 242,
+              "tail_min_ratio": 0.00286531,
+              "tail_max_ratio": 0.24999791,
+              "tail_std_ratio": 0.09888053,
+              "sample_tail_values": [
+                117286,
+                117633,
+                117980,
+                118327,
+                118674,
+                119021,
+                119368,
+                119715
+              ]
+            }
+          },
+          {
+            "N": 180000,
+            "explicit_basis_size": 848,
+            "best_found": {
+              "basis_size": 848,
+              "coverage_missing_sums": 0,
+              "amplitude": 0.2476567019107042,
+              "std": 0.0991277923439038,
+              "score": 0.2972205980826561,
+              "tail_start_k": 296,
+              "tail_min_ratio": 0.00234191,
+              "tail_max_ratio": 0.24999861,
+              "tail_std_ratio": 0.09912779,
+              "sample_tail_values": [
+                176800,
+                177225,
+                177650,
+                178075,
+                178500,
+                178925,
+                179350,
+                179775
+              ]
+            }
+          }
+        ],
+        "runtime_seconds": 48.326,
+        "generated_utc": "2026-03-05T14:35:43.865Z"
+      },
+      "runtime_seconds": 48.326
+    }
+  ]
 }

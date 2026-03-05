@@ -111,6 +111,10 @@ const out = {
 
 
 const single={problem:'EP-195',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep195};
-const OUT=process.env.OUT || path.join('data','ep195_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-195',out:OUT},null,2));
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-195', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

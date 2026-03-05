@@ -5,6 +5,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, 'data');
+const NOTES_DIR = path.join(ROOT, 'notes');
 const README_PATH = path.join(ROOT, 'README.md');
 
 function readJson(filePath) {
@@ -20,6 +21,23 @@ function problemNum(problemLabel) {
   return m ? Number(m[1]) : Number.MAX_SAFE_INTEGER;
 }
 
+function inferClosureFromNote(id) {
+  const notePath = path.join(NOTES_DIR, `ep${id}.md`);
+  if (!fs.existsSync(notePath)) return 'open';
+  const text = fs.readFileSync(notePath, 'utf8');
+
+  const resolvedPatterns = [
+    /\btreat as resolved on the list\b/i,
+    /\bpage status is \*\*proved\*\*\b/i,
+    /\bproblem page now marks this as solved\b/i,
+    /\bresolved in background \(as written\)\b/i,
+    /\bresolved in the provided background\b/i,
+    /^#\s*EP-\d+\s+resolved in background\b/im,
+  ];
+  if (resolvedPatterns.some((re) => re.test(text))) return 'resolved';
+  return 'open';
+}
+
 function collectCanonical() {
   const files = fs.readdirSync(DATA_DIR).filter((f) => /^ep\d+\.json$/i.test(f));
   const rows = files.map((f) => {
@@ -27,7 +45,7 @@ function collectCanonical() {
     const id = Number(f.match(/\d+/)?.[0] || 0);
     const problem = obj.problem || `EP-${id}`;
     const title = obj.title || `Erdos Problem #${id}`;
-    const closure = obj.closure_state || 'open';
+    const closure = obj.closure_state || inferClosureFromNote(id);
     const progress = obj.progress_status || (Array.isArray(obj.computations) && obj.computations.length > 0 ? 'has_computation' : 'no_progress');
     const note = obj.progress_note || `Computations: ${(obj.computations || []).length}`;
 

@@ -85,7 +85,7 @@ const out = {
 
 // EP-256: max-product profile for candidate exponent sets.
 {
-  function maxLogProduct(exponents, grid = 2048) {
+  function maxLogProduct(exponents, grid = 8192) {
     let best = -Infinity;
     for (let t = 1; t <= grid; t += 1) {
       const theta = (2 * Math.PI * t) / (grid + 1);
@@ -106,7 +106,7 @@ const out = {
   }
 
   const rows = [];
-  for (const n of [8, 12, 16, 20, 24]) {
+  for (const n of [8, 12, 16, 20, 24, 28, 32, 40]) {
     const consec = Array.from({ length: n }, (_, i) => i + 1);
     const p2 = Array.from({ length: n }, (_, i) => 2 ** i);
 
@@ -114,9 +114,9 @@ const out = {
     const lp2 = maxLogProduct(p2);
 
     let bestRnd = Infinity;
-    for (let t = 0; t < 60; t += 1) {
+    for (let t = 0; t < 600; t += 1) {
       const ex = randomSet(n, 6 * n);
-      const v = maxLogProduct(ex, 1536);
+      const v = maxLogProduct(ex, 4096);
       if (v < bestRnd) bestRnd = v;
     }
 
@@ -124,7 +124,7 @@ const out = {
       n,
       log_max_product_consecutive: Number(lc.toFixed(6)),
       log_max_product_powers_of_2: Number(lp2.toFixed(6)),
-      min_log_max_product_random_60: Number(bestRnd.toFixed(6)),
+      min_log_max_product_random_600: Number(bestRnd.toFixed(6)),
     });
   }
 
@@ -135,7 +135,11 @@ const out = {
 }
 
 
-const single={problem:'EP-256',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep256};
-const OUT=process.env.OUT || path.join('data','ep256_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-256',out:OUT},null,2));
+const single = { problem: 'EP-256', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep256 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-256', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

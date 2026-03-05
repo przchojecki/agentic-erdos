@@ -1,5 +1,431 @@
 {
   "problem": "EP-327",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep327.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:37:26.973Z",
+      "data": {
+        "problem": "EP-327",
+        "script": "ep327.mjs",
+        "method": "exact_plus_deep_randomized_search_for_pairwise_divisibility_compatible_sets",
+        "params": {
+          "EXACT_N_LIST": [
+            30,
+            40,
+            50,
+            60,
+            70
+          ],
+          "HEUR_N_LIST": [
+            100,
+            150,
+            200,
+            300,
+            500,
+            800,
+            1200,
+            1800
+          ],
+          "RESTARTS": 450000,
+          "SEED": 3272026
+        },
+        "rows": [
+          {
+            "mode": "exact",
+            "variant": 1,
+            "N": 30,
+            "best_size": 2,
+            "ratio_over_N": 0.06666667,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              20,
+              30
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 1,
+            "N": 40,
+            "best_size": 2,
+            "ratio_over_N": 0.05,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              24,
+              40
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 1,
+            "N": 50,
+            "best_size": 2,
+            "ratio_over_N": 0.04,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              24,
+              48
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 1,
+            "N": 60,
+            "best_size": 3,
+            "ratio_over_N": 0.05,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              20,
+              30,
+              60
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "mode": "exact",
+            "variant": 1,
+            "N": 70,
+            "best_size": 3,
+            "ratio_over_N": 0.04285714,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              20,
+              30,
+              60
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 100,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.03,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              20,
+              30,
+              60
+            ],
+            "runtime_ms": 250
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 150,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.02,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              24,
+              40,
+              120
+            ],
+            "runtime_ms": 376
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 200,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.015,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              24,
+              120,
+              168
+            ],
+            "runtime_ms": 452
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 300,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.01,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              16,
+              48,
+              240
+            ],
+            "runtime_ms": 668
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 500,
+            "restarts": 450000,
+            "best_size": 4,
+            "ratio_over_N": 0.008,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              45,
+              90,
+              180,
+              360
+            ],
+            "runtime_ms": 1118
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 800,
+            "restarts": 450000,
+            "best_size": 4,
+            "ratio_over_N": 0.005,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              48,
+              144,
+              240,
+              720
+            ],
+            "runtime_ms": 1824
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 1200,
+            "restarts": 450000,
+            "best_size": 4,
+            "ratio_over_N": 0.00333333,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              135,
+              270,
+              540,
+              1080
+            ],
+            "runtime_ms": 2920
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 1,
+            "N": 1800,
+            "restarts": 450000,
+            "best_size": 5,
+            "ratio_over_N": 0.00277778,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              140,
+              210,
+              420,
+              840,
+              1260
+            ],
+            "runtime_ms": 4545
+          },
+          {
+            "mode": "exact",
+            "variant": 2,
+            "N": 30,
+            "best_size": 3,
+            "ratio_over_N": 0.1,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              10,
+              15,
+              30
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 2,
+            "N": 40,
+            "best_size": 3,
+            "ratio_over_N": 0.075,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              10,
+              15,
+              30
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 2,
+            "N": 50,
+            "best_size": 3,
+            "ratio_over_N": 0.06,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              10,
+              15,
+              30
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 2,
+            "N": 60,
+            "best_size": 3,
+            "ratio_over_N": 0.05,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              12,
+              36,
+              60
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "exact",
+            "variant": 2,
+            "N": 70,
+            "best_size": 3,
+            "ratio_over_N": 0.04285714,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              12,
+              36,
+              60
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 100,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.03,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              15,
+              30,
+              60
+            ],
+            "runtime_ms": 233
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 150,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.02,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              50,
+              75,
+              150
+            ],
+            "runtime_ms": 343
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 200,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.015,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              12,
+              20,
+              60
+            ],
+            "runtime_ms": 452
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 300,
+            "restarts": 450000,
+            "best_size": 3,
+            "ratio_over_N": 0.01,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              39,
+              130,
+              195
+            ],
+            "runtime_ms": 667
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 500,
+            "restarts": 450000,
+            "best_size": 4,
+            "ratio_over_N": 0.008,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              70,
+              210,
+              280,
+              420
+            ],
+            "runtime_ms": 1140
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 800,
+            "restarts": 450000,
+            "best_size": 5,
+            "ratio_over_N": 0.00625,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              70,
+              105,
+              210,
+              420,
+              630
+            ],
+            "runtime_ms": 1974
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 1200,
+            "restarts": 450000,
+            "best_size": 5,
+            "ratio_over_N": 0.00416667,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              70,
+              105,
+              210,
+              420,
+              630
+            ],
+            "runtime_ms": 3006
+          },
+          {
+            "mode": "heuristic_random_greedy",
+            "variant": 2,
+            "N": 1800,
+            "restarts": 450000,
+            "best_size": 5,
+            "ratio_over_N": 0.00277778,
+            "odd_count_ratio": 0.5,
+            "witness_prefix": [
+              180,
+              252,
+              420,
+              630,
+              1260
+            ],
+            "runtime_ms": 5070
+          }
+        ],
+        "runtime_seconds": 25.039,
+        "generated_utc": "2026-03-05T14:37:26.973Z"
+      },
+      "runtime_seconds": 25.039
+    }
+  ]
 }

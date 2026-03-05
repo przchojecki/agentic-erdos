@@ -98,6 +98,377 @@
           ]
         }
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_2026-03-05T10-12-05-540Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-233",
+        "script": "ep233.mjs",
+        "generated_utc": "2026-03-05T10:12:05.540Z",
+        "result": {
+          "description": "Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.",
+          "sieve_limit": 16000000,
+          "rows": [
+            {
+              "N": 10000,
+              "p_N": 104729,
+              "sum_d_n_sq": 1748249,
+              "ratio_over_N_logN_sq": 2.060876,
+              "ratio_over_N_logpN_sq": 1.308437
+            },
+            {
+              "N": 50000,
+              "p_N": 611953,
+              "sum_d_n_sq": 12311637,
+              "ratio_over_N_logN_sq": 2.103338,
+              "ratio_over_N_logpN_sq": 1.386915
+            },
+            {
+              "N": 100000,
+              "p_N": 1299709,
+              "sum_d_n_sq": 28095621,
+              "ratio_over_N_logN_sq": 2.119665,
+              "ratio_over_N_logpN_sq": 1.41768
+            },
+            {
+              "N": 200000,
+              "p_N": 2750159,
+              "sum_d_n_sq": 63463821,
+              "ratio_over_N_logN_sq": 2.129827,
+              "ratio_over_N_logpN_sq": 1.443377
+            },
+            {
+              "N": 500000,
+              "p_N": 7368787,
+              "sum_d_n_sq": 183881521,
+              "ratio_over_N_logN_sq": 2.135718,
+              "ratio_over_N_logpN_sq": 1.470796
+            },
+            {
+              "N": 800000,
+              "p_N": 12195257,
+              "sum_d_n_sq": 316072905,
+              "ratio_over_N_logN_sq": 2.138489,
+              "ratio_over_N_logpN_sq": 1.484022
+            },
+            {
+              "N": 1000000,
+              "p_N": 15485863,
+              "sum_d_n_sq": 408336929,
+              "ratio_over_N_logN_sq": 2.139364,
+              "ratio_over_N_logpN_sq": 1.489832
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass4_10x_2026-03-05T11-52-00-756Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-233",
+        "script": "ep233.mjs",
+        "generated_utc": "2026-03-05T11:52:00.756Z",
+        "result": {
+          "description": "Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.",
+          "sieve_limit": 100000000,
+          "deep_passes": 20,
+          "rows": [
+            {
+              "N": 10000,
+              "p_N": 104729,
+              "sum_d_n_sq": 1748249,
+              "ratio_over_N_logN_sq": 2.060876,
+              "ratio_over_N_logpN_sq": 1.308437
+            },
+            {
+              "N": 50000,
+              "p_N": 611953,
+              "sum_d_n_sq": 12311637,
+              "ratio_over_N_logN_sq": 2.103338,
+              "ratio_over_N_logpN_sq": 1.386915
+            },
+            {
+              "N": 100000,
+              "p_N": 1299709,
+              "sum_d_n_sq": 28095621,
+              "ratio_over_N_logN_sq": 2.119665,
+              "ratio_over_N_logpN_sq": 1.41768
+            },
+            {
+              "N": 200000,
+              "p_N": 2750159,
+              "sum_d_n_sq": 63463821,
+              "ratio_over_N_logN_sq": 2.129827,
+              "ratio_over_N_logpN_sq": 1.443377
+            },
+            {
+              "N": 500000,
+              "p_N": 7368787,
+              "sum_d_n_sq": 183881521,
+              "ratio_over_N_logN_sq": 2.135718,
+              "ratio_over_N_logpN_sq": 1.470796
+            },
+            {
+              "N": 800000,
+              "p_N": 12195257,
+              "sum_d_n_sq": 316072905,
+              "ratio_over_N_logN_sq": 2.138489,
+              "ratio_over_N_logpN_sq": 1.484022
+            },
+            {
+              "N": 1000000,
+              "p_N": 15485863,
+              "sum_d_n_sq": 408336929,
+              "ratio_over_N_logN_sq": 2.139364,
+              "ratio_over_N_logpN_sq": 1.489832
+            },
+            {
+              "N": 1500000,
+              "p_N": 23879519,
+              "sum_d_n_sq": 649572953,
+              "ratio_over_N_logN_sq": 2.141302,
+              "ratio_over_N_logpN_sq": 1.500462
+            },
+            {
+              "N": 2000000,
+              "p_N": 32452843,
+              "sum_d_n_sq": 901942001,
+              "ratio_over_N_logN_sq": 2.142368,
+              "ratio_over_N_logpN_sq": 1.507622
+            },
+            {
+              "N": 3000000,
+              "p_N": 49979687,
+              "sum_d_n_sq": 1430384037,
+              "ratio_over_N_logN_sq": 2.143562,
+              "ratio_over_N_logpN_sq": 1.517241
+            },
+            {
+              "N": 4000000,
+              "p_N": 67867967,
+              "sum_d_n_sq": 1983347097,
+              "ratio_over_N_logN_sq": 2.145598,
+              "ratio_over_N_logpN_sq": 1.524752
+            },
+            {
+              "N": 5000000,
+              "p_N": 86028121,
+              "sum_d_n_sq": 2554238045,
+              "ratio_over_N_logN_sq": 2.147059,
+              "ratio_over_N_logpN_sq": 1.530402
+            }
+          ]
+        },
+        "runtime_seconds": 1.45
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass5_10x_2026-03-05T11-52-24-210Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-233",
+        "script": "ep233.mjs",
+        "generated_utc": "2026-03-05T11:52:24.210Z",
+        "result": {
+          "description": "Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.",
+          "sieve_limit": 100000000,
+          "deep_passes": 160,
+          "rows": [
+            {
+              "N": 10000,
+              "p_N": 104729,
+              "sum_d_n_sq": 1748249,
+              "ratio_over_N_logN_sq": 2.060876,
+              "ratio_over_N_logpN_sq": 1.308437
+            },
+            {
+              "N": 50000,
+              "p_N": 611953,
+              "sum_d_n_sq": 12311637,
+              "ratio_over_N_logN_sq": 2.103338,
+              "ratio_over_N_logpN_sq": 1.386915
+            },
+            {
+              "N": 100000,
+              "p_N": 1299709,
+              "sum_d_n_sq": 28095621,
+              "ratio_over_N_logN_sq": 2.119665,
+              "ratio_over_N_logpN_sq": 1.41768
+            },
+            {
+              "N": 200000,
+              "p_N": 2750159,
+              "sum_d_n_sq": 63463821,
+              "ratio_over_N_logN_sq": 2.129827,
+              "ratio_over_N_logpN_sq": 1.443377
+            },
+            {
+              "N": 500000,
+              "p_N": 7368787,
+              "sum_d_n_sq": 183881521,
+              "ratio_over_N_logN_sq": 2.135718,
+              "ratio_over_N_logpN_sq": 1.470796
+            },
+            {
+              "N": 800000,
+              "p_N": 12195257,
+              "sum_d_n_sq": 316072905,
+              "ratio_over_N_logN_sq": 2.138489,
+              "ratio_over_N_logpN_sq": 1.484022
+            },
+            {
+              "N": 1000000,
+              "p_N": 15485863,
+              "sum_d_n_sq": 408336929,
+              "ratio_over_N_logN_sq": 2.139364,
+              "ratio_over_N_logpN_sq": 1.489832
+            },
+            {
+              "N": 1500000,
+              "p_N": 23879519,
+              "sum_d_n_sq": 649572953,
+              "ratio_over_N_logN_sq": 2.141302,
+              "ratio_over_N_logpN_sq": 1.500462
+            },
+            {
+              "N": 2000000,
+              "p_N": 32452843,
+              "sum_d_n_sq": 901942001,
+              "ratio_over_N_logN_sq": 2.142368,
+              "ratio_over_N_logpN_sq": 1.507622
+            },
+            {
+              "N": 3000000,
+              "p_N": 49979687,
+              "sum_d_n_sq": 1430384037,
+              "ratio_over_N_logN_sq": 2.143562,
+              "ratio_over_N_logpN_sq": 1.517241
+            },
+            {
+              "N": 4000000,
+              "p_N": 67867967,
+              "sum_d_n_sq": 1983347097,
+              "ratio_over_N_logN_sq": 2.145598,
+              "ratio_over_N_logpN_sq": 1.524752
+            },
+            {
+              "N": 5000000,
+              "p_N": 86028121,
+              "sum_d_n_sq": 2554238045,
+              "ratio_over_N_logN_sq": 2.147059,
+              "ratio_over_N_logpN_sq": 1.530402
+            }
+          ]
+        },
+        "runtime_seconds": 7.29
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass6_10x_2026-03-05T11-52-48-521Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-233",
+        "script": "ep233.mjs",
+        "generated_utc": "2026-03-05T11:52:48.521Z",
+        "result": {
+          "description": "Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.",
+          "sieve_limit": 100000000,
+          "deep_passes": 240,
+          "rows": [
+            {
+              "N": 10000,
+              "p_N": 104729,
+              "sum_d_n_sq": 1748249,
+              "ratio_over_N_logN_sq": 2.060876,
+              "ratio_over_N_logpN_sq": 1.308437
+            },
+            {
+              "N": 50000,
+              "p_N": 611953,
+              "sum_d_n_sq": 12311637,
+              "ratio_over_N_logN_sq": 2.103338,
+              "ratio_over_N_logpN_sq": 1.386915
+            },
+            {
+              "N": 100000,
+              "p_N": 1299709,
+              "sum_d_n_sq": 28095621,
+              "ratio_over_N_logN_sq": 2.119665,
+              "ratio_over_N_logpN_sq": 1.41768
+            },
+            {
+              "N": 200000,
+              "p_N": 2750159,
+              "sum_d_n_sq": 63463821,
+              "ratio_over_N_logN_sq": 2.129827,
+              "ratio_over_N_logpN_sq": 1.443377
+            },
+            {
+              "N": 500000,
+              "p_N": 7368787,
+              "sum_d_n_sq": 183881521,
+              "ratio_over_N_logN_sq": 2.135718,
+              "ratio_over_N_logpN_sq": 1.470796
+            },
+            {
+              "N": 800000,
+              "p_N": 12195257,
+              "sum_d_n_sq": 316072905,
+              "ratio_over_N_logN_sq": 2.138489,
+              "ratio_over_N_logpN_sq": 1.484022
+            },
+            {
+              "N": 1000000,
+              "p_N": 15485863,
+              "sum_d_n_sq": 408336929,
+              "ratio_over_N_logN_sq": 2.139364,
+              "ratio_over_N_logpN_sq": 1.489832
+            },
+            {
+              "N": 1500000,
+              "p_N": 23879519,
+              "sum_d_n_sq": 649572953,
+              "ratio_over_N_logN_sq": 2.141302,
+              "ratio_over_N_logpN_sq": 1.500462
+            },
+            {
+              "N": 2000000,
+              "p_N": 32452843,
+              "sum_d_n_sq": 901942001,
+              "ratio_over_N_logN_sq": 2.142368,
+              "ratio_over_N_logpN_sq": 1.507622
+            },
+            {
+              "N": 3000000,
+              "p_N": 49979687,
+              "sum_d_n_sq": 1430384037,
+              "ratio_over_N_logN_sq": 2.143562,
+              "ratio_over_N_logpN_sq": 1.517241
+            },
+            {
+              "N": 4000000,
+              "p_N": 67867967,
+              "sum_d_n_sq": 1983347097,
+              "ratio_over_N_logN_sq": 2.145598,
+              "ratio_over_N_logpN_sq": 1.524752
+            },
+            {
+              "N": 5000000,
+              "p_N": 86028121,
+              "sum_d_n_sq": 2554238045,
+              "ratio_over_N_logN_sq": 2.147059,
+              "ratio_over_N_logpN_sq": 1.530402
+            }
+          ]
+        },
+        "runtime_seconds": 10.25
+      }
     }
   ],
   "batch_split_integrations_from_head": {

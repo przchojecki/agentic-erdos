@@ -29,6 +29,84 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep322.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:14:22.478Z",
+      "data": {
+        "problem": "EP-322",
+        "script": "ep322.mjs",
+        "method": "standalone_exact_nondecreasing_kth_power_representation_enumeration",
+        "params": {
+          "N_LIST_K3": [
+            70000000,
+            120000000,
+            180000000
+          ],
+          "N_LIST_K4": [
+            60000000,
+            100000000
+          ],
+          "ALPHA_K3": 0.1,
+          "ALPHA_K4": 0.05
+        },
+        "rows": [
+          {
+            "k": 3,
+            "N": 70000000,
+            "basis_values_count": 412,
+            "max_representation_count": 11,
+            "argmax_n": 69190848,
+            "witness_count": 2045,
+            "exponent_alpha": 0.1,
+            "max_over_N_pow_alpha": 1.806687
+          },
+          {
+            "k": 3,
+            "N": 120000000,
+            "basis_values_count": 493,
+            "max_representation_count": 13,
+            "argmax_n": 119095488,
+            "witness_count": 2372,
+            "exponent_alpha": 0.1,
+            "max_over_N_pow_alpha": 2.023137
+          },
+          {
+            "k": 3,
+            "N": 180000000,
+            "basis_values_count": 564,
+            "max_representation_count": 13,
+            "argmax_n": 119095488,
+            "witness_count": 2765,
+            "exponent_alpha": 0.1,
+            "max_over_N_pow_alpha": 1.942746
+          },
+          {
+            "k": 4,
+            "N": 60000000,
+            "basis_values_count": 88,
+            "max_representation_count": 8,
+            "argmax_n": 13155858,
+            "witness_count": 28170,
+            "exponent_alpha": 0.05,
+            "max_over_N_pow_alpha": 3.26725
+          },
+          {
+            "k": 4,
+            "N": 100000000,
+            "basis_values_count": 100,
+            "max_representation_count": 8,
+            "argmax_n": 13155858,
+            "witness_count": 46605,
+            "exponent_alpha": 0.05,
+            "max_over_N_pow_alpha": 3.184857
+          }
+        ],
+        "runtime_seconds": 10.199,
+        "generated_utc": "2026-03-05T14:14:22.478Z"
+      },
+      "runtime_seconds": 10.199
     }
   ],
   "batch_split_integrations_from_head": {

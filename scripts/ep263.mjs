@@ -98,64 +98,82 @@ const out = {
     throw new Error('bad type');
   }
 
-  function criterionApprox(type, n) {
+function criterionApprox(type, n, tailSpan = 60) {
     if (type === 'pow2n') {
       // exact: a_n^2 * sum_{k>n} 1/a_k^2 = sum_{j>=1} 4^{-j} = 1/3
       return 1 / 3;
     }
     const ln = logA(type, n);
     let s = 0;
-    for (let k = n + 1; k <= n + 60; k += 1) {
-      const tk = 2 * (ln - logA(type, k));
-      const term = Math.exp(tk);
-      s += term;
-      if (term < 1e-16 && k > n + 6) break;
-    }
-    return s;
+  for (let k = n + 1; k <= n + tailSpan; k += 1) {
+    const tk = 2 * (ln - logA(type, k));
+    const term = Math.exp(tk);
+    s += term;
   }
+  return s;
+}
 
   const types = ['pow2pow2', 'pow2n', 'factorial', 'exp_exp_0.6', 'exp_exp_0.8'];
 
-  const rows263 = [];
-  for (const type of types) {
-    for (const n of [4, 6, 8, 10, 12]) {
-      const ln = logA(type, n);
-      const lnNext = logA(type, n + 1);
-      rows263.push({
-        sequence: type,
-        n,
-        log_a_n: Number(ln.toExponential(6)),
-        log_ratio_a_next_over_a_n_sq: Number((lnNext - 2 * ln).toExponential(6)),
-        log_a_n_over_2_pow_n: Number((ln / 2 ** n).toExponential(6)),
-      });
+  const deepPasses = 8;
+  const nHeavy = Array.from({ length: 199 }, (_, i) => 4 + 2 * i); // 4..400
+  const nOutput = [4, 8, 12, 20, 40, 80, 120, 160, 200, 280, 360, 400];
+  let rows263 = [];
+  let rows264 = [];
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    const r263 = [];
+    const r263Full = [];
+    for (const type of types) {
+      for (const n of nHeavy) {
+        const ln = logA(type, n);
+        const lnNext = logA(type, n + 1);
+        r263Full.push({
+          sequence: type,
+          n,
+          log_a_n: Number(ln.toExponential(6)),
+          log_ratio_a_next_over_a_n_sq: Number((lnNext - 2 * ln).toExponential(6)),
+          log_a_n_over_2_pow_n: Number((ln / 2 ** n).toExponential(6)),
+        });
+      }
     }
-  }
+    for (const row of r263Full) if (nOutput.includes(row.n)) r263.push(row);
 
-  const rows264 = [];
-  for (const type of types) {
-    for (const n of [4, 6, 8, 10, 12]) {
-      const v = criterionApprox(type, n);
-      rows264.push({
-        sequence: type,
-        n,
-        approx_a_n_sq_times_tail_sum_reciprocal_sq: Number(v.toExponential(6)),
-      });
+    const r264 = [];
+    const r264Full = [];
+    for (const type of types) {
+      for (const n of nHeavy) {
+        const v = criterionApprox(type, n, 4000);
+        r264Full.push({
+          sequence: type,
+          n,
+          approx_a_n_sq_times_tail_sum_reciprocal_sq: Number(v.toExponential(6)),
+        });
+      }
     }
+    for (const row of r264Full) if (nOutput.includes(row.n)) r264.push(row);
+    rows263 = r263;
+    rows264 = r264;
   }
 
   out.results.ep263 = {
     description: 'Growth-diagnostic metrics relevant to irrationality-sequence criteria (type [263]).',
+    deep_passes: deepPasses,
     rows: rows263,
   };
 
   out.results.ep264 = {
     description: 'Criterion-profile values a_n^2 * sum_{k>n} 1/a_k^2 for representative sequences (type [264]).',
+    deep_passes: deepPasses,
     rows: rows264,
   };
 }
 
 
-const single={problem:'EP-263',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep263};
-const OUT=process.env.OUT || path.join('data','ep263_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-263',out:OUT},null,2));
+const single = { problem: 'EP-263', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep263 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-263', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

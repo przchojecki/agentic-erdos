@@ -52,6 +52,156 @@
         ],
         "any_partition_found": false
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T13-49-41-034Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-274",
+        "script": "ep274.mjs",
+        "generated_utc": "2026-03-05T13:49:41.034Z",
+        "result": {
+          "description": "Deep exact-cover search in small cyclic groups for distinct-index coset partitions.",
+          "deep_passes": 120,
+          "rows": [
+            {
+              "n": 12,
+              "has_partition": false
+            },
+            {
+              "n": 14,
+              "has_partition": false
+            },
+            {
+              "n": 16,
+              "has_partition": false
+            },
+            {
+              "n": 18,
+              "has_partition": false
+            },
+            {
+              "n": 20,
+              "has_partition": false
+            },
+            {
+              "n": 24,
+              "has_partition": false
+            },
+            {
+              "n": 28,
+              "has_partition": false
+            },
+            {
+              "n": 30,
+              "has_partition": false
+            }
+          ],
+          "any_partition_found": false
+        },
+        "runtime_seconds": 0.06
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass2_10x_2026-03-05T13-50-01-834Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-274",
+        "script": "ep274.mjs",
+        "generated_utc": "2026-03-05T13:50:01.834Z",
+        "result": {
+          "description": "Deep exact-cover search in small cyclic groups for distinct-index coset partitions.",
+          "deep_passes": 20000,
+          "rows": [
+            {
+              "n": 12,
+              "has_partition": false
+            },
+            {
+              "n": 14,
+              "has_partition": false
+            },
+            {
+              "n": 16,
+              "has_partition": false
+            },
+            {
+              "n": 18,
+              "has_partition": false
+            },
+            {
+              "n": 20,
+              "has_partition": false
+            },
+            {
+              "n": 24,
+              "has_partition": false
+            },
+            {
+              "n": 28,
+              "has_partition": false
+            },
+            {
+              "n": 30,
+              "has_partition": false
+            }
+          ],
+          "any_partition_found": false
+        },
+        "runtime_seconds": 7.16
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass3_10x_2026-03-05T13-50-36-617Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-274",
+        "script": "ep274.mjs",
+        "generated_utc": "2026-03-05T13:50:36.617Z",
+        "result": {
+          "description": "Deep exact-cover search in small cyclic groups for distinct-index coset partitions.",
+          "deep_passes": 30000,
+          "rows": [
+            {
+              "n": 12,
+              "has_partition": false
+            },
+            {
+              "n": 14,
+              "has_partition": false
+            },
+            {
+              "n": 16,
+              "has_partition": false
+            },
+            {
+              "n": 18,
+              "has_partition": false
+            },
+            {
+              "n": 20,
+              "has_partition": false
+            },
+            {
+              "n": 24,
+              "has_partition": false
+            },
+            {
+              "n": 28,
+              "has_partition": false
+            },
+            {
+              "n": 30,
+              "has_partition": false
+            }
+          ],
+          "any_partition_found": false
+        },
+        "runtime_seconds": 10.35
+      }
     }
   ],
   "batch_split_integrations_from_head": {

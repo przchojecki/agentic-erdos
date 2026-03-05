@@ -28,6 +28,74 @@
           "prefix_tail_value": 29889361
         }
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T13-51-04-822Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-276",
+        "script": "ep276.mjs",
+        "generated_utc": "2026-03-05T13:51:04.822Z",
+        "result": {
+          "description": "Deep small-seed Lucas scan for long initial composite runs and gcd behavior.",
+          "deep_passes": 18,
+          "seed_range": [
+            4,
+            400
+          ],
+          "terms_tested": 48,
+          "best_overall": {
+            "a0": 16,
+            "a1": 345,
+            "composite_prefix_len": 48,
+            "gcd_prefix": 1,
+            "prefix_tail_value": 1054450190633
+          },
+          "best_with_prefix_gcd_1": {
+            "a0": 16,
+            "a1": 345,
+            "composite_prefix_len": 48,
+            "gcd_prefix": 1,
+            "prefix_tail_value": 1054450190633
+          }
+        },
+        "runtime_seconds": 10
+      }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass2_10x_2026-03-05T13-51-36-224Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-276",
+        "script": "ep276.mjs",
+        "generated_utc": "2026-03-05T13:51:36.224Z",
+        "result": {
+          "description": "Deep small-seed Lucas scan for long initial composite runs and gcd behavior.",
+          "deep_passes": 24,
+          "seed_range": [
+            4,
+            400
+          ],
+          "terms_tested": 48,
+          "best_overall": {
+            "a0": 16,
+            "a1": 345,
+            "composite_prefix_len": 48,
+            "gcd_prefix": 1,
+            "prefix_tail_value": 1054450190633
+          },
+          "best_with_prefix_gcd_1": {
+            "a0": 16,
+            "a1": 345,
+            "composite_prefix_len": 48,
+            "gcd_prefix": 1,
+            "prefix_tail_value": 1054450190633
+          }
+        },
+        "runtime_seconds": 12.87
+      }
     }
   ],
   "batch_split_integrations_from_head": {

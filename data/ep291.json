@@ -43,6 +43,55 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T14-03-17-263Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-291",
+        "script": "ep291.mjs",
+        "generated_utc": "2026-03-05T14:03:17.263Z",
+        "result": {
+          "description": "Deep exact BigInt profile of gcd(a_n, L_n) with harmonic numerator scaling.",
+          "deep_passes": 220,
+          "first_n_with_gcd_eq_1": 1,
+          "first_n_with_gcd_gt_1": 6,
+          "rows": [
+            {
+              "n": 200,
+              "coprime_count_up_to_n": 68,
+              "nontrivial_count_up_to_n": 132,
+              "coprime_density": 0.34
+            },
+            {
+              "n": 400,
+              "coprime_count_up_to_n": 104,
+              "nontrivial_count_up_to_n": 296,
+              "coprime_density": 0.26
+            },
+            {
+              "n": 600,
+              "coprime_count_up_to_n": 106,
+              "nontrivial_count_up_to_n": 494,
+              "coprime_density": 0.1766667
+            },
+            {
+              "n": 800,
+              "coprime_count_up_to_n": 106,
+              "nontrivial_count_up_to_n": 694,
+              "coprime_density": 0.1325
+            },
+            {
+              "n": 1000,
+              "coprime_count_up_to_n": 145,
+              "nontrivial_count_up_to_n": 855,
+              "coprime_density": 0.145
+            }
+          ]
+        },
+        "runtime_seconds": 12.99
+      }
     }
   ],
   "batch_split_integrations_from_head": {

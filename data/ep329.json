@@ -173,6 +173,159 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep329.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:39:06.808Z",
+      "data": {
+        "problem": "EP-329",
+        "script": "ep329.mjs",
+        "method": "standalone_deterministic_vs_deep_randomized_affine_order_sidon_search",
+        "params": {
+          "N_LIST": [
+            120000,
+            250000,
+            500000,
+            800000
+          ],
+          "RESTARTS": 180,
+          "SEED": 3292026
+        },
+        "rows": [
+          {
+            "N": 120000,
+            "restarts": 180,
+            "deterministic_size": 174,
+            "deterministic_ratio_over_sqrtN": 0.50229473,
+            "randomized_best_size": 172,
+            "randomized_best_ratio_over_sqrtN": 0.49652123,
+            "randomized_gain": -2,
+            "randomized_first_20_terms": [
+              745,
+              964,
+              1167,
+              1169,
+              1346,
+              1384,
+              1721,
+              2185,
+              2355,
+              2529,
+              2827,
+              3107,
+              3162,
+              3866,
+              3905,
+              4659,
+              4769,
+              5419,
+              6127,
+              6286
+            ],
+            "runtime_ms": 1204
+          },
+          {
+            "N": 250000,
+            "restarts": 180,
+            "deterministic_size": 229,
+            "deterministic_ratio_over_sqrtN": 0.458,
+            "randomized_best_size": 225,
+            "randomized_best_ratio_over_sqrtN": 0.45,
+            "randomized_gain": -4,
+            "randomized_first_20_terms": [
+              583,
+              3636,
+              3968,
+              4232,
+              4243,
+              4524,
+              4630,
+              5019,
+              5232,
+              5606,
+              6091,
+              8529,
+              8865,
+              9232,
+              10457,
+              10623,
+              11841,
+              12193,
+              12372,
+              13441
+            ],
+            "runtime_ms": 2895
+          },
+          {
+            "N": 500000,
+            "restarts": 180,
+            "deterministic_size": 296,
+            "deterministic_ratio_over_sqrtN": 0.41860721,
+            "randomized_best_size": 290,
+            "randomized_best_ratio_over_sqrtN": 0.41012193,
+            "randomized_gain": -6,
+            "randomized_first_20_terms": [
+              631,
+              819,
+              2526,
+              3414,
+              4323,
+              4756,
+              5120,
+              7873,
+              8650,
+              9642,
+              10121,
+              10680,
+              14276,
+              15050,
+              15157,
+              15222,
+              17832,
+              18237,
+              18722,
+              19475
+            ],
+            "runtime_ms": 6821
+          },
+          {
+            "N": 800000,
+            "restarts": 180,
+            "deterministic_size": 352,
+            "deterministic_ratio_over_sqrtN": 0.39354796,
+            "randomized_best_size": 345,
+            "randomized_best_ratio_over_sqrtN": 0.38572173,
+            "randomized_gain": -7,
+            "randomized_first_20_terms": [
+              659,
+              1109,
+              1667,
+              3364,
+              4395,
+              5007,
+              5274,
+              6845,
+              8756,
+              10295,
+              10788,
+              12072,
+              12315,
+              13177,
+              14002,
+              15619,
+              16436,
+              16849,
+              18095,
+              18633
+            ],
+            "runtime_ms": 11875
+          }
+        ],
+        "runtime_seconds": 22.795,
+        "generated_utc": "2026-03-05T14:39:06.808Z"
+      },
+      "runtime_seconds": 22.795
     }
   ],
   "batch_split_integrations_from_head": {

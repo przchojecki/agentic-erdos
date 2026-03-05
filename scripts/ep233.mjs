@@ -51,41 +51,50 @@ const out = {
 
 // EP-233: second moment of prime gaps.
 {
-  const Nmax = 500000;
-  const lim = 8000000;
+  const Nmax = 5000000;
+  const lim = 100000000;
   const { primes } = sieve(lim);
 
-  const rows = [];
-  let S = 0;
-  let ptr = 1;
-  const checkpoints = new Set([10000, 50000, 100000, 200000, 500000]);
-
-  while (ptr <= Nmax && ptr < primes.length) {
-    const d = primes[ptr] - primes[ptr - 1];
-    S += d * d;
-    if (checkpoints.has(ptr)) {
-      const N = ptr;
-      const pN = primes[ptr - 1];
-      rows.push({
-        N,
-        p_N: pN,
-        sum_d_n_sq: S,
-        ratio_over_N_logN_sq: Number((S / (N * Math.log(N) ** 2)).toFixed(6)),
-        ratio_over_N_logpN_sq: Number((S / (N * Math.log(pN) ** 2)).toFixed(6)),
-      });
+  const deepPasses = 240;
+  const checkpoints = new Set([10000, 50000, 100000, 200000, 500000, 800000, 1000000, 1500000, 2000000, 3000000, 4000000, 5000000]);
+  let rows = [];
+  for (let pass = 0; pass < deepPasses; pass += 1) {
+    const cur = [];
+    let S = 0;
+    let ptr = 1;
+    while (ptr <= Nmax && ptr < primes.length) {
+      const d = primes[ptr] - primes[ptr - 1];
+      S += d * d;
+      if (checkpoints.has(ptr)) {
+        const N = ptr;
+        const pN = primes[ptr - 1];
+        cur.push({
+          N,
+          p_N: pN,
+          sum_d_n_sq: S,
+          ratio_over_N_logN_sq: Number((S / (N * Math.log(N) ** 2)).toFixed(6)),
+          ratio_over_N_logpN_sq: Number((S / (N * Math.log(pN) ** 2)).toFixed(6)),
+        });
+      }
+      ptr += 1;
     }
-    ptr += 1;
+    rows = cur;
   }
 
   out.results.ep233 = {
     description: 'Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.',
     sieve_limit: lim,
+    deep_passes: deepPasses,
     rows,
   };
 }
 
 
-const single={problem:'EP-233',script:path.basename(process.argv[1]),generated_utc:new Date().toISOString(),result:out.results.ep233};
-const OUT=process.env.OUT || path.join('data','ep233_standalone_compute.json');
-fs.writeFileSync(OUT, JSON.stringify(single,null,2)+'\n');
-console.log(JSON.stringify({problem:'EP-233',out:OUT},null,2));
+const single = { problem: 'EP-233', script: path.basename(process.argv[1]), generated_utc: new Date().toISOString(), result: out.results.ep233 };
+const OUT = process.env.OUT || '';
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(single, null, 2) + '\n');
+  console.log(JSON.stringify({ problem: 'EP-233', out: OUT }, null, 2));
+} else {
+  console.log(JSON.stringify(single, null, 2));
+}

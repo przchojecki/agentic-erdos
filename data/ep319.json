@@ -109,6 +109,257 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep319.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:09:42.540Z",
+      "data": {
+        "problem": "EP-319",
+        "script": "ep319.mjs",
+        "method": "standalone_deep_randomized_egyptian_split_search",
+        "params": {
+          "N_LIST": [
+            100,
+            140,
+            180,
+            240,
+            320,
+            420,
+            560
+          ],
+          "ROUNDS": 360000,
+          "SEED": 3192026
+        },
+        "rows": [
+          {
+            "N": 100,
+            "rounds": 360000,
+            "best_B_size_found": 10,
+            "implied_A_size_lower_bound": 11,
+            "implied_A_over_N": 0.11,
+            "best_B": [
+              2,
+              6,
+              10,
+              12,
+              20,
+              30,
+              42,
+              56,
+              72,
+              90
+            ],
+            "histogram_tail": [
+              {
+                "size": 10,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          },
+          {
+            "N": 140,
+            "rounds": 360000,
+            "best_B_size_found": 9,
+            "implied_A_size_lower_bound": 10,
+            "implied_A_over_N": 0.0714286,
+            "best_B": [
+              2,
+              3,
+              12,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132
+            ],
+            "histogram_tail": [
+              {
+                "size": 9,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          },
+          {
+            "N": 180,
+            "rounds": 360000,
+            "best_B_size_found": 13,
+            "implied_A_size_lower_bound": 14,
+            "implied_A_over_N": 0.0777778,
+            "best_B": [
+              2,
+              6,
+              12,
+              13,
+              20,
+              30,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132,
+              156
+            ],
+            "histogram_tail": [
+              {
+                "size": 13,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          },
+          {
+            "N": 240,
+            "rounds": 360000,
+            "best_B_size_found": 16,
+            "implied_A_size_lower_bound": 17,
+            "implied_A_over_N": 0.0708333,
+            "best_B": [
+              2,
+              6,
+              12,
+              16,
+              20,
+              30,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132,
+              156,
+              182,
+              210,
+              240
+            ],
+            "histogram_tail": [
+              {
+                "size": 16,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          },
+          {
+            "N": 320,
+            "rounds": 360000,
+            "best_B_size_found": 18,
+            "implied_A_size_lower_bound": 19,
+            "implied_A_over_N": 0.059375,
+            "best_B": [
+              2,
+              6,
+              12,
+              18,
+              20,
+              30,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132,
+              156,
+              182,
+              210,
+              240,
+              272,
+              306
+            ],
+            "histogram_tail": [
+              {
+                "size": 18,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          },
+          {
+            "N": 420,
+            "rounds": 360000,
+            "best_B_size_found": 21,
+            "implied_A_size_lower_bound": 22,
+            "implied_A_over_N": 0.052381,
+            "best_B": [
+              2,
+              6,
+              12,
+              20,
+              21,
+              30,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132,
+              156,
+              182,
+              210,
+              240,
+              272,
+              306,
+              342,
+              380,
+              420
+            ],
+            "histogram_tail": [
+              {
+                "size": 21,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          },
+          {
+            "N": 560,
+            "rounds": 360000,
+            "best_B_size_found": 24,
+            "implied_A_size_lower_bound": 25,
+            "implied_A_over_N": 0.0446429,
+            "best_B": [
+              2,
+              6,
+              12,
+              20,
+              24,
+              30,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132,
+              156,
+              182,
+              210,
+              240,
+              272,
+              306,
+              342,
+              380,
+              420,
+              462,
+              506,
+              552
+            ],
+            "histogram_tail": [
+              {
+                "size": 24,
+                "count": 360000,
+                "freq": 1
+              }
+            ]
+          }
+        ],
+        "runtime_seconds": 15.692,
+        "generated_utc": "2026-03-05T14:09:42.540Z"
+      },
+      "runtime_seconds": 15.692
     }
   ],
   "batch_split_integrations_from_head": {

@@ -444,6 +444,35 @@
           "prime_count": 78
         }
       }
+    },
+    {
+      "source_file": "standalone_onebyone_deep_pass1_10x_2026-03-05T13-54-02-684Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-279",
+        "script": "ep279.mjs",
+        "generated_utc": "2026-03-05T13:54:02.684Z",
+        "result": {
+          "method": "randomized_greedy_finite_prefix_cover_with_t_ge_k",
+          "params": {
+            "K": 3,
+            "N": 1200000,
+            "P_MAX": 420,
+            "RESTARTS": 360,
+            "seed": 2792026
+          },
+          "prime_count": 81,
+          "best_restart": {
+            "restart": 328,
+            "covered_count": 1090155,
+            "uncovered_count": 109845,
+            "covered_ratio": 0.9084625,
+            "tail_covered_ratio": 0.9084577
+          }
+        },
+        "runtime_seconds": 128.49
+      }
     }
   ],
   "batch_script_integrations": {

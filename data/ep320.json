@@ -60,6 +60,249 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep320.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:12:24.431Z",
+      "data": {
+        "problem": "EP-320",
+        "script": "ep320.mjs",
+        "method": "exact_subset_sum_count_over_common_lcm_progressive_dp",
+        "params": {
+          "N_MAX": 30,
+          "N_MIN_REPORT": 8,
+          "SNAPSHOT_N": [
+            20,
+            24,
+            28,
+            30
+          ]
+        },
+        "rows": [
+          {
+            "N": 8,
+            "S_N": 208,
+            "lcm_digits": 3,
+            "log_S_N": 5.33753808,
+            "log_S_over_N_over_logN": 1.387387,
+            "runtime_ms": 0
+          },
+          {
+            "N": 9,
+            "S_N": 416,
+            "lcm_digits": 4,
+            "log_S_N": 6.03068526,
+            "log_S_over_N_over_logN": 1.472308,
+            "runtime_ms": 0
+          },
+          {
+            "N": 10,
+            "S_N": 832,
+            "lcm_digits": 4,
+            "log_S_N": 6.72383244,
+            "log_S_over_N_over_logN": 1.54822,
+            "runtime_ms": 0
+          },
+          {
+            "N": 11,
+            "S_N": 1664,
+            "lcm_digits": 5,
+            "log_S_N": 7.41697962,
+            "log_S_over_N_over_logN": 1.616831,
+            "runtime_ms": 0
+          },
+          {
+            "N": 12,
+            "S_N": 1856,
+            "lcm_digits": 5,
+            "log_S_N": 7.52617891,
+            "log_S_over_N_over_logN": 1.558488,
+            "runtime_ms": 1
+          },
+          {
+            "N": 13,
+            "S_N": 3712,
+            "lcm_digits": 6,
+            "log_S_N": 8.21932609,
+            "log_S_over_N_over_logN": 1.621704,
+            "runtime_ms": 0
+          },
+          {
+            "N": 14,
+            "S_N": 7424,
+            "lcm_digits": 6,
+            "log_S_N": 8.91247327,
+            "log_S_over_N_over_logN": 1.680038,
+            "runtime_ms": 0
+          },
+          {
+            "N": 15,
+            "S_N": 9664,
+            "lcm_digits": 6,
+            "log_S_N": 9.17616292,
+            "log_S_over_N_over_logN": 1.656634,
+            "runtime_ms": 1
+          },
+          {
+            "N": 16,
+            "S_N": 19328,
+            "lcm_digits": 6,
+            "log_S_N": 9.8693101,
+            "log_S_over_N_over_logN": 1.710221,
+            "runtime_ms": 1
+          },
+          {
+            "N": 17,
+            "S_N": 38656,
+            "lcm_digits": 8,
+            "log_S_N": 10.56245728,
+            "log_S_over_N_over_logN": 1.760335,
+            "runtime_ms": 3
+          },
+          {
+            "N": 18,
+            "S_N": 59264,
+            "lcm_digits": 8,
+            "log_S_N": 10.98975732,
+            "log_S_over_N_over_logN": 1.764694,
+            "runtime_ms": 3
+          },
+          {
+            "N": 19,
+            "S_N": 118528,
+            "lcm_digits": 9,
+            "log_S_N": 11.6829045,
+            "log_S_over_N_over_logN": 1.810505,
+            "runtime_ms": 10
+          },
+          {
+            "N": 20,
+            "S_N": 126976,
+            "lcm_digits": 9,
+            "log_S_N": 11.75175337,
+            "log_S_over_N_over_logN": 1.760255,
+            "runtime_ms": 8
+          },
+          {
+            "N": 21,
+            "S_N": 224128,
+            "lcm_digits": 9,
+            "log_S_N": 12.3199726,
+            "log_S_over_N_over_logN": 1.786116,
+            "runtime_ms": 14
+          },
+          {
+            "N": 22,
+            "S_N": 448256,
+            "lcm_digits": 9,
+            "log_S_N": 13.01311978,
+            "log_S_over_N_over_logN": 1.828368,
+            "runtime_ms": 27
+          },
+          {
+            "N": 23,
+            "S_N": 896512,
+            "lcm_digits": 10,
+            "log_S_N": 13.70626696,
+            "log_S_over_N_over_logN": 1.868518,
+            "runtime_ms": 105
+          },
+          {
+            "N": 24,
+            "S_N": 936832,
+            "lcm_digits": 10,
+            "log_S_N": 13.75025925,
+            "log_S_over_N_over_logN": 1.820794,
+            "runtime_ms": 138
+          },
+          {
+            "N": 25,
+            "S_N": 1873664,
+            "lcm_digits": 11,
+            "log_S_N": 14.44340643,
+            "log_S_over_N_over_logN": 1.859661,
+            "runtime_ms": 254
+          },
+          {
+            "N": 26,
+            "S_N": 3747328,
+            "lcm_digits": 11,
+            "log_S_N": 15.13655361,
+            "log_S_over_N_over_logN": 1.896783,
+            "runtime_ms": 674
+          },
+          {
+            "N": 27,
+            "S_N": 7494656,
+            "lcm_digits": 11,
+            "log_S_N": 15.82970079,
+            "log_S_over_N_over_logN": 1.9323,
+            "runtime_ms": 1545
+          },
+          {
+            "N": 28,
+            "S_N": 7771136,
+            "lcm_digits": 11,
+            "log_S_N": 15.86592692,
+            "log_S_over_N_over_logN": 1.888161,
+            "runtime_ms": 1907
+          },
+          {
+            "N": 29,
+            "S_N": 15542272,
+            "lcm_digits": 13,
+            "log_S_N": 16.5590741,
+            "log_S_over_N_over_logN": 1.922735,
+            "runtime_ms": 3903
+          },
+          {
+            "N": 30,
+            "S_N": 15886336,
+            "lcm_digits": 13,
+            "log_S_N": 16.58096993,
+            "log_S_over_N_over_logN": 1.879838,
+            "runtime_ms": 4829
+          }
+        ],
+        "snapshots": [
+          {
+            "N": 20,
+            "S_N": 126976,
+            "lcm_digits": 9,
+            "log_S_N": 11.75175337,
+            "log_S_over_N_over_logN": 1.760255,
+            "runtime_ms": 8
+          },
+          {
+            "N": 24,
+            "S_N": 936832,
+            "lcm_digits": 10,
+            "log_S_N": 13.75025925,
+            "log_S_over_N_over_logN": 1.820794,
+            "runtime_ms": 138
+          },
+          {
+            "N": 28,
+            "S_N": 7771136,
+            "lcm_digits": 11,
+            "log_S_N": 15.86592692,
+            "log_S_over_N_over_logN": 1.888161,
+            "runtime_ms": 1907
+          },
+          {
+            "N": 30,
+            "S_N": 15886336,
+            "lcm_digits": 13,
+            "log_S_N": 16.58096993,
+            "log_S_over_N_over_logN": 1.879838,
+            "runtime_ms": 4829
+          }
+        ],
+        "runtime_seconds": 13.423,
+        "generated_utc": "2026-03-05T14:12:24.431Z"
+      },
+      "runtime_seconds": 13.423
     }
   ],
   "batch_split_integrations_from_head": {
