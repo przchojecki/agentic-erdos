@@ -4,193 +4,68 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const TO_CHECK_PATH = path.join(ROOT, 'data', 'erdos_to_check_ranked_with_deep_attempts_top20.jsonl');
-const HARDER_PATH = path.join(ROOT, 'data', 'erdos_harder.jsonl');
+const DATA_DIR = path.join(ROOT, 'data');
 const README_PATH = path.join(ROOT, 'README.md');
-const CSV_PATH = path.join(ROOT, 'data', 'all_problems_progress.csv');
 
-function readJsonl(filePath) {
-  const raw = fs.readFileSync(filePath, 'utf8').trim();
-  if (!raw) return [];
-  return raw
-    .split(/\r?\n/)
-    .filter((line) => line.trim().length > 0)
-    .map((line) => JSON.parse(line));
-}
-
-function numFromProblem(problemNumber) {
-  const m = String(problemNumber || '').match(/\d+/);
-  return m ? Number(m[0]) : Number.MAX_SAFE_INTEGER;
-}
-
-function cleanText(v) {
-  return String(v ?? '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function truncate(v, n = 180) {
-  const s = cleanText(v);
-  if (s.length <= n) return s;
-  return `${s.slice(0, n - 1)}…`;
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 function mdEscape(v) {
-  return String(v ?? '')
-    .replace(/\|/g, '\\|')
-    .replace(/\r?\n/g, ' ');
+  return String(v ?? '').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
 }
 
-function csvEscape(v) {
-  const s = String(v ?? '');
-  return `"${s.replaceAll('"', '""')}"`;
+function problemNum(problemLabel) {
+  const m = String(problemLabel || '').match(/(\d+)/);
+  return m ? Number(m[1]) : Number.MAX_SAFE_INTEGER;
 }
 
-function firstNonEmpty(obj, keys) {
-  for (const k of keys) {
-    const v = obj?.[k];
-    if (v != null && String(v).trim() !== '') return v;
-  }
-  return '';
-}
+function collectCanonical() {
+  const files = fs.readdirSync(DATA_DIR).filter((f) => /^ep\d+\.json$/i.test(f));
+  const rows = files.map((f) => {
+    const obj = readJson(path.join(DATA_DIR, f));
+    const id = Number(f.match(/\d+/)?.[0] || 0);
+    const problem = obj.problem || `EP-${id}`;
+    const title = obj.title || `Erdos Problem #${id}`;
+    const closure = obj.closure_state || 'open';
+    const progress = obj.progress_status || (Array.isArray(obj.computations) && obj.computations.length > 0 ? 'has_computation' : 'no_progress');
+    const note = obj.progress_note || `Computations: ${(obj.computations || []).length}`;
 
-function extractHardPointSentence(background) {
-  const text = cleanText(background);
-  if (!text) return '';
-  const sentences = text.split(/(?<=[.!?])\s+/);
-  const signal =
-    /(not known|unknown|open|current record|best known|best bound|it is known|proved|conjecture|sufficient|implies|gap|bound)/i;
-  const candidate = sentences.find((s) => signal.test(s));
-  return candidate ? cleanText(candidate) : '';
-}
-
-function repairEllipsisNote(record, note) {
-  // Treat only trailing ellipses as truncation signals.
-  // Mid-sentence "..." can appear in valid mathematical notation.
-  const hasEllipsis = /(?:…|\.\.\.)\s*$/.test(note);
-  if (!hasEllipsis) return note;
-
-  const hard = extractHardPointSentence(record.background);
-  const strategy = cleanText(record.proof_attempt_strategy || '');
-
-  if (strategy && hard) return `${strategy} Hard point: ${hard}`;
-  if (hard) return `Hard point: ${hard}`;
-
-  return note.replace(/…|\.\.\./g, '');
-}
-
-function deriveProgress(record) {
-  const statusKeys = [
-    'deep_attempt_v4_status',
-    'deep_attempt_v3_status',
-    'deep_attempt_v2_status',
-    'deep_attempt_status',
-    'proof_attempt_status',
-  ];
-  const noteKeys = [
-    'deep_attempt_v4_result',
-    'deep_attempt_v4_caveat',
-    'deep_attempt_v3_result',
-    'deep_attempt_v3_obstacle',
-    'deep_attempt_v2_result',
-    'deep_attempt_v2_obstacle',
-    'deep_attempt_route',
-    'deep_attempt_note',
-    'proof_attempt_concise',
-  ];
-
-  const explicitStatus = firstNonEmpty(record, statusKeys);
-  const status = explicitStatus || (record.classification === 'harder' ? 'deprioritized_post2000_refs' : 'unattempted');
-
-  const explicitNote = firstNonEmpty(record, noteKeys);
-  const note =
-    explicitNote ||
-    (record.classification === 'harder'
-      ? 'Triaged as harder due to reference activity after 2000.'
-      : 'No detailed attempt recorded yet.');
-
-  const cleaned = cleanText(note);
-  return { status: cleanText(status), note: repairEllipsisNote(record, cleaned) };
-}
-
-function deriveClosureState(record, statusOverride = '') {
-  const explicit = cleanText(record.closure_state).toLowerCase();
-  if (explicit === 'open' || explicit === 'counterexample' || explicit === 'resolved' || explicit === 'dataset_issue') {
-    return explicit;
-  }
-
-  const status = cleanText(statusOverride || deriveProgress(record).status).toLowerCase();
-
-  if (
-    status.includes('statement_issue_malformed_dataset_entry') ||
-    status.includes('statement_issue_likely_malformed_as_written')
-  ) {
-    return 'dataset_issue';
-  }
-  if (
-    status.includes('counterexample_proved_as_written') ||
-    status.includes('statement_issue_counterexample_in_background') ||
-    status.includes('explicit_small_n_counterexample_written_asymptotic_open') ||
-    status.includes('original_form_false') ||
-    status.includes('false_as_written')
-  ) {
-    return 'counterexample';
-  }
-  if (status === 'resolved_in_background_as_written') return 'resolved';
-
-  return 'open';
-}
-
-function statusSummary(records) {
-  const map = new Map();
-  for (const r of records) {
-    const { status } = deriveProgress(r);
-    map.set(status, (map.get(status) || 0) + 1);
-  }
-  return [...map.entries()].sort((a, b) => b[1] - a[1]);
-}
-
-function buildRows(records) {
-  return records.map((r) => {
-    const progress = deriveProgress(r);
-    const closureState = deriveClosureState(r, progress.status);
     return {
-      problem_number: r.problem_number,
-      title: cleanText(r.title),
-      classification: r.classification || '',
-      to_check_rank: r.to_check_rank ?? '',
-      latest_reference_year: r.latest_reference_year ?? '',
-      closure_state: closureState,
-      status: progress.status,
-      note: progress.note,
+      problem_number: problem,
+      title,
+      classification: obj.classification || 'to-check',
+      to_check_rank: obj.to_check_rank ?? '',
+      latest_reference_year: obj.latest_reference_year ?? '',
+      closure_state: closure,
+      status: progress,
+      note,
     };
   });
+
+  rows.sort((a, b) => problemNum(a.problem_number) - problemNum(b.problem_number));
+  return rows;
 }
 
-function buildReadme(records, rows) {
-  const total = records.length;
-  const toCheck = records.filter((r) => r.classification === 'to-check').length;
-  const harder = records.filter((r) => r.classification === 'harder').length;
-  const deepAttempted = records.filter((r) => r.deep_attempt_done === true).length;
-  const withAnyAttempt = records.filter((r) => {
-    const { status } = deriveProgress(r);
-    return status !== 'deprioritized_post2000_refs' && status !== 'unattempted';
-  }).length;
+function buildReadme(rows) {
+  const total = rows.length;
+  const toCheck = rows.filter((r) => r.classification === 'to-check').length;
+  const harder = rows.filter((r) => r.classification === 'harder').length;
+
   const closureCounts = { open: 0, counterexample: 0, resolved: 0, dataset_issue: 0 };
-  for (const r of records) {
-    const { status } = deriveProgress(r);
-    const closureState = deriveClosureState(r, status);
-    closureCounts[closureState] = (closureCounts[closureState] || 0) + 1;
+  for (const r of rows) {
+    const c = String(r.closure_state || 'open');
+    if (closureCounts[c] != null) closureCounts[c] += 1;
+    else closureCounts.open += 1;
   }
 
-  const statuses = statusSummary(records).slice(0, 15);
-  const summaryLines = statuses.map(([status, count]) => `- \`${status}\`: ${count}`).join('\n');
-  const closureLines = [
-    `- \`open\`: ${closureCounts.open || 0}`,
-    `- \`counterexample\`: ${closureCounts.counterexample || 0}`,
-    `- \`resolved\`: ${closureCounts.resolved || 0}`,
-    `- \`dataset_issue\`: ${closureCounts.dataset_issue || 0}`,
-  ].join('\n');
+  const statusMap = new Map();
+  for (const r of rows) statusMap.set(r.status, (statusMap.get(r.status) || 0) + 1);
+  const statusLines = [...statusMap.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 20)
+    .map(([s, c]) => `- \`${s}\`: ${c}`)
+    .join('\n');
 
   const tableHeader =
     '| Problem | Title | Bucket | Rank | Latest Ref | Closure | Progress | Note |\n|---|---|---:|---:|---:|---|---|---|';
@@ -206,43 +81,39 @@ function buildReadme(records, rows) {
     .join('\n');
 
   const now = new Date().toISOString();
+
   return `# Agentic Erdős
 
-Tracking repository for experimental progress on Erdős problems from the \`ulamai/UnsolvedMath\` dataset subset we downloaded locally.
+Tracking repository for experimental progress on Erdős problems from the local canonical per-problem files.
 
 ## Scope
 
 - Total problems tracked: **${total}**
 - Triaged as \`to-check\`: **${toCheck}**
-- Triaged as \`harder\` (post-2000 reference signal): **${harder}**
-- Records with deep-attempt workflow initialized: **${deepAttempted}**
-- Records with at least one explicit attempt/progress status: **${withAnyAttempt}**
-- Open statements (\`closure_state=open\`): **${closureCounts.open || 0}**
-- Counterexamples established (\`closure_state=counterexample\`): **${closureCounts.counterexample || 0}**
-- Resolved as written (\`closure_state=resolved\`): **${closureCounts.resolved || 0}**
-- Dataset issues (\`closure_state=dataset_issue\`): **${closureCounts.dataset_issue || 0}**
+- Triaged as \`harder\`: **${harder}**
 - README last generated (UTC): **${now}**
 
 ## Closure State Counts
 
-${closureLines}
+- \`open\`: ${closureCounts.open}
+- \`counterexample\`: ${closureCounts.counterexample}
+- \`resolved\`: ${closureCounts.resolved}
+- \`dataset_issue\`: ${closureCounts.dataset_issue}
 
 ## Progress Status Counts
 
-${summaryLines}
+${statusLines}
 
 ## Data and Notes
 
-- Main merged progress source: \`data/erdos_to_check_ranked_with_deep_attempts_top20.jsonl\` + \`data/erdos_harder.jsonl\`
-- CSV export of table below: \`data/all_problems_progress.csv\`
-- Attempt notes directory: \`notes/\`
-- Formal proved-results writeup: \`notes/proved_results.md\`
-- Analysis / search scripts directory: \`scripts/\`
+- Canonical data directory: data/ (one epNNN.json per problem)
+- Canonical notes directory: notes/ (one epNNN.md per problem)
+- Canonical scripts directory: scripts/ (one epNNN.mjs per problem)
 
 ## Regenerate This README
 
 \`\`\`bash
-node scripts/generate_readme_progress.mjs
+node generate_readme_progress.mjs
 \`\`\`
 
 ## Full Problem Table
@@ -257,49 +128,10 @@ ${tableRows}
 `;
 }
 
-function toCsv(rows) {
-  const headers = [
-    'problem_number',
-    'title',
-    'classification',
-    'to_check_rank',
-    'latest_reference_year',
-    'closure_state',
-    'status',
-    'note',
-  ];
-  const lines = [headers.map(csvEscape).join(',')];
-  for (const row of rows) {
-    lines.push(headers.map((h) => csvEscape(row[h])).join(','));
-  }
-  return `${lines.join('\n')}\n`;
-}
-
 function main() {
-  const toCheck = readJsonl(TO_CHECK_PATH);
-  const harder = readJsonl(HARDER_PATH);
-  const merged = [...toCheck, ...harder].sort((a, b) => numFromProblem(a.problem_number) - numFromProblem(b.problem_number));
-
-  const rows = buildRows(merged);
-  const readme = buildReadme(merged, rows);
-  const csv = toCsv(rows);
-
-  fs.writeFileSync(README_PATH, readme);
-  fs.writeFileSync(CSV_PATH, csv);
-
-  console.log(
-    JSON.stringify(
-      {
-        total_records: merged.length,
-        to_check_records: toCheck.length,
-        harder_records: harder.length,
-        readme_path: path.relative(ROOT, README_PATH),
-        csv_path: path.relative(ROOT, CSV_PATH),
-      },
-      null,
-      2
-    )
-  );
+  const rows = collectCanonical();
+  fs.writeFileSync(README_PATH, buildReadme(rows), 'utf8');
+  console.log(`Wrote: ${README_PATH}`);
 }
 
 main();

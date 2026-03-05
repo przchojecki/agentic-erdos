@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const inputPath = process.argv[2] || 'data/erdos_problems_compact.jsonl';
+const inputPath = process.argv[2] || 'data/erdos_to_check_ranked_with_attempts.jsonl';
 const outputDir = process.argv[3] || 'data';
 
 const thresholdYear = 2000;
@@ -22,13 +22,6 @@ function readJsonl(filePath) {
     });
 }
 
-function uniqueSortedYears(text) {
-  const matches = text.match(yearRegex) || [];
-  const years = [...new Set(matches.map((y) => Number(y)))];
-  years.sort((a, b) => a - b);
-  return years;
-}
-
 function toJsonl(records) {
   return records.map((r) => JSON.stringify(r)).join('\n') + '\n';
 }
@@ -44,24 +37,50 @@ function toCsv(records, headers) {
   return [head, ...rows].join('\n') + '\n';
 }
 
+function uniqueSortedYears(text) {
+  const matches = String(text || '').match(yearRegex) || [];
+  const years = [...new Set(matches.map((y) => Number(y)))];
+  years.sort((a, b) => a - b);
+  return years;
+}
+
 function problemNumberOrder(problemNumber) {
   const match = String(problemNumber || '').match(/(\d+)/);
   return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
+}
+
+function loadCanonicalProblems() {
+  const dataDir = 'data';
+  const noteDir = 'notes';
+  const files = fs.readdirSync(dataDir).filter((f) => /^ep\d+\.json$/i.test(f)).sort((a, b) => {
+    const ai = Number(a.match(/\d+/)?.[0] || 0);
+    const bi = Number(b.match(/\d+/)?.[0] || 0);
+    return ai - bi;
+  });
+
+  return files.map((f) => {
+    const id = Number(f.match(/\d+/)?.[0] || 0);
+    const obj = JSON.parse(fs.readFileSync(path.join(dataDir, f), 'utf8'));
+    const notePath = path.join(noteDir, `ep${id}.md`);
+    const note = fs.existsSync(notePath) ? fs.readFileSync(notePath, 'utf8') : '';
+    return {
+      id: `EP-${id}`,
+      problem_number: `EP-${id}`,
+      title: obj.title || `Erdos Problem #${id}`,
+      background: obj.background || note,
+    };
+  });
 }
 
 function rankToCheck(problems) {
   const ranked = [...problems].sort((a, b) => {
     const aNoReferenceYears = a.reference_years.length === 0 ? 0 : 1;
     const bNoReferenceYears = b.reference_years.length === 0 ? 0 : 1;
-    if (aNoReferenceYears !== bNoReferenceYears) {
-      return aNoReferenceYears - bNoReferenceYears;
-    }
+    if (aNoReferenceYears !== bNoReferenceYears) return aNoReferenceYears - bNoReferenceYears;
 
     const aLatest = a.latest_reference_year ?? Number.POSITIVE_INFINITY;
     const bLatest = b.latest_reference_year ?? Number.POSITIVE_INFINITY;
-    if (aLatest !== bLatest) {
-      return aLatest - bLatest;
-    }
+    if (aLatest !== bLatest) return aLatest - bLatest;
 
     if (a.reference_years.length !== b.reference_years.length) {
       return a.reference_years.length - b.reference_years.length;
@@ -69,9 +88,7 @@ function rankToCheck(problems) {
 
     const aProblemNum = problemNumberOrder(a.problem_number);
     const bProblemNum = problemNumberOrder(b.problem_number);
-    if (aProblemNum !== bProblemNum) {
-      return aProblemNum - bProblemNum;
-    }
+    if (aProblemNum !== bProblemNum) return aProblemNum - bProblemNum;
 
     return String(a.problem_number).localeCompare(String(b.problem_number));
   });
@@ -83,19 +100,16 @@ function rankToCheck(problems) {
   }));
 }
 
-const problems = readJsonl(inputPath);
+const problems = fs.existsSync(inputPath) ? readJsonl(inputPath) : loadCanonicalProblems();
 
 const triaged = problems.map((p) => {
   const background = typeof p.background === 'string' ? p.background : '';
   const refMatch = background.match(/\bReferences\b/i);
   const referencesSectionPresent = Boolean(refMatch);
-  const referenceText = referencesSectionPresent
-    ? background.slice(refMatch.index)
-    : '';
+  const referenceText = referencesSectionPresent ? background.slice(refMatch.index) : '';
 
   const referenceYears = uniqueSortedYears(referenceText);
-  const latestReferenceYear =
-    referenceYears.length > 0 ? referenceYears[referenceYears.length - 1] : null;
+  const latestReferenceYear = referenceYears.length > 0 ? referenceYears[referenceYears.length - 1] : null;
   const hasPostThresholdReference = referenceYears.some((y) => y > thresholdYear);
   const classification = hasPostThresholdReference ? 'harder' : 'to-check';
 

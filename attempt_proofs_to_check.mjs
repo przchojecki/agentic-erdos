@@ -40,60 +40,47 @@ function normalizeText(text) {
     .trim();
 }
 
-function firstSentence(text, maxLen = 180) {
-  const clean = normalizeText(text);
-  if (!clean) return '';
-  const parts = clean.split(/(?<=[.!?])\s+/);
-  const sentence = parts[0] || clean;
-  return sentence.length > maxLen ? `${sentence.slice(0, maxLen - 1)}…` : sentence;
+function loadCanonicalProblems() {
+  const dataDir = 'data';
+  const noteDir = 'notes';
+  const files = fs.readdirSync(dataDir).filter((f) => /^ep\d+\.json$/i.test(f)).sort((a, b) => {
+    const ai = Number(a.match(/\d+/)?.[0] || 0);
+    const bi = Number(b.match(/\d+/)?.[0] || 0);
+    return ai - bi;
+  });
+
+  return files.map((f, idx) => {
+    const id = Number(f.match(/\d+/)?.[0] || idx + 1);
+    const obj = JSON.parse(fs.readFileSync(path.join(dataDir, f), 'utf8'));
+    const notePath = path.join(noteDir, `ep${id}.md`);
+    const note = fs.existsSync(notePath) ? fs.readFileSync(notePath, 'utf8') : '';
+
+    return {
+      id: `EP-${id}`,
+      problem_number: `EP-${id}`,
+      title: obj.title || `Erdos Problem #${id}`,
+      statement: normalizeText(obj.statement || ''),
+      background: normalizeText(obj.background || note),
+      latest_reference_year: obj.latest_reference_year ?? null,
+      references_section_present: /references/i.test(note),
+      reference_years: Array.isArray(obj.reference_years) ? obj.reference_years : [],
+      to_check_rank: obj.to_check_rank ?? idx + 1,
+    };
+  });
 }
 
 const DOMAIN_RULES = [
   {
     domain: 'additive_combinatorics',
-    keywords: [
-      'sidon',
-      'sumset',
-      'subset sum',
-      'arithmetic progression',
-      'a+a',
-      'a-a',
-      'density',
-      'freiman',
-      'szemer',
-      'additive',
-    ],
+    keywords: ['sidon', 'sumset', 'subset sum', 'arithmetic progression', 'a+a', 'a-a', 'density', 'additive'],
   },
   {
     domain: 'graph_theory',
-    keywords: [
-      'graph',
-      'edge',
-      'vertex',
-      'clique',
-      'ramsey',
-      'chromatic',
-      'triangle',
-      'cycle',
-      'hypergraph',
-      'tree',
-      'matching',
-    ],
+    keywords: ['graph', 'edge', 'vertex', 'clique', 'ramsey', 'chromatic', 'triangle', 'cycle', 'hypergraph'],
   },
   {
     domain: 'number_theory',
-    keywords: [
-      'prime',
-      'integer',
-      'residue',
-      'congru',
-      'divisor',
-      'diophantine',
-      'gcd',
-      'lcm',
-      'perfect number',
-      'mod',
-    ],
+    keywords: ['prime', 'integer', 'residue', 'congru', 'divisor', 'diophantine', 'gcd', 'lcm', 'mod'],
   },
   {
     domain: 'set_theory',
@@ -101,15 +88,7 @@ const DOMAIN_RULES = [
   },
   {
     domain: 'combinatorial_geometry',
-    keywords: [
-      '\\mathbb{r}^2',
-      'distance',
-      'diameter',
-      'points in',
-      'euclidean',
-      'geometry',
-      'plane',
-    ],
+    keywords: ['\\mathbb{r}^2', 'distance', 'diameter', 'euclidean', 'geometry', 'plane'],
   },
   {
     domain: 'analysis_probability',
@@ -124,9 +103,7 @@ function guessDomain(statement, background) {
 
   for (const rule of DOMAIN_RULES) {
     let score = 0;
-    for (const kw of rule.keywords) {
-      if (text.includes(kw)) score += 1;
-    }
+    for (const kw of rule.keywords) if (text.includes(kw)) score += 1;
     if (score > bestScore) {
       bestScore = score;
       bestDomain = rule.domain;
@@ -174,34 +151,18 @@ function defaultHardPart(domain) {
   }
 }
 
-function extractHardnessFromBackground(background) {
-  const text = normalizeText(background);
-  if (!text) return '';
-
-  const sentences = text.split(/(?<=[.!?])\s+/);
-  const signal = /(not known|unknown|open|current record|best known|best bound|it is known|proved|conjecture|sufficient|implies|gap|bound)/i;
-  const candidate = sentences.find((s) => signal.test(s));
-  if (!candidate) return '';
-
-  const trimmed = candidate.length > 200 ? `${candidate.slice(0, 199)}…` : candidate;
-  return `Hard point: ${trimmed}`;
-}
-
 function shortOutcomeTag(problem) {
   if (!problem.references_section_present) return 'not_proved_no_reference_block';
   if ((problem.reference_years || []).length === 0) return 'not_proved_no_dated_reference';
   return 'not_proved_identified_gap';
 }
 
-const problems = readJsonl(inputPath);
+const problems = fs.existsSync(inputPath) ? readJsonl(inputPath) : loadCanonicalProblems();
 
 const attempted = problems.map((p) => {
   const domain = guessDomain(p.statement, p.background);
   const strategy = strategyForDomain(domain);
-  const hardFromText = extractHardnessFromBackground(p.background);
-  const hardPart = hardFromText || defaultHardPart(domain);
-
-  const conciseAttempt = `${strategy} ${hardPart}`;
+  const hardPart = defaultHardPart(domain);
 
   return {
     ...p,
@@ -209,7 +170,7 @@ const attempted = problems.map((p) => {
     proof_attempt_domain: domain,
     proof_attempt_strategy: strategy,
     proof_attempt_hard_part: hardPart,
-    proof_attempt_concise: conciseAttempt,
+    proof_attempt_concise: `${strategy} ${hardPart}`,
     proof_attempt_method: 'heuristic_text_pass_v1',
     proof_attempt_timestamp_utc: new Date().toISOString(),
   };

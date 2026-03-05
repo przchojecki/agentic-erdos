@@ -49,19 +49,25 @@ Purpose: turn computational exploration into proof-oriented progress on hard ope
   - next highest-value test
 - Preserve reproducibility (script + artifact + note linkage).
 
-## Batch Checklist (Erdos workflow)
+## Canonical Workflow Checklist
 
-For each problem in a batch:
-- Web status snapshot (open/partial/solved + latest cited progress).
-- One finite probe chosen to test a mechanism, not just produce a number.
-- One concise mechanism statement in notes.
-- One explicit obstacle/bottleneck statement for proof progress.
+For each problem EP-NNN:
+- Web/literature status snapshot embedded in the corresponding per-problem note.
+- One finite probe script in the per-problem script file.
+- One computation artifact bundle in the per-problem data file.
+- One concise mechanism statement and one explicit bottleneck in the note.
 
-Required artifacts:
-- `scripts/harder_batchXX_quick_compute.mjs`
-- `data/harder_batchXX_quick_compute.json`
-- `notes/harder_batchXX_web_compute.md`
-- `data/erdos_harder.jsonl` updated with `deep_attempt_v3_*` linkage.
+Required per-problem artifacts:
+- in `scripts`: one file per problem, named `ep{number}.mjs`
+- in `data`: one file per problem, named `ep{number}.json`
+- in `notes`: one file per problem, named `ep{number}.md`
+
+General-method files (root):
+- `attempt_proofs_to_check.mjs`
+- `classify_erdos_by_refs.mjs`
+- `deep_attempt_top_n.mjs`
+- `generate_readme_progress.mjs`
+- `generate_summary_check.mjs`
 
 ## Guardrails
 
