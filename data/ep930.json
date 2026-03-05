@@ -1,0 +1,272 @@
+{
+  "problem": "EP-930",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep930_interval_product_power_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-930",
+        "method": "exact_prime-exponent_test_for_equal-length_disjoint_interval_products",
+        "params": {
+          "Nmax": 220,
+          "kMax": 12
+        },
+        "rows": [
+          {
+            "k": 1,
+            "r2_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                1
+              ],
+              "I2": [
+                4,
+                4
+              ]
+            },
+            "r3_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                1
+              ],
+              "I2": [
+                2,
+                2
+              ],
+              "I3": [
+                4,
+                4
+              ]
+            }
+          },
+          {
+            "k": 2,
+            "r2_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                2
+              ],
+              "I2": [
+                8,
+                9
+              ]
+            },
+            "r3_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                2
+              ],
+              "I2": [
+                3,
+                4
+              ],
+              "I3": [
+                8,
+                9
+              ]
+            }
+          },
+          {
+            "k": 3,
+            "r2_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                3
+              ],
+              "I2": [
+                48,
+                50
+              ]
+            },
+            "r3_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                3
+              ],
+              "I2": [
+                4,
+                6
+              ],
+              "I3": [
+                8,
+                10
+              ]
+            }
+          },
+          {
+            "k": 4,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": {
+              "I1": [
+                1,
+                4
+              ],
+              "I2": [
+                19,
+                22
+              ],
+              "I3": [
+                54,
+                57
+              ]
+            }
+          },
+          {
+            "k": 5,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": {
+              "I1": [
+                4,
+                8
+              ],
+              "I2": [
+                13,
+                17
+              ],
+              "I3": [
+                48,
+                52
+              ]
+            }
+          },
+          {
+            "k": 6,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          },
+          {
+            "k": 7,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          },
+          {
+            "k": 8,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          },
+          {
+            "k": 9,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          },
+          {
+            "k": 10,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          },
+          {
+            "k": 11,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          },
+          {
+            "k": 12,
+            "r2_equal_length_counterexample_within_scan": null,
+            "r3_equal_length_counterexample_within_scan": null
+          }
+        ],
+        "generated_utc": "2026-03-01T16:38:59.499Z"
+      }
+    },
+    {
+      "source_file": "ep930_variable_interval_counterexample_search.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-930",
+        "script": "ep930_variable_interval_counterexample_search.mjs",
+        "method": "exact_exponent_gcd_search_for_r2_with_variable_interval_lengths",
+        "params": {
+          "nmax": 1500,
+          "kmin": 6,
+          "kmax": 8,
+          "len_extra": 6
+        },
+        "rows": [
+          {
+            "k": 6,
+            "search_params": {
+              "nmax": 1500,
+              "len_min": 6,
+              "len_max": 12
+            },
+            "checks": 53919110,
+            "r2_counterexample_found": null
+          },
+          {
+            "k": 7,
+            "search_params": {
+              "nmax": 1500,
+              "len_min": 7,
+              "len_max": 13
+            },
+            "checks": 53773825,
+            "r2_counterexample_found": null
+          },
+          {
+            "k": 8,
+            "search_params": {
+              "nmax": 1500,
+              "len_min": 8,
+              "len_max": 14
+            },
+            "checks": 53628736,
+            "r2_counterexample_found": null
+          }
+        ],
+        "generated_utc": "2026-03-03T08:54:35.844Z"
+      }
+    },
+    {
+      "source_file": "ep930_variable_interval_counterexample_search_N1500_k6_8_len6.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-930",
+        "script": "ep930_variable_interval_counterexample_search.mjs",
+        "method": "exact_exponent_gcd_search_for_r2_with_variable_interval_lengths",
+        "params": {
+          "nmax": 1500,
+          "kmin": 6,
+          "kmax": 8,
+          "len_extra": 6
+        },
+        "rows": [
+          {
+            "k": 6,
+            "search_params": {
+              "nmax": 1500,
+              "len_min": 6,
+              "len_max": 12
+            },
+            "checks": 53919110,
+            "r2_counterexample_found": null
+          },
+          {
+            "k": 7,
+            "search_params": {
+              "nmax": 1500,
+              "len_min": 7,
+              "len_max": 13
+            },
+            "checks": 53773825,
+            "r2_counterexample_found": null
+          },
+          {
+            "k": 8,
+            "search_params": {
+              "nmax": 1500,
+              "len_min": 8,
+              "len_max": 14
+            },
+            "checks": 53628736,
+            "r2_counterexample_found": null
+          }
+        ],
+        "generated_utc": "2026-03-03T08:54:35.844Z"
+      }
+    }
+  ]
+}

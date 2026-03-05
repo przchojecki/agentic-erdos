@@ -1,0 +1,120 @@
+{
+  "problem": "EP-325",
+  "normalized_utc": "2026-03-05T08:54:16.956Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-325\n- Quick literature check:\n  - Still open; page cites Wooley-type progress for sums of three cubes (`k=3`) but no full `x^{3/k}` theorem.\n- Finite compute signal:\n  - For `k=3,4,5`, the ratio `f_{k,3}(X)/X^{3/k}` stays at positive constants in tested windows (roughly `0.11..0.24`).\n- Interpretation:\n  - Finite behavior is compatible with the conjectured scale `x^{3/k}` but remains far from proof-level asymptotics."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "finite profile of f_{k,3}(x), count of <=x representable as sum of three k-th powers.",
+        "content": "// EP-325: finite profile of f_{k,3}(x), count of <=x representable as sum of three k-th powers.\n{\n  function fProfile(k, Xmax, milestones) {\n    const { cnt } = repCounts3Powers(k, Xmax);\n    const rows = [];\n    for (const X of milestones) {\n      let f = 0;\n      for (let n = 0; n <= X; n += 1) if (cnt[n] > 0) f += 1;\n      rows.push({\n        k,\n        X,\n        f_k3_X: f,\n        ratio_over_X_pow_3_over_k: Number((f / (X ** (3 / k))).toPrecision(6)),\n        density: Number((f / X).toPrecision(6)),\n      });\n    }\n    return rows;\n  }\n\n  out.results.ep325 = {\n    description: 'Finite coverage profile f_{k,3}(X) for sums of three nonnegative k-th powers.',\n    rows: [\n      ...fProfile(3, 200000, [20000, 50000, 100000, 200000]),\n      ...fProfile(4, 300000, [30000, 80000, 150000, 300000]),\n      ...fProfile(5, 400000, [40000, 100000, 200000, 400000]),\n    ],\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep325",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Finite coverage profile f_{k,3}(X) for sums of three nonnegative k-th powers.",
+          "rows": [
+            {
+              "k": 3,
+              "X": 20000,
+              "f_k3_X": 2558,
+              "ratio_over_X_pow_3_over_k": 0.1279,
+              "density": 0.1279
+            },
+            {
+              "k": 3,
+              "X": 50000,
+              "f_k3_X": 6020,
+              "ratio_over_X_pow_3_over_k": 0.1204,
+              "density": 0.1204
+            },
+            {
+              "k": 3,
+              "X": 100000,
+              "f_k3_X": 11663,
+              "ratio_over_X_pow_3_over_k": 0.11663,
+              "density": 0.11663
+            },
+            {
+              "k": 3,
+              "X": 200000,
+              "f_k3_X": 22657,
+              "ratio_over_X_pow_3_over_k": 0.113285,
+              "density": 0.113285
+            },
+            {
+              "k": 4,
+              "X": 30000,
+              "f_k3_X": 429,
+              "ratio_over_X_pow_3_over_k": 0.188199,
+              "density": 0.0143
+            },
+            {
+              "k": 4,
+              "X": 80000,
+              "f_k3_X": 816,
+              "ratio_over_X_pow_3_over_k": 0.171543,
+              "density": 0.0102
+            },
+            {
+              "k": 4,
+              "X": 150000,
+              "f_k3_X": 1266,
+              "ratio_over_X_pow_3_over_k": 0.166098,
+              "density": 0.00844
+            },
+            {
+              "k": 4,
+              "X": 300000,
+              "f_k3_X": 2070,
+              "ratio_over_X_pow_3_over_k": 0.161484,
+              "density": 0.0069
+            },
+            {
+              "k": 5,
+              "X": 40000,
+              "f_k3_X": 139,
+              "ratio_over_X_pow_3_over_k": 0.240868,
+              "density": 0.003475
+            },
+            {
+              "k": 5,
+              "X": 100000,
+              "f_k3_X": 209,
+              "ratio_over_X_pow_3_over_k": 0.209,
+              "density": 0.00209
+            },
+            {
+              "k": 5,
+              "X": 200000,
+              "f_k3_X": 317,
+              "ratio_over_X_pow_3_over_k": 0.209142,
+              "density": 0.001585
+            },
+            {
+              "k": 5,
+              "X": 400000,
+              "f_k3_X": 461,
+              "ratio_over_X_pow_3_over_k": 0.200662,
+              "density": 0.0011525
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

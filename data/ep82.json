@@ -1,0 +1,60 @@
+{
+  "problem": "EP-82",
+  "normalized_utc": "2026-03-05T08:54:16.948Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-82\n- Quick literature check:\n  - No decisive recent closure found in quick scan; known baseline remains between Ramsey-type lower and near-$n^{1/2}$ upper behavior.\n- Finite compute signal:\n  - Random lower-envelope search found worst max regular induced sizes $4,5,6,6$ for $n=10,12,14,16$.\n- Interpretation:\n  - Small-$n$ data is consistent with $F(n)$ above pure logarithmic constants, but far from asymptotic proof of $F(n)/\\log n\\to\\infty$."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "random-graph lower envelope for max regular induced subgraph size.",
+        "content": "// EP-82: random-graph lower envelope for max regular induced subgraph size.\n{\n  const nList = [10, 12, 14, 16];\n  const rows = [];\n  for (const n of nList) {\n    let worst = Infinity;\n    const trials = 40;\n    for (let t = 0; t < trials; t += 1) {\n      const adj = Array.from({ length: n }, () => new Uint8Array(n));\n      for (let i = 0; i < n; i += 1) {\n        for (let j = i + 1; j < n; j += 1) {\n          if (rng() < 0.5) {\n            adj[i][j] = 1;\n            adj[j][i] = 1;\n          }\n        }\n      }\n      const v = maxRegularInducedSubgraphSize(adj);\n      if (v < worst) worst = v;\n    }\n    rows.push({\n      n,\n      trials,\n      worst_max_regular_induced_size_found: worst,\n      ratio_over_logn: Number((worst / Math.log(n)).toFixed(6)),\n    });\n  }\n  out.results.ep82 = {\n    description: 'Random finite lower-envelope for guaranteed regular induced subgraph size.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep82",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Random finite lower-envelope for guaranteed regular induced subgraph size.",
+          "rows": [
+            {
+              "n": 10,
+              "trials": 40,
+              "worst_max_regular_induced_size_found": 4,
+              "ratio_over_logn": 1.737178
+            },
+            {
+              "n": 12,
+              "trials": 40,
+              "worst_max_regular_induced_size_found": 5,
+              "ratio_over_logn": 2.012148
+            },
+            {
+              "n": 14,
+              "trials": 40,
+              "worst_max_regular_induced_size_found": 6,
+              "ratio_over_logn": 2.273539
+            },
+            {
+              "n": 16,
+              "trials": 40,
+              "worst_max_regular_induced_size_found": 6,
+              "ratio_over_logn": 2.164043
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

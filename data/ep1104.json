@@ -1,0 +1,77 @@
+{
+  "problem": "EP-1104",
+  "normalized_utc": "2026-03-05T08:54:16.975Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1104\n- Quick literature check:\n  - Open (last edited 21 January 2026); current best asymptotic bracket remains `(1-o(1))sqrt(n/log n)` to `(2+o(1))sqrt(n/log n)`.\n- Finite compute signal:\n  - Mycielski family exactly realizes `chi=3,4,5` at `n=5,11,23`; random triangle-free process samples at `n<=30` reached chromatic number `4`.\n- Interpretation:\n  - Finite models are consistent with slow chromatic growth and known constructions, without narrowing the asymptotic constant factor."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite triangle-free chromatic profile (Mycielski + random process).",
+        "content": "// EP-1104: finite triangle-free chromatic profile (Mycielski + random process).\n{\n  function mycielski(masks) {\n    const n = masks.length;\n    const outMasks = Array(2 * n + 1).fill(0n);\n    for (let u = 0; u < n; u += 1) {\n      let m = masks[u];\n      while (m) {\n        const b = m & -m;\n        const v = bitIndexBigInt(b);\n        m ^= b;\n        if (u < v) {\n          outMasks[u] |= 1n << BigInt(v);\n          outMasks[v] |= 1n << BigInt(u);\n          outMasks[u] |= 1n << BigInt(n + v);\n          outMasks[n + v] |= 1n << BigInt(u);\n          outMasks[v] |= 1n << BigInt(n + u);\n          outMasks[n + u] |= 1n << BigInt(v);\n        }\n      }\n    }\n    const w = 2 * n;\n    for (let u = 0; u < n; u += 1) {\n      outMasks[n + u] |= 1n << BigInt(w);\n      outMasks[w] |= 1n << BigInt(n + u);\n    }\n    return outMasks;\n  }\n\n  const c5 = adjacencyMasksFromEdgeList(5, [\n    [0, 1],\n    [1, 2],\n    [2, 3],\n    [3, 4],\n    [4, 0],\n  ]);\n  const m1 = mycielski(c5);\n  const m2 = mycielski(m1);\n  const family = [c5, m1, m2];\n  const familyRows = family.map((masks, i) => ({\n    graph: i === 0 ? 'C5' : `Mycielski^${i}(C5)`,\n    n: masks.length,\n    chi_exact: chromaticNumberDSATUR(adjacencyListFromMasks(masks)),\n  }));\n\n  const rng = makeRng(20260304 ^ 1104);\n  function triangleFreeProcess(n) {\n    const edges = [];\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) edges.push([i, j]);\n    }\n    shuffle(edges, rng);\n    const masks = Array(n).fill(0n);\n    for (const [u, v] of edges) {\n      if ((masks[u] & masks[v]) !== 0n) continue;\n      masks[u] |= 1n << BigInt(v);\n      masks[v] |= 1n << BigInt(u);\n    }\n    return masks;\n  }\n\n  const randomRows = [];\n  for (const n of [18, 22, 26, 30]) {\n    let bestChi = 0;\n    for (let t = 0; t < 20; t += 1) {\n      const masks = triangleFreeProcess(n);\n      const chi = chromaticNumberDSATUR(adjacencyListFromMasks(masks));\n      if (chi > bestChi) bestChi = chi;\n    }\n    randomRows.push({\n      n,\n      best_chi_found_in_samples: bestChi,\n      proxy_sqrt_n_over_log_n: Number(Math.sqrt(n / Math.log(n)).toPrecision(7)),\n      ratio_best_over_sqrt_n_over_log_n: Number((bestChi / Math.sqrt(n / Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1104 = {\n    description: 'Finite triangle-free chromatic profile from Mycielski constructions and random triangle-free process samples.',\n    mycielski_rows: familyRows,\n    random_rows: randomRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1104",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Finite triangle-free chromatic profile from Mycielski constructions and random triangle-free process samples.",
+          "mycielski_rows": [
+            {
+              "graph": "C5",
+              "n": 5,
+              "chi_exact": 3
+            },
+            {
+              "graph": "Mycielski^1(C5)",
+              "n": 11,
+              "chi_exact": 4
+            },
+            {
+              "graph": "Mycielski^2(C5)",
+              "n": 23,
+              "chi_exact": 5
+            }
+          ],
+          "random_rows": [
+            {
+              "n": 18,
+              "best_chi_found_in_samples": 4,
+              "proxy_sqrt_n_over_log_n": 2.49551,
+              "ratio_best_over_sqrt_n_over_log_n": 1.602878
+            },
+            {
+              "n": 22,
+              "best_chi_found_in_samples": 4,
+              "proxy_sqrt_n_over_log_n": 2.667834,
+              "ratio_best_over_sqrt_n_over_log_n": 1.499343
+            },
+            {
+              "n": 26,
+              "best_chi_found_in_samples": 4,
+              "proxy_sqrt_n_over_log_n": 2.824911,
+              "ratio_best_over_sqrt_n_over_log_n": 1.415974
+            },
+            {
+              "n": 30,
+              "best_chi_found_in_samples": 4,
+              "proxy_sqrt_n_over_log_n": 2.96992,
+              "ratio_best_over_sqrt_n_over_log_n": 1.346838
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

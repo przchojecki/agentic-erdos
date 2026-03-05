@@ -1,0 +1,76 @@
+{
+  "problem": "EP-588",
+  "normalized_utc": "2026-03-05T08:54:16.963Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch15_web_compute.md",
+        "content": "### EP-588\n- Quick literature check:\n  - Problem-page status remains open; known constructions keep lower bounds close to quadratic for each fixed `k>=4`.\n- Finite compute signal:\n  - Heuristic searches with no `(k+1)`-collinear points produced many `k`-rich lines for `k=4,5` at tested `n`, with near-quadratic finite behavior.\n- Interpretation:\n  - Finite instances continue to look far from a clean strong subquadratic collapse; asymptotic `o(n^2)` remains delicate."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch15_quick_compute.mjs",
+        "heading": "heuristic max count of >=k-point lines with no (k+1)-collinear points.",
+        "content": "// EP-588: heuristic max count of >=k-point lines with no (k+1)-collinear points.\n{\n  const rng = makeRng(20260303 ^ 1504);\n\n  function optimizeForK(n, k, restarts, steps, grid) {\n    let best = {\n      linesAtLeastK: -1,\n      linesExactlyK: -1,\n      maxCollinear: Infinity,\n    };\n\n    for (let r = 0; r < restarts; r += 1) {\n      let pts = randomDistinctPoints(n, grid, rng);\n      let stats = lineStats(pts);\n\n      function score(st) {\n        const linesAtLeastK = st.lineSizes.filter((x) => x >= k).length;\n        const linesExactlyK = st.lineSizes.filter((x) => x === k).length;\n        return { linesAtLeastK, linesExactlyK, maxCollinear: st.maxCollinear };\n      }\n\n      let cur = score(stats);\n\n      if (cur.maxCollinear <= k) {\n        if (\n          cur.linesAtLeastK > best.linesAtLeastK ||\n          (cur.linesAtLeastK === best.linesAtLeastK && cur.linesExactlyK > best.linesExactlyK)\n        ) {\n          best = { ...cur };\n        }\n      }\n\n      for (let it = 0; it < steps; it += 1) {\n        const idx = Math.floor(rng() * n);\n        const used = new Set(pts.map((p) => `${p[0]},${p[1]}`));\n        used.delete(`${pts[idx][0]},${pts[idx][1]}`);\n\n        let cand = null;\n        for (let tr = 0; tr < 25; tr += 1) {\n          const x = Math.floor(rng() * grid);\n          const y = Math.floor(rng() * grid);\n          const key = `${x},${y}`;\n          if (!used.has(key)) {\n            cand = [x, y];\n            break;\n          }\n        }\n        if (!cand) continue;\n\n        const old = pts[idx];\n        pts[idx] = cand;\n        const st2 = lineStats(pts);\n        const sc2 = score(st2);\n\n        const improve =\n          sc2.maxCollinear <= k &&\n          (sc2.linesAtLeastK > cur.linesAtLeastK ||\n            (sc2.linesAtLeastK === cur.linesAtLeastK && sc2.linesExactlyK >= cur.linesExactlyK));\n\n        if (improve) {\n          stats = st2;\n          cur = sc2;\n          if (\n            cur.linesAtLeastK > best.linesAtLeastK ||\n            (cur.linesAtLeastK === best.linesAtLeastK && cur.linesExactlyK > best.linesExactlyK)\n          ) {\n            best = { ...cur };\n          }\n        } else {\n          pts[idx] = old;\n        }\n      }\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const [k, nList] of [\n    [4, [28, 36, 44]],\n    [5, [30, 40]],\n  ]) {\n    for (const n of nList) {\n      const best = optimizeForK(n, k, 10, 420, 29);\n      rows.push({\n        k,\n        n,\n        best_lines_with_at_least_k_points: best.linesAtLeastK,\n        best_lines_with_exactly_k_points: best.linesExactlyK,\n        max_collinear_constraint: k,\n        lines_at_least_k_over_n_sq: Number((best.linesAtLeastK / (n * n)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep588 = {\n    description: 'Heuristic lower-bound search for many k-rich lines under no-(k+1)-collinear constraint.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch15_quick_compute.json",
+        "key": "ep588",
+        "container_meta": {
+          "script": "harder_batch15_quick_compute.mjs",
+          "generated_utc": "2026-03-04T07:52:21.327Z"
+        },
+        "data": {
+          "description": "Heuristic lower-bound search for many k-rich lines under no-(k+1)-collinear constraint.",
+          "rows": [
+            {
+              "k": 4,
+              "n": 28,
+              "best_lines_with_at_least_k_points": 13,
+              "best_lines_with_exactly_k_points": 13,
+              "max_collinear_constraint": 4,
+              "lines_at_least_k_over_n_sq": 0.01658163
+            },
+            {
+              "k": 4,
+              "n": 36,
+              "best_lines_with_at_least_k_points": 21,
+              "best_lines_with_exactly_k_points": 21,
+              "max_collinear_constraint": 4,
+              "lines_at_least_k_over_n_sq": 0.0162037
+            },
+            {
+              "k": 4,
+              "n": 44,
+              "best_lines_with_at_least_k_points": 26,
+              "best_lines_with_exactly_k_points": 26,
+              "max_collinear_constraint": 4,
+              "lines_at_least_k_over_n_sq": 0.01342975
+            },
+            {
+              "k": 5,
+              "n": 30,
+              "best_lines_with_at_least_k_points": 6,
+              "best_lines_with_exactly_k_points": 6,
+              "max_collinear_constraint": 5,
+              "lines_at_least_k_over_n_sq": 0.006666667
+            },
+            {
+              "k": 5,
+              "n": 40,
+              "best_lines_with_at_least_k_points": 12,
+              "best_lines_with_exactly_k_points": 12,
+              "max_collinear_constraint": 5,
+              "lines_at_least_k_over_n_sq": 0.0075
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

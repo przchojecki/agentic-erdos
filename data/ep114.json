@@ -1,0 +1,90 @@
+{
+  "problem": "EP-114",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-114\n- Quick literature check:\n  - Major update: Tao (arXiv 2025) proves the Erdős-Herzog-Piranian maximizer statement for all sufficiently large degrees.\n- Finite compute signal:\n  - For the candidate extremizer $p(z)=z^n-1$, computed exact length profile values match the expected near-$2n$ growth and track closely to $2n+4\\log 2$ at moderate $n$.\n- Interpretation:\n  - This item is now in a \"mostly resolved up to bounded degree\" state rather than a fully unconstrained open problem."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "length profile for z^n-1 using exact beta-function expression.",
+        "content": "// EP-114: length profile for z^n-1 using exact beta-function expression.\n{\n  const rows = [];\n  for (const n of [2, 3, 4, 5, 8, 12, 20, 40, 80]) {\n    const L = beta(1 / (2 * n), 0.5);\n    const approx = 2 * n + 4 * Math.log(2);\n    rows.push({\n      n,\n      lemniscate_length_z_pow_n_minus_1: Number(L.toFixed(9)),\n      asymptotic_2n_plus_4log2: Number(approx.toFixed(9)),\n      relative_gap: Number(((L - approx) / approx).toFixed(9)),\n    });\n  }\n  out.results.ep114 = {\n    description: 'Exact length profile for the conjectured extremizer p(z)=z^n-1.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep114",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Exact length profile for the conjectured extremizer p(z)=z^n-1.",
+          "rows": [
+            {
+              "n": 2,
+              "lemniscate_length_z_pow_n_minus_1": 5.244115109,
+              "asymptotic_2n_plus_4log2": 6.772588722,
+              "relative_gap": -0.225685285
+            },
+            {
+              "n": 3,
+              "lemniscate_length_z_pow_n_minus_1": 7.285951944,
+              "asymptotic_2n_plus_4log2": 8.772588722,
+              "relative_gap": -0.169463864
+            },
+            {
+              "n": 4,
+              "lemniscate_length_z_pow_n_minus_1": 9.30874057,
+              "asymptotic_2n_plus_4log2": 10.772588722,
+              "relative_gap": -0.135886386
+            },
+            {
+              "n": 5,
+              "lemniscate_length_z_pow_n_minus_1": 11.323086975,
+              "asymptotic_2n_plus_4log2": 12.772588722,
+              "relative_gap": -0.113485354
+            },
+            {
+              "n": 8,
+              "lemniscate_length_z_pow_n_minus_1": 17.345638705,
+              "asymptotic_2n_plus_4log2": 18.772588722,
+              "relative_gap": -0.076012426
+            },
+            {
+              "n": 12,
+              "lemniscate_length_z_pow_n_minus_1": 25.358742137,
+              "asymptotic_2n_plus_4log2": 26.772588722,
+              "relative_gap": -0.052809484
+            },
+            {
+              "n": 20,
+              "lemniscate_length_z_pow_n_minus_1": 41.369540453,
+              "asymptotic_2n_plus_4log2": 42.772588722,
+              "relative_gap": -0.03280251
+            },
+            {
+              "n": 40,
+              "lemniscate_length_z_pow_n_minus_1": 81.377831706,
+              "asymptotic_2n_plus_4log2": 82.772588722,
+              "relative_gap": -0.01685047
+            },
+            {
+              "n": 80,
+              "lemniscate_length_z_pow_n_minus_1": 161.382041237,
+              "asymptotic_2n_plus_4log2": 162.772588722,
+              "relative_gap": -0.008542885
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "problem": "EP-1097",
+  "normalized_utc": "2026-03-05T08:54:16.975Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1097\n- Quick literature check:\n  - Open (last edited 03 December 2025); page now highlights equivalence to a sums-differences/Kakeya-type exponent problem and records improved lower-side progress.\n- Finite compute signal:\n  - Random search for `|A|=20..44` found best distinct 3-AP-difference counts around `0.21..0.24 * n^{3/2}` in sampled windows.\n- Interpretation:\n  - Finite lower-bound constructions are consistent with superlinear growth and remain compatible with an `O(n^{3/2})` upper target."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite search for many distinct 3-AP differences.",
+        "content": "// EP-1097: finite search for many distinct 3-AP differences.\n{\n  const rng = makeRng(20260304 ^ 1097);\n\n  function differenceCount(A) {\n    const s = new Set(A);\n    const arr = [...A].sort((x, y) => x - y);\n    const D = new Set();\n    const m = arr.length;\n    for (let i = 0; i < m; i += 1) {\n      for (let j = i + 1; j < m; j += 1) {\n        const a = arr[i];\n        const c = arr[j];\n        if (((c - a) & 1) !== 0) continue;\n        const b = (a + c) >> 1;\n        if (s.has(b)) D.add((c - a) >> 1);\n      }\n    }\n    return D.size;\n  }\n\n  function randomSet(n, M) {\n    const arr = [...Array(M).keys()].map((x) => x + 1);\n    shuffle(arr, rng);\n    return arr.slice(0, n);\n  }\n\n  const rows = [];\n  for (const n of [20, 28, 36, 44]) {\n    const M = 8 * n;\n    let best = 0;\n    for (let t = 0; t < 2500; t += 1) {\n      const A = randomSet(n, M);\n      const d = differenceCount(A);\n      if (d > best) best = d;\n    }\n    rows.push({\n      n,\n      M,\n      best_distinct_d_found: best,\n      ratio_over_n_3_over_2: Number((best / (n ** 1.5)).toPrecision(7)),\n      ratio_over_n_log_n: Number((best / (n * Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1097 = {\n    description: 'Finite random-search profile for number of distinct 3-AP common differences.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1097",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Finite random-search profile for number of distinct 3-AP common differences.",
+          "rows": [
+            {
+              "n": 20,
+              "M": 160,
+              "best_distinct_d_found": 19,
+              "ratio_over_n_3_over_2": 0.2124265,
+              "ratio_over_n_log_n": 0.3171178
+            },
+            {
+              "n": 28,
+              "M": 224,
+              "best_distinct_d_found": 31,
+              "ratio_over_n_3_over_2": 0.2092303,
+              "ratio_over_n_log_n": 0.3322554
+            },
+            {
+              "n": 36,
+              "M": 288,
+              "best_distinct_d_found": 51,
+              "ratio_over_n_3_over_2": 0.2361111,
+              "ratio_over_n_log_n": 0.3953284
+            },
+            {
+              "n": 44,
+              "M": 352,
+              "best_distinct_d_found": 66,
+              "ratio_over_n_3_over_2": 0.2261335,
+              "ratio_over_n_log_n": 0.3963861
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

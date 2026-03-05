@@ -1,0 +1,57 @@
+{
+  "problem": "EP-585",
+  "normalized_utc": "2026-03-05T08:54:16.963Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch15_web_compute.md",
+        "content": "### EP-585\n- Quick literature check:\n  - Major 2025 update: Chakraborti–Janzer–Methuku–Montgomery prove an `n (log n)^{O(1)}` upper bound in strong general form (`k` disjoint cycles same vertex set), giving an asymptotic resolution up to polylog factors.\n- Finite compute signal:\n  - Small-`n` exact greedy search under the forbidden pattern finds best edge counts `19,23,26` for `n=8,9,10`.\n- Interpretation:\n  - Large-scale status is now tightly constrained between `Omega(n log log n)` and `n polylog(n)`; remaining gap is polylog-level sharpening."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch15_quick_compute.mjs",
+        "heading": "finite exact search (small n) for avoiding two edge-disjoint cycles with same vertex set.",
+        "content": "// EP-585: finite exact search (small n) for avoiding two edge-disjoint cycles with same vertex set.\n{\n  function hasK5(G) {\n    const { n, adj } = G;\n    for (let a = 0; a < n; a += 1) {\n      for (let b = a + 1; b < n; b += 1) {\n        if (!adj[a][b]) continue;\n        for (let c = b + 1; c < n; c += 1) {\n          if (!adj[a][c] || !adj[b][c]) continue;\n          for (let d = c + 1; d < n; d += 1) {\n            if (!adj[a][d] || !adj[b][d] || !adj[c][d]) continue;\n            for (let e = d + 1; e < n; e += 1) {\n              if (adj[a][e] && adj[b][e] && adj[c][e] && adj[d][e]) return true;\n            }\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  function hasTwoEdgeDisjointCyclesSameVertexSet(G) {\n    if (hasK5(G)) return true;\n\n    const { n, adj, neigh } = G;\n    const edgePos = Array.from({ length: n }, () => Array(n).fill(-1));\n    let e = 0;\n    for (let u = 0; u < n; u += 1) {\n      for (let v = u + 1; v < n; v += 1) {\n        edgePos[u][v] = e;\n        edgePos[v][u] = e;\n        e += 1;\n      }\n    }\n\n    const cycByVertexMask = new Map();\n    const seenCycleEdgeMasks = new Set();\n\n    for (let s = 0; s < n; s += 1) {\n      const visited = Array(n).fill(false);\n      const path = [s];\n      visited[s] = true;\n\n      function dfs(u) {\n        for (const v of neigh[u]) {\n          if (v === s) {\n            if (path.length >= 3) {\n              const verts = path;\n              let vMask = 0;\n              for (const x of verts) vMask |= 1 << x;\n\n              let em = 0n;\n              for (let i = 0; i < verts.length; i += 1) {\n                const a = verts[i];\n                const b = verts[(i + 1) % verts.length];\n                const pos = edgePos[a][b];\n                em |= 1n << BigInt(pos);\n              }\n\n              const key = em.toString();\n              if (!seenCycleEdgeMasks.has(key)) {\n                seenCycleEdgeMasks.add(key);\n                if (!cycByVertexMask.has(vMask)) cycByVertexMask.set(vMask, []);\n                cycByVertexMask.get(vMask).push(em);\n              }\n            }\n            continue;\n          }\n\n          if (v < s || visited[v]) continue;\n          visited[v] = true;\n          path.push(v);\n          dfs(v);\n          path.pop();\n          visited[v] = false;\n        }\n      }\n\n      dfs(s);\n    }\n\n    for (const cycles of cycByVertexMask.values()) {\n      for (let i = 0; i < cycles.length; i += 1) {\n        for (let j = i + 1; j < cycles.length; j += 1) {\n          if ((cycles[i] & cycles[j]) === 0n) return true;\n        }\n      }\n    }\n\n    return false;\n  }\n\n  function greedyMaxEdgesNoViolation(n, restarts, rng) {\n    const edges = allEdges(n);\n    let best = 0;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const G = makeGraph(n);\n      shuffle(edges, rng);\n\n      for (const [u, v] of edges) {\n        addEdge(G, u, v);\n        if (hasTwoEdgeDisjointCyclesSameVertexSet(G)) removeEdge(G, u, v);\n      }\n\n      if (G.m > best) best = G.m;\n    }\n\n    return best;\n  }\n\n  const rng = makeRng(20260303 ^ 1503);\n  const rows = [];\n\n  for (const [n, restarts] of [[8, 18], [9, 14], [10, 10]]) {\n    const best = greedyMaxEdgesNoViolation(n, restarts, rng);\n    rows.push({\n      n,\n      restarts,\n      best_edges_found_no_two_edge_disjoint_same_vertex_set_cycles: best,\n      best_over_n_loglogn: Number((best / Math.max(1, n * Math.log(Math.log(Math.max(4, n))))).toPrecision(7)),\n      best_over_n_logn: Number((best / Math.max(1, n * Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep585 = {\n    description: 'Small-n exact greedy maxima under the forbidden same-vertex-set disjoint-cycle condition.',\n    rows,\n  };\n}\n\n// Geometry helpers for EP-588/589/604.\nfunction lineKeyFromPoints(p, q) {\n  let A = q[1] - p[1];\n  let B = p[0] - q[0];\n  let C = A * p[0] + B * p[1];\n\n  const g = gcd(gcd(Math.abs(A), Math.abs(B)), Math.abs(C));\n  if (g > 0) {\n    A /= g;\n    B /= g;\n    C /= g;\n  }\n\n  if (A < 0 || (A === 0 && B < 0) || (A === 0 && B === 0 && C < 0)) {\n    A = -A;\n    B = -B;\n    C = -C;\n  }\n\n  return `${A},${B},${C}`;\n}\n\nfunction lineStats(points) {\n  const n = points.length;\n  const mp = new Map();\n\n  for (let i = 0; i < n; i += 1) {\n    for (let j = i + 1; j < n; j += 1) {\n      const key = lineKeyFromPoints(points[i], points[j]);\n      if (!mp.has(key)) mp.set(key, new Set());\n      const S = mp.get(key);\n      S.add(i);\n      S.add(j);\n    }\n  }\n\n  let maxCollinear = 1;\n  const lineSizes = [];\n  for (const S of mp.values()) {\n    const sz = S.size;\n    lineSizes.push(sz);\n    if (sz > maxCollinear) maxCollinear = sz;\n  }\n\n  return { maxCollinear, lineSizes, lineMap: mp };\n}\n\nfunction randomDistinctPoints(n, grid, rng) {\n  const used = new Set();\n  const pts = [];\n  while (pts.length < n) {\n    const x = Math.floor(rng() * grid);\n    const y = Math.floor(rng() * grid);\n    const key = `${x},${y}`;\n    if (used.has(key)) continue;\n    used.add(key);\n    pts.push([x, y]);\n  }\n  return pts;\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch15_quick_compute.json",
+        "key": "ep585",
+        "container_meta": {
+          "script": "harder_batch15_quick_compute.mjs",
+          "generated_utc": "2026-03-04T07:52:21.327Z"
+        },
+        "data": {
+          "description": "Small-n exact greedy maxima under the forbidden same-vertex-set disjoint-cycle condition.",
+          "rows": [
+            {
+              "n": 8,
+              "restarts": 18,
+              "best_edges_found_no_two_edge_disjoint_same_vertex_set_cycles": 19,
+              "best_over_n_loglogn": 3.244095,
+              "best_over_n_logn": 1.142134
+            },
+            {
+              "n": 9,
+              "restarts": 14,
+              "best_edges_found_no_two_edge_disjoint_same_vertex_set_cycles": 23,
+              "best_over_n_loglogn": 3.246407,
+              "best_over_n_logn": 1.163083
+            },
+            {
+              "n": 10,
+              "restarts": 10,
+              "best_edges_found_no_two_edge_disjoint_same_vertex_set_cycles": 26,
+              "best_over_n_loglogn": 3.117385,
+              "best_over_n_logn": 1.129166
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

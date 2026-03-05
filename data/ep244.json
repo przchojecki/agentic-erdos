@@ -1,0 +1,73 @@
+{
+  "problem": "EP-244",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-244\n- Quick literature check:\n  - Romanoff-type progress is significant: Ding (2025) proves positive lower density for almost all real `C>1`.\n- Finite compute signal:\n  - For `X=200000`, representation densities for `n=p+\\lfloor C^k\\rfloor` are positive across tested `C`:\n    - `C=1.3`: `~0.983`\n    - `C=\\sqrt2`: `~0.856`\n    - `C=2`: `~0.554`\n    - `C=3`: `~0.367`\n- Interpretation:\n  - Computation supports positive-density behavior for many concrete `C`, but cannot prove asymptotic density."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "density of p + floor(C^k) in finite ranges.",
+        "content": "// EP-244: density of p + floor(C^k) in finite ranges.\n{\n  const X = 200000;\n  const { isPrime } = sieve(X);\n\n  function shiftsForC(C, Xmax) {\n    const s = new Set();\n    let v = 1;\n    for (let k = 0; k < 200; k += 1) {\n      const f = Math.floor(v);\n      if (f > Xmax) break;\n      s.add(f);\n      v *= C;\n      if (!Number.isFinite(v)) break;\n    }\n    return [...s].sort((a, b) => a - b);\n  }\n\n  function densityForC(C) {\n    const shifts = shiftsForC(C, X);\n    const mark = new Uint8Array(X + 1);\n    for (let n = 1; n <= X; n += 1) {\n      let ok = false;\n      for (const s of shifts) {\n        if (s >= n) break;\n        if (isPrime[n - s]) {\n          ok = true;\n          break;\n        }\n      }\n      if (ok) mark[n] = 1;\n    }\n    let all = 0;\n    let tail = 0;\n    const L = Math.floor(X / 2);\n    for (let n = 1; n <= X; n += 1) {\n      all += mark[n];\n      if (n >= L) tail += mark[n];\n    }\n    return {\n      C: Number(C.toFixed(6)),\n      shifts_count: shifts.length,\n      density_1_to_X: Number((all / X).toFixed(6)),\n      density_tail_half: Number((tail / (X - L + 1)).toFixed(6)),\n    };\n  }\n\n  const rows = [1.3, Math.sqrt(2), (1 + Math.sqrt(5)) / 2, Math.PI, 2, 3].map(densityForC);\n\n  out.results.ep244 = {\n    description: 'Finite density profile for representations n = p + floor(C^k).',\n    X,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep244",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Finite density profile for representations n = p + floor(C^k).",
+          "X": 200000,
+          "rows": [
+            {
+              "C": 1.3,
+              "shifts_count": 44,
+              "density_1_to_X": 0.983125,
+              "density_tail_half": 0.98341
+            },
+            {
+              "C": 1.414214,
+              "shifts_count": 34,
+              "density_1_to_X": 0.856375,
+              "density_tail_half": 0.857101
+            },
+            {
+              "C": 1.618034,
+              "shifts_count": 25,
+              "density_1_to_X": 0.8772,
+              "density_tail_half": 0.873791
+            },
+            {
+              "C": 3.141593,
+              "shifts_count": 11,
+              "density_1_to_X": 0.60639,
+              "density_tail_half": 0.614524
+            },
+            {
+              "C": 2,
+              "shifts_count": 18,
+              "density_1_to_X": 0.55436,
+              "density_tail_half": 0.546625
+            },
+            {
+              "C": 3,
+              "shifts_count": 12,
+              "density_1_to_X": 0.366705,
+              "density_tail_half": 0.362556
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

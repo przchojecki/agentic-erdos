@@ -1,0 +1,81 @@
+{
+  "problem": "EP-445",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep445_inverse_interval_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep445_inverse_interval_scan.mjs",
+        "p_max": 20000,
+        "shift_samples": 160,
+        "c_list": [
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8
+        ],
+        "rows": [
+          {
+            "c": 0.55,
+            "p_max": 20000,
+            "primes_tested": 2237,
+            "primes_good": 0,
+            "primes_bad": 2237,
+            "largest_bad_prime": 19997,
+            "good_ratio": 0
+          },
+          {
+            "c": 0.6,
+            "p_max": 20000,
+            "primes_tested": 2237,
+            "primes_good": 20,
+            "primes_bad": 2217,
+            "largest_bad_prime": 19997,
+            "good_ratio": 0.008941
+          },
+          {
+            "c": 0.65,
+            "p_max": 20000,
+            "primes_tested": 2237,
+            "primes_good": 1879,
+            "primes_bad": 358,
+            "largest_bad_prime": 19301,
+            "good_ratio": 0.839964
+          },
+          {
+            "c": 0.7,
+            "p_max": 20000,
+            "primes_tested": 2237,
+            "primes_good": 2223,
+            "primes_bad": 14,
+            "largest_bad_prime": 839,
+            "good_ratio": 0.993742
+          },
+          {
+            "c": 0.75,
+            "p_max": 20000,
+            "primes_tested": 2237,
+            "primes_good": 2237,
+            "primes_bad": 0,
+            "largest_bad_prime": null,
+            "good_ratio": 1
+          },
+          {
+            "c": 0.8,
+            "p_max": 20000,
+            "primes_tested": 2237,
+            "primes_good": 2237,
+            "primes_bad": 0,
+            "largest_bad_prime": null,
+            "good_ratio": 1
+          }
+        ],
+        "timestamp_utc": "2026-03-02T09:12:24.508Z"
+      }
+    }
+  ]
+}

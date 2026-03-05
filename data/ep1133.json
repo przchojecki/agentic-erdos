@@ -1,0 +1,246 @@
+{
+  "problem": "EP-1133",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep1133_subset_fit_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-1133",
+        "script": "ep1133_subset_fit_scan.mjs",
+        "method": "random_label_subset_interpolation_supnorm_scan",
+        "params": {
+          "n": 36,
+          "epsilon": 0.2,
+          "t": 28,
+          "y_samples": 220,
+          "subset_samples": 220,
+          "grid_points": 1601,
+          "c_list": [
+            2,
+            3,
+            5,
+            8,
+            12,
+            20
+          ],
+          "node_types": [
+            "chebyshev",
+            "equispaced"
+          ],
+          "seed": 20260302
+        },
+        "summaries": [
+          {
+            "node_type": "chebyshev",
+            "n": 36,
+            "epsilon": 0.2,
+            "t": 28,
+            "y_samples": 220,
+            "subset_samples_per_y": 220,
+            "grid_points": 1601,
+            "min_sup_stats": {
+              "mean": 2.9067493158580153,
+              "p10": 2.04181146604701,
+              "p50": 2.860521688809306,
+              "p90": 3.83501127362686,
+              "min": 1.5286350907051545,
+              "max": 4.920729864291927
+            },
+            "C_stats": [
+              {
+                "C": 2,
+                "fraction_with_some_sampled_fit_le_C": 0.09090909090909091
+              },
+              {
+                "C": 3,
+                "fraction_with_some_sampled_fit_le_C": 0.5818181818181818
+              },
+              {
+                "C": 5,
+                "fraction_with_some_sampled_fit_le_C": 1
+              },
+              {
+                "C": 8,
+                "fraction_with_some_sampled_fit_le_C": 1
+              },
+              {
+                "C": 12,
+                "fraction_with_some_sampled_fit_le_C": 1
+              },
+              {
+                "C": 20,
+                "fraction_with_some_sampled_fit_le_C": 1
+              }
+            ]
+          },
+          {
+            "node_type": "equispaced",
+            "n": 36,
+            "epsilon": 0.2,
+            "t": 28,
+            "y_samples": 220,
+            "subset_samples_per_y": 220,
+            "grid_points": 1601,
+            "min_sup_stats": {
+              "mean": 2373.1025053491626,
+              "p10": 624.6785537657933,
+              "p50": 1721.6745360550362,
+              "p90": 4615.708788923291,
+              "min": 113.79528878757006,
+              "max": 15031.418777174778
+            },
+            "C_stats": [
+              {
+                "C": 2,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 3,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 5,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 8,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 12,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 20,
+                "fraction_with_some_sampled_fit_le_C": 0
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-03T11:42:53.032Z"
+      }
+    },
+    {
+      "source_file": "ep1133_subset_fit_scan_N36_eps0.2.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-1133",
+        "script": "ep1133_subset_fit_scan.mjs",
+        "method": "random_label_subset_interpolation_supnorm_scan",
+        "params": {
+          "n": 36,
+          "epsilon": 0.2,
+          "t": 28,
+          "y_samples": 220,
+          "subset_samples": 220,
+          "grid_points": 1601,
+          "c_list": [
+            2,
+            3,
+            5,
+            8,
+            12,
+            20
+          ],
+          "node_types": [
+            "chebyshev",
+            "equispaced"
+          ],
+          "seed": 20260302
+        },
+        "summaries": [
+          {
+            "node_type": "chebyshev",
+            "n": 36,
+            "epsilon": 0.2,
+            "t": 28,
+            "y_samples": 220,
+            "subset_samples_per_y": 220,
+            "grid_points": 1601,
+            "min_sup_stats": {
+              "mean": 2.9067493158580153,
+              "p10": 2.04181146604701,
+              "p50": 2.860521688809306,
+              "p90": 3.83501127362686,
+              "min": 1.5286350907051545,
+              "max": 4.920729864291927
+            },
+            "C_stats": [
+              {
+                "C": 2,
+                "fraction_with_some_sampled_fit_le_C": 0.09090909090909091
+              },
+              {
+                "C": 3,
+                "fraction_with_some_sampled_fit_le_C": 0.5818181818181818
+              },
+              {
+                "C": 5,
+                "fraction_with_some_sampled_fit_le_C": 1
+              },
+              {
+                "C": 8,
+                "fraction_with_some_sampled_fit_le_C": 1
+              },
+              {
+                "C": 12,
+                "fraction_with_some_sampled_fit_le_C": 1
+              },
+              {
+                "C": 20,
+                "fraction_with_some_sampled_fit_le_C": 1
+              }
+            ]
+          },
+          {
+            "node_type": "equispaced",
+            "n": 36,
+            "epsilon": 0.2,
+            "t": 28,
+            "y_samples": 220,
+            "subset_samples_per_y": 220,
+            "grid_points": 1601,
+            "min_sup_stats": {
+              "mean": 2373.1025053491626,
+              "p10": 624.6785537657933,
+              "p50": 1721.6745360550362,
+              "p90": 4615.708788923291,
+              "min": 113.79528878757006,
+              "max": 15031.418777174778
+            },
+            "C_stats": [
+              {
+                "C": 2,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 3,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 5,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 8,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 12,
+                "fraction_with_some_sampled_fit_le_C": 0
+              },
+              {
+                "C": 20,
+                "fraction_with_some_sampled_fit_le_C": 0
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-03T11:42:53.032Z"
+      }
+    }
+  ]
+}

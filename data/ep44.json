@@ -1,0 +1,63 @@
+{
+  "problem": "EP-44",
+  "normalized_utc": "2026-03-05T08:54:16.947Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch2_web_compute.md",
+        "content": "### EP-44\n- Quick literature check:\n  - No direct modern closure found quickly; also saw recent 2025 work giving counterexamples in a related perfect-difference-set extension setting.\n- Finite compute signal:\n  - Random extension experiments from Sidon $A\\subseteq[1,N]$ into $[N+1,3N]$ (target $(1-\\varepsilon)\\sqrt{3N}$, $\\varepsilon=0.2$) succeed in:\n    - $94\\%$ of trials for $N=120$\n    - $83\\%$ for $N=180$\n    - $50\\%$ for $N=240$\n- Interpretation:\n  - Finite random behavior looks moderately favorable at small `N`, but degrades as `N` grows in this quick model."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch2_quick_compute.mjs",
+        "heading": "finite extension experiments for random Sidon A.",
+        "content": "// EP-44: finite extension experiments for random Sidon A.\n{\n  const NList = [120, 180, 240];\n  const rows = [];\n  for (const N of NList) {\n    const tries = 18;\n    let success = 0;\n    const eps = 0.2;\n    let avgRatio = 0;\n    for (let t = 0; t < tries; t += 1) {\n      const targetA = Math.max(6, Math.floor(0.75 * Math.sqrt(N)));\n      const A = randomSidonSet(N, targetA, rng);\n      if (!A) continue;\n\n      const M = 3 * N;\n      const current = A.slice();\n      const sums = new Set();\n      for (let i = 0; i < current.length; i += 1) {\n        for (let j = i; j < current.length; j += 1) sums.add(current[i] + current[j]);\n      }\n      const candidates = Array.from({ length: M - N }, (_, i) => N + 1 + i);\n      shuffle(candidates, rng);\n      for (const x of candidates) {\n        if (canAddToSidon(current, sums, x)) addToSidonState(current, sums, x);\n      }\n      const ratio = current.length / Math.sqrt(M);\n      avgRatio += ratio;\n      if (current.length >= (1 - eps) * Math.sqrt(M)) success += 1;\n    }\n    rows.push({\n      N,\n      M_test: 3 * N,\n      epsilon: 0.2,\n      trials: tries,\n      success_count: success,\n      success_fraction: Number((success / tries).toFixed(6)),\n      avg_final_ratio_over_sqrtM: Number((avgRatio / tries).toFixed(6)),\n    });\n  }\n  out.results.ep44 = {\n    description: 'Finite random extension tests from initial Sidon sets into [N+1,3N].',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch2_quick_compute.json",
+        "key": "ep44",
+        "container_meta": {
+          "script": "harder_batch2_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:51:17.566Z"
+        },
+        "data": {
+          "description": "Finite random extension tests from initial Sidon sets into [N+1,3N].",
+          "rows": [
+            {
+              "N": 120,
+              "M_test": 360,
+              "epsilon": 0.2,
+              "trials": 18,
+              "success_count": 17,
+              "success_fraction": 0.944444,
+              "avg_final_ratio_over_sqrtM": 0.866698
+            },
+            {
+              "N": 180,
+              "M_test": 540,
+              "epsilon": 0.2,
+              "trials": 18,
+              "success_count": 15,
+              "success_fraction": 0.833333,
+              "avg_final_ratio_over_sqrtM": 0.827193
+            },
+            {
+              "N": 240,
+              "M_test": 720,
+              "epsilon": 0.2,
+              "trials": 18,
+              "success_count": 9,
+              "success_fraction": 0.5,
+              "avg_final_ratio_over_sqrtM": 0.801258
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "problem": "EP-288",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep288_interval_singleton_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-288",
+        "script": "ep288_interval_singleton_scan.mjs",
+        "method": "exact_denominator_lcm_scan_restricted_to_singleton_second_interval",
+        "params": {
+          "MAX_N": 220,
+          "SAMPLE_CAP": 300
+        },
+        "denominator_lcm_digits": 92,
+        "total_solutions_count": 6,
+        "disjoint_singleton_solutions_count": 3,
+        "max_interval_length_in_solutions": 4,
+        "samples": [
+          {
+            "a": 1,
+            "b": 1,
+            "c": 1,
+            "interval_length": 1,
+            "integer_value": "2"
+          },
+          {
+            "a": 1,
+            "b": 2,
+            "c": 2,
+            "interval_length": 2,
+            "integer_value": "2"
+          },
+          {
+            "a": 1,
+            "b": 3,
+            "c": 6,
+            "interval_length": 3,
+            "integer_value": "2"
+          },
+          {
+            "a": 2,
+            "b": 2,
+            "c": 2,
+            "interval_length": 1,
+            "integer_value": "1"
+          },
+          {
+            "a": 2,
+            "b": 3,
+            "c": 6,
+            "interval_length": 2,
+            "integer_value": "1"
+          },
+          {
+            "a": 3,
+            "b": 6,
+            "c": 20,
+            "interval_length": 4,
+            "integer_value": "1"
+          }
+        ],
+        "disjoint_samples": [
+          {
+            "a": 1,
+            "b": 3,
+            "c": 6,
+            "interval_length": 3,
+            "integer_value": "2"
+          },
+          {
+            "a": 2,
+            "b": 3,
+            "c": 6,
+            "interval_length": 2,
+            "integer_value": "1"
+          },
+          {
+            "a": 3,
+            "b": 6,
+            "c": 20,
+            "interval_length": 4,
+            "integer_value": "1"
+          }
+        ],
+        "generated_utc": "2026-03-04T22:16:05.467Z"
+      }
+    }
+  ],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch2_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch2_compute.mjs",
+        "heading": ": summarize interval singleton scan.",
+        "extracted_section": "// EP-288: summarize interval singleton scan.\nif (fs.existsSync('data/ep288_interval_singleton_scan.json')) {\n  const d = loadJSON('data/ep288_interval_singleton_scan.json');\n  out.results.ep288 = {\n    total_solutions_count: d.total_solutions_count ?? null,\n    disjoint_singleton_solutions_count: d.disjoint_singleton_solutions_count ?? null,\n    max_interval_length_in_solutions: d.max_interval_length_in_solutions ?? null,\n    last_row: pickLastRow(d),\n  };\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [],
+    "script_sources": [
+      {
+        "source_file": "scripts/longterm_batch2_compute.mjs",
+        "heading": "summarize interval singleton scan.",
+        "content": "// EP-288: summarize interval singleton scan.\nif (fs.existsSync('data/ep288_interval_singleton_scan.json')) {\n  const d = loadJSON('data/ep288_interval_singleton_scan.json');\n  out.results.ep288 = {\n    total_solutions_count: d.total_solutions_count ?? null,\n    disjoint_singleton_solutions_count: d.disjoint_singleton_solutions_count ?? null,\n    max_interval_length_in_solutions: d.max_interval_length_in_solutions ?? null,\n    last_row: pickLastRow(d),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/longterm_batch2_compute.json",
+        "key": "ep288",
+        "container_meta": {
+          "script": "longterm_batch2_compute.mjs",
+          "generated_utc": "2026-03-04T22:18:34.636Z"
+        },
+        "data": {
+          "total_solutions_count": 6,
+          "disjoint_singleton_solutions_count": 3,
+          "max_interval_length_in_solutions": 4,
+          "last_row": null
+        }
+      }
+    ]
+  }
+}

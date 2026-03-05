@@ -1,0 +1,53 @@
+{
+  "problem": "EP-276",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-276\n- Quick literature check:\n  - Composite Lucas constructions via covering methods exist; the stronger “no global common-factor mechanism” direction remains delicate.\n- Finite compute signal:\n  - Small-seed scan (`a_0,a_1` composite in `[4,120]`) found examples with at least 28 initial composite terms and prefix gcd `1`.\n- Interpretation:\n  - Finite evidence shows long composite stretches can coexist with gcd collapse, but this is far from an infinite all-composite proof."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "search small-seed Lucas recurrences for long initial all-composite runs with gcd profile.",
+        "content": "// EP-276: search small-seed Lucas recurrences for long initial all-composite runs with gcd profile.\n{\n  function lucasSeq(a0, a1, len) {\n    const a = [a0, a1];\n    for (let i = 2; i < len; i += 1) {\n      const next = a[i - 1] + a[i - 2];\n      if (!Number.isSafeInteger(next) || next <= 0) return a;\n      a.push(next);\n    }\n    return a;\n  }\n\n  function compositePrefixLen(arr) {\n    let t = 0;\n    while (t < arr.length && !isPrimeInt(arr[t])) t += 1;\n    return t;\n  }\n\n  const compositeSeeds = [];\n  for (let x = 4; x <= 120; x += 1) if (!isPrimeInt(x)) compositeSeeds.push(x);\n\n  let bestAny = null;\n  let bestGcd1 = null;\n\n  for (const a0 of compositeSeeds) {\n    for (const a1 of compositeSeeds) {\n      const seq = lucasSeq(a0, a1, 28);\n      if (seq.length < 8) continue;\n      const t = compositePrefixLen(seq);\n      if (t < 6) continue;\n      let g = 0;\n      for (let i = 0; i < t; i += 1) g = gcdInt(g, seq[i]);\n      const rec = {\n        a0,\n        a1,\n        composite_prefix_len: t,\n        gcd_prefix: g,\n        prefix_tail_value: seq[t - 1],\n      };\n      if (!bestAny || t > bestAny.composite_prefix_len || (t === bestAny.composite_prefix_len && rec.gcd_prefix < bestAny.gcd_prefix)) {\n        bestAny = rec;\n      }\n      if (g === 1 && (!bestGcd1 || t > bestGcd1.composite_prefix_len)) {\n        bestGcd1 = rec;\n      }\n    }\n  }\n\n  out.results.ep276 = {\n    description: 'Small-seed Lucas scan for long initial composite runs and gcd behavior.',\n    seed_range: [4, 120],\n    terms_tested: 28,\n    best_overall: bestAny,\n    best_with_prefix_gcd_1: bestGcd1,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep276",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Small-seed Lucas scan for long initial composite runs and gcd behavior.",
+          "seed_range": [
+            4,
+            120
+          ],
+          "terms_tested": 28,
+          "best_overall": {
+            "a0": 65,
+            "a1": 112,
+            "composite_prefix_len": 28,
+            "gcd_prefix": 1,
+            "prefix_tail_value": 29889361
+          },
+          "best_with_prefix_gcd_1": {
+            "a0": 65,
+            "a1": 112,
+            "composite_prefix_len": 28,
+            "gcd_prefix": 1,
+            "prefix_tail_value": 29889361
+          }
+        }
+      }
+    ]
+  }
+}

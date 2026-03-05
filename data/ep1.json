@@ -1,0 +1,120 @@
+{
+  "problem": "EP-1",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "harder_batch1_quick_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "harder_batch1_quick_compute.mjs",
+        "heading": ",3,5,9,12,15,17,20,28,30.",
+        "extracted_section": "// EP-1,3,5,9,12,15,17,20,28,30.\n\nfunction chooseBigInt(n, k) {\n  let kk = k;\n  if (kk > n - kk) kk = n - kk;\n  let num = 1n;\n  let den = 1n;\n  for (let i = 1; i <= kk; i += 1) {\n    num *= BigInt(n - kk + i);\n    den *= BigInt(i);\n  }\n  return num / den;\n}\n\nfunction makeRng(seed) {\n  let x = seed | 0;\n  return () => {\n    x ^= x << 13;\n    x ^= x >>> 17;\n    x ^= x << 5;\n    return ((x >>> 0) + 0.5) / 4294967296;\n  };\n}\n\nfunction shuffle(arr, rng) {\n  for (let i = arr.length - 1; i > 0; i -= 1) {\n    const j = Math.floor(rng() * (i + 1));\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n}\n\nfunction nthPrimeUpper(n) {\n  if (n < 6) return 20;\n  const nn = n;\n  return Math.ceil(nn * (Math.log(nn) + Math.log(Math.log(nn)) + 1));\n}\n\nfunction sieve(limit) {\n  const isPrime = new Uint8Array(limit + 1);\n  isPrime.fill(1, 2);\n  for (let i = 2; i * i <= limit; i += 1) {\n    if (!isPrime[i]) continue;\n    for (let j = i * i; j <= limit; j += i) isPrime[j] = 0;\n  }\n  const primes = [];\n  for (let i = 2; i <= limit; i += 1) if (isPrime[i]) primes.push(i);\n  return { isPrime, primes };\n}\n\nfunction quantile(sortedVals, q) {\n  if (sortedVals.length === 0) return null;\n  const idx = Math.min(sortedVals.length - 1, Math.max(0, Math.floor(q * (sortedVals.length - 1))));\n  return sortedVals[idx];\n}\n\nfunction bitCount(x) {\n  let v = x >>> 0;\n  let c = 0;\n  while (v) {\n    v &= v - 1;\n    c += 1;\n  }\n  return c;\n}\n\nfunction allSubsetsOfSize(U, m) {\n  const out = [];\n  function rec(start, left, mask) {\n    if (left === 0) {\n      out.push(mask);\n      return;\n    }\n    for (let x = start; x <= U - left + 1; x += 1) {\n      rec(x + 1, left - 1, mask | (1 << (x - 1)));\n    }\n  }\n  rec(1, m, 0);\n  return out;\n}\n\nfunction candCreates3Sunflower(cand, family) {\n  for (let i = 0; i < family.length; i += 1) {\n    const a = family[i];\n    const core = a & cand;\n    for (let j = i + 1; j < family.length; j += 1) {\n      const b = family[j];\n      if ((a & b) !== core) continue;\n      if ((b & cand) !== core) continue;\n      return true;\n    }\n  }\n  return false;\n}\n\nfunction greedyMaximalSidonSize(N, rng) {\n  const order = Array.from({ length: N }, (_, i) => i + 1);\n  shuffle(order, rng);\n\n  const A = [];\n  const sums = new Uint8Array(2 * N + 1);\n  for (const x of order) {\n    let ok = sums[2 * x] === 0;\n    if (ok) {\n      for (const a of A) {\n        if (sums[a + x]) {\n          ok = false;\n          break;\n        }\n      }\n    }\n    if (!ok) continue;\n    sums[2 * x] = 1;\n    for (const a of A) sums[a + x] = 1;\n    A.push(x);\n  }\n  return A.length;\n}\n\nconst out = {\n  script: path.basename(process.argv[1]),\n  generated_utc: new Date().toISOString(),\n  results: {},\n};"
+      },
+      {
+        "script": "harder_batch1_quick_compute.mjs",
+        "heading": ": central binomial lower bound scale.",
+        "extracted_section": "// EP-1: central binomial lower bound scale.\n{\n  const nList = [8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64];\n  const rows = [];\n  for (const n of nList) {\n    const c = chooseBigInt(n, Math.floor(n / 2));\n    const cNum = Number(c);\n    const ratioTo2n = cNum / 2 ** n;\n    rows.push({\n      n,\n      lower_bound_binom_central: c.toString(),\n      ratio_binom_over_2pow_n: Number(ratioTo2n.toFixed(8)),\n      scaled_ratio_times_sqrt_n: Number((ratioTo2n * Math.sqrt(n)).toFixed(8)),\n    });\n  }\n  out.results.ep1 = {\n    description: 'Central-binomial lower bound profile against 2^n scale.',\n    rows,\n  };\n}\n\n// Global sieve for EP-5 / EP-15 and shared primality checks.\nconst EP15_N_MAX = 1000000;\nlet sieveLimit = nthPrimeUpper(EP15_N_MAX + 2);\nlet sieveData = sieve(sieveLimit);\nwhile (sieveData.primes.length < EP15_N_MAX + 2) {\n  sieveLimit *= 2;\n  sieveData = sieve(sieveLimit);\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-1\n- Quick literature check:\n  - Found a recent related extension in modular setting: Dousse et al., *Modular distinct subset sums* (Acta Arith., 2025).\n- Finite compute signal:\n  - Central-binomial scale check gives $\\binom{n}{\\lfloor n/2\\rfloor} 2^{-n}\\sqrt{n}$ approaching about $0.795$ by $n=64$.\n- Interpretation:\n  - Finite profile matches the known $2^n/\\sqrt{n}$ scale and still leaves the $\\sqrt{n}$ gap to the conjectural $c\\,2^n$ target."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "central binomial lower bound scale.",
+        "content": "// EP-1: central binomial lower bound scale.\n{\n  const nList = [8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64];\n  const rows = [];\n  for (const n of nList) {\n    const c = chooseBigInt(n, Math.floor(n / 2));\n    const cNum = Number(c);\n    const ratioTo2n = cNum / 2 ** n;\n    rows.push({\n      n,\n      lower_bound_binom_central: c.toString(),\n      ratio_binom_over_2pow_n: Number(ratioTo2n.toFixed(8)),\n      scaled_ratio_times_sqrt_n: Number((ratioTo2n * Math.sqrt(n)).toFixed(8)),\n    });\n  }\n  out.results.ep1 = {\n    description: 'Central-binomial lower bound profile against 2^n scale.',\n    rows,\n  };\n}\n\n// Global sieve for EP-5 / EP-15 and shared primality checks.\nconst EP15_N_MAX = 1000000;\nlet sieveLimit = nthPrimeUpper(EP15_N_MAX + 2);\nlet sieveData = sieve(sieveLimit);\nwhile (sieveData.primes.length < EP15_N_MAX + 2) {\n  sieveLimit *= 2;\n  sieveData = sieve(sieveLimit);\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep1",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Central-binomial lower bound profile against 2^n scale.",
+          "rows": [
+            {
+              "n": 8,
+              "lower_bound_binom_central": "70",
+              "ratio_binom_over_2pow_n": 0.2734375,
+              "scaled_ratio_times_sqrt_n": 0.77339804
+            },
+            {
+              "n": 12,
+              "lower_bound_binom_central": "924",
+              "ratio_binom_over_2pow_n": 0.22558594,
+              "scaled_ratio_times_sqrt_n": 0.78145261
+            },
+            {
+              "n": 16,
+              "lower_bound_binom_central": "12870",
+              "ratio_binom_over_2pow_n": 0.19638062,
+              "scaled_ratio_times_sqrt_n": 0.78552246
+            },
+            {
+              "n": 20,
+              "lower_bound_binom_central": "184756",
+              "ratio_binom_over_2pow_n": 0.17619705,
+              "scaled_ratio_times_sqrt_n": 0.78797717
+            },
+            {
+              "n": 24,
+              "lower_bound_binom_central": "2704156",
+              "ratio_binom_over_2pow_n": 0.16118026,
+              "scaled_ratio_times_sqrt_n": 0.78961878
+            },
+            {
+              "n": 28,
+              "lower_bound_binom_central": "40116600",
+              "ratio_binom_over_2pow_n": 0.14944598,
+              "scaled_ratio_times_sqrt_n": 0.7907938
+            },
+            {
+              "n": 32,
+              "lower_bound_binom_central": "601080390",
+              "ratio_binom_over_2pow_n": 0.13994993,
+              "scaled_ratio_times_sqrt_n": 0.79167638
+            },
+            {
+              "n": 40,
+              "lower_bound_binom_central": "137846528820",
+              "ratio_binom_over_2pow_n": 0.12537069,
+              "scaled_ratio_times_sqrt_n": 0.79291385
+            },
+            {
+              "n": 48,
+              "lower_bound_binom_central": "32247603683100",
+              "ratio_binom_over_2pow_n": 0.1145665,
+              "scaled_ratio_times_sqrt_n": 0.79374001
+            },
+            {
+              "n": 56,
+              "lower_bound_binom_central": "7648690600760440",
+              "ratio_binom_over_2pow_n": 0.10614691,
+              "scaled_ratio_times_sqrt_n": 0.7943307
+            },
+            {
+              "n": 64,
+              "lower_bound_binom_central": "1832624140942590534",
+              "ratio_binom_over_2pow_n": 0.09934675,
+              "scaled_ratio_times_sqrt_n": 0.79477403
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

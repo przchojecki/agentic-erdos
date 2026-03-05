@@ -1,0 +1,66 @@
+{
+  "problem": "EP-377",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-377\n- Quick literature check:\n  - Core conjectural boundedness remains unresolved; classical average-value results still central.\n- Finite compute signal:\n  - For `n<=20000`, average of `f(n)=\\sum_{p<=n, p\\nmid \\binom{2n}{n}}1/p` is around `0.46`; max observed about `1.179`.\n- Interpretation:\n  - Finite profile is compatible with boundedness heuristics but far from a uniform proof."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "f(n)=sum_{p<=n, p not | C(2n,n)} 1/p.",
+        "content": "// EP-377: f(n)=sum_{p<=n, p not | C(2n,n)} 1/p.\n{\n  const N = 20_000;\n  const primes = primesAll.filter((p) => p <= N);\n  const milestones = [1000, 5000, 10000, 15000, 20000];\n  const mset = new Set(milestones);\n  const rows = [];\n\n  let sumAll = 0;\n  let maxF = -1;\n  let argMax = -1;\n\n  for (let n = 1; n <= N; n += 1) {\n    let f = 0;\n    for (const p of primes) {\n      if (p > n) break;\n      if (noCarryDoubleInBase(n, p)) f += 1 / p;\n    }\n\n    sumAll += f;\n    if (f > maxF) {\n      maxF = f;\n      argMax = n;\n    }\n\n    if (mset.has(n)) {\n      rows.push({\n        X: n,\n        average_f_up_to_X: Number((sumAll / n).toPrecision(8)),\n        max_f_up_to_X: Number(maxF.toPrecision(8)),\n        argmax_n_up_to_X: argMax,\n      });\n    }\n  }\n\n  out.results.ep377 = {\n    description: 'Finite profile of harmonic sum over primes not dividing C(2n,n).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep377",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite profile of harmonic sum over primes not dividing C(2n,n).",
+          "rows": [
+            {
+              "X": 1000,
+              "average_f_up_to_X": 0.45149635,
+              "max_f_up_to_X": 1.0769774,
+              "argmax_n_up_to_X": 756
+            },
+            {
+              "X": 5000,
+              "average_f_up_to_X": 0.45640246,
+              "max_f_up_to_X": 1.1792429,
+              "argmax_n_up_to_X": 3250
+            },
+            {
+              "X": 10000,
+              "average_f_up_to_X": 0.46570439,
+              "max_f_up_to_X": 1.1792429,
+              "argmax_n_up_to_X": 3250
+            },
+            {
+              "X": 15000,
+              "average_f_up_to_X": 0.45796008,
+              "max_f_up_to_X": 1.1792429,
+              "argmax_n_up_to_X": 3250
+            },
+            {
+              "X": 20000,
+              "average_f_up_to_X": 0.45994023,
+              "max_f_up_to_X": 1.1792429,
+              "argmax_n_up_to_X": 3250
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

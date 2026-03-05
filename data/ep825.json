@@ -1,0 +1,62 @@
+{
+  "problem": "EP-825",
+  "normalized_utc": "2026-03-05T08:54:16.968Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch19_web_compute.md",
+        "content": "### EP-825\n- Quick literature check:\n  - Problem page now marks this as solved in the affirmative (Larsen, Jan 2026 thread update; page edited Feb 2026).\n- Finite compute signal:\n  - Weird-number scan to `N=25000` found `46` weird numbers, with max observed abundancy about `2.07095`.\n- Interpretation:\n  - Treat as resolved on the list (subject to normal verification/publication workflow); finite scan is only consistency context."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch19_quick_compute.mjs",
+        "heading": "weird numbers and abundancy index scan.",
+        "content": "// EP-825: weird numbers and abundancy index scan.\n{\n  const N = 25_000;\n  const properDivs = Array.from({ length: N + 1 }, () => []);\n  const sigma = new Uint32Array(N + 1);\n\n  for (let d = 1; d <= N; d += 1) {\n    for (let m = d; m <= N; m += d) {\n      sigma[m] += d;\n      if (m !== d) properDivs[m].push(d);\n    }\n  }\n\n  function canRepresentAsDistinctSum(target, arr) {\n    const bits = new Uint8Array(target + 1);\n    bits[0] = 1;\n    for (const v of arr) {\n      for (let s = target; s >= v; s -= 1) {\n        if (bits[s - v]) bits[s] = 1;\n      }\n      if (bits[target]) return true;\n    }\n    return bits[target] === 1;\n  }\n\n  const weirds = [];\n  const abundant = [];\n  let maxWeirdAbund = 0;\n\n  for (let n = 2; n <= N; n += 1) {\n    if (sigma[n] <= 2 * n) continue;\n    abundant.push(n);\n    const can = canRepresentAsDistinctSum(n, properDivs[n]);\n    if (!can) {\n      const abund = sigma[n] / n;\n      weirds.push({ n, abundancy: abund });\n      if (abund > maxWeirdAbund) maxWeirdAbund = abund;\n    }\n  }\n\n  // Small finite threshold proxy: if sigma(n) > Cn then all representable (within range)\n  let bestC = 2;\n  for (let Cnum = 201; Cnum <= 800; Cnum += 1) {\n    const C = Cnum / 100;\n    let ok = true;\n    for (const w of weirds) {\n      if (w.abundancy > C) {\n        ok = false;\n        break;\n      }\n    }\n    if (ok) {\n      bestC = C;\n      break;\n    }\n  }\n\n  out.results.ep825 = {\n    description: 'Finite weird-number abundancy scan and representability threshold proxy.',\n    N,\n    abundant_count: abundant.length,\n    weird_count: weirds.length,\n    first_20_weirds: weirds.slice(0, 20).map((x) => x.n),\n    max_weird_abundancy_in_range: Number(maxWeirdAbund.toPrecision(8)),\n    finite_C_threshold_no_counterexample_above_in_range: bestC,\n    note: 'Web status indicates EP-825 solved affirmatively (Larsen); finite scan is consistency check only.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch19_quick_compute.json",
+        "key": "ep825",
+        "container_meta": {
+          "script": "harder_batch19_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:37:57.048Z"
+        },
+        "data": {
+          "description": "Finite weird-number abundancy scan and representability threshold proxy.",
+          "N": 25000,
+          "abundant_count": 6191,
+          "weird_count": 46,
+          "first_20_weirds": [
+            70,
+            836,
+            4030,
+            5830,
+            7192,
+            7912,
+            9272,
+            10430,
+            10570,
+            10792,
+            10990,
+            11410,
+            11690,
+            12110,
+            12530,
+            12670,
+            13370,
+            13510,
+            13790,
+            13930
+          ],
+          "max_weird_abundancy_in_range": 2.0709492,
+          "finite_C_threshold_no_counterexample_above_in_range": 2.08,
+          "note": "Web status indicates EP-825 solved affirmatively (Larsen); finite scan is consistency check only."
+        }
+      }
+    ]
+  }
+}

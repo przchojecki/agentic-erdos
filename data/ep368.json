@@ -1,0 +1,78 @@
+{
+  "problem": "EP-368",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-368\n- Quick literature check:\n  - Recent unconditional lower progress includes Pasten (2024), still far from conjectural `(\\log n)^2` scale.\n- Finite compute signal:\n  - For `n<=3e6`, proportion with `F(n)=P(n(n+1)) <= (\\log n)^2` drops from `~6.9%` at `1e4` to `~0.63%` at `3e6`.\n- Interpretation:\n  - Finite trend supports growth of `F(n)` and rarity of very-small-largest-prime-factor events."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "largest prime factor of n(n+1).",
+        "content": "// EP-368: largest prime factor of n(n+1).\n{\n  const milestones = [10_000, 100_000, 500_000, 1_000_000, 2_000_000, 3_000_000];\n  const mset = new Set(milestones);\n  const rows = [];\n\n  let minF = Number.POSITIVE_INFINITY;\n  let maxF = 0;\n  let cntLeLog2 = 0;\n\n  for (let n = 2; n <= LIMIT; n += 1) {\n    const F = lpf[n] > lpf[n + 1] ? lpf[n] : lpf[n + 1];\n    if (F < minF) minF = F;\n    if (F > maxF) maxF = F;\n\n    const t = Math.log(n) ** 2;\n    if (F <= t) cntLeLog2 += 1;\n\n    if (mset.has(n)) {\n      rows.push({\n        X: n,\n        min_F_up_to_X: minF,\n        max_F_up_to_X: maxF,\n        count_n_with_F_le_log2_up_to_X: cntLeLog2,\n        proportion_F_le_log2: Number((cntLeLog2 / (n - 1)).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep368 = {\n    description: 'Finite behavior of F(n)=P(n(n+1)) relative to logarithmic scales.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep368",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite behavior of F(n)=P(n(n+1)) relative to logarithmic scales.",
+          "rows": [
+            {
+              "X": 10000,
+              "min_F_up_to_X": 3,
+              "max_F_up_to_X": 9973,
+              "count_n_with_F_le_log2_up_to_X": 685,
+              "proportion_F_le_log2": 0.0685069
+            },
+            {
+              "X": 100000,
+              "min_F_up_to_X": 3,
+              "max_F_up_to_X": 99991,
+              "count_n_with_F_le_log2_up_to_X": 2777,
+              "proportion_F_le_log2": 0.0277703
+            },
+            {
+              "X": 500000,
+              "min_F_up_to_X": 3,
+              "max_F_up_to_X": 499979,
+              "count_n_with_F_le_log2_up_to_X": 6938,
+              "proportion_F_le_log2": 0.013876
+            },
+            {
+              "X": 1000000,
+              "min_F_up_to_X": 3,
+              "max_F_up_to_X": 999983,
+              "count_n_with_F_le_log2_up_to_X": 10263,
+              "proportion_F_le_log2": 0.010263
+            },
+            {
+              "X": 2000000,
+              "min_F_up_to_X": 3,
+              "max_F_up_to_X": 1999993,
+              "count_n_with_F_le_log2_up_to_X": 15255,
+              "proportion_F_le_log2": 0.0076275
+            },
+            {
+              "X": 3000000,
+              "min_F_up_to_X": 3,
+              "max_F_up_to_X": 2999999,
+              "count_n_with_F_le_log2_up_to_X": 18883,
+              "proportion_F_le_log2": 0.00629434
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

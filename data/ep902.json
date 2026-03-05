@@ -1,0 +1,170 @@
+{
+  "problem": "EP-902",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep902_exhaustive_n2.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "generated_utc": "2026-03-01T12:00:00Z",
+        "description": "Exhaustive tournament search for n=2 domination property",
+        "results": [
+          {
+            "m": 6,
+            "tournaments_checked": 32768,
+            "exists": false
+          },
+          {
+            "m": 7,
+            "tournaments_checked": 2097152,
+            "exists": true,
+            "example_mask": "85298"
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep902_random_tournament_search_extended.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "generated_utc": "2026-03-01T12:40:28.159Z",
+        "results": [
+          {
+            "n": 2,
+            "m": 7,
+            "trials": 120,
+            "success": 0
+          },
+          {
+            "n": 2,
+            "m": 8,
+            "trials": 120,
+            "success": 0
+          },
+          {
+            "n": 2,
+            "m": 9,
+            "trials": 120,
+            "success": 0
+          },
+          {
+            "n": 2,
+            "m": 10,
+            "trials": 120,
+            "success": 0.008333333333333333
+          },
+          {
+            "n": 2,
+            "m": 11,
+            "trials": 120,
+            "success": 0
+          },
+          {
+            "n": 2,
+            "m": 12,
+            "trials": 120,
+            "success": 0.008333333333333333
+          },
+          {
+            "n": 3,
+            "m": 24,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 28,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 32,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 36,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 40,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 44,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 48,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 52,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 56,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 3,
+            "m": 60,
+            "trials": 40,
+            "success": 0
+          },
+          {
+            "n": 4,
+            "m": 40,
+            "trials": 20,
+            "success": 0
+          },
+          {
+            "n": 4,
+            "m": 48,
+            "trials": 20,
+            "success": 0
+          },
+          {
+            "n": 4,
+            "m": 56,
+            "trials": 20,
+            "success": 0
+          },
+          {
+            "n": 4,
+            "m": 64,
+            "trials": 20,
+            "success": 0
+          },
+          {
+            "n": 4,
+            "m": 72,
+            "trials": 20,
+            "success": 0
+          },
+          {
+            "n": 4,
+            "m": 80,
+            "trials": 20,
+            "success": 0
+          }
+        ]
+      }
+    }
+  ]
+}

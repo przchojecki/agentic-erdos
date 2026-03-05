@@ -1,0 +1,92 @@
+{
+  "problem": "EP-96",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-96\n- Quick literature check:\n  - Best published upper bound remains of the form $n\\log_2 n+O(n)$ (Aggarwal 2015), with conjectural linear behavior still open.\n- Finite compute signal:\n  - In regular $n$-gons (after optimal scaling), the maximum number of unit pairs is exactly `n` in our profile.\n  - Random convex-on-circle samples had very low max repeated-distance multiplicity compared to linear scale.\n- Interpretation:\n  - Structured examples remain linear-scale; random convex polygons do not approach the current upper bound regime."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "unit-distance multiplicity behavior in convex polygons.",
+        "content": "// EP-96: unit-distance multiplicity behavior in convex polygons.\n{\n  const rows = [];\n\n  for (const n of [20, 40, 80, 120]) {\n    // For regular n-gon: scaling can make any chosen chord class equal to 1.\n    // The best class always has multiplicity n (for k < n/2).\n    rows.push({\n      model: 'regular_polygon_theoretical_after_scaling',\n      n,\n      max_unit_pairs_possible: n,\n      ratio_over_n: 1,\n    });\n  }\n\n  for (const n of [20, 40, 80, 120]) {\n    let best = 0;\n    const trials = 160;\n    for (let t = 0; t < trials; t += 1) {\n      const pts = randomConvexOnCircle(n, rng);\n      const v = maxDistanceMultiplicity(pts);\n      if (v > best) best = v;\n    }\n    rows.push({\n      model: 'random_convex_on_circle_best_distance_multiplicity',\n      n,\n      trials,\n      best_distance_multiplicity_found: best,\n      ratio_over_n: Number((best / n).toFixed(6)),\n      compare_to_nlog2n_plus_4n: Number((best / (n * Math.log2(n) + 4 * n)).toFixed(6)),\n    });\n  }\n\n  out.results.ep96 = {\n    description: 'Finite convex-polygon distance-multiplicity profile (scaling to unit distance).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep96",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite convex-polygon distance-multiplicity profile (scaling to unit distance).",
+          "rows": [
+            {
+              "model": "regular_polygon_theoretical_after_scaling",
+              "n": 20,
+              "max_unit_pairs_possible": 20,
+              "ratio_over_n": 1
+            },
+            {
+              "model": "regular_polygon_theoretical_after_scaling",
+              "n": 40,
+              "max_unit_pairs_possible": 40,
+              "ratio_over_n": 1
+            },
+            {
+              "model": "regular_polygon_theoretical_after_scaling",
+              "n": 80,
+              "max_unit_pairs_possible": 80,
+              "ratio_over_n": 1
+            },
+            {
+              "model": "regular_polygon_theoretical_after_scaling",
+              "n": 120,
+              "max_unit_pairs_possible": 120,
+              "ratio_over_n": 1
+            },
+            {
+              "model": "random_convex_on_circle_best_distance_multiplicity",
+              "n": 20,
+              "trials": 160,
+              "best_distance_multiplicity_found": 1,
+              "ratio_over_n": 0.05,
+              "compare_to_nlog2n_plus_4n": 0.006008
+            },
+            {
+              "model": "random_convex_on_circle_best_distance_multiplicity",
+              "n": 40,
+              "trials": 160,
+              "best_distance_multiplicity_found": 1,
+              "ratio_over_n": 0.025,
+              "compare_to_nlog2n_plus_4n": 0.002682
+            },
+            {
+              "model": "random_convex_on_circle_best_distance_multiplicity",
+              "n": 80,
+              "trials": 160,
+              "best_distance_multiplicity_found": 2,
+              "ratio_over_n": 0.025,
+              "compare_to_nlog2n_plus_4n": 0.002422
+            },
+            {
+              "model": "random_convex_on_circle_best_distance_multiplicity",
+              "n": 120,
+              "trials": 160,
+              "best_distance_multiplicity_found": 2,
+              "ratio_over_n": 0.016667,
+              "compare_to_nlog2n_plus_4n": 0.001528
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

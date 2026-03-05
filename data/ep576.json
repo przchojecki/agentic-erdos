@@ -1,0 +1,126 @@
+{
+  "problem": "EP-576",
+  "normalized_utc": "2026-03-05T08:54:16.962Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch15_web_compute.md",
+        "content": "### EP-576\n- Quick literature check:\n  - Problem-page status remains open; currently listed general upper bounds for `ex(n;Q_k)` are subquadratic with exponent improvements over the older `2-1/k` form.\n- Finite compute signal:\n  - Random-graph probes (`n=24,32,40`) show low-to-moderate probability of detecting a cube-like `Q_3` witness in tested `p` ranges.\n- Interpretation:\n  - Finite threshold signal is consistent with sparse-to-intermediate `Q_3` emergence, but too coarse to identify the true asymptotic `ex(n;Q_3)` scale."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch15_quick_compute.mjs",
+        "heading": "Q3-detection threshold proxy in random graphs.",
+        "content": "// EP-576: Q3-detection threshold proxy in random graphs.\n{\n  function containsQ3CubeLike(G) {\n    const { n, adj, neigh } = G;\n\n    for (let r = 0; r < n; r += 1) {\n      const nr = neigh[r];\n      if (nr.length < 3) continue;\n\n      for (let i = 0; i < nr.length; i += 1) {\n        const u = nr[i];\n        for (let j = i + 1; j < nr.length; j += 1) {\n          const v = nr[j];\n          for (let k = j + 1; k < nr.length; k += 1) {\n            const w = nr[k];\n\n            const xs = [];\n            for (const x of neigh[u]) {\n              if (x === r || x === u || x === v || x === w) continue;\n              if (adj[v][x]) xs.push(x);\n            }\n            if (!xs.length) continue;\n\n            const ys = [];\n            for (const y of neigh[u]) {\n              if (y === r || y === u || y === v || y === w) continue;\n              if (adj[w][y]) ys.push(y);\n            }\n            if (!ys.length) continue;\n\n            const zs = [];\n            for (const z of neigh[v]) {\n              if (z === r || z === u || z === v || z === w) continue;\n              if (adj[w][z]) zs.push(z);\n            }\n            if (!zs.length) continue;\n\n            for (const x of xs) {\n              for (const y of ys) {\n                if (y === x) continue;\n                for (const z of zs) {\n                  if (z === x || z === y) continue;\n                  for (const t of neigh[x]) {\n                    if (t === r || t === u || t === v || t === w || t === x || t === y || t === z) continue;\n                    if (adj[y][t] && adj[z][t]) return true;\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n\n    return false;\n  }\n\n  const rng = makeRng(20260303 ^ 1501);\n  const rows = [];\n\n  for (const [n, pList, trials] of [\n    [24, [0.08, 0.1, 0.12, 0.14, 0.16], 20],\n    [32, [0.06, 0.08, 0.1, 0.12, 0.14], 18],\n    [40, [0.05, 0.07, 0.09, 0.11, 0.13], 15],\n  ]) {\n    let threshold = null;\n    for (const p of pList) {\n      let hit = 0;\n      for (let t = 0; t < trials; t += 1) {\n        const G = randomGraph(n, p, rng);\n        if (containsQ3CubeLike(G)) hit += 1;\n      }\n      const prob = hit / trials;\n      if (threshold === null && prob >= 0.5) threshold = p;\n      rows.push({\n        n,\n        p,\n        trials,\n        contains_Q3_proxy_probability: Number(prob.toPrecision(6)),\n      });\n    }\n    if (threshold !== null) {\n      const e = threshold * choose2(n);\n      rows.push({\n        n,\n        heuristic_threshold_p: threshold,\n        heuristic_threshold_edges: Number(e.toPrecision(7)),\n        threshold_edges_over_n_pow_1_5: Number((e / (n ** 1.5)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep576 = {\n    description: 'Random-graph threshold proxy for containing cube-like Q3 subgraphs.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch15_quick_compute.json",
+        "key": "ep576",
+        "container_meta": {
+          "script": "harder_batch15_quick_compute.mjs",
+          "generated_utc": "2026-03-04T07:52:21.327Z"
+        },
+        "data": {
+          "description": "Random-graph threshold proxy for containing cube-like Q3 subgraphs.",
+          "rows": [
+            {
+              "n": 24,
+              "p": 0.08,
+              "trials": 20,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 24,
+              "p": 0.1,
+              "trials": 20,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 24,
+              "p": 0.12,
+              "trials": 20,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 24,
+              "p": 0.14,
+              "trials": 20,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 24,
+              "p": 0.16,
+              "trials": 20,
+              "contains_Q3_proxy_probability": 0.1
+            },
+            {
+              "n": 32,
+              "p": 0.06,
+              "trials": 18,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 32,
+              "p": 0.08,
+              "trials": 18,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 32,
+              "p": 0.1,
+              "trials": 18,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 32,
+              "p": 0.12,
+              "trials": 18,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 32,
+              "p": 0.14,
+              "trials": 18,
+              "contains_Q3_proxy_probability": 0.166667
+            },
+            {
+              "n": 40,
+              "p": 0.05,
+              "trials": 15,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 40,
+              "p": 0.07,
+              "trials": 15,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 40,
+              "p": 0.09,
+              "trials": 15,
+              "contains_Q3_proxy_probability": 0
+            },
+            {
+              "n": 40,
+              "p": 0.11,
+              "trials": 15,
+              "contains_Q3_proxy_probability": 0.2
+            },
+            {
+              "n": 40,
+              "p": 0.13,
+              "trials": 15,
+              "contains_Q3_proxy_probability": 0.333333
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

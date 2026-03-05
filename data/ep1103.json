@@ -1,0 +1,114 @@
+{
+  "problem": "EP-1103",
+  "normalized_utc": "2026-03-05T08:54:16.975Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1103\n- Quick literature check:\n  - Open (last edited 03 December 2025); page includes 2025 results giving stronger lower growth and subexponential constructions.\n- Finite compute signal:\n  - Greedy squarefree-sumset sequence up to `20000` reaches `96` terms; count-to-`x` grows faster than logarithmic in tested range.\n- Interpretation:\n  - Finite growth is sparse but nontrivial; asymptotic gap between polynomial lower constraints and subexponential constructions remains wide."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite greedy growth for infinite squarefree-sumset sequence proxy.",
+        "content": "// EP-1103: finite greedy growth for infinite squarefree-sumset sequence proxy.\n{\n  const MAX_A = 20_000;\n  const spf = sieveSPF(2 * MAX_A + 5);\n  const A = [];\n\n  function compatible(x) {\n    if (!isSquarefree(2 * x, spf)) return false;\n    for (const a of A) {\n      if (!isSquarefree(a + x, spf)) return false;\n    }\n    return true;\n  }\n\n  for (let x = 1; x <= MAX_A; x += 1) {\n    if (compatible(x)) A.push(x);\n  }\n\n  const probes = [200, 500, 1000, 2000, 5000, 10000, 20000];\n  const rows = probes.map((x) => ({\n    x,\n    count_a_le_x: A.filter((a) => a <= x).length,\n    count_over_log_x: Number((A.filter((a) => a <= x).length / Math.log(x)).toPrecision(7)),\n  }));\n\n  out.results.ep1103 = {\n    description: 'Finite greedy-construction proxy for an infinite sequence A with A+A squarefree.',\n    MAX_A,\n    first_terms: A.slice(0, 40),\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1103",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Finite greedy-construction proxy for an infinite sequence A with A+A squarefree.",
+          "MAX_A": 20000,
+          "first_terms": [
+            1,
+            5,
+            21,
+            37,
+            41,
+            65,
+            73,
+            101,
+            137,
+            165,
+            181,
+            217,
+            281,
+            365,
+            381,
+            401,
+            437,
+            461,
+            473,
+            497,
+            741,
+            757,
+            761,
+            821,
+            857,
+            865,
+            901,
+            965,
+            1001,
+            1081,
+            1117,
+            1337,
+            1361,
+            1373,
+            1441,
+            1721,
+            1865,
+            1937,
+            2305,
+            2341
+          ],
+          "rows": [
+            {
+              "x": 200,
+              "count_a_le_x": 11,
+              "count_over_log_x": 2.076131
+            },
+            {
+              "x": 500,
+              "count_a_le_x": 20,
+              "count_over_log_x": 3.218224
+            },
+            {
+              "x": 1000,
+              "count_a_le_x": 28,
+              "count_over_log_x": 4.053415
+            },
+            {
+              "x": 2000,
+              "count_a_le_x": 38,
+              "count_over_log_x": 4.999406
+            },
+            {
+              "x": 5000,
+              "count_a_le_x": 49,
+              "count_over_log_x": 5.753069
+            },
+            {
+              "x": 10000,
+              "count_a_le_x": 70,
+              "count_over_log_x": 7.600153
+            },
+            {
+              "x": 20000,
+              "count_a_le_x": 96,
+              "count_over_log_x": 9.693555
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "problem": "EP-374",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-374\n- Quick literature check:\n  - Best structural information (including emptiness for `k>6`) is classical; detailed asymptotics for `D_3..D_6` remain open.\n- Finite compute signal:\n  - Exact parity-signature computation up to `m<=600` gives:\n    - `|D_2\\cap[1,600]|=23`\n    - `|D_3\\cap[1,600]|=64`\n    - no primes detected in `D_2\\cup D_3`.\n- Interpretation:\n  - Confirms low-level structural constraints; `k>=4` asymptotic regime remains the hard part."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "exact finite profile for D2/D3 via parity signatures modulo squares.",
+        "content": "// EP-374: exact finite profile for D2/D3 via parity signatures modulo squares.\n{\n  const M = 600;\n  const sig = Array(M + 1).fill(0n);\n\n  const primes = primesAll.filter((p) => p <= M);\n  const pIndex = new Map(primes.map((p, i) => [p, i]));\n\n  for (let n = 1; n <= M; n += 1) {\n    let x = n;\n    let delta = 0n;\n    while (x > 1) {\n      const p = spf[x];\n      let e = 0;\n      while (x % p === 0) {\n        x = Math.floor(x / p);\n        e += 1;\n      }\n      if (e & 1) delta ^= 1n << BigInt(pIndex.get(p));\n    }\n    sig[n] = sig[n - 1] ^ delta;\n  }\n\n  const best = new Int8Array(M + 1);\n  best.fill(99);\n\n  const seenSig = new Map();\n  const pairXor = new Set();\n  seenSig.set(sig[1], 1);\n\n  for (let m = 2; m <= M; m += 1) {\n    if (seenSig.has(sig[m])) best[m] = 2;\n    if (pairXor.has(sig[m]) && best[m] > 3) best[m] = 3;\n\n    for (let i = 1; i < m; i += 1) pairXor.add(sig[i] ^ sig[m]);\n    seenSig.set(sig[m], m);\n  }\n\n  const milestones = [100, 200, 300, 400, 500, 600];\n  const rows = [];\n  for (const X of milestones) {\n    let d2 = 0;\n    let d3 = 0;\n    let other = 0;\n    let primeInD2orD3 = 0;\n    for (let m = 2; m <= X; m += 1) {\n      if (best[m] === 2) {\n        d2 += 1;\n        if (spf[m] === m) primeInD2orD3 += 1;\n      } else if (best[m] === 3) {\n        d3 += 1;\n        if (spf[m] === m) primeInD2orD3 += 1;\n      } else {\n        other += 1;\n      }\n    }\n    rows.push({\n      X,\n      D2_count: d2,\n      D3_count: d3,\n      unresolved_or_ge4_count: other,\n      prime_count_in_D2_or_D3: primeInD2orD3,\n    });\n  }\n\n  out.results.ep374 = {\n    description: 'Exact finite counts for D2 and D3 via square-parity signatures up to m<=600.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep374",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Exact finite counts for D2 and D3 via square-parity signatures up to m<=600.",
+          "rows": [
+            {
+              "X": 100,
+              "D2_count": 9,
+              "D3_count": 20,
+              "unresolved_or_ge4_count": 70,
+              "prime_count_in_D2_or_D3": 0
+            },
+            {
+              "X": 200,
+              "D2_count": 13,
+              "D3_count": 32,
+              "unresolved_or_ge4_count": 154,
+              "prime_count_in_D2_or_D3": 0
+            },
+            {
+              "X": 300,
+              "D2_count": 16,
+              "D3_count": 43,
+              "unresolved_or_ge4_count": 240,
+              "prime_count_in_D2_or_D3": 0
+            },
+            {
+              "X": 400,
+              "D2_count": 19,
+              "D3_count": 52,
+              "unresolved_or_ge4_count": 328,
+              "prime_count_in_D2_or_D3": 0
+            },
+            {
+              "X": 500,
+              "D2_count": 21,
+              "D3_count": 59,
+              "unresolved_or_ge4_count": 419,
+              "prime_count_in_D2_or_D3": 0
+            },
+            {
+              "X": 600,
+              "D2_count": 23,
+              "D3_count": 64,
+              "unresolved_or_ge4_count": 512,
+              "prime_count_in_D2_or_D3": 0
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

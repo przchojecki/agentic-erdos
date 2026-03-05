@@ -1,0 +1,56 @@
+{
+  "problem": "EP-5",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "harder_batch1_quick_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "harder_batch1_quick_compute.mjs",
+        "heading": ": normalized prime gap finite profile.",
+        "extracted_section": "// EP-5: normalized prime gap finite profile.\n{\n  const N_PRIMES = 400000;\n  const vals = [];\n  const binW = 0.25;\n  const bins = new Uint8Array(Math.floor(10 / binW));\n  let minVal = Infinity;\n  let maxVal = -Infinity;\n  let argMax = null;\n  for (let n = 2; n <= N_PRIMES; n += 1) {\n    const g = (sieveData.primes[n] - sieveData.primes[n - 1]) / Math.log(n);\n    if (g < minVal) minVal = g;\n    if (g > maxVal) {\n      maxVal = g;\n      argMax = n;\n    }\n    vals.push(g);\n    if (g >= 0 && g < 10) bins[Math.floor(g / binW)] = 1;\n  }\n  vals.sort((a, b) => a - b);\n  out.results.ep5 = {\n    description: 'Normalized prime-gap empirical distribution for first 4e5 prime indices.',\n    n_primes_used: N_PRIMES,\n    min_value: Number(minVal.toFixed(6)),\n    max_value: Number(maxVal.toFixed(6)),\n    argmax_index_n: argMax,\n    q05: Number(quantile(vals, 0.05).toFixed(6)),\n    q50: Number(quantile(vals, 0.5).toFixed(6)),\n    q95: Number(quantile(vals, 0.95).toFixed(6)),\n    occupied_bins_in_0_10_step_0_25: bins.reduce((s, x) => s + x, 0),\n    total_bins_in_0_10_step_0_25: bins.length,\n  };\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-5\n- Quick literature check:\n  - No clearly newer direct breakthrough than the modern limit-point structure papers quickly surfaced; Merikoski (2020) remains central in this scan.\n- Finite compute signal:\n  - For first $4\\times 10^5$ prime indices, normalized gaps $\\frac{p_{n+1}-p_n}{\\log n}$ occupy all bins in $[0,10]$ at step $0.25$; observed max about $12.42$.\n- Interpretation:\n  - Empirically broad spread supports rich limit-point behavior, but finite data cannot prove full $S=[0,\\infty)$."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "normalized prime gap finite profile.",
+        "content": "// EP-5: normalized prime gap finite profile.\n{\n  const N_PRIMES = 400000;\n  const vals = [];\n  const binW = 0.25;\n  const bins = new Uint8Array(Math.floor(10 / binW));\n  let minVal = Infinity;\n  let maxVal = -Infinity;\n  let argMax = null;\n  for (let n = 2; n <= N_PRIMES; n += 1) {\n    const g = (sieveData.primes[n] - sieveData.primes[n - 1]) / Math.log(n);\n    if (g < minVal) minVal = g;\n    if (g > maxVal) {\n      maxVal = g;\n      argMax = n;\n    }\n    vals.push(g);\n    if (g >= 0 && g < 10) bins[Math.floor(g / binW)] = 1;\n  }\n  vals.sort((a, b) => a - b);\n  out.results.ep5 = {\n    description: 'Normalized prime-gap empirical distribution for first 4e5 prime indices.',\n    n_primes_used: N_PRIMES,\n    min_value: Number(minVal.toFixed(6)),\n    max_value: Number(maxVal.toFixed(6)),\n    argmax_index_n: argMax,\n    q05: Number(quantile(vals, 0.05).toFixed(6)),\n    q50: Number(quantile(vals, 0.5).toFixed(6)),\n    q95: Number(quantile(vals, 0.95).toFixed(6)),\n    occupied_bins_in_0_10_step_0_25: bins.reduce((s, x) => s + x, 0),\n    total_bins_in_0_10_step_0_25: bins.length,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep5",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Normalized prime-gap empirical distribution for first 4e5 prime indices.",
+          "n_primes_used": 400000,
+          "min_value": 0.155048,
+          "max_value": 12.419947,
+          "argmax_index_n": 149689,
+          "q05": 0.166029,
+          "q50": 0.94926,
+          "q95": 3.216941,
+          "occupied_bins_in_0_10_step_0_25": 40,
+          "total_bins_in_0_10_step_0_25": 40
+        }
+      }
+    ]
+  }
+}

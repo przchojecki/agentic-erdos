@@ -1,0 +1,27 @@
+{
+  "problem": "EP-662",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep662_literal_clause_sanity_check.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-662",
+        "method": "literal_clause_sanity_check_on_triangular_lattice_patch",
+        "params": {
+          "eps": 0.1,
+          "t": 1.632050807568877,
+          "patch": "6x6"
+        },
+        "point_count": 36,
+        "distinct_distances_le_t": [
+          1
+        ],
+        "count_distances_le_t": 1,
+        "literal_clause_less_than_1_holds": false,
+        "generated_utc": "2026-03-03T09:51:26.766Z"
+      }
+    }
+  ]
+}

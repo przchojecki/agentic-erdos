@@ -1,0 +1,575 @@
+{
+  "problem": "EP-386",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep386_binomial_consecutive_primes_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-386",
+        "script": "ep386_binomial_consecutive_primes_scan.mjs",
+        "method": "exact_incremental_factorization_scan_of_binomials",
+        "params": {
+          "nmax": 400000,
+          "kmax": 10
+        },
+        "total_hits": 9,
+        "per_k": [
+          {
+            "k": 2,
+            "hit_count": 5,
+            "first_hit": {
+              "n": 4,
+              "k": 2,
+              "prime_factors": [
+                2,
+                3
+              ],
+              "product_is_from": 2,
+              "product_is_to": 3
+            }
+          },
+          {
+            "k": 3,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 7,
+              "k": 3,
+              "prime_factors": [
+                5,
+                7
+              ],
+              "product_is_from": 5,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 4,
+            "hit_count": 2,
+            "first_hit": {
+              "n": 10,
+              "k": 4,
+              "prime_factors": [
+                2,
+                3,
+                5,
+                7
+              ],
+              "product_is_from": 2,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 5,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 6,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 15,
+              "k": 6,
+              "prime_factors": [
+                5,
+                7,
+                11,
+                13
+              ],
+              "product_is_from": 5,
+              "product_is_to": 13
+            }
+          },
+          {
+            "k": 7,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 8,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 9,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 10,
+            "hit_count": 0,
+            "first_hit": null
+          }
+        ],
+        "hits_first_200": [
+          {
+            "n": 4,
+            "k": 2,
+            "prime_factors": [
+              2,
+              3
+            ],
+            "product_is_from": 2,
+            "product_is_to": 3
+          },
+          {
+            "n": 6,
+            "k": 2,
+            "prime_factors": [
+              3,
+              5
+            ],
+            "product_is_from": 3,
+            "product_is_to": 5
+          },
+          {
+            "n": 15,
+            "k": 2,
+            "prime_factors": [
+              3,
+              5,
+              7
+            ],
+            "product_is_from": 3,
+            "product_is_to": 7
+          },
+          {
+            "n": 21,
+            "k": 2,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "product_is_from": 2,
+            "product_is_to": 7
+          },
+          {
+            "n": 715,
+            "k": 2,
+            "prime_factors": [
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "product_is_from": 3,
+            "product_is_to": 17
+          },
+          {
+            "n": 7,
+            "k": 3,
+            "prime_factors": [
+              5,
+              7
+            ],
+            "product_is_from": 5,
+            "product_is_to": 7
+          },
+          {
+            "n": 10,
+            "k": 4,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "product_is_from": 2,
+            "product_is_to": 7
+          },
+          {
+            "n": 14,
+            "k": 4,
+            "prime_factors": [
+              7,
+              11,
+              13
+            ],
+            "product_is_from": 7,
+            "product_is_to": 13
+          },
+          {
+            "n": 15,
+            "k": 6,
+            "prime_factors": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "product_is_from": 5,
+            "product_is_to": 13
+          }
+        ],
+        "generated_utc": "2026-03-04T22:16:30.357Z"
+      }
+    },
+    {
+      "source_file": "ep386_binomial_consecutive_primes_scan_N5000000_K16.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-386",
+        "script": "ep386_binomial_consecutive_primes_scan.mjs",
+        "method": "exact_incremental_factorization_scan_of_binomials",
+        "params": {
+          "nmax": 5000000,
+          "kmax": 16
+        },
+        "total_hits": 9,
+        "per_k": [
+          {
+            "k": 2,
+            "hit_count": 5,
+            "first_hit": {
+              "n": 4,
+              "k": 2,
+              "prime_factors": [
+                2,
+                3
+              ],
+              "product_is_from": 2,
+              "product_is_to": 3
+            }
+          },
+          {
+            "k": 3,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 7,
+              "k": 3,
+              "prime_factors": [
+                5,
+                7
+              ],
+              "product_is_from": 5,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 4,
+            "hit_count": 2,
+            "first_hit": {
+              "n": 10,
+              "k": 4,
+              "prime_factors": [
+                2,
+                3,
+                5,
+                7
+              ],
+              "product_is_from": 2,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 5,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 6,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 15,
+              "k": 6,
+              "prime_factors": [
+                5,
+                7,
+                11,
+                13
+              ],
+              "product_is_from": 5,
+              "product_is_to": 13
+            }
+          },
+          {
+            "k": 7,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 8,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 9,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 10,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 11,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 12,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 13,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 14,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 15,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 16,
+            "hit_count": 0,
+            "first_hit": null
+          }
+        ],
+        "hits_first_200": [
+          {
+            "n": 4,
+            "k": 2,
+            "prime_factors": [
+              2,
+              3
+            ],
+            "product_is_from": 2,
+            "product_is_to": 3
+          },
+          {
+            "n": 6,
+            "k": 2,
+            "prime_factors": [
+              3,
+              5
+            ],
+            "product_is_from": 3,
+            "product_is_to": 5
+          },
+          {
+            "n": 15,
+            "k": 2,
+            "prime_factors": [
+              3,
+              5,
+              7
+            ],
+            "product_is_from": 3,
+            "product_is_to": 7
+          },
+          {
+            "n": 21,
+            "k": 2,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "product_is_from": 2,
+            "product_is_to": 7
+          },
+          {
+            "n": 715,
+            "k": 2,
+            "prime_factors": [
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "product_is_from": 3,
+            "product_is_to": 17
+          },
+          {
+            "n": 7,
+            "k": 3,
+            "prime_factors": [
+              5,
+              7
+            ],
+            "product_is_from": 5,
+            "product_is_to": 7
+          },
+          {
+            "n": 10,
+            "k": 4,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "product_is_from": 2,
+            "product_is_to": 7
+          },
+          {
+            "n": 14,
+            "k": 4,
+            "prime_factors": [
+              7,
+              11,
+              13
+            ],
+            "product_is_from": 7,
+            "product_is_to": 13
+          },
+          {
+            "n": 15,
+            "k": 6,
+            "prime_factors": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "product_is_from": 5,
+            "product_is_to": 13
+          }
+        ],
+        "generated_utc": "2026-03-03T09:49:50.734Z"
+      }
+    }
+  ],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch2_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch2_compute.mjs",
+        "heading": ": summarize binomial consecutive primes scans.",
+        "extracted_section": "// EP-386: summarize binomial consecutive primes scans.\nif (fs.existsSync('data/ep386_binomial_consecutive_primes_scan.json')) {\n  const d = loadJSON('data/ep386_binomial_consecutive_primes_scan.json');\n  out.results.ep386 = {\n    total_hits: d.total_hits ?? null,\n    per_k: d.per_k || null,\n    last_row: pickLastRow(d),\n  };\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [],
+    "script_sources": [
+      {
+        "source_file": "scripts/longterm_batch2_compute.mjs",
+        "heading": "summarize binomial consecutive primes scans.",
+        "content": "// EP-386: summarize binomial consecutive primes scans.\nif (fs.existsSync('data/ep386_binomial_consecutive_primes_scan.json')) {\n  const d = loadJSON('data/ep386_binomial_consecutive_primes_scan.json');\n  out.results.ep386 = {\n    total_hits: d.total_hits ?? null,\n    per_k: d.per_k || null,\n    last_row: pickLastRow(d),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/longterm_batch2_compute.json",
+        "key": "ep386",
+        "container_meta": {
+          "script": "longterm_batch2_compute.mjs",
+          "generated_utc": "2026-03-04T22:18:34.636Z"
+        },
+        "data": {
+          "total_hits": 9,
+          "per_k": [
+            {
+              "k": 2,
+              "hit_count": 5,
+              "first_hit": {
+                "n": 4,
+                "k": 2,
+                "prime_factors": [
+                  2,
+                  3
+                ],
+                "product_is_from": 2,
+                "product_is_to": 3
+              }
+            },
+            {
+              "k": 3,
+              "hit_count": 1,
+              "first_hit": {
+                "n": 7,
+                "k": 3,
+                "prime_factors": [
+                  5,
+                  7
+                ],
+                "product_is_from": 5,
+                "product_is_to": 7
+              }
+            },
+            {
+              "k": 4,
+              "hit_count": 2,
+              "first_hit": {
+                "n": 10,
+                "k": 4,
+                "prime_factors": [
+                  2,
+                  3,
+                  5,
+                  7
+                ],
+                "product_is_from": 2,
+                "product_is_to": 7
+              }
+            },
+            {
+              "k": 5,
+              "hit_count": 0,
+              "first_hit": null
+            },
+            {
+              "k": 6,
+              "hit_count": 1,
+              "first_hit": {
+                "n": 15,
+                "k": 6,
+                "prime_factors": [
+                  5,
+                  7,
+                  11,
+                  13
+                ],
+                "product_is_from": 5,
+                "product_is_to": 13
+              }
+            },
+            {
+              "k": 7,
+              "hit_count": 0,
+              "first_hit": null
+            },
+            {
+              "k": 8,
+              "hit_count": 0,
+              "first_hit": null
+            },
+            {
+              "k": 9,
+              "hit_count": 0,
+              "first_hit": null
+            },
+            {
+              "k": 10,
+              "hit_count": 0,
+              "first_hit": null
+            }
+          ],
+          "last_row": null
+        }
+      }
+    ]
+  }
+}

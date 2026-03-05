@@ -1,0 +1,56 @@
+{
+  "problem": "EP-1086",
+  "normalized_utc": "2026-03-05T08:54:16.975Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1086\n- Quick literature check:\n  - Open (last edited 16 October 2025); best listed upper bound remains `g(n) << n^{20/9}`.\n- Finite compute signal:\n  - Random integer-grid searches for `n=12..24` found repeated-area multiplicities growing to the low twenties in sampled runs.\n- Interpretation:\n  - Finite multiplicities grow quickly but are far from distinguishing between competing exponents."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite search for many equal-area triangles.",
+        "content": "// EP-1086: finite search for many equal-area triangles.\n{\n  const rng = makeRng(20260304 ^ 1086);\n\n  function maxRepeatedArea(points) {\n    const m = points.length;\n    const cnt = new Map();\n    let best = 0;\n    for (let i = 0; i < m; i += 1) {\n      const [x1, y1] = points[i];\n      for (let j = i + 1; j < m; j += 1) {\n        const [x2, y2] = points[j];\n        for (let k = j + 1; k < m; k += 1) {\n          const [x3, y3] = points[k];\n          const area2 = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));\n          if (area2 === 0) continue;\n          const c = (cnt.get(area2) || 0) + 1;\n          cnt.set(area2, c);\n          if (c > best) best = c;\n        }\n      }\n    }\n    return best;\n  }\n\n  function randomDistinctPoints(n, box) {\n    const used = new Set();\n    const pts = [];\n    while (pts.length < n) {\n      const x = Math.floor(rng() * box);\n      const y = Math.floor(rng() * box);\n      const key = `${x},${y}`;\n      if (used.has(key)) continue;\n      used.add(key);\n      pts.push([x, y]);\n    }\n    return pts;\n  }\n\n  const rows = [];\n  for (const n of [12, 16, 20, 24]) {\n    let best = 0;\n    for (let t = 0; t < 240; t += 1) {\n      const pts = randomDistinctPoints(n, 45);\n      const b = maxRepeatedArea(pts);\n      if (b > best) best = b;\n    }\n    rows.push({\n      n,\n      best_equal_area_triangle_count_found: best,\n      normalized_best_over_n_squared: Number((best / (n * n)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1086 = {\n    description: 'Finite random-grid search for maximal multiplicity of a triangle area.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1086",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Finite random-grid search for maximal multiplicity of a triangle area.",
+          "rows": [
+            {
+              "n": 12,
+              "best_equal_area_triangle_count_found": 9,
+              "normalized_best_over_n_squared": 0.0625
+            },
+            {
+              "n": 16,
+              "best_equal_area_triangle_count_found": 14,
+              "normalized_best_over_n_squared": 0.0546875
+            },
+            {
+              "n": 20,
+              "best_equal_area_triangle_count_found": 17,
+              "normalized_best_over_n_squared": 0.0425
+            },
+            {
+              "n": 24,
+              "best_equal_area_triangle_count_found": 26,
+              "normalized_best_over_n_squared": 0.04513889
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

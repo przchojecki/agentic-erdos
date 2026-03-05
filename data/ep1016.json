@@ -1,0 +1,67 @@
+{
+  "problem": "EP-1016",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-1016\n- Quick literature check:\n  - Open; benchmark remains around Bondy/Erdos logarithmic-band bounds for pancyclic excess edges.\n- Finite compute signal:\n  - Random search for `n<=12` found pancyclic witnesses with `h` between `2` and `4`.\n- Interpretation:\n  - Small-`n` behavior is compatible with logarithmic-scale growth, but finite random witnesses give only upper-bound evidence."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "finite random search for pancyclic graphs with n+h edges.",
+        "content": "// EP-1016: finite random search for pancyclic graphs with n+h edges.\n{\n  const rng = makeRng(20260304 ^ 1016);\n  const rows = [];\n  for (const n of [8, 9, 10, 11, 12]) {\n    let bestH = null;\n    let witnessM = null;\n    for (let h = 0; h <= 12; h += 1) {\n      const m = n + h;\n      let found = false;\n      for (let t = 0; t < 220; t += 1) {\n        const G = randomGraphWithMEdges(n, m, rng);\n        const cyc = cycleLengthsPresent(G.adj);\n        let ok = true;\n        for (let k = 3; k <= n; k += 1) {\n          if (!cyc[k]) {\n            ok = false;\n            break;\n          }\n        }\n        if (ok) {\n          found = true;\n          break;\n        }\n      }\n      if (found) {\n        bestH = h;\n        witnessM = m;\n        break;\n      }\n    }\n\n    rows.push({\n      n,\n      minimal_h_found_in_random_search: bestH,\n      witness_edge_count_n_plus_h: witnessM,\n      log2_n: Number(Math.log2(n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1016 = {\n    description: 'Finite random search profile for small-n pancyclicity threshold n+h.',\n    rows,\n    caveat: 'Random search provides upper-bound witnesses only; non-detection is not a lower-bound proof.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep1016",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Finite random search profile for small-n pancyclicity threshold n+h.",
+          "rows": [
+            {
+              "n": 8,
+              "minimal_h_found_in_random_search": 2,
+              "witness_edge_count_n_plus_h": 10,
+              "log2_n": 3
+            },
+            {
+              "n": 9,
+              "minimal_h_found_in_random_search": 3,
+              "witness_edge_count_n_plus_h": 12,
+              "log2_n": 3.169925
+            },
+            {
+              "n": 10,
+              "minimal_h_found_in_random_search": 3,
+              "witness_edge_count_n_plus_h": 13,
+              "log2_n": 3.321928
+            },
+            {
+              "n": 11,
+              "minimal_h_found_in_random_search": 4,
+              "witness_edge_count_n_plus_h": 15,
+              "log2_n": 3.459432
+            },
+            {
+              "n": 12,
+              "minimal_h_found_in_random_search": 3,
+              "witness_edge_count_n_plus_h": 15,
+              "log2_n": 3.584963
+            }
+          ],
+          "caveat": "Random search provides upper-bound witnesses only; non-detection is not a lower-bound proof."
+        }
+      }
+    ]
+  }
+}

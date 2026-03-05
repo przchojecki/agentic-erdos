@@ -1,0 +1,72 @@
+{
+  "problem": "EP-1109",
+  "normalized_utc": "2026-03-05T08:54:16.976Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1109\n- Quick literature check:\n  - Open (last edited 03 December 2025), with best listed bounds still leaving a substantial gap.\n- Finite compute signal:\n  - Exact maxima for `N=30..80` give `f(N)` in the range `4..7`, with values substantially below any power-law behavior at this scale.\n- Interpretation:\n  - Finite exact data supports extreme sparsity and aligns directionally with polylog-style heuristics, but is too small-range to infer final order."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite exact f(N) for A subset [1,N] with (A+A) squarefree.",
+        "content": "// EP-1109: finite exact f(N) for A subset [1,N] with (A+A) squarefree.\n{\n  const N_LIST = [30, 40, 50, 60, 70, 80];\n  const NMAX = Math.max(...N_LIST);\n  const spf = sieveSPF(2 * NMAX + 5);\n\n  function exactF(N) {\n    const allowed = [];\n    for (let i = 1; i <= N; i += 1) if (isSquarefree(2 * i, spf)) allowed.push(i);\n    const m = allowed.length;\n    const compat = Array.from({ length: m }, () => Array(m).fill(false));\n    for (let i = 0; i < m; i += 1) {\n      for (let j = i; j < m; j += 1) {\n        const ok = isSquarefree(allowed[i] + allowed[j], spf);\n        compat[i][j] = ok;\n        compat[j][i] = ok;\n      }\n    }\n\n    const masks = Array(m).fill(0n);\n    for (let i = 0; i < m; i += 1) {\n      let ms = 0n;\n      for (let j = 0; j < m; j += 1) {\n        if (i === j) continue;\n        if (compat[i][j]) ms |= 1n << BigInt(j);\n      }\n      masks[i] = ms;\n    }\n    return maxCliqueSizeFromAdjMasks(masks, m);\n  }\n\n  const rows = [];\n  for (const N of N_LIST) {\n    const fN = exactF(N);\n    rows.push({\n      N,\n      exact_f_N: fN,\n      f_over_log_N: Number((fN / Math.log(N)).toPrecision(7)),\n      f_over_sqrt_N: Number((fN / Math.sqrt(N)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1109 = {\n    description: 'Exact finite maximum-set computation for A subset [1,N] with all sums squarefree.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1109",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Exact finite maximum-set computation for A subset [1,N] with all sums squarefree.",
+          "rows": [
+            {
+              "N": 30,
+              "exact_f_N": 4,
+              "f_over_log_N": 1.176056,
+              "f_over_sqrt_N": 0.7302967
+            },
+            {
+              "N": 40,
+              "exact_f_N": 5,
+              "f_over_log_N": 1.355425,
+              "f_over_sqrt_N": 0.7905694
+            },
+            {
+              "N": 50,
+              "exact_f_N": 6,
+              "f_over_log_N": 1.533733,
+              "f_over_sqrt_N": 0.8485281
+            },
+            {
+              "N": 60,
+              "exact_f_N": 7,
+              "f_over_log_N": 1.709675,
+              "f_over_sqrt_N": 0.9036961
+            },
+            {
+              "N": 70,
+              "exact_f_N": 7,
+              "f_over_log_N": 1.647642,
+              "f_over_sqrt_N": 0.83666
+            },
+            {
+              "N": 80,
+              "exact_f_N": 7,
+              "f_over_log_N": 1.597434,
+              "f_over_sqrt_N": 0.7826238
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

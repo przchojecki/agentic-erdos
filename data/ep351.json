@@ -1,0 +1,96 @@
+{
+  "problem": "EP-351",
+  "normalized_utc": "2026-03-05T08:54:16.957Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-351\n- Quick literature check:\n  - Confirmed known positive cases (`p(n)=n`, and noted `p(n)=n^2` route from comments/background), full polynomial statement still open.\n- Finite compute signal:\n  - Exact subset-sum checks on short finite tails of `p(n)+1/n` show very sparse integer-valued subset sums in tested ranges.\n- Interpretation:\n  - Naive finite truncations are too coarse to reflect strong completeness, which is an asymptotic tail property after deleting arbitrary finite sets."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "finite subset-sum integer coverage for p(n)+1/n examples.",
+        "content": "// EP-351: finite subset-sum integer coverage for p(n)+1/n examples.\n{\n  function termPolyPlusInv(n, kind) {\n    if (kind === 'linear') return [BigInt(n * n + 1), BigInt(n)]; // n + 1/n\n    if (kind === 'quadratic') return [BigInt(n * n * n + 1), BigInt(n)]; // n^2 + 1/n\n    return [BigInt(n * n * n * n + 1), BigInt(n)]; // n^3 + 1/n\n  }\n\n  function finiteCoverage(kind, nFrom, nTo) {\n    const nums = [];\n    const dens = [];\n    for (let n = nFrom; n <= nTo; n += 1) {\n      const [a, b] = termPolyPlusInv(n, kind);\n      nums.push(a);\n      dens.push(b);\n    }\n    let L = 1n;\n    for (const d of dens) L = lcmBig(L, d);\n    const weights = nums.map((a, i) => (a * (L / dens[i])));\n\n    let sums = new Set([0n]);\n    for (const w of weights) {\n      const nxt = new Set(sums);\n      for (const s of sums) nxt.add(s + w);\n      sums = nxt;\n    }\n\n    const arr = [...sums].sort((x, y) => (x < y ? -1 : x > y ? 1 : 0));\n    const ints = [...arr.filter((s) => s % L === 0n).map((s) => s / L)];\n    ints.sort((x, y) => (x < y ? -1 : x > y ? 1 : 0));\n\n    let longestRun = 0;\n    let runStart = null;\n    if (ints.length) {\n      let curStart = ints[0];\n      let curLen = 1;\n      longestRun = 1;\n      runStart = ints[0];\n      for (let i = 1; i < ints.length; i += 1) {\n        if (ints[i] === ints[i - 1] + 1n) {\n          curLen += 1;\n        } else {\n          if (curLen > longestRun) {\n            longestRun = curLen;\n            runStart = curStart;\n          }\n          curStart = ints[i];\n          curLen = 1;\n        }\n      }\n      if (curLen > longestRun) {\n        longestRun = curLen;\n        runStart = curStart;\n      }\n    }\n\n    return {\n      kind,\n      n_range: [nFrom, nTo],\n      terms_used: weights.length,\n      subset_count: sums.size,\n      lcm_digits: L.toString().length,\n      integer_values_count: ints.length,\n      min_integer_value: ints.length ? Number(ints[0]) : null,\n      max_integer_value: ints.length ? Number(ints[ints.length - 1]) : null,\n      longest_consecutive_integer_run_length: longestRun,\n      longest_run_start: runStart === null ? null : Number(runStart),\n    };\n  }\n\n  out.results.ep351 = {\n    description: 'Finite subset-sum integer reach for sequences p(n)+1/n with polynomial p.',\n    rows: [\n      finiteCoverage('linear', 2, 18),\n      finiteCoverage('linear', 4, 20),\n      finiteCoverage('quadratic', 2, 16),\n      finiteCoverage('quadratic', 4, 18),\n    ],\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep351",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Finite subset-sum integer reach for sequences p(n)+1/n with polynomial p.",
+          "rows": [
+            {
+              "kind": "linear",
+              "n_range": [
+                2,
+                18
+              ],
+              "terms_used": 17,
+              "subset_count": 128512,
+              "lcm_digits": 8,
+              "integer_values_count": 11,
+              "min_integer_value": 0,
+              "max_integer_value": 72,
+              "longest_consecutive_integer_run_length": 1,
+              "longest_run_start": 0
+            },
+            {
+              "kind": "linear",
+              "n_range": [
+                4,
+                20
+              ],
+              "terms_used": 17,
+              "subset_count": 125440,
+              "lcm_digits": 9,
+              "integer_values_count": 2,
+              "min_integer_value": 0,
+              "max_integer_value": 88,
+              "longest_consecutive_integer_run_length": 1,
+              "longest_run_start": 0
+            },
+            {
+              "kind": "quadratic",
+              "n_range": [
+                2,
+                16
+              ],
+              "terms_used": 15,
+              "subset_count": 32640,
+              "lcm_digits": 6,
+              "integer_values_count": 6,
+              "min_integer_value": 0,
+              "max_integer_value": 531,
+              "longest_consecutive_integer_run_length": 1,
+              "longest_run_start": 0
+            },
+            {
+              "kind": "quadratic",
+              "n_range": [
+                4,
+                18
+              ],
+              "terms_used": 15,
+              "subset_count": 32768,
+              "lcm_digits": 8,
+              "integer_values_count": 1,
+              "min_integer_value": 0,
+              "max_integer_value": 0,
+              "longest_consecutive_integer_run_length": 1,
+              "longest_run_start": 0
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

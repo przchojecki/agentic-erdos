@@ -1,0 +1,99 @@
+{
+  "problem": "EP-454",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep454_prime_graph_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-454",
+        "method": "exact_scan_of_f(n)=min_{1<=i<n}(p_{n+i}+p_{n-i})",
+        "params": {
+          "Nmax": 10000,
+          "prime_limit_used": 305558
+        },
+        "best_record": {
+          "n": 9834,
+          "i": 1,
+          "delta": 38
+        },
+        "first_n_with_delta_at_least_t": {
+          "1": 2,
+          "2": 4,
+          "3": 21,
+          "4": 21,
+          "5": 30,
+          "6": 30,
+          "7": 30,
+          "8": 30,
+          "9": 30,
+          "10": 30,
+          "11": 189,
+          "12": 189,
+          "13": 217,
+          "14": 217,
+          "15": 217,
+          "16": 217,
+          "17": 217,
+          "18": 217,
+          "19": 985,
+          "20": 985
+        },
+        "checkpoints": [
+          {
+            "n": 1000,
+            "best_delta_up_to_n": 24,
+            "best_n_up_to_n": 985
+          },
+          {
+            "n": 2000,
+            "best_delta_up_to_n": 26,
+            "best_n_up_to_n": 1847
+          },
+          {
+            "n": 3000,
+            "best_delta_up_to_n": 26,
+            "best_n_up_to_n": 1847
+          },
+          {
+            "n": 4000,
+            "best_delta_up_to_n": 26,
+            "best_n_up_to_n": 1847
+          },
+          {
+            "n": 5000,
+            "best_delta_up_to_n": 32,
+            "best_n_up_to_n": 4612
+          },
+          {
+            "n": 6000,
+            "best_delta_up_to_n": 32,
+            "best_n_up_to_n": 4612
+          },
+          {
+            "n": 7000,
+            "best_delta_up_to_n": 32,
+            "best_n_up_to_n": 4612
+          },
+          {
+            "n": 8000,
+            "best_delta_up_to_n": 32,
+            "best_n_up_to_n": 4612
+          },
+          {
+            "n": 9000,
+            "best_delta_up_to_n": 32,
+            "best_n_up_to_n": 4612
+          },
+          {
+            "n": 10000,
+            "best_delta_up_to_n": 38,
+            "best_n_up_to_n": 9834
+          }
+        ],
+        "generated_utc": "2026-03-01T17:14:34.521Z"
+      }
+    }
+  ]
+}

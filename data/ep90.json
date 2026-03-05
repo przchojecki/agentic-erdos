@@ -1,0 +1,58 @@
+{
+  "problem": "EP-90",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-90\n- Quick literature check:\n  - Quick scan did not show closure of the unit-distance conjecture; the classical $O(n^{4/3})$ frontier context remains relevant.\n- Finite compute signal:\n  - In lattice models, ratios against $n^{1+1/\\log\\log n}$ are small and decreasing over tested $n$.\n- Interpretation:\n  - Finite trends are suggestive but not close to resolving the asymptotic exponent question.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/65\n  - https://www.erdosproblems.com/66\n  - https://www.erdosproblems.com/77\n  - https://www.erdosproblems.com/78\n  - https://www.erdosproblems.com/80\n  - https://www.erdosproblems.com/82\n  - https://www.erdosproblems.com/84\n  - https://www.erdosproblems.com/86\n  - https://www.erdosproblems.com/89\n  - https://www.erdosproblems.com/90\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2303.09521\n  - https://arxiv.org/abs/2407.19026\n  - https://eccc.weizmann.ac.il/report/2015/146/\n  - https://arxiv.org/abs/2303.06802\n  - https://arxiv.org/abs/2501.09904"
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep90",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Unit-distance finite profiles for square-grid and triangular-lattice patches.",
+          "rows": [
+            {
+              "n": 256,
+              "unit_pairs_grid": 480,
+              "unit_pairs_tri_patch": 700,
+              "grid_ratio_over_n_1_plus_1_over_loglog_n": 0.073635,
+              "tri_ratio_over_n_1_plus_1_over_loglog_n": 0.107384
+            },
+            {
+              "n": 400,
+              "unit_pairs_grid": 760,
+              "unit_pairs_tri_patch": 1117,
+              "grid_ratio_over_n_1_plus_1_over_loglog_n": 0.06689,
+              "tri_ratio_over_n_1_plus_1_over_loglog_n": 0.098311
+            },
+            {
+              "n": 625,
+              "unit_pairs_grid": 1200,
+              "unit_pairs_tri_patch": 1771,
+              "grid_ratio_over_n_1_plus_1_over_loglog_n": 0.06052,
+              "tri_ratio_over_n_1_plus_1_over_loglog_n": 0.089317
+            },
+            {
+              "n": 900,
+              "unit_pairs_grid": 1740,
+              "unit_pairs_tri_patch": 2575,
+              "grid_ratio_over_n_1_plus_1_over_loglog_n": 0.055648,
+              "tri_ratio_over_n_1_plus_1_over_loglog_n": 0.082353
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

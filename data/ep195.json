@@ -1,0 +1,64 @@
+{
+  "problem": "EP-195",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-195\n- Quick literature check:\n  - Known upper bound improved to `k <= 4` (Adenwalla 2022); exact value remains unresolved.\n- Finite compute signal:\n  - Random permutations of `[1..N]` for `N=30..60` still had nonzero counts of monotone 4-term value-APs in all tested samples.\n- Interpretation:\n  - Random finite search does not locate extremal avoiding constructions; it neither proves nor disproves `k=4` as the exact threshold."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "permutation proxy for monotone arithmetic progressions.",
+        "content": "// EP-195: permutation proxy for monotone arithmetic progressions.\n{\n  function countMonoAP(perm, k) {\n    const N = perm.length;\n    const pos = new Int32Array(N + 1);\n    for (let i = 0; i < N; i += 1) pos[perm[i]] = i;\n\n    let inc = 0;\n    let dec = 0;\n    for (let a = 1; a <= N; a += 1) {\n      for (let d = 1; a + (k - 1) * d <= N; d += 1) {\n        let up = true;\n        let down = true;\n        for (let t = 1; t < k; t += 1) {\n          const p0 = pos[a + (t - 1) * d];\n          const p1 = pos[a + t * d];\n          if (!(p0 < p1)) up = false;\n          if (!(p0 > p1)) down = false;\n          if (!up && !down) break;\n        }\n        if (up) inc += 1;\n        if (down) dec += 1;\n      }\n    }\n    return { total: inc + dec, inc, dec };\n  }\n\n  const rows = [];\n  for (const N of [30, 40, 50, 60]) {\n    let best4 = Infinity;\n    let best3 = Infinity;\n    const trials = 1500;\n    const base = Array.from({ length: N }, (_, i) => i + 1);\n\n    for (let t = 0; t < trials; t += 1) {\n      const p = [...base];\n      shuffle(p, rng);\n      const c4 = countMonoAP(p, 4).total;\n      if (c4 < best4) best4 = c4;\n      if (c4 === 0) {\n        const c3 = countMonoAP(p, 3).total;\n        if (c3 < best3) best3 = c3;\n      }\n    }\n\n    rows.push({\n      N,\n      random_trials: trials,\n      min_monotone_4AP_count_found: best4,\n      exists_trial_without_monotone_4AP: best4 === 0,\n      min_monotone_3AP_count_among_4AP_free_trials: Number.isFinite(best3) ? best3 : null,\n    });\n  }\n\n  out.results.ep195 = {\n    description: 'Random-permutation finite profile for monotone value-AP occurrences.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep195",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Random-permutation finite profile for monotone value-AP occurrences.",
+          "rows": [
+            {
+              "N": 30,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 3,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 40,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 7,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 50,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 15,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 60,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 27,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

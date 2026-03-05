@@ -1,0 +1,93 @@
+{
+  "problem": "EP-138",
+  "normalized_utc": "2026-03-05T08:54:16.951Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-138\n- Quick literature check:\n  - No decisive modern proof of $W(k)^{1/k}\\to\\infty$; strongest lower framework still exponential (Kozik-Shabanov scale), with huge upper gaps.\n- Finite compute signal:\n  - Included known exact small values $W(3)=27$, $W(4)=35$.\n  - Local search reproduces the $k=4$ boundary behavior (`N=34` feasible, `N=35` infeasible in run).\n  - Berlekamp lower-root profile stays around $\\sim 2.29..2.34$ on sampled prime-based points.\n- Interpretation:\n  - Finite data remains consistent with wide asymptotic uncertainty for $W(k)$."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep138",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Finite coloring search at small k and classical Berlekamp lower-root profile.",
+          "known_exact_small_k": [
+            {
+              "k": 3,
+              "exact_W_k": 27
+            },
+            {
+              "k": 4,
+              "exact_W_k": 35
+            }
+          ],
+          "search_rows": [
+            {
+              "k": 4,
+              "N_tested": 34,
+              "found_coloring_without_monochromatic_kAP": true
+            },
+            {
+              "k": 4,
+              "N_tested": 35,
+              "found_coloring_without_monochromatic_kAP": false
+            },
+            {
+              "k": 4,
+              "N_tested": 40,
+              "found_coloring_without_monochromatic_kAP": false
+            }
+          ],
+          "berlekamp_rows": [
+            {
+              "prime_p": 2,
+              "k": 3,
+              "lower_bound_W_of_k": 8,
+              "lower_root_bound": "2.000000"
+            },
+            {
+              "prime_p": 3,
+              "k": 4,
+              "lower_bound_W_of_k": 24,
+              "lower_root_bound": "2.213364"
+            },
+            {
+              "prime_p": 5,
+              "k": 6,
+              "lower_bound_W_of_k": 160,
+              "lower_root_bound": "2.329986"
+            },
+            {
+              "prime_p": 7,
+              "k": 8,
+              "lower_bound_W_of_k": 896,
+              "lower_root_bound": "2.339045"
+            },
+            {
+              "prime_p": 11,
+              "k": 12,
+              "lower_bound_W_of_k": 22528,
+              "lower_root_bound": "2.305297"
+            },
+            {
+              "prime_p": 13,
+              "k": 14,
+              "lower_bound_W_of_k": 106496,
+              "lower_root_bound": "2.286100"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

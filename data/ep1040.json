@@ -1,0 +1,165 @@
+{
+  "problem": "EP-1040",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep1040_unitcircle_area_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-1040",
+        "model": "F = unit circle approximated via f_m(z)=z^m-1",
+        "method": "monte_carlo_area_estimate_of_{|f_m(z)|<1}",
+        "box": [
+          -2,
+          2,
+          -2,
+          2
+        ],
+        "rows": [
+          {
+            "m": 1,
+            "samples": 300000,
+            "hit_count": 59053,
+            "area_estimate": 3.1494933333333335,
+            "area_times_m": 3.1494933333333335
+          },
+          {
+            "m": 2,
+            "samples": 300000,
+            "hit_count": 37426,
+            "area_estimate": 1.9960533333333332,
+            "area_times_m": 3.9921066666666665
+          },
+          {
+            "m": 3,
+            "samples": 300000,
+            "hit_count": 33271,
+            "area_estimate": 1.7744533333333334,
+            "area_times_m": 5.32336
+          },
+          {
+            "m": 4,
+            "samples": 300000,
+            "hit_count": 31777,
+            "area_estimate": 1.6947733333333332,
+            "area_times_m": 6.779093333333333
+          },
+          {
+            "m": 5,
+            "samples": 300000,
+            "hit_count": 30930,
+            "area_estimate": 1.6496,
+            "area_times_m": 8.248
+          },
+          {
+            "m": 6,
+            "samples": 300000,
+            "hit_count": 30442,
+            "area_estimate": 1.6235733333333333,
+            "area_times_m": 9.74144
+          },
+          {
+            "m": 8,
+            "samples": 300000,
+            "hit_count": 30121,
+            "area_estimate": 1.6064533333333333,
+            "area_times_m": 12.851626666666666
+          },
+          {
+            "m": 10,
+            "samples": 300000,
+            "hit_count": 29948,
+            "area_estimate": 1.5972266666666666,
+            "area_times_m": 15.972266666666666
+          },
+          {
+            "m": 12,
+            "samples": 300000,
+            "hit_count": 29488,
+            "area_estimate": 1.5726933333333333,
+            "area_times_m": 18.87232
+          },
+          {
+            "m": 16,
+            "samples": 300000,
+            "hit_count": 29436,
+            "area_estimate": 1.56992,
+            "area_times_m": 25.11872
+          },
+          {
+            "m": 20,
+            "samples": 300000,
+            "hit_count": 28553,
+            "area_estimate": 1.5228266666666668,
+            "area_times_m": 30.456533333333336
+          },
+          {
+            "m": 24,
+            "samples": 300000,
+            "hit_count": 27894,
+            "area_estimate": 1.48768,
+            "area_times_m": 35.704319999999996
+          },
+          {
+            "m": 30,
+            "samples": 300000,
+            "hit_count": 26652,
+            "area_estimate": 1.42144,
+            "area_times_m": 42.6432
+          },
+          {
+            "m": 40,
+            "samples": 300000,
+            "hit_count": 24829,
+            "area_estimate": 1.3242133333333332,
+            "area_times_m": 52.968533333333326
+          },
+          {
+            "m": 60,
+            "samples": 300000,
+            "hit_count": 20762,
+            "area_estimate": 1.1073066666666667,
+            "area_times_m": 66.4384
+          },
+          {
+            "m": 80,
+            "samples": 300000,
+            "hit_count": 17528,
+            "area_estimate": 0.9348266666666667,
+            "area_times_m": 74.78613333333334
+          },
+          {
+            "m": 100,
+            "samples": 300000,
+            "hit_count": 15343,
+            "area_estimate": 0.8182933333333333,
+            "area_times_m": 81.82933333333334
+          },
+          {
+            "m": 150,
+            "samples": 300000,
+            "hit_count": 11368,
+            "area_estimate": 0.6062933333333334,
+            "area_times_m": 90.944
+          },
+          {
+            "m": 200,
+            "samples": 300000,
+            "hit_count": 8993,
+            "area_estimate": 0.47962666666666665,
+            "area_times_m": 95.92533333333333
+          },
+          {
+            "m": 300,
+            "samples": 300000,
+            "hit_count": 6443,
+            "area_estimate": 0.3436266666666667,
+            "area_times_m": 103.08800000000001
+          }
+        ],
+        "generated_utc": "2026-03-01T15:41:18.579Z"
+      }
+    }
+  ]
+}

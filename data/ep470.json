@@ -1,0 +1,82 @@
+{
+  "problem": "EP-470",
+  "normalized_utc": "2026-03-05T08:54:16.960Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch12_web_compute.md",
+        "content": "### EP-470\n- Quick literature check:\n  - Recent computations push odd-weird nonexistence very high (far beyond feasible brute force here).\n- Finite compute signal:\n  - Exhaustive weird search up to `30000` finds `57` weird numbers and `9` primitive weird numbers.\n  - Odd-candidate screen up to `300000` (with strong necessary prefilter) finds no odd weird number.\n- Interpretation:\n  - Finite data matches known expectations: weird numbers are plentiful (mostly even), odd weirds remain elusive.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/406\n  - https://www.erdosproblems.com/408\n  - https://www.erdosproblems.com/409\n  - https://www.erdosproblems.com/410\n  - https://www.erdosproblems.com/411\n  - https://www.erdosproblems.com/413\n  - https://www.erdosproblems.com/416\n  - https://www.erdosproblems.com/431\n  - https://www.erdosproblems.com/450\n  - https://www.erdosproblems.com/470\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2203.00537\n  - https://arxiv.org/abs/2407.15401\n  - https://arxiv.org/abs/2503.11356\n  - https://arxiv.org/abs/2202.10396\n  - https://arxiv.org/abs/2508.05283"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch12_quick_compute.mjs",
+        "heading": "weird numbers (finite) and odd weird search proxy.",
+        "content": "// EP-470: weird numbers (finite) and odd weird search proxy.\n{\n  const N_WEIRD = 30000;\n  const N_ODD = 300000;\n\n  const spfBig = sieveSPF(N_ODD + 5);\n  const sigmaAll = sigmaSieve(N_ODD + 5);\n  const omegaAll = omegaSieve(N_ODD + 5);\n\n  function isSemiperfect(n) {\n    const divs = properDivisors(n, spfBig);\n    let bits = 1n;\n    const mask = (1n << BigInt(n + 1)) - 1n;\n    const targetBit = 1n << BigInt(n);\n\n    for (const d of divs) {\n      bits |= bits << BigInt(d);\n      bits &= mask;\n      if (bits & targetBit) return true;\n    }\n    return false;\n  }\n\n  const weird = [];\n  for (let n = 2; n <= N_WEIRD; n += 1) {\n    if (sigmaAll[n] < 2 * n) continue;\n    if (!isSemiperfect(n)) weird.push(n);\n  }\n\n  const weirdSet = new Set(weird);\n  const primitive = [];\n  for (const n of weird) {\n    let prim = true;\n    const divs = properDivisors(n, spfBig);\n    for (const d of divs) {\n      if (weirdSet.has(d)) {\n        prim = false;\n        break;\n      }\n    }\n    if (prim) primitive.push(n);\n  }\n\n  const oddWeird = [];\n  const oddCandidatesChecked = [];\n  for (let n = 3; n <= N_ODD; n += 2) {\n    if (sigmaAll[n] < 2 * n) continue;\n    if (omegaAll[n] < 6) continue; // known necessary condition for odd weird numbers.\n    oddCandidatesChecked.push(n);\n    if (!isSemiperfect(n)) oddWeird.push(n);\n  }\n\n  out.results.ep470 = {\n    description: 'Finite weird-number and odd-weird search proxies.',\n    weird_search_limit: N_WEIRD,\n    odd_search_limit: N_ODD,\n    weird_count: weird.length,\n    first_25_weird: weird.slice(0, 25),\n    primitive_weird_count: primitive.length,\n    first_25_primitive_weird: primitive.slice(0, 25),\n    odd_candidates_checked_count: oddCandidatesChecked.length,\n    odd_candidates_checked_first_20: oddCandidatesChecked.slice(0, 20),\n    odd_weird_found: oddWeird,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch12_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch12_quick_compute.json",
+        "key": "ep470",
+        "container_meta": {
+          "script": "harder_batch12_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:42:39.714Z"
+        },
+        "data": {
+          "description": "Finite weird-number and odd-weird search proxies.",
+          "weird_search_limit": 30000,
+          "odd_search_limit": 300000,
+          "weird_count": 57,
+          "first_25_weird": [
+            70,
+            836,
+            4030,
+            5830,
+            7192,
+            7912,
+            9272,
+            10430,
+            10570,
+            10792,
+            10990,
+            11410,
+            11690,
+            12110,
+            12530,
+            12670,
+            13370,
+            13510,
+            13790,
+            13930,
+            14770,
+            15610,
+            15890,
+            16030,
+            16310
+          ],
+          "primitive_weird_count": 9,
+          "first_25_primitive_weird": [
+            70,
+            836,
+            4030,
+            5830,
+            7192,
+            7912,
+            9272,
+            10792,
+            17272
+          ],
+          "odd_candidates_checked_count": 2,
+          "odd_candidates_checked_first_20": [
+            255255,
+            285285
+          ],
+          "odd_weird_found": []
+        }
+      }
+    ]
+  }
+}

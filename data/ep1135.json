@@ -1,0 +1,67 @@
+{
+  "problem": "EP-1135",
+  "normalized_utc": "2026-03-05T08:54:16.977Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1135\n- Quick literature check:\n  - Page status is **OPEN** (Collatz / accelerated map form).\n- Finite compute signal:\n  - Accelerated-Collatz verification up to `n<=2,000,000` converges for all tested starts; max observed stopping length in this range is `349` at `n=1,723,519`.\n- Interpretation:\n  - Large finite verification remains fully consistent with the conjecture but gives no asymptotic proof mechanism.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/1111\n  - https://www.erdosproblems.com/1112\n  - https://www.erdosproblems.com/1113\n  - https://www.erdosproblems.com/1117\n  - https://www.erdosproblems.com/1122\n  - https://www.erdosproblems.com/1129\n  - https://www.erdosproblems.com/1135"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite verification of accelerated Collatz map f(n).",
+        "content": "// EP-1135: finite verification of accelerated Collatz map f(n).\n{\n  const N = 2_000_000;\n  const memo = new Uint32Array(N + 1); // store steps+1, 0 means unknown.\n  memo[1] = 1;\n\n  function nextCollatz(x) {\n    return x % 2n === 0n ? x / 2n : (3n * x + 1n) / 2n;\n  }\n\n  let maxSteps = 0;\n  let argMax = 1;\n  const probes = [100_000, 300_000, 600_000, 1_000_000, 1_500_000, 2_000_000];\n  let ptr = 0;\n  const rows = [];\n\n  for (let n = 1; n <= N; n += 1) {\n    let x = BigInt(n);\n    const path = [];\n\n    while (true) {\n      if (x <= BigInt(N) && memo[Number(x)] > 0) break;\n      path.push(x);\n      x = nextCollatz(x);\n    }\n\n    let s = x <= BigInt(N) ? memo[Number(x)] - 1 : 0;\n    for (let i = path.length - 1; i >= 0; i -= 1) {\n      s += 1;\n      const v = path[i];\n      if (v <= BigInt(N) && memo[Number(v)] === 0) memo[Number(v)] = s + 1;\n    }\n    const steps = memo[n] > 0 ? memo[n] - 1 : s;\n\n    if (steps > maxSteps) {\n      maxSteps = steps;\n      argMax = n;\n    }\n\n    if (ptr < probes.length && n === probes[ptr]) {\n      rows.push({\n        x: n,\n        max_steps_up_to_x: maxSteps,\n        n_attaining_max_steps: argMax,\n      });\n      ptr += 1;\n    }\n  }\n\n  out.results.ep1135 = {\n    description: 'Finite accelerated-Collatz stopping-time verification for all starts n<=2,000,000.',\n    N,\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch26_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1135",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite accelerated-Collatz stopping-time verification for all starts n<=2,000,000.",
+          "N": 2000000,
+          "rows": [
+            {
+              "x": 100000,
+              "max_steps_up_to_x": 221,
+              "n_attaining_max_steps": 77031
+            },
+            {
+              "x": 300000,
+              "max_steps_up_to_x": 278,
+              "n_attaining_max_steps": 230631
+            },
+            {
+              "x": 600000,
+              "max_steps_up_to_x": 295,
+              "n_attaining_max_steps": 511935
+            },
+            {
+              "x": 1000000,
+              "max_steps_up_to_x": 329,
+              "n_attaining_max_steps": 837799
+            },
+            {
+              "x": 1500000,
+              "max_steps_up_to_x": 331,
+              "n_attaining_max_steps": 1117065
+            },
+            {
+              "x": 2000000,
+              "max_steps_up_to_x": 349,
+              "n_attaining_max_steps": 1723519
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

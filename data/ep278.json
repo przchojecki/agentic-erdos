@@ -1,0 +1,71 @@
+{
+  "problem": "EP-278",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep278_family_partition_reduction_check.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep278_family_partition_reduction_check.mjs",
+        "rows": [
+          {
+            "P": [
+              5,
+              7
+            ],
+            "formula_best_density": 0.447619047619,
+            "brute_best_density": 0.447619047619,
+            "absolute_diff": 5.551e-17,
+            "formula_partition_mask": 1,
+            "brute_best_choice": [
+              0,
+              1,
+              2
+            ],
+            "lcm": 105
+          },
+          {
+            "P": [
+              5,
+              7,
+              11
+            ],
+            "formula_best_density": 0.473593073593,
+            "brute_best_density": 0.473593073593,
+            "absolute_diff": 0,
+            "formula_partition_mask": 1,
+            "brute_best_choice": [
+              0,
+              1,
+              2,
+              2
+            ],
+            "lcm": 1155
+          },
+          {
+            "P": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "formula_best_density": 0.494105894106,
+            "brute_best_density": 0.494105894106,
+            "absolute_diff": 0,
+            "formula_partition_mask": 6,
+            "brute_best_choice": [
+              0,
+              1,
+              2,
+              2,
+              1
+            ],
+            "lcm": 15015
+          }
+        ],
+        "timestamp_utc": "2026-03-01T19:27:19.770Z"
+      }
+    }
+  ]
+}

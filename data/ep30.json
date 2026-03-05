@@ -1,0 +1,123 @@
+{
+  "problem": "EP-30",
+  "normalized_utc": "2026-03-05T08:54:16.937Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-30\n- Quick literature check:\n  - Carter-Hunter-O'Bryant (2025) improves the upper-bound correction constant in the $N^{1/4}$ term.\n- Finite compute signal:\n  - Structured $N=q^2+q+1$ profile (prime $q$) gives lower bound size $q+1=\\sqrt{N}+O(1)$, numerically near $\\sqrt{N}+0.5$ (ratio to $\\sqrt{N}$ near $1.001$ at $q=509$).\n- Interpretation:\n  - Computation supports strong near-$\\sqrt{N}$ lower-scale behavior; the open part is tightening the upper error to $N^\\epsilon$ (or $O(1)$).\n\n## Web sources used\n- EP-1:\n  - https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/232/1/119982/modular-distinct-subset-sums\n- EP-3:\n  - https://math.mit.edu/research/highschool/primes/materials/2024/LengSahSawhney.pdf\n- EP-5:\n  - https://researchportal.helsinki.fi/en/publications/limit-points-of-normalized-prime-gaps\n- EP-12:\n  - https://link.springer.com/article/10.1007/s00605-016-0927-y\n- EP-15:\n  - https://www.ams.org/journals/cams/2024-07-03/S2692-3688-2024-00029-9/home.html\n- EP-17:\n  - https://www.erdosproblems.com/17\n- EP-20:\n  - https://link.springer.com/article/10.1007/s10623-025-01494-z\n- EP-28:\n  - https://www.erdosproblems.com/28\n  - https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/bounded-representation-bases-with-rapidly-growing-representation-function/0B4A198DE22A0B9B8D81A7E111ED4187\n- EP-30:\n  - https://link.springer.com/article/10.1007/s10474-025-01542-w"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "random greedy Sidon constructions and scale comparison.",
+        "content": "// EP-30: random greedy Sidon constructions and scale comparison.\n{\n  const rng = makeRng(30032026);\n  const NList = [500, 1000, 2000, 5000, 10000];\n  const trials = 300;\n  const rows = [];\n  for (const N of NList) {\n    let best = 0;\n    let worst = 1e9;\n    let sum = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const s = greedyMaximalSidonSize(N, rng);\n      if (s > best) best = s;\n      if (s < worst) worst = s;\n      sum += s;\n    }\n    const avg = sum / trials;\n    const sqrtN = Math.sqrt(N);\n    const refinedUpper = sqrtN + 0.98183 * N ** 0.25;\n    rows.push({\n      N,\n      trials,\n      min_size_found: worst,\n      avg_size_found: Number(avg.toFixed(4)),\n      max_size_found: best,\n      max_minus_sqrtN: Number((best - sqrtN).toFixed(6)),\n      refined_upper_sqrt_plus_0_98183_N_quarter: Number(refinedUpper.toFixed(6)),\n      refined_upper_minus_max_found: Number((refinedUpper - best).toFixed(6)),\n    });\n  }\n  const singerLikeRows = [31, 61, 127, 251, 509].map((q) => {\n    const N = q * q + q + 1;\n    const size = q + 1;\n    return {\n      q_prime: q,\n      N_q2_plus_q_plus_1: N,\n      lower_bound_size_q_plus_1: size,\n      ratio_over_sqrtN: Number((size / Math.sqrt(N)).toFixed(6)),\n      lower_bound_minus_sqrtN: Number((size - Math.sqrt(N)).toFixed(6)),\n    };\n  });\n  out.results.ep30 = {\n    description: 'Random greedy Sidon lower-bound profile against sqrt(N) and refined N^(1/4) correction scale.',\n    rows,\n    structured_prime_power_family_profile: singerLikeRows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch1_quick_compute.json');\nfs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\\n`);\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep30",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Random greedy Sidon lower-bound profile against sqrt(N) and refined N^(1/4) correction scale.",
+          "rows": [
+            {
+              "N": 500,
+              "trials": 300,
+              "min_size_found": 17,
+              "avg_size_found": 18.5533,
+              "max_size_found": 20,
+              "max_minus_sqrtN": -2.36068,
+              "refined_upper_sqrt_plus_0_98183_N_quarter": 27.003467,
+              "refined_upper_minus_max_found": 7.003467
+            },
+            {
+              "N": 1000,
+              "trials": 300,
+              "min_size_found": 22,
+              "avg_size_found": 24.3167,
+              "max_size_found": 26,
+              "max_minus_sqrtN": -5.622777,
+              "refined_upper_sqrt_plus_0_98183_N_quarter": 37.144012,
+              "refined_upper_minus_max_found": 11.144012
+            },
+            {
+              "N": 2000,
+              "trials": 300,
+              "min_size_found": 30,
+              "avg_size_found": 32.0767,
+              "max_size_found": 35,
+              "max_minus_sqrtN": -9.72136,
+              "refined_upper_sqrt_plus_0_98183_N_quarter": 51.287252,
+              "refined_upper_minus_max_found": 16.287252
+            },
+            {
+              "N": 5000,
+              "trials": 300,
+              "min_size_found": 43,
+              "avg_size_found": 45.57,
+              "max_size_found": 48,
+              "max_minus_sqrtN": -22.710678,
+              "refined_upper_sqrt_plus_0_98183_N_quarter": 78.966851,
+              "refined_upper_minus_max_found": 30.966851
+            },
+            {
+              "N": 10000,
+              "trials": 300,
+              "min_size_found": 57,
+              "avg_size_found": 59.45,
+              "max_size_found": 63,
+              "max_minus_sqrtN": -37,
+              "refined_upper_sqrt_plus_0_98183_N_quarter": 109.8183,
+              "refined_upper_minus_max_found": 46.8183
+            }
+          ],
+          "structured_prime_power_family_profile": [
+            {
+              "q_prime": 31,
+              "N_q2_plus_q_plus_1": 993,
+              "lower_bound_size_q_plus_1": 32,
+              "ratio_over_sqrtN": 1.015489,
+              "lower_bound_minus_sqrtN": 0.488097
+            },
+            {
+              "q_prime": 61,
+              "N_q2_plus_q_plus_1": 3783,
+              "lower_bound_size_q_plus_1": 62,
+              "ratio_over_sqrtN": 1.00803,
+              "lower_bound_minus_sqrtN": 0.493903
+            },
+            {
+              "q_prime": 127,
+              "N_q2_plus_q_plus_1": 16257,
+              "lower_bound_size_q_plus_1": 128,
+              "ratio_over_sqrtN": 1.003898,
+              "lower_bound_minus_sqrtN": 0.497059
+            },
+            {
+              "q_prime": 251,
+              "N_q2_plus_q_plus_1": 63253,
+              "lower_bound_size_q_plus_1": 252,
+              "ratio_over_sqrtN": 1.001982,
+              "lower_bound_minus_sqrtN": 0.498509
+            },
+            {
+              "q_prime": 509,
+              "N_q2_plus_q_plus_1": 259591,
+              "lower_bound_size_q_plus_1": 510,
+              "ratio_over_sqrtN": 1.00098,
+              "lower_bound_minus_sqrtN": 0.499264
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

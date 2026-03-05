@@ -1,0 +1,84 @@
+{
+  "problem": "EP-252",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-252\n- Quick literature check:\n  - Known unconditional status remains: irrational for `k=1,2,3,4` (with `k=4` solved by Pratt, 2022); general `k` open.\n- Finite compute signal:\n  - High truncations (`N=40` vs `N=140`) are numerically identical at displayed precision for `k\\le 6`.\n  - Best rational approximants with denominator `\\le 20000` are close but with nonzero errors (`~10^{-9}` scale).\n- Interpretation:\n  - Numerics are compatible with irrationality and with rapid convergence, but do not distinguish irrationality for `k\\ge 5`."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "finite approximants for sum sigma_k(n)/n!.",
+        "content": "// EP-252: finite approximants for sum sigma_k(n)/n!.\n{\n  const Ntail = 140;\n  const sigma = Array.from({ length: 7 }, () => new Float64Array(Ntail + 1));\n  for (let k = 1; k <= 6; k += 1) {\n    for (let d = 1; d <= Ntail; d += 1) {\n      const dk = d ** k;\n      for (let n = d; n <= Ntail; n += d) sigma[k][n] += dk;\n    }\n  }\n\n  const invFact = new Float64Array(Ntail + 1);\n  invFact[0] = 1;\n  for (let n = 1; n <= Ntail; n += 1) invFact[n] = invFact[n - 1] / n;\n\n  const rows = [];\n  for (let k = 1; k <= 6; k += 1) {\n    const partialN = 40;\n    let s40 = 0;\n    let s140 = 0;\n    for (let n = 1; n <= partialN; n += 1) s40 += sigma[k][n] * invFact[n];\n    for (let n = 1; n <= Ntail; n += 1) s140 += sigma[k][n] * invFact[n];\n    const tail = Math.abs(s140 - s40);\n    const best = bestRationalApprox(s140, 20000);\n    rows.push({\n      k,\n      partial_sum_N40: Number(s40.toPrecision(14)),\n      extended_sum_N140: Number(s140.toPrecision(14)),\n      N40_to_N140_tail_size: Number(tail.toExponential(4)),\n      best_rational_q_le_20000: `${best.p}/${best.q}`,\n      approx_error: Number(best.err.toExponential(4)),\n    });\n  }\n\n  out.results.ep252 = {\n    description: 'Finite high-truncation approximants for alpha_k = sum sigma_k(n)/n! (k<=6).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep252",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Finite high-truncation approximants for alpha_k = sum sigma_k(n)/n! (k<=6).",
+          "rows": [
+            {
+              "k": 1,
+              "partial_sum_N40": 3.527000471853,
+              "extended_sum_N140": 3.527000471853,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "52055/14759",
+              "approx_error": 2.4339e-9
+            },
+            {
+              "k": 2,
+              "partial_sum_N40": 6.3400966688922,
+              "extended_sum_N140": 6.3400966688922,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "119365/18827",
+              "approx_error": 7.8436e-10
+            },
+            {
+              "k": 3,
+              "partial_sum_N40": 14.693532847269,
+              "extended_sum_N140": 14.693532847269,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "259238/17643",
+              "approx_error": 1.3814e-9
+            },
+            {
+              "k": 4,
+              "partial_sum_N40": 42.301047503734,
+              "extended_sum_N140": 42.301047503734,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "573433/13556",
+              "approx_error": 2.9056e-9
+            },
+            {
+              "k": 5,
+              "partial_sum_N40": 143.81196393274,
+              "extended_sum_N140": 143.81196393274,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "653913/4547",
+              "approx_error": 4.7521e-10
+            },
+            {
+              "k": 6,
+              "partial_sum_N40": 556.40716454558,
+              "extended_sum_N140": 556.40716454558,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "4582013/8235",
+              "approx_error": 3.9939e-9
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

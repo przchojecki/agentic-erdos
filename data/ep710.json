@@ -1,0 +1,68 @@
+{
+  "problem": "EP-710",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep710_matching_interval_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep710_matching_interval_scan.mjs",
+        "n_list": [
+          20,
+          30,
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "rows": [
+          {
+            "n": 20,
+            "exact_f_n_small": 29,
+            "ratio_f_over_n": 1.45,
+            "ratio_f_over_n_sqrtlog": 0.837754
+          },
+          {
+            "n": 30,
+            "exact_f_n_small": 46,
+            "ratio_f_over_n": 1.533333,
+            "ratio_f_over_n_sqrtlog": 0.83142
+          },
+          {
+            "n": 40,
+            "exact_f_n_small": 60,
+            "ratio_f_over_n": 1.5,
+            "ratio_f_over_n_sqrtlog": 0.780987
+          },
+          {
+            "n": 60,
+            "exact_f_n_small": 91,
+            "ratio_f_over_n": 1.516667,
+            "ratio_f_over_n_sqrtlog": 0.749545
+          },
+          {
+            "n": 80,
+            "exact_f_n_small": 121,
+            "ratio_f_over_n": 1.5125,
+            "ratio_f_over_n_sqrtlog": 0.722533
+          },
+          {
+            "n": 100,
+            "exact_f_n_small": 161,
+            "ratio_f_over_n": 1.61,
+            "ratio_f_over_n_sqrtlog": 0.750245
+          },
+          {
+            "n": 120,
+            "exact_f_n_small": 193,
+            "ratio_f_over_n": 1.608333,
+            "ratio_f_over_n_sqrtlog": 0.735059
+          }
+        ],
+        "timestamp_utc": "2026-03-01T20:22:47.196Z"
+      }
+    }
+  ]
+}

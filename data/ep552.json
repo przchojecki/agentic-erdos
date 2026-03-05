@@ -1,0 +1,54 @@
+{
+  "problem": "EP-552",
+  "normalized_utc": "2026-03-05T08:54:16.962Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch14_web_compute.md",
+        "content": "### EP-552\n- Quick literature check:\n  - Current bounds remain around $n+\\sqrt{n}$ with additive slack; exact asymptotics and strengthened infinite-often improvements remain open.\n- Finite compute signal:\n  - Exact small-$n$ values in tractable range:\n    - $R(C_4,S_2)=4$\n    - $R(C_4,S_3)=6$\n    - For $n=4$, no forcing by $N\\le 6$ (so $R(C_4,S_4)\\ge 7$).\n  - Random search at $(n,N)=(4,7)$ found no avoiding colorings in 600 trials.\n- Interpretation:\n  - Finite evidence supports transition near $n+\\sqrt{n}$, but does not settle the infinite-often improvement question."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch14_quick_compute.mjs",
+        "heading": "exact small-n R(C4, S_n) profile.",
+        "content": "// EP-552: exact small-n R(C4, S_n) profile.\n{\n  function c4ExistsInColor(mask, N, red = true) {\n    const idx = Array.from({ length: N }, () => Array(N).fill(-1));\n    let e = 0;\n    for (let i = 0; i < N; i += 1) {\n      for (let j = i + 1; j < N; j += 1) {\n        idx[i][j] = e;\n        idx[j][i] = e;\n        e += 1;\n      }\n    }\n\n    for (let u = 0; u < N; u += 1) {\n      for (let v = u + 1; v < N; v += 1) {\n        let common = 0;\n        for (let w = 0; w < N; w += 1) {\n          if (w === u || w === v) continue;\n          const b1 = ((mask >> BigInt(idx[u][w])) & 1n) === 1n;\n          const b2 = ((mask >> BigInt(idx[v][w])) & 1n) === 1n;\n          const c1 = red ? b1 : !b1;\n          const c2 = red ? b2 : !b2;\n          if (c1 && c2) {\n            common += 1;\n            if (common >= 2) return true;\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  function blueStarExists(mask, N, nLeaves) {\n    const degBlue = Array(N).fill(0);\n    let ei = 0;\n    for (let i = 0; i < N; i += 1) {\n      for (let j = i + 1; j < N; j += 1) {\n        const isRed = ((mask >> BigInt(ei)) & 1n) === 1n;\n        if (!isRed) {\n          degBlue[i] += 1;\n          degBlue[j] += 1;\n        }\n        ei += 1;\n      }\n    }\n    return degBlue.some((d) => d >= nLeaves);\n  }\n\n  function R_C4_Star_small(nLeaves, cap = 6) {\n    for (let N = Math.max(4, nLeaves + 1); N <= cap; N += 1) {\n      const E = (N * (N - 1)) / 2;\n      const total = 1n << BigInt(E);\n      let avoidFound = false;\n      for (let mask = 0n; mask < total; mask += 1n) {\n        const redC4 = c4ExistsInColor(mask, N, true);\n        const blueStar = blueStarExists(mask, N, nLeaves);\n        if (!redC4 && !blueStar) {\n          avoidFound = true;\n          break;\n        }\n      }\n      if (!avoidFound) return N;\n    }\n    return null;\n  }\n\n  const rng = makeRng(20260303 ^ 1407);\n\n  function randomMask(E) {\n    let mask = 0n;\n    for (let e = 0; e < E; e += 1) {\n      if (rng() < 0.5) mask |= 1n << BigInt(e);\n    }\n    return mask;\n  }\n\n  function randomAvoidHits(nLeaves, N, trials) {\n    const E = (N * (N - 1)) / 2;\n    let hits = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const mask = randomMask(E);\n      const redC4 = c4ExistsInColor(mask, N, true);\n      const blueStar = blueStarExists(mask, N, nLeaves);\n      if (!redC4 && !blueStar) hits += 1;\n    }\n    return hits;\n  }\n\n  const exact_rows = [];\n  const random_rows = [];\n  for (const n of [2, 3, 4]) {\n    const targetA = n + Math.ceil(Math.sqrt(n));\n    const targetB = targetA + 1;\n    const R = R_C4_Star_small(n, 6);\n    exact_rows.push({\n      n,\n      R_C4_Sn_exact_if_at_most_6_else_null: R,\n      n_plus_ceil_sqrt_n: targetA,\n      n_plus_ceil_sqrt_n_plus_1: targetB,\n    });\n\n    for (const N of [Math.max(4, targetA - 1), targetA, targetB]) {\n      random_rows.push({\n        n,\n        N,\n        trials: 600,\n        random_avoiding_hits: randomAvoidHits(n, N, 600),\n      });\n    }\n  }\n\n  out.results.ep552 = {\n    description: 'Exact tiny-n computations and random avoidance probes for R(C4, S_n).',\n    exact_rows,\n    random_rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch14_quick_compute.json",
+        "key": "ep552",
+        "container_meta": {
+          "script": "harder_batch14_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:54:10.902Z"
+        },
+        "data": {
+          "description": "Exact tiny-n computations for R(C4, S_n).",
+          "rows": [
+            {
+              "n": 2,
+              "R_C4_Sn_exact_or_cap8": 4,
+              "n_plus_ceil_sqrt_n": 4,
+              "n_plus_ceil_sqrt_n_plus_1": 5
+            },
+            {
+              "n": 3,
+              "R_C4_Sn_exact_or_cap8": 6,
+              "n_plus_ceil_sqrt_n": 5,
+              "n_plus_ceil_sqrt_n_plus_1": 6
+            },
+            {
+              "n": 4,
+              "R_C4_Sn_exact_or_cap8": 7,
+              "n_plus_ceil_sqrt_n": 6,
+              "n_plus_ceil_sqrt_n_plus_1": 7
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

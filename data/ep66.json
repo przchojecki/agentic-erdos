@@ -1,0 +1,126 @@
+{
+  "problem": "EP-66",
+  "normalized_utc": "2026-03-05T08:54:16.948Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-66\n- Quick literature check:\n  - Quick scan did not reveal a post-classical full resolution; the impossibility constraints listed on the problem page remain the key baseline.\n- Finite compute signal:\n  - Model sets give contrasting profiles for $1_A*1_A(n)/\\log n$:\n    - squares: about $0.49..0.55$ at sampled points,\n    - primes: very large values,\n    - powers of two: $0$ throughout sampled points.\n- Interpretation:\n  - Finite behavior is highly model-dependent; no pathway yet to a global nonzero limit (or to ruling it out)."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "finite profile for model sets A and 1_A * 1_A(n) / log n.",
+        "content": "// EP-66: finite profile for model sets A and 1_A * 1_A(n) / log n.\n{\n  const N = 200000;\n  const models = [];\n\n  const squares = new Uint8Array(N + 1);\n  for (let t = 1; t * t <= N; t += 1) squares[t * t] = 1;\n  models.push({ name: 'squares', ind: squares });\n\n  const pset = new Uint8Array(N + 1);\n  for (const p of primes) {\n    if (p > N) break;\n    pset[p] = 1;\n  }\n  models.push({ name: 'primes', ind: pset });\n\n  const pow2 = new Uint8Array(N + 1);\n  for (let v = 1; v <= N; v *= 2) pow2[v] = 1;\n  models.push({ name: 'powers_of_2', ind: pow2 });\n\n  const checkpoints = [20000, 50000, 100000, 150000, 200000];\n  const rows = [];\n  for (const model of models) {\n    const vals = [];\n    for (const n of checkpoints) {\n      let r = 0;\n      for (let a = 1; a <= n - 1; a += 1) if (model.ind[a] && model.ind[n - a]) r += 1;\n      vals.push({\n        n,\n        conv_value: r,\n        ratio_over_logn: Number((r / Math.log(n)).toFixed(6)),\n      });\n    }\n    rows.push({ model: model.name, checkpoints: vals });\n  }\n  out.results.ep66 = {\n    description: 'Finite self-convolution-over-log profile for simple model sets.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep66",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Finite self-convolution-over-log profile for simple model sets.",
+          "rows": [
+            {
+              "model": "squares",
+              "checkpoints": [
+                {
+                  "n": 20000,
+                  "conv_value": 5,
+                  "ratio_over_logn": 0.504873
+                },
+                {
+                  "n": 50000,
+                  "conv_value": 6,
+                  "ratio_over_logn": 0.55454
+                },
+                {
+                  "n": 100000,
+                  "conv_value": 6,
+                  "ratio_over_logn": 0.521153
+                },
+                {
+                  "n": 150000,
+                  "conv_value": 0,
+                  "ratio_over_logn": 0
+                },
+                {
+                  "n": 200000,
+                  "conv_value": 6,
+                  "ratio_over_logn": 0.491559
+                }
+              ]
+            },
+            {
+              "model": "primes",
+              "checkpoints": [
+                {
+                  "n": 20000,
+                  "conv_value": 462,
+                  "ratio_over_logn": 46.650233
+                },
+                {
+                  "n": 50000,
+                  "conv_value": 900,
+                  "ratio_over_logn": 83.181002
+                },
+                {
+                  "n": 100000,
+                  "conv_value": 1620,
+                  "ratio_over_logn": 140.711412
+                },
+                {
+                  "n": 150000,
+                  "conv_value": 4540,
+                  "ratio_over_logn": 380.923915
+                },
+                {
+                  "n": 200000,
+                  "conv_value": 2834,
+                  "ratio_over_logn": 232.179513
+                }
+              ]
+            },
+            {
+              "model": "powers_of_2",
+              "checkpoints": [
+                {
+                  "n": 20000,
+                  "conv_value": 0,
+                  "ratio_over_logn": 0
+                },
+                {
+                  "n": 50000,
+                  "conv_value": 0,
+                  "ratio_over_logn": 0
+                },
+                {
+                  "n": 100000,
+                  "conv_value": 0,
+                  "ratio_over_logn": 0
+                },
+                {
+                  "n": 150000,
+                  "conv_value": 0,
+                  "ratio_over_logn": 0
+                },
+                {
+                  "n": 200000,
+                  "conv_value": 0,
+                  "ratio_over_logn": 0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

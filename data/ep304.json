@@ -1,0 +1,82 @@
+{
+  "problem": "EP-304",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-304\n- Quick literature check:\n  - The `N(b)` problem remains open at the conjectural `O(log log b)` scale, though Egyptian-fraction length bounds continue to improve.\n- Finite compute signal:\n  - For small tested `b` (`8..24`), all `a/b` were represented within `<=3` terms under modest denominator caps.\n- Interpretation:\n  - Small-`b` behavior is very short-length and consistent with slow-growth `N(b)`, but does not indicate asymptotic sharpness."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "finite small-b profile for N(a,b), N(b).",
+        "content": "// EP-304: finite small-b profile for N(a,b), N(b).\n{\n  const rows = [];\n  for (const b of [8, 10, 12, 15, 18, 24]) {\n    let solved = 0;\n    let unresolved = 0;\n    let maxMinLen = 0;\n    for (let a = 1; a < b; a += 1) {\n      const k = minEgyptLengthGeneral(a, b, { maxDen: 600, kMax: 8 });\n      if (k === null) {\n        unresolved += 1;\n      } else {\n        solved += 1;\n        if (k > maxMinLen) maxMinLen = k;\n      }\n    }\n    rows.push({\n      b,\n      solved_count: solved,\n      unresolved_count: unresolved,\n      max_min_length_among_solved: maxMinLen,\n      loglog_b: Number(Math.log(Math.log(b)).toPrecision(6)),\n    });\n  }\n\n  out.results.ep304 = {\n    description: 'Finite search profile for minimal Egyptian lengths N(a,b) on small denominators b.',\n    search_limits: { maxDen: 600, kMax: 8 },\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep304",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Finite search profile for minimal Egyptian lengths N(a,b) on small denominators b.",
+          "search_limits": {
+            "maxDen": 600,
+            "kMax": 8
+          },
+          "rows": [
+            {
+              "b": 8,
+              "solved_count": 7,
+              "unresolved_count": 0,
+              "max_min_length_among_solved": 3,
+              "loglog_b": 0.732099
+            },
+            {
+              "b": 10,
+              "solved_count": 9,
+              "unresolved_count": 0,
+              "max_min_length_among_solved": 3,
+              "loglog_b": 0.834032
+            },
+            {
+              "b": 12,
+              "solved_count": 11,
+              "unresolved_count": 0,
+              "max_min_length_among_solved": 3,
+              "loglog_b": 0.910235
+            },
+            {
+              "b": 15,
+              "solved_count": 14,
+              "unresolved_count": 0,
+              "max_min_length_among_solved": 3,
+              "loglog_b": 0.996229
+            },
+            {
+              "b": 18,
+              "solved_count": 17,
+              "unresolved_count": 0,
+              "max_min_length_among_solved": 3,
+              "loglog_b": 1.06139
+            },
+            {
+              "b": 24,
+              "solved_count": 23,
+              "unresolved_count": 0,
+              "max_min_length_among_solved": 3,
+              "loglog_b": 1.15627
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "problem": "EP-387",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-387\n- Quick literature check:\n  - Stronger old conjecture was disproved; constant-fraction interval version remains open.\n- Finite compute signal:\n  - For tested window (`n<=600`, `k<=20`), every pair had a divisor in `(0.5n,n]` (and even in `(n-k,n]`).\n- Interpretation:\n  - Small-parameter behavior is very favorable, but this does not constrain hard large-`k` regimes."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "finite interval-divisor profile for C(n,k).",
+        "content": "// EP-387: finite interval-divisor profile for C(n,k).\n{\n  const N = 600;\n  const KMAX = 20;\n  const cVals = [0.3, 0.4, 0.5];\n\n  let failNK = 0;\n  const failC = new Map(cVals.map((c) => [c, 0]));\n  let totalPairs = 0;\n\n  let minBestRatio = 1;\n  let minBestWitness = null;\n\n  const milestones = [150, 300, 450, 600];\n  const rows = [];\n\n  for (let n = 2; n <= N; n += 1) {\n    let minRatioAtN = 1;\n\n    for (let k = 1; k <= Math.min(KMAX, n - 1); k += 1) {\n      totalPairs += 1;\n\n      const vp = new Map();\n      for (const p of primesAll) {\n        if (p > n) break;\n        const e = vpFact(n, p) - vpFact(k, p) - vpFact(n - k, p);\n        if (e > 0) vp.set(p, e);\n      }\n\n      function divides(d) {\n        let x = d;\n        while (x > 1) {\n          const p = spf[x];\n          let e = 0;\n          while (x % p === 0) {\n            x = Math.floor(x / p);\n            e += 1;\n          }\n          if ((vp.get(p) || 0) < e) return false;\n        }\n        return true;\n      }\n\n      // Strong interval (n-k, n].\n      let hasNK = false;\n      for (let d = n; d > n - k; d -= 1) {\n        if (divides(d)) {\n          hasNK = true;\n          break;\n        }\n      }\n      if (!hasNK) failNK += 1;\n\n      // c-interval checks.\n      for (const c of cVals) {\n        const lo = Math.floor(c * n);\n        let hasC = false;\n        for (let d = n; d > lo; d -= 1) {\n          if (divides(d)) {\n            hasC = true;\n            break;\n          }\n        }\n        if (!hasC) failC.set(c, failC.get(c) + 1);\n      }\n\n      // Best divisor ratio in [1,n].\n      let bestD = 1;\n      for (let d = n; d >= 1; d -= 1) {\n        if (divides(d)) {\n          bestD = d;\n          break;\n        }\n      }\n      const ratio = bestD / n;\n      if (ratio < minRatioAtN) minRatioAtN = ratio;\n      if (ratio < minBestRatio) {\n        minBestRatio = ratio;\n        minBestWitness = { n, k, best_divisor: bestD };\n      }\n    }\n\n    if (milestones.includes(n)) {\n      rows.push({\n        n,\n        min_best_divisor_ratio_over_k_le_20: Number(minRatioAtN.toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep387 = {\n    description: 'Finite divisor-in-interval profile for C(n,k), n<=600 and k<=20.',\n    total_pairs_checked: totalPairs,\n    fail_count_interval_n_minus_k: failNK,\n    fail_rates_c_intervals: cVals.map((c) => ({ c, fail_count: failC.get(c), fail_rate: Number((failC.get(c) / totalPairs).toPrecision(6)) })),\n    global_min_best_divisor_ratio: Number(minBestRatio.toPrecision(6)),\n    global_min_best_divisor_witness: minBestWitness,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep387",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite divisor-in-interval profile for C(n,k), n<=600 and k<=20.",
+          "total_pairs_checked": 11790,
+          "fail_count_interval_n_minus_k": 0,
+          "fail_rates_c_intervals": [
+            {
+              "c": 0.3,
+              "fail_count": 0,
+              "fail_rate": 0
+            },
+            {
+              "c": 0.4,
+              "fail_count": 0,
+              "fail_rate": 0
+            },
+            {
+              "c": 0.5,
+              "fail_count": 0,
+              "fail_rate": 0
+            }
+          ],
+          "global_min_best_divisor_ratio": 0.75,
+          "global_min_best_divisor_witness": {
+            "n": 4,
+            "k": 2,
+            "best_divisor": 3
+          },
+          "rows": [
+            {
+              "n": 150,
+              "min_best_divisor_ratio_over_k_le_20": 0.993333
+            },
+            {
+              "n": 300,
+              "min_best_divisor_ratio_over_k_le_20": 0.996667
+            },
+            {
+              "n": 450,
+              "min_best_divisor_ratio_over_k_le_20": 0.997778
+            },
+            {
+              "n": 600,
+              "min_best_divisor_ratio_over_k_le_20": 0.998333
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

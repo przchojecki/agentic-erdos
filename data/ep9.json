@@ -1,0 +1,89 @@
+{
+  "problem": "EP-9",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "harder_batch1_quick_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "harder_batch1_quick_compute.mjs",
+        "heading": ": odd numbers not representable as p + 2^a + 2^b.",
+        "extracted_section": "// EP-9: odd numbers not representable as p + 2^a + 2^b.\n{\n  const N = 1000000;\n  const pows = [];\n  for (let v = 1; v <= N; v *= 2) pows.push(v);\n  const sumSet = new Set();\n  for (let i = 0; i < pows.length; i += 1) {\n    for (let j = i; j < pows.length; j += 1) {\n      const s = pows[i] + pows[j];\n      if (s <= N) sumSet.add(s);\n    }\n  }\n  const sums = [...sumSet].sort((a, b) => a - b);\n\n  let exceptional = 0;\n  let oddCount = 0;\n  const cpTargets = [100000, 200000, 400000, 600000, 800000, 1000000];\n  const cp = [];\n  let tIdx = 0;\n\n  for (let n = 1; n <= N; n += 2) {\n    oddCount += 1;\n    let ok = false;\n    for (let i = 0; i < sums.length; i += 1) {\n      const s = sums[i];\n      if (s > n - 2) break;\n      if (sieveData.isPrime[n - s]) {\n        ok = true;\n        break;\n      }\n    }\n    if (!ok) exceptional += 1;\n    while (tIdx < cpTargets.length && n >= cpTargets[tIdx]) {\n      cp.push({\n        N: cpTargets[tIdx],\n        exceptional_odds: exceptional,\n        odd_count: Math.floor((cpTargets[tIdx] + 1) / 2),\n        exceptional_density_among_odds: Number((exceptional / Math.floor((cpTargets[tIdx] + 1) / 2)).toFixed(6)),\n      });\n      tIdx += 1;\n    }\n  }\n  while (tIdx < cpTargets.length) {\n    const tgt = cpTargets[tIdx];\n    cp.push({\n      N: tgt,\n      exceptional_odds: exceptional,\n      odd_count: Math.floor((tgt + 1) / 2),\n      exceptional_density_among_odds: Number((exceptional / Math.floor((tgt + 1) / 2)).toFixed(6)),\n    });\n    tIdx += 1;\n  }\n\n  out.results.ep9 = {\n    description: 'Finite scan of exceptional odd integers for p + 2^a + 2^b up to 1e6.',\n    N_max: N,\n    exceptional_odds: exceptional,\n    odd_count: oddCount,\n    exceptional_density_among_odds: Number((exceptional / oddCount).toFixed(6)),\n    checkpoints: cp,\n  };\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-9\n- Quick literature check:\n  - No obvious post-2011 direct update was identified in this quick pass.\n- Finite compute signal:\n  - Up to $10^6$, only $2$ odd numbers were found not representable as $p+2^a+2^b$ (density among odds about $4\\times 10^{-6}$).\n- Interpretation:\n  - Finite range remains extremely sparse for exceptions; this does not contradict known infinitude but gives no density-positivity evidence."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "odd numbers not representable as p + 2^a + 2^b.",
+        "content": "// EP-9: odd numbers not representable as p + 2^a + 2^b.\n{\n  const N = 1000000;\n  const pows = [];\n  for (let v = 1; v <= N; v *= 2) pows.push(v);\n  const sumSet = new Set();\n  for (let i = 0; i < pows.length; i += 1) {\n    for (let j = i; j < pows.length; j += 1) {\n      const s = pows[i] + pows[j];\n      if (s <= N) sumSet.add(s);\n    }\n  }\n  const sums = [...sumSet].sort((a, b) => a - b);\n\n  let exceptional = 0;\n  let oddCount = 0;\n  const cpTargets = [100000, 200000, 400000, 600000, 800000, 1000000];\n  const cp = [];\n  let tIdx = 0;\n\n  for (let n = 1; n <= N; n += 2) {\n    oddCount += 1;\n    let ok = false;\n    for (let i = 0; i < sums.length; i += 1) {\n      const s = sums[i];\n      if (s > n - 2) break;\n      if (sieveData.isPrime[n - s]) {\n        ok = true;\n        break;\n      }\n    }\n    if (!ok) exceptional += 1;\n    while (tIdx < cpTargets.length && n >= cpTargets[tIdx]) {\n      cp.push({\n        N: cpTargets[tIdx],\n        exceptional_odds: exceptional,\n        odd_count: Math.floor((cpTargets[tIdx] + 1) / 2),\n        exceptional_density_among_odds: Number((exceptional / Math.floor((cpTargets[tIdx] + 1) / 2)).toFixed(6)),\n      });\n      tIdx += 1;\n    }\n  }\n  while (tIdx < cpTargets.length) {\n    const tgt = cpTargets[tIdx];\n    cp.push({\n      N: tgt,\n      exceptional_odds: exceptional,\n      odd_count: Math.floor((tgt + 1) / 2),\n      exceptional_density_among_odds: Number((exceptional / Math.floor((tgt + 1) / 2)).toFixed(6)),\n    });\n    tIdx += 1;\n  }\n\n  out.results.ep9 = {\n    description: 'Finite scan of exceptional odd integers for p + 2^a + 2^b up to 1e6.',\n    N_max: N,\n    exceptional_odds: exceptional,\n    odd_count: oddCount,\n    exceptional_density_among_odds: Number((exceptional / oddCount).toFixed(6)),\n    checkpoints: cp,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep9",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Finite scan of exceptional odd integers for p + 2^a + 2^b up to 1e6.",
+          "N_max": 1000000,
+          "exceptional_odds": 2,
+          "odd_count": 500000,
+          "exceptional_density_among_odds": 0.000004,
+          "checkpoints": [
+            {
+              "N": 100000,
+              "exceptional_odds": 2,
+              "odd_count": 50000,
+              "exceptional_density_among_odds": 0.00004
+            },
+            {
+              "N": 200000,
+              "exceptional_odds": 2,
+              "odd_count": 100000,
+              "exceptional_density_among_odds": 0.00002
+            },
+            {
+              "N": 400000,
+              "exceptional_odds": 2,
+              "odd_count": 200000,
+              "exceptional_density_among_odds": 0.00001
+            },
+            {
+              "N": 600000,
+              "exceptional_odds": 2,
+              "odd_count": 300000,
+              "exceptional_density_among_odds": 0.000007
+            },
+            {
+              "N": 800000,
+              "exceptional_odds": 2,
+              "odd_count": 400000,
+              "exceptional_density_among_odds": 0.000005
+            },
+            {
+              "N": 1000000,
+              "exceptional_odds": 2,
+              "odd_count": 500000,
+              "exceptional_density_among_odds": 0.000004
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

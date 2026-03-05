@@ -1,0 +1,70 @@
+{
+  "problem": "EP-145",
+  "normalized_utc": "2026-03-05T08:54:16.951Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-145\n- Quick literature check:\n  - Moment range has been extended gradually (most recently beyond earlier thresholds), but full all-$\\alpha$ completion remains open unconditionally.\n- Finite compute signal:\n  - Empirical moments for $\\alpha=1,2,3,3.5,3.75,4$ stabilize numerically across $X=2\\times10^5$ to $2\\times10^6$.\n- Interpretation:\n  - Finite stability is consistent with existence but does not establish all-$\\alpha$ convergence."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep145",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Empirical moments of squarefree gaps over growing ranges.",
+          "rows": [
+            {
+              "X": 200000,
+              "squarefree_count_le_X": 121581,
+              "moment_alpha_1": 1,
+              "moment_alpha_2": 2.04094,
+              "moment_alpha_3": 5.04553,
+              "moment_alpha_3_5": 8.421332,
+              "moment_alpha_3_75": 11.023032,
+              "moment_alpha_4": 14.54716
+            },
+            {
+              "X": 500000,
+              "squarefree_count_le_X": 303958,
+              "moment_alpha_1": 1,
+              "moment_alpha_2": 2.040916,
+              "moment_alpha_3": 5.04496,
+              "moment_alpha_3_5": 8.419084,
+              "moment_alpha_3_75": 11.018754,
+              "moment_alpha_4": 14.539204
+            },
+            {
+              "X": 1000000,
+              "squarefree_count_le_X": 607926,
+              "moment_alpha_1": 1,
+              "moment_alpha_2": 2.040726,
+              "moment_alpha_3": 5.043028,
+              "moment_alpha_3_5": 8.413489,
+              "moment_alpha_3_75": 11.009337,
+              "moment_alpha_4": 14.523438
+            },
+            {
+              "X": 2000000,
+              "squarefree_count_le_X": 1215877,
+              "moment_alpha_1": 1,
+              "moment_alpha_2": 2.040622,
+              "moment_alpha_3": 5.042461,
+              "moment_alpha_3_5": 8.412506,
+              "moment_alpha_3_75": 11.008211,
+              "moment_alpha_4": 14.522404
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

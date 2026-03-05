@@ -1,0 +1,155 @@
+{
+  "problem": "EP-264",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-264\n- Quick literature check:\n  - Kovač-Tao proved `2^n` is not an irrationality sequence and provided a broad obstruction criterion via `\\liminf a_n^2\\sum_{k>n}1/a_k^2`.\n- Finite compute signal:\n  - Computed criterion proxy values:\n    - `a_n=2^n`: stable near `1/3` (strictly positive)\n    - `a_n=n!`: positive values decreasing but clearly nonzero in tested range\n    - `a_n=2^{2^n}`: rapidly tends to `0`\n- Interpretation:\n  - Finite data aligns with the theorem: exponential-type growth fails the criterion, while doubly-exponential growth remains plausible."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep264",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Criterion-profile values a_n^2 * sum_{k>n} 1/a_k^2 for representative sequences (type [264]).",
+          "rows": [
+            {
+              "sequence": "pow2pow2",
+              "n": 4,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 2.328306e-10
+            },
+            {
+              "sequence": "pow2pow2",
+              "n": 6,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 2.938736e-39
+            },
+            {
+              "sequence": "pow2pow2",
+              "n": 8,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 7.458341e-155
+            },
+            {
+              "sequence": "pow2pow2",
+              "n": 10,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+            },
+            {
+              "sequence": "pow2pow2",
+              "n": 12,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+            },
+            {
+              "sequence": "pow2n",
+              "n": 4,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+            },
+            {
+              "sequence": "pow2n",
+              "n": 6,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+            },
+            {
+              "sequence": "pow2n",
+              "n": 8,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+            },
+            {
+              "sequence": "pow2n",
+              "n": 10,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+            },
+            {
+              "sequence": "pow2n",
+              "n": 12,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.3333333
+            },
+            {
+              "sequence": "factorial",
+              "n": 4,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.04113415
+            },
+            {
+              "sequence": "factorial",
+              "n": 6,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.02073102
+            },
+            {
+              "sequence": "factorial",
+              "n": 8,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.01247016
+            },
+            {
+              "sequence": "factorial",
+              "n": 10,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.008322196
+            },
+            {
+              "sequence": "factorial",
+              "n": 12,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0.005947484
+            },
+            {
+              "sequence": "exp_exp_0.6",
+              "n": 4,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 1.344416e-8
+            },
+            {
+              "sequence": "exp_exp_0.6",
+              "n": 6,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 7.341949e-27
+            },
+            {
+              "sequence": "exp_exp_0.6",
+              "n": 8,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 1.703876e-87
+            },
+            {
+              "sequence": "exp_exp_0.6",
+              "n": 10,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 8.283788e-289
+            },
+            {
+              "sequence": "exp_exp_0.6",
+              "n": 12,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+            },
+            {
+              "sequence": "exp_exp_0.8",
+              "n": 4,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 7.679526e-27
+            },
+            {
+              "sequence": "exp_exp_0.8",
+              "n": 6,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 4.500022e-130
+            },
+            {
+              "sequence": "exp_exp_0.8",
+              "n": 8,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+            },
+            {
+              "sequence": "exp_exp_0.8",
+              "n": 10,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+            },
+            {
+              "sequence": "exp_exp_0.8",
+              "n": 12,
+              "approx_a_n_sq_times_tail_sum_reciprocal_sq": 0
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "problem": "EP-528",
+  "normalized_utc": "2026-03-05T08:54:16.961Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch14_web_compute.md",
+        "content": "### EP-528\n- Quick literature check:\n  - Connective-constant existence is classical; the page records modern structural progress (including irrationality results in fixed dimensions).\n- Finite compute signal:\n  - Exact small-$n$ SAW counts produce root-estimate trends toward stable constants:\n    - $d=2$: down to `3.029` by `n=10`\n    - $d=3$: down to `5.142` by `n=8`\n    - $d=4$: down to `7.214` by `n=7`\n- Interpretation:\n  - Finite data is consistent with convergence to dimension-dependent $C_k$, without identifying exact values."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch14_quick_compute.json",
+        "key": "ep528",
+        "container_meta": {
+          "script": "harder_batch14_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:54:10.902Z"
+        },
+        "data": {
+          "description": "Exact small-n connective-constant proxies from self-avoiding walk counts.",
+          "rows": [
+            {
+              "d": 2,
+              "n": 2,
+              "f_n_k": 16,
+              "root_estimate": 4,
+              "ratio_estimate": 4
+            },
+            {
+              "d": 2,
+              "n": 3,
+              "f_n_k": 48,
+              "root_estimate": 3.634241,
+              "ratio_estimate": 3
+            },
+            {
+              "d": 2,
+              "n": 4,
+              "f_n_k": 144,
+              "root_estimate": 3.464102,
+              "ratio_estimate": 3
+            },
+            {
+              "d": 2,
+              "n": 5,
+              "f_n_k": 400,
+              "root_estimate": 3.314454,
+              "ratio_estimate": 2.777778
+            },
+            {
+              "d": 2,
+              "n": 6,
+              "f_n_k": 1136,
+              "root_estimate": 3.230202,
+              "ratio_estimate": 2.84
+            },
+            {
+              "d": 2,
+              "n": 7,
+              "f_n_k": 3120,
+              "root_estimate": 3.156203,
+              "ratio_estimate": 2.746479
+            },
+            {
+              "d": 2,
+              "n": 8,
+              "f_n_k": 8688,
+              "root_estimate": 3.10717,
+              "ratio_estimate": 2.784615
+            },
+            {
+              "d": 2,
+              "n": 9,
+              "f_n_k": 23664,
+              "root_estimate": 3.062032,
+              "ratio_estimate": 2.723757
+            },
+            {
+              "d": 2,
+              "n": 10,
+              "f_n_k": 65072,
+              "root_estimate": 3.02928,
+              "ratio_estimate": 2.749831
+            },
+            {
+              "d": 2,
+              "n": 11,
+              "f_n_k": 176400,
+              "root_estimate": 2.998848,
+              "ratio_estimate": 2.710843
+            },
+            {
+              "d": 3,
+              "n": 2,
+              "f_n_k": 36,
+              "root_estimate": 6,
+              "ratio_estimate": 6
+            },
+            {
+              "d": 3,
+              "n": 3,
+              "f_n_k": 180,
+              "root_estimate": 5.646216,
+              "ratio_estimate": 5
+            },
+            {
+              "d": 3,
+              "n": 4,
+              "f_n_k": 900,
+              "root_estimate": 5.477226,
+              "ratio_estimate": 5
+            },
+            {
+              "d": 3,
+              "n": 5,
+              "f_n_k": 4356,
+              "root_estimate": 5.343399,
+              "ratio_estimate": 4.84
+            },
+            {
+              "d": 3,
+              "n": 6,
+              "f_n_k": 21204,
+              "root_estimate": 5.261016,
+              "ratio_estimate": 4.867769
+            },
+            {
+              "d": 3,
+              "n": 7,
+              "f_n_k": 101556,
+              "root_estimate": 5.190912,
+              "ratio_estimate": 4.789474
+            },
+            {
+              "d": 3,
+              "n": 8,
+              "f_n_k": 488340,
+              "root_estimate": 5.141505,
+              "ratio_estimate": 4.808579
+            },
+            {
+              "d": 3,
+              "n": 9,
+              "f_n_k": 2327796,
+              "root_estimate": 5.098452,
+              "ratio_estimate": 4.766753
+            },
+            {
+              "d": 4,
+              "n": 2,
+              "f_n_k": 64,
+              "root_estimate": 8,
+              "ratio_estimate": 8
+            },
+            {
+              "d": 4,
+              "n": 3,
+              "f_n_k": 448,
+              "root_estimate": 7.651725,
+              "ratio_estimate": 7
+            },
+            {
+              "d": 4,
+              "n": 4,
+              "f_n_k": 3136,
+              "root_estimate": 7.483315,
+              "ratio_estimate": 7
+            },
+            {
+              "d": 4,
+              "n": 5,
+              "f_n_k": 21568,
+              "root_estimate": 7.358037,
+              "ratio_estimate": 6.877551
+            },
+            {
+              "d": 4,
+              "n": 6,
+              "f_n_k": 148672,
+              "root_estimate": 7.278438,
+              "ratio_estimate": 6.893175
+            },
+            {
+              "d": 4,
+              "n": 7,
+              "f_n_k": 1017280,
+              "root_estimate": 7.214493,
+              "ratio_estimate": 6.842445
+            },
+            {
+              "d": 4,
+              "n": 8,
+              "f_n_k": 6970048,
+              "root_estimate": 7.168107,
+              "ratio_estimate": 6.851651
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "problem": "EP-313",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep313_primary_pseudoperfect_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-313",
+        "script": "ep313_primary_pseudoperfect_scan.mjs",
+        "method": "squarefree_scan_with_primary_pseudoperfect_identity",
+        "params": {
+          "MMAX": 30000000
+        },
+        "hits_count": 5,
+        "hits": [
+          {
+            "m": 2,
+            "primes": [
+              2
+            ]
+          },
+          {
+            "m": 6,
+            "primes": [
+              2,
+              3
+            ]
+          },
+          {
+            "m": 42,
+            "primes": [
+              2,
+              3,
+              7
+            ]
+          },
+          {
+            "m": 1806,
+            "primes": [
+              2,
+              3,
+              7,
+              43
+            ]
+          },
+          {
+            "m": 47058,
+            "primes": [
+              2,
+              3,
+              11,
+              23,
+              31
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-04T22:16:05.891Z"
+      }
+    }
+  ],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch2_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch2_compute.mjs",
+        "heading": ": summarize primary pseudoperfect scan.",
+        "extracted_section": "// EP-313: summarize primary pseudoperfect scan.\nif (fs.existsSync('data/ep313_primary_pseudoperfect_scan.json')) {\n  const d = loadJSON('data/ep313_primary_pseudoperfect_scan.json');\n  out.results.ep313 = {\n    hits_count: d.hits_count ?? null,\n    largest_hit: Array.isArray(d.hits) && d.hits.length > 0 ? d.hits[d.hits.length - 1] : null,\n    last_row: pickLastRow(d),\n  };\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [],
+    "script_sources": [
+      {
+        "source_file": "scripts/longterm_batch2_compute.mjs",
+        "heading": "summarize primary pseudoperfect scan.",
+        "content": "// EP-313: summarize primary pseudoperfect scan.\nif (fs.existsSync('data/ep313_primary_pseudoperfect_scan.json')) {\n  const d = loadJSON('data/ep313_primary_pseudoperfect_scan.json');\n  out.results.ep313 = {\n    hits_count: d.hits_count ?? null,\n    largest_hit: Array.isArray(d.hits) && d.hits.length > 0 ? d.hits[d.hits.length - 1] : null,\n    last_row: pickLastRow(d),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/longterm_batch2_compute.json",
+        "key": "ep313",
+        "container_meta": {
+          "script": "longterm_batch2_compute.mjs",
+          "generated_utc": "2026-03-04T22:18:34.636Z"
+        },
+        "data": {
+          "hits_count": 5,
+          "largest_hit": {
+            "m": 47058,
+            "primes": [
+              2,
+              3,
+              11,
+              23,
+              31
+            ]
+          },
+          "last_row": null
+        }
+      }
+    ]
+  }
+}

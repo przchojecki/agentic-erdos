@@ -1,0 +1,66 @@
+{
+  "problem": "EP-25",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep25_experiments.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Xs": [
+          10000,
+          100000,
+          1000000
+        ],
+        "systems": [
+          {
+            "name": "convergent_reciprocals_n=i^2+1_a=0",
+            "num_constraints": 220,
+            "max_modulus": 48842,
+            "reciprocal_sum_prefix": 0.5721594131229739,
+            "approx_mu_X": {
+              "10000": 0.7857064793430479,
+              "100000": 0.7603518974530254,
+              "1000000": 0.7436020114538093
+            }
+          },
+          {
+            "name": "pairwise_coprime_primes_a=0",
+            "num_constraints": 220,
+            "max_modulus": 1373,
+            "reciprocal_sum_prefix": 2.242519329635523,
+            "approx_mu_X": {
+              "10000": 0.1346899861999198,
+              "100000": 0.1270530981775547,
+              "1000000": 0.11905522876126678
+            }
+          },
+          {
+            "name": "dense_moduli_n=i+1_random_a",
+            "num_constraints": 300,
+            "max_modulus": 301,
+            "reciprocal_sum_prefix": 5.285986139435714,
+            "approx_mu_X": {
+              "10000": 0.16383103174094701,
+              "100000": 0.1319598697755568,
+              "1000000": 0.11064709212662746
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch1_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch1_compute.mjs",
+        "heading": ": greedy residue selection to maximize oscillation in log density.",
+        "extracted_section": "// EP-25: greedy residue selection to maximize oscillation in log density.\n{\n  const rng = makeRng(20260304 ^ 25);\n  const maxX = 1 << 16; // 65536\n  const X1 = 1 << 12;\n  const X2 = 1 << 16;\n  const weights = new Float64Array(maxX + 1);\n  for (let n = 1; n <= maxX; n += 1) weights[n] = 1 / n;\n  const excluded = new Uint8Array(maxX + 1);\n\n  function muX(X) {\n    let s = 0;\n    for (let n = 1; n <= X; n += 1) if (!excluded[n]) s += weights[n];\n    return s / Math.log(X);\n  }\n\n  const moduli = [];\n  const residues = [];\n  const muTrack = [];\n  const candidates = [];\n  for (let n = 60; n <= 200; n += 1) candidates.push(n);\n  shuffle(candidates, rng);\n\n  for (let idx = 0; idx < 40; idx += 1) {\n    const n = candidates[idx];\n    let best = { res: 0, diff: -1, deltaX1: 0, deltaX2: 0 };\n    const samples = 16;\n    for (let s = 0; s < samples; s += 1) {\n      const a = Math.floor(rng() * n);\n      let delta1 = 0;\n      let delta2 = 0;\n      const start = n + ((a - n) % n + n) % n;\n      for (let x = start; x <= maxX; x += n) {\n        if (excluded[x]) continue;\n        if (x <= X1) delta1 += weights[x];\n        if (x <= X2) delta2 += weights[x];\n      }\n      const mu1 = (muX(X1) - delta1 / Math.log(X1));\n      const mu2 = (muX(X2) - delta2 / Math.log(X2));\n      const diff = Math.abs(mu1 - mu2);\n      if (diff > best.diff) best = { res: a, diff, deltaX1: delta1, deltaX2: delta2 };\n    }\n\n    // Apply the best residue.\n    const a = best.res;\n    const start = n + ((a - n) % n + n) % n;\n    for (let x = start; x <= maxX; x += n) excluded[x] = 1;\n\n    moduli.push(n);\n    residues.push(a);\n    muTrack.push({\n      n,\n      a,\n      mu_X1: Number(muX(X1).toPrecision(8)),\n      mu_X2: Number(muX(X2).toPrecision(8)),\n      diff: Number(best.diff.toPrecision(6)),\n    });\n  }\n\n  const grid = [];\n  for (let k = 10; k <= 16; k += 1) {\n    const X = 1 << k;\n    grid.push({ X, mu: Number(muX(X).toPrecision(8)) });\n  }\n\n  out.results.ep25 = {\n    description: 'Greedy residue selection to amplify oscillation in mu_X(A) over X=2^12 and 2^16.',\n    moduli_count: moduli.length,\n    moduli: moduli.slice(0, 12),\n    residues: residues.slice(0, 12),\n    mu_track_tail: muTrack.slice(-6),\n    mu_grid: grid,\n  };\n}"
+      }
+    ]
+  }
+}

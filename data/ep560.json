@@ -1,0 +1,92 @@
+{
+  "problem": "EP-560",
+  "normalized_utc": "2026-03-05T08:54:16.962Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch14_web_compute.md",
+        "content": "### EP-560\n- Quick literature check:\n  - Problem-page updates include stronger modern bounds for size-Ramsey numbers of $K_{s,t}$ in asymmetric regimes.\n- Finite compute signal:\n  - Random-color thresholds on $K_{M,M}$:\n    - For $K_{2,2}$, monochromatic probability jumps to near `1` by $M=4$.\n    - For $K_{3,3}$, probabilities: `0.184` ($M=5$), `0.488` ($M=6$), `0.852` ($M=7$), `0.972` ($M=8$).\n- Interpretation:\n  - Small-host threshold behavior is visible, but asymptotic polynomial-factor gaps in $\\hat R(K_{n,n})$ remain untouched."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch14_quick_compute.mjs",
+        "heading": "random-color threshold proxy on complete bipartite hosts.",
+        "content": "// EP-560: random-color threshold proxy on complete bipartite hosts.\n{\n  const rng = makeRng(20260303 ^ 1408);\n\n  function hasMonoKss(M, s, mat) {\n    const left = Array.from({ length: M }, (_, i) => i);\n    const right = Array.from({ length: M }, (_, i) => i);\n    const Ls = choose(left, s);\n    const Rs = choose(right, s);\n\n    for (const L of Ls) {\n      for (const R of Rs) {\n        let allRed = true;\n        let allBlue = true;\n        for (const i of L) {\n          for (const j of R) {\n            const red = mat[i][j] === 1;\n            if (!red) allRed = false;\n            if (red) allBlue = false;\n            if (!allRed && !allBlue) break;\n          }\n          if (!allRed && !allBlue) break;\n        }\n        if (allRed || allBlue) return true;\n      }\n    }\n    return false;\n  }\n\n  const rows = [];\n  for (const [s, Mvals, trials] of [\n    [2, [3, 4, 5, 6], 300],\n    [3, [5, 6, 7, 8], 250],\n  ]) {\n    for (const M of Mvals) {\n      let hit = 0;\n      for (let t = 0; t < trials; t += 1) {\n        const mat = Array.from({ length: M }, () => Array(M).fill(0));\n        for (let i = 0; i < M; i += 1) {\n          for (let j = 0; j < M; j += 1) {\n            mat[i][j] = rng() < 0.5 ? 0 : 1;\n          }\n        }\n        if (hasMonoKss(M, s, mat)) hit += 1;\n      }\n      rows.push({\n        s,\n        M,\n        host_edges: M * M,\n        trials,\n        monochromatic_Kss_probability: Number((hit / trials).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep560 = {\n    description: 'Random-coloring threshold proxy for monochromatic K_{s,s} on K_{M,M}.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch14_quick_compute.json",
+        "key": "ep560",
+        "container_meta": {
+          "script": "harder_batch14_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:54:10.902Z"
+        },
+        "data": {
+          "description": "Random-coloring threshold proxy for monochromatic K_{s,s} on K_{M,M}.",
+          "rows": [
+            {
+              "s": 2,
+              "M": 3,
+              "host_edges": 9,
+              "trials": 300,
+              "monochromatic_Kss_probability": 0.683333
+            },
+            {
+              "s": 2,
+              "M": 4,
+              "host_edges": 16,
+              "trials": 300,
+              "monochromatic_Kss_probability": 0.99
+            },
+            {
+              "s": 2,
+              "M": 5,
+              "host_edges": 25,
+              "trials": 300,
+              "monochromatic_Kss_probability": 1
+            },
+            {
+              "s": 2,
+              "M": 6,
+              "host_edges": 36,
+              "trials": 300,
+              "monochromatic_Kss_probability": 1
+            },
+            {
+              "s": 3,
+              "M": 5,
+              "host_edges": 25,
+              "trials": 250,
+              "monochromatic_Kss_probability": 0.184
+            },
+            {
+              "s": 3,
+              "M": 6,
+              "host_edges": 36,
+              "trials": 250,
+              "monochromatic_Kss_probability": 0.488
+            },
+            {
+              "s": 3,
+              "M": 7,
+              "host_edges": 49,
+              "trials": 250,
+              "monochromatic_Kss_probability": 0.852
+            },
+            {
+              "s": 3,
+              "M": 8,
+              "host_edges": 64,
+              "trials": 250,
+              "monochromatic_Kss_probability": 0.972
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

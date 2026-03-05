@@ -1,0 +1,99 @@
+{
+  "problem": "EP-830",
+  "normalized_utc": "2026-03-05T08:54:16.968Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch19_web_compute.md",
+        "content": "### EP-830\n- Quick literature check:\n  - Open; standard upper bounds remain far from the conjectural lower-growth direction.\n- Finite compute signal:\n  - Direct amicable-pair count up to `x=4e5` gives `A(x)=25` with slowly decaying `A(x)/x`.\n- Interpretation:\n  - Data does not indicate near-linear-scale growth, but finite counts are too small to infer asymptotics."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch19_quick_compute.mjs",
+        "heading": "amicable pair counting profile.",
+        "content": "// EP-830: amicable pair counting profile.\n{\n  const N = 400_000;\n  const sigma = new Uint32Array(N + 1);\n  for (let d = 1; d <= N; d += 1) {\n    for (let m = d; m <= N; m += d) sigma[m] += d;\n  }\n\n  const amicA = []; // smaller member of pair\n  for (let a = 2; a <= N; a += 1) {\n    const b = sigma[a] - a;\n    if (b <= a || b > N) continue;\n    if (sigma[b] - b === a && sigma[a] === a + b && sigma[b] === a + b) amicA.push(a);\n  }\n  amicA.sort((x, y) => x - y);\n\n  const rows = [];\n  for (const x of [10_000, 50_000, 100_000, 200_000, 300_000, 400_000]) {\n    let cnt = 0;\n    while (cnt < amicA.length && amicA[cnt] <= x) cnt += 1;\n    rows.push({\n      x,\n      A_x_count_amicable_pairs_with_a_le_x: cnt,\n      A_x_over_x: Number((cnt / x).toPrecision(7)),\n      log_A_over_log_x: cnt > 1 ? Number((Math.log(cnt) / Math.log(x)).toPrecision(7)) : null,\n    });\n  }\n\n  out.results.ep830 = {\n    description: 'Finite counting profile for amicable pairs via direct sigma-sieve verification.',\n    rows,\n    first_25_amicable_a_values: amicA.slice(0, 25),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch19_quick_compute.json",
+        "key": "ep830",
+        "container_meta": {
+          "script": "harder_batch19_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:37:57.048Z"
+        },
+        "data": {
+          "description": "Finite counting profile for amicable pairs via direct sigma-sieve verification.",
+          "rows": [
+            {
+              "x": 10000,
+              "A_x_count_amicable_pairs_with_a_le_x": 5,
+              "A_x_over_x": 0.0005,
+              "log_A_over_log_x": 0.1747425
+            },
+            {
+              "x": 50000,
+              "A_x_count_amicable_pairs_with_a_le_x": 8,
+              "A_x_over_x": 0.00016,
+              "log_A_over_log_x": 0.1921889
+            },
+            {
+              "x": 100000,
+              "A_x_count_amicable_pairs_with_a_le_x": 13,
+              "A_x_over_x": 0.00013,
+              "log_A_over_log_x": 0.2227887
+            },
+            {
+              "x": 200000,
+              "A_x_count_amicable_pairs_with_a_le_x": 22,
+              "A_x_over_x": 0.00011,
+              "log_A_over_log_x": 0.2532381
+            },
+            {
+              "x": 300000,
+              "A_x_count_amicable_pairs_with_a_le_x": 23,
+              "A_x_over_x": 0.00007666667,
+              "log_A_over_log_x": 0.2486211
+            },
+            {
+              "x": 400000,
+              "A_x_count_amicable_pairs_with_a_le_x": 25,
+              "A_x_over_x": 0.0000625,
+              "log_A_over_log_x": 0.2495403
+            }
+          ],
+          "first_25_amicable_a_values": [
+            220,
+            1184,
+            2620,
+            5020,
+            6232,
+            10744,
+            12285,
+            17296,
+            63020,
+            66928,
+            67095,
+            69615,
+            79750,
+            100485,
+            122265,
+            122368,
+            141664,
+            142310,
+            171856,
+            176272,
+            185368,
+            196724,
+            280540,
+            308620,
+            356408
+          ]
+        }
+      }
+    ]
+  }
+}

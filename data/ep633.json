@@ -1,0 +1,72 @@
+{
+  "problem": "EP-633",
+  "normalized_utc": "2026-03-05T08:54:16.964Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch16_web_compute.md",
+        "content": "### EP-633\n- Quick literature check:\n  - Still open; known existence of triangles that only admit square numbers of congruent pieces (Soifer).\n- Finite compute signal:\n  - Arithmetic map from known constructive families already yields many non-square admissible counts, confirming that square-only behavior is highly shape-dependent.\n- Interpretation:\n  - Classification remains difficult because both phenomena coexist: triangles with only square counts and many non-square realizable counts globally."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch16_quick_compute.json",
+        "key": "ep633",
+        "container_meta": {
+          "script": "harder_batch16_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:01:32.236Z"
+        },
+        "data": {
+          "description": "Finite arithmetic map illustrating abundance of non-square congruent-tiling counts from known families.",
+          "NMAX": 260,
+          "represented_non_square_count_up_to_NMAX": 98,
+          "first_40_represented_non_squares": [
+            2,
+            3,
+            5,
+            6,
+            8,
+            10,
+            12,
+            13,
+            17,
+            18,
+            20,
+            24,
+            26,
+            27,
+            29,
+            32,
+            34,
+            37,
+            40,
+            41,
+            45,
+            48,
+            50,
+            52,
+            53,
+            54,
+            58,
+            61,
+            65,
+            68,
+            72,
+            73,
+            74,
+            75,
+            80,
+            82,
+            85,
+            89,
+            90,
+            96
+          ]
+        }
+      }
+    ]
+  }
+}

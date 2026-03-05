@@ -1,0 +1,154 @@
+{
+  "problem": "EP-1110",
+  "normalized_utc": "2026-03-05T08:54:16.976Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1110\n- Quick literature check:\n  - Open (last edited 22 January 2026), with major 2022/2025 partial results covering many parameter regimes.\n- Finite compute signal:\n  - Antichain-sum representability scans (`N=5000`) for sample pairs `(p,q)=(5,2),(7,3),(11,2)` show many non-representable values and many coprime non-representables in tested windows.\n- Interpretation:\n  - Finite profiles are consistent with positive-density non-representable behavior in non-`{2,3}` regimes, matching direction of modern partial theorems.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/1085\n  - https://www.erdosproblems.com/1086\n  - https://www.erdosproblems.com/1094\n  - https://www.erdosproblems.com/1095\n  - https://www.erdosproblems.com/1097\n  - https://www.erdosproblems.com/1103\n  - https://www.erdosproblems.com/1104\n  - https://www.erdosproblems.com/1105\n  - https://www.erdosproblems.com/1109\n  - https://www.erdosproblems.com/1110"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite representability profile for selected (p,q) pairs.",
+        "content": "// EP-1110: finite representability profile for selected (p,q) pairs.\n{\n  function termsPQ(p, q, N) {\n    const terms = [];\n    for (let a = 0, pa = 1; pa <= N; a += 1, pa *= p) {\n      for (let b = 0, qb = 1; pa * qb <= N; b += 1, qb *= q) {\n        terms.push(pa * qb);\n      }\n    }\n    terms.sort((x, y) => x - y);\n    return [...new Set(terms)];\n  }\n\n  function representabilityProfile(p, q, N) {\n    const terms = termsPQ(p, q, N);\n    const m = terms.length;\n    const comp = Array.from({ length: m }, () => Array(m).fill(false));\n    for (let i = 0; i < m; i += 1) {\n      for (let j = i + 1; j < m; j += 1) {\n        if (terms[j] % terms[i] === 0) {\n          comp[i][j] = true;\n          comp[j][i] = true;\n        }\n      }\n    }\n\n    const rep = new Uint8Array(N + 1);\n    function dfs(idx, sum, chosen) {\n      if (sum <= N) rep[sum] = 1;\n      for (let i = idx; i < m; i += 1) {\n        const t = terms[i];\n        if (sum + t > N) break;\n        let ok = true;\n        for (const j of chosen) {\n          if (comp[i][j]) {\n            ok = false;\n            break;\n          }\n        }\n        if (!ok) continue;\n        chosen.push(i);\n        dfs(i + 1, sum + t, chosen);\n        chosen.pop();\n      }\n    }\n    dfs(0, 0, []);\n\n    let non = 0;\n    let nonCoprimeToPQ = 0;\n    const firstNon = [];\n    for (let n = 1; n <= N; n += 1) {\n      if (rep[n]) continue;\n      non += 1;\n      if (gcd(n, p * q) === 1) nonCoprimeToPQ += 1;\n      if (firstNon.length < 30) firstNon.push(n);\n    }\n    return { terms_count: m, non_count: non, non_coprime_to_pq_count: nonCoprimeToPQ, first_nonrepresentable: firstNon };\n  }\n\n  const N = 5000;\n  const rows = [\n    { p: 5, q: 2, ...representabilityProfile(5, 2, N) },\n    { p: 7, q: 3, ...representabilityProfile(7, 3, N) },\n    { p: 11, q: 2, ...representabilityProfile(11, 2, N) },\n  ];\n\n  out.results.ep1110 = {\n    description: 'Finite antichain-sum representability profile for selected coprime (p,q) pairs.',\n    N,\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch25_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1110",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Finite antichain-sum representability profile for selected coprime (p,q) pairs.",
+          "N": 5000,
+          "rows": [
+            {
+              "p": 5,
+              "q": 2,
+              "terms_count": 42,
+              "non_count": 1919,
+              "non_coprime_to_pq_count": 718,
+              "first_nonrepresentable": [
+                3,
+                6,
+                11,
+                12,
+                15,
+                17,
+                19,
+                22,
+                23,
+                24,
+                30,
+                31,
+                34,
+                38,
+                44,
+                46,
+                47,
+                48,
+                49,
+                55,
+                59,
+                60,
+                62,
+                63,
+                68,
+                71,
+                73,
+                75,
+                76,
+                79
+              ]
+            },
+            {
+              "p": 7,
+              "q": 3,
+              "terms_count": 23,
+              "non_count": 4605,
+              "non_coprime_to_pq_count": 2673,
+              "first_nonrepresentable": [
+                2,
+                4,
+                5,
+                6,
+                8,
+                11,
+                12,
+                13,
+                14,
+                15,
+                17,
+                18,
+                19,
+                20,
+                22,
+                23,
+                24,
+                25,
+                26,
+                28,
+                29,
+                31,
+                32,
+                33,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40
+              ]
+            },
+            {
+              "p": 11,
+              "q": 2,
+              "terms_count": 30,
+              "non_count": 4296,
+              "non_coprime_to_pq_count": 1998,
+              "first_nonrepresentable": [
+                3,
+                5,
+                6,
+                7,
+                9,
+                10,
+                12,
+                14,
+                17,
+                18,
+                20,
+                21,
+                23,
+                24,
+                25,
+                28,
+                29,
+                31,
+                33,
+                34,
+                35,
+                36,
+                37,
+                39,
+                40,
+                41,
+                42,
+                45,
+                46,
+                47
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

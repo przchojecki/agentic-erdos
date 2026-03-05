@@ -1,0 +1,239 @@
+{
+  "problem": "EP-961",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep961_smooth_run_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-961",
+        "method": "largest_observed_run_of_k_smooth_integers_up_to_X",
+        "rows": [
+          {
+            "k": 10,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 3,
+            "witness_interval": [
+              14,
+              16
+            ],
+            "lower_bound_on_f_k": 4,
+            "known_upper_bound_f_k": 10,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.6907755278982137
+          },
+          {
+            "k": 15,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 5,
+            "witness_interval": [
+              24,
+              28
+            ],
+            "lower_bound_on_f_k": 6,
+            "known_upper_bound_f_k": 15,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.9026834003674034
+          },
+          {
+            "k": 20,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 5,
+            "witness_interval": [
+              24,
+              28
+            ],
+            "lower_bound_on_f_k": 6,
+            "known_upper_bound_f_k": 20,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.7489330683884977
+          },
+          {
+            "k": 25,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 5,
+            "witness_interval": [
+              32,
+              36
+            ],
+            "lower_bound_on_f_k": 6,
+            "known_upper_bound_f_k": 25,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.6437751649736402
+          },
+          {
+            "k": 30,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 5,
+            "witness_interval": [
+              32,
+              36
+            ],
+            "lower_bound_on_f_k": 6,
+            "known_upper_bound_f_k": 30,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.5668662302770259
+          },
+          {
+            "k": 40,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 5,
+            "witness_interval": [
+              48,
+              52
+            ],
+            "lower_bound_on_f_k": 6,
+            "known_upper_bound_f_k": 40,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.46110993176424203
+          },
+          {
+            "k": 50,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 7,
+            "witness_interval": [
+              90,
+              96
+            ],
+            "lower_bound_on_f_k": 8,
+            "known_upper_bound_f_k": 50,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.5476832207599405
+          },
+          {
+            "k": 60,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 8,
+            "witness_interval": [
+              114,
+              121
+            ],
+            "lower_bound_on_f_k": 9,
+            "known_upper_bound_f_k": 60,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.5459126082962801
+          },
+          {
+            "k": 80,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 13,
+            "witness_interval": [
+              114,
+              126
+            ],
+            "lower_bound_on_f_k": 14,
+            "known_upper_bound_f_k": 80,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.7120793281345057
+          },
+          {
+            "k": 100,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 13,
+            "witness_interval": [
+              114,
+              126
+            ],
+            "lower_bound_on_f_k": 14,
+            "known_upper_bound_f_k": 100,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.598672124178452
+          },
+          {
+            "k": 120,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 11,
+            "witness_interval": [
+              200,
+              210
+            ],
+            "lower_bound_on_f_k": 12,
+            "known_upper_bound_f_k": 120,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.43885340975502085
+          },
+          {
+            "k": 150,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 11,
+            "witness_interval": [
+              200,
+              210
+            ],
+            "lower_bound_on_f_k": 12,
+            "known_upper_bound_f_k": 150,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.3674465882337254
+          },
+          {
+            "k": 200,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 13,
+            "witness_interval": [
+              294,
+              306
+            ],
+            "lower_bound_on_f_k": 14,
+            "known_upper_bound_f_k": 200,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.3443906288256223
+          },
+          {
+            "k": 300,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 17,
+            "witness_interval": [
+              524,
+              540
+            ],
+            "lower_bound_on_f_k": 18,
+            "known_upper_bound_f_k": 300,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.3232143402305181
+          },
+          {
+            "k": 500,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 19,
+            "witness_interval": [
+              888,
+              906
+            ],
+            "lower_bound_on_f_k": 20,
+            "known_upper_bound_f_k": 500,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.23615510774004325
+          },
+          {
+            "k": 700,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 33,
+            "witness_interval": [
+              1328,
+              1360
+            ],
+            "lower_bound_on_f_k": 34,
+            "known_upper_bound_f_k": 700,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.3088366443663319
+          },
+          {
+            "k": 1000,
+            "scan_limit_X": 6000000,
+            "max_run_observed": 33,
+            "witness_interval": [
+              1328,
+              1360
+            ],
+            "lower_bound_on_f_k": 34,
+            "known_upper_bound_f_k": 1000,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.2279559242064105
+          }
+        ],
+        "generated_utc": "2026-03-01T15:39:06.565Z"
+      }
+    }
+  ]
+}

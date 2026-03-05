@@ -1,0 +1,198 @@
+{
+  "problem": "EP-329",
+  "normalized_utc": "2026-03-05T08:54:16.956Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-329\n- Quick literature check:\n  - Known window remains `1/\\sqrt{2} <= limsup <= 1` for Sidon-set normalization, with the exact optimum unresolved.\n- Finite compute signal:\n  - Greedy Sidon construction gives `|A\\cap[1,N]|/\\sqrt N` declining from about `0.71` (`N=5000`) to `0.47` (`N=200000`).\n- Interpretation:\n  - Greedy finite constructions are suboptimal for limsup extraction; no evidence toward the extremal constant."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "Sidon finite-density proxy via greedy construction.",
+        "content": "// EP-329: Sidon finite-density proxy via greedy construction.\n{\n  function greedySidonUpTo(N) {\n    const A = [];\n    const sums = new Set();\n    for (let x = 1; x <= N; x += 1) {\n      let ok = true;\n      for (const a of A) {\n        const s = a + x;\n        if (sums.has(s)) {\n          ok = false;\n          break;\n        }\n      }\n      if (!ok) continue;\n      for (const a of A) sums.add(a + x);\n      sums.add(2 * x);\n      A.push(x);\n    }\n    return A;\n  }\n\n  const rows = [];\n  for (const N of [5000, 10000, 20000, 50000, 100000, 200000]) {\n    const A = greedySidonUpTo(N);\n    rows.push({\n      N,\n      size: A.length,\n      ratio_over_sqrtN: Number((A.length / Math.sqrt(N)).toPrecision(6)),\n      first_20_terms: A.slice(0, 20),\n    });\n  }\n\n  out.results.ep329 = {\n    description: 'Finite limsup proxy |A∩[1,N]|/sqrt(N) using greedy Sidon construction.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep329",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Finite limsup proxy |A∩[1,N]|/sqrt(N) using greedy Sidon construction.",
+          "rows": [
+            {
+              "N": 5000,
+              "size": 50,
+              "ratio_over_sqrtN": 0.707107,
+              "first_20_terms": [
+                1,
+                2,
+                4,
+                8,
+                13,
+                21,
+                31,
+                45,
+                66,
+                81,
+                97,
+                123,
+                148,
+                182,
+                204,
+                252,
+                290,
+                361,
+                401,
+                475
+              ]
+            },
+            {
+              "N": 10000,
+              "size": 66,
+              "ratio_over_sqrtN": 0.66,
+              "first_20_terms": [
+                1,
+                2,
+                4,
+                8,
+                13,
+                21,
+                31,
+                45,
+                66,
+                81,
+                97,
+                123,
+                148,
+                182,
+                204,
+                252,
+                290,
+                361,
+                401,
+                475
+              ]
+            },
+            {
+              "N": 20000,
+              "size": 88,
+              "ratio_over_sqrtN": 0.622254,
+              "first_20_terms": [
+                1,
+                2,
+                4,
+                8,
+                13,
+                21,
+                31,
+                45,
+                66,
+                81,
+                97,
+                123,
+                148,
+                182,
+                204,
+                252,
+                290,
+                361,
+                401,
+                475
+              ]
+            },
+            {
+              "N": 50000,
+              "size": 124,
+              "ratio_over_sqrtN": 0.554545,
+              "first_20_terms": [
+                1,
+                2,
+                4,
+                8,
+                13,
+                21,
+                31,
+                45,
+                66,
+                81,
+                97,
+                123,
+                148,
+                182,
+                204,
+                252,
+                290,
+                361,
+                401,
+                475
+              ]
+            },
+            {
+              "N": 100000,
+              "size": 161,
+              "ratio_over_sqrtN": 0.509127,
+              "first_20_terms": [
+                1,
+                2,
+                4,
+                8,
+                13,
+                21,
+                31,
+                45,
+                66,
+                81,
+                97,
+                123,
+                148,
+                182,
+                204,
+                252,
+                290,
+                361,
+                401,
+                475
+              ]
+            },
+            {
+              "N": 200000,
+              "size": 211,
+              "ratio_over_sqrtN": 0.47181,
+              "first_20_terms": [
+                1,
+                2,
+                4,
+                8,
+                13,
+                21,
+                31,
+                45,
+                66,
+                81,
+                97,
+                123,
+                148,
+                182,
+                204,
+                252,
+                290,
+                361,
+                401,
+                475
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

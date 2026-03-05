@@ -1,0 +1,84 @@
+{
+  "problem": "EP-172",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-172\n- Quick literature check:\n  - The page records strong recent progress over rationals (Alweiss 2023), while the original integer version remains open.\n- Finite compute signal:\n  - In random finite colorings (proxy for $|A|=3$ patterns), witness rates were very high in tested ranges (especially for 2 colors).\n- Interpretation:\n  - Finite random behavior is favorable but not a proof of arbitrarily large monochromatic sum-product sets in $\\mathbb{N}$."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "finite coloring proxy for monochromatic sum-product patterns.",
+        "content": "// EP-172: finite coloring proxy for monochromatic sum-product patterns.\n{\n  function hasWitnessM3(colors, N) {\n    for (let a = 1; a <= N; a += 1) {\n      for (let b = a + 1; b <= N; b += 1) {\n        for (let c = b + 1; c <= N; c += 1) {\n          const vals = [a + b, a + c, b + c, a * b, a * c, b * c, a + b + c, a * b * c];\n          const col0 = colors[vals[0]];\n          let ok = true;\n          for (let i = 1; i < vals.length; i += 1) {\n            if (colors[vals[i]] !== col0) {\n              ok = false;\n              break;\n            }\n          }\n          if (ok) return true;\n        }\n      }\n    }\n    return false;\n  }\n\n  const rows = [];\n  for (const r of [2, 3]) {\n    for (const N of [18, 24, 30]) {\n      const M = N * N * N;\n      const trials = 90;\n      let hits = 0;\n      for (let t = 0; t < trials; t += 1) {\n        const colors = new Uint8Array(M + 1);\n        for (let x = 1; x <= M; x += 1) colors[x] = Math.floor(rng() * r);\n        if (hasWitnessM3(colors, N)) hits += 1;\n      }\n      rows.push({\n        colors: r,\n        N_domain_for_A: N,\n        color_domain_max: M,\n        trials,\n        witness_size3_found_count: hits,\n        witness_size3_found_rate: Number((hits / trials).toFixed(6)),\n      });\n    }\n  }\n\n  out.results.ep172 = {\n    description: 'Finite random-coloring proxy for monochromatic sum/product patterns (|A|=3).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep172",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Finite random-coloring proxy for monochromatic sum/product patterns (|A|=3).",
+          "rows": [
+            {
+              "colors": 2,
+              "N_domain_for_A": 18,
+              "color_domain_max": 5832,
+              "trials": 90,
+              "witness_size3_found_count": 90,
+              "witness_size3_found_rate": 1
+            },
+            {
+              "colors": 2,
+              "N_domain_for_A": 24,
+              "color_domain_max": 13824,
+              "trials": 90,
+              "witness_size3_found_count": 90,
+              "witness_size3_found_rate": 1
+            },
+            {
+              "colors": 2,
+              "N_domain_for_A": 30,
+              "color_domain_max": 27000,
+              "trials": 90,
+              "witness_size3_found_count": 90,
+              "witness_size3_found_rate": 1
+            },
+            {
+              "colors": 3,
+              "N_domain_for_A": 18,
+              "color_domain_max": 5832,
+              "trials": 90,
+              "witness_size3_found_count": 43,
+              "witness_size3_found_rate": 0.477778
+            },
+            {
+              "colors": 3,
+              "N_domain_for_A": 24,
+              "color_domain_max": 13824,
+              "trials": 90,
+              "witness_size3_found_count": 56,
+              "witness_size3_found_rate": 0.622222
+            },
+            {
+              "colors": 3,
+              "N_domain_for_A": 30,
+              "color_domain_max": 27000,
+              "trials": 90,
+              "witness_size3_found_count": 76,
+              "witness_size3_found_rate": 0.844444
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

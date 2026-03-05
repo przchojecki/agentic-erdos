@@ -1,0 +1,78 @@
+{
+  "problem": "EP-704",
+  "normalized_utc": "2026-03-05T08:54:16.966Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch17_web_compute.md",
+        "content": "### EP-704\n- Quick literature check:\n  - Status remains open; exponential lower/upper bases are still far apart.\n- Finite compute signal:\n  - Bound-window table shows the multiplicative uncertainty grows rapidly with `n` despite fixed exponential bases.\n- Interpretation:\n  - The main task is narrowing exponential bases and understanding limit existence."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch17_quick_compute.mjs",
+        "heading": "quantitative window table for known exponential bounds.",
+        "content": "// EP-704: quantitative window table for known exponential bounds.\n{\n  const rows = [];\n  for (const n of [5, 10, 20, 30, 40, 60]) {\n    const lower = 1.2 ** n;\n    const upper = 3 ** n;\n    rows.push({\n      n,\n      lower_1p2_pow_n: Number(lower.toPrecision(7)),\n      upper_3_pow_n: Number(upper.toPrecision(7)),\n      multiplicative_window_upper_over_lower: Number((upper / lower).toPrecision(7)),\n      geometric_mean_base: Number(((lower * upper) ** (1 / (2 * n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep704 = {\n    description: 'Finite scaling window from the classical exponential lower/upper bounds for χ(G_n).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch17_quick_compute.json",
+        "key": "ep704",
+        "container_meta": {
+          "script": "harder_batch17_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:13:20.362Z"
+        },
+        "data": {
+          "description": "Finite scaling window from the classical exponential lower/upper bounds for χ(G_n).",
+          "rows": [
+            {
+              "n": 5,
+              "lower_1p2_pow_n": 2.48832,
+              "upper_3_pow_n": 243,
+              "multiplicative_window_upper_over_lower": 97.65625,
+              "geometric_mean_base": 1.897367
+            },
+            {
+              "n": 10,
+              "lower_1p2_pow_n": 6.191736,
+              "upper_3_pow_n": 59049,
+              "multiplicative_window_upper_over_lower": 9536.743,
+              "geometric_mean_base": 1.897367
+            },
+            {
+              "n": 20,
+              "lower_1p2_pow_n": 38.3376,
+              "upper_3_pow_n": 3486784000,
+              "multiplicative_window_upper_over_lower": 90949470,
+              "geometric_mean_base": 1.897367
+            },
+            {
+              "n": 30,
+              "lower_1p2_pow_n": 237.3763,
+              "upper_3_pow_n": 205891100000000,
+              "multiplicative_window_upper_over_lower": 867361700000,
+              "geometric_mean_base": 1.897367
+            },
+            {
+              "n": 40,
+              "lower_1p2_pow_n": 1469.772,
+              "upper_3_pow_n": 12157670000000000000,
+              "multiplicative_window_upper_over_lower": 8271806000000000,
+              "geometric_mean_base": 1.897367
+            },
+            {
+              "n": 60,
+              "lower_1p2_pow_n": 56347.51,
+              "upper_3_pow_n": 4.239116e+28,
+              "multiplicative_window_upper_over_lower": 7.523164e+23,
+              "geometric_mean_base": 1.897367
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

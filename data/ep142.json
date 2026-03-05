@@ -1,0 +1,72 @@
+{
+  "problem": "EP-142",
+  "normalized_utc": "2026-03-05T08:54:16.951Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-142\n- Quick literature check:\n  - Modern quantitative bounds improved (notably for $k=3,4,$ and general $k$), but asymptotic formulas remain far out of reach.\n- Finite compute signal:\n  - Greedy AP-free sizes decline in density with $N$ for both $k=3$ and $k=4$ test tracks.\n- Interpretation:\n  - Finite profiles reflect known sparsity behavior, still far from asymptotic formula precision."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep142",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Finite greedy AP-free set sizes for k=3 and k=4.",
+          "rows": [
+            {
+              "k": 3,
+              "N": 10000,
+              "greedy_size": 512,
+              "density": 0.0512,
+              "size_over_N_div_logN": 0.471569
+            },
+            {
+              "k": 3,
+              "N": 20000,
+              "greedy_size": 560,
+              "density": 0.028,
+              "size_over_N_div_logN": 0.277298
+            },
+            {
+              "k": 3,
+              "N": 50000,
+              "greedy_size": 1024,
+              "density": 0.02048,
+              "size_over_N_div_logN": 0.221589
+            },
+            {
+              "k": 4,
+              "N": 4000,
+              "greedy_size": 565,
+              "density": 0.14125,
+              "size_over_N_div_sqrtlogN": 0.406791
+            },
+            {
+              "k": 4,
+              "N": 8000,
+              "greedy_size": 925,
+              "density": 0.115625,
+              "size_over_N_div_sqrtlogN": 0.346628
+            },
+            {
+              "k": 4,
+              "N": 12000,
+              "greedy_size": 1239,
+              "density": 0.10325,
+              "size_over_N_div_sqrtlogN": 0.316435
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "problem": "EP-934",
+  "normalized_utc": "2026-03-05T08:54:16.971Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch21_web_compute.md",
+        "content": "### EP-934\n- Quick literature check:\n  - Page remains open; `t=2` case is resolved classically, while higher-`t` sharp formulas are still active.\n- Finite compute signal:\n  - For even `d=4,6,8,10`, the C5-blowup construction matched edge count `5d^2/4`, max degree `d`, and had line-graph diameter `2`.\n- Interpretation:\n  - Finite checks align with the known extremal structure behind the `t=2` scale, but do not settle `t>=3` asymptotics."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch21_quick_compute.mjs",
+        "heading": "line-graph-distance proxy on C5 blow-up extremal constructions.",
+        "content": "// EP-934: line-graph-distance proxy on C5 blow-up extremal constructions.\n{\n  function c5BlowupEvenD(d) {\n    const q = Math.floor(d / 2);\n    const sizes = [q, q, q, q, q];\n    const offsets = [0];\n    for (let i = 1; i < 5; i += 1) offsets[i] = offsets[i - 1] + sizes[i - 1];\n    const n = offsets[4] + sizes[4];\n    const adj = makeGraph(n);\n\n    function vertex(part, idx) {\n      return offsets[part] + idx;\n    }\n\n    for (let p = 0; p < 5; p += 1) {\n      const np = (p + 1) % 5;\n      for (let i = 0; i < sizes[p]; i += 1) {\n        for (let j = 0; j < sizes[np]; j += 1) {\n          addEdge(adj, vertex(p, i), vertex(np, j));\n        }\n      }\n    }\n    return adj;\n  }\n\n  function lineGraphDiameter(adj) {\n    const edges = edgesOfGraph(adj);\n    const m = edges.length;\n    if (m <= 1) return 0;\n\n    const inc = Array.from({ length: adj.length }, () => []);\n    for (let i = 0; i < m; i += 1) {\n      const [u, v] = edges[i];\n      inc[u].push(i);\n      inc[v].push(i);\n    }\n\n    const lg = Array.from({ length: m }, () => new Set());\n    for (let v = 0; v < adj.length; v += 1) {\n      const list = inc[v];\n      for (let i = 0; i < list.length; i += 1) {\n        for (let j = i + 1; j < list.length; j += 1) {\n          lg[list[i]].add(list[j]);\n          lg[list[j]].add(list[i]);\n        }\n      }\n    }\n\n    let diam = 0;\n    for (let s = 0; s < m; s += 1) {\n      const dist = new Int16Array(m);\n      dist.fill(-1);\n      const q = [s];\n      dist[s] = 0;\n      let head = 0;\n      while (head < q.length) {\n        const x = q[head++];\n        for (const y of lg[x]) {\n          if (dist[y] !== -1) continue;\n          dist[y] = dist[x] + 1;\n          q.push(y);\n        }\n      }\n      for (let i = 0; i < m; i += 1) if (dist[i] > diam) diam = dist[i];\n    }\n    return diam;\n  }\n\n  const rows = [];\n  for (const d of [4, 6, 8, 10]) {\n    const G = c5BlowupEvenD(d);\n    const degMax = Math.max(...G.map((x) => x.length));\n    const m = edgesOfGraph(G).length;\n    const diamL = lineGraphDiameter(G);\n    rows.push({\n      d,\n      edge_count: m,\n      formula_5_over_4_d2: (5 * d * d) / 4,\n      max_degree: degMax,\n      line_graph_diameter: diamL,\n    });\n  }\n\n  out.results.ep934 = {\n    description: 'Finite proxy checks on classical C5 blow-up constructions linked to h_2(d)-scale behavior.',\n    rows,\n    note: 'This checks structural proxy quantities; it does not prove sharpness beyond known theory.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch21_quick_compute.json",
+        "key": "ep934",
+        "container_meta": {
+          "script": "harder_batch21_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:09:50.566Z"
+        },
+        "data": {
+          "description": "Finite proxy checks on classical C5 blow-up constructions linked to h_2(d)-scale behavior.",
+          "rows": [
+            {
+              "d": 4,
+              "edge_count": 20,
+              "formula_5_over_4_d2": 20,
+              "max_degree": 4,
+              "line_graph_diameter": 2
+            },
+            {
+              "d": 6,
+              "edge_count": 45,
+              "formula_5_over_4_d2": 45,
+              "max_degree": 6,
+              "line_graph_diameter": 2
+            },
+            {
+              "d": 8,
+              "edge_count": 80,
+              "formula_5_over_4_d2": 80,
+              "max_degree": 8,
+              "line_graph_diameter": 2
+            },
+            {
+              "d": 10,
+              "edge_count": 125,
+              "formula_5_over_4_d2": 125,
+              "max_degree": 10,
+              "line_graph_diameter": 2
+            }
+          ],
+          "note": "This checks structural proxy quantities; it does not prove sharpness beyond known theory."
+        }
+      }
+    ]
+  }
+}

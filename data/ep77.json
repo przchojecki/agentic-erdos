@@ -1,0 +1,162 @@
+{
+  "problem": "EP-77",
+  "normalized_utc": "2026-03-05T08:54:16.948Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-77\n- Quick literature check:\n  - The problem page records recent diagonal Ramsey upper-bound improvements (CGMS 2023, GNNW 2024, and later multicolor-related refinements).\n- Finite compute signal:\n  - Classical lower/upper templates still leave a broad base window:\n    - at $k=10$: about $1.5849..2.9423$,\n    - at $k=20$: about $1.5425..3.3683$.\n- Interpretation:\n  - The exponential base remains unresolved, with a substantial gap between known lower and upper scales."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "explicit lower/upper kth-root bound windows from classic bounds.",
+        "content": "// EP-77: explicit lower/upper kth-root bound windows from classic bounds.\n{\n  const rows = [];\n  for (let k = 3; k <= 20; k += 1) {\n    let n = 2;\n    let best = 1;\n    while (true) {\n      const comb = Number(chooseBigInt(n, k));\n      const expect = comb * 2 ** (1 - (k * (k - 1)) / 2);\n      if (expect < 1) {\n        best = n;\n        n += 1;\n      } else break;\n    }\n    const upper = Number(chooseBigInt(2 * k - 2, k - 1));\n    rows.push({\n      k,\n      probabilistic_nonconstructive_lower_n: best,\n      lower_root: Number(best ** (1 / k)).toFixed(6),\n      erdos_szekeres_upper_n: upper,\n      upper_root: Number(upper ** (1 / k)).toFixed(6),\n    });\n  }\n  out.results.ep77 = {\n    description: 'kth-root windows from classic diagonal Ramsey lower/upper bounds.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep77",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "kth-root windows from classic diagonal Ramsey lower/upper bounds.",
+          "rows": [
+            {
+              "k": 3,
+              "probabilistic_nonconstructive_lower_n": 3,
+              "lower_root": "1.442250",
+              "erdos_szekeres_upper_n": 6,
+              "upper_root": "1.817121"
+            },
+            {
+              "k": 4,
+              "probabilistic_nonconstructive_lower_n": 6,
+              "lower_root": "1.565085",
+              "erdos_szekeres_upper_n": 20,
+              "upper_root": "2.114743"
+            },
+            {
+              "k": 5,
+              "probabilistic_nonconstructive_lower_n": 11,
+              "lower_root": "1.615394",
+              "erdos_szekeres_upper_n": 70,
+              "upper_root": "2.338943"
+            },
+            {
+              "k": 6,
+              "probabilistic_nonconstructive_lower_n": 17,
+              "lower_root": "1.603522",
+              "erdos_szekeres_upper_n": 252,
+              "upper_root": "2.513237"
+            },
+            {
+              "k": 7,
+              "probabilistic_nonconstructive_lower_n": 27,
+              "lower_root": "1.601329",
+              "erdos_szekeres_upper_n": 924,
+              "upper_root": "2.652573"
+            },
+            {
+              "k": 8,
+              "probabilistic_nonconstructive_lower_n": 42,
+              "lower_root": "1.595534",
+              "erdos_szekeres_upper_n": 3432,
+              "upper_root": "2.766581"
+            },
+            {
+              "k": 9,
+              "probabilistic_nonconstructive_lower_n": 65,
+              "lower_root": "1.590138",
+              "erdos_szekeres_upper_n": 12870,
+              "upper_root": "2.861672"
+            },
+            {
+              "k": 10,
+              "probabilistic_nonconstructive_lower_n": 100,
+              "lower_root": "1.584893",
+              "erdos_szekeres_upper_n": 48620,
+              "upper_root": "2.942263"
+            },
+            {
+              "k": 11,
+              "probabilistic_nonconstructive_lower_n": 152,
+              "lower_root": "1.578881",
+              "erdos_szekeres_upper_n": 184756,
+              "upper_root": "3.011492"
+            },
+            {
+              "k": 12,
+              "probabilistic_nonconstructive_lower_n": 231,
+              "lower_root": "1.573866",
+              "erdos_szekeres_upper_n": 705432,
+              "upper_root": "3.071647"
+            },
+            {
+              "k": 13,
+              "probabilistic_nonconstructive_lower_n": 349,
+              "lower_root": "1.568924",
+              "erdos_szekeres_upper_n": 2704156,
+              "upper_root": "3.124436"
+            },
+            {
+              "k": 14,
+              "probabilistic_nonconstructive_lower_n": 527,
+              "lower_root": "1.564642",
+              "erdos_szekeres_upper_n": 10400600,
+              "upper_root": "3.171162"
+            },
+            {
+              "k": 15,
+              "probabilistic_nonconstructive_lower_n": 792,
+              "lower_root": "1.560445",
+              "erdos_szekeres_upper_n": 40116600,
+              "upper_root": "3.212834"
+            },
+            {
+              "k": 16,
+              "probabilistic_nonconstructive_lower_n": 1186,
+              "lower_root": "1.556433",
+              "erdos_szekeres_upper_n": 155117520,
+              "upper_root": "3.250247"
+            },
+            {
+              "k": 17,
+              "probabilistic_nonconstructive_lower_n": 1771,
+              "lower_root": "1.552643",
+              "erdos_szekeres_upper_n": 601080390,
+              "upper_root": "3.284035"
+            },
+            {
+              "k": 18,
+              "probabilistic_nonconstructive_lower_n": 2639,
+              "lower_root": "1.549102",
+              "erdos_szekeres_upper_n": 2333606220,
+              "upper_root": "3.314713"
+            },
+            {
+              "k": 19,
+              "probabilistic_nonconstructive_lower_n": 3923,
+              "lower_root": "1.545745",
+              "erdos_szekeres_upper_n": 9075135300,
+              "upper_root": "3.342701"
+            },
+            {
+              "k": 20,
+              "probabilistic_nonconstructive_lower_n": 5817,
+              "lower_root": "1.542535",
+              "erdos_szekeres_upper_n": 35345263800,
+              "upper_root": "3.368345"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

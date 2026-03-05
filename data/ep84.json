@@ -1,0 +1,76 @@
+{
+  "problem": "EP-84",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-84\n- Quick literature check:\n  - The problem page records the 2025 Nenadov improvement for the first target ($f(n)=o(2^n)$ direction).\n- Finite compute signal:\n  - Distinct cycle-set counts are exactly $2,4,6,11$ for $n=3,4,5,6$; a $30{,}000$-graph sample at $n=7$ also produced $11$.\n- Interpretation:\n  - Small exact counts are consistent with heavy structural constraints but do not resolve the second asymptotic target $f(n)/2^{n/2}\\to\\infty$."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "exact small-n cycle-set counts.",
+        "content": "// EP-84: exact small-n cycle-set counts.\n{\n  function hasCycleLen(adj, n, L) {\n    const used = new Uint8Array(n);\n    function dfs(start, cur, depth) {\n      if (depth === L) return adj[cur][start] === 1;\n      used[cur] = 1;\n      for (let nxt = 0; nxt < n; nxt += 1) {\n        if (!adj[cur][nxt]) continue;\n        if (used[nxt]) continue;\n        if (nxt < start) continue;\n        if (dfs(start, nxt, depth + 1)) {\n          used[cur] = 0;\n          return true;\n        }\n      }\n      used[cur] = 0;\n      return false;\n    }\n    for (let s = 0; s < n; s += 1) {\n      used.fill(0);\n      if (dfs(s, s, 1)) return true;\n    }\n    return false;\n  }\n\n  const rows = [];\n  for (let n = 3; n <= 7; n += 1) {\n    const edges = addEdgeList(n);\n    const E = edges.length;\n    const totalGraphs = 1 << E;\n    const lim = n <= 6 ? totalGraphs : 30000;\n    const sets = new Set();\n    for (let mask = 0; mask < lim; mask += 1) {\n      const adj = Array.from({ length: n }, () => new Uint8Array(n));\n      for (let e = 0; e < E; e += 1) {\n        if (((mask >>> e) & 1) === 0) continue;\n        const [u, v] = edges[e];\n        adj[u][v] = 1;\n        adj[v][u] = 1;\n      }\n      let cycMask = 0;\n      for (let L = 3; L <= n; L += 1) {\n        if (hasCycleLen(adj, n, L)) cycMask |= 1 << (L - 3);\n      }\n      sets.add(cycMask);\n    }\n    rows.push({\n      n,\n      graphs_processed: lim,\n      total_graphs_if_exhaustive: totalGraphs,\n      distinct_cycle_sets_found: sets.size,\n      normalized_over_2_pow_n: Number((sets.size / 2 ** n).toFixed(6)),\n      exact: n <= 6,\n    });\n  }\n  out.results.ep84 = {\n    description: 'Small-n cycle-set counting profile (exact for n<=6, sampled for n=7).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep84",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Small-n cycle-set counting profile (exact for n<=6, sampled for n=7).",
+          "rows": [
+            {
+              "n": 3,
+              "graphs_processed": 8,
+              "total_graphs_if_exhaustive": 8,
+              "distinct_cycle_sets_found": 2,
+              "normalized_over_2_pow_n": 0.25,
+              "exact": true
+            },
+            {
+              "n": 4,
+              "graphs_processed": 64,
+              "total_graphs_if_exhaustive": 64,
+              "distinct_cycle_sets_found": 4,
+              "normalized_over_2_pow_n": 0.25,
+              "exact": true
+            },
+            {
+              "n": 5,
+              "graphs_processed": 1024,
+              "total_graphs_if_exhaustive": 1024,
+              "distinct_cycle_sets_found": 6,
+              "normalized_over_2_pow_n": 0.1875,
+              "exact": true
+            },
+            {
+              "n": 6,
+              "graphs_processed": 32768,
+              "total_graphs_if_exhaustive": 32768,
+              "distinct_cycle_sets_found": 11,
+              "normalized_over_2_pow_n": 0.171875,
+              "exact": true
+            },
+            {
+              "n": 7,
+              "graphs_processed": 30000,
+              "total_graphs_if_exhaustive": 2097152,
+              "distinct_cycle_sets_found": 11,
+              "normalized_over_2_pow_n": 0.085938,
+              "exact": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

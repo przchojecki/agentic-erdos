@@ -1,0 +1,2713 @@
+{
+  "problem": "EP-820",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep820_Hn_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-820",
+        "method": "direct_bigint_gcd_search_for_minimal_l",
+        "params": {
+          "nMax": 160,
+          "lMax": 260
+        },
+        "rows": [
+          {
+            "n": 1,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 2,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 3,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 4,
+            "H_n_within_scan": 6,
+            "witness_k": 5,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5"
+          },
+          {
+            "n": 5,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 6,
+            "H_n_within_scan": 18,
+            "witness_k": 14,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "7"
+          },
+          {
+            "n": 7,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 8,
+            "H_n_within_scan": 6,
+            "witness_k": 5,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5"
+          },
+          {
+            "n": 9,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 10,
+            "H_n_within_scan": 12,
+            "witness_k": 11,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "11"
+          },
+          {
+            "n": 11,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 12,
+            "H_n_within_scan": 65,
+            "witness_k": 42,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "455"
+          },
+          {
+            "n": 13,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 14,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 15,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 16,
+            "H_n_within_scan": 34,
+            "witness_k": 30,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "85"
+          },
+          {
+            "n": 17,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 18,
+            "H_n_within_scan": 42,
+            "witness_k": 19,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "133"
+          },
+          {
+            "n": 19,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 20,
+            "H_n_within_scan": 30,
+            "witness_k": 11,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "275"
+          },
+          {
+            "n": 21,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 22,
+            "H_n_within_scan": 23,
+            "witness_k": 6,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 23,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "47"
+          },
+          {
+            "n": 24,
+            "H_n_within_scan": 65,
+            "witness_k": 42,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "455"
+          },
+          {
+            "n": 25,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 26,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 27,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 28,
+            "H_n_within_scan": 30,
+            "witness_k": 29,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "145"
+          },
+          {
+            "n": 29,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 30,
+            "H_n_within_scan": 154,
+            "witness_k": 93,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "2387"
+          },
+          {
+            "n": 31,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 32,
+            "H_n_within_scan": 80,
+            "witness_k": 51,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "85"
+          },
+          {
+            "n": 33,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 34,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 35,
+            "H_n_within_scan": 7,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "71"
+          },
+          {
+            "n": 36,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23350145"
+          },
+          {
+            "n": 37,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 38,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 39,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 40,
+            "H_n_within_scan": 165,
+            "witness_k": 164,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "11275"
+          },
+          {
+            "n": 41,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 42,
+            "H_n_within_scan": 84,
+            "witness_k": 43,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "2107"
+          },
+          {
+            "n": 43,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "431"
+          },
+          {
+            "n": 44,
+            "H_n_within_scan": 46,
+            "witness_k": 15,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "115"
+          },
+          {
+            "n": 45,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 46,
+            "H_n_within_scan": 47,
+            "witness_k": 6,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "47"
+          },
+          {
+            "n": 47,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 48,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "750295"
+          },
+          {
+            "n": 49,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 50,
+            "H_n_within_scan": 12,
+            "witness_k": 11,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "11"
+          },
+          {
+            "n": 51,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 52,
+            "H_n_within_scan": 53,
+            "witness_k": 30,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "265"
+          },
+          {
+            "n": 53,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 54,
+            "H_n_within_scan": 42,
+            "witness_k": 19,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "133"
+          },
+          {
+            "n": 55,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 56,
+            "H_n_within_scan": 30,
+            "witness_k": 29,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "145"
+          },
+          {
+            "n": 57,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 58,
+            "H_n_within_scan": 59,
+            "witness_k": 12,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "59"
+          },
+          {
+            "n": 59,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 60,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "47322275"
+          },
+          {
+            "n": 61,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 62,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 63,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 64,
+            "H_n_within_scan": 80,
+            "witness_k": 51,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "85"
+          },
+          {
+            "n": 65,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 66,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "10787"
+          },
+          {
+            "n": 67,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 68,
+            "H_n_within_scan": 10,
+            "witness_k": 6,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5"
+          },
+          {
+            "n": 69,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "47"
+          },
+          {
+            "n": 70,
+            "H_n_within_scan": 142,
+            "witness_k": 99,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "781"
+          },
+          {
+            "n": 71,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 72,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23350145"
+          },
+          {
+            "n": 73,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 74,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 75,
+            "H_n_within_scan": 6,
+            "witness_k": 5,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "601"
+          },
+          {
+            "n": 76,
+            "H_n_within_scan": 10,
+            "witness_k": 3,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5"
+          },
+          {
+            "n": 77,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 78,
+            "H_n_within_scan": 158,
+            "witness_k": 21,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "553"
+          },
+          {
+            "n": 79,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 80,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "191675"
+          },
+          {
+            "n": 81,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 82,
+            "H_n_within_scan": 83,
+            "witness_k": 12,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "83"
+          },
+          {
+            "n": 83,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "167"
+          },
+          {
+            "n": 84,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "3971695"
+          },
+          {
+            "n": 85,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 86,
+            "H_n_within_scan": 6,
+            "witness_k": 5,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "431"
+          },
+          {
+            "n": 87,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 88,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "10235"
+          },
+          {
+            "n": 89,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 90,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "45353"
+          },
+          {
+            "n": 91,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 92,
+            "H_n_within_scan": 94,
+            "witness_k": 15,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "235"
+          },
+          {
+            "n": 93,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 94,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 95,
+            "H_n_within_scan": 7,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "191"
+          },
+          {
+            "n": 96,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "144806935"
+          },
+          {
+            "n": 97,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 98,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 99,
+            "H_n_within_scan": 10,
+            "witness_k": 3,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 100,
+            "H_n_within_scan": 202,
+            "witness_k": 165,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "138875"
+          },
+          {
+            "n": 101,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 102,
+            "H_n_within_scan": 206,
+            "witness_k": 63,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "221347"
+          },
+          {
+            "n": 103,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 104,
+            "H_n_within_scan": 106,
+            "witness_k": 45,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "265"
+          },
+          {
+            "n": 105,
+            "H_n_within_scan": 7,
+            "witness_k": 6,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "71"
+          },
+          {
+            "n": 106,
+            "H_n_within_scan": 107,
+            "witness_k": 6,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "107"
+          },
+          {
+            "n": 107,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 108,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "2545165805"
+          },
+          {
+            "n": 109,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 110,
+            "H_n_within_scan": 88,
+            "witness_k": 69,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "2783"
+          },
+          {
+            "n": 111,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 112,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "278545"
+          },
+          {
+            "n": 113,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 114,
+            "H_n_within_scan": 18,
+            "witness_k": 14,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "7"
+          },
+          {
+            "n": 115,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "47"
+          },
+          {
+            "n": 116,
+            "H_n_within_scan": 60,
+            "witness_k": 59,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "295"
+          },
+          {
+            "n": 117,
+            "H_n_within_scan": 7,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "6553"
+          },
+          {
+            "n": 118,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 119,
+            "H_n_within_scan": 7,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "239"
+          },
+          {
+            "n": 120,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "467591399275"
+          },
+          {
+            "n": 121,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 122,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 123,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 124,
+            "H_n_within_scan": 6,
+            "witness_k": 5,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5"
+          },
+          {
+            "n": 125,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 126,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5084191"
+          },
+          {
+            "n": 127,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 128,
+            "H_n_within_scan": 80,
+            "witness_k": 51,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "85"
+          },
+          {
+            "n": 129,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "431"
+          },
+          {
+            "n": 130,
+            "H_n_within_scan": 132,
+            "witness_k": 131,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "1441"
+          },
+          {
+            "n": 131,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "263"
+          },
+          {
+            "n": 132,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "701155"
+          },
+          {
+            "n": 133,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 134,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 135,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 136,
+            "H_n_within_scan": 210,
+            "witness_k": 137,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "685"
+          },
+          {
+            "n": 137,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 138,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "45731"
+          },
+          {
+            "n": 139,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 140,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "566225"
+          },
+          {
+            "n": 141,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 142,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 143,
+            "H_n_within_scan": 5,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 144,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "22217032513585"
+          },
+          {
+            "n": 145,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 146,
+            "H_n_within_scan": 6,
+            "witness_k": 5,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "439"
+          },
+          {
+            "n": 147,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 148,
+            "H_n_within_scan": 149,
+            "witness_k": 60,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "745"
+          },
+          {
+            "n": 149,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 150,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "216622637"
+          },
+          {
+            "n": 151,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 152,
+            "H_n_within_scan": 10,
+            "witness_k": 3,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "5"
+          },
+          {
+            "n": 153,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 154,
+            "H_n_within_scan": 46,
+            "witness_k": 3,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "23"
+          },
+          {
+            "n": 155,
+            "H_n_within_scan": 11,
+            "witness_k": 2,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "311"
+          },
+          {
+            "n": 156,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "1217031165805"
+          },
+          {
+            "n": 157,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 158,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 159,
+            "H_n_within_scan": 3,
+            "witness_k": 2,
+            "pair_2_3_coprime": true,
+            "gcd_2n_1_3n_1": "1"
+          },
+          {
+            "n": 160,
+            "H_n_within_scan": null,
+            "witness_k": null,
+            "pair_2_3_coprime": false,
+            "gcd_2n_1_3n_1": "191675"
+          }
+        ],
+        "summary": {
+          "resolved_count": 139,
+          "unresolved_n_values": [
+            36,
+            48,
+            60,
+            66,
+            72,
+            80,
+            84,
+            88,
+            90,
+            96,
+            108,
+            112,
+            120,
+            126,
+            132,
+            138,
+            140,
+            144,
+            150,
+            156,
+            160
+          ],
+          "count_H_n_eq_3_within_range": 73,
+          "count_pair_2_3_coprime": 73
+        },
+        "generated_utc": "2026-03-01T15:39:02.476Z"
+      }
+    },
+    {
+      "source_file": "ep820_Hn_unresolved_extension_to700.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "lMax": 700,
+        "out": [
+          {
+            "n": 36,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 48,
+            "bestL": 455,
+            "bestK": 204
+          },
+          {
+            "n": 60,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 66,
+            "bestL": 469,
+            "bestK": 138
+          },
+          {
+            "n": 72,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 80,
+            "bestL": 510,
+            "bestK": 451
+          },
+          {
+            "n": 84,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 88,
+            "bestL": 356,
+            "bestK": 345
+          },
+          {
+            "n": 90,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 96,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 108,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 112,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 120,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 126,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 132,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 138,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 140,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 144,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 150,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 156,
+            "bestL": null,
+            "bestK": null
+          },
+          {
+            "n": 160,
+            "bestL": 510,
+            "bestK": 451
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep820_h3_density_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-820",
+        "method": "exact_recurrence_scan_for_h3_indicator",
+        "N": 20000,
+        "final": {
+          "count": 8075,
+          "density": 0.40375,
+          "max_gap_between_h3_hits": 14,
+          "last_hit": 19999
+        },
+        "rows": [
+          {
+            "upto": 1000,
+            "h3_count": 430,
+            "h3_density": 0.43
+          },
+          {
+            "upto": 2000,
+            "h3_count": 850,
+            "h3_density": 0.425
+          },
+          {
+            "upto": 5000,
+            "h3_count": 2080,
+            "h3_density": 0.416
+          },
+          {
+            "upto": 10000,
+            "h3_count": 4089,
+            "h3_density": 0.4089
+          },
+          {
+            "upto": 15000,
+            "h3_count": 6072,
+            "h3_density": 0.4048
+          },
+          {
+            "upto": 20000,
+            "h3_count": 8075,
+            "h3_density": 0.40375
+          }
+        ],
+        "generated_utc": "2026-03-01T16:06:44.897Z"
+      }
+    },
+    {
+      "source_file": "ep820_h3_structure_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-820",
+        "method": "exact_h3_indicator_plus_prime-order_witness_decomposition",
+        "params": {
+          "N": 12000,
+          "pMax": 1000000
+        },
+        "h3_summary": {
+          "count": 4877,
+          "density": 0.40641666666666665,
+          "max_hit_gap": 14,
+          "first_hits": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            9,
+            13,
+            14,
+            15,
+            17,
+            19,
+            21,
+            25,
+            26,
+            27,
+            29,
+            31,
+            34,
+            37,
+            38,
+            39,
+            41,
+            45,
+            47,
+            49,
+            51,
+            53,
+            57,
+            59,
+            61,
+            62,
+            63,
+            65,
+            67,
+            71,
+            73,
+            74,
+            79,
+            81,
+            85,
+            87,
+            89,
+            91,
+            93,
+            94,
+            97,
+            98,
+            101,
+            103,
+            107,
+            109,
+            111,
+            113,
+            118,
+            122,
+            123,
+            125,
+            127,
+            133,
+            134,
+            135,
+            137,
+            139,
+            141,
+            142,
+            145,
+            147,
+            149,
+            151,
+            153,
+            157,
+            158,
+            159,
+            163,
+            167,
+            169,
+            171,
+            173,
+            177,
+            181,
+            182,
+            183,
+            185,
+            189,
+            193,
+            194,
+            195,
+            197,
+            199,
+            201,
+            202,
+            203,
+            205,
+            206,
+            211,
+            213,
+            217,
+            218,
+            219,
+            221,
+            223,
+            227,
+            229,
+            233,
+            235,
+            237,
+            241,
+            243,
+            247,
+            254,
+            255,
+            257,
+            259,
+            261,
+            263,
+            265,
+            266,
+            267,
+            269,
+            271
+          ],
+          "last_hits": [
+            11709,
+            11713,
+            11714,
+            11717,
+            11719,
+            11721,
+            11722,
+            11727,
+            11729,
+            11731,
+            11734,
+            11735,
+            11738,
+            11741,
+            11743,
+            11745,
+            11746,
+            11747,
+            11749,
+            11751,
+            11757,
+            11758,
+            11761,
+            11762,
+            11763,
+            11765,
+            11767,
+            11769,
+            11771,
+            11773,
+            11777,
+            11779,
+            11785,
+            11787,
+            11789,
+            11791,
+            11793,
+            11794,
+            11798,
+            11801,
+            11805,
+            11807,
+            11809,
+            11811,
+            11813,
+            11815,
+            11818,
+            11819,
+            11821,
+            11823,
+            11827,
+            11829,
+            11833,
+            11834,
+            11835,
+            11837,
+            11839,
+            11841,
+            11846,
+            11849,
+            11851,
+            11853,
+            11855,
+            11857,
+            11859,
+            11861,
+            11863,
+            11867,
+            11871,
+            11873,
+            11878,
+            11879,
+            11881,
+            11882,
+            11883,
+            11885,
+            11887,
+            11889,
+            11893,
+            11894,
+            11895,
+            11897,
+            11899,
+            11901,
+            11903,
+            11905,
+            11906,
+            11907,
+            11909,
+            11917,
+            11918,
+            11919,
+            11923,
+            11927,
+            11929,
+            11931,
+            11933,
+            11941,
+            11942,
+            11943,
+            11945,
+            11947,
+            11949,
+            11953,
+            11955,
+            11962,
+            11963,
+            11965,
+            11967,
+            11969,
+            11971,
+            11973,
+            11974,
+            11975,
+            11977,
+            11981,
+            11987,
+            11989,
+            11991,
+            11998
+          ],
+          "density_rows": [
+            {
+              "upto": 1000,
+              "h3_count": 430,
+              "h3_density": 0.43
+            },
+            {
+              "upto": 2000,
+              "h3_count": 850,
+              "h3_density": 0.425
+            },
+            {
+              "upto": 5000,
+              "h3_count": 2080,
+              "h3_density": 0.416
+            },
+            {
+              "upto": 8000,
+              "h3_count": 3273,
+              "h3_density": 0.409125
+            },
+            {
+              "upto": 10000,
+              "h3_count": 4089,
+              "h3_density": 0.4089
+            },
+            {
+              "upto": 12000,
+              "h3_count": 4877,
+              "h3_density": 0.40641666666666665
+            }
+          ]
+        },
+        "miss_summary": {
+          "count": 7123,
+          "covered_by_prime_order_table": 7120,
+          "uncovered_by_prime_order_table": 3,
+          "uncovered_sample": [
+            3995,
+            6242,
+            11985
+          ],
+          "top_witness_primes": [
+            {
+              "p": 5,
+              "count": 3000
+            },
+            {
+              "p": 7,
+              "count": 1000
+            },
+            {
+              "p": 23,
+              "count": 690
+            },
+            {
+              "p": 11,
+              "count": 400
+            },
+            {
+              "p": 47,
+              "count": 300
+            },
+            {
+              "p": 431,
+              "count": 152
+            },
+            {
+              "p": 71,
+              "count": 149
+            },
+            {
+              "p": 167,
+              "count": 71
+            },
+            {
+              "p": 601,
+              "count": 58
+            },
+            {
+              "p": 59,
+              "count": 47
+            },
+            {
+              "p": 263,
+              "count": 43
+            },
+            {
+              "p": 191,
+              "count": 41
+            },
+            {
+              "p": 239,
+              "count": 41
+            },
+            {
+              "p": 6553,
+              "count": 38
+            },
+            {
+              "p": 359,
+              "count": 34
+            },
+            {
+              "p": 83,
+              "count": 32
+            },
+            {
+              "p": 383,
+              "count": 31
+            },
+            {
+              "p": 479,
+              "count": 25
+            },
+            {
+              "p": 107,
+              "count": 24
+            },
+            {
+              "p": 503,
+              "count": 24
+            },
+            {
+              "p": 311,
+              "count": 22
+            },
+            {
+              "p": 719,
+              "count": 17
+            },
+            {
+              "p": 439,
+              "count": 15
+            },
+            {
+              "p": 839,
+              "count": 15
+            },
+            {
+              "p": 863,
+              "count": 15
+            },
+            {
+              "p": 887,
+              "count": 15
+            },
+            {
+              "p": 647,
+              "count": 13
+            },
+            {
+              "p": 11113,
+              "count": 13
+            },
+            {
+              "p": 179,
+              "count": 12
+            },
+            {
+              "p": 983,
+              "count": 12
+            }
+          ]
+        },
+        "prime_order_rows_small_m": [
+          {
+            "p": 5,
+            "ord2": 4,
+            "ord3": 4,
+            "m": 4
+          },
+          {
+            "p": 7,
+            "ord2": 3,
+            "ord3": 6,
+            "m": 6
+          },
+          {
+            "p": 11,
+            "ord2": 10,
+            "ord3": 5,
+            "m": 10
+          },
+          {
+            "p": 23,
+            "ord2": 11,
+            "ord3": 11,
+            "m": 11
+          },
+          {
+            "p": 13,
+            "ord2": 12,
+            "ord3": 3,
+            "m": 12
+          },
+          {
+            "p": 17,
+            "ord2": 8,
+            "ord3": 16,
+            "m": 16
+          },
+          {
+            "p": 19,
+            "ord2": 18,
+            "ord3": 18,
+            "m": 18
+          },
+          {
+            "p": 47,
+            "ord2": 23,
+            "ord3": 23,
+            "m": 23
+          },
+          {
+            "p": 29,
+            "ord2": 28,
+            "ord3": 28,
+            "m": 28
+          },
+          {
+            "p": 31,
+            "ord2": 5,
+            "ord3": 30,
+            "m": 30
+          },
+          {
+            "p": 71,
+            "ord2": 35,
+            "ord3": 35,
+            "m": 35
+          },
+          {
+            "p": 37,
+            "ord2": 36,
+            "ord3": 18,
+            "m": 36
+          },
+          {
+            "p": 73,
+            "ord2": 9,
+            "ord3": 12,
+            "m": 36
+          },
+          {
+            "p": 41,
+            "ord2": 20,
+            "ord3": 8,
+            "m": 40
+          },
+          {
+            "p": 43,
+            "ord2": 14,
+            "ord3": 42,
+            "m": 42
+          },
+          {
+            "p": 431,
+            "ord2": 43,
+            "ord3": 43,
+            "m": 43
+          },
+          {
+            "p": 97,
+            "ord2": 48,
+            "ord3": 48,
+            "m": 48
+          },
+          {
+            "p": 53,
+            "ord2": 52,
+            "ord3": 52,
+            "m": 52
+          },
+          {
+            "p": 59,
+            "ord2": 58,
+            "ord3": 29,
+            "m": 58
+          },
+          {
+            "p": 61,
+            "ord2": 60,
+            "ord3": 10,
+            "m": 60
+          },
+          {
+            "p": 67,
+            "ord2": 66,
+            "ord3": 22,
+            "m": 66
+          },
+          {
+            "p": 601,
+            "ord2": 25,
+            "ord3": 75,
+            "m": 75
+          },
+          {
+            "p": 79,
+            "ord2": 39,
+            "ord3": 78,
+            "m": 78
+          },
+          {
+            "p": 83,
+            "ord2": 82,
+            "ord3": 41,
+            "m": 82
+          },
+          {
+            "p": 167,
+            "ord2": 83,
+            "ord3": 83,
+            "m": 83
+          },
+          {
+            "p": 89,
+            "ord2": 11,
+            "ord3": 88,
+            "m": 88
+          },
+          {
+            "p": 191,
+            "ord2": 95,
+            "ord3": 95,
+            "m": 95
+          },
+          {
+            "p": 193,
+            "ord2": 96,
+            "ord3": 16,
+            "m": 96
+          },
+          {
+            "p": 101,
+            "ord2": 100,
+            "ord3": 100,
+            "m": 100
+          },
+          {
+            "p": 103,
+            "ord2": 51,
+            "ord3": 34,
+            "m": 102
+          },
+          {
+            "p": 307,
+            "ord2": 102,
+            "ord3": 34,
+            "m": 102
+          },
+          {
+            "p": 107,
+            "ord2": 106,
+            "ord3": 53,
+            "m": 106
+          },
+          {
+            "p": 109,
+            "ord2": 36,
+            "ord3": 27,
+            "m": 108
+          },
+          {
+            "p": 113,
+            "ord2": 28,
+            "ord3": 112,
+            "m": 112
+          },
+          {
+            "p": 6553,
+            "ord2": 117,
+            "ord3": 39,
+            "m": 117
+          },
+          {
+            "p": 239,
+            "ord2": 119,
+            "ord3": 119,
+            "m": 119
+          },
+          {
+            "p": 241,
+            "ord2": 24,
+            "ord3": 120,
+            "m": 120
+          },
+          {
+            "p": 127,
+            "ord2": 7,
+            "ord3": 126,
+            "m": 126
+          },
+          {
+            "p": 131,
+            "ord2": 130,
+            "ord3": 65,
+            "m": 130
+          },
+          {
+            "p": 263,
+            "ord2": 131,
+            "ord3": 131,
+            "m": 131
+          },
+          {
+            "p": 137,
+            "ord2": 68,
+            "ord3": 136,
+            "m": 136
+          },
+          {
+            "p": 139,
+            "ord2": 138,
+            "ord3": 138,
+            "m": 138
+          },
+          {
+            "p": 577,
+            "ord2": 144,
+            "ord3": 48,
+            "m": 144
+          },
+          {
+            "p": 439,
+            "ord2": 73,
+            "ord3": 146,
+            "m": 146
+          },
+          {
+            "p": 149,
+            "ord2": 148,
+            "ord3": 148,
+            "m": 148
+          },
+          {
+            "p": 151,
+            "ord2": 15,
+            "ord3": 50,
+            "m": 150
+          },
+          {
+            "p": 311,
+            "ord2": 155,
+            "ord3": 155,
+            "m": 155
+          },
+          {
+            "p": 157,
+            "ord2": 52,
+            "ord3": 78,
+            "m": 156
+          },
+          {
+            "p": 313,
+            "ord2": 156,
+            "ord3": 39,
+            "m": 156
+          },
+          {
+            "p": 163,
+            "ord2": 162,
+            "ord3": 162,
+            "m": 162
+          },
+          {
+            "p": 499,
+            "ord2": 166,
+            "ord3": 166,
+            "m": 166
+          },
+          {
+            "p": 337,
+            "ord2": 21,
+            "ord3": 168,
+            "m": 168
+          },
+          {
+            "p": 173,
+            "ord2": 172,
+            "ord3": 172,
+            "m": 172
+          },
+          {
+            "p": 179,
+            "ord2": 178,
+            "ord3": 89,
+            "m": 178
+          },
+          {
+            "p": 359,
+            "ord2": 179,
+            "ord3": 179,
+            "m": 179
+          },
+          {
+            "p": 181,
+            "ord2": 180,
+            "ord3": 45,
+            "m": 180
+          },
+          {
+            "p": 383,
+            "ord2": 191,
+            "ord3": 191,
+            "m": 191
+          },
+          {
+            "p": 197,
+            "ord2": 196,
+            "ord3": 196,
+            "m": 196
+          },
+          {
+            "p": 199,
+            "ord2": 99,
+            "ord3": 198,
+            "m": 198
+          },
+          {
+            "p": 409,
+            "ord2": 204,
+            "ord3": 204,
+            "m": 204
+          },
+          {
+            "p": 211,
+            "ord2": 210,
+            "ord3": 210,
+            "m": 210
+          },
+          {
+            "p": 643,
+            "ord2": 214,
+            "ord3": 214,
+            "m": 214
+          },
+          {
+            "p": 433,
+            "ord2": 72,
+            "ord3": 27,
+            "m": 216
+          },
+          {
+            "p": 223,
+            "ord2": 37,
+            "ord3": 222,
+            "m": 222
+          },
+          {
+            "p": 227,
+            "ord2": 226,
+            "ord3": 113,
+            "m": 226
+          },
+          {
+            "p": 229,
+            "ord2": 76,
+            "ord3": 57,
+            "m": 228
+          },
+          {
+            "p": 457,
+            "ord2": 76,
+            "ord3": 228,
+            "m": 228
+          },
+          {
+            "p": 233,
+            "ord2": 29,
+            "ord3": 232,
+            "m": 232
+          },
+          {
+            "p": 937,
+            "ord2": 117,
+            "ord3": 234,
+            "m": 234
+          },
+          {
+            "p": 479,
+            "ord2": 239,
+            "ord3": 239,
+            "m": 239
+          },
+          {
+            "p": 727,
+            "ord2": 121,
+            "ord3": 242,
+            "m": 242
+          },
+          {
+            "p": 251,
+            "ord2": 50,
+            "ord3": 125,
+            "m": 250
+          },
+          {
+            "p": 503,
+            "ord2": 251,
+            "ord3": 251,
+            "m": 251
+          },
+          {
+            "p": 257,
+            "ord2": 16,
+            "ord3": 256,
+            "m": 256
+          },
+          {
+            "p": 269,
+            "ord2": 268,
+            "ord3": 268,
+            "m": 268
+          },
+          {
+            "p": 271,
+            "ord2": 135,
+            "ord3": 30,
+            "m": 270
+          },
+          {
+            "p": 277,
+            "ord2": 92,
+            "ord3": 69,
+            "m": 276
+          },
+          {
+            "p": 281,
+            "ord2": 70,
+            "ord3": 280,
+            "m": 280
+          },
+          {
+            "p": 283,
+            "ord2": 94,
+            "ord3": 282,
+            "m": 282
+          },
+          {
+            "p": 293,
+            "ord2": 292,
+            "ord3": 292,
+            "m": 292
+          },
+          {
+            "p": 599,
+            "ord2": 299,
+            "ord3": 299,
+            "m": 299
+          },
+          {
+            "p": 1201,
+            "ord2": 300,
+            "ord3": 300,
+            "m": 300
+          },
+          {
+            "p": 919,
+            "ord2": 153,
+            "ord3": 306,
+            "m": 306
+          },
+          {
+            "p": 317,
+            "ord2": 316,
+            "ord3": 316,
+            "m": 316
+          },
+          {
+            "p": 647,
+            "ord2": 323,
+            "ord3": 323,
+            "m": 323
+          },
+          {
+            "p": 331,
+            "ord2": 30,
+            "ord3": 330,
+            "m": 330
+          },
+          {
+            "p": 997,
+            "ord2": 332,
+            "ord3": 166,
+            "m": 332
+          },
+          {
+            "p": 673,
+            "ord2": 48,
+            "ord3": 168,
+            "m": 336
+          },
+          {
+            "p": 4057,
+            "ord2": 169,
+            "ord3": 338,
+            "m": 338
+          },
+          {
+            "p": 1021,
+            "ord2": 340,
+            "ord3": 34,
+            "m": 340
+          },
+          {
+            "p": 347,
+            "ord2": 346,
+            "ord3": 173,
+            "m": 346
+          },
+          {
+            "p": 349,
+            "ord2": 348,
+            "ord3": 174,
+            "m": 348
+          },
+          {
+            "p": 353,
+            "ord2": 88,
+            "ord3": 352,
+            "m": 352
+          },
+          {
+            "p": 719,
+            "ord2": 359,
+            "ord3": 359,
+            "m": 359
+          },
+          {
+            "p": 1093,
+            "ord2": 364,
+            "ord3": 7,
+            "m": 364
+          },
+          {
+            "p": 367,
+            "ord2": 183,
+            "ord3": 122,
+            "m": 366
+          },
+          {
+            "p": 743,
+            "ord2": 371,
+            "ord3": 371,
+            "m": 371
+          },
+          {
+            "p": 373,
+            "ord2": 372,
+            "ord3": 186,
+            "m": 372
+          },
+          {
+            "p": 4513,
+            "ord2": 47,
+            "ord3": 376,
+            "m": 376
+          },
+          {
+            "p": 379,
+            "ord2": 378,
+            "ord3": 378,
+            "m": 378
+          },
+          {
+            "p": 769,
+            "ord2": 384,
+            "ord3": 48,
+            "m": 384
+          },
+          {
+            "p": 6563,
+            "ord2": 386,
+            "ord3": 193,
+            "m": 386
+          },
+          {
+            "p": 389,
+            "ord2": 388,
+            "ord3": 388,
+            "m": 388
+          },
+          {
+            "p": 397,
+            "ord2": 44,
+            "ord3": 198,
+            "m": 396
+          },
+          {
+            "p": 401,
+            "ord2": 200,
+            "ord3": 400,
+            "m": 400
+          },
+          {
+            "p": 419,
+            "ord2": 418,
+            "ord3": 209,
+            "m": 418
+          },
+          {
+            "p": 839,
+            "ord2": 419,
+            "ord3": 419,
+            "m": 419
+          },
+          {
+            "p": 421,
+            "ord2": 420,
+            "ord3": 105,
+            "m": 420
+          },
+          {
+            "p": 5113,
+            "ord2": 426,
+            "ord3": 213,
+            "m": 426
+          },
+          {
+            "p": 863,
+            "ord2": 431,
+            "ord3": 431,
+            "m": 431
+          },
+          {
+            "p": 443,
+            "ord2": 442,
+            "ord3": 221,
+            "m": 442
+          },
+          {
+            "p": 887,
+            "ord2": 443,
+            "ord3": 443,
+            "m": 443
+          },
+          {
+            "p": 449,
+            "ord2": 224,
+            "ord3": 448,
+            "m": 448
+          },
+          {
+            "p": 1801,
+            "ord2": 25,
+            "ord3": 450,
+            "m": 450
+          },
+          {
+            "p": 911,
+            "ord2": 91,
+            "ord3": 455,
+            "m": 455
+          },
+          {
+            "p": 461,
+            "ord2": 460,
+            "ord3": 460,
+            "m": 460
+          },
+          {
+            "p": 463,
+            "ord2": 231,
+            "ord3": 462,
+            "m": 462
+          },
+          {
+            "p": 11113,
+            "ord2": 463,
+            "ord3": 463,
+            "m": 463
+          },
+          {
+            "p": 467,
+            "ord2": 466,
+            "ord3": 233,
+            "m": 466
+          },
+          {
+            "p": 1399,
+            "ord2": 233,
+            "ord3": 466,
+            "m": 466
+          }
+        ],
+        "generated_utc": "2026-03-01T16:02:33.772Z"
+      }
+    },
+    {
+      "source_file": "ep820_order_moduli_covering_metrics.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-820",
+        "method": "exact_h3_vs_finite_prime-order_moduli_coverings",
+        "params": {
+          "N": 20000,
+          "p_cutoffs": [
+            100,
+            200,
+            500,
+            1000,
+            2000,
+            3000,
+            5000
+          ]
+        },
+        "exact_h3": {
+          "count": 8075,
+          "density": 0.40375,
+          "miss_count": 11925
+        },
+        "cutoff_rows": [
+          {
+            "p_cutoff": 100,
+            "distinct_moduli_count": 22,
+            "max_modulus": 88,
+            "predicted_miss_count_from_cutoff_moduli": 9370,
+            "predicted_miss_density": 0.4685,
+            "implied_good_density_from_cutoff_moduli": 0.5315,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 9370,
+            "unexplained_actual_misses": 2555,
+            "miss_explained_fraction": 0.7857442348008385
+          },
+          {
+            "p_cutoff": 200,
+            "distinct_moduli_count": 43,
+            "max_modulus": 198,
+            "predicted_miss_count_from_cutoff_moduli": 9637,
+            "predicted_miss_density": 0.48185,
+            "implied_good_density_from_cutoff_moduli": 0.51815,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 9637,
+            "unexplained_actual_misses": 2288,
+            "miss_explained_fraction": 0.8081341719077568
+          },
+          {
+            "p_cutoff": 500,
+            "distinct_moduli_count": 89,
+            "max_modulus": 490,
+            "predicted_miss_count_from_cutoff_moduli": 10265,
+            "predicted_miss_density": 0.51325,
+            "implied_good_density_from_cutoff_moduli": 0.48675,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 10265,
+            "unexplained_actual_misses": 1660,
+            "miss_explained_fraction": 0.8607966457023061
+          },
+          {
+            "p_cutoff": 1000,
+            "distinct_moduli_count": 162,
+            "max_modulus": 990,
+            "predicted_miss_count_from_cutoff_moduli": 10576,
+            "predicted_miss_density": 0.5288,
+            "implied_good_density_from_cutoff_moduli": 0.47119999999999995,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 10576,
+            "unexplained_actual_misses": 1349,
+            "miss_explained_fraction": 0.8868763102725367
+          },
+          {
+            "p_cutoff": 2000,
+            "distinct_moduli_count": 293,
+            "max_modulus": 1998,
+            "predicted_miss_count_from_cutoff_moduli": 10741,
+            "predicted_miss_density": 0.53705,
+            "implied_good_density_from_cutoff_moduli": 0.46295,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 10741,
+            "unexplained_actual_misses": 1184,
+            "miss_explained_fraction": 0.900712788259958
+          },
+          {
+            "p_cutoff": 3000,
+            "distinct_moduli_count": 413,
+            "max_modulus": 2968,
+            "predicted_miss_count_from_cutoff_moduli": 10867,
+            "predicted_miss_density": 0.54335,
+            "implied_good_density_from_cutoff_moduli": 0.45665,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 10867,
+            "unexplained_actual_misses": 1058,
+            "miss_explained_fraction": 0.9112788259958071
+          },
+          {
+            "p_cutoff": 5000,
+            "distinct_moduli_count": 645,
+            "max_modulus": 4998,
+            "predicted_miss_count_from_cutoff_moduli": 10987,
+            "predicted_miss_density": 0.54935,
+            "implied_good_density_from_cutoff_moduli": 0.45065,
+            "actual_h3_density": 0.40375,
+            "explained_actual_misses": 10987,
+            "unexplained_actual_misses": 938,
+            "miss_explained_fraction": 0.9213417190775681
+          }
+        ],
+        "generated_utc": "2026-03-01T16:12:52.321Z"
+      }
+    },
+    {
+      "source_file": "ep820_order_moduli_covering_metrics_fast.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-820",
+        "method": "exact_h3_vs_finite_order_moduli_coverings_fast",
+        "params": {
+          "N": 12000,
+          "p_cutoffs": [
+            100,
+            200,
+            500,
+            1000,
+            2000,
+            3000
+          ]
+        },
+        "exact_h3": {
+          "count": 4877,
+          "density": 0.40641666666666665,
+          "miss_count": 7123
+        },
+        "cutoff_rows": [
+          {
+            "p_cutoff": 100,
+            "distinct_moduli_count": 22,
+            "max_modulus": 88,
+            "predicted_miss_density": 0.4683333333333333,
+            "implied_good_density": 0.5316666666666667,
+            "actual_h3_density": 0.40641666666666665,
+            "miss_explained_fraction": 0.7889934016566054,
+            "unexplained_actual_misses": 1503
+          },
+          {
+            "p_cutoff": 200,
+            "distinct_moduli_count": 43,
+            "max_modulus": 198,
+            "predicted_miss_density": 0.4815,
+            "implied_good_density": 0.5185,
+            "actual_h3_density": 0.40641666666666665,
+            "miss_explained_fraction": 0.8111750666853854,
+            "unexplained_actual_misses": 1345
+          },
+          {
+            "p_cutoff": 500,
+            "distinct_moduli_count": 89,
+            "max_modulus": 490,
+            "predicted_miss_density": 0.5134166666666666,
+            "implied_good_density": 0.48658333333333337,
+            "actual_h3_density": 0.40641666666666665,
+            "miss_explained_fraction": 0.8649445458374281,
+            "unexplained_actual_misses": 962
+          },
+          {
+            "p_cutoff": 1000,
+            "distinct_moduli_count": 162,
+            "max_modulus": 990,
+            "predicted_miss_density": 0.5296666666666666,
+            "implied_good_density": 0.4703333333333334,
+            "actual_h3_density": 0.40641666666666665,
+            "miss_explained_fraction": 0.8923206514109223,
+            "unexplained_actual_misses": 767
+          },
+          {
+            "p_cutoff": 2000,
+            "distinct_moduli_count": 293,
+            "max_modulus": 1998,
+            "predicted_miss_density": 0.5384166666666667,
+            "implied_good_density": 0.46158333333333335,
+            "actual_h3_density": 0.40641666666666665,
+            "miss_explained_fraction": 0.9070616313351116,
+            "unexplained_actual_misses": 662
+          },
+          {
+            "p_cutoff": 3000,
+            "distinct_moduli_count": 413,
+            "max_modulus": 2968,
+            "predicted_miss_density": 0.5450833333333334,
+            "implied_good_density": 0.45491666666666664,
+            "actual_h3_density": 0.40641666666666665,
+            "miss_explained_fraction": 0.9182928541344939,
+            "unexplained_actual_misses": 582
+          }
+        ],
+        "generated_utc": "2026-03-01T16:13:43.274Z"
+      }
+    },
+    {
+      "source_file": "ep820_uncovered_largeprime_witnesses.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-820",
+        "note": "Large-prime witnesses for misses not covered by p<=1e6 order table in N<=12000 scan",
+        "source_uncovered_from": "data/ep820_h3_structure_scan.json",
+        "search_prime_range": [
+          1000001,
+          12000000
+        ],
+        "witnesses": [
+          {
+            "n": 3995,
+            "witness_prime": 11321831
+          },
+          {
+            "n": 6242,
+            "witness_prime": 1123561
+          },
+          {
+            "n": 11985,
+            "witness_prime": 11321831
+          }
+        ],
+        "generated_utc": "2026-03-01T16:03:00.628Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "problem": "EP-293",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-293\n- Quick literature check:\n  - 2025 work improved lower growth understanding (`v(k)` at least stretched/exponential-in-`k^2` scale in known bounds).\n- Finite compute signal:\n  - Exact enumeration for `k=3..6` yields rapidly growing “first missing denominator” proxy (`4,11,17,53`) under finite search bounds.\n- Interpretation:\n  - Finite behavior indicates strong growth pressure in `v(k)`, consistent with the modern lower-bound direction."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "small-k exact denominator-appearance profile in Egyptian decompositions of 1.",
+        "content": "// EP-293: small-k exact denominator-appearance profile in Egyptian decompositions of 1.\n{\n  function collectDenominatorsForK(k, maxDen) {\n    const usedDenoms = new Set();\n    let solutionCount = 0;\n\n    function dfs(num, den, start, termsLeft, chosen) {\n      if (termsLeft === 1) {\n        if (num <= 0n) return;\n        if (den % num !== 0n) return;\n        const d = Number(den / num);\n        if (!Number.isFinite(d) || d < start || d > maxDen) return;\n        solutionCount += 1;\n        for (const x of chosen) usedDenoms.add(x);\n        usedDenoms.add(d);\n        return;\n      }\n\n      // Upper-bound pruning: with termsLeft denominators >= start, total <= termsLeft/start.\n      if (num * BigInt(start) > den * BigInt(termsLeft)) return;\n\n      let dMin = Number(ceilDivBig(den, num));\n      if (dMin < start) dMin = start;\n\n      for (let d = dMin; d <= maxDen; d += 1) {\n        const bd = BigInt(d);\n        const newNumRaw = num * bd - den;\n        if (newNumRaw <= 0n) continue;\n        const newDenRaw = den * bd;\n        const [newNum, newDen] = reduceFrac(newNumRaw, newDenRaw);\n\n        const t = termsLeft - 1;\n        if (newNum * BigInt(d + 1) > newDen * BigInt(t)) continue;\n\n        chosen.push(d);\n        dfs(newNum, newDen, d + 1, t, chosen);\n        chosen.pop();\n      }\n    }\n\n    dfs(1n, 1n, 2, k, []);\n\n    let vProxy = 2;\n    while (usedDenoms.has(vProxy)) vProxy += 1;\n\n    return {\n      k,\n      max_denom_searched: maxDen,\n      solution_count: solutionCount,\n      distinct_denominators_seen: usedDenoms.size,\n      v_proxy_min_missing_from_2: vProxy,\n    };\n  }\n\n  const rows = [\n    collectDenominatorsForK(3, 400),\n    collectDenominatorsForK(4, 800),\n    collectDenominatorsForK(5, 1500),\n    collectDenominatorsForK(6, 2200),\n  ];\n\n  out.results.ep293 = {\n    description: 'Exact finite-k denominator-appearance scan for 1=sum 1/n_i, yielding a proxy for v(k).',\n    rows,\n  };\n}\n\n// Shared DFS for EP-304 style Egyptian length search (all denominators >1, distinct).\nfunction minEgyptLengthGeneral(targetNum, targetDen, cfg) {\n  const { maxDen, kMax } = cfg;\n\n  function canAtDepth(num, den, start, termsLeft, memo) {\n    const key = `${num}/${den}|${start}|${termsLeft}`;\n    if (memo.has(key)) return memo.get(key);\n\n    if (termsLeft === 1) {\n      if (num <= 0n || den % num !== 0n) {\n        memo.set(key, false);\n        return false;\n      }\n      const d = Number(den / num);\n      const ok = Number.isFinite(d) && d >= start && d <= maxDen && d > 1;\n      memo.set(key, ok);\n      return ok;\n    }\n\n    if (num * BigInt(start) > den * BigInt(termsLeft)) {\n      memo.set(key, false);\n      return false;\n    }\n\n    let dMin = Number(ceilDivBig(den, num));\n    if (dMin < start) dMin = start;\n\n    for (let d = dMin; d <= maxDen; d += 1) {\n      const bd = BigInt(d);\n      const newNumRaw = num * bd - den;\n      if (newNumRaw <= 0n) continue;\n      const newDenRaw = den * bd;\n      const [newNum, newDen] = reduceFrac(newNumRaw, newDenRaw);\n      const t = termsLeft - 1;\n      if (newNum * BigInt(d + 1) > newDen * BigInt(t)) continue;\n      if (canAtDepth(newNum, newDen, d + 1, t, memo)) {\n        memo.set(key, true);\n        return true;\n      }\n    }\n\n    memo.set(key, false);\n    return false;\n  }\n\n  const [num0, den0] = reduceFrac(BigInt(targetNum), BigInt(targetDen));\n  for (let k = 1; k <= kMax; k += 1) {\n    const memo = new Map();\n    if (canAtDepth(num0, den0, 2, k, memo)) return k;\n  }\n  return null;\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep293",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Exact finite-k denominator-appearance scan for 1=sum 1/n_i, yielding a proxy for v(k).",
+          "rows": [
+            {
+              "k": 3,
+              "max_denom_searched": 400,
+              "solution_count": 1,
+              "distinct_denominators_seen": 3,
+              "v_proxy_min_missing_from_2": 4
+            },
+            {
+              "k": 4,
+              "max_denom_searched": 800,
+              "solution_count": 6,
+              "distinct_denominators_seen": 15,
+              "v_proxy_min_missing_from_2": 11
+            },
+            {
+              "k": 5,
+              "max_denom_searched": 1500,
+              "solution_count": 71,
+              "distinct_denominators_seen": 75,
+              "v_proxy_min_missing_from_2": 17
+            },
+            {
+              "k": 6,
+              "max_denom_searched": 2200,
+              "solution_count": 1669,
+              "distinct_denominators_seen": 503,
+              "v_proxy_min_missing_from_2": 53
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

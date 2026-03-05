@@ -1,0 +1,96 @@
+{
+  "problem": "EP-695",
+  "normalized_utc": "2026-03-05T08:54:16.966Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch17_web_compute.md",
+        "content": "### EP-695\n- Quick literature check:\n  - Problem-page status remains open; growth of chains is tied to least-prime-in-progression bounds.\n- Finite compute signal:\n  - Greedy chain (`p_{i+1}` smallest prime `≡1 mod p_i`) grows quickly (`p_10=1,180,247`), with no small-scale contradiction to either question.\n- Interpretation:\n  - Data is consistent with rapid growth and does not resolve asymptotic limits."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch17_quick_compute.mjs",
+        "heading": "greedy prime-chain growth profile.",
+        "content": "// EP-695: greedy prime-chain growth profile.\n{\n  const rows = [];\n  let p = 2;\n  const chain = [p];\n\n  for (let k = 1; k <= 10; k += 1) {\n    if (k > 1) {\n      const nxt = smallestPrimeCongruentOneMod(p, 250);\n      if (nxt === null) break;\n      p = nxt;\n      chain.push(p);\n    }\n\n    const logp = Math.log(p);\n    const kval = chain.length;\n    const klogk = kval >= 2 ? kval * Math.log(kval) : 1;\n\n    rows.push({\n      k: kval,\n      p_k: p,\n      p_k_pow_1_over_k: Number((p ** (1 / kval)).toPrecision(7)),\n      log_p_k_over_k_log_k: Number((logp / klogk).toPrecision(7)),\n    });\n  }\n\n  out.results.ep695 = {\n    description: 'Greedy prime-chain finite growth profile for p_{k+1}≡1 (mod p_k).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch17_quick_compute.json",
+        "key": "ep695",
+        "container_meta": {
+          "script": "harder_batch17_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:13:20.362Z"
+        },
+        "data": {
+          "description": "Greedy prime-chain finite growth profile for p_{k+1}≡1 (mod p_k).",
+          "rows": [
+            {
+              "k": 1,
+              "p_k": 2,
+              "p_k_pow_1_over_k": 2,
+              "log_p_k_over_k_log_k": 0.6931472
+            },
+            {
+              "k": 2,
+              "p_k": 3,
+              "p_k_pow_1_over_k": 1.732051,
+              "log_p_k_over_k_log_k": 0.7924813
+            },
+            {
+              "k": 3,
+              "p_k": 7,
+              "p_k_pow_1_over_k": 1.912931,
+              "log_p_k_over_k_log_k": 0.5904146
+            },
+            {
+              "k": 4,
+              "p_k": 29,
+              "p_k_pow_1_over_k": 2.320596,
+              "log_p_k_over_k_log_k": 0.6072476
+            },
+            {
+              "k": 5,
+              "p_k": 59,
+              "p_k_pow_1_over_k": 2.260322,
+              "log_p_k_over_k_log_k": 0.5067033
+            },
+            {
+              "k": 6,
+              "p_k": 709,
+              "p_k_pow_1_over_k": 2.986123,
+              "log_p_k_over_k_log_k": 0.6105596
+            },
+            {
+              "k": 7,
+              "p_k": 2837,
+              "p_k_pow_1_over_k": 3.11362,
+              "log_p_k_over_k_log_k": 0.5836786
+            },
+            {
+              "k": 8,
+              "p_k": 22697,
+              "p_k_pow_1_over_k": 3.503451,
+              "log_p_k_over_k_log_k": 0.6029256
+            },
+            {
+              "k": 9,
+              "p_k": 590123,
+              "p_k_pow_1_over_k": 4.377396,
+              "log_p_k_over_k_log_k": 0.6719632
+            },
+            {
+              "k": 10,
+              "p_k": 1180247,
+              "p_k_pow_1_over_k": 4.047597,
+              "log_p_k_over_k_log_k": 0.6071973
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

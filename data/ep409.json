@@ -1,0 +1,123 @@
+{
+  "problem": "EP-409",
+  "normalized_utc": "2026-03-05T08:54:16.959Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch12_web_compute.md",
+        "content": "### EP-409\n- Quick literature check:\n  - Problem remains partly ambiguous in formulation; finite-iteration growth and terminal-prime basin questions are still natural.\n- Finite compute signal:\n  - For `n<=3e5`, mean iterations before hitting a prime under `n->phi(n)+1` is about `3.98`, max observed `23`.\n  - Terminal-prime basins are highly nonuniform, with large finite attractor classes.\n- Interpretation:\n  - Iteration counts grow slowly; basin structure appears rich and irregular."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch12_quick_compute.mjs",
+        "heading": "iterations of T(n)=phi(n)+1 to prime.",
+        "content": "// EP-409: iterations of T(n)=phi(n)+1 to prime.\n{\n  const N = 300000;\n  const memoSteps = new Int32Array(N + 1);\n  const memoPrime = new Int32Array(N + 1);\n  memoSteps.fill(-1);\n\n  function solve(n) {\n    if (memoSteps[n] >= 0) return [memoSteps[n], memoPrime[n]];\n\n    const path = [];\n    let x = n;\n    while (true) {\n      if (memoSteps[x] >= 0) break;\n      path.push(x);\n      if (isPrimeBySPF(x, spf)) {\n        memoSteps[x] = 0;\n        memoPrime[x] = x;\n        break;\n      }\n      x = phi[x] + 1;\n    }\n\n    let steps = memoSteps[x];\n    let p = memoPrime[x];\n    for (let i = path.length - 1; i >= 0; i -= 1) {\n      steps += 1;\n      memoSteps[path[i]] = steps;\n      memoPrime[path[i]] = p;\n    }\n    return [memoSteps[n], memoPrime[n]];\n  }\n\n  const milestones = [10000, 50000, 100000, 200000, 300000];\n  const mset = new Set(milestones);\n\n  let sumF = 0;\n  let maxF = 0;\n  let argMax = 1;\n  const primeBasin = new Map();\n  const rows = [];\n\n  for (let n = 1; n <= N; n += 1) {\n    const [steps, p] = solve(n);\n    const f = isPrimeBySPF(n, spf) ? 0 : steps;\n    sumF += f;\n    if (f > maxF) {\n      maxF = f;\n      argMax = n;\n    }\n    primeBasin.set(p, (primeBasin.get(p) || 0) + 1);\n\n    if (mset.has(n)) {\n      const c2 = primeBasin.get(2) || 0;\n      const c3 = primeBasin.get(3) || 0;\n      const c5 = primeBasin.get(5) || 0;\n      rows.push({\n        X: n,\n        mean_iterations_to_prime: Number((sumF / n).toPrecision(7)),\n        max_iterations_up_to_X: maxF,\n        argmax_n: argMax,\n        density_reaching_prime_2: Number((c2 / n).toPrecision(6)),\n        density_reaching_prime_3: Number((c3 / n).toPrecision(6)),\n        density_reaching_prime_5: Number((c5 / n).toPrecision(6)),\n      });\n    }\n  }\n\n  const topBasins = [...primeBasin.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8)\n    .map(([p, c]) => ({ prime: p, count: c, density: Number((c / N).toPrecision(6)) }));\n\n  out.results.ep409 = {\n    description: 'Finite iteration profile for T(n)=phi(n)+1 and terminal-prime basins.',\n    rows,\n    top_terminal_prime_basins: topBasins,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch12_quick_compute.json",
+        "key": "ep409",
+        "container_meta": {
+          "script": "harder_batch12_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:42:39.714Z"
+        },
+        "data": {
+          "description": "Finite iteration profile for T(n)=phi(n)+1 and terminal-prime basins.",
+          "rows": [
+            {
+              "X": 10000,
+              "mean_iterations_to_prime": 3.1419,
+              "max_iterations_up_to_X": 12,
+              "argmax_n": 4531,
+              "density_reaching_prime_2": 0.0002,
+              "density_reaching_prime_3": 0.0003,
+              "density_reaching_prime_5": 0.0004
+            },
+            {
+              "X": 50000,
+              "mean_iterations_to_prime": 3.48352,
+              "max_iterations_up_to_X": 14,
+              "argmax_n": 22957,
+              "density_reaching_prime_2": 0.00004,
+              "density_reaching_prime_3": 0.00006,
+              "density_reaching_prime_5": 0.00008
+            },
+            {
+              "X": 100000,
+              "mean_iterations_to_prime": 3.65398,
+              "max_iterations_up_to_X": 19,
+              "argmax_n": 98581,
+              "density_reaching_prime_2": 0.00002,
+              "density_reaching_prime_3": 0.00003,
+              "density_reaching_prime_5": 0.00004
+            },
+            {
+              "X": 200000,
+              "mean_iterations_to_prime": 3.868315,
+              "max_iterations_up_to_X": 21,
+              "argmax_n": 115243,
+              "density_reaching_prime_2": 0.00001,
+              "density_reaching_prime_3": 0.000015,
+              "density_reaching_prime_5": 0.00002
+            },
+            {
+              "X": 300000,
+              "mean_iterations_to_prime": 3.979013,
+              "max_iterations_up_to_X": 23,
+              "argmax_n": 291149,
+              "density_reaching_prime_2": 0.00000666667,
+              "density_reaching_prime_3": 0.00001,
+              "density_reaching_prime_5": 0.0000133333
+            }
+          ],
+          "top_terminal_prime_basins": [
+            {
+              "prime": 21089,
+              "count": 3973,
+              "density": 0.0132433
+            },
+            {
+              "prime": 36721,
+              "count": 3031,
+              "density": 0.0101033
+            },
+            {
+              "prime": 63361,
+              "count": 2808,
+              "density": 0.00936
+            },
+            {
+              "prime": 23509,
+              "count": 2485,
+              "density": 0.00828333
+            },
+            {
+              "prime": 3313,
+              "count": 2122,
+              "density": 0.00707333
+            },
+            {
+              "prime": 28081,
+              "count": 1969,
+              "density": 0.00656333
+            },
+            {
+              "prime": 24337,
+              "count": 1955,
+              "density": 0.00651667
+            },
+            {
+              "prime": 44501,
+              "count": 1908,
+              "density": 0.00636
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

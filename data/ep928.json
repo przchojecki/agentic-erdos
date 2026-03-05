@@ -1,0 +1,76 @@
+{
+  "problem": "EP-928",
+  "normalized_utc": "2026-03-05T08:54:16.970Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch20_web_compute.md",
+        "content": "### EP-928\n- Quick literature check:\n  - Open; existence/value of joint smoothness density remains unsettled in full generality.\n- Finite compute signal:\n  - For `N=10^6`, joint densities were close to but below product heuristics; joint/product ratios ranged about `0.88..0.98` for tested `(\\alpha,\\beta)`.\n- Interpretation:\n  - Finite data suggests near-independence with mild negative correlation at this scale."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch20_quick_compute.mjs",
+        "heading": "empirical joint smoothness density profile.",
+        "content": "// EP-928: empirical joint smoothness density profile.\n{\n  const N = 1_000_000;\n  const lpf = new Uint32Array(N + 2);\n\n  for (let p = 2; p <= N + 1; p += 1) {\n    if (lpf[p] !== 0) continue;\n    for (let m = p; m <= N + 1; m += p) lpf[m] = p;\n  }\n  lpf[1] = 1;\n\n  const rows = [];\n  for (const [a, b] of [[0.5, 0.5], [0.5, 0.7], [0.7, 0.7], [0.8, 0.8]]) {\n    let ca = 0;\n    let cb = 0;\n    let cab = 0;\n\n    for (let n = 2; n <= N; n += 1) {\n      const ea = lpf[n] < n ** a;\n      const eb = lpf[n + 1] < (n + 1) ** b;\n      if (ea) ca += 1;\n      if (eb) cb += 1;\n      if (ea && eb) cab += 1;\n    }\n\n    const dn = N - 1;\n    const da = ca / dn;\n    const db = cb / dn;\n    const dj = cab / dn;\n\n    rows.push({\n      alpha: a,\n      beta: b,\n      N,\n      density_event_a: Number(da.toPrecision(7)),\n      density_event_b: Number(db.toPrecision(7)),\n      density_joint: Number(dj.toPrecision(7)),\n      product_density: Number((da * db).toPrecision(7)),\n      joint_over_product: Number((dj / (da * db)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep928 = {\n    description: 'Finite empirical joint density profile for smooth n and n+1 events.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch20_quick_compute.json",
+        "key": "ep928",
+        "container_meta": {
+          "script": "harder_batch20_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:01:58.630Z"
+        },
+        "data": {
+          "description": "Finite empirical joint density profile for smooth n and n+1 events.",
+          "rows": [
+            {
+              "alpha": 0.5,
+              "beta": 0.5,
+              "N": 1000000,
+              "density_event_a": 0.2681713,
+              "density_event_b": 0.2681713,
+              "density_joint": 0.06310206,
+              "product_density": 0.07191583,
+              "joint_over_product": 0.8774433
+            },
+            {
+              "alpha": 0.5,
+              "beta": 0.7,
+              "N": 1000000,
+              "density_event_a": 0.2681713,
+              "density_event_b": 0.5996616,
+              "density_joint": 0.1519842,
+              "product_density": 0.160812,
+              "joint_over_product": 0.9451045
+            },
+            {
+              "alpha": 0.7,
+              "beta": 0.7,
+              "N": 1000000,
+              "density_event_a": 0.5996606,
+              "density_event_b": 0.5996616,
+              "density_joint": 0.3508324,
+              "product_density": 0.3595934,
+              "joint_over_product": 0.9756361
+            },
+            {
+              "alpha": 0.8,
+              "beta": 0.8,
+              "N": 1000000,
+              "density_event_a": 0.7325167,
+              "density_event_b": 0.7325177,
+              "density_joint": 0.5281375,
+              "product_density": 0.5365815,
+              "joint_over_product": 0.9842634
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

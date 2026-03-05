@@ -1,0 +1,73 @@
+{
+  "problem": "EP-141",
+  "normalized_utc": "2026-03-05T08:54:16.951Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-141\n- Quick literature check:\n  - Still open in general, and even infinitude for $k=3$ consecutive-prime AP remains unproved.\n- Finite compute signal:\n  - Up to $5\\times 10^6$, found many examples for $k=3,4$ and none for $k\\ge5$ in this range.\n- Interpretation:\n  - Strong finite abundance for short lengths, but no asymptotic theorem-level advance."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep141",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Counts of consecutive-prime arithmetic progressions up to 5e6.",
+          "prime_limit": 5000000,
+          "rows": [
+            {
+              "k": 3,
+              "count_up_to_5e6": 11896,
+              "first_example": {
+                "start": 3,
+                "diff": 2
+              },
+              "last_example": {
+                "start": 4999391,
+                "diff": 18
+              }
+            },
+            {
+              "k": 4,
+              "count_up_to_5e6": 882,
+              "first_example": {
+                "start": 251,
+                "diff": 6
+              },
+              "last_example": {
+                "start": 4995871,
+                "diff": 6
+              }
+            },
+            {
+              "k": 5,
+              "count_up_to_5e6": 0,
+              "first_example": null,
+              "last_example": null
+            },
+            {
+              "k": 6,
+              "count_up_to_5e6": 0,
+              "first_example": null,
+              "last_example": null
+            },
+            {
+              "k": 7,
+              "count_up_to_5e6": 0,
+              "first_example": null,
+              "last_example": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

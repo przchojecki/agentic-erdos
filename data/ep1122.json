@@ -1,0 +1,79 @@
+{
+  "problem": "EP-1122",
+  "normalized_utc": "2026-03-05T08:54:16.977Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1122\n- Quick literature check:\n  - Page status is **OPEN** with 2022 partial progress under stronger sparsity/regularity assumptions.\n- Finite compute signal:\n  - Descent-set density `|{n<=x:f(n+1)<f(n)}|/x` is near `0` for `f(n)=log n`, but stabilizes around positive constants (`~0.43`, `~0.38`, `~0.50`) for sample non-log additive functions.\n- Interpretation:\n  - Finite profiles support the heuristic that vanishing descent density is highly rigid and atypical among additive models."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite density profile of A={n: f(n+1)<f(n)} for sample additive functions.",
+        "content": "// EP-1122: finite density profile of A={n: f(n+1)<f(n)} for sample additive functions.\n{\n  const N = 200_000;\n  const spf = sieveSPF(N + 5);\n\n  const omega = new Uint16Array(N + 1);\n  const Omega = new Uint16Array(N + 1);\n\n  for (let n = 2; n <= N; n += 1) {\n    const p = spf[n] || n;\n    const m = Math.floor(n / p);\n    Omega[n] = Omega[m] + 1;\n    omega[n] = omega[m] + (m % p === 0 ? 0 : 1);\n  }\n\n  const rng = makeRng(20260304 ^ 1122);\n  const w = new Float64Array(N + 1);\n  for (let p = 2; p <= N; p += 1) if ((spf[p] || p) === p) w[p] = 2 * rng() - 1;\n  const fRand = new Float64Array(N + 1);\n  for (let n = 2; n <= N; n += 1) {\n    const p = spf[n] || n;\n    fRand[n] = fRand[Math.floor(n / p)] + w[p];\n  }\n\n  const probes = [10_000, 30_000, 60_000, 100_000, 150_000, 200_000];\n  let cLog = 0;\n  let cOmega = 0;\n  let comega = 0;\n  let cRand = 0;\n  const rows = [];\n\n  for (let n = 1; n < N; n += 1) {\n    if (Math.log(n + 1) < Math.log(n)) cLog += 1;\n    if (Omega[n + 1] < Omega[n]) cOmega += 1;\n    if (omega[n + 1] < omega[n]) comega += 1;\n    if (fRand[n + 1] < fRand[n]) cRand += 1;\n\n    if (probes.includes(n + 1)) {\n      rows.push({\n        x: n + 1,\n        density_A_for_log_n: Number((cLog / (n + 1)).toPrecision(7)),\n        density_A_for_Omega: Number((cOmega / (n + 1)).toPrecision(7)),\n        density_A_for_omega: Number((comega / (n + 1)).toPrecision(7)),\n        density_A_for_random_additive: Number((cRand / (n + 1)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep1122 = {\n    description: 'Finite density comparison of descent set A for sample additive functions.',\n    N,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1122",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite density comparison of descent set A for sample additive functions.",
+          "N": 200000,
+          "rows": [
+            {
+              "x": 10000,
+              "density_A_for_log_n": 0,
+              "density_A_for_Omega": 0.4298,
+              "density_A_for_omega": 0.3645,
+              "density_A_for_random_additive": 0.5009
+            },
+            {
+              "x": 30000,
+              "density_A_for_log_n": 0,
+              "density_A_for_Omega": 0.43,
+              "density_A_for_omega": 0.3708,
+              "density_A_for_random_additive": 0.5011333
+            },
+            {
+              "x": 60000,
+              "density_A_for_log_n": 0,
+              "density_A_for_Omega": 0.43005,
+              "density_A_for_omega": 0.3737167,
+              "density_A_for_random_additive": 0.5009333
+            },
+            {
+              "x": 100000,
+              "density_A_for_log_n": 0,
+              "density_A_for_Omega": 0.43076,
+              "density_A_for_omega": 0.37494,
+              "density_A_for_random_additive": 0.50023
+            },
+            {
+              "x": 150000,
+              "density_A_for_log_n": 0,
+              "density_A_for_Omega": 0.43114,
+              "density_A_for_omega": 0.37652,
+              "density_A_for_random_additive": 0.50012
+            },
+            {
+              "x": 200000,
+              "density_A_for_log_n": 0,
+              "density_A_for_Omega": 0.431205,
+              "density_A_for_omega": 0.377695,
+              "density_A_for_random_additive": 0.49989
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

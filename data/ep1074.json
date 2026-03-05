@@ -1,0 +1,140 @@
+{
+  "problem": "EP-1074",
+  "normalized_utc": "2026-03-05T08:54:16.974Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch24_web_compute.md",
+        "content": "### EP-1074\n- Quick literature check:\n  - Open (edited 04 Oct 2025), with known infinitude of both sets `S` and `P` and unresolved density limits.\n- Finite compute signal:\n  - Scan up to `p<=30000` yields empirical densities drifting around `|S∩[1,x]|/x ~ 0.18` (at `x=5000`) and `|P∩[1,x]|/pi(x) ~ 0.52` (at `x=30000`).\n- Interpretation:\n  - Finite trends are non-monotone and range-sensitive; no decisive evidence on existence/value of limiting densities."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch24_quick_compute.mjs",
+        "heading": "finite S,P profiles from prime congruence hits of m!+1.",
+        "content": "// EP-1074: finite S,P profiles from prime congruence hits of m!+1.\n{\n  const LIMIT = 30_000;\n  const { isPrime, primes } = sievePrimes(LIMIT);\n  const S = new Set();\n  const P = new Set();\n\n  for (const p of primes) {\n    if (p <= 3) continue;\n    let fac = 1 % p;\n    for (let m = 1; m < p; m += 1) {\n      fac = (fac * m) % p;\n      if (fac === p - 1) {\n        if (p % m !== 1) {\n          S.add(m);\n          P.add(p);\n          break;\n        }\n      }\n      if (fac === 0) break;\n    }\n  }\n\n  const rowsS = [];\n  for (const x of [200, 500, 1000, 2000, 5000]) {\n    let c = 0;\n    for (const m of S) if (m <= x) c += 1;\n    rowsS.push({ x, count_S_intersect_1_to_x: c, density: Number((c / x).toPrecision(7)) });\n  }\n\n  const rowsP = [];\n  for (const x of [5000, 10000, 20000, 30000]) {\n    let c = 0;\n    let pi = 0;\n    for (const p of primes) {\n      if (p > x) break;\n      pi += 1;\n      if (P.has(p)) c += 1;\n    }\n    rowsP.push({ x, count_P_intersect_primes_to_x: c, pi_x: pi, proportion_in_primes: Number((c / pi).toPrecision(7)) });\n  }\n\n  out.results.ep1074 = {\n    description: 'Finite density proxy for EHS-number set S and Pillai-prime set P from p<=30,000 scans.',\n    LIMIT,\n    sample_small_S: [...S].sort((a, b) => a - b).slice(0, 24),\n    sample_small_P: [...P].sort((a, b) => a - b).slice(0, 24),\n    rows_S: rowsS,\n    rows_P: rowsP,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch24_quick_compute.json",
+        "key": "ep1074",
+        "container_meta": {
+          "script": "harder_batch24_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:28:27.056Z"
+        },
+        "data": {
+          "description": "Finite density proxy for EHS-number set S and Pillai-prime set P from p<=30,000 scans.",
+          "LIMIT": 30000,
+          "sample_small_S": [
+            8,
+            9,
+            13,
+            14,
+            15,
+            16,
+            18,
+            22,
+            23,
+            24,
+            26,
+            29,
+            31,
+            32,
+            35,
+            36,
+            40,
+            43,
+            45,
+            48,
+            49,
+            50,
+            51,
+            53
+          ],
+          "sample_small_P": [
+            23,
+            29,
+            59,
+            61,
+            67,
+            71,
+            79,
+            83,
+            109,
+            137,
+            139,
+            149,
+            193,
+            227,
+            233,
+            239,
+            251,
+            257,
+            269,
+            271,
+            277,
+            293,
+            307,
+            311
+          ],
+          "rows_S": [
+            {
+              "x": 200,
+              "count_S_intersect_1_to_x": 90,
+              "density": 0.45
+            },
+            {
+              "x": 500,
+              "count_S_intersect_1_to_x": 190,
+              "density": 0.38
+            },
+            {
+              "x": 1000,
+              "count_S_intersect_1_to_x": 331,
+              "density": 0.331
+            },
+            {
+              "x": 2000,
+              "count_S_intersect_1_to_x": 523,
+              "density": 0.2615
+            },
+            {
+              "x": 5000,
+              "count_S_intersect_1_to_x": 919,
+              "density": 0.1838
+            }
+          ],
+          "rows_P": [
+            {
+              "x": 5000,
+              "count_P_intersect_primes_to_x": 331,
+              "pi_x": 669,
+              "proportion_in_primes": 0.4947683
+            },
+            {
+              "x": 10000,
+              "count_P_intersect_primes_to_x": 613,
+              "pi_x": 1229,
+              "proportion_in_primes": 0.4987795
+            },
+            {
+              "x": 20000,
+              "count_P_intersect_primes_to_x": 1177,
+              "pi_x": 2262,
+              "proportion_in_primes": 0.520336
+            },
+            {
+              "x": 30000,
+              "count_P_intersect_primes_to_x": 1686,
+              "pi_x": 3245,
+              "proportion_in_primes": 0.5195686
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "problem": "EP-177",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-177\n- Quick literature check:\n  - Best known general upper/lower growth remains polynomial-windowed between roughly $d^{1/2}$ and $d^{8+\\varepsilon}$.\n- Finite compute signal:\n  - On prefix length $N=30000$, random sequences gave moderate $h_N(d)$ profiles, while Thue-Morse showed dramatic spikes at several $d$ values.\n- Interpretation:\n  - Finite evidence suggests sequence choice is delicate; structured sequences can behave very differently across differences."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "finite h_N(d) profiles for explicit +/-1 sequences.",
+        "content": "// EP-177: finite h_N(d) profiles for explicit +/-1 sequences.\n{\n  function thueMorseValue(i) {\n    let x = i;\n    let p = 0;\n    while (x > 0) {\n      p ^= x & 1;\n      x >>= 1;\n    }\n    return p ? -1 : 1;\n  }\n\n  function maxProgDiscrepancyForD(seq, d) {\n    let best = 0;\n    const N = seq.length;\n    for (let r = 0; r < d; r += 1) {\n      let pref = 0;\n      let minPref = 0;\n      let maxPref = 0;\n      for (let i = r; i < N; i += d) {\n        pref += seq[i];\n        if (pref < minPref) minPref = pref;\n        if (pref > maxPref) maxPref = pref;\n      }\n      const disc = maxPref - minPref;\n      if (disc > best) best = disc;\n    }\n    return best;\n  }\n\n  const N = 30000;\n  const dList = [1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64];\n\n  const thue = new Int8Array(N);\n  for (let i = 0; i < N; i += 1) thue[i] = thueMorseValue(i);\n\n  const rows = [];\n  for (const d of dList) {\n    const th = maxProgDiscrepancyForD(thue, d);\n\n    let bestRnd = Infinity;\n    for (let t = 0; t < 10; t += 1) {\n      const rnd = new Int8Array(N);\n      for (let i = 0; i < N; i += 1) rnd[i] = rng() < 0.5 ? -1 : 1;\n      const v = maxProgDiscrepancyForD(rnd, d);\n      if (v < bestRnd) bestRnd = v;\n    }\n\n    rows.push({\n      d,\n      N_prefix: N,\n      thue_morse_hN_d: th,\n      random_best_of_10_hN_d: bestRnd,\n      thue_over_sqrt_d: Number((th / Math.sqrt(d)).toFixed(6)),\n      random_over_sqrt_d: Number((bestRnd / Math.sqrt(d)).toFixed(6)),\n    });\n  }\n\n  out.results.ep177 = {\n    description: 'Finite discrepancy profile h_N(d) for Thue-Morse and random +/-1 sequences.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep177",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Finite discrepancy profile h_N(d) for Thue-Morse and random +/-1 sequences.",
+          "rows": [
+            {
+              "d": 1,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 201,
+              "thue_over_sqrt_d": 2,
+              "random_over_sqrt_d": 201
+            },
+            {
+              "d": 2,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 157,
+              "thue_over_sqrt_d": 1.414214,
+              "random_over_sqrt_d": 111.015765
+            },
+            {
+              "d": 3,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2025,
+              "random_best_of_10_hN_d": 144,
+              "thue_over_sqrt_d": 1169.134295,
+              "random_over_sqrt_d": 83.138439
+            },
+            {
+              "d": 4,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 117,
+              "thue_over_sqrt_d": 1,
+              "random_over_sqrt_d": 58.5
+            },
+            {
+              "d": 6,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 1296,
+              "random_best_of_10_hN_d": 132,
+              "thue_over_sqrt_d": 529.089784,
+              "random_over_sqrt_d": 53.888774
+            },
+            {
+              "d": 8,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 115,
+              "thue_over_sqrt_d": 0.707107,
+              "random_over_sqrt_d": 40.65864
+            },
+            {
+              "d": 12,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 675,
+              "random_best_of_10_hN_d": 104,
+              "thue_over_sqrt_d": 194.855716,
+              "random_over_sqrt_d": 30.022214
+            },
+            {
+              "d": 16,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 95,
+              "thue_over_sqrt_d": 0.5,
+              "random_over_sqrt_d": 23.75
+            },
+            {
+              "d": 24,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 432,
+              "random_best_of_10_hN_d": 75,
+              "thue_over_sqrt_d": 88.181631,
+              "random_over_sqrt_d": 15.309311
+            },
+            {
+              "d": 32,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 68,
+              "thue_over_sqrt_d": 0.353553,
+              "random_over_sqrt_d": 12.020815
+            },
+            {
+              "d": 48,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 225,
+              "random_best_of_10_hN_d": 69,
+              "thue_over_sqrt_d": 32.475953,
+              "random_over_sqrt_d": 9.959292
+            },
+            {
+              "d": 64,
+              "N_prefix": 30000,
+              "thue_morse_hN_d": 2,
+              "random_best_of_10_hN_d": 50,
+              "thue_over_sqrt_d": 0.25,
+              "random_over_sqrt_d": 6.25
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "problem": "EP-931",
+  "normalized_utc": "2026-03-05T08:54:16.970Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch21_web_compute.md",
+        "content": "### EP-931\n- Quick literature check:\n  - Problem page explicitly notes the statement is false without caveats and lists an AlphaProof counterexample.\n- Finite compute signal:\n  - Search over `n<=240`, block lengths `3..12` found many equal-prime-support block pairs and recovered the specific `(n_1,k_1)=(0,10)`, `(n_2,k_2)=(13,3)` counterexample.\n- Interpretation:\n  - As written, the raw finiteness question is not correct; any viable version needs explicit exclusions/caveats."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch21_quick_compute.mjs",
+        "heading": "finite search for equal-prime-support products of consecutive blocks.",
+        "content": "// EP-931: finite search for equal-prime-support products of consecutive blocks.\n{\n  const NMAX = 240;\n  const KMAX = 12;\n  const LIM = NMAX + KMAX + 5;\n  const spf = sieveSPF(LIM);\n\n  const distinctFactors = Array.from({ length: LIM + 1 }, () => []);\n  for (let x = 2; x <= LIM; x += 1) distinctFactors[x] = factorDistinctSmall(x, spf);\n\n  function blockSignature(n, k) {\n    // block is n+1,...,n+k\n    const s = new Set();\n    for (let t = 1; t <= k; t += 1) {\n      for (const p of distinctFactors[n + t]) s.add(p);\n    }\n    return [...s].sort((a, b) => a - b).join('.');\n  }\n\n  const groups = new Map();\n  for (let n = 0; n <= NMAX; n += 1) {\n    for (let k = 3; k <= KMAX; k += 1) {\n      if (n + k > LIM - 2) continue;\n      const sig = blockSignature(n, k);\n      if (!groups.has(sig)) groups.set(sig, []);\n      groups.get(sig).push({ n, k });\n    }\n  }\n\n  let pairCount = 0;\n  const samples = [];\n  let hasKnownCounterexample = false;\n\n  for (const arr of groups.values()) {\n    for (let i = 0; i < arr.length; i += 1) {\n      for (let j = 0; j < arr.length; j += 1) {\n        if (i === j) continue;\n        const a = arr[i];\n        const b = arr[j];\n        if (a.k < b.k) continue;\n        if (b.n < a.n + a.k) continue;\n        pairCount += 1;\n        if (samples.length < 16) {\n          samples.push({ n1: a.n, k1: a.k, n2: b.n, k2: b.k });\n        }\n        if (a.n === 0 && a.k === 10 && b.n === 13 && b.k === 3) hasKnownCounterexample = true;\n      }\n    }\n  }\n\n  out.results.ep931 = {\n    description: 'Finite search for pairs of consecutive blocks with equal prime-support signatures.',\n    NMAX,\n    KMAX,\n    admissible_pairs_found: pairCount,\n    contains_alphaproof_counterexample_0_10_vs_13_3: hasKnownCounterexample,\n    sample_pairs: samples,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch21_quick_compute.json",
+        "key": "ep931",
+        "container_meta": {
+          "script": "harder_batch21_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:09:50.566Z"
+        },
+        "data": {
+          "description": "Finite search for pairs of consecutive blocks with equal prime-support signatures.",
+          "NMAX": 240,
+          "KMAX": 12,
+          "admissible_pairs_found": 193,
+          "contains_alphaproof_counterexample_0_10_vs_13_3": true,
+          "sample_pairs": [
+            {
+              "n1": 0,
+              "k1": 5,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 6,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 1,
+              "k1": 4,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 1,
+              "k1": 5,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 2,
+              "k1": 3,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 2,
+              "k1": 4,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 3,
+              "k1": 3,
+              "n2": 7,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 7,
+              "n2": 13,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 7,
+              "n2": 47,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 8,
+              "n2": 13,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 8,
+              "n2": 47,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 9,
+              "n2": 13,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 9,
+              "n2": 47,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 10,
+              "n2": 13,
+              "k2": 3
+            },
+            {
+              "n1": 0,
+              "k1": 10,
+              "n2": 47,
+              "k2": 3
+            },
+            {
+              "n1": 1,
+              "k1": 6,
+              "n2": 13,
+              "k2": 3
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

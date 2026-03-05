@@ -1,0 +1,71 @@
+{
+  "problem": "EP-416",
+  "normalized_utc": "2026-03-05T08:54:16.960Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch12_web_compute.md",
+        "content": "### EP-416\n- Quick literature check:\n  - Modern near-sharp formulas for totient-image size still leave key asymptotic-ratio questions open.\n- Finite compute signal:\n  - Proxy counts from `m<=1e6` show `V(2X)/V(X)` around `1.9` on moderate scales.\n- Interpretation:\n  - Finite behavior is compatible with near-linear scaling but does not settle existence of an exact doubling limit."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch12_quick_compute.mjs",
+        "heading": "finite proxy for V(x)=#{n<=x: phi(m)=n solvable}.",
+        "content": "// EP-416: finite proxy for V(x)=#{n<=x: phi(m)=n solvable}.\n{\n  const M = 1_000_000;\n  const hit = new Uint8Array(M + 1);\n  for (let m = 1; m <= M; m += 1) {\n    const v = phi[m];\n    if (v <= M) hit[v] = 1;\n  }\n\n  const pref = new Uint32Array(M + 1);\n  for (let i = 1; i <= M; i += 1) pref[i] = pref[i - 1] + hit[i];\n\n  const rows = [];\n  for (const X of [20000, 50000, 100000, 200000, 500000]) {\n    const Vx = pref[X];\n    const V2x = pref[Math.min(M, 2 * X)];\n    rows.push({\n      X,\n      V_proxy_X: Vx,\n      V_proxy_2X: V2x,\n      ratio_V2X_over_VX: Number((V2x / Vx).toPrecision(6)),\n      V_over_X_over_logX: Number((Vx / (X / Math.log(X))).toPrecision(6)),\n    });\n  }\n\n  out.results.ep416 = {\n    description: 'Finite image-of-totient proxy V(x) from m<=1e6.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch12_quick_compute.json",
+        "key": "ep416",
+        "container_meta": {
+          "script": "harder_batch12_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:42:39.714Z"
+        },
+        "data": {
+          "description": "Finite image-of-totient proxy V(x) from m<=1e6.",
+          "rows": [
+            {
+              "X": 20000,
+              "V_proxy_X": 4486,
+              "V_proxy_2X": 8563,
+              "ratio_V2X_over_VX": 1.90883,
+              "V_over_X_over_logX": 2.22135
+            },
+            {
+              "X": 50000,
+              "V_proxy_X": 10562,
+              "V_proxy_2X": 20254,
+              "ratio_V2X_over_VX": 1.91763,
+              "V_over_X_over_logX": 2.28557
+            },
+            {
+              "X": 100000,
+              "V_proxy_X": 20254,
+              "V_proxy_2X": 38992,
+              "ratio_V2X_over_VX": 1.92515,
+              "V_over_X_over_logX": 2.33183
+            },
+            {
+              "X": 200000,
+              "V_proxy_X": 38992,
+              "V_proxy_2X": 75269,
+              "ratio_V2X_over_VX": 1.93037,
+              "V_over_X_over_logX": 2.3797
+            },
+            {
+              "X": 500000,
+              "V_proxy_X": 93080,
+              "V_proxy_2X": 163861,
+              "ratio_V2X_over_VX": 1.76043,
+              "V_over_X_over_logX": 2.44286
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

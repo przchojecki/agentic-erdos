@@ -1,0 +1,88 @@
+{
+  "problem": "EP-634",
+  "normalized_utc": "2026-03-05T08:54:16.964Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch16_web_compute.md",
+        "content": "### EP-634\n- Quick literature check:\n  - Still open; page includes 2025 update (Zhang) giving large new infinite families (notably `n^2ab` above an explicit threshold).\n- Finite compute signal:\n  - Coverage from known families up to `260` leaves many missing values; in particular `7,11,19` are still absent in this constructive map.\n- Interpretation:\n  - Recent family expansions improve positive coverage but do not resolve the full characterization."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch16_quick_compute.json",
+        "key": "ep634",
+        "container_meta": {
+          "script": "harder_batch16_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:01:32.236Z"
+        },
+        "data": {
+          "description": "Coverage of n-values reachable by currently recorded constructive families.",
+          "NMAX": 260,
+          "represented_count_up_to_NMAX": 114,
+          "missing_count_up_to_NMAX": 146,
+          "first_50_missing_values": [
+            7,
+            11,
+            14,
+            15,
+            19,
+            21,
+            22,
+            23,
+            28,
+            30,
+            31,
+            33,
+            35,
+            38,
+            39,
+            42,
+            43,
+            44,
+            46,
+            47,
+            51,
+            55,
+            56,
+            57,
+            59,
+            60,
+            62,
+            63,
+            66,
+            67,
+            69,
+            70,
+            71,
+            76,
+            77,
+            78,
+            79,
+            83,
+            84,
+            86,
+            87,
+            88,
+            91,
+            92,
+            93,
+            94,
+            95,
+            99,
+            102,
+            103
+          ],
+          "checks": {
+            "contains_7": false,
+            "contains_11": false,
+            "contains_19": false
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "problem": "EP-857",
+  "normalized_utc": "2026-03-05T08:54:16.969Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch19_web_compute.md",
+        "content": "### EP-857\n- Quick literature check:\n  - Open; for `k=3` the benchmark upper bound remains the Naslund--Sawin exponential base `(3/2^{2/3})` framework.\n- Finite compute signal:\n  - Greedy random families on `[n]` for `n=7..10` achieved sizes with ratio to `(3/2^{2/3})^n` decreasing as `n` grows.\n- Interpretation:\n  - Finite lower bounds are far below the upper-bound scale and do not narrow asymptotic base constants.\n\n## Web sources used\n- Problem pages / threads:\n  - https://www.erdosproblems.com/825\n  - https://www.erdosproblems.com/forum/thread/825\n  - https://www.erdosproblems.com/827\n  - https://www.erdosproblems.com/forum/thread/827\n  - https://www.erdosproblems.com/828\n  - https://www.erdosproblems.com/829\n  - https://www.erdosproblems.com/forum/thread/829\n  - https://www.erdosproblems.com/830\n  - https://www.erdosproblems.com/840\n  - https://www.erdosproblems.com/forum/thread/849\n  - https://www.erdosproblems.com/850\n  - https://www.erdosproblems.com/forum/thread/850\n  - https://www.erdosproblems.com/857\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2512.20055\n  - https://doi.org/10.37236/13277"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch19_quick_compute.mjs",
+        "heading": "3-sunflower-free family size via greedy random construction.",
+        "content": "// EP-857: 3-sunflower-free family size via greedy random construction.\n{\n  const rng = makeRng(20260304 ^ 1904);\n\n  function isSunflower3(a, b, c) {\n    const core = a & b & c;\n    return (a & b) === core && (a & c) === core && (b & c) === core;\n  }\n\n  function greedyFamily(n, restarts) {\n    const total = 1 << n;\n    const all = Array.from({ length: total }, (_, i) => i);\n    let best = 0;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const order = [...all];\n      shuffle(order, rng);\n      const F = [];\n\n      for (const s of order) {\n        let ok = true;\n        for (let i = 0; i < F.length && ok; i += 1) {\n          for (let j = i + 1; j < F.length; j += 1) {\n            if (isSunflower3(F[i], F[j], s)) {\n              ok = false;\n              break;\n            }\n          }\n        }\n        if (ok) F.push(s);\n      }\n\n      if (F.length > best) best = F.length;\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  const base = 3 / (2 ** (2 / 3));\n  for (const [n, restarts] of [[7, 60], [8, 50], [9, 40], [10, 30]]) {\n    const best = greedyFamily(n, restarts);\n    rows.push({\n      n,\n      restarts,\n      best_3sunflower_free_family_size_found: best,\n      ratio_over_base_pow_n: Number((best / (base ** n)).toPrecision(7)),\n      ratio_over_2_pow_n: Number((best / (2 ** n)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep857 = {\n    description: 'Greedy random lower-bound profile for weak-sunflower-free families (k=3).',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch19_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch19_quick_compute.json",
+        "key": "ep857",
+        "container_meta": {
+          "script": "harder_batch19_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:37:57.048Z"
+        },
+        "data": {
+          "description": "Greedy random lower-bound profile for weak-sunflower-free families (k=3).",
+          "rows": [
+            {
+              "n": 7,
+              "restarts": 60,
+              "best_3sunflower_free_family_size_found": 25,
+              "ratio_over_base_pow_n": 0.290334,
+              "ratio_over_2_pow_n": 0.1953125
+            },
+            {
+              "n": 8,
+              "restarts": 50,
+              "best_3sunflower_free_family_size_found": 33,
+              "ratio_over_base_pow_n": 0.2027856,
+              "ratio_over_2_pow_n": 0.1289063
+            },
+            {
+              "n": 9,
+              "restarts": 40,
+              "best_3sunflower_free_family_size_found": 46,
+              "ratio_over_base_pow_n": 0.1495707,
+              "ratio_over_2_pow_n": 0.08984375
+            },
+            {
+              "n": 10,
+              "restarts": 30,
+              "best_3sunflower_free_family_size_found": 63,
+              "ratio_over_base_pow_n": 0.1083914,
+              "ratio_over_2_pow_n": 0.06152344
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

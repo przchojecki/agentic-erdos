@@ -1,0 +1,82 @@
+{
+  "problem": "EP-101",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-101\n- Quick literature check:\n  - The statement as originally hoped ($o(n^2)$ four-point lines) is already contradicted by near-quadratic constructions (Solymosi-Stojakovic 2013), as reflected on the problem page.\n- Finite compute signal:\n  - Random constructive search with no 5-collinear points reached `2, 7, 13` four-point lines for target sizes `40, 60, 80`.\n- Interpretation:\n  - Naive finite constructions remain far below near-quadratic scale, highlighting that known high-density constructions are highly nontrivial."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "finite constructive search for many 4-point lines with no 5-point line.",
+        "content": "// EP-101: finite constructive search for many 4-point lines with no 5-point line.\n{\n  const rows = [];\n\n  for (const targetN of [40, 60, 80]) {\n    let best4 = -1;\n    let bestMaxCol = null;\n    let bestAchieved = 0;\n\n    const trials = 90;\n    for (let t = 0; t < trials; t += 1) {\n      const pts = buildNoFiveSet(targetN, 35, 26000, rng);\n      const prof = profileFourLines(pts);\n      if (pts.length > bestAchieved) bestAchieved = pts.length;\n      if (prof.fourLines > best4) {\n        best4 = prof.fourLines;\n        bestMaxCol = prof.maxCollinear;\n      }\n    }\n\n    rows.push({\n      target_n: targetN,\n      trials,\n      best_achieved_n: bestAchieved,\n      best_four_point_lines_found: best4,\n      max_collinear_in_best_case: bestMaxCol,\n      four_lines_over_n2: Number((best4 / (targetN * targetN)).toFixed(6)),\n    });\n  }\n\n  // Theoretical lower-profile line from Solymosi-Stojakovic-type exponent form n^(2-c/sqrt(log n)).\n  const theory = [];\n  for (const n of [1e3, 1e4, 1e5, 1e6]) {\n    const c = 1;\n    const exp = 2 - c / Math.sqrt(Math.log(n));\n    const val = n ** exp;\n    theory.push({\n      n,\n      model_value_n_2_minus_c_over_sqrtlogn_c1: Number(val.toFixed(3)),\n      ratio_to_n2: Number((val / (n * n)).toFixed(6)),\n    });\n  }\n\n  out.results.ep101 = {\n    description: 'Finite no-5-collinear construction search and asymptotic comparison profile.',\n    rows,\n    theory_profile: theory,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep101",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite no-5-collinear construction search and asymptotic comparison profile.",
+          "rows": [
+            {
+              "target_n": 40,
+              "trials": 90,
+              "best_achieved_n": 40,
+              "best_four_point_lines_found": 2,
+              "max_collinear_in_best_case": 4,
+              "four_lines_over_n2": 0.00125
+            },
+            {
+              "target_n": 60,
+              "trials": 90,
+              "best_achieved_n": 60,
+              "best_four_point_lines_found": 7,
+              "max_collinear_in_best_case": 4,
+              "four_lines_over_n2": 0.001944
+            },
+            {
+              "target_n": 80,
+              "trials": 90,
+              "best_achieved_n": 80,
+              "best_four_point_lines_found": 13,
+              "max_collinear_in_best_case": 4,
+              "four_lines_over_n2": 0.002031
+            }
+          ],
+          "theory_profile": [
+            {
+              "n": 1000,
+              "model_value_n_2_minus_c_over_sqrtlogn_c1": 72203.924,
+              "ratio_to_n2": 0.072204
+            },
+            {
+              "n": 10000,
+              "model_value_n_2_minus_c_over_sqrtlogn_c1": 4808166.985,
+              "ratio_to_n2": 0.048082
+            },
+            {
+              "n": 100000,
+              "model_value_n_2_minus_c_over_sqrtlogn_c1": 336053428.182,
+              "ratio_to_n2": 0.033605
+            },
+            {
+              "n": 1000000,
+              "model_value_n_2_minus_c_over_sqrtlogn_c1": 24308670323.227,
+              "ratio_to_n2": 0.024309
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

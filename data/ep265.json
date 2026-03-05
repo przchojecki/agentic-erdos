@@ -1,0 +1,69 @@
+{
+  "problem": "EP-265",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-265\n- Quick literature check:\n  - Kovač-Tao nearly settles growth by constructing doubly-exponential examples; remaining frontier is whether one can force `\\limsup a_n^{1/2^n}>1`.\n- Finite compute signal:\n  - Classical constructions (triangular numbers; cubic-shift variant) recover near-rational sums with tiny truncation error.\n  - Growth proxies (`a_n^{1/n}` at `n=2000`) are close to `1`, confirming polynomial-type growth in those examples.\n- Interpretation:\n  - Classical examples validate rational-shift mechanisms but are far from extremal growth now known possible.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/241\n  - https://www.erdosproblems.com/243\n  - https://www.erdosproblems.com/244\n  - https://www.erdosproblems.com/252\n  - https://www.erdosproblems.com/256\n  - https://www.erdosproblems.com/257\n  - https://www.erdosproblems.com/261\n  - https://www.erdosproblems.com/263\n  - https://www.erdosproblems.com/264\n  - https://www.erdosproblems.com/265\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2503.22700\n  - https://arxiv.org/abs/2406.17593\n  - https://arxiv.org/abs/2512.01739"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "growth and rational-approximation profiles for known constructions.",
+        "content": "// EP-265: growth and rational-approximation profiles for known constructions.\n{\n  function sequenceTri(limitN) {\n    const a = [];\n    for (let n = 3; n <= limitN; n += 1) a.push((n * (n - 1)) / 2);\n    return a;\n  }\n\n  function sequencePoly(limitN) {\n    const a = [];\n    for (let n = 2; n <= limitN; n += 1) a.push(n ** 3 + 6 * n ** 2 + 5 * n);\n    return a;\n  }\n\n  function partialShifted(A, shift) {\n    let s = 0;\n    for (const x of A) s += 1 / (x - shift);\n    return s;\n  }\n\n  const tri = sequenceTri(80000);\n  const poly = sequencePoly(50000);\n\n  const S_tri_0 = partialShifted(tri, 0);\n  const S_tri_1 = partialShifted(tri, 1);\n  const S_poly_0 = partialShifted(poly, 0);\n  const S_poly_12 = partialShifted(poly, 12);\n\n  const rows = [\n    {\n      family: 'triangular_choose_n_2_start_n=3',\n      terms_used: tri.length,\n      partial_sum_shift_0: Number(S_tri_0.toPrecision(14)),\n      partial_sum_shift_1: Number(S_tri_1.toPrecision(14)),\n      'best_rational_shift_0_q<=5000': (() => {\n        const b = bestRationalApprox(S_tri_0, 5000);\n        return `${b.p}/${b.q}`;\n      })(),\n      'best_rational_shift_1_q<=5000': (() => {\n        const b = bestRationalApprox(S_tri_1, 5000);\n        return `${b.p}/${b.q}`;\n      })(),\n    },\n    {\n      family: 'cubic_n3+6n2+5n_start_n=2',\n      terms_used: poly.length,\n      partial_sum_shift_0: Number(S_poly_0.toPrecision(14)),\n      partial_sum_shift_12: Number(S_poly_12.toPrecision(14)),\n      'best_rational_shift_0_q<=5000': (() => {\n        const b = bestRationalApprox(S_poly_0, 5000);\n        return `${b.p}/${b.q}`;\n      })(),\n      'best_rational_shift_12_q<=5000': (() => {\n        const b = bestRationalApprox(S_poly_12, 5000);\n        return `${b.p}/${b.q}`;\n      })(),\n    },\n  ];\n\n  const growthRows = [\n    { family: 'triangular', n: 2000, root_n: Number((((2000 * 1999) / 2) ** (1 / 2000)).toFixed(6)) },\n    { family: 'cubic_shifted', n: 2000, root_n: Number(((2000 ** 3 + 6 * 2000 ** 2 + 5 * 2000) ** (1 / 2000)).toFixed(6)) },\n    { family: 'double_exponential_model_2^(2^n)', n: 10, root_n: Number(((2 ** (2 ** 10)) ** (1 / 10)).toExponential(6)) },\n  ];\n\n  out.results.ep265 = {\n    description: 'Finite partial-sum and growth profiles for canonical constructions related to dual-shift rationality phenomena.',\n    rows,\n    growth_rows: growthRows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch8_quick_compute.json');\nfs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\\n`);\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep265",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Finite partial-sum and growth profiles for canonical constructions related to dual-shift rationality phenomena.",
+          "rows": [
+            {
+              "family": "triangular_choose_n_2_start_n=3",
+              "terms_used": 79998,
+              "partial_sum_shift_0": 0.99997499999999,
+              "partial_sum_shift_1": 1.2221972222222,
+              "best_rational_shift_0_q<=5000": "1/1",
+              "best_rational_shift_1_q<=5000": "5429/4442"
+            },
+            {
+              "family": "cubic_n3+6n2+5n_start_n=2",
+              "terms_used": 49999,
+              "partial_sum_shift_0": 0.05249999980002,
+              "partial_sum_shift_12": 0.064166666466686,
+              "best_rational_shift_0_q<=5000": "21/400",
+              "best_rational_shift_12_q<=5000": "77/1200"
+            }
+          ],
+          "growth_rows": [
+            {
+              "family": "triangular",
+              "n": 2000,
+              "root_n": 1.00728
+            },
+            {
+              "family": "cubic_shifted",
+              "n": 2000,
+              "root_n": 1.011468
+            },
+            {
+              "family": "double_exponential_model_2^(2^n)",
+              "n": 10,
+              "root_n": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

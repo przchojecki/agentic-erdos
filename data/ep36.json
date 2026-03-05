@@ -1,0 +1,54 @@
+{
+  "problem": "EP-36",
+  "normalized_utc": "2026-03-05T08:54:16.938Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch2_web_compute.md",
+        "content": "### EP-36\n- Quick literature check:\n  - Confirmed ongoing updates to the minimum-overlap constant window on the Erdős Problems page (latest listed 2026 update there).\n- Finite compute signal:\n  - Local search on balanced partitions ($N=120,200,300$) found best overlap ratios near $0.42..0.427$.\n- Interpretation:\n  - Finite optimization lands above the current best upper-bound regime, consistent with the problem being delicate at constant level."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch2_quick_compute.mjs",
+        "heading": "random local search for minimum overlap ratio.",
+        "content": "// EP-36: random local search for minimum overlap ratio.\n{\n  function maxDiffCount(A, B, N) {\n    const offs = 2 * N + 3;\n    const cnt = new Uint16Array(4 * N + 7);\n    let best = 0;\n    for (const a of A) {\n      for (const b of B) {\n        const idx = a - b + offs;\n        const v = (cnt[idx] += 1);\n        if (v > best) best = v;\n      }\n    }\n    return best;\n  }\n\n  const NList = [120, 200, 300];\n  const rows = [];\n  for (const N of NList) {\n    const U = Array.from({ length: 2 * N }, (_, i) => i + 1);\n    let globalBest = Infinity;\n    const restarts = 18;\n    for (let r = 0; r < restarts; r += 1) {\n      const arr = U.slice();\n      shuffle(arr, rng);\n      const A = arr.slice(0, N);\n      const B = arr.slice(N);\n      let score = maxDiffCount(A, B, N);\n      for (let it = 0; it < 2000; it += 1) {\n        const ia = Math.floor(rng() * N);\n        const ib = Math.floor(rng() * N);\n        const oldA = A[ia];\n        const oldB = B[ib];\n        A[ia] = oldB;\n        B[ib] = oldA;\n        const s2 = maxDiffCount(A, B, N);\n        if (s2 <= score) {\n          score = s2;\n        } else {\n          A[ia] = oldA;\n          B[ib] = oldB;\n        }\n      }\n      if (score < globalBest) globalBest = score;\n    }\n    rows.push({\n      N,\n      best_max_overlap_found: globalBest,\n      best_ratio_over_N: Number((globalBest / N).toFixed(6)),\n      restarts,\n    });\n  }\n  out.results.ep36 = {\n    description: 'Finite local-search profile for minimum overlap constant c.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch2_quick_compute.json",
+        "key": "ep36",
+        "container_meta": {
+          "script": "harder_batch2_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:51:17.566Z"
+        },
+        "data": {
+          "description": "Finite local-search profile for minimum overlap constant c.",
+          "rows": [
+            {
+              "N": 120,
+              "best_max_overlap_found": 51,
+              "best_ratio_over_N": 0.425,
+              "restarts": 18
+            },
+            {
+              "N": 200,
+              "best_max_overlap_found": 84,
+              "best_ratio_over_N": 0.42,
+              "restarts": 18
+            },
+            {
+              "N": 300,
+              "best_max_overlap_found": 128,
+              "best_ratio_over_N": 0.426667,
+              "restarts": 18
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

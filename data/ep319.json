@@ -1,0 +1,134 @@
+{
+  "problem": "EP-319",
+  "normalized_utc": "2026-03-05T08:54:16.956Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-319\n- Quick literature check:\n  - No clear modern theorem-level closure surfaced quickly; known lower-bound constructions remain the primary route.\n- Finite compute signal:\n  - Split-based constructions produce sets `B` with `\\sum_{b\\in B}1/b=1` and size up to `10` at `N=100`, giving `|A|>=11` lower-bound witnesses.\n- Interpretation:\n  - Confirms constructive growth but still far below expected near-linear extremal scale."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "constructive lower-bound proxy via large Egyptian decomposition B with sum_{b in B}1/b=1.",
+        "content": "// EP-319: constructive lower-bound proxy via large Egyptian decomposition B with sum_{b in B}1/b=1.\n{\n  function splitOptions(D, N) {\n    const present = new Set(D);\n    const ops = [];\n    for (let i = 0; i < D.length; i += 1) {\n      const d = D[i];\n      const a = d + 1;\n      const b = d * (d + 1);\n      if (b > N) continue;\n      if (present.has(a) || present.has(b)) continue;\n      ops.push(i);\n    }\n    return ops;\n  }\n\n  function hasProperSubsetSumOne(denoms) {\n    const m = denoms.length;\n    if (m > 22) return null;\n    let L = 1n;\n    for (const d of denoms) L = lcmBig(L, BigInt(d));\n    const weights = denoms.map((d) => L / BigInt(d));\n    const total = L;\n    const maxMask = 1 << m;\n    for (let mask = 1; mask < maxMask - 1; mask += 1) {\n      let s = 0n;\n      for (let i = 0; i < m; i += 1) {\n        if ((mask >> i) & 1) s += weights[i];\n      }\n      if (s === total) return true;\n    }\n    return false;\n  }\n\n  const rows = [];\n  for (const N of [30, 40, 50, 60, 80, 100]) {\n    let best = [2, 3, 6];\n    for (let r = 0; r < 4000; r += 1) {\n      const D = [2, 3, 6];\n      while (true) {\n        const ops = splitOptions(D, N);\n        if (!ops.length) break;\n        const i = ops[Math.floor(rng() * ops.length)];\n        const d = D[i];\n        D.splice(i, 1, d + 1, d * (d + 1));\n        D.sort((x, y) => x - y);\n      }\n      if (D.length > best.length) best = D;\n    }\n\n    const properSubsetHitsOne = hasProperSubsetSumOne(best);\n    rows.push({\n      N,\n      best_B_size_found: best.length,\n      implied_A_size_lower_bound: best.length + 1,\n      implied_A_over_N: Number(((best.length + 1) / N).toPrecision(6)),\n      proper_subset_sum_1_exists: properSubsetHitsOne,\n      sample_B_prefix: best.slice(0, 10),\n    });\n  }\n\n  out.results.ep319 = {\n    description: 'Randomized split construction lower-bound proxy for large minimal signed harmonic relation sets.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep319",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Randomized split construction lower-bound proxy for large minimal signed harmonic relation sets.",
+          "rows": [
+            {
+              "N": 30,
+              "best_B_size_found": 5,
+              "implied_A_size_lower_bound": 6,
+              "implied_A_over_N": 0.2,
+              "proper_subset_sum_1_exists": false,
+              "sample_B_prefix": [
+                2,
+                5,
+                6,
+                12,
+                20
+              ]
+            },
+            {
+              "N": 40,
+              "best_B_size_found": 5,
+              "implied_A_size_lower_bound": 6,
+              "implied_A_over_N": 0.15,
+              "proper_subset_sum_1_exists": false,
+              "sample_B_prefix": [
+                2,
+                5,
+                6,
+                12,
+                20
+              ]
+            },
+            {
+              "N": 50,
+              "best_B_size_found": 7,
+              "implied_A_size_lower_bound": 8,
+              "implied_A_over_N": 0.16,
+              "proper_subset_sum_1_exists": false,
+              "sample_B_prefix": [
+                3,
+                5,
+                6,
+                7,
+                12,
+                20,
+                42
+              ]
+            },
+            {
+              "N": 60,
+              "best_B_size_found": 8,
+              "implied_A_size_lower_bound": 9,
+              "implied_A_over_N": 0.15,
+              "proper_subset_sum_1_exists": false,
+              "sample_B_prefix": [
+                3,
+                5,
+                6,
+                8,
+                12,
+                20,
+                42,
+                56
+              ]
+            },
+            {
+              "N": 80,
+              "best_B_size_found": 9,
+              "implied_A_size_lower_bound": 10,
+              "implied_A_over_N": 0.125,
+              "proper_subset_sum_1_exists": false,
+              "sample_B_prefix": [
+                3,
+                5,
+                6,
+                9,
+                12,
+                20,
+                42,
+                56,
+                72
+              ]
+            },
+            {
+              "N": 100,
+              "best_B_size_found": 10,
+              "implied_A_size_lower_bound": 11,
+              "implied_A_over_N": 0.11,
+              "proper_subset_sum_1_exists": false,
+              "sample_B_prefix": [
+                3,
+                5,
+                6,
+                10,
+                12,
+                20,
+                42,
+                56,
+                72,
+                90
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

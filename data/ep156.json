@@ -1,0 +1,71 @@
+{
+  "problem": "EP-156",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep156_maximal_sidon_random_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep156_maximal_sidon_random_scan.mjs",
+        "n_list": [
+          200,
+          400,
+          800,
+          1600,
+          3200
+        ],
+        "trials": 600,
+        "seed": 1562026,
+        "rows": [
+          {
+            "N": 200,
+            "trials": 600,
+            "min_size_found": 11,
+            "avg_size": 12.8983,
+            "max_size_found": 14,
+            "min_over_N_cuberoot": 1.880974,
+            "avg_over_N_cuberoot": 2.205584
+          },
+          {
+            "N": 400,
+            "trials": 600,
+            "min_size_found": 15,
+            "avg_size": 16.95,
+            "max_size_found": 19,
+            "min_over_N_cuberoot": 2.035813,
+            "avg_over_N_cuberoot": 2.300469
+          },
+          {
+            "N": 800,
+            "trials": 600,
+            "min_size_found": 20,
+            "avg_size": 22.33,
+            "max_size_found": 25,
+            "min_over_N_cuberoot": 2.154435,
+            "avg_over_N_cuberoot": 2.405426
+          },
+          {
+            "N": 1600,
+            "trials": 600,
+            "min_size_found": 27,
+            "avg_size": 29.2967,
+            "max_size_found": 32,
+            "min_over_N_cuberoot": 2.308468,
+            "avg_over_N_cuberoot": 2.50483
+          },
+          {
+            "N": 3200,
+            "trials": 600,
+            "min_size_found": 36,
+            "avg_size": 38.365,
+            "max_size_found": 42,
+            "min_over_N_cuberoot": 2.442976,
+            "avg_over_N_cuberoot": 2.603466
+          }
+        ],
+        "timestamp_utc": "2026-03-02T09:12:19.835Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "problem": "EP-1062",
+  "normalized_utc": "2026-03-05T08:54:16.973Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch23_web_compute.md",
+        "content": "### EP-1062\n- Quick literature check:\n  - Open; page records classical narrow linear bounds around `0.673 n`.\n- Finite compute signal:\n  - Exact branch-and-bound for `n<=32` gives ratios `f(n)/n` in about `0.667..0.714`.\n- Interpretation:\n  - Small exact values are consistent with the known constant-band regime but too small to infer a limit value.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/1052\n  - https://www.erdosproblems.com/1053\n  - https://www.erdosproblems.com/1054\n  - https://www.erdosproblems.com/1055\n  - https://www.erdosproblems.com/1056\n  - https://www.erdosproblems.com/1057\n  - https://www.erdosproblems.com/1059\n  - https://www.erdosproblems.com/1060\n  - https://www.erdosproblems.com/1061\n  - https://www.erdosproblems.com/1062\n- Additional page views used for quick status checks where direct loads were unstable:\n  - https://www.erdosproblems.com/forum/thread/1056\n  - https://www.erdosproblems.com/forum/thread/1060\n  - https://www.erdosproblems.com/favorite-problems"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch23_quick_compute.mjs",
+        "heading": "exact small-n optimisation by branch-and-bound.",
+        "content": "// EP-1062: exact small-n optimisation by branch-and-bound.\n{\n  function exactF(n) {\n    const divisors = Array.from({ length: n + 1 }, () => []);\n    for (let d = 1; d <= n; d += 1) {\n      for (let m = 2 * d; m <= n; m += d) divisors[m].push(d);\n    }\n\n    const selected = new Uint8Array(n + 1);\n    const multCnt = new Int16Array(n + 1);\n    let best = 0;\n\n    function dfs(i, cur) {\n      if (i === 0) {\n        if (cur > best) best = cur;\n        return;\n      }\n      if (cur + i <= best) return;\n\n      let canTake = multCnt[i] <= 1;\n      if (canTake) {\n        for (const d of divisors[i]) {\n          if (selected[d] && multCnt[d] >= 1) {\n            canTake = false;\n            break;\n          }\n        }\n      }\n\n      if (canTake) {\n        selected[i] = 1;\n        for (const d of divisors[i]) multCnt[d] += 1;\n        dfs(i - 1, cur + 1);\n        for (const d of divisors[i]) multCnt[d] -= 1;\n        selected[i] = 0;\n      }\n      dfs(i - 1, cur);\n    }\n\n    dfs(n, 0);\n    return best;\n  }\n\n  const rows = [];\n  for (const n of [18, 20, 22, 24, 26, 28, 30, 32]) {\n    const f = exactF(n);\n    rows.push({\n      n,\n      exact_f_n: f,\n      ratio_f_over_n: Number((f / n).toPrecision(7)),\n      benchmark_two_thirds_n: Number(((2 * n) / 3).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1062 = {\n    description: 'Exact small-n optimisation for sets with no element dividing two others in the set.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch23_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch23_quick_compute.json",
+        "key": "ep1062",
+        "container_meta": {
+          "script": "harder_batch23_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:43:44.789Z"
+        },
+        "data": {
+          "description": "Exact small-n optimisation for sets with no element dividing two others in the set.",
+          "rows": [
+            {
+              "n": 18,
+              "exact_f_n": 12,
+              "ratio_f_over_n": 0.6666667,
+              "benchmark_two_thirds_n": 12
+            },
+            {
+              "n": 20,
+              "exact_f_n": 14,
+              "ratio_f_over_n": 0.7,
+              "benchmark_two_thirds_n": 13.33333
+            },
+            {
+              "n": 22,
+              "exact_f_n": 15,
+              "ratio_f_over_n": 0.6818182,
+              "benchmark_two_thirds_n": 14.66667
+            },
+            {
+              "n": 24,
+              "exact_f_n": 16,
+              "ratio_f_over_n": 0.6666667,
+              "benchmark_two_thirds_n": 16
+            },
+            {
+              "n": 26,
+              "exact_f_n": 18,
+              "ratio_f_over_n": 0.6923077,
+              "benchmark_two_thirds_n": 17.33333
+            },
+            {
+              "n": 28,
+              "exact_f_n": 20,
+              "ratio_f_over_n": 0.7142857,
+              "benchmark_two_thirds_n": 18.66667
+            },
+            {
+              "n": 30,
+              "exact_f_n": 21,
+              "ratio_f_over_n": 0.7,
+              "benchmark_two_thirds_n": 20
+            },
+            {
+              "n": 32,
+              "exact_f_n": 22,
+              "ratio_f_over_n": 0.6875,
+              "benchmark_two_thirds_n": 21.33333
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

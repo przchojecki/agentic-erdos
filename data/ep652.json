@@ -1,0 +1,156 @@
+{
+  "problem": "EP-652",
+  "normalized_utc": "2026-03-05T08:54:16.965Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch16_web_compute.md",
+        "content": "### EP-652\n- Quick literature check:\n  - Problem page is now marked `PROVED` (affirmative), with January 2026 page update.\n- Finite compute signal:\n  - Grid instances show low ordered pinned counts (`R(x_k)/sqrt(n)` around `2-3` for small `k`), while random sets are much larger.\n- Interpretation:\n  - Numerics are consistent with strong growth in `k`-ordered pinned distances; theorem status is already affirmative."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch16_quick_compute.mjs",
+        "heading": "finite profiles for sorted pinned-distance counts.",
+        "content": "// EP-652: finite profiles for sorted pinned-distance counts.\n{\n  const rng = makeRng(20260304 ^ 1606);\n\n  function gridPoints(m) {\n    const pts = [];\n    for (let x = 0; x < m; x += 1) {\n      for (let y = 0; y < m; y += 1) pts.push([x, y]);\n    }\n    return pts;\n  }\n\n  const rows = [];\n  for (const m of [10, 14]) {\n    const pts = gridPoints(m);\n    const n = pts.length;\n    const R = pinnedRValues(pts);\n    for (const k of [2, 4, 8, 16]) {\n      if (k > n) continue;\n      rows.push({\n        family: 'grid',\n        n,\n        k,\n        R_x_k: R[k - 1],\n        R_x_k_over_sqrt_n: Number((R[k - 1] / Math.sqrt(n)).toPrecision(7)),\n      });\n    }\n  }\n\n  for (const n of [100, 196]) {\n    const trials = 10;\n    const best = new Map();\n    for (const k of [2, 4, 8, 16]) best.set(k, Infinity);\n\n    for (let t = 0; t < trials; t += 1) {\n      const pts = randomDistinctPoints(n, 4000, rng);\n      const R = pinnedRValues(pts);\n      for (const k of [2, 4, 8, 16]) {\n        const v = R[k - 1];\n        if (v < best.get(k)) best.set(k, v);\n      }\n    }\n\n    for (const k of [2, 4, 8, 16]) {\n      rows.push({\n        family: 'random_best_of_trials',\n        n,\n        trials,\n        k,\n        best_R_x_k_over_trials: best.get(k),\n        best_R_x_k_over_sqrt_n: Number((best.get(k) / Math.sqrt(n)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep652 = {\n    description: 'Finite sorted pinned-distance profile R(x_k) for structured and random point sets.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch16_quick_compute.json",
+        "key": "ep652",
+        "container_meta": {
+          "script": "harder_batch16_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:01:32.236Z"
+        },
+        "data": {
+          "description": "Finite sorted pinned-distance profile R(x_k) for structured and random point sets.",
+          "rows": [
+            {
+              "family": "grid",
+              "n": 100,
+              "k": 2,
+              "R_x_k": 19,
+              "R_x_k_over_sqrt_n": 1.9
+            },
+            {
+              "family": "grid",
+              "n": 100,
+              "k": 4,
+              "R_x_k": 19,
+              "R_x_k_over_sqrt_n": 1.9
+            },
+            {
+              "family": "grid",
+              "n": 100,
+              "k": 8,
+              "R_x_k": 25,
+              "R_x_k_over_sqrt_n": 2.5
+            },
+            {
+              "family": "grid",
+              "n": 100,
+              "k": 16,
+              "R_x_k": 26,
+              "R_x_k_over_sqrt_n": 2.6
+            },
+            {
+              "family": "grid",
+              "n": 196,
+              "k": 2,
+              "R_x_k": 33,
+              "R_x_k_over_sqrt_n": 2.357143
+            },
+            {
+              "family": "grid",
+              "n": 196,
+              "k": 4,
+              "R_x_k": 33,
+              "R_x_k_over_sqrt_n": 2.357143
+            },
+            {
+              "family": "grid",
+              "n": 196,
+              "k": 8,
+              "R_x_k": 40,
+              "R_x_k_over_sqrt_n": 2.857143
+            },
+            {
+              "family": "grid",
+              "n": 196,
+              "k": 16,
+              "R_x_k": 41,
+              "R_x_k_over_sqrt_n": 2.928571
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 100,
+              "trials": 10,
+              "k": 2,
+              "best_R_x_k_over_trials": 98,
+              "best_R_x_k_over_sqrt_n": 9.8
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 100,
+              "trials": 10,
+              "k": 4,
+              "best_R_x_k_over_trials": 99,
+              "best_R_x_k_over_sqrt_n": 9.9
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 100,
+              "trials": 10,
+              "k": 8,
+              "best_R_x_k_over_trials": 99,
+              "best_R_x_k_over_sqrt_n": 9.9
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 100,
+              "trials": 10,
+              "k": 16,
+              "best_R_x_k_over_trials": 99,
+              "best_R_x_k_over_sqrt_n": 9.9
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 196,
+              "trials": 10,
+              "k": 2,
+              "best_R_x_k_over_trials": 194,
+              "best_R_x_k_over_sqrt_n": 13.85714
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 196,
+              "trials": 10,
+              "k": 4,
+              "best_R_x_k_over_trials": 194,
+              "best_R_x_k_over_sqrt_n": 13.85714
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 196,
+              "trials": 10,
+              "k": 8,
+              "best_R_x_k_over_trials": 195,
+              "best_R_x_k_over_sqrt_n": 13.92857
+            },
+            {
+              "family": "random_best_of_trials",
+              "n": 196,
+              "trials": 10,
+              "k": 16,
+              "best_R_x_k_over_trials": 195,
+              "best_R_x_k_over_sqrt_n": 13.92857
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

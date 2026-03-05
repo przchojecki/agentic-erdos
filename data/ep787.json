@@ -1,0 +1,60 @@
+{
+  "problem": "EP-787",
+  "normalized_utc": "2026-03-05T08:54:16.967Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch18_web_compute.md",
+        "content": "### EP-787\n- Quick literature check:\n  - Bounds have improved (latest page update 2025), but the asymptotic order remains open.\n- Finite compute signal:\n  - In sampled adversarial families, interval-type sets were worst; exact finite optimization gave worst ratios around `0.53n`.\n- Interpretation:\n  - Samples suggest large guaranteed subsets in finite ranges; no asymptotic breakthrough."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch18_quick_compute.mjs",
+        "heading": "maximal B in sampled A with no distinct b1+b2 in A.",
+        "content": "// EP-787: maximal B in sampled A with no distinct b1+b2 in A.\n{\n  function maxIndependentSizeFromAdj(adjMasks, n) {\n    const comp = Array(n).fill(0n);\n    for (let i = 0; i < n; i += 1) {\n      let m = 0n;\n      for (let j = 0; j < n; j += 1) {\n        if (i === j) continue;\n        if (((adjMasks[i] >> BigInt(j)) & 1n) === 0n) m |= 1n << BigInt(j);\n      }\n      comp[i] = m;\n    }\n    return maxCliqueSizeFromAdjMasks(comp, n);\n  }\n\n  function alphaForA(A) {\n    const n = A.length;\n    const S = new Set(A);\n    const adj = Array(n).fill(0n);\n\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) {\n        if (S.has(A[i] + A[j])) {\n          adj[i] |= 1n << BigInt(j);\n          adj[j] |= 1n << BigInt(i);\n        }\n      }\n    }\n    return maxIndependentSizeFromAdj(adj, n);\n  }\n\n  const rng = makeRng(20260304 ^ 1803);\n\n  function randomSet(size, maxVal) {\n    const S = new Set();\n    while (S.size < size) S.add(1 + Math.floor(rng() * maxVal));\n    return [...S].sort((a, b) => a - b);\n  }\n\n  const rows = [];\n  for (const n of [20, 28, 36]) {\n    const candidates = [];\n    candidates.push(Array.from({ length: n }, (_, i) => i + 1));\n    candidates.push(Array.from({ length: n }, (_, i) => 2 * i + 1));\n    for (let t = 0; t < 8; t += 1) candidates.push(randomSet(n, 5 * n));\n\n    let worst = n;\n    let worstType = 'unknown';\n    let avg = 0;\n    for (let i = 0; i < candidates.length; i += 1) {\n      const A = candidates[i];\n      const a = alphaForA(A);\n      avg += a;\n      if (a < worst) {\n        worst = a;\n        worstType = i === 0 ? 'interval' : i === 1 ? 'odd_interval' : 'random';\n      }\n    }\n\n    rows.push({\n      n,\n      sampled_A_count: candidates.length,\n      worst_max_B_size_found: worst,\n      worst_case_family_sampled: worstType,\n      avg_max_B_size_over_samples: Number((avg / candidates.length).toPrecision(7)),\n      worst_over_n: Number((worst / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep787 = {\n    description: 'Sampled worst-case search for largest B with pairwise distinct sums avoiding A.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch18_quick_compute.json",
+        "key": "ep787",
+        "container_meta": {
+          "script": "harder_batch18_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:20:32.592Z"
+        },
+        "data": {
+          "description": "Sampled worst-case search for largest B with pairwise distinct sums avoiding A.",
+          "rows": [
+            {
+              "n": 20,
+              "sampled_A_count": 10,
+              "worst_max_B_size_found": 11,
+              "worst_case_family_sampled": "interval",
+              "avg_max_B_size_over_samples": 13.4,
+              "worst_over_n": 0.55
+            },
+            {
+              "n": 28,
+              "sampled_A_count": 10,
+              "worst_max_B_size_found": 15,
+              "worst_case_family_sampled": "interval",
+              "avg_max_B_size_over_samples": 18.5,
+              "worst_over_n": 0.5357143
+            },
+            {
+              "n": 36,
+              "sampled_A_count": 10,
+              "worst_max_B_size_found": 19,
+              "worst_case_family_sampled": "interval",
+              "avg_max_B_size_over_samples": 23.6,
+              "worst_over_n": 0.5277778
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

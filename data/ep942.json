@@ -1,0 +1,117 @@
+{
+  "problem": "EP-942",
+  "normalized_utc": "2026-03-05T08:54:16.971Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch21_web_compute.md",
+        "content": "### EP-942\n- Quick literature check:\n  - Problem remains open; known lower-growth results and density statements are recorded.\n- Finite compute signal:\n  - For `n<=50000`, maximum observed `h(n)` was `8`; empirical density of `h(n)=1` near `0.284` in this range.\n- Interpretation:\n  - Finite statistics are consistent with known distributional behavior and unboundedness, but do not identify sharp order/exponent."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch21_quick_compute.mjs",
+        "heading": "h(n) profile for powerful numbers in [n^2, (n+1)^2).",
+        "content": "// EP-942: h(n) profile for powerful numbers in [n^2, (n+1)^2).\n{\n  const N = 50_000;\n  const X = (N + 1) * (N + 1);\n\n  const B = Math.floor(Math.cbrt(X));\n  const spfB = sieveSPF(B + 5);\n  const squarefree = new Uint8Array(B + 1);\n  squarefree.fill(1);\n  squarefree[0] = 0;\n\n  for (let b = 2; b <= B; b += 1) {\n    let x = b;\n    let ok = true;\n    while (x > 1) {\n      const p = spfB[x] || x;\n      x = Math.floor(x / p);\n      if (x % p === 0) {\n        ok = false;\n        break;\n      }\n      while (x % p === 0) x = Math.floor(x / p);\n    }\n    squarefree[b] = ok ? 1 : 0;\n  }\n\n  const vals = [];\n  for (let b = 1; b <= B; b += 1) {\n    if (!squarefree[b]) continue;\n    const b3 = b * b * b;\n    const maxA = Math.floor(Math.sqrt(X / b3));\n    for (let a = 1; a <= maxA; a += 1) {\n      vals.push(a * a * b3);\n    }\n  }\n\n  vals.sort((u, v) => u - v);\n  const powerful = [];\n  for (let i = 0; i < vals.length; i += 1) {\n    if (i === 0 || vals[i] !== vals[i - 1]) powerful.push(vals[i]);\n  }\n\n  let l = 0;\n  let r = 0;\n  const freq = new Map();\n  let maxH = 0;\n  let argN = -1;\n\n  const rows = [];\n  const probes = new Set([1_000, 5_000, 10_000, 20_000, 35_000, 50_000]);\n\n  for (let n = 1; n <= N; n += 1) {\n    const lo = n * n;\n    const hi = (n + 1) * (n + 1);\n    while (l < powerful.length && powerful[l] < lo) l += 1;\n    if (r < l) r = l;\n    while (r < powerful.length && powerful[r] < hi) r += 1;\n    const h = r - l;\n    freq.set(h, (freq.get(h) || 0) + 1);\n    if (h > maxH) {\n      maxH = h;\n      argN = n;\n    }\n    if (probes.has(n)) {\n      rows.push({\n        n,\n        h_n: h,\n        running_max_h_up_to_n: maxH,\n        density_h_eq_1_up_to_n: Number(((freq.get(1) || 0) / n).toPrecision(7)),\n      });\n    }\n  }\n\n  const topFreq = [...freq.entries()]\n    .sort((a, b) => b[1] - a[1] || a[0] - b[0])\n    .slice(0, 12)\n    .map(([h, c]) => ({ h, count: c, density: Number((c / N).toPrecision(7)) }));\n\n  out.results.ep942 = {\n    description: 'Finite profile of powerful-number counts in quadratic intervals [n^2,(n+1)^2).',\n    N,\n    max_h_found: maxH,\n    first_n_attaining_max_h: argN,\n    top_frequency_table: topFreq,\n    probe_rows: rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch21_quick_compute.json",
+        "key": "ep942",
+        "container_meta": {
+          "script": "harder_batch21_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:09:50.566Z"
+        },
+        "data": {
+          "description": "Finite profile of powerful-number counts in quadratic intervals [n^2,(n+1)^2).",
+          "N": 50000,
+          "max_h_found": 8,
+          "first_n_attaining_max_h": 17329,
+          "top_frequency_table": [
+            {
+              "h": 2,
+              "count": 20280,
+              "density": 0.4056
+            },
+            {
+              "h": 1,
+              "count": 14206,
+              "density": 0.28412
+            },
+            {
+              "h": 3,
+              "count": 11139,
+              "density": 0.22278
+            },
+            {
+              "h": 4,
+              "count": 3542,
+              "density": 0.07084
+            },
+            {
+              "h": 5,
+              "count": 714,
+              "density": 0.01428
+            },
+            {
+              "h": 6,
+              "count": 105,
+              "density": 0.0021
+            },
+            {
+              "h": 7,
+              "count": 13,
+              "density": 0.00026
+            },
+            {
+              "h": 8,
+              "count": 1,
+              "density": 0.00002
+            }
+          ],
+          "probe_rows": [
+            {
+              "n": 1000,
+              "h_n": 2,
+              "running_max_h_up_to_n": 5,
+              "density_h_eq_1_up_to_n": 0.317
+            },
+            {
+              "n": 5000,
+              "h_n": 3,
+              "running_max_h_up_to_n": 7,
+              "density_h_eq_1_up_to_n": 0.2968
+            },
+            {
+              "n": 10000,
+              "h_n": 2,
+              "running_max_h_up_to_n": 7,
+              "density_h_eq_1_up_to_n": 0.2952
+            },
+            {
+              "n": 20000,
+              "h_n": 1,
+              "running_max_h_up_to_n": 8,
+              "density_h_eq_1_up_to_n": 0.2912
+            },
+            {
+              "n": 35000,
+              "h_n": 2,
+              "running_max_h_up_to_n": 8,
+              "density_h_eq_1_up_to_n": 0.2866571
+            },
+            {
+              "n": 50000,
+              "h_n": 2,
+              "running_max_h_up_to_n": 8,
+              "density_h_eq_1_up_to_n": 0.28412
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

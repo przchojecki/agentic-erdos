@@ -1,0 +1,79 @@
+{
+  "problem": "EP-3",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "harder_batch1_quick_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "harder_batch1_quick_compute.mjs",
+        "heading": ": simple greedy 3-AP-free sequence growth and harmonic sum.",
+        "extracted_section": "// EP-3: simple greedy 3-AP-free sequence growth and harmonic sum.\n{\n  const NList = [1000, 3000, 10000, 30000, 100000];\n  const rows = [];\n  for (const N of NList) {\n    const inSet = new Uint8Array(N + 1);\n    const A = [];\n    let harmonic = 0;\n    for (let n = 1; n <= N; n += 1) {\n      let ok = true;\n      for (let i = 0; i < A.length; i += 1) {\n        const y = A[i];\n        const x = 2 * y - n;\n        if (x > 0 && inSet[x]) {\n          ok = false;\n          break;\n        }\n      }\n      if (!ok) continue;\n      inSet[n] = 1;\n      A.push(n);\n      harmonic += 1 / n;\n    }\n    rows.push({\n      N,\n      greedy_3ap_free_size: A.length,\n      size_over_sqrtN: Number((A.length / Math.sqrt(N)).toFixed(6)),\n      harmonic_sum_over_set: Number(harmonic.toFixed(6)),\n    });\n  }\n  out.results.ep3 = {\n    description: 'Ascending greedy 3-AP-free set profile (finite proxy only).',\n    rows,\n  };\n}"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-3\n- Quick literature check:\n  - Recent progress remains active: Leng-Sah-Sawhney (2024) on improved quantitative Szemeredi bounds.\n- Finite compute signal:\n  - A simple ascending greedy 3-AP-free proxy in $[1,N]$ reaches size $2048$ at $N=100000$, with reciprocal sum about $2.9796$.\n- Interpretation:\n  - Finite proxies show substantial AP-avoidance room, but do not resolve the divergent-harmonic implication for all progression lengths."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "simple greedy 3-AP-free sequence growth and harmonic sum.",
+        "content": "// EP-3: simple greedy 3-AP-free sequence growth and harmonic sum.\n{\n  const NList = [1000, 3000, 10000, 30000, 100000];\n  const rows = [];\n  for (const N of NList) {\n    const inSet = new Uint8Array(N + 1);\n    const A = [];\n    let harmonic = 0;\n    for (let n = 1; n <= N; n += 1) {\n      let ok = true;\n      for (let i = 0; i < A.length; i += 1) {\n        const y = A[i];\n        const x = 2 * y - n;\n        if (x > 0 && inSet[x]) {\n          ok = false;\n          break;\n        }\n      }\n      if (!ok) continue;\n      inSet[n] = 1;\n      A.push(n);\n      harmonic += 1 / n;\n    }\n    rows.push({\n      N,\n      greedy_3ap_free_size: A.length,\n      size_over_sqrtN: Number((A.length / Math.sqrt(N)).toFixed(6)),\n      harmonic_sum_over_set: Number(harmonic.toFixed(6)),\n    });\n  }\n  out.results.ep3 = {\n    description: 'Ascending greedy 3-AP-free set profile (finite proxy only).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep3",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Ascending greedy 3-AP-free set profile (finite proxy only).",
+          "rows": [
+            {
+              "N": 1000,
+              "greedy_3ap_free_size": 105,
+              "size_over_sqrtN": 3.320392,
+              "harmonic_sum_over_set": 2.842751
+            },
+            {
+              "N": 3000,
+              "greedy_3ap_free_size": 210,
+              "size_over_sqrtN": 3.834058,
+              "harmonic_sum_over_set": 2.897799
+            },
+            {
+              "N": 10000,
+              "greedy_3ap_free_size": 512,
+              "size_over_sqrtN": 5.12,
+              "harmonic_sum_over_set": 2.944226
+            },
+            {
+              "N": 30000,
+              "greedy_3ap_free_size": 1024,
+              "size_over_sqrtN": 5.912067,
+              "harmonic_sum_over_set": 2.965463
+            },
+            {
+              "N": 100000,
+              "greedy_3ap_free_size": 2048,
+              "size_over_sqrtN": 6.476345,
+              "harmonic_sum_over_set": 2.979622
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

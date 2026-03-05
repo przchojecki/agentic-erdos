@@ -1,0 +1,58 @@
+{
+  "problem": "EP-131",
+  "normalized_utc": "2026-03-05T08:54:16.950Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-131\n- Quick literature check:\n  - Recent progress (Pham-Zakharov, 2024) implies $F(N)\\le N^{1/4+o(1)}$, so the historical subquestion $F(N)>N^{1/2-o(1)}$ is now negative.\n- Finite compute signal:\n  - Random-greedy search on $N\\in\\{80,120,180,260\\}$ found best sizes `7,7,8,8`.\n- Interpretation:\n  - Finite behavior is consistent with sub-square-root growth and with the modern upper-bound direction."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep131",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Random-greedy finite profile for non-dividing sets in [1,N].",
+          "rows": [
+            {
+              "N": 80,
+              "restarts": 120,
+              "best_size_found": 7,
+              "best_size_over_N_pow_quarter": 2.340591,
+              "best_size_over_sqrtN": 0.782624
+            },
+            {
+              "N": 120,
+              "restarts": 100,
+              "best_size_found": 7,
+              "best_size_over_N_pow_quarter": 2.114963,
+              "best_size_over_sqrtN": 0.63901
+            },
+            {
+              "N": 180,
+              "restarts": 80,
+              "best_size_found": 8,
+              "best_size_over_N_pow_quarter": 2.184097,
+              "best_size_over_sqrtN": 0.596285
+            },
+            {
+              "N": 260,
+              "restarts": 60,
+              "best_size_found": 8,
+              "best_size_over_N_pow_quarter": 1.992263,
+              "best_size_over_sqrtN": 0.496139
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "problem": "EP-1084",
+  "normalized_utc": "2026-03-05T08:54:16.974Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch24_web_compute.md",
+        "content": "### EP-1084\n- Quick literature check:\n  - Open (edited 08 Feb 2026), with `d=3` linear-minus-surface-type bounds still the main asymptotic shape.\n- Finite compute signal:\n  - FCC-parity block constructions show contact counts close to linear (`pairs/n` rising toward `~4.86` in tested windows) with deficits of order compatible with `n^{2/3}` surface effects.\n- Interpretation:\n  - Finite construction behavior supports linear-minus-boundary heuristics but is not extremal certification.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/1063\n  - https://www.erdosproblems.com/1065\n  - https://www.erdosproblems.com/1066\n  - https://www.erdosproblems.com/1068\n  - https://www.erdosproblems.com/1070\n  - https://www.erdosproblems.com/1072\n  - https://www.erdosproblems.com/1073\n  - https://www.erdosproblems.com/1074\n  - https://www.erdosproblems.com/1083\n  - https://www.erdosproblems.com/1084"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch24_quick_compute.mjs",
+        "heading": "FCC-lattice block contact counts in 3D (lower-bound constructions).",
+        "content": "// EP-1084: FCC-lattice block contact counts in 3D (lower-bound constructions).\n{\n  const neigh = [];\n  for (const a of [-1, 1]) {\n    for (const b of [-1, 1]) {\n      neigh.push([a, b, 0]);\n      neigh.push([a, 0, b]);\n      neigh.push([0, a, b]);\n    }\n  }\n\n  const rows = [];\n  for (let L = 4; L <= 10; L += 1) {\n    const pts = [];\n    const id = new Map();\n    for (let x = 0; x < L; x += 1) {\n      for (let y = 0; y < L; y += 1) {\n        for (let z = 0; z < L; z += 1) {\n          if ((x + y + z) % 2 !== 0) continue;\n          const idx = pts.length;\n          pts.push([x, y, z]);\n          id.set(`${x},${y},${z}`, idx);\n        }\n      }\n    }\n    let edges = 0;\n    for (const [x, y, z] of pts) {\n      for (const [dx, dy, dz] of neigh) {\n        const nx = x + dx;\n        const ny = y + dy;\n        const nz = z + dz;\n        if (id.has(`${nx},${ny},${nz}`)) edges += 1;\n      }\n    }\n    edges = Math.floor(edges / 2);\n    const n = pts.length;\n    rows.push({\n      L,\n      n_points: n,\n      unit_distance_pairs: edges,\n      pairs_over_n: Number((edges / n).toPrecision(7)),\n      deficit_from_6n: 6 * n - edges,\n      deficit_over_n_2_over_3: Number(((6 * n - edges) / (n ** (2 / 3))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1084 = {\n    description: 'Finite 3D contact-number construction using parity-sublattice (FCC) blocks.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch24_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch24_quick_compute.json",
+        "key": "ep1084",
+        "container_meta": {
+          "script": "harder_batch24_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:28:27.056Z"
+        },
+        "data": {
+          "description": "Finite 3D contact-number construction using parity-sublattice (FCC) blocks.",
+          "rows": [
+            {
+              "L": 4,
+              "n_points": 32,
+              "unit_distance_pairs": 108,
+              "pairs_over_n": 3.375,
+              "deficit_from_6n": 84,
+              "deficit_over_n_2_over_3": 8.333856
+            },
+            {
+              "L": 5,
+              "n_points": 63,
+              "unit_distance_pairs": 240,
+              "pairs_over_n": 3.809524,
+              "deficit_from_6n": 138,
+              "deficit_over_n_2_over_3": 8.71603
+            },
+            {
+              "L": 6,
+              "n_points": 108,
+              "unit_distance_pairs": 450,
+              "pairs_over_n": 4.166667,
+              "deficit_from_6n": 198,
+              "deficit_over_n_2_over_3": 8.730706
+            },
+            {
+              "L": 7,
+              "n_points": 172,
+              "unit_distance_pairs": 756,
+              "pairs_over_n": 4.395349,
+              "deficit_from_6n": 276,
+              "deficit_over_n_2_over_3": 8.923943
+            },
+            {
+              "L": 8,
+              "n_points": 256,
+              "unit_distance_pairs": 1176,
+              "pairs_over_n": 4.59375,
+              "deficit_from_6n": 360,
+              "deficit_over_n_2_over_3": 8.929131
+            },
+            {
+              "L": 9,
+              "n_points": 365,
+              "unit_distance_pairs": 1728,
+              "pairs_over_n": 4.734247,
+              "deficit_from_6n": 462,
+              "deficit_over_n_2_over_3": 9.045795
+            },
+            {
+              "L": 10,
+              "n_points": 500,
+              "unit_distance_pairs": 2430,
+              "pairs_over_n": 4.86,
+              "deficit_from_6n": 570,
+              "deficit_over_n_2_over_3": 9.048186
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "problem": "EP-917",
+  "normalized_utc": "2026-03-05T08:54:16.970Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch20_web_compute.md",
+        "content": "### EP-917\n- Quick literature check:\n  - Updated references (2023) keep the central dense-critical asymptotics open, especially the `k=6` main case.\n- Finite compute signal:\n  - Dirac-type join-of-two-odd-cycles constructions were verified at `t=2..5` to have `\\chi=6`, exact edge formula, and sampled edge-criticality.\n- Interpretation:\n  - Finite checks reinforce known lower-bound construction behavior near density `n^2/4` for `k=6`."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch20_quick_compute.mjs",
+        "heading": "Dirac-type dense critical constructions for k=6.",
+        "content": "// EP-917: Dirac-type dense critical constructions for k=6.\n{\n  function diracJoinTwoOddCycles(t) {\n    const m = 2 * t + 1;\n    const n = 2 * m;\n    const adj = makeGraph(n);\n\n    // First odd cycle on [0, m-1], second on [m,2m-1].\n    for (let i = 0; i < m; i += 1) {\n      addUndirectedEdge(adj, i, (i + 1) % m);\n      addUndirectedEdge(adj, m + i, m + ((i + 1) % m));\n    }\n\n    // Complete join between two cycles.\n    for (let i = 0; i < m; i += 1) {\n      for (let j = 0; j < m; j += 1) addUndirectedEdge(adj, i, m + j);\n    }\n\n    return adj;\n  }\n\n  function edgeList(adj) {\n    const n = adj.length;\n    const outE = [];\n    const seen = new Set();\n    for (let u = 0; u < n; u += 1) {\n      for (const v of adj[u]) {\n        if (u < v) {\n          const key = `${u},${v}`;\n          if (!seen.has(key)) {\n            seen.add(key);\n            outE.push([u, v]);\n          }\n        }\n      }\n    }\n    return outE;\n  }\n\n  function copyAdj(adj) {\n    return adj.map((x) => [...x]);\n  }\n\n  function removeEdge(adj, a, b) {\n    adj[a] = adj[a].filter((x) => x !== b);\n    adj[b] = adj[b].filter((x) => x !== a);\n  }\n\n  const rows = [];\n  for (const t of [2, 3, 4, 5]) {\n    const G = diracJoinTwoOddCycles(t);\n    const n = G.length;\n    const E = edgeList(G);\n\n    const chiG = chromaticNumberDSATUR(G);\n    let allDrop = true;\n\n    const sample = E.length <= 80 ? E : E.filter((_, i) => i % Math.floor(E.length / 80) === 0);\n    for (const [u, v] of sample) {\n      const H = copyAdj(G);\n      removeEdge(H, u, v);\n      const chiH = chromaticNumberDSATUR(H);\n      if (!(chiH < chiG)) {\n        allDrop = false;\n        break;\n      }\n    }\n\n    rows.push({\n      t,\n      n,\n      edge_count: E.length,\n      edge_density_over_n2: Number((E.length / (n * n)).toPrecision(7)),\n      chromatic_number: chiG,\n      tested_edge_criticality_on_sample: allDrop,\n      tested_edges: sample.length,\n      dirac_formula_value_4t2_plus8t_plus3: 4 * t * t + 8 * t + 3,\n    });\n  }\n\n  out.results.ep917 = {\n    description: 'Finite verification profile for Dirac join-of-two-odd-cycles construction (k=6 case).',\n    rows,\n    note: 'Criticality check is exact on sampled edges only when E is large.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch20_quick_compute.json",
+        "key": "ep917",
+        "container_meta": {
+          "script": "harder_batch20_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:01:58.630Z"
+        },
+        "data": {
+          "description": "Finite verification profile for Dirac join-of-two-odd-cycles construction (k=6 case).",
+          "rows": [
+            {
+              "t": 2,
+              "n": 10,
+              "edge_count": 35,
+              "edge_density_over_n2": 0.35,
+              "chromatic_number": 6,
+              "tested_edge_criticality_on_sample": true,
+              "tested_edges": 35,
+              "dirac_formula_value_4t2_plus8t_plus3": 35
+            },
+            {
+              "t": 3,
+              "n": 14,
+              "edge_count": 63,
+              "edge_density_over_n2": 0.3214286,
+              "chromatic_number": 6,
+              "tested_edge_criticality_on_sample": true,
+              "tested_edges": 63,
+              "dirac_formula_value_4t2_plus8t_plus3": 63
+            },
+            {
+              "t": 4,
+              "n": 18,
+              "edge_count": 99,
+              "edge_density_over_n2": 0.3055556,
+              "chromatic_number": 6,
+              "tested_edge_criticality_on_sample": true,
+              "tested_edges": 99,
+              "dirac_formula_value_4t2_plus8t_plus3": 99
+            },
+            {
+              "t": 5,
+              "n": 22,
+              "edge_count": 143,
+              "edge_density_over_n2": 0.2954545,
+              "chromatic_number": 6,
+              "tested_edge_criticality_on_sample": true,
+              "tested_edges": 143,
+              "dirac_formula_value_4t2_plus8t_plus3": 143
+            }
+          ],
+          "note": "Criticality check is exact on sampled edges only when E is large."
+        }
+      }
+    ]
+  }
+}

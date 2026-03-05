@@ -1,0 +1,177 @@
+{
+  "problem": "EP-196",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep196_permutation_avoidance_search.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-196",
+        "method": "randomized_backtracking_for_permutations_avoiding_4-term_AP_subsequences",
+        "params": {
+          "Nmax": 64,
+          "restarts": 90,
+          "backtrackCap": 220000
+        },
+        "largest_N_with_full_witness_found": 14,
+        "witness_at_largest_N": [
+          7,
+          8,
+          6,
+          10,
+          9,
+          3,
+          2,
+          4,
+          5,
+          13,
+          11,
+          1,
+          14,
+          12
+        ],
+        "rows": [
+          {
+            "N": 12,
+            "solved_full_permutation_found": true,
+            "runtime_ms": 19,
+            "witness_permutation_prefix": [
+              6,
+              7,
+              5,
+              9,
+              8,
+              11,
+              2,
+              1,
+              3,
+              4,
+              12,
+              10
+            ],
+            "witness_permutation_length": 12
+          },
+          {
+            "N": 14,
+            "solved_full_permutation_found": true,
+            "runtime_ms": 589,
+            "witness_permutation_prefix": [
+              7,
+              8,
+              6,
+              10,
+              9,
+              3,
+              2,
+              4,
+              5,
+              13,
+              11,
+              1,
+              14,
+              12
+            ],
+            "witness_permutation_length": 14
+          },
+          {
+            "N": 16,
+            "solved_full_permutation_found": false,
+            "runtime_ms": 10615,
+            "best_prefix_length_found": 14,
+            "best_prefix_sample": [
+              9,
+              8,
+              7,
+              10,
+              11,
+              4,
+              14,
+              3,
+              5,
+              15,
+              16,
+              13,
+              1,
+              2
+            ]
+          },
+          {
+            "N": 18,
+            "solved_full_permutation_found": false,
+            "runtime_ms": 13589,
+            "best_prefix_length_found": 15,
+            "best_prefix_sample": [
+              9,
+              10,
+              11,
+              8,
+              7,
+              13,
+              14,
+              3,
+              16,
+              17,
+              2,
+              5,
+              1,
+              4,
+              18
+            ]
+          },
+          {
+            "N": 20,
+            "solved_full_permutation_found": false,
+            "runtime_ms": 18447,
+            "best_prefix_length_found": 17,
+            "best_prefix_sample": [
+              11,
+              10,
+              9,
+              12,
+              13,
+              7,
+              6,
+              17,
+              18,
+              15,
+              3,
+              2,
+              1,
+              4,
+              20,
+              19,
+              16
+            ]
+          },
+          {
+            "N": 22,
+            "solved_full_permutation_found": false,
+            "runtime_ms": 25442,
+            "best_prefix_length_found": 17,
+            "best_prefix_sample": [
+              12,
+              11,
+              10,
+              13,
+              14,
+              8,
+              7,
+              16,
+              20,
+              17,
+              3,
+              21,
+              2,
+              5,
+              22,
+              1,
+              4
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-01T16:58:11.454Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "problem": "EP-120",
+  "normalized_utc": "2026-03-05T08:54:16.950Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-120\n- Quick literature check:\n  - The Erdős similarity conjecture remains open; recent survey-level updates (2024/2025) and bi-Lipschitz variants are active.\n- Finite compute signal:\n  - In a discrete proxy (avoiding affine copies of finite geometric patterns), best-found avoidance densities stay positive and substantial on tested ranges.\n- Interpretation:\n  - Finite combinatorial avoidance remains feasible at moderate density, but this does not transfer directly to the measurable-set conjecture."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "finite discrete affine-copy avoidance for geometric-pattern proxies.",
+        "content": "// EP-120: finite discrete affine-copy avoidance for geometric-pattern proxies.\n{\n  const rows = [];\n  for (const m of [4, 5, 6]) {\n    for (const N of [128, 256, 384]) {\n      rows.push(affineAvoidanceDensityFinitePower2(m, N, rng, 24));\n    }\n  }\n  out.results.ep120 = {\n    description: 'Finite proxy: large subsets of [1,N] avoiding affine copies of {1,2,4,...,2^(m-1)}.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep120",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite proxy: large subsets of [1,N] avoiding affine copies of {1,2,4,...,2^(m-1)}.",
+          "rows": [
+            {
+              "m": 4,
+              "N": 128,
+              "best_avoidance_set_size_found": 50,
+              "best_density_found": 0.390625,
+              "copies_tested": 976
+            },
+            {
+              "m": 4,
+              "N": 256,
+              "best_avoidance_set_size_found": 82,
+              "best_density_found": 0.320313,
+              "copies_tested": 4000
+            },
+            {
+              "m": 4,
+              "N": 384,
+              "best_avoidance_set_size_found": 108,
+              "best_density_found": 0.28125,
+              "copies_tested": 9072
+            },
+            {
+              "m": 5,
+              "N": 128,
+              "best_avoidance_set_size_found": 72,
+              "best_density_found": 0.5625,
+              "copies_tested": 456
+            },
+            {
+              "m": 5,
+              "N": 256,
+              "best_avoidance_set_size_found": 123,
+              "best_density_found": 0.480469,
+              "copies_tested": 1936
+            },
+            {
+              "m": 5,
+              "N": 384,
+              "best_avoidance_set_size_found": 166,
+              "best_density_found": 0.432292,
+              "copies_tested": 4440
+            },
+            {
+              "m": 6,
+              "N": 128,
+              "best_avoidance_set_size_found": 89,
+              "best_density_found": 0.695313,
+              "copies_tested": 196
+            },
+            {
+              "m": 6,
+              "N": 256,
+              "best_avoidance_set_size_found": 156,
+              "best_density_found": 0.609375,
+              "copies_tested": 904
+            },
+            {
+              "m": 6,
+              "N": 384,
+              "best_avoidance_set_size_found": 216,
+              "best_density_found": 0.5625,
+              "copies_tested": 2124
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

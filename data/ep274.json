@@ -1,0 +1,77 @@
+{
+  "problem": "EP-274",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-274\n- Quick literature check:\n  - For broad classes (notably abelian / subnormal settings), nonexistence of such exact coverings is known; full general scope remains tied to Herzog-Sch\"onheim-type conjectural territory.\n- Finite compute signal:\n  - Exhaustive exact-cover search in cyclic groups `Z_n` for `n<=30` found no partition by cosets with pairwise distinct indices.\n- Interpretation:\n  - Computation aligns with known impossibility in abelian examples and does not suggest a small counterexample."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "exact-cover search in cyclic groups Z_n by cosets with distinct indices.",
+        "content": "// EP-274: exact-cover search in cyclic groups Z_n by cosets with distinct indices.\n{\n  function cosetsZn(n) {\n    const cands = [];\n    for (let idx = 2; idx <= n; idx += 1) {\n      if (n % idx !== 0) continue;\n      for (let r = 0; r < idx; r += 1) {\n        let mask = 0n;\n        for (let x = r; x < n; x += idx) mask |= 1n << BigInt(x);\n        cands.push({ index: idx, mask });\n      }\n    }\n    return cands;\n  }\n\n  function hasDistinctIndexCosetPartitionZn(n) {\n    const cands = cosetsZn(n);\n    const allMask = (1n << BigInt(n)) - 1n;\n\n    const idxVals = [...new Set(cands.map((c) => c.index))].sort((a, b) => a - b);\n    const idxPos = new Map(idxVals.map((v, i) => [v, i]));\n\n    const elemToCands = Array.from({ length: n }, () => []);\n    for (let i = 0; i < cands.length; i += 1) {\n      const { mask } = cands[i];\n      for (let e = 0; e < n; e += 1) {\n        if ((mask >> BigInt(e)) & 1n) elemToCands[e].push(i);\n      }\n    }\n\n    for (const list of elemToCands) {\n      list.sort((i, j) => {\n        const ai = cands[i].mask.toString(2).length;\n        const aj = cands[j].mask.toString(2).length;\n        return ai - aj;\n      });\n    }\n\n    function dfs(covered, usedIdxBits, chosen) {\n      if (covered === allMask) return chosen > 1;\n\n      let e = 0;\n      while (e < n && ((covered >> BigInt(e)) & 1n)) e += 1;\n      if (e >= n) return chosen > 1;\n\n      for (const ci of elemToCands[e]) {\n        const c = cands[ci];\n        const bit = 1n << BigInt(idxPos.get(c.index));\n        if (usedIdxBits & bit) continue;\n        if (covered & c.mask) continue;\n        if (dfs(covered | c.mask, usedIdxBits | bit, chosen + 1)) return true;\n      }\n      return false;\n    }\n\n    return dfs(0n, 0n, 0);\n  }\n\n  const rows = [];\n  let foundAny = false;\n  for (const n of [6, 8, 10, 12, 14, 16, 18, 20, 24, 30]) {\n    const ok = hasDistinctIndexCosetPartitionZn(n);\n    if (ok) foundAny = true;\n    rows.push({ n, has_partition: ok });\n  }\n\n  out.results.ep274 = {\n    description: 'Brute-force exact-cover search in small cyclic groups for distinct-index coset partitions.',\n    rows,\n    any_partition_found: foundAny,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep274",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Brute-force exact-cover search in small cyclic groups for distinct-index coset partitions.",
+          "rows": [
+            {
+              "n": 6,
+              "has_partition": false
+            },
+            {
+              "n": 8,
+              "has_partition": false
+            },
+            {
+              "n": 10,
+              "has_partition": false
+            },
+            {
+              "n": 12,
+              "has_partition": false
+            },
+            {
+              "n": 14,
+              "has_partition": false
+            },
+            {
+              "n": 16,
+              "has_partition": false
+            },
+            {
+              "n": 18,
+              "has_partition": false
+            },
+            {
+              "n": 20,
+              "has_partition": false
+            },
+            {
+              "n": 24,
+              "has_partition": false
+            },
+            {
+              "n": 30,
+              "has_partition": false
+            }
+          ],
+          "any_partition_found": false
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "problem": "EP-503",
+  "normalized_utc": "2026-03-05T08:54:16.960Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch13_web_compute.md",
+        "content": "### EP-503\n- Quick literature check:\n  - Best known upper bound remains quadratic in `d`; exact values known only in small dimensions.\n- Finite compute signal:\n  - Verified explicit lower constructions of sizes `binom(d+1,2)` and `binom(d+1,2)+1` satisfy the all-triples-isosceles property for `d=2..8`.\n- Interpretation:\n  - Construction checks reproduce known lower-bound mechanisms and emphasize the remaining large gap to upper bounds."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch13_quick_compute.mjs",
+        "heading": "explicit lower-construction validity checks.",
+        "content": "// EP-503: explicit lower-construction validity checks.\n{\n  function dist2(x, y) {\n    let s = 0;\n    for (let i = 0; i < x.length; i += 1) {\n      const d = x[i] - y[i];\n      s += d * d;\n    }\n    return s;\n  }\n\n  function allTriplesIsosceles(points, eps = 1e-9) {\n    const n = points.length;\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) {\n        for (let k = j + 1; k < n; k += 1) {\n          const a = dist2(points[i], points[j]);\n          const b = dist2(points[i], points[k]);\n          const c = dist2(points[j], points[k]);\n          if (Math.abs(a - b) > eps && Math.abs(a - c) > eps && Math.abs(b - c) > eps) return false;\n        }\n      }\n    }\n    return true;\n  }\n\n  const rows = [];\n  for (let d = 2; d <= 8; d += 1) {\n    const m = d + 1;\n    const pts = [];\n    for (let i = 0; i < m; i += 1) {\n      for (let j = i + 1; j < m; j += 1) {\n        const v = Array(m).fill(0);\n        v[i] = 1;\n        v[j] = 1;\n        pts.push(v);\n      }\n    }\n    const centroid = Array(m).fill(2 / m);\n    const ptsPlus = [...pts, centroid];\n\n    rows.push({\n      d,\n      base_size_binom_dplus1_2: pts.length,\n      base_valid: allTriplesIsosceles(pts),\n      plus1_size: ptsPlus.length,\n      plus1_valid: allTriplesIsosceles(ptsPlus),\n      upper_bound_binom_dplus2_2: choose2(d + 2),\n    });\n  }\n\n  out.results.ep503 = {\n    description: 'Validity checks for known explicit lower constructions in the all-triples-isosceles problem.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch13_quick_compute.json",
+        "key": "ep503",
+        "container_meta": {
+          "script": "harder_batch13_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:44:19.727Z"
+        },
+        "data": {
+          "description": "Validity checks for known explicit lower constructions in the all-triples-isosceles problem.",
+          "rows": [
+            {
+              "d": 2,
+              "base_size_binom_dplus1_2": 3,
+              "base_valid": true,
+              "plus1_size": 4,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 6
+            },
+            {
+              "d": 3,
+              "base_size_binom_dplus1_2": 6,
+              "base_valid": true,
+              "plus1_size": 7,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 10
+            },
+            {
+              "d": 4,
+              "base_size_binom_dplus1_2": 10,
+              "base_valid": true,
+              "plus1_size": 11,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 15
+            },
+            {
+              "d": 5,
+              "base_size_binom_dplus1_2": 15,
+              "base_valid": true,
+              "plus1_size": 16,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 21
+            },
+            {
+              "d": 6,
+              "base_size_binom_dplus1_2": 21,
+              "base_valid": true,
+              "plus1_size": 22,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 28
+            },
+            {
+              "d": 7,
+              "base_size_binom_dplus1_2": 28,
+              "base_valid": true,
+              "plus1_size": 29,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 36
+            },
+            {
+              "d": 8,
+              "base_size_binom_dplus1_2": 36,
+              "base_valid": true,
+              "plus1_size": 37,
+              "plus1_valid": true,
+              "upper_bound_binom_dplus2_2": 45
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

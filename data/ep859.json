@@ -1,0 +1,2820 @@
+{
+  "problem": "EP-859",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep859_density_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-859",
+        "method": "finite_empirical_density_scan_via_divisor_subset_sum",
+        "scans": [
+          {
+            "N": 100000,
+            "rows": [
+              {
+                "t": 2,
+                "count": 50000,
+                "empirical_density": 0.5,
+                "baseline_1_over_t": 0.5,
+                "ratio_to_1_over_t": 1
+              },
+              {
+                "t": 3,
+                "count": 66667,
+                "empirical_density": 0.66667,
+                "baseline_1_over_t": 0.3333333333333333,
+                "ratio_to_1_over_t": 2.00001
+              },
+              {
+                "t": 4,
+                "count": 50000,
+                "empirical_density": 0.5,
+                "baseline_1_over_t": 0.25,
+                "ratio_to_1_over_t": 2
+              },
+              {
+                "t": 5,
+                "count": 46666,
+                "empirical_density": 0.46666,
+                "baseline_1_over_t": 0.2,
+                "ratio_to_1_over_t": 2.3333
+              },
+              {
+                "t": 6,
+                "count": 46666,
+                "empirical_density": 0.46666,
+                "baseline_1_over_t": 0.16666666666666666,
+                "ratio_to_1_over_t": 2.79996
+              },
+              {
+                "t": 7,
+                "count": 45714,
+                "empirical_density": 0.45714,
+                "baseline_1_over_t": 0.14285714285714285,
+                "ratio_to_1_over_t": 3.19998
+              },
+              {
+                "t": 8,
+                "count": 42858,
+                "empirical_density": 0.42858,
+                "baseline_1_over_t": 0.125,
+                "ratio_to_1_over_t": 3.42864
+              },
+              {
+                "t": 9,
+                "count": 37779,
+                "empirical_density": 0.37779,
+                "baseline_1_over_t": 0.1111111111111111,
+                "ratio_to_1_over_t": 3.40011
+              },
+              {
+                "t": 10,
+                "count": 40001,
+                "empirical_density": 0.40001,
+                "baseline_1_over_t": 0.1,
+                "ratio_to_1_over_t": 4.0001
+              },
+              {
+                "t": 11,
+                "count": 39394,
+                "empirical_density": 0.39394,
+                "baseline_1_over_t": 0.09090909090909091,
+                "ratio_to_1_over_t": 4.33334
+              },
+              {
+                "t": 12,
+                "count": 43434,
+                "empirical_density": 0.43434,
+                "baseline_1_over_t": 0.08333333333333333,
+                "ratio_to_1_over_t": 5.21208
+              },
+              {
+                "t": 13,
+                "count": 40965,
+                "empirical_density": 0.40965,
+                "baseline_1_over_t": 0.07692307692307693,
+                "ratio_to_1_over_t": 5.32545
+              },
+              {
+                "t": 14,
+                "count": 36197,
+                "empirical_density": 0.36197,
+                "baseline_1_over_t": 0.07142857142857142,
+                "ratio_to_1_over_t": 5.06758
+              },
+              {
+                "t": 15,
+                "count": 36004,
+                "empirical_density": 0.36004,
+                "baseline_1_over_t": 0.06666666666666667,
+                "ratio_to_1_over_t": 5.400600000000001
+              },
+              {
+                "t": 16,
+                "count": 34612,
+                "empirical_density": 0.34612,
+                "baseline_1_over_t": 0.0625,
+                "ratio_to_1_over_t": 5.53792
+              },
+              {
+                "t": 17,
+                "count": 35874,
+                "empirical_density": 0.35874,
+                "baseline_1_over_t": 0.058823529411764705,
+                "ratio_to_1_over_t": 6.09858
+              },
+              {
+                "t": 18,
+                "count": 34959,
+                "empirical_density": 0.34959,
+                "baseline_1_over_t": 0.05555555555555555,
+                "ratio_to_1_over_t": 6.29262
+              },
+              {
+                "t": 19,
+                "count": 33825,
+                "empirical_density": 0.33825,
+                "baseline_1_over_t": 0.05263157894736842,
+                "ratio_to_1_over_t": 6.42675
+              },
+              {
+                "t": 20,
+                "count": 34178,
+                "empirical_density": 0.34178,
+                "baseline_1_over_t": 0.05,
+                "ratio_to_1_over_t": 6.8355999999999995
+              },
+              {
+                "t": 21,
+                "count": 33416,
+                "empirical_density": 0.33416,
+                "baseline_1_over_t": 0.047619047619047616,
+                "ratio_to_1_over_t": 7.01736
+              },
+              {
+                "t": 22,
+                "count": 32373,
+                "empirical_density": 0.32373,
+                "baseline_1_over_t": 0.045454545454545456,
+                "ratio_to_1_over_t": 7.12206
+              },
+              {
+                "t": 23,
+                "count": 35920,
+                "empirical_density": 0.3592,
+                "baseline_1_over_t": 0.043478260869565216,
+                "ratio_to_1_over_t": 8.2616
+              },
+              {
+                "t": 24,
+                "count": 37268,
+                "empirical_density": 0.37268,
+                "baseline_1_over_t": 0.041666666666666664,
+                "ratio_to_1_over_t": 8.944320000000001
+              },
+              {
+                "t": 25,
+                "count": 33773,
+                "empirical_density": 0.33773,
+                "baseline_1_over_t": 0.04,
+                "ratio_to_1_over_t": 8.443249999999999
+              },
+              {
+                "t": 26,
+                "count": 32065,
+                "empirical_density": 0.32065,
+                "baseline_1_over_t": 0.038461538461538464,
+                "ratio_to_1_over_t": 8.3369
+              },
+              {
+                "t": 27,
+                "count": 31393,
+                "empirical_density": 0.31393,
+                "baseline_1_over_t": 0.037037037037037035,
+                "ratio_to_1_over_t": 8.47611
+              },
+              {
+                "t": 28,
+                "count": 32864,
+                "empirical_density": 0.32864,
+                "baseline_1_over_t": 0.03571428571428571,
+                "ratio_to_1_over_t": 9.20192
+              },
+              {
+                "t": 29,
+                "count": 32679,
+                "empirical_density": 0.32679,
+                "baseline_1_over_t": 0.034482758620689655,
+                "ratio_to_1_over_t": 9.47691
+              },
+              {
+                "t": 30,
+                "count": 32802,
+                "empirical_density": 0.32802,
+                "baseline_1_over_t": 0.03333333333333333,
+                "ratio_to_1_over_t": 9.840599999999998
+              },
+              {
+                "t": 31,
+                "count": 33964,
+                "empirical_density": 0.33964,
+                "baseline_1_over_t": 0.03225806451612903,
+                "ratio_to_1_over_t": 10.52884
+              },
+              {
+                "t": 32,
+                "count": 31100,
+                "empirical_density": 0.311,
+                "baseline_1_over_t": 0.03125,
+                "ratio_to_1_over_t": 9.952
+              },
+              {
+                "t": 33,
+                "count": 30484,
+                "empirical_density": 0.30484,
+                "baseline_1_over_t": 0.030303030303030304,
+                "ratio_to_1_over_t": 10.05972
+              },
+              {
+                "t": 34,
+                "count": 30360,
+                "empirical_density": 0.3036,
+                "baseline_1_over_t": 0.029411764705882353,
+                "ratio_to_1_over_t": 10.3224
+              },
+              {
+                "t": 35,
+                "count": 29715,
+                "empirical_density": 0.29715,
+                "baseline_1_over_t": 0.02857142857142857,
+                "ratio_to_1_over_t": 10.400250000000002
+              },
+              {
+                "t": 36,
+                "count": 31739,
+                "empirical_density": 0.31739,
+                "baseline_1_over_t": 0.027777777777777776,
+                "ratio_to_1_over_t": 11.42604
+              },
+              {
+                "t": 37,
+                "count": 32321,
+                "empirical_density": 0.32321,
+                "baseline_1_over_t": 0.02702702702702703,
+                "ratio_to_1_over_t": 11.95877
+              },
+              {
+                "t": 38,
+                "count": 29992,
+                "empirical_density": 0.29992,
+                "baseline_1_over_t": 0.02631578947368421,
+                "ratio_to_1_over_t": 11.39696
+              },
+              {
+                "t": 39,
+                "count": 31169,
+                "empirical_density": 0.31169,
+                "baseline_1_over_t": 0.02564102564102564,
+                "ratio_to_1_over_t": 12.15591
+              },
+              {
+                "t": 40,
+                "count": 32381,
+                "empirical_density": 0.32381,
+                "baseline_1_over_t": 0.025,
+                "ratio_to_1_over_t": 12.952399999999999
+              },
+              {
+                "t": 41,
+                "count": 31841,
+                "empirical_density": 0.31841,
+                "baseline_1_over_t": 0.024390243902439025,
+                "ratio_to_1_over_t": 13.054810000000002
+              },
+              {
+                "t": 42,
+                "count": 30849,
+                "empirical_density": 0.30849,
+                "baseline_1_over_t": 0.023809523809523808,
+                "ratio_to_1_over_t": 12.956579999999999
+              },
+              {
+                "t": 43,
+                "count": 30294,
+                "empirical_density": 0.30294,
+                "baseline_1_over_t": 0.023255813953488372,
+                "ratio_to_1_over_t": 13.02642
+              },
+              {
+                "t": 44,
+                "count": 29581,
+                "empirical_density": 0.29581,
+                "baseline_1_over_t": 0.022727272727272728,
+                "ratio_to_1_over_t": 13.015640000000001
+              },
+              {
+                "t": 45,
+                "count": 27960,
+                "empirical_density": 0.2796,
+                "baseline_1_over_t": 0.022222222222222223,
+                "ratio_to_1_over_t": 12.582
+              },
+              {
+                "t": 46,
+                "count": 28159,
+                "empirical_density": 0.28159,
+                "baseline_1_over_t": 0.021739130434782608,
+                "ratio_to_1_over_t": 12.953140000000001
+              },
+              {
+                "t": 47,
+                "count": 29877,
+                "empirical_density": 0.29877,
+                "baseline_1_over_t": 0.02127659574468085,
+                "ratio_to_1_over_t": 14.04219
+              },
+              {
+                "t": 48,
+                "count": 30673,
+                "empirical_density": 0.30673,
+                "baseline_1_over_t": 0.020833333333333332,
+                "ratio_to_1_over_t": 14.723040000000001
+              },
+              {
+                "t": 49,
+                "count": 28902,
+                "empirical_density": 0.28902,
+                "baseline_1_over_t": 0.02040816326530612,
+                "ratio_to_1_over_t": 14.16198
+              },
+              {
+                "t": 50,
+                "count": 28180,
+                "empirical_density": 0.2818,
+                "baseline_1_over_t": 0.02,
+                "ratio_to_1_over_t": 14.09
+              },
+              {
+                "t": 51,
+                "count": 28705,
+                "empirical_density": 0.28705,
+                "baseline_1_over_t": 0.0196078431372549,
+                "ratio_to_1_over_t": 14.639550000000002
+              },
+              {
+                "t": 52,
+                "count": 28804,
+                "empirical_density": 0.28804,
+                "baseline_1_over_t": 0.019230769230769232,
+                "ratio_to_1_over_t": 14.97808
+              },
+              {
+                "t": 53,
+                "count": 29959,
+                "empirical_density": 0.29959,
+                "baseline_1_over_t": 0.018867924528301886,
+                "ratio_to_1_over_t": 15.87827
+              },
+              {
+                "t": 54,
+                "count": 29207,
+                "empirical_density": 0.29207,
+                "baseline_1_over_t": 0.018518518518518517,
+                "ratio_to_1_over_t": 15.77178
+              },
+              {
+                "t": 55,
+                "count": 29429,
+                "empirical_density": 0.29429,
+                "baseline_1_over_t": 0.01818181818181818,
+                "ratio_to_1_over_t": 16.18595
+              },
+              {
+                "t": 56,
+                "count": 29597,
+                "empirical_density": 0.29597,
+                "baseline_1_over_t": 0.017857142857142856,
+                "ratio_to_1_over_t": 16.57432
+              },
+              {
+                "t": 57,
+                "count": 29406,
+                "empirical_density": 0.29406,
+                "baseline_1_over_t": 0.017543859649122806,
+                "ratio_to_1_over_t": 16.76142
+              },
+              {
+                "t": 58,
+                "count": 28706,
+                "empirical_density": 0.28706,
+                "baseline_1_over_t": 0.017241379310344827,
+                "ratio_to_1_over_t": 16.64948
+              },
+              {
+                "t": 59,
+                "count": 28923,
+                "empirical_density": 0.28923,
+                "baseline_1_over_t": 0.01694915254237288,
+                "ratio_to_1_over_t": 17.06457
+              },
+              {
+                "t": 60,
+                "count": 30359,
+                "empirical_density": 0.30359,
+                "baseline_1_over_t": 0.016666666666666666,
+                "ratio_to_1_over_t": 18.215400000000002
+              },
+              {
+                "t": 61,
+                "count": 29751,
+                "empirical_density": 0.29751,
+                "baseline_1_over_t": 0.01639344262295082,
+                "ratio_to_1_over_t": 18.14811
+              },
+              {
+                "t": 62,
+                "count": 28401,
+                "empirical_density": 0.28401,
+                "baseline_1_over_t": 0.016129032258064516,
+                "ratio_to_1_over_t": 17.60862
+              },
+              {
+                "t": 63,
+                "count": 27388,
+                "empirical_density": 0.27388,
+                "baseline_1_over_t": 0.015873015873015872,
+                "ratio_to_1_over_t": 17.254440000000002
+              },
+              {
+                "t": 64,
+                "count": 26488,
+                "empirical_density": 0.26488,
+                "baseline_1_over_t": 0.015625,
+                "ratio_to_1_over_t": 16.95232
+              },
+              {
+                "t": 65,
+                "count": 27152,
+                "empirical_density": 0.27152,
+                "baseline_1_over_t": 0.015384615384615385,
+                "ratio_to_1_over_t": 17.648799999999998
+              },
+              {
+                "t": 66,
+                "count": 27511,
+                "empirical_density": 0.27511,
+                "baseline_1_over_t": 0.015151515151515152,
+                "ratio_to_1_over_t": 18.15726
+              },
+              {
+                "t": 67,
+                "count": 27314,
+                "empirical_density": 0.27314,
+                "baseline_1_over_t": 0.014925373134328358,
+                "ratio_to_1_over_t": 18.30038
+              },
+              {
+                "t": 68,
+                "count": 27915,
+                "empirical_density": 0.27915,
+                "baseline_1_over_t": 0.014705882352941176,
+                "ratio_to_1_over_t": 18.9822
+              },
+              {
+                "t": 69,
+                "count": 27762,
+                "empirical_density": 0.27762,
+                "baseline_1_over_t": 0.014492753623188406,
+                "ratio_to_1_over_t": 19.15578
+              },
+              {
+                "t": 70,
+                "count": 28076,
+                "empirical_density": 0.28076,
+                "baseline_1_over_t": 0.014285714285714285,
+                "ratio_to_1_over_t": 19.653200000000002
+              },
+              {
+                "t": 71,
+                "count": 28838,
+                "empirical_density": 0.28838,
+                "baseline_1_over_t": 0.014084507042253521,
+                "ratio_to_1_over_t": 20.474980000000002
+              },
+              {
+                "t": 72,
+                "count": 29595,
+                "empirical_density": 0.29595,
+                "baseline_1_over_t": 0.013888888888888888,
+                "ratio_to_1_over_t": 21.3084
+              },
+              {
+                "t": 73,
+                "count": 27651,
+                "empirical_density": 0.27651,
+                "baseline_1_over_t": 0.0136986301369863,
+                "ratio_to_1_over_t": 20.185229999999997
+              },
+              {
+                "t": 74,
+                "count": 26894,
+                "empirical_density": 0.26894,
+                "baseline_1_over_t": 0.013513513513513514,
+                "ratio_to_1_over_t": 19.90156
+              },
+              {
+                "t": 75,
+                "count": 26245,
+                "empirical_density": 0.26245,
+                "baseline_1_over_t": 0.013333333333333334,
+                "ratio_to_1_over_t": 19.68375
+              },
+              {
+                "t": 76,
+                "count": 26680,
+                "empirical_density": 0.2668,
+                "baseline_1_over_t": 0.013157894736842105,
+                "ratio_to_1_over_t": 20.276799999999998
+              },
+              {
+                "t": 77,
+                "count": 27000,
+                "empirical_density": 0.27,
+                "baseline_1_over_t": 0.012987012987012988,
+                "ratio_to_1_over_t": 20.790000000000003
+              },
+              {
+                "t": 78,
+                "count": 27117,
+                "empirical_density": 0.27117,
+                "baseline_1_over_t": 0.01282051282051282,
+                "ratio_to_1_over_t": 21.15126
+              },
+              {
+                "t": 79,
+                "count": 27527,
+                "empirical_density": 0.27527,
+                "baseline_1_over_t": 0.012658227848101266,
+                "ratio_to_1_over_t": 21.74633
+              },
+              {
+                "t": 80,
+                "count": 27685,
+                "empirical_density": 0.27685,
+                "baseline_1_over_t": 0.0125,
+                "ratio_to_1_over_t": 22.148
+              },
+              {
+                "t": 81,
+                "count": 26197,
+                "empirical_density": 0.26197,
+                "baseline_1_over_t": 0.012345679012345678,
+                "ratio_to_1_over_t": 21.219569999999997
+              },
+              {
+                "t": 82,
+                "count": 26323,
+                "empirical_density": 0.26323,
+                "baseline_1_over_t": 0.012195121951219513,
+                "ratio_to_1_over_t": 21.584860000000003
+              },
+              {
+                "t": 83,
+                "count": 27193,
+                "empirical_density": 0.27193,
+                "baseline_1_over_t": 0.012048192771084338,
+                "ratio_to_1_over_t": 22.57019
+              },
+              {
+                "t": 84,
+                "count": 27808,
+                "empirical_density": 0.27808,
+                "baseline_1_over_t": 0.011904761904761904,
+                "ratio_to_1_over_t": 23.358719999999998
+              },
+              {
+                "t": 85,
+                "count": 27230,
+                "empirical_density": 0.2723,
+                "baseline_1_over_t": 0.011764705882352941,
+                "ratio_to_1_over_t": 23.1455
+              },
+              {
+                "t": 86,
+                "count": 25754,
+                "empirical_density": 0.25754,
+                "baseline_1_over_t": 0.011627906976744186,
+                "ratio_to_1_over_t": 22.14844
+              },
+              {
+                "t": 87,
+                "count": 26439,
+                "empirical_density": 0.26439,
+                "baseline_1_over_t": 0.011494252873563218,
+                "ratio_to_1_over_t": 23.00193
+              },
+              {
+                "t": 88,
+                "count": 26746,
+                "empirical_density": 0.26746,
+                "baseline_1_over_t": 0.011363636363636364,
+                "ratio_to_1_over_t": 23.536479999999997
+              },
+              {
+                "t": 89,
+                "count": 26429,
+                "empirical_density": 0.26429,
+                "baseline_1_over_t": 0.011235955056179775,
+                "ratio_to_1_over_t": 23.521810000000002
+              },
+              {
+                "t": 90,
+                "count": 27454,
+                "empirical_density": 0.27454,
+                "baseline_1_over_t": 0.011111111111111112,
+                "ratio_to_1_over_t": 24.7086
+              },
+              {
+                "t": 91,
+                "count": 27140,
+                "empirical_density": 0.2714,
+                "baseline_1_over_t": 0.01098901098901099,
+                "ratio_to_1_over_t": 24.6974
+              },
+              {
+                "t": 92,
+                "count": 26089,
+                "empirical_density": 0.26089,
+                "baseline_1_over_t": 0.010869565217391304,
+                "ratio_to_1_over_t": 24.00188
+              },
+              {
+                "t": 93,
+                "count": 26727,
+                "empirical_density": 0.26727,
+                "baseline_1_over_t": 0.010752688172043012,
+                "ratio_to_1_over_t": 24.85611
+              },
+              {
+                "t": 94,
+                "count": 26088,
+                "empirical_density": 0.26088,
+                "baseline_1_over_t": 0.010638297872340425,
+                "ratio_to_1_over_t": 24.52272
+              },
+              {
+                "t": 95,
+                "count": 26851,
+                "empirical_density": 0.26851,
+                "baseline_1_over_t": 0.010526315789473684,
+                "ratio_to_1_over_t": 25.508450000000003
+              },
+              {
+                "t": 96,
+                "count": 27749,
+                "empirical_density": 0.27749,
+                "baseline_1_over_t": 0.010416666666666666,
+                "ratio_to_1_over_t": 26.63904
+              },
+              {
+                "t": 97,
+                "count": 26277,
+                "empirical_density": 0.26277,
+                "baseline_1_over_t": 0.010309278350515464,
+                "ratio_to_1_over_t": 25.488690000000002
+              },
+              {
+                "t": 98,
+                "count": 25581,
+                "empirical_density": 0.25581,
+                "baseline_1_over_t": 0.01020408163265306,
+                "ratio_to_1_over_t": 25.06938
+              },
+              {
+                "t": 99,
+                "count": 24936,
+                "empirical_density": 0.24936,
+                "baseline_1_over_t": 0.010101010101010102,
+                "ratio_to_1_over_t": 24.68664
+              },
+              {
+                "t": 100,
+                "count": 25084,
+                "empirical_density": 0.25084,
+                "baseline_1_over_t": 0.01,
+                "ratio_to_1_over_t": 25.084
+              },
+              {
+                "t": 101,
+                "count": 25542,
+                "empirical_density": 0.25542,
+                "baseline_1_over_t": 0.009900990099009901,
+                "ratio_to_1_over_t": 25.79742
+              },
+              {
+                "t": 102,
+                "count": 25193,
+                "empirical_density": 0.25193,
+                "baseline_1_over_t": 0.00980392156862745,
+                "ratio_to_1_over_t": 25.696859999999997
+              },
+              {
+                "t": 103,
+                "count": 25487,
+                "empirical_density": 0.25487,
+                "baseline_1_over_t": 0.009708737864077669,
+                "ratio_to_1_over_t": 26.25161
+              },
+              {
+                "t": 104,
+                "count": 25476,
+                "empirical_density": 0.25476,
+                "baseline_1_over_t": 0.009615384615384616,
+                "ratio_to_1_over_t": 26.49504
+              },
+              {
+                "t": 105,
+                "count": 24525,
+                "empirical_density": 0.24525,
+                "baseline_1_over_t": 0.009523809523809525,
+                "ratio_to_1_over_t": 25.75125
+              },
+              {
+                "t": 106,
+                "count": 24278,
+                "empirical_density": 0.24278,
+                "baseline_1_over_t": 0.009433962264150943,
+                "ratio_to_1_over_t": 25.73468
+              },
+              {
+                "t": 107,
+                "count": 24882,
+                "empirical_density": 0.24882,
+                "baseline_1_over_t": 0.009345794392523364,
+                "ratio_to_1_over_t": 26.62374
+              },
+              {
+                "t": 108,
+                "count": 25824,
+                "empirical_density": 0.25824,
+                "baseline_1_over_t": 0.009259259259259259,
+                "ratio_to_1_over_t": 27.889920000000004
+              },
+              {
+                "t": 109,
+                "count": 25238,
+                "empirical_density": 0.25238,
+                "baseline_1_over_t": 0.009174311926605505,
+                "ratio_to_1_over_t": 27.50942
+              },
+              {
+                "t": 110,
+                "count": 24287,
+                "empirical_density": 0.24287,
+                "baseline_1_over_t": 0.00909090909090909,
+                "ratio_to_1_over_t": 26.715700000000002
+              },
+              {
+                "t": 111,
+                "count": 24834,
+                "empirical_density": 0.24834,
+                "baseline_1_over_t": 0.009009009009009009,
+                "ratio_to_1_over_t": 27.56574
+              },
+              {
+                "t": 112,
+                "count": 25162,
+                "empirical_density": 0.25162,
+                "baseline_1_over_t": 0.008928571428571428,
+                "ratio_to_1_over_t": 28.181440000000002
+              },
+              {
+                "t": 113,
+                "count": 24662,
+                "empirical_density": 0.24662,
+                "baseline_1_over_t": 0.008849557522123894,
+                "ratio_to_1_over_t": 27.86806
+              },
+              {
+                "t": 114,
+                "count": 25508,
+                "empirical_density": 0.25508,
+                "baseline_1_over_t": 0.008771929824561403,
+                "ratio_to_1_over_t": 29.079119999999996
+              },
+              {
+                "t": 115,
+                "count": 25398,
+                "empirical_density": 0.25398,
+                "baseline_1_over_t": 0.008695652173913044,
+                "ratio_to_1_over_t": 29.2077
+              },
+              {
+                "t": 116,
+                "count": 25019,
+                "empirical_density": 0.25019,
+                "baseline_1_over_t": 0.008620689655172414,
+                "ratio_to_1_over_t": 29.022040000000004
+              },
+              {
+                "t": 117,
+                "count": 24923,
+                "empirical_density": 0.24923,
+                "baseline_1_over_t": 0.008547008547008548,
+                "ratio_to_1_over_t": 29.15991
+              },
+              {
+                "t": 118,
+                "count": 24906,
+                "empirical_density": 0.24906,
+                "baseline_1_over_t": 0.00847457627118644,
+                "ratio_to_1_over_t": 29.38908
+              },
+              {
+                "t": 119,
+                "count": 26060,
+                "empirical_density": 0.2606,
+                "baseline_1_over_t": 0.008403361344537815,
+                "ratio_to_1_over_t": 31.0114
+              },
+              {
+                "t": 120,
+                "count": 27398,
+                "empirical_density": 0.27398,
+                "baseline_1_over_t": 0.008333333333333333,
+                "ratio_to_1_over_t": 32.8776
+              },
+              {
+                "t": 121,
+                "count": 26129,
+                "empirical_density": 0.26129,
+                "baseline_1_over_t": 0.008264462809917356,
+                "ratio_to_1_over_t": 31.616090000000003
+              },
+              {
+                "t": 122,
+                "count": 24680,
+                "empirical_density": 0.2468,
+                "baseline_1_over_t": 0.00819672131147541,
+                "ratio_to_1_over_t": 30.1096
+              },
+              {
+                "t": 123,
+                "count": 24944,
+                "empirical_density": 0.24944,
+                "baseline_1_over_t": 0.008130081300813009,
+                "ratio_to_1_over_t": 30.68112
+              },
+              {
+                "t": 124,
+                "count": 25160,
+                "empirical_density": 0.2516,
+                "baseline_1_over_t": 0.008064516129032258,
+                "ratio_to_1_over_t": 31.1984
+              },
+              {
+                "t": 125,
+                "count": 24790,
+                "empirical_density": 0.2479,
+                "baseline_1_over_t": 0.008,
+                "ratio_to_1_over_t": 30.9875
+              },
+              {
+                "t": 126,
+                "count": 24997,
+                "empirical_density": 0.24997,
+                "baseline_1_over_t": 0.007936507936507936,
+                "ratio_to_1_over_t": 31.49622
+              },
+              {
+                "t": 127,
+                "count": 24864,
+                "empirical_density": 0.24864,
+                "baseline_1_over_t": 0.007874015748031496,
+                "ratio_to_1_over_t": 31.57728
+              },
+              {
+                "t": 128,
+                "count": 23668,
+                "empirical_density": 0.23668,
+                "baseline_1_over_t": 0.0078125,
+                "ratio_to_1_over_t": 30.29504
+              },
+              {
+                "t": 129,
+                "count": 23573,
+                "empirical_density": 0.23573,
+                "baseline_1_over_t": 0.007751937984496124,
+                "ratio_to_1_over_t": 30.40917
+              },
+              {
+                "t": 130,
+                "count": 23862,
+                "empirical_density": 0.23862,
+                "baseline_1_over_t": 0.007692307692307693,
+                "ratio_to_1_over_t": 31.020599999999998
+              },
+              {
+                "t": 131,
+                "count": 24095,
+                "empirical_density": 0.24095,
+                "baseline_1_over_t": 0.007633587786259542,
+                "ratio_to_1_over_t": 31.56445
+              },
+              {
+                "t": 132,
+                "count": 24396,
+                "empirical_density": 0.24396,
+                "baseline_1_over_t": 0.007575757575757576,
+                "ratio_to_1_over_t": 32.20272
+              },
+              {
+                "t": 133,
+                "count": 24671,
+                "empirical_density": 0.24671,
+                "baseline_1_over_t": 0.007518796992481203,
+                "ratio_to_1_over_t": 32.81243
+              },
+              {
+                "t": 134,
+                "count": 23900,
+                "empirical_density": 0.239,
+                "baseline_1_over_t": 0.007462686567164179,
+                "ratio_to_1_over_t": 32.025999999999996
+              },
+              {
+                "t": 135,
+                "count": 23369,
+                "empirical_density": 0.23369,
+                "baseline_1_over_t": 0.007407407407407408,
+                "ratio_to_1_over_t": 31.54815
+              },
+              {
+                "t": 136,
+                "count": 23827,
+                "empirical_density": 0.23827,
+                "baseline_1_over_t": 0.007352941176470588,
+                "ratio_to_1_over_t": 32.404720000000005
+              },
+              {
+                "t": 137,
+                "count": 23986,
+                "empirical_density": 0.23986,
+                "baseline_1_over_t": 0.0072992700729927005,
+                "ratio_to_1_over_t": 32.86082
+              },
+              {
+                "t": 138,
+                "count": 24309,
+                "empirical_density": 0.24309,
+                "baseline_1_over_t": 0.007246376811594203,
+                "ratio_to_1_over_t": 33.54642
+              },
+              {
+                "t": 139,
+                "count": 24465,
+                "empirical_density": 0.24465,
+                "baseline_1_over_t": 0.007194244604316547,
+                "ratio_to_1_over_t": 34.00635
+              },
+              {
+                "t": 140,
+                "count": 24400,
+                "empirical_density": 0.244,
+                "baseline_1_over_t": 0.007142857142857143,
+                "ratio_to_1_over_t": 34.16
+              },
+              {
+                "t": 141,
+                "count": 24400,
+                "empirical_density": 0.244,
+                "baseline_1_over_t": 0.0070921985815602835,
+                "ratio_to_1_over_t": 34.403999999999996
+              },
+              {
+                "t": 142,
+                "count": 24052,
+                "empirical_density": 0.24052,
+                "baseline_1_over_t": 0.007042253521126761,
+                "ratio_to_1_over_t": 34.15384
+              },
+              {
+                "t": 143,
+                "count": 24992,
+                "empirical_density": 0.24992,
+                "baseline_1_over_t": 0.006993006993006993,
+                "ratio_to_1_over_t": 35.73856
+              },
+              {
+                "t": 144,
+                "count": 25331,
+                "empirical_density": 0.25331,
+                "baseline_1_over_t": 0.006944444444444444,
+                "ratio_to_1_over_t": 36.476639999999996
+              },
+              {
+                "t": 145,
+                "count": 24316,
+                "empirical_density": 0.24316,
+                "baseline_1_over_t": 0.006896551724137931,
+                "ratio_to_1_over_t": 35.258199999999995
+              },
+              {
+                "t": 146,
+                "count": 23643,
+                "empirical_density": 0.23643,
+                "baseline_1_over_t": 0.00684931506849315,
+                "ratio_to_1_over_t": 34.51878
+              },
+              {
+                "t": 147,
+                "count": 23331,
+                "empirical_density": 0.23331,
+                "baseline_1_over_t": 0.006802721088435374,
+                "ratio_to_1_over_t": 34.296569999999996
+              },
+              {
+                "t": 148,
+                "count": 23611,
+                "empirical_density": 0.23611,
+                "baseline_1_over_t": 0.006756756756756757,
+                "ratio_to_1_over_t": 34.94428
+              },
+              {
+                "t": 149,
+                "count": 23742,
+                "empirical_density": 0.23742,
+                "baseline_1_over_t": 0.006711409395973154,
+                "ratio_to_1_over_t": 35.37558
+              },
+              {
+                "t": 150,
+                "count": 24068,
+                "empirical_density": 0.24068,
+                "baseline_1_over_t": 0.006666666666666667,
+                "ratio_to_1_over_t": 36.102000000000004
+              },
+              {
+                "t": 151,
+                "count": 24263,
+                "empirical_density": 0.24263,
+                "baseline_1_over_t": 0.006622516556291391,
+                "ratio_to_1_over_t": 36.63713
+              },
+              {
+                "t": 152,
+                "count": 23880,
+                "empirical_density": 0.2388,
+                "baseline_1_over_t": 0.006578947368421052,
+                "ratio_to_1_over_t": 36.2976
+              },
+              {
+                "t": 153,
+                "count": 23743,
+                "empirical_density": 0.23743,
+                "baseline_1_over_t": 0.006535947712418301,
+                "ratio_to_1_over_t": 36.32679
+              },
+              {
+                "t": 154,
+                "count": 23863,
+                "empirical_density": 0.23863,
+                "baseline_1_over_t": 0.006493506493506494,
+                "ratio_to_1_over_t": 36.74902
+              },
+              {
+                "t": 155,
+                "count": 24478,
+                "empirical_density": 0.24478,
+                "baseline_1_over_t": 0.0064516129032258064,
+                "ratio_to_1_over_t": 37.9409
+              },
+              {
+                "t": 156,
+                "count": 24490,
+                "empirical_density": 0.2449,
+                "baseline_1_over_t": 0.00641025641025641,
+                "ratio_to_1_over_t": 38.2044
+              },
+              {
+                "t": 157,
+                "count": 24311,
+                "empirical_density": 0.24311,
+                "baseline_1_over_t": 0.006369426751592357,
+                "ratio_to_1_over_t": 38.16827
+              },
+              {
+                "t": 158,
+                "count": 23740,
+                "empirical_density": 0.2374,
+                "baseline_1_over_t": 0.006329113924050633,
+                "ratio_to_1_over_t": 37.5092
+              },
+              {
+                "t": 159,
+                "count": 23770,
+                "empirical_density": 0.2377,
+                "baseline_1_over_t": 0.006289308176100629,
+                "ratio_to_1_over_t": 37.7943
+              },
+              {
+                "t": 160,
+                "count": 24341,
+                "empirical_density": 0.24341,
+                "baseline_1_over_t": 0.00625,
+                "ratio_to_1_over_t": 38.9456
+              },
+              {
+                "t": 161,
+                "count": 24413,
+                "empirical_density": 0.24413,
+                "baseline_1_over_t": 0.006211180124223602,
+                "ratio_to_1_over_t": 39.30493
+              },
+              {
+                "t": 162,
+                "count": 24187,
+                "empirical_density": 0.24187,
+                "baseline_1_over_t": 0.006172839506172839,
+                "ratio_to_1_over_t": 39.18294
+              },
+              {
+                "t": 163,
+                "count": 24139,
+                "empirical_density": 0.24139,
+                "baseline_1_over_t": 0.006134969325153374,
+                "ratio_to_1_over_t": 39.34657
+              },
+              {
+                "t": 164,
+                "count": 23853,
+                "empirical_density": 0.23853,
+                "baseline_1_over_t": 0.006097560975609756,
+                "ratio_to_1_over_t": 39.118919999999996
+              },
+              {
+                "t": 165,
+                "count": 23483,
+                "empirical_density": 0.23483,
+                "baseline_1_over_t": 0.006060606060606061,
+                "ratio_to_1_over_t": 38.746950000000005
+              },
+              {
+                "t": 166,
+                "count": 23444,
+                "empirical_density": 0.23444,
+                "baseline_1_over_t": 0.006024096385542169,
+                "ratio_to_1_over_t": 38.91704
+              },
+              {
+                "t": 167,
+                "count": 24047,
+                "empirical_density": 0.24047,
+                "baseline_1_over_t": 0.005988023952095809,
+                "ratio_to_1_over_t": 40.15849
+              },
+              {
+                "t": 168,
+                "count": 25115,
+                "empirical_density": 0.25115,
+                "baseline_1_over_t": 0.005952380952380952,
+                "ratio_to_1_over_t": 42.1932
+              },
+              {
+                "t": 169,
+                "count": 23601,
+                "empirical_density": 0.23601,
+                "baseline_1_over_t": 0.005917159763313609,
+                "ratio_to_1_over_t": 39.88569
+              },
+              {
+                "t": 170,
+                "count": 23471,
+                "empirical_density": 0.23471,
+                "baseline_1_over_t": 0.0058823529411764705,
+                "ratio_to_1_over_t": 39.9007
+              },
+              {
+                "t": 171,
+                "count": 23381,
+                "empirical_density": 0.23381,
+                "baseline_1_over_t": 0.005847953216374269,
+                "ratio_to_1_over_t": 39.98151
+              },
+              {
+                "t": 172,
+                "count": 23460,
+                "empirical_density": 0.2346,
+                "baseline_1_over_t": 0.005813953488372093,
+                "ratio_to_1_over_t": 40.3512
+              },
+              {
+                "t": 173,
+                "count": 23756,
+                "empirical_density": 0.23756,
+                "baseline_1_over_t": 0.005780346820809248,
+                "ratio_to_1_over_t": 41.097879999999996
+              },
+              {
+                "t": 174,
+                "count": 23725,
+                "empirical_density": 0.23725,
+                "baseline_1_over_t": 0.005747126436781609,
+                "ratio_to_1_over_t": 41.2815
+              },
+              {
+                "t": 175,
+                "count": 23505,
+                "empirical_density": 0.23505,
+                "baseline_1_over_t": 0.005714285714285714,
+                "ratio_to_1_over_t": 41.13375
+              },
+              {
+                "t": 176,
+                "count": 23532,
+                "empirical_density": 0.23532,
+                "baseline_1_over_t": 0.005681818181818182,
+                "ratio_to_1_over_t": 41.41632
+              },
+              {
+                "t": 177,
+                "count": 23225,
+                "empirical_density": 0.23225,
+                "baseline_1_over_t": 0.005649717514124294,
+                "ratio_to_1_over_t": 41.108250000000005
+              },
+              {
+                "t": 178,
+                "count": 23202,
+                "empirical_density": 0.23202,
+                "baseline_1_over_t": 0.0056179775280898875,
+                "ratio_to_1_over_t": 41.29956
+              },
+              {
+                "t": 179,
+                "count": 24107,
+                "empirical_density": 0.24107,
+                "baseline_1_over_t": 0.00558659217877095,
+                "ratio_to_1_over_t": 43.15153
+              },
+              {
+                "t": 180,
+                "count": 24491,
+                "empirical_density": 0.24491,
+                "baseline_1_over_t": 0.005555555555555556,
+                "ratio_to_1_over_t": 44.0838
+              },
+              {
+                "t": 181,
+                "count": 23958,
+                "empirical_density": 0.23958,
+                "baseline_1_over_t": 0.0055248618784530384,
+                "ratio_to_1_over_t": 43.36398
+              },
+              {
+                "t": 182,
+                "count": 23681,
+                "empirical_density": 0.23681,
+                "baseline_1_over_t": 0.005494505494505495,
+                "ratio_to_1_over_t": 43.09942
+              },
+              {
+                "t": 183,
+                "count": 23477,
+                "empirical_density": 0.23477,
+                "baseline_1_over_t": 0.00546448087431694,
+                "ratio_to_1_over_t": 42.96291
+              },
+              {
+                "t": 184,
+                "count": 23293,
+                "empirical_density": 0.23293,
+                "baseline_1_over_t": 0.005434782608695652,
+                "ratio_to_1_over_t": 42.85912
+              },
+              {
+                "t": 185,
+                "count": 23516,
+                "empirical_density": 0.23516,
+                "baseline_1_over_t": 0.005405405405405406,
+                "ratio_to_1_over_t": 43.5046
+              },
+              {
+                "t": 186,
+                "count": 23762,
+                "empirical_density": 0.23762,
+                "baseline_1_over_t": 0.005376344086021506,
+                "ratio_to_1_over_t": 44.19732
+              },
+              {
+                "t": 187,
+                "count": 23586,
+                "empirical_density": 0.23586,
+                "baseline_1_over_t": 0.0053475935828877,
+                "ratio_to_1_over_t": 44.105819999999994
+              },
+              {
+                "t": 188,
+                "count": 23175,
+                "empirical_density": 0.23175,
+                "baseline_1_over_t": 0.005319148936170213,
+                "ratio_to_1_over_t": 43.569
+              },
+              {
+                "t": 189,
+                "count": 22849,
+                "empirical_density": 0.22849,
+                "baseline_1_over_t": 0.005291005291005291,
+                "ratio_to_1_over_t": 43.18461
+              },
+              {
+                "t": 190,
+                "count": 23199,
+                "empirical_density": 0.23199,
+                "baseline_1_over_t": 0.005263157894736842,
+                "ratio_to_1_over_t": 44.0781
+              },
+              {
+                "t": 191,
+                "count": 24196,
+                "empirical_density": 0.24196,
+                "baseline_1_over_t": 0.005235602094240838,
+                "ratio_to_1_over_t": 46.21436
+              },
+              {
+                "t": 192,
+                "count": 24336,
+                "empirical_density": 0.24336,
+                "baseline_1_over_t": 0.005208333333333333,
+                "ratio_to_1_over_t": 46.72512
+              },
+              {
+                "t": 193,
+                "count": 23490,
+                "empirical_density": 0.2349,
+                "baseline_1_over_t": 0.0051813471502590676,
+                "ratio_to_1_over_t": 45.3357
+              },
+              {
+                "t": 194,
+                "count": 23205,
+                "empirical_density": 0.23205,
+                "baseline_1_over_t": 0.005154639175257732,
+                "ratio_to_1_over_t": 45.0177
+              },
+              {
+                "t": 195,
+                "count": 22895,
+                "empirical_density": 0.22895,
+                "baseline_1_over_t": 0.005128205128205128,
+                "ratio_to_1_over_t": 44.64525
+              },
+              {
+                "t": 196,
+                "count": 22615,
+                "empirical_density": 0.22615,
+                "baseline_1_over_t": 0.00510204081632653,
+                "ratio_to_1_over_t": 44.325399999999995
+              },
+              {
+                "t": 197,
+                "count": 23143,
+                "empirical_density": 0.23143,
+                "baseline_1_over_t": 0.005076142131979695,
+                "ratio_to_1_over_t": 45.59171
+              },
+              {
+                "t": 198,
+                "count": 23109,
+                "empirical_density": 0.23109,
+                "baseline_1_over_t": 0.005050505050505051,
+                "ratio_to_1_over_t": 45.75582
+              },
+              {
+                "t": 199,
+                "count": 23132,
+                "empirical_density": 0.23132,
+                "baseline_1_over_t": 0.005025125628140704,
+                "ratio_to_1_over_t": 46.03268
+              },
+              {
+                "t": 200,
+                "count": 23078,
+                "empirical_density": 0.23078,
+                "baseline_1_over_t": 0.005,
+                "ratio_to_1_over_t": 46.156000000000006
+              }
+            ]
+          },
+          {
+            "N": 300000,
+            "rows": [
+              {
+                "t": 2,
+                "count": 150000,
+                "empirical_density": 0.5,
+                "baseline_1_over_t": 0.5,
+                "ratio_to_1_over_t": 1
+              },
+              {
+                "t": 3,
+                "count": 200000,
+                "empirical_density": 0.6666666666666666,
+                "baseline_1_over_t": 0.3333333333333333,
+                "ratio_to_1_over_t": 2
+              },
+              {
+                "t": 4,
+                "count": 150000,
+                "empirical_density": 0.5,
+                "baseline_1_over_t": 0.25,
+                "ratio_to_1_over_t": 2
+              },
+              {
+                "t": 5,
+                "count": 140000,
+                "empirical_density": 0.4666666666666667,
+                "baseline_1_over_t": 0.2,
+                "ratio_to_1_over_t": 2.3333333333333335
+              },
+              {
+                "t": 6,
+                "count": 140000,
+                "empirical_density": 0.4666666666666667,
+                "baseline_1_over_t": 0.16666666666666666,
+                "ratio_to_1_over_t": 2.8
+              },
+              {
+                "t": 7,
+                "count": 137143,
+                "empirical_density": 0.45714333333333335,
+                "baseline_1_over_t": 0.14285714285714285,
+                "ratio_to_1_over_t": 3.2000033333333335
+              },
+              {
+                "t": 8,
+                "count": 128571,
+                "empirical_density": 0.42857,
+                "baseline_1_over_t": 0.125,
+                "ratio_to_1_over_t": 3.42856
+              },
+              {
+                "t": 9,
+                "count": 113334,
+                "empirical_density": 0.37778,
+                "baseline_1_over_t": 0.1111111111111111,
+                "ratio_to_1_over_t": 3.40002
+              },
+              {
+                "t": 10,
+                "count": 120000,
+                "empirical_density": 0.4,
+                "baseline_1_over_t": 0.1,
+                "ratio_to_1_over_t": 4
+              },
+              {
+                "t": 11,
+                "count": 118181,
+                "empirical_density": 0.39393666666666666,
+                "baseline_1_over_t": 0.09090909090909091,
+                "ratio_to_1_over_t": 4.333303333333333
+              },
+              {
+                "t": 12,
+                "count": 130302,
+                "empirical_density": 0.43434,
+                "baseline_1_over_t": 0.08333333333333333,
+                "ratio_to_1_over_t": 5.21208
+              },
+              {
+                "t": 13,
+                "count": 122895,
+                "empirical_density": 0.40965,
+                "baseline_1_over_t": 0.07692307692307693,
+                "ratio_to_1_over_t": 5.32545
+              },
+              {
+                "t": 14,
+                "count": 108588,
+                "empirical_density": 0.36196,
+                "baseline_1_over_t": 0.07142857142857142,
+                "ratio_to_1_over_t": 5.06744
+              },
+              {
+                "t": 15,
+                "count": 108009,
+                "empirical_density": 0.36003,
+                "baseline_1_over_t": 0.06666666666666667,
+                "ratio_to_1_over_t": 5.40045
+              },
+              {
+                "t": 16,
+                "count": 103835,
+                "empirical_density": 0.3461166666666667,
+                "baseline_1_over_t": 0.0625,
+                "ratio_to_1_over_t": 5.537866666666667
+              },
+              {
+                "t": 17,
+                "count": 107628,
+                "empirical_density": 0.35876,
+                "baseline_1_over_t": 0.058823529411764705,
+                "ratio_to_1_over_t": 6.098920000000001
+              },
+              {
+                "t": 18,
+                "count": 104880,
+                "empirical_density": 0.3496,
+                "baseline_1_over_t": 0.05555555555555555,
+                "ratio_to_1_over_t": 6.292800000000001
+              },
+              {
+                "t": 19,
+                "count": 101474,
+                "empirical_density": 0.33824666666666664,
+                "baseline_1_over_t": 0.05263157894736842,
+                "ratio_to_1_over_t": 6.426686666666666
+              },
+              {
+                "t": 20,
+                "count": 102545,
+                "empirical_density": 0.34181666666666666,
+                "baseline_1_over_t": 0.05,
+                "ratio_to_1_over_t": 6.836333333333333
+              },
+              {
+                "t": 21,
+                "count": 100256,
+                "empirical_density": 0.3341866666666667,
+                "baseline_1_over_t": 0.047619047619047616,
+                "ratio_to_1_over_t": 7.01792
+              },
+              {
+                "t": 22,
+                "count": 97133,
+                "empirical_density": 0.32377666666666666,
+                "baseline_1_over_t": 0.045454545454545456,
+                "ratio_to_1_over_t": 7.123086666666667
+              },
+              {
+                "t": 23,
+                "count": 107763,
+                "empirical_density": 0.35921,
+                "baseline_1_over_t": 0.043478260869565216,
+                "ratio_to_1_over_t": 8.26183
+              },
+              {
+                "t": 24,
+                "count": 111796,
+                "empirical_density": 0.37265333333333334,
+                "baseline_1_over_t": 0.041666666666666664,
+                "ratio_to_1_over_t": 8.94368
+              },
+              {
+                "t": 25,
+                "count": 101302,
+                "empirical_density": 0.3376733333333333,
+                "baseline_1_over_t": 0.04,
+                "ratio_to_1_over_t": 8.441833333333333
+              },
+              {
+                "t": 26,
+                "count": 96165,
+                "empirical_density": 0.32055,
+                "baseline_1_over_t": 0.038461538461538464,
+                "ratio_to_1_over_t": 8.3343
+              },
+              {
+                "t": 27,
+                "count": 94172,
+                "empirical_density": 0.31390666666666667,
+                "baseline_1_over_t": 0.037037037037037035,
+                "ratio_to_1_over_t": 8.47548
+              },
+              {
+                "t": 28,
+                "count": 98593,
+                "empirical_density": 0.32864333333333334,
+                "baseline_1_over_t": 0.03571428571428571,
+                "ratio_to_1_over_t": 9.202013333333333
+              },
+              {
+                "t": 29,
+                "count": 97949,
+                "empirical_density": 0.32649666666666666,
+                "baseline_1_over_t": 0.034482758620689655,
+                "ratio_to_1_over_t": 9.468403333333333
+              },
+              {
+                "t": 30,
+                "count": 98324,
+                "empirical_density": 0.3277466666666667,
+                "baseline_1_over_t": 0.03333333333333333,
+                "ratio_to_1_over_t": 9.8324
+              },
+              {
+                "t": 31,
+                "count": 101772,
+                "empirical_density": 0.33924,
+                "baseline_1_over_t": 0.03225806451612903,
+                "ratio_to_1_over_t": 10.51644
+              },
+              {
+                "t": 32,
+                "count": 93146,
+                "empirical_density": 0.3104866666666667,
+                "baseline_1_over_t": 0.03125,
+                "ratio_to_1_over_t": 9.935573333333334
+              },
+              {
+                "t": 33,
+                "count": 91328,
+                "empirical_density": 0.3044266666666667,
+                "baseline_1_over_t": 0.030303030303030304,
+                "ratio_to_1_over_t": 10.04608
+              },
+              {
+                "t": 34,
+                "count": 90928,
+                "empirical_density": 0.3030933333333333,
+                "baseline_1_over_t": 0.029411764705882353,
+                "ratio_to_1_over_t": 10.305173333333332
+              },
+              {
+                "t": 35,
+                "count": 89031,
+                "empirical_density": 0.29677,
+                "baseline_1_over_t": 0.02857142857142857,
+                "ratio_to_1_over_t": 10.386949999999999
+              },
+              {
+                "t": 36,
+                "count": 95092,
+                "empirical_density": 0.31697333333333333,
+                "baseline_1_over_t": 0.027777777777777776,
+                "ratio_to_1_over_t": 11.41104
+              },
+              {
+                "t": 37,
+                "count": 96814,
+                "empirical_density": 0.32271333333333335,
+                "baseline_1_over_t": 0.02702702702702703,
+                "ratio_to_1_over_t": 11.940393333333335
+              },
+              {
+                "t": 38,
+                "count": 89819,
+                "empirical_density": 0.29939666666666664,
+                "baseline_1_over_t": 0.02631578947368421,
+                "ratio_to_1_over_t": 11.377073333333332
+              },
+              {
+                "t": 39,
+                "count": 93322,
+                "empirical_density": 0.3110733333333333,
+                "baseline_1_over_t": 0.02564102564102564,
+                "ratio_to_1_over_t": 12.13186
+              },
+              {
+                "t": 40,
+                "count": 96931,
+                "empirical_density": 0.32310333333333335,
+                "baseline_1_over_t": 0.025,
+                "ratio_to_1_over_t": 12.924133333333334
+              },
+              {
+                "t": 41,
+                "count": 95292,
+                "empirical_density": 0.31764,
+                "baseline_1_over_t": 0.024390243902439025,
+                "ratio_to_1_over_t": 13.02324
+              },
+              {
+                "t": 42,
+                "count": 92390,
+                "empirical_density": 0.30796666666666667,
+                "baseline_1_over_t": 0.023809523809523808,
+                "ratio_to_1_over_t": 12.9346
+              },
+              {
+                "t": 43,
+                "count": 90671,
+                "empirical_density": 0.30223666666666665,
+                "baseline_1_over_t": 0.023255813953488372,
+                "ratio_to_1_over_t": 12.996176666666667
+              },
+              {
+                "t": 44,
+                "count": 88565,
+                "empirical_density": 0.2952166666666667,
+                "baseline_1_over_t": 0.022727272727272728,
+                "ratio_to_1_over_t": 12.989533333333334
+              },
+              {
+                "t": 45,
+                "count": 83682,
+                "empirical_density": 0.27894,
+                "baseline_1_over_t": 0.022222222222222223,
+                "ratio_to_1_over_t": 12.5523
+              },
+              {
+                "t": 46,
+                "count": 84244,
+                "empirical_density": 0.28081333333333336,
+                "baseline_1_over_t": 0.021739130434782608,
+                "ratio_to_1_over_t": 12.917413333333334
+              },
+              {
+                "t": 47,
+                "count": 89610,
+                "empirical_density": 0.2987,
+                "baseline_1_over_t": 0.02127659574468085,
+                "ratio_to_1_over_t": 14.038900000000002
+              },
+              {
+                "t": 48,
+                "count": 91942,
+                "empirical_density": 0.3064733333333333,
+                "baseline_1_over_t": 0.020833333333333332,
+                "ratio_to_1_over_t": 14.710719999999998
+              },
+              {
+                "t": 49,
+                "count": 86587,
+                "empirical_density": 0.28862333333333334,
+                "baseline_1_over_t": 0.02040816326530612,
+                "ratio_to_1_over_t": 14.142543333333334
+              },
+              {
+                "t": 50,
+                "count": 84473,
+                "empirical_density": 0.28157666666666664,
+                "baseline_1_over_t": 0.02,
+                "ratio_to_1_over_t": 14.078833333333332
+              },
+              {
+                "t": 51,
+                "count": 85983,
+                "empirical_density": 0.28661,
+                "baseline_1_over_t": 0.0196078431372549,
+                "ratio_to_1_over_t": 14.617109999999998
+              },
+              {
+                "t": 52,
+                "count": 86335,
+                "empirical_density": 0.28778333333333334,
+                "baseline_1_over_t": 0.019230769230769232,
+                "ratio_to_1_over_t": 14.964733333333333
+              },
+              {
+                "t": 53,
+                "count": 89862,
+                "empirical_density": 0.29954,
+                "baseline_1_over_t": 0.018867924528301886,
+                "ratio_to_1_over_t": 15.875619999999998
+              },
+              {
+                "t": 54,
+                "count": 87635,
+                "empirical_density": 0.2921166666666667,
+                "baseline_1_over_t": 0.018518518518518517,
+                "ratio_to_1_over_t": 15.774300000000002
+              },
+              {
+                "t": 55,
+                "count": 88244,
+                "empirical_density": 0.29414666666666667,
+                "baseline_1_over_t": 0.01818181818181818,
+                "ratio_to_1_over_t": 16.178066666666666
+              },
+              {
+                "t": 56,
+                "count": 88832,
+                "empirical_density": 0.2961066666666667,
+                "baseline_1_over_t": 0.017857142857142856,
+                "ratio_to_1_over_t": 16.581973333333334
+              },
+              {
+                "t": 57,
+                "count": 88183,
+                "empirical_density": 0.29394333333333333,
+                "baseline_1_over_t": 0.017543859649122806,
+                "ratio_to_1_over_t": 16.75477
+              },
+              {
+                "t": 58,
+                "count": 86002,
+                "empirical_density": 0.28667333333333334,
+                "baseline_1_over_t": 0.017241379310344827,
+                "ratio_to_1_over_t": 16.627053333333333
+              },
+              {
+                "t": 59,
+                "count": 86866,
+                "empirical_density": 0.28955333333333333,
+                "baseline_1_over_t": 0.01694915254237288,
+                "ratio_to_1_over_t": 17.083646666666667
+              },
+              {
+                "t": 60,
+                "count": 91264,
+                "empirical_density": 0.30421333333333334,
+                "baseline_1_over_t": 0.016666666666666666,
+                "ratio_to_1_over_t": 18.2528
+              },
+              {
+                "t": 61,
+                "count": 89569,
+                "empirical_density": 0.29856333333333335,
+                "baseline_1_over_t": 0.01639344262295082,
+                "ratio_to_1_over_t": 18.212363333333336
+              },
+              {
+                "t": 62,
+                "count": 85491,
+                "empirical_density": 0.28497,
+                "baseline_1_over_t": 0.016129032258064516,
+                "ratio_to_1_over_t": 17.66814
+              },
+              {
+                "t": 63,
+                "count": 82450,
+                "empirical_density": 0.2748333333333333,
+                "baseline_1_over_t": 0.015873015873015872,
+                "ratio_to_1_over_t": 17.3145
+              },
+              {
+                "t": 64,
+                "count": 79916,
+                "empirical_density": 0.26638666666666666,
+                "baseline_1_over_t": 0.015625,
+                "ratio_to_1_over_t": 17.048746666666666
+              },
+              {
+                "t": 65,
+                "count": 81840,
+                "empirical_density": 0.2728,
+                "baseline_1_over_t": 0.015384615384615385,
+                "ratio_to_1_over_t": 17.732
+              },
+              {
+                "t": 66,
+                "count": 82874,
+                "empirical_density": 0.27624666666666664,
+                "baseline_1_over_t": 0.015151515151515152,
+                "ratio_to_1_over_t": 18.23228
+              },
+              {
+                "t": 67,
+                "count": 82417,
+                "empirical_density": 0.2747233333333333,
+                "baseline_1_over_t": 0.014925373134328358,
+                "ratio_to_1_over_t": 18.40646333333333
+              },
+              {
+                "t": 68,
+                "count": 84205,
+                "empirical_density": 0.28068333333333334,
+                "baseline_1_over_t": 0.014705882352941176,
+                "ratio_to_1_over_t": 19.086466666666666
+              },
+              {
+                "t": 69,
+                "count": 83801,
+                "empirical_density": 0.2793366666666667,
+                "baseline_1_over_t": 0.014492753623188406,
+                "ratio_to_1_over_t": 19.27423
+              },
+              {
+                "t": 70,
+                "count": 84744,
+                "empirical_density": 0.28248,
+                "baseline_1_over_t": 0.014285714285714285,
+                "ratio_to_1_over_t": 19.773600000000002
+              },
+              {
+                "t": 71,
+                "count": 87188,
+                "empirical_density": 0.29062666666666664,
+                "baseline_1_over_t": 0.014084507042253521,
+                "ratio_to_1_over_t": 20.63449333333333
+              },
+              {
+                "t": 72,
+                "count": 89457,
+                "empirical_density": 0.29819,
+                "baseline_1_over_t": 0.013888888888888888,
+                "ratio_to_1_over_t": 21.46968
+              },
+              {
+                "t": 73,
+                "count": 83927,
+                "empirical_density": 0.27975666666666665,
+                "baseline_1_over_t": 0.0136986301369863,
+                "ratio_to_1_over_t": 20.422236666666667
+              },
+              {
+                "t": 74,
+                "count": 81667,
+                "empirical_density": 0.2722233333333333,
+                "baseline_1_over_t": 0.013513513513513514,
+                "ratio_to_1_over_t": 20.144526666666664
+              },
+              {
+                "t": 75,
+                "count": 79622,
+                "empirical_density": 0.2654066666666667,
+                "baseline_1_over_t": 0.013333333333333334,
+                "ratio_to_1_over_t": 19.9055
+              },
+              {
+                "t": 76,
+                "count": 80974,
+                "empirical_density": 0.26991333333333334,
+                "baseline_1_over_t": 0.013157894736842105,
+                "ratio_to_1_over_t": 20.513413333333332
+              },
+              {
+                "t": 77,
+                "count": 81868,
+                "empirical_density": 0.2728933333333333,
+                "baseline_1_over_t": 0.012987012987012988,
+                "ratio_to_1_over_t": 21.012786666666667
+              },
+              {
+                "t": 78,
+                "count": 82060,
+                "empirical_density": 0.27353333333333335,
+                "baseline_1_over_t": 0.01282051282051282,
+                "ratio_to_1_over_t": 21.335600000000003
+              },
+              {
+                "t": 79,
+                "count": 83543,
+                "empirical_density": 0.27847666666666665,
+                "baseline_1_over_t": 0.012658227848101266,
+                "ratio_to_1_over_t": 21.999656666666667
+              },
+              {
+                "t": 80,
+                "count": 83939,
+                "empirical_density": 0.2797966666666667,
+                "baseline_1_over_t": 0.0125,
+                "ratio_to_1_over_t": 22.383733333333335
+              },
+              {
+                "t": 81,
+                "count": 79475,
+                "empirical_density": 0.2649166666666667,
+                "baseline_1_over_t": 0.012345679012345678,
+                "ratio_to_1_over_t": 21.458250000000003
+              },
+              {
+                "t": 82,
+                "count": 79972,
+                "empirical_density": 0.26657333333333333,
+                "baseline_1_over_t": 0.012195121951219513,
+                "ratio_to_1_over_t": 21.859013333333333
+              },
+              {
+                "t": 83,
+                "count": 82628,
+                "empirical_density": 0.27542666666666665,
+                "baseline_1_over_t": 0.012048192771084338,
+                "ratio_to_1_over_t": 22.860413333333334
+              },
+              {
+                "t": 84,
+                "count": 84550,
+                "empirical_density": 0.2818333333333333,
+                "baseline_1_over_t": 0.011904761904761904,
+                "ratio_to_1_over_t": 23.674
+              },
+              {
+                "t": 85,
+                "count": 82795,
+                "empirical_density": 0.27598333333333336,
+                "baseline_1_over_t": 0.011764705882352941,
+                "ratio_to_1_over_t": 23.458583333333337
+              },
+              {
+                "t": 86,
+                "count": 78411,
+                "empirical_density": 0.26137,
+                "baseline_1_over_t": 0.011627906976744186,
+                "ratio_to_1_over_t": 22.477819999999998
+              },
+              {
+                "t": 87,
+                "count": 80471,
+                "empirical_density": 0.2682366666666667,
+                "baseline_1_over_t": 0.011494252873563218,
+                "ratio_to_1_over_t": 23.33659
+              },
+              {
+                "t": 88,
+                "count": 81447,
+                "empirical_density": 0.27149,
+                "baseline_1_over_t": 0.011363636363636364,
+                "ratio_to_1_over_t": 23.89112
+              },
+              {
+                "t": 89,
+                "count": 80640,
+                "empirical_density": 0.2688,
+                "baseline_1_over_t": 0.011235955056179775,
+                "ratio_to_1_over_t": 23.923199999999998
+              },
+              {
+                "t": 90,
+                "count": 83576,
+                "empirical_density": 0.27858666666666665,
+                "baseline_1_over_t": 0.011111111111111112,
+                "ratio_to_1_over_t": 25.072799999999997
+              },
+              {
+                "t": 91,
+                "count": 82567,
+                "empirical_density": 0.2752233333333333,
+                "baseline_1_over_t": 0.01098901098901099,
+                "ratio_to_1_over_t": 25.045323333333332
+              },
+              {
+                "t": 92,
+                "count": 79510,
+                "empirical_density": 0.26503333333333334,
+                "baseline_1_over_t": 0.010869565217391304,
+                "ratio_to_1_over_t": 24.383066666666668
+              },
+              {
+                "t": 93,
+                "count": 81427,
+                "empirical_density": 0.27142333333333335,
+                "baseline_1_over_t": 0.010752688172043012,
+                "ratio_to_1_over_t": 25.24237
+              },
+              {
+                "t": 94,
+                "count": 79712,
+                "empirical_density": 0.26570666666666665,
+                "baseline_1_over_t": 0.010638297872340425,
+                "ratio_to_1_over_t": 24.976426666666665
+              },
+              {
+                "t": 95,
+                "count": 81887,
+                "empirical_density": 0.2729566666666667,
+                "baseline_1_over_t": 0.010526315789473684,
+                "ratio_to_1_over_t": 25.930883333333334
+              },
+              {
+                "t": 96,
+                "count": 84513,
+                "empirical_density": 0.28171,
+                "baseline_1_over_t": 0.010416666666666666,
+                "ratio_to_1_over_t": 27.04416
+              },
+              {
+                "t": 97,
+                "count": 80283,
+                "empirical_density": 0.26761,
+                "baseline_1_over_t": 0.010309278350515464,
+                "ratio_to_1_over_t": 25.958170000000003
+              },
+              {
+                "t": 98,
+                "count": 78089,
+                "empirical_density": 0.2602966666666667,
+                "baseline_1_over_t": 0.01020408163265306,
+                "ratio_to_1_over_t": 25.509073333333333
+              },
+              {
+                "t": 99,
+                "count": 76100,
+                "empirical_density": 0.25366666666666665,
+                "baseline_1_over_t": 0.010101010101010102,
+                "ratio_to_1_over_t": 25.113
+              },
+              {
+                "t": 100,
+                "count": 76567,
+                "empirical_density": 0.25522333333333336,
+                "baseline_1_over_t": 0.01,
+                "ratio_to_1_over_t": 25.522333333333336
+              },
+              {
+                "t": 101,
+                "count": 77960,
+                "empirical_density": 0.2598666666666667,
+                "baseline_1_over_t": 0.009900990099009901,
+                "ratio_to_1_over_t": 26.246533333333335
+              },
+              {
+                "t": 102,
+                "count": 76814,
+                "empirical_density": 0.25604666666666664,
+                "baseline_1_over_t": 0.00980392156862745,
+                "ratio_to_1_over_t": 26.11676
+              },
+              {
+                "t": 103,
+                "count": 77625,
+                "empirical_density": 0.25875,
+                "baseline_1_over_t": 0.009708737864077669,
+                "ratio_to_1_over_t": 26.651249999999997
+              },
+              {
+                "t": 104,
+                "count": 77626,
+                "empirical_density": 0.25875333333333334,
+                "baseline_1_over_t": 0.009615384615384616,
+                "ratio_to_1_over_t": 26.910346666666666
+              },
+              {
+                "t": 105,
+                "count": 74730,
+                "empirical_density": 0.2491,
+                "baseline_1_over_t": 0.009523809523809525,
+                "ratio_to_1_over_t": 26.1555
+              },
+              {
+                "t": 106,
+                "count": 74129,
+                "empirical_density": 0.24709666666666666,
+                "baseline_1_over_t": 0.009433962264150943,
+                "ratio_to_1_over_t": 26.192246666666666
+              },
+              {
+                "t": 107,
+                "count": 75929,
+                "empirical_density": 0.2530966666666667,
+                "baseline_1_over_t": 0.009345794392523364,
+                "ratio_to_1_over_t": 27.081343333333336
+              },
+              {
+                "t": 108,
+                "count": 78737,
+                "empirical_density": 0.26245666666666667,
+                "baseline_1_over_t": 0.009259259259259259,
+                "ratio_to_1_over_t": 28.34532
+              },
+              {
+                "t": 109,
+                "count": 76982,
+                "empirical_density": 0.25660666666666665,
+                "baseline_1_over_t": 0.009174311926605505,
+                "ratio_to_1_over_t": 27.970126666666665
+              },
+              {
+                "t": 110,
+                "count": 74089,
+                "empirical_density": 0.24696333333333334,
+                "baseline_1_over_t": 0.00909090909090909,
+                "ratio_to_1_over_t": 27.165966666666666
+              },
+              {
+                "t": 111,
+                "count": 75762,
+                "empirical_density": 0.25254,
+                "baseline_1_over_t": 0.009009009009009009,
+                "ratio_to_1_over_t": 28.03194
+              },
+              {
+                "t": 112,
+                "count": 76723,
+                "empirical_density": 0.2557433333333333,
+                "baseline_1_over_t": 0.008928571428571428,
+                "ratio_to_1_over_t": 28.643253333333334
+              },
+              {
+                "t": 113,
+                "count": 75150,
+                "empirical_density": 0.2505,
+                "baseline_1_over_t": 0.008849557522123894,
+                "ratio_to_1_over_t": 28.3065
+              },
+              {
+                "t": 114,
+                "count": 77524,
+                "empirical_density": 0.25841333333333333,
+                "baseline_1_over_t": 0.008771929824561403,
+                "ratio_to_1_over_t": 29.45912
+              },
+              {
+                "t": 115,
+                "count": 77108,
+                "empirical_density": 0.2570266666666667,
+                "baseline_1_over_t": 0.008695652173913044,
+                "ratio_to_1_over_t": 29.55806666666667
+              },
+              {
+                "t": 116,
+                "count": 76024,
+                "empirical_density": 0.2534133333333333,
+                "baseline_1_over_t": 0.008620689655172414,
+                "ratio_to_1_over_t": 29.395946666666667
+              },
+              {
+                "t": 117,
+                "count": 75675,
+                "empirical_density": 0.25225,
+                "baseline_1_over_t": 0.008547008547008548,
+                "ratio_to_1_over_t": 29.513249999999996
+              },
+              {
+                "t": 118,
+                "count": 75587,
+                "empirical_density": 0.25195666666666666,
+                "baseline_1_over_t": 0.00847457627118644,
+                "ratio_to_1_over_t": 29.730886666666667
+              },
+              {
+                "t": 119,
+                "count": 79007,
+                "empirical_density": 0.2633566666666667,
+                "baseline_1_over_t": 0.008403361344537815,
+                "ratio_to_1_over_t": 31.339443333333335
+              },
+              {
+                "t": 120,
+                "count": 83102,
+                "empirical_density": 0.2770066666666667,
+                "baseline_1_over_t": 0.008333333333333333,
+                "ratio_to_1_over_t": 33.2408
+              },
+              {
+                "t": 121,
+                "count": 79385,
+                "empirical_density": 0.26461666666666667,
+                "baseline_1_over_t": 0.008264462809917356,
+                "ratio_to_1_over_t": 32.01861666666667
+              },
+              {
+                "t": 122,
+                "count": 75069,
+                "empirical_density": 0.25023,
+                "baseline_1_over_t": 0.00819672131147541,
+                "ratio_to_1_over_t": 30.52806
+              },
+              {
+                "t": 123,
+                "count": 75912,
+                "empirical_density": 0.25304,
+                "baseline_1_over_t": 0.008130081300813009,
+                "ratio_to_1_over_t": 31.12392
+              },
+              {
+                "t": 124,
+                "count": 76583,
+                "empirical_density": 0.25527666666666665,
+                "baseline_1_over_t": 0.008064516129032258,
+                "ratio_to_1_over_t": 31.654306666666663
+              },
+              {
+                "t": 125,
+                "count": 75608,
+                "empirical_density": 0.2520266666666667,
+                "baseline_1_over_t": 0.008,
+                "ratio_to_1_over_t": 31.503333333333334
+              },
+              {
+                "t": 126,
+                "count": 75959,
+                "empirical_density": 0.2531966666666667,
+                "baseline_1_over_t": 0.007936507936507936,
+                "ratio_to_1_over_t": 31.902780000000003
+              },
+              {
+                "t": 127,
+                "count": 75612,
+                "empirical_density": 0.25204,
+                "baseline_1_over_t": 0.007874015748031496,
+                "ratio_to_1_over_t": 32.00908
+              },
+              {
+                "t": 128,
+                "count": 72176,
+                "empirical_density": 0.24058666666666667,
+                "baseline_1_over_t": 0.0078125,
+                "ratio_to_1_over_t": 30.795093333333334
+              },
+              {
+                "t": 129,
+                "count": 71992,
+                "empirical_density": 0.23997333333333334,
+                "baseline_1_over_t": 0.007751937984496124,
+                "ratio_to_1_over_t": 30.95656
+              },
+              {
+                "t": 130,
+                "count": 72691,
+                "empirical_density": 0.24230333333333334,
+                "baseline_1_over_t": 0.007692307692307693,
+                "ratio_to_1_over_t": 31.499433333333336
+              },
+              {
+                "t": 131,
+                "count": 73376,
+                "empirical_density": 0.24458666666666667,
+                "baseline_1_over_t": 0.007633587786259542,
+                "ratio_to_1_over_t": 32.04085333333333
+              },
+              {
+                "t": 132,
+                "count": 74313,
+                "empirical_density": 0.24771,
+                "baseline_1_over_t": 0.007575757575757576,
+                "ratio_to_1_over_t": 32.697720000000004
+              },
+              {
+                "t": 133,
+                "count": 74984,
+                "empirical_density": 0.24994666666666668,
+                "baseline_1_over_t": 0.007518796992481203,
+                "ratio_to_1_over_t": 33.24290666666667
+              },
+              {
+                "t": 134,
+                "count": 72680,
+                "empirical_density": 0.24226666666666666,
+                "baseline_1_over_t": 0.007462686567164179,
+                "ratio_to_1_over_t": 32.46373333333333
+              },
+              {
+                "t": 135,
+                "count": 71012,
+                "empirical_density": 0.23670666666666668,
+                "baseline_1_over_t": 0.007407407407407408,
+                "ratio_to_1_over_t": 31.9554
+              },
+              {
+                "t": 136,
+                "count": 72369,
+                "empirical_density": 0.24123,
+                "baseline_1_over_t": 0.007352941176470588,
+                "ratio_to_1_over_t": 32.80728
+              },
+              {
+                "t": 137,
+                "count": 72826,
+                "empirical_density": 0.24275333333333332,
+                "baseline_1_over_t": 0.0072992700729927005,
+                "ratio_to_1_over_t": 33.25720666666666
+              },
+              {
+                "t": 138,
+                "count": 73521,
+                "empirical_density": 0.24507,
+                "baseline_1_over_t": 0.007246376811594203,
+                "ratio_to_1_over_t": 33.81966
+              },
+              {
+                "t": 139,
+                "count": 73995,
+                "empirical_density": 0.24665,
+                "baseline_1_over_t": 0.007194244604316547,
+                "ratio_to_1_over_t": 34.28435
+              },
+              {
+                "t": 140,
+                "count": 73803,
+                "empirical_density": 0.24601,
+                "baseline_1_over_t": 0.007142857142857143,
+                "ratio_to_1_over_t": 34.4414
+              },
+              {
+                "t": 141,
+                "count": 73909,
+                "empirical_density": 0.24636333333333332,
+                "baseline_1_over_t": 0.0070921985815602835,
+                "ratio_to_1_over_t": 34.73723
+              },
+              {
+                "t": 142,
+                "count": 72854,
+                "empirical_density": 0.24284666666666666,
+                "baseline_1_over_t": 0.007042253521126761,
+                "ratio_to_1_over_t": 34.484226666666665
+              },
+              {
+                "t": 143,
+                "count": 75675,
+                "empirical_density": 0.25225,
+                "baseline_1_over_t": 0.006993006993006993,
+                "ratio_to_1_over_t": 36.071749999999994
+              },
+              {
+                "t": 144,
+                "count": 76808,
+                "empirical_density": 0.2560266666666667,
+                "baseline_1_over_t": 0.006944444444444444,
+                "ratio_to_1_over_t": 36.86784
+              },
+              {
+                "t": 145,
+                "count": 73768,
+                "empirical_density": 0.24589333333333332,
+                "baseline_1_over_t": 0.006896551724137931,
+                "ratio_to_1_over_t": 35.65453333333333
+              },
+              {
+                "t": 146,
+                "count": 71771,
+                "empirical_density": 0.23923666666666665,
+                "baseline_1_over_t": 0.00684931506849315,
+                "ratio_to_1_over_t": 34.92855333333333
+              },
+              {
+                "t": 147,
+                "count": 70805,
+                "empirical_density": 0.23601666666666668,
+                "baseline_1_over_t": 0.006802721088435374,
+                "ratio_to_1_over_t": 34.69445
+              },
+              {
+                "t": 148,
+                "count": 71659,
+                "empirical_density": 0.23886333333333334,
+                "baseline_1_over_t": 0.006756756756756757,
+                "ratio_to_1_over_t": 35.351773333333334
+              },
+              {
+                "t": 149,
+                "count": 71903,
+                "empirical_density": 0.23967666666666668,
+                "baseline_1_over_t": 0.006711409395973154,
+                "ratio_to_1_over_t": 35.711823333333335
+              },
+              {
+                "t": 150,
+                "count": 72871,
+                "empirical_density": 0.24290333333333333,
+                "baseline_1_over_t": 0.006666666666666667,
+                "ratio_to_1_over_t": 36.4355
+              },
+              {
+                "t": 151,
+                "count": 73459,
+                "empirical_density": 0.24486333333333332,
+                "baseline_1_over_t": 0.006622516556291391,
+                "ratio_to_1_over_t": 36.97436333333333
+              },
+              {
+                "t": 152,
+                "count": 72256,
+                "empirical_density": 0.24085333333333334,
+                "baseline_1_over_t": 0.006578947368421052,
+                "ratio_to_1_over_t": 36.60970666666667
+              },
+              {
+                "t": 153,
+                "count": 71914,
+                "empirical_density": 0.23971333333333333,
+                "baseline_1_over_t": 0.006535947712418301,
+                "ratio_to_1_over_t": 36.67614
+              },
+              {
+                "t": 154,
+                "count": 72141,
+                "empirical_density": 0.24047,
+                "baseline_1_over_t": 0.006493506493506494,
+                "ratio_to_1_over_t": 37.032379999999996
+              },
+              {
+                "t": 155,
+                "count": 73949,
+                "empirical_density": 0.24649666666666667,
+                "baseline_1_over_t": 0.0064516129032258064,
+                "ratio_to_1_over_t": 38.20698333333333
+              },
+              {
+                "t": 156,
+                "count": 74037,
+                "empirical_density": 0.24679,
+                "baseline_1_over_t": 0.00641025641025641,
+                "ratio_to_1_over_t": 38.49924
+              },
+              {
+                "t": 157,
+                "count": 73350,
+                "empirical_density": 0.2445,
+                "baseline_1_over_t": 0.006369426751592357,
+                "ratio_to_1_over_t": 38.3865
+              },
+              {
+                "t": 158,
+                "count": 71654,
+                "empirical_density": 0.23884666666666668,
+                "baseline_1_over_t": 0.006329113924050633,
+                "ratio_to_1_over_t": 37.73777333333334
+              },
+              {
+                "t": 159,
+                "count": 71831,
+                "empirical_density": 0.23943666666666666,
+                "baseline_1_over_t": 0.006289308176100629,
+                "ratio_to_1_over_t": 38.07043
+              },
+              {
+                "t": 160,
+                "count": 73557,
+                "empirical_density": 0.24519,
+                "baseline_1_over_t": 0.00625,
+                "ratio_to_1_over_t": 39.230399999999996
+              },
+              {
+                "t": 161,
+                "count": 73704,
+                "empirical_density": 0.24568,
+                "baseline_1_over_t": 0.006211180124223602,
+                "ratio_to_1_over_t": 39.55448
+              },
+              {
+                "t": 162,
+                "count": 72916,
+                "empirical_density": 0.24305333333333334,
+                "baseline_1_over_t": 0.006172839506172839,
+                "ratio_to_1_over_t": 39.37464
+              },
+              {
+                "t": 163,
+                "count": 72713,
+                "empirical_density": 0.24237666666666666,
+                "baseline_1_over_t": 0.006134969325153374,
+                "ratio_to_1_over_t": 39.507396666666665
+              },
+              {
+                "t": 164,
+                "count": 71892,
+                "empirical_density": 0.23964,
+                "baseline_1_over_t": 0.006097560975609756,
+                "ratio_to_1_over_t": 39.300959999999996
+              },
+              {
+                "t": 165,
+                "count": 70817,
+                "empirical_density": 0.23605666666666666,
+                "baseline_1_over_t": 0.006060606060606061,
+                "ratio_to_1_over_t": 38.94935
+              },
+              {
+                "t": 166,
+                "count": 70741,
+                "empirical_density": 0.23580333333333334,
+                "baseline_1_over_t": 0.006024096385542169,
+                "ratio_to_1_over_t": 39.14335333333334
+              },
+              {
+                "t": 167,
+                "count": 72543,
+                "empirical_density": 0.24181,
+                "baseline_1_over_t": 0.005988023952095809,
+                "ratio_to_1_over_t": 40.38227
+              },
+              {
+                "t": 168,
+                "count": 75841,
+                "empirical_density": 0.2528033333333333,
+                "baseline_1_over_t": 0.005952380952380952,
+                "ratio_to_1_over_t": 42.47096
+              },
+              {
+                "t": 169,
+                "count": 71188,
+                "empirical_density": 0.23729333333333333,
+                "baseline_1_over_t": 0.005917159763313609,
+                "ratio_to_1_over_t": 40.10257333333333
+              },
+              {
+                "t": 170,
+                "count": 70608,
+                "empirical_density": 0.23536,
+                "baseline_1_over_t": 0.0058823529411764705,
+                "ratio_to_1_over_t": 40.0112
+              },
+              {
+                "t": 171,
+                "count": 70434,
+                "empirical_density": 0.23478,
+                "baseline_1_over_t": 0.005847953216374269,
+                "ratio_to_1_over_t": 40.14738
+              },
+              {
+                "t": 172,
+                "count": 70805,
+                "empirical_density": 0.23601666666666668,
+                "baseline_1_over_t": 0.005813953488372093,
+                "ratio_to_1_over_t": 40.59486666666667
+              },
+              {
+                "t": 173,
+                "count": 71592,
+                "empirical_density": 0.23864,
+                "baseline_1_over_t": 0.005780346820809248,
+                "ratio_to_1_over_t": 41.28472
+              },
+              {
+                "t": 174,
+                "count": 71526,
+                "empirical_density": 0.23842,
+                "baseline_1_over_t": 0.005747126436781609,
+                "ratio_to_1_over_t": 41.485079999999996
+              },
+              {
+                "t": 175,
+                "count": 70799,
+                "empirical_density": 0.23599666666666666,
+                "baseline_1_over_t": 0.005714285714285714,
+                "ratio_to_1_over_t": 41.299416666666666
+              },
+              {
+                "t": 176,
+                "count": 70863,
+                "empirical_density": 0.23621,
+                "baseline_1_over_t": 0.005681818181818182,
+                "ratio_to_1_over_t": 41.57296
+              },
+              {
+                "t": 177,
+                "count": 70003,
+                "empirical_density": 0.23334333333333335,
+                "baseline_1_over_t": 0.005649717514124294,
+                "ratio_to_1_over_t": 41.301770000000005
+              },
+              {
+                "t": 178,
+                "count": 69891,
+                "empirical_density": 0.23297,
+                "baseline_1_over_t": 0.0056179775280898875,
+                "ratio_to_1_over_t": 41.46866
+              },
+              {
+                "t": 179,
+                "count": 72488,
+                "empirical_density": 0.24162666666666666,
+                "baseline_1_over_t": 0.00558659217877095,
+                "ratio_to_1_over_t": 43.251173333333334
+              },
+              {
+                "t": 180,
+                "count": 73629,
+                "empirical_density": 0.24543,
+                "baseline_1_over_t": 0.005555555555555556,
+                "ratio_to_1_over_t": 44.1774
+              },
+              {
+                "t": 181,
+                "count": 71918,
+                "empirical_density": 0.23972666666666667,
+                "baseline_1_over_t": 0.0055248618784530384,
+                "ratio_to_1_over_t": 43.390526666666666
+              },
+              {
+                "t": 182,
+                "count": 71095,
+                "empirical_density": 0.23698333333333332,
+                "baseline_1_over_t": 0.005494505494505495,
+                "ratio_to_1_over_t": 43.130966666666666
+              },
+              {
+                "t": 183,
+                "count": 70618,
+                "empirical_density": 0.23539333333333334,
+                "baseline_1_over_t": 0.00546448087431694,
+                "ratio_to_1_over_t": 43.07698
+              },
+              {
+                "t": 184,
+                "count": 70095,
+                "empirical_density": 0.23365,
+                "baseline_1_over_t": 0.005434782608695652,
+                "ratio_to_1_over_t": 42.9916
+              },
+              {
+                "t": 185,
+                "count": 70774,
+                "empirical_density": 0.23591333333333334,
+                "baseline_1_over_t": 0.005405405405405406,
+                "ratio_to_1_over_t": 43.643966666666664
+              },
+              {
+                "t": 186,
+                "count": 71481,
+                "empirical_density": 0.23827,
+                "baseline_1_over_t": 0.005376344086021506,
+                "ratio_to_1_over_t": 44.318220000000004
+              },
+              {
+                "t": 187,
+                "count": 71090,
+                "empirical_density": 0.23696666666666666,
+                "baseline_1_over_t": 0.0053475935828877,
+                "ratio_to_1_over_t": 44.31276666666667
+              },
+              {
+                "t": 188,
+                "count": 69873,
+                "empirical_density": 0.23291,
+                "baseline_1_over_t": 0.005319148936170213,
+                "ratio_to_1_over_t": 43.78708
+              },
+              {
+                "t": 189,
+                "count": 68941,
+                "empirical_density": 0.22980333333333333,
+                "baseline_1_over_t": 0.005291005291005291,
+                "ratio_to_1_over_t": 43.43283
+              },
+              {
+                "t": 190,
+                "count": 69983,
+                "empirical_density": 0.23327666666666666,
+                "baseline_1_over_t": 0.005263157894736842,
+                "ratio_to_1_over_t": 44.32256666666667
+              },
+              {
+                "t": 191,
+                "count": 72873,
+                "empirical_density": 0.24291,
+                "baseline_1_over_t": 0.005235602094240838,
+                "ratio_to_1_over_t": 46.39581
+              },
+              {
+                "t": 192,
+                "count": 73249,
+                "empirical_density": 0.24416333333333334,
+                "baseline_1_over_t": 0.005208333333333333,
+                "ratio_to_1_over_t": 46.879360000000005
+              },
+              {
+                "t": 193,
+                "count": 70706,
+                "empirical_density": 0.23568666666666666,
+                "baseline_1_over_t": 0.0051813471502590676,
+                "ratio_to_1_over_t": 45.48752666666667
+              },
+              {
+                "t": 194,
+                "count": 69709,
+                "empirical_density": 0.23236333333333334,
+                "baseline_1_over_t": 0.005154639175257732,
+                "ratio_to_1_over_t": 45.07848666666667
+              },
+              {
+                "t": 195,
+                "count": 68894,
+                "empirical_density": 0.22964666666666667,
+                "baseline_1_over_t": 0.005128205128205128,
+                "ratio_to_1_over_t": 44.7811
+              },
+              {
+                "t": 196,
+                "count": 67885,
+                "empirical_density": 0.22628333333333334,
+                "baseline_1_over_t": 0.00510204081632653,
+                "ratio_to_1_over_t": 44.351533333333336
+              },
+              {
+                "t": 197,
+                "count": 69479,
+                "empirical_density": 0.23159666666666667,
+                "baseline_1_over_t": 0.005076142131979695,
+                "ratio_to_1_over_t": 45.624543333333335
+              },
+              {
+                "t": 198,
+                "count": 69480,
+                "empirical_density": 0.2316,
+                "baseline_1_over_t": 0.005050505050505051,
+                "ratio_to_1_over_t": 45.8568
+              },
+              {
+                "t": 199,
+                "count": 69458,
+                "empirical_density": 0.23152666666666666,
+                "baseline_1_over_t": 0.005025125628140704,
+                "ratio_to_1_over_t": 46.07380666666666
+              },
+              {
+                "t": 200,
+                "count": 69258,
+                "empirical_density": 0.23086,
+                "baseline_1_over_t": 0.005,
+                "ratio_to_1_over_t": 46.172000000000004
+              }
+            ]
+          }
+        ],
+        "regression_log_density_vs_loglog_t": {
+          "model": "log d_t = alpha + beta log log t (finite-range heuristic fit)",
+          "alpha": -0.35625859668014753,
+          "beta": -0.648843799697398,
+          "interpreted_as_power_of_log_t": 0.648843799697398
+        },
+        "generated_utc": "2026-03-01T13:03:28.544Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "problem": "EP-174",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-174\n- Quick literature check:\n  - Characterization of Euclidean Ramsey sets remains open; spherical/subtransitive criteria are still central conjectural frameworks.\n- Finite compute signal:\n  - In a discrete proxy ($\\mathbb{F}_2^d$ sampled rectangles), monochromatic-rectangle rates stayed around `~0.12` under random 2-colorings.\n- Interpretation:\n  - Random finite colorings naturally contain many monochromatic rectangle copies; this is only a heuristic proxy for the geometric classification problem."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "finite F2^d rectangle proxy (known Ramsey-family shape).",
+        "content": "// EP-174: finite F2^d rectangle proxy (known Ramsey-family shape).\n{\n  function randomMonoRectRate(d, trials, samplesPerTrial) {\n    const n = 1 << d;\n    let minRate = 1;\n    let avgRate = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const col = new Uint8Array(n);\n      for (let i = 0; i < n; i += 1) col[i] = rng() < 0.5 ? 0 : 1;\n\n      let mono = 0;\n      for (let s = 0; s < samplesPerTrial; s += 1) {\n        const x = Math.floor(rng() * n);\n        let u = Math.floor(rng() * (n - 1)) + 1;\n        let v = Math.floor(rng() * (n - 1)) + 1;\n        while (v === u) v = Math.floor(rng() * (n - 1)) + 1;\n\n        const p0 = x;\n        const p1 = x ^ u;\n        const p2 = x ^ v;\n        const p3 = x ^ u ^ v;\n        const c = col[p0];\n        if (col[p1] === c && col[p2] === c && col[p3] === c) mono += 1;\n      }\n      const rate = mono / samplesPerTrial;\n      avgRate += rate;\n      if (rate < minRate) minRate = rate;\n    }\n\n    return { minRate, avgRate: avgRate / trials };\n  }\n\n  const rows = [];\n  for (const d of [5, 6, 7, 8]) {\n    const trials = 70;\n    const samples = 3500;\n    const v = randomMonoRectRate(d, trials, samples);\n    rows.push({\n      d,\n      cube_vertices: 1 << d,\n      trials,\n      sampled_rectangles_per_trial: samples,\n      min_mono_rectangle_rate_observed: Number(v.minRate.toFixed(6)),\n      avg_mono_rectangle_rate_observed: Number(v.avgRate.toFixed(6)),\n    });\n  }\n\n  out.results.ep174 = {\n    description: 'Finite F2^d rectangle proxy under random 2-colorings.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep174",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Finite F2^d rectangle proxy under random 2-colorings.",
+          "rows": [
+            {
+              "d": 5,
+              "cube_vertices": 32,
+              "trials": 70,
+              "sampled_rectangles_per_trial": 3500,
+              "min_mono_rectangle_rate_observed": 0.090857,
+              "avg_mono_rectangle_rate_observed": 0.120192
+            },
+            {
+              "d": 6,
+              "cube_vertices": 64,
+              "trials": 70,
+              "sampled_rectangles_per_trial": 3500,
+              "min_mono_rectangle_rate_observed": 0.104571,
+              "avg_mono_rectangle_rate_observed": 0.124429
+            },
+            {
+              "d": 7,
+              "cube_vertices": 128,
+              "trials": 70,
+              "sampled_rectangles_per_trial": 3500,
+              "min_mono_rectangle_rate_observed": 0.107714,
+              "avg_mono_rectangle_rate_observed": 0.124424
+            },
+            {
+              "d": 8,
+              "cube_vertices": 256,
+              "trials": 70,
+              "sampled_rectangles_per_trial": 3500,
+              "min_mono_rectangle_rate_observed": 0.111143,
+              "avg_mono_rectangle_rate_observed": 0.12471
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

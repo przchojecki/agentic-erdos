@@ -1,0 +1,54 @@
+{
+  "problem": "EP-352",
+  "normalized_utc": "2026-03-05T08:54:16.957Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-352\n- Quick literature check:\n  - Strong partial results exist under additional hypotheses; exact finite-threshold statement in full generality remains open.\n- Finite compute signal:\n  - Grid proxy search (no area-1 triangle among selected lattice points) gives best densities about `0.43` (`m=6`), `0.28` (`m=8`), `0.23` (`m=10`).\n- Interpretation:\n  - Discrete proxy suggests area constraints quickly suppress density, but this is not directly comparable to measurable-set threshold constants in `\\mathbb{R}^2`."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "discrete proxy on integer grids avoiding area-1 triangles.",
+        "content": "// EP-352: discrete proxy on integer grids avoiding area-1 triangles.\n{\n  function area2(p, q, r) {\n    const [x1, y1] = p;\n    const [x2, y2] = q;\n    const [x3, y3] = r;\n    return Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));\n  }\n\n  function bestAvoidArea1(m, restarts) {\n    const pts = [];\n    for (let x = 0; x <= m; x += 1) {\n      for (let y = 0; y <= m; y += 1) pts.push([x, y]);\n    }\n\n    const n = pts.length;\n    const pairsWithPoint = Array.from({ length: n }, () => []);\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) {\n        for (let k = j + 1; k < n; k += 1) {\n          if (area2(pts[i], pts[j], pts[k]) !== 2) continue;\n          pairsWithPoint[i].push([j, k]);\n          pairsWithPoint[j].push([i, k]);\n          pairsWithPoint[k].push([i, j]);\n        }\n      }\n    }\n\n    let best = 0;\n    for (let r = 0; r < restarts; r += 1) {\n      const ord = Array.from({ length: n }, (_, i) => i);\n      for (let i = n - 1; i > 0; i -= 1) {\n        const j = Math.floor(rng() * (i + 1));\n        const t = ord[i];\n        ord[i] = ord[j];\n        ord[j] = t;\n      }\n      const chosen = new Uint8Array(n);\n      let c = 0;\n      for (const v of ord) {\n        let bad = false;\n        for (const [a, b] of pairsWithPoint[v]) {\n          if (chosen[a] && chosen[b]) {\n            bad = true;\n            break;\n          }\n        }\n        if (!bad) {\n          chosen[v] = 1;\n          c += 1;\n        }\n      }\n      if (c > best) best = c;\n    }\n    return { points: n, best };\n  }\n\n  const rows = [];\n  for (const m of [6, 8, 10]) {\n    const { points, best } = bestAvoidArea1(m, 150);\n    rows.push({\n      grid_m: m,\n      total_points: points,\n      best_area1_free_subset_size: best,\n      density: Number((best / points).toPrecision(6)),\n    });\n  }\n\n  out.results.ep352 = {\n    description: 'Grid-geometry proxy: large subsets of [0,m]^2 with no area-1 triangle among chosen points.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep352",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Grid-geometry proxy: large subsets of [0,m]^2 with no area-1 triangle among chosen points.",
+          "rows": [
+            {
+              "grid_m": 6,
+              "total_points": 49,
+              "best_area1_free_subset_size": 21,
+              "density": 0.428571
+            },
+            {
+              "grid_m": 8,
+              "total_points": 81,
+              "best_area1_free_subset_size": 23,
+              "density": 0.283951
+            },
+            {
+              "grid_m": 10,
+              "total_points": 121,
+              "best_area1_free_subset_size": 28,
+              "density": 0.231405
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

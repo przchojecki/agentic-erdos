@@ -1,0 +1,84 @@
+{
+  "problem": "EP-243",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-243\n- Quick literature check:\n  - The main partial route remains Erdős-Straus and Duverney's conditional/stronger-hypothesis rigidity result.\n- Finite compute signal:\n  - Exact Sylvester sequences (`a_{n+1}=a_n^2-a_n+1`) give exact zero telescoping residual in exact rational arithmetic.\n  - A single perturbation at one index immediately creates a nonzero residual (numerator `-1` over huge denominator).\n- Interpretation:\n  - This is strong finite evidence for recurrence rigidity, but not a full proof under only the original hypotheses."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "Sylvester-type telescoping identity vs perturbation.",
+        "content": "// EP-243: Sylvester-type telescoping identity vs perturbation.\n{\n  function sylvesterTerms(a1, len) {\n    const a = [BigInt(a1)];\n    while (a.length < len) {\n      const x = a[a.length - 1];\n      a.push(x * x - x + 1n);\n    }\n    return a;\n  }\n\n  function telescopingResidual(a) {\n    // Sum_i [1/a_i - (1/(a_i-1) - 1/(a_{i+1}-1))]\n    let res = [0n, 1n];\n    for (let i = 0; i + 1 < a.length; i += 1) {\n      const term1 = [1n, a[i]];\n      const term2 = fracSub([1n, a[i] - 1n], [1n, a[i + 1] - 1n]);\n      const diff = fracSub(term1, term2);\n      res = fracAdd(res, diff);\n    }\n    return res;\n  }\n\n  const rows = [];\n  for (const a1 of [2, 3, 5]) {\n    const a = sylvesterTerms(a1, 8);\n    const r = telescopingResidual(a);\n    rows.push({\n      model: 'exact_sylvester',\n      a1,\n      terms_checked: 8,\n      residual_numerator: r[0].toString(),\n      residual_denominator: r[1].toString(),\n      residual_as_number: fracToNumber(r),\n    });\n\n    const b = [...a];\n    b[4] += 1n; // perturb one term\n    const rp = telescopingResidual(b);\n    rows.push({\n      model: 'single_perturbation_at_index5',\n      a1,\n      terms_checked: 8,\n      residual_numerator: rp[0].toString(),\n      residual_denominator: rp[1].toString(),\n      residual_as_number: fracToNumber(rp),\n    });\n  }\n\n  out.results.ep243 = {\n    description: 'Exact telescoping residual check for Sylvester recurrence and perturbed variants.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep243",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Exact telescoping residual check for Sylvester recurrence and perturbed variants.",
+          "rows": [
+            {
+              "model": "exact_sylvester",
+              "a1": 2,
+              "terms_checked": 8,
+              "residual_numerator": "0",
+              "residual_denominator": "1",
+              "residual_as_number": 0
+            },
+            {
+              "model": "single_perturbation_at_index5",
+              "a1": 2,
+              "terms_checked": 8,
+              "residual_numerator": "-1",
+              "residual_denominator": "3267056",
+              "residual_as_number": -3.0608596852946504e-7
+            },
+            {
+              "model": "exact_sylvester",
+              "a1": 3,
+              "terms_checked": 8,
+              "residual_numerator": "0",
+              "residual_denominator": "1",
+              "residual_as_number": 0
+            },
+            {
+              "model": "single_perturbation_at_index5",
+              "a1": 3,
+              "terms_checked": 8,
+              "residual_numerator": "-1",
+              "residual_denominator": "10650063477692",
+              "residual_as_number": -9.38961539613952e-14
+            },
+            {
+              "model": "exact_sylvester",
+              "a1": 5,
+              "terms_checked": 8,
+              "residual_numerator": "0",
+              "residual_denominator": "1",
+              "residual_as_number": 0
+            },
+            {
+              "model": "single_perturbation_at_index5",
+              "a1": 5,
+              "terms_checked": 8,
+              "residual_numerator": "-1",
+              "residual_denominator": "977530816259732676062",
+              "residual_as_number": -1.0229856525917411e-21
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

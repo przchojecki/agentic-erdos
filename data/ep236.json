@@ -1,0 +1,68 @@
+{
+  "problem": "EP-236",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-236\n- Quick literature check:\n  - No full asymptotic resolution; classical lower spikes and upper-distribution bounds remain central.\n- Finite compute signal:\n  - Up to `X=2e6`, maximum observed `f(n)` was `15`, and `max f(n)/log n` stayed around `~1.05` at the maximizing examples.\n- Interpretation:\n  - Finite behavior suggests logarithmic-scale maxima are plausible but does not settle `f(n)=o(log n)`.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/184\n  - https://www.erdosproblems.com/188\n  - https://www.erdosproblems.com/195\n  - https://www.erdosproblems.com/202\n  - https://www.erdosproblems.com/208\n  - https://www.erdosproblems.com/212\n  - https://www.erdosproblems.com/213\n  - https://www.erdosproblems.com/222\n  - https://www.erdosproblems.com/233\n  - https://www.erdosproblems.com/236\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2211.07689\n  - https://arxiv.org/abs/2211.04451\n  - https://arxiv.org/abs/2407.19026\n  - https://arxiv.org/abs/2208.14568\n  - https://arxiv.org/abs/2112.03175\n  - https://arxiv.org/abs/1901.02616"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "representation counts n = p + 2^k.",
+        "content": "// EP-236: representation counts n = p + 2^k.\n{\n  const Xmax = 2000000;\n  const { isPrime } = sieve(Xmax);\n  const powers = [];\n  for (let v = 1; v <= Xmax; v *= 2) powers.push(v);\n\n  const cnt = new Uint16Array(Xmax + 1);\n  for (const p2 of powers) {\n    for (let p = 2; p + p2 <= Xmax; p += 1) {\n      if (!isPrime[p]) continue;\n      cnt[p + p2] += 1;\n    }\n  }\n\n  function summarize(X) {\n    let maxF = 0;\n    let arg = 0;\n    let sum = 0;\n    for (let n = 1; n <= X; n += 1) {\n      const v = cnt[n];\n      sum += v;\n      if (v > maxF) {\n        maxF = v;\n        arg = n;\n      }\n    }\n\n    const hist = new Int32Array(maxF + 1);\n    for (let n = 1; n <= X; n += 1) hist[cnt[n]] += 1;\n    let c = 0;\n    let p99 = 0;\n    const target = Math.ceil(0.99 * X);\n    for (let i = 0; i <= maxF; i += 1) {\n      c += hist[i];\n      if (c >= target) {\n        p99 = i;\n        break;\n      }\n    }\n\n    return {\n      X,\n      max_f_n: maxF,\n      argmax_n: arg,\n      max_f_over_log_n: Number((maxF / Math.log(Math.max(3, arg))).toFixed(6)),\n      mean_f: Number((sum / X).toFixed(6)),\n      percentile99_f: p99,\n    };\n  }\n\n  const rows = [200000, 500000, 1000000, 2000000].map(summarize);\n\n  out.results.ep236 = {\n    description: 'Finite distribution profile of f(n)=#{(p,2^k): n=p+2^k}.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch7_quick_compute.json');\nfs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\\n`);\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep236",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Finite distribution profile of f(n)=#{(p,2^k): n=p+2^k}.",
+          "rows": [
+            {
+              "X": 200000,
+              "max_f_n": 12,
+              "argmax_n": 80685,
+              "max_f_over_log_n": 1.062106,
+              "mean_f": 1.508715,
+              "percentile99_f": 7
+            },
+            {
+              "X": 500000,
+              "max_f_n": 13,
+              "argmax_n": 229845,
+              "max_f_over_log_n": 1.053044,
+              "mean_f": 1.497144,
+              "percentile99_f": 7
+            },
+            {
+              "X": 1000000,
+              "max_f_n": 13,
+              "argmax_n": 229845,
+              "max_f_over_log_n": 1.053044,
+              "mean_f": 1.493127,
+              "percentile99_f": 7
+            },
+            {
+              "X": 2000000,
+              "max_f_n": 15,
+              "argmax_n": 1575285,
+              "max_f_over_log_n": 1.05116,
+              "mean_f": 1.490438,
+              "percentile99_f": 7
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "problem": "EP-1113",
+  "normalized_utc": "2026-03-05T08:54:16.976Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1113\n- Quick literature check:\n  - Page status is **OPEN**; discussion still centers on whether non-covering Sierpinski numbers exist.\n- Finite compute signal:\n  - In odd `m<=3000`, `k<=14` pseudo-Sierpinski screening produced many candidates with all tested `2^k m+1` composite; several admit small greedy covering-prime sets in this finite window.\n- Interpretation:\n  - Finite pseudo-candidates often look coverable at short horizons, but this does not address true all-`k` behavior or finite-cover nonexistence."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite pseudo-Sierpinski screening and small covering-set profile.",
+        "content": "// EP-1113: finite pseudo-Sierpinski screening and small covering-set profile.\n{\n  const M_MAX = 3000;\n  const K_MAX = 14;\n  const MAX_VAL = (1 << K_MAX) * M_MAX + 1;\n  const { primes } = sievePrimes(Math.floor(Math.sqrt(MAX_VAL)) + 100);\n\n  function primeFactorsDistinct(n) {\n    return factorDistinctByPrimes(n, primes);\n  }\n\n  const candidates = [];\n  for (let m = 3; m <= M_MAX; m += 2) {\n    let allComposite = true;\n    const factorSets = [];\n    for (let k = 0; k <= K_MAX; k += 1) {\n      const v = (m << k) + 1;\n      if (isPrimeByTrial(v, primes)) {\n        allComposite = false;\n        break;\n      }\n      factorSets.push(primeFactorsDistinct(v));\n    }\n    if (!allComposite) continue;\n\n    // Greedy set-cover over exponent indices 0..K_MAX.\n    const uncovered = new Set([...Array(K_MAX + 1).keys()]);\n    const chosen = [];\n    const primeToIdx = new Map();\n    for (let k = 0; k <= K_MAX; k += 1) {\n      for (const p of factorSets[k]) {\n        if (!primeToIdx.has(p)) primeToIdx.set(p, []);\n        primeToIdx.get(p).push(k);\n      }\n    }\n    while (uncovered.size) {\n      let bestP = null;\n      let bestHit = [];\n      for (const [p, idxs] of primeToIdx.entries()) {\n        const hit = idxs.filter((x) => uncovered.has(x));\n        if (hit.length > bestHit.length) {\n          bestHit = hit;\n          bestP = p;\n        }\n      }\n      if (!bestP || bestHit.length === 0) break;\n      chosen.push(bestP);\n      for (const x of bestHit) uncovered.delete(x);\n    }\n\n    candidates.push({\n      m,\n      greedy_cover_size_for_k0_to_kmax: chosen.length,\n      greedy_cover_primes_sample: chosen.slice(0, 12),\n    });\n  }\n\n  candidates.sort((a, b) => a.greedy_cover_size_for_k0_to_kmax - b.greedy_cover_size_for_k0_to_kmax || a.m - b.m);\n\n  out.results.ep1113 = {\n    description: 'Finite pseudo-Sierpinski scan (composite checks for 2^k m+1 up to k<=14) with greedy covering-prime profile.',\n    M_MAX,\n    K_MAX,\n    pseudo_sierpinski_count_in_scan: candidates.length,\n    best_candidates_by_small_cover_size: candidates.slice(0, 20),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1113",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite pseudo-Sierpinski scan (composite checks for 2^k m+1 up to k<=14) with greedy covering-prime profile.",
+          "M_MAX": 3000,
+          "K_MAX": 14,
+          "pseudo_sierpinski_count_in_scan": 130,
+          "best_candidates_by_small_cover_size": [
+            {
+              "m": 257,
+              "greedy_cover_size_for_k0_to_kmax": 4,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                17,
+                67
+              ]
+            },
+            {
+              "m": 767,
+              "greedy_cover_size_for_k0_to_kmax": 4,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                17,
+                31
+              ]
+            },
+            {
+              "m": 1277,
+              "greedy_cover_size_for_k0_to_kmax": 4,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                17,
+                7
+              ]
+            },
+            {
+              "m": 2297,
+              "greedy_cover_size_for_k0_to_kmax": 4,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                17,
+                269
+              ]
+            },
+            {
+              "m": 47,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                13,
+                11
+              ]
+            },
+            {
+              "m": 143,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                7,
+                5,
+                23,
+                211
+              ]
+            },
+            {
+              "m": 197,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                19,
+                151,
+                313
+              ]
+            },
+            {
+              "m": 259,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                17,
+                11,
+                59
+              ]
+            },
+            {
+              "m": 263,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                17,
+                19,
+                29
+              ]
+            },
+            {
+              "m": 353,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                7,
+                5,
+                11,
+                149
+              ]
+            },
+            {
+              "m": 383,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                13,
+                7,
+                11
+              ]
+            },
+            {
+              "m": 437,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                13,
+                151
+              ]
+            },
+            {
+              "m": 467,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                11,
+                37,
+                23
+              ]
+            },
+            {
+              "m": 587,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                227,
+                173
+              ]
+            },
+            {
+              "m": 601,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                59,
+                11
+              ]
+            },
+            {
+              "m": 647,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                31,
+                149
+              ]
+            },
+            {
+              "m": 649,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                73,
+                107
+              ]
+            },
+            {
+              "m": 773,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                7,
+                5,
+                17,
+                29
+              ]
+            },
+            {
+              "m": 797,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                11,
+                17
+              ]
+            },
+            {
+              "m": 811,
+              "greedy_cover_size_for_k0_to_kmax": 5,
+              "greedy_cover_primes_sample": [
+                3,
+                5,
+                7,
+                19,
+                191
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

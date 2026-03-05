@@ -1,0 +1,68 @@
+{
+  "problem": "EP-291",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-291\n- Quick literature check:\n  - Second part (`(a_n,L_n)>1` infinitely often) is essentially easy; the infinite coprime-occurrence side remains the subtle part.\n- Finite compute signal:\n  - Exact BigInt computation to `n=500` finds both behaviors frequently (`gcd=1` and `>1`), with coprime cases still present but less dense.\n- Interpretation:\n  - Finite profile strongly supports coexistence of both regimes, without asymptotic proof of infinitude for the coprime side."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "exact BigInt profile of gcd(a_n, L_n), H_n = a_n / L_n.",
+        "content": "// EP-291: exact BigInt profile of gcd(a_n, L_n), H_n = a_n / L_n.\n{\n  let num = 0n;\n  let den = 1n;\n  let L = 1n;\n\n  let coprimeCount = 0;\n  let nontrivialCount = 0;\n  let firstCoprime = null;\n  let firstNontrivial = null;\n  const rows = [];\n\n  const milestones = new Set([100, 200, 300, 400, 500]);\n  for (let n = 1; n <= 500; n += 1) {\n    const bn = BigInt(n);\n    [num, den] = reduceFrac(num * bn + den, den * bn);\n    L = lcmBig(L, bn);\n\n    const a = num * (L / den);\n    const g = gcdBig(a, L);\n    if (g === 1n) {\n      coprimeCount += 1;\n      if (firstCoprime === null) firstCoprime = n;\n    } else {\n      nontrivialCount += 1;\n      if (firstNontrivial === null) firstNontrivial = n;\n    }\n\n    if (milestones.has(n)) {\n      rows.push({\n        n,\n        coprime_count_up_to_n: coprimeCount,\n        nontrivial_count_up_to_n: nontrivialCount,\n        coprime_density: Number((coprimeCount / n).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep291 = {\n    description: 'Exact finite profile of gcd(a_n,L_n) for n<=500 via BigInt harmonic arithmetic.',\n    first_n_with_gcd_eq_1: firstCoprime,\n    first_n_with_gcd_gt_1: firstNontrivial,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep291",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Exact finite profile of gcd(a_n,L_n) for n<=500 via BigInt harmonic arithmetic.",
+          "first_n_with_gcd_eq_1": 1,
+          "first_n_with_gcd_gt_1": 6,
+          "rows": [
+            {
+              "n": 100,
+              "coprime_count_up_to_n": 37,
+              "nontrivial_count_up_to_n": 63,
+              "coprime_density": 0.37
+            },
+            {
+              "n": 200,
+              "coprime_count_up_to_n": 68,
+              "nontrivial_count_up_to_n": 132,
+              "coprime_density": 0.34
+            },
+            {
+              "n": 300,
+              "coprime_count_up_to_n": 102,
+              "nontrivial_count_up_to_n": 198,
+              "coprime_density": 0.34
+            },
+            {
+              "n": 400,
+              "coprime_count_up_to_n": 104,
+              "nontrivial_count_up_to_n": 296,
+              "coprime_density": 0.26
+            },
+            {
+              "n": 500,
+              "coprime_count_up_to_n": 106,
+              "nontrivial_count_up_to_n": 394,
+              "coprime_density": 0.212
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

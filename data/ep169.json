@@ -1,0 +1,78 @@
+{
+  "problem": "EP-169",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-169\n- Quick literature check:\n  - Recent 2025 progress (including new values/lower bounds) appears on the problem page; core asymptotics remain open.\n- Finite compute signal:\n  - Greedy AP-free sets yielded harmonic sums around:\n    - $k=3$: `2.95..2.98` up to $N=10^5$,\n    - $k=4$: `3.96..4.05` up to $N=12000$.\n- Interpretation:\n  - Finite harmonic sums continue to grow slowly and are consistent with nontrivial extremal behavior, but not decisive for $f(k)$ asymptotics."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "harmonic sums for k-AP-free greedy sets.",
+        "content": "// EP-169: harmonic sums for k-AP-free greedy sets.\n{\n  function greedyNo3AP(N) {\n    const inSet = new Uint8Array(N + 1);\n    const elems = [];\n    let h = 0;\n    for (let x = 1; x <= N; x += 1) {\n      let bad = false;\n      for (const y of elems) {\n        const z = 2 * y - x;\n        if (z >= 1 && inSet[z]) {\n          bad = true;\n          break;\n        }\n      }\n      if (!bad) {\n        inSet[x] = 1;\n        elems.push(x);\n        h += 1 / x;\n      }\n    }\n    return { size: elems.length, harmonic: h };\n  }\n\n  function greedyNo4AP(N) {\n    const inSet = new Uint8Array(N + 1);\n    let size = 0;\n    let h = 0;\n    for (let x = 1; x <= N; x += 1) {\n      let bad = false;\n      for (let d = 1; x - 3 * d >= 1; d += 1) {\n        if (inSet[x - d] && inSet[x - 2 * d] && inSet[x - 3 * d]) {\n          bad = true;\n          break;\n        }\n      }\n      if (!bad) {\n        inSet[x] = 1;\n        size += 1;\n        h += 1 / x;\n      }\n    }\n    return { size, harmonic: h };\n  }\n\n  const rows = [];\n  for (const N of [20000, 50000, 100000]) {\n    const v = greedyNo3AP(N);\n    rows.push({\n      k: 3,\n      N,\n      greedy_size: v.size,\n      harmonic_sum: Number(v.harmonic.toFixed(6)),\n      harmonic_over_logN: Number((v.harmonic / Math.log(N)).toFixed(6)),\n    });\n  }\n  for (const N of [4000, 8000, 12000]) {\n    const v = greedyNo4AP(N);\n    rows.push({\n      k: 4,\n      N,\n      greedy_size: v.size,\n      harmonic_sum: Number(v.harmonic.toFixed(6)),\n      harmonic_over_logN: Number((v.harmonic / Math.log(N)).toFixed(6)),\n    });\n  }\n\n  out.results.ep169 = {\n    description: 'Greedy finite harmonic-sum profiles for k-AP-free sets.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep169",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Greedy finite harmonic-sum profiles for k-AP-free sets.",
+          "rows": [
+            {
+              "k": 3,
+              "N": 20000,
+              "greedy_size": 560,
+              "harmonic_sum": 2.946648,
+              "harmonic_over_logN": 0.297536
+            },
+            {
+              "k": 3,
+              "N": 50000,
+              "greedy_size": 1024,
+              "harmonic_sum": 2.965463,
+              "harmonic_over_logN": 0.274078
+            },
+            {
+              "k": 3,
+              "N": 100000,
+              "greedy_size": 2048,
+              "harmonic_sum": 2.979622,
+              "harmonic_over_logN": 0.258807
+            },
+            {
+              "k": 4,
+              "N": 4000,
+              "greedy_size": 565,
+              "harmonic_sum": 3.955268,
+              "harmonic_over_logN": 0.47688
+            },
+            {
+              "k": 4,
+              "N": 8000,
+              "greedy_size": 925,
+              "harmonic_sum": 4.017928,
+              "harmonic_over_logN": 0.447072
+            },
+            {
+              "k": 4,
+              "N": 12000,
+              "greedy_size": 1239,
+              "harmonic_sum": 4.049629,
+              "harmonic_over_logN": 0.431148
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,878 @@
+{
+  "problem": "EP-793",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep793_exact_small_hypergraph_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-793",
+        "method": "exact_max_independent_set_in_3_uniform_hypergraph",
+        "property": "No element divides the product of two other distinct selected elements.",
+        "n_range": [
+          6,
+          50
+        ],
+        "rows": [
+          {
+            "n": 6,
+            "edge_count": 17,
+            "exact_max_size": 3,
+            "density": 0.5,
+            "witness": [
+              2,
+              3,
+              5
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 7,
+            "edge_count": 25,
+            "exact_max_size": 4,
+            "density": 0.571429,
+            "witness": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 8,
+            "edge_count": 41,
+            "exact_max_size": 4,
+            "density": 0.5,
+            "witness": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 9,
+            "edge_count": 60,
+            "exact_max_size": 4,
+            "density": 0.444444,
+            "witness": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 10,
+            "edge_count": 86,
+            "exact_max_size": 4,
+            "density": 0.4,
+            "witness": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 11,
+            "edge_count": 103,
+            "exact_max_size": 5,
+            "density": 0.454545,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 12,
+            "edge_count": 146,
+            "exact_max_size": 5,
+            "density": 0.416667,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 13,
+            "edge_count": 169,
+            "exact_max_size": 6,
+            "density": 0.461538,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 14,
+            "edge_count": 213,
+            "exact_max_size": 6,
+            "density": 0.428571,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 15,
+            "edge_count": 271,
+            "exact_max_size": 6,
+            "density": 0.4,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 16,
+            "edge_count": 334,
+            "exact_max_size": 6,
+            "density": 0.375,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 17,
+            "edge_count": 368,
+            "exact_max_size": 7,
+            "density": 0.411765,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 18,
+            "edge_count": 453,
+            "exact_max_size": 7,
+            "density": 0.388889,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 19,
+            "edge_count": 493,
+            "exact_max_size": 8,
+            "density": 0.421053,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 20,
+            "edge_count": 597,
+            "exact_max_size": 8,
+            "density": 0.4,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 21,
+            "edge_count": 696,
+            "exact_max_size": 8,
+            "density": 0.380952,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "runtime_ms": 0
+          },
+          {
+            "n": 22,
+            "edge_count": 785,
+            "exact_max_size": 8,
+            "density": 0.363636,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 23,
+            "edge_count": 837,
+            "exact_max_size": 9,
+            "density": 0.391304,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 24,
+            "edge_count": 994,
+            "exact_max_size": 9,
+            "density": 0.375,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 25,
+            "edge_count": 1094,
+            "exact_max_size": 9,
+            "density": 0.36,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 26,
+            "edge_count": 1205,
+            "exact_max_size": 9,
+            "density": 0.346154,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "runtime_ms": 1
+          },
+          {
+            "n": 27,
+            "edge_count": 1337,
+            "exact_max_size": 9,
+            "density": 0.333333,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 28,
+            "edge_count": 1513,
+            "exact_max_size": 9,
+            "density": 0.321429,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 29,
+            "edge_count": 1586,
+            "exact_max_size": 10,
+            "density": 0.344828,
+            "witness": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 30,
+            "edge_count": 1816,
+            "exact_max_size": 11,
+            "density": 0.366667,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 31,
+            "edge_count": 1897,
+            "exact_max_size": 12,
+            "density": 0.387097,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 32,
+            "edge_count": 2093,
+            "exact_max_size": 12,
+            "density": 0.375,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31
+            ],
+            "runtime_ms": 2
+          },
+          {
+            "n": 33,
+            "edge_count": 2279,
+            "exact_max_size": 12,
+            "density": 0.363636,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31
+            ],
+            "runtime_ms": 3
+          },
+          {
+            "n": 34,
+            "edge_count": 2439,
+            "exact_max_size": 12,
+            "density": 0.352941,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31
+            ],
+            "runtime_ms": 4
+          },
+          {
+            "n": 35,
+            "edge_count": 2655,
+            "exact_max_size": 12,
+            "density": 0.342857,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31
+            ],
+            "runtime_ms": 5
+          },
+          {
+            "n": 36,
+            "edge_count": 2971,
+            "exact_max_size": 12,
+            "density": 0.333333,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31
+            ],
+            "runtime_ms": 6
+          },
+          {
+            "n": 37,
+            "edge_count": 3075,
+            "exact_max_size": 13,
+            "density": 0.351351,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37
+            ],
+            "runtime_ms": 6
+          },
+          {
+            "n": 38,
+            "edge_count": 3261,
+            "exact_max_size": 13,
+            "density": 0.342105,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37
+            ],
+            "runtime_ms": 11
+          },
+          {
+            "n": 39,
+            "edge_count": 3490,
+            "exact_max_size": 13,
+            "density": 0.333333,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37
+            ],
+            "runtime_ms": 14
+          },
+          {
+            "n": 40,
+            "edge_count": 3846,
+            "exact_max_size": 13,
+            "density": 0.325,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37
+            ],
+            "runtime_ms": 16
+          },
+          {
+            "n": 41,
+            "edge_count": 3964,
+            "exact_max_size": 14,
+            "density": 0.341463,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41
+            ],
+            "runtime_ms": 17
+          },
+          {
+            "n": 42,
+            "edge_count": 4342,
+            "exact_max_size": 14,
+            "density": 0.333333,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41
+            ],
+            "runtime_ms": 20
+          },
+          {
+            "n": 43,
+            "edge_count": 4468,
+            "exact_max_size": 15,
+            "density": 0.348837,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43
+            ],
+            "runtime_ms": 21
+          },
+          {
+            "n": 44,
+            "edge_count": 4794,
+            "exact_max_size": 15,
+            "density": 0.340909,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43
+            ],
+            "runtime_ms": 26
+          },
+          {
+            "n": 45,
+            "edge_count": 5191,
+            "exact_max_size": 15,
+            "density": 0.333333,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43
+            ],
+            "runtime_ms": 30
+          },
+          {
+            "n": 46,
+            "edge_count": 5433,
+            "exact_max_size": 15,
+            "density": 0.326087,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43
+            ],
+            "runtime_ms": 54
+          },
+          {
+            "n": 47,
+            "edge_count": 5573,
+            "exact_max_size": 16,
+            "density": 0.340426,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43,
+              47
+            ],
+            "runtime_ms": 58
+          },
+          {
+            "n": 48,
+            "edge_count": 6067,
+            "exact_max_size": 16,
+            "density": 0.333333,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43,
+              47
+            ],
+            "runtime_ms": 68
+          },
+          {
+            "n": 49,
+            "edge_count": 6321,
+            "exact_max_size": 16,
+            "density": 0.326531,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43,
+              47
+            ],
+            "runtime_ms": 88
+          },
+          {
+            "n": 50,
+            "edge_count": 6719,
+            "exact_max_size": 16,
+            "density": 0.32,
+            "witness": [
+              4,
+              7,
+              9,
+              11,
+              13,
+              17,
+              19,
+              23,
+              25,
+              29,
+              30,
+              31,
+              37,
+              41,
+              43,
+              47
+            ],
+            "runtime_ms": 111
+          }
+        ],
+        "generated_utc": "2026-03-01T13:01:13.213Z"
+      }
+    }
+  ]
+}

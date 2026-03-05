@@ -1,0 +1,86 @@
+{
+  "problem": "EP-365",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-365\n- Quick literature check:\n  - The first-form question is already false (classical counterexamples and infinite non-Pell-type families are known); growth-rate side is still of interest.\n- Finite compute signal:\n  - Up to `3e6`, found pair starts `8, 288, 675, 9800, 12167, ...`.\n  - First both-nonsquare pair appears at `12167` (matching known background phenomenon).\n- Interpretation:\n  - Data matches the known structure: non-square consecutive powerful pairs exist but are sparse."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "consecutive powerful pairs.",
+        "content": "// EP-365: consecutive powerful pairs.\n{\n  const milestones = [10_000, 100_000, 500_000, 1_000_000, 2_000_000, 3_000_000];\n  const mset = new Set(milestones);\n  const rows = [];\n\n  let countPairs = 0;\n  let countBothNonSquare = 0;\n  const firstPairs = [];\n  const firstBothNonSquare = [];\n\n  for (let n = 1; n <= LIMIT; n += 1) {\n    if (powerful[n] && powerful[n + 1]) {\n      countPairs += 1;\n      const nonSquare = !isSquareInt(n) && !isSquareInt(n + 1);\n      if (nonSquare) {\n        countBothNonSquare += 1;\n        if (firstBothNonSquare.length < 12) firstBothNonSquare.push(n);\n      }\n      if (firstPairs.length < 20) firstPairs.push(n);\n    }\n\n    if (mset.has(n)) {\n      const ln = Math.log(n);\n      rows.push({\n        X: n,\n        pair_count_up_to_X: countPairs,\n        both_non_square_count_up_to_X: countBothNonSquare,\n        pair_count_over_log2: Number((countPairs / (ln * ln)).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep365 = {\n    description: 'Finite profile of consecutive powerful numbers n,n+1.',\n    first_pair_starts: firstPairs,\n    first_both_non_square_pair_starts: firstBothNonSquare,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep365",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite profile of consecutive powerful numbers n,n+1.",
+          "first_pair_starts": [
+            8,
+            288,
+            675,
+            9800,
+            12167,
+            235224,
+            332928,
+            465124,
+            1825200
+          ],
+          "first_both_non_square_pair_starts": [
+            12167
+          ],
+          "rows": [
+            {
+              "X": 10000,
+              "pair_count_up_to_X": 4,
+              "both_non_square_count_up_to_X": 0,
+              "pair_count_over_log2": 0.0471529
+            },
+            {
+              "X": 100000,
+              "pair_count_up_to_X": 5,
+              "both_non_square_count_up_to_X": 1,
+              "pair_count_over_log2": 0.0377223
+            },
+            {
+              "X": 500000,
+              "pair_count_up_to_X": 8,
+              "both_non_square_count_up_to_X": 1,
+              "pair_count_over_log2": 0.0464586
+            },
+            {
+              "X": 1000000,
+              "pair_count_up_to_X": 8,
+              "both_non_square_count_up_to_X": 1,
+              "pair_count_over_log2": 0.0419137
+            },
+            {
+              "X": 2000000,
+              "pair_count_up_to_X": 9,
+              "both_non_square_count_up_to_X": 1,
+              "pair_count_over_log2": 0.0427551
+            },
+            {
+              "X": 3000000,
+              "pair_count_up_to_X": 9,
+              "both_non_square_count_up_to_X": 1,
+              "pair_count_over_log2": 0.040462
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

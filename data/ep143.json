@@ -1,0 +1,54 @@
+{
+  "problem": "EP-143",
+  "normalized_utc": "2026-03-05T08:54:16.951Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-143\n- Quick literature check:\n  - Recent work (Kustov-Lagarias-Liu, 2025) gives a negative answer to the broad sparsity question: the condition does not force global sparsity in full generality.\n- Finite compute signal:\n  - In a discretized finite proxy, best feasible sets grow with window size while harmonic sums remain controlled.\n- Interpretation:\n  - The overall “must be sparse” claim is not valid as stated; sharper variants remain the meaningful open part."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep143",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Finite discrete proxy search for the |kx-y|>=1 sparsity condition.",
+          "rows": [
+            {
+              "M": 50,
+              "finite_k_cutoff_K": 60,
+              "best_proxy_size_found": 21,
+              "best_proxy_harmonic_sum": 0.627332,
+              "primes_count_le_M": 15,
+              "primes_harmonic_sum_le_M": 1.661647
+            },
+            {
+              "M": 100,
+              "finite_k_cutoff_K": 60,
+              "best_proxy_size_found": 43,
+              "best_proxy_harmonic_sum": 0.729906,
+              "primes_count_le_M": 25,
+              "primes_harmonic_sum_le_M": 1.802817
+            },
+            {
+              "M": 150,
+              "finite_k_cutoff_K": 60,
+              "best_proxy_size_found": 60,
+              "best_proxy_harmonic_sum": 0.676091,
+              "primes_count_le_M": 35,
+              "primes_harmonic_sum_le_M": 1.886509
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

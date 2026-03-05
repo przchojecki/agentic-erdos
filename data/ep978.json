@@ -1,0 +1,143 @@
+{
+  "problem": "EP-978",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-978\n- Quick literature check:\n  - Open in the highlighted low-degree case (`n^4+2` squarefree infinitely often); higher-degree `(k-2)`-power-free cases are known for large `k`.\n- Finite compute signal:\n  - Exact factorization scan for `n<=3000` finds squarefree density of `n^4+2` near `0.757`.\n- Interpretation:\n  - Strong finite squarefree frequency is consistent with infinitude heuristics, but finite density samples do not imply a proof."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "exact finite factorization scan for squarefreeness of n^4+2.",
+        "content": "// EP-978: exact finite factorization scan for squarefreeness of n^4+2.\n{\n  const rng = makeRng(20260304 ^ 978);\n  const N = 3000;\n  let squarefreeCount = 0;\n  const probes = new Set([500, 1000, 2000, 3000]);\n  const rows = [];\n  const nonSquarefreeSamples = [];\n\n  for (let n = 1; n <= N; n += 1) {\n    const v = BigInt(n) ** 4n + 2n;\n    const factors = [];\n    factorBig(v, factors, rng);\n    factors.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));\n\n    let isSqFree = true;\n    for (let i = 1; i < factors.length; i += 1) {\n      if (factors[i] === factors[i - 1]) {\n        isSqFree = false;\n        break;\n      }\n    }\n    if (isSqFree) squarefreeCount += 1;\n    else if (nonSquarefreeSamples.length < 12) {\n      const mp = new Map();\n      for (const p of factors) mp.set(p.toString(), (mp.get(p.toString()) || 0) + 1);\n      nonSquarefreeSamples.push({\n        n,\n        value: v.toString(),\n        repeated_prime_factors: [...mp.entries()]\n          .filter(([, e]) => e >= 2)\n          .map(([p, e]) => `${p}^${e}`),\n      });\n    }\n\n    if (probes.has(n)) {\n      rows.push({\n        n,\n        squarefree_values_count: squarefreeCount,\n        squarefree_density: Number((squarefreeCount / n).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep978 = {\n    description: 'Exact finite scan of squarefreeness for n^4+2 using 64-bit-safe Pollard-rho factorization.',\n    N,\n    rows,\n    sample_non_squarefree_values: nonSquarefreeSamples,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep978",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Exact finite scan of squarefreeness for n^4+2 using 64-bit-safe Pollard-rho factorization.",
+          "N": 3000,
+          "rows": [
+            {
+              "n": 500,
+              "squarefree_values_count": 379,
+              "squarefree_density": 0.758
+            },
+            {
+              "n": 1000,
+              "squarefree_values_count": 759,
+              "squarefree_density": 0.759
+            },
+            {
+              "n": 2000,
+              "squarefree_values_count": 1514,
+              "squarefree_density": 0.757
+            },
+            {
+              "n": 3000,
+              "squarefree_values_count": 2271,
+              "squarefree_density": 0.757
+            }
+          ],
+          "sample_non_squarefree_values": [
+            {
+              "n": 2,
+              "value": "18",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 7,
+              "value": "2403",
+              "repeated_prime_factors": [
+                "3^3"
+              ]
+            },
+            {
+              "n": 11,
+              "value": "14643",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 16,
+              "value": "65538",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 20,
+              "value": "160002",
+              "repeated_prime_factors": [
+                "3^3"
+              ]
+            },
+            {
+              "n": 25,
+              "value": "390627",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 29,
+              "value": "707283",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 34,
+              "value": "1336338",
+              "repeated_prime_factors": [
+                "3^4"
+              ]
+            },
+            {
+              "n": 38,
+              "value": "2085138",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 43,
+              "value": "3418803",
+              "repeated_prime_factors": [
+                "3^2"
+              ]
+            },
+            {
+              "n": 47,
+              "value": "4879683",
+              "repeated_prime_factors": [
+                "3^5"
+              ]
+            },
+            {
+              "n": 49,
+              "value": "5764803",
+              "repeated_prime_factors": [
+                "11^2"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

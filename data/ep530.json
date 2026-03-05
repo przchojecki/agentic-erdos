@@ -1,0 +1,78 @@
+{
+  "problem": "EP-530",
+  "normalized_utc": "2026-03-05T08:54:16.962Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch14_web_compute.md",
+        "content": "### EP-530\n- Quick literature check:\n  - Problem-page bounds remain centered on the $\\ell(N)\\asymp N^{1/2}$ paradigm, with unknown sharp constant in the universal worst case.\n- Finite compute signal:\n  - Exact interval cases:\n    - $N=16\\to 5$\n    - $N=20\\to 6$\n    - $N=24\\to 6$\n  - Random distinct-integer sets of the same size admit much larger Sidon subsets (best `11,12,13`).\n- Interpretation:\n  - Data reinforces that intervals are near-extremal obstructions, while generic sets are substantially easier."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch14_quick_compute.mjs",
+        "heading": "maximum Sidon subset size in finite sets.",
+        "content": "// EP-530: maximum Sidon subset size in finite sets.\n{\n  function maxSidonSubset(A) {\n    const n = A.length;\n    let best = 0;\n\n    function dfs(i, chosen, sums) {\n      if (i === n) {\n        if (chosen.length > best) best = chosen.length;\n        return;\n      }\n      if (chosen.length + (n - i) <= best) return;\n\n      // skip\n      dfs(i + 1, chosen, sums);\n\n      // include if possible\n      const x = A[i];\n      const newSums = [];\n      let ok = true;\n\n      const s2 = 2 * x;\n      if (sums.has(s2)) ok = false;\n      else newSums.push(s2);\n\n      if (ok) {\n        for (const a of chosen) {\n          const s = a + x;\n          if (sums.has(s)) {\n            ok = false;\n            break;\n          }\n          newSums.push(s);\n        }\n      }\n\n      if (ok) {\n        for (const s of newSums) sums.add(s);\n        chosen.push(x);\n        dfs(i + 1, chosen, sums);\n        chosen.pop();\n        for (const s of newSums) sums.delete(s);\n      }\n    }\n\n    dfs(0, [], new Set());\n    return best;\n  }\n\n  const rng = makeRng(20260303 ^ 1403);\n\n  function randSet(size, maxVal) {\n    const S = new Set();\n    while (S.size < size) S.add(1 + Math.floor(rng() * maxVal));\n    return [...S].sort((a, b) => a - b);\n  }\n\n  const rows = [];\n  for (const N of [16, 20, 24]) {\n    const A = Array.from({ length: N }, (_, i) => i + 1);\n    const m = maxSidonSubset(A);\n    rows.push({\n      family: 'interval',\n      N,\n      max_sidon_size: m,\n      ratio_over_sqrtN: Number((m / Math.sqrt(N)).toPrecision(7)),\n    });\n  }\n\n  for (const N of [16, 20, 24]) {\n    let best = 0;\n    let avg = 0;\n    const trials = N === 24 ? 15 : 20;\n    for (let t = 0; t < trials; t += 1) {\n      const A = randSet(N, 8 * N);\n      const m = maxSidonSubset(A);\n      avg += m;\n      if (m > best) best = m;\n    }\n    rows.push({\n      family: 'random_realized_as_distinct_integers',\n      N,\n      trials,\n      best_max_sidon_size: best,\n      avg_max_sidon_size: Number((avg / trials).toPrecision(7)),\n      best_over_sqrtN: Number((best / Math.sqrt(N)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep530 = {\n    description: 'Exact small-N Sidon-subset maxima for interval and random sets.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch14_quick_compute.json",
+        "key": "ep530",
+        "container_meta": {
+          "script": "harder_batch14_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:54:10.902Z"
+        },
+        "data": {
+          "description": "Exact small-N Sidon-subset maxima for interval and random sets.",
+          "rows": [
+            {
+              "family": "interval",
+              "N": 20,
+              "max_sidon_size": 6,
+              "ratio_over_sqrtN": 1.341641
+            },
+            {
+              "family": "interval",
+              "N": 30,
+              "max_sidon_size": 7,
+              "ratio_over_sqrtN": 1.278019
+            },
+            {
+              "family": "interval",
+              "N": 40,
+              "max_sidon_size": 8,
+              "ratio_over_sqrtN": 1.264911
+            },
+            {
+              "family": "random_realized_as_distinct_integers",
+              "N": 20,
+              "trials": 30,
+              "best_max_sidon_size": 12,
+              "avg_max_sidon_size": 11.2,
+              "best_over_sqrtN": 2.683282
+            },
+            {
+              "family": "random_realized_as_distinct_integers",
+              "N": 30,
+              "trials": 30,
+              "best_max_sidon_size": 15,
+              "avg_max_sidon_size": 14.06667,
+              "best_over_sqrtN": 2.738613
+            },
+            {
+              "family": "random_realized_as_distinct_integers",
+              "N": 40,
+              "trials": 20,
+              "best_max_sidon_size": 17,
+              "avg_max_sidon_size": 16.25,
+              "best_over_sqrtN": 2.687936
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

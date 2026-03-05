@@ -1,0 +1,89 @@
+{
+  "problem": "EP-1057",
+  "normalized_utc": "2026-03-05T08:54:16.973Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch23_web_compute.md",
+        "content": "### EP-1057\n- Quick literature check:\n  - Open; page includes modern lower-bound exponent improvements (latest listed through 2022).\n- Finite compute signal:\n  - Carmichael count via Korselt criterion up to `10^6` gives `C(x)=43` at `x=10^6`.\n- Interpretation:\n  - Data shows continued growth but remains tiny-density and non-diagnostic for the conjectured near-linear-exponent regime."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch23_quick_compute.mjs",
+        "heading": "Carmichael counting profile.",
+        "content": "// EP-1057: Carmichael counting profile.\n{\n  const X = 1_000_000;\n  const probes = new Set([100_000, 200_000, 400_000, 700_000, 1_000_000]);\n  const rows = [];\n  const samples = [];\n  let count = 0;\n\n  for (let n = 3; n <= X; n += 1) {\n    if (spf[n] === n) {\n      if (probes.has(n)) {\n        rows.push({\n          x: n,\n          C_x: count,\n          C_over_x: Number((count / n).toPrecision(7)),\n          logC_over_logx: count > 1 ? Number((Math.log(count) / Math.log(n)).toPrecision(7)) : 0,\n        });\n      }\n      continue;\n    }\n\n    let x = n;\n    let sqfree = true;\n    const facts = [];\n    while (x > 1) {\n      const p = spf[x] || x;\n      let e = 0;\n      while (x % p === 0) {\n        x = Math.floor(x / p);\n        e += 1;\n      }\n      if (e > 1) {\n        sqfree = false;\n        break;\n      }\n      facts.push(p);\n    }\n    if (!sqfree || facts.length < 3) {\n      if (probes.has(n)) {\n        rows.push({\n          x: n,\n          C_x: count,\n          C_over_x: Number((count / n).toPrecision(7)),\n          logC_over_logx: count > 1 ? Number((Math.log(count) / Math.log(n)).toPrecision(7)) : 0,\n        });\n      }\n      continue;\n    }\n\n    let ok = true;\n    for (const p of facts) {\n      if ((n - 1) % (p - 1) !== 0) {\n        ok = false;\n        break;\n      }\n    }\n    if (ok) {\n      count += 1;\n      if (samples.length < 20) samples.push(n);\n    }\n\n    if (probes.has(n)) {\n      rows.push({\n        x: n,\n        C_x: count,\n        C_over_x: Number((count / n).toPrecision(7)),\n        logC_over_logx: count > 1 ? Number((Math.log(count) / Math.log(n)).toPrecision(7)) : 0,\n      });\n    }\n  }\n\n  out.results.ep1057 = {\n    description: 'Finite Carmichael count using Korselt criterion (squarefree + p-1 | n-1 for all p|n).',\n    X,\n    rows,\n    first_carmichael_numbers_in_scan: samples,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch23_quick_compute.json",
+        "key": "ep1057",
+        "container_meta": {
+          "script": "harder_batch23_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:43:44.789Z"
+        },
+        "data": {
+          "description": "Finite Carmichael count using Korselt criterion (squarefree + p-1 | n-1 for all p|n).",
+          "X": 1000000,
+          "rows": [
+            {
+              "x": 100000,
+              "C_x": 16,
+              "C_over_x": 0.00016,
+              "logC_over_logx": 0.240824
+            },
+            {
+              "x": 200000,
+              "C_x": 22,
+              "C_over_x": 0.00011,
+              "logC_over_logx": 0.2532381
+            },
+            {
+              "x": 400000,
+              "C_x": 29,
+              "C_over_x": 0.0000725,
+              "logC_over_logx": 0.2610465
+            },
+            {
+              "x": 700000,
+              "C_x": 38,
+              "C_over_x": 0.00005428571,
+              "logC_over_logx": 0.270275
+            },
+            {
+              "x": 1000000,
+              "C_x": 43,
+              "C_over_x": 0.000043,
+              "logC_over_logx": 0.2722447
+            }
+          ],
+          "first_carmichael_numbers_in_scan": [
+            561,
+            1105,
+            1729,
+            2465,
+            2821,
+            6601,
+            8911,
+            10585,
+            15841,
+            29341,
+            41041,
+            46657,
+            52633,
+            62745,
+            63973,
+            75361,
+            101101,
+            115921,
+            126217,
+            162401
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "problem": "EP-1117",
+  "normalized_utc": "2026-03-05T08:54:16.976Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1117\n- Quick literature check:\n  - Page status is **OPEN**; first question is solved historically, second (`liminf u(r)=infty`) remains open with 2024 approximate progress.\n- Finite compute signal:\n  - Angular-maxima counts for polynomial proxies show controllably large `u(r)` in sampled families (e.g., `z^m+1` gives estimated `u(1)=m`).\n- Interpretation:\n  - Finite proxies support the mechanism behind large `limsup`, but provide no evidence for the stronger `liminf` statement."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite angular-maxima profile for polynomial proxies.",
+        "content": "// EP-1117: finite angular-maxima profile for polynomial proxies.\n{\n  function maximaCountOnCircle(polyDegrees, r, samples = 4096) {\n    const vals = new Float64Array(samples);\n    for (let i = 0; i < samples; i += 1) {\n      const th = (2 * Math.PI * i) / samples;\n      let re = 0;\n      let im = 0;\n      for (const d of polyDegrees) {\n        const rd = r ** d;\n        re += rd * Math.cos(d * th);\n        im += rd * Math.sin(d * th);\n      }\n      vals[i] = Math.hypot(re, im);\n    }\n    let cnt = 0;\n    for (let i = 0; i < samples; i += 1) {\n      const a = vals[(i - 1 + samples) % samples];\n      const b = vals[i];\n      const c = vals[(i + 1) % samples];\n      if (b >= a && b > c) cnt += 1;\n    }\n    return cnt;\n  }\n\n  const controlRows = [4, 8, 16, 32].map((m) => ({\n    family: `z^${m}+1`,\n    r: 1,\n    estimated_u_r: maximaCountOnCircle([0, m], 1, 8192),\n  }));\n\n  const lacunary = [0, 1, 2, 4, 8, 16, 32, 64];\n  const radii = [];\n  for (let r = 0.70; r <= 1.40 + 1e-12; r += 0.05) radii.push(Number(r.toFixed(2)));\n  const scanRows = radii.map((r) => ({\n    r,\n    estimated_u_r_for_sum_z_pow_2j: maximaCountOnCircle(lacunary, r, 8192),\n  }));\n\n  const topRows = [...scanRows]\n    .sort((a, b) => b.estimated_u_r_for_sum_z_pow_2j - a.estimated_u_r_for_sum_z_pow_2j)\n    .slice(0, 8);\n\n  out.results.ep1117 = {\n    description: 'Finite circle-maxima counts for polynomial proxies to ν(r) behavior.',\n    control_rows: controlRows,\n    lacunary_scan_top_rows: topRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1117",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite circle-maxima counts for polynomial proxies to ν(r) behavior.",
+          "control_rows": [
+            {
+              "family": "z^4+1",
+              "r": 1,
+              "estimated_u_r": 4
+            },
+            {
+              "family": "z^8+1",
+              "r": 1,
+              "estimated_u_r": 8
+            },
+            {
+              "family": "z^16+1",
+              "r": 1,
+              "estimated_u_r": 16
+            },
+            {
+              "family": "z^32+1",
+              "r": 1,
+              "estimated_u_r": 32
+            }
+          ],
+          "lacunary_scan_top_rows": [
+            {
+              "r": 1,
+              "estimated_u_r_for_sum_z_pow_2j": 58
+            },
+            {
+              "r": 1.05,
+              "estimated_u_r_for_sum_z_pow_2j": 48
+            },
+            {
+              "r": 1.1,
+              "estimated_u_r_for_sum_z_pow_2j": 32
+            },
+            {
+              "r": 1.15,
+              "estimated_u_r_for_sum_z_pow_2j": 32
+            },
+            {
+              "r": 1.2,
+              "estimated_u_r_for_sum_z_pow_2j": 32
+            },
+            {
+              "r": 1.25,
+              "estimated_u_r_for_sum_z_pow_2j": 32
+            },
+            {
+              "r": 1.3,
+              "estimated_u_r_for_sum_z_pow_2j": 32
+            },
+            {
+              "r": 1.35,
+              "estimated_u_r_for_sum_z_pow_2j": 32
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

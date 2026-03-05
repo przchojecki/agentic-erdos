@@ -1,0 +1,6386 @@
+{
+  "problem": "EP-854",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep854_construct_witness_k10_t10.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 10,
+          "t": 10,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "6469693230",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17,
+          19
+        ],
+        "remaining_primes_count": 6,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "3793095601",
+          "x_plus_t": "3793095611"
+        },
+        "generated_utc": "2026-03-02T12:49:28.136Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k10_t12.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 10,
+          "t": 12,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "6469693230",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "used_primes_for_interior_points": [
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "remaining_primes_count": 5,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "732410911",
+          "x_plus_t": "732410923"
+        },
+        "generated_utc": "2026-03-02T12:41:08.401Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k11_t10.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 11,
+          "t": 10,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "200560490130",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17,
+          19
+        ],
+        "remaining_primes_count": 7,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "113777880511",
+          "x_plus_t": "113777880521"
+        },
+        "generated_utc": "2026-03-02T12:49:28.159Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k11_t12.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 11,
+          "t": 12,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "200560490130",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31
+        ],
+        "used_primes_for_interior_points": [
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "remaining_primes_count": 6,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "7202104141",
+          "x_plus_t": "7202104153"
+        },
+        "generated_utc": "2026-03-02T12:41:08.421Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k12_t12.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 12,
+          "t": 12,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "7420738134810",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37
+        ],
+        "used_primes_for_interior_points": [
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "remaining_primes_count": 7,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "3216169946221",
+          "x_plus_t": "3216169946233"
+        },
+        "generated_utc": "2026-03-02T12:49:28.188Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k12_t14.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 12,
+          "t": 14,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "7420738134810",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37
+        ],
+        "remaining_primes_count": 6,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "306579779507",
+          "x_plus_t": "306579779521"
+        },
+        "generated_utc": "2026-03-02T12:41:08.442Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k13_t12.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 13,
+          "t": 12,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "304250263527210",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "used_primes_for_interior_points": [
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "remaining_primes_count": 8,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "3216169946221",
+          "x_plus_t": "3216169946233"
+        },
+        "generated_utc": "2026-03-02T12:49:28.214Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k13_t16.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 13,
+          "t": 16,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "304250263527210",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "remaining_primes_count": 6,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "67587938868451",
+          "x_plus_t": "67587938868467"
+        },
+        "generated_utc": "2026-03-02T12:41:08.463Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k14_t14.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 14,
+          "t": 14,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "13082761331670030",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37
+        ],
+        "remaining_primes_count": 8,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "7317154380702167",
+          "x_plus_t": "7317154380702181"
+        },
+        "generated_utc": "2026-03-02T12:49:28.242Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k14_t16.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 14,
+          "t": 16,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "13082761331670030",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "remaining_primes_count": 7,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "11933348216429641",
+          "x_plus_t": "11933348216429657"
+        },
+        "generated_utc": "2026-03-02T12:41:08.483Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k15_t14.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 15,
+          "t": 14,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "614889782588491410",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "138144767697402467",
+          "x_plus_t": "138144767697402481"
+        },
+        "generated_utc": "2026-03-02T12:49:28.269Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k15_t18.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 15,
+          "t": 18,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "614889782588491410",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "used_primes_for_interior_points": [
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "remaining_primes_count": 7,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "20619781146174211",
+          "x_plus_t": "20619781146174229"
+        },
+        "generated_utc": "2026-03-02T12:41:08.504Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k16_t16.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 16,
+          "t": 16,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "32589158477190044730",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "23260000234594072951",
+          "x_plus_t": "23260000234594072967"
+        },
+        "generated_utc": "2026-03-02T12:49:28.296Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k16_t18.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 16,
+          "t": 18,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "32589158477190044730",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53
+        ],
+        "used_primes_for_interior_points": [
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "remaining_primes_count": 8,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "21541762171743373561",
+          "x_plus_t": "21541762171743373579"
+        },
+        "generated_utc": "2026-03-02T12:41:08.524Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k17_t16.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 17,
+          "t": 16,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "1922760350154212639070",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59
+        ],
+        "used_primes_for_interior_points": [
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "remaining_primes_count": 10,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "1522361290185336130531",
+          "x_plus_t": "1522361290185336130547"
+        },
+        "generated_utc": "2026-03-02T12:49:28.337Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k17_t20.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 17,
+          "t": 20,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "1922760350154212639070",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59
+        ],
+        "remaining_primes_count": 8,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "412321239129337483661",
+          "x_plus_t": "412321239129337483681"
+        },
+        "generated_utc": "2026-03-02T12:41:08.544Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k18_t18.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 18,
+          "t": 18,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "117288381359406970983270",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "used_primes_for_interior_points": [
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "remaining_primes_count": 10,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "97821606352219067608291",
+          "x_plus_t": "97821606352219067608309"
+        },
+        "generated_utc": "2026-03-02T12:49:28.364Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k18_t20.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 18,
+          "t": 20,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "117288381359406970983270",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "52326850693293078738551",
+          "x_plus_t": "52326850693293078738571"
+        },
+        "generated_utc": "2026-03-04T22:06:57.543Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k18_t22.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 18,
+          "t": 22,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "117288381359406970983270",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "remaining_primes_count": 8,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "11582643273358572815401",
+          "x_plus_t": "11582643273358572815423"
+        },
+        "generated_utc": "2026-03-02T12:41:08.565Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k19_t18.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 19,
+          "t": 18,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "7858321551080267055879090",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67
+        ],
+        "used_primes_for_interior_points": [
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "remaining_primes_count": 11,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "7369701250635451268571031",
+          "x_plus_t": "7369701250635451268571049"
+        },
+        "generated_utc": "2026-03-02T12:49:28.393Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k19_t22.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 19,
+          "t": 22,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "7858321551080267055879090",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "598024550070393427731751",
+          "x_plus_t": "598024550070393427731773"
+        },
+        "generated_utc": "2026-03-02T12:41:08.586Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k20_t20.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 20,
+          "t": 20,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "557940830126698960967415390",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59
+        ],
+        "remaining_primes_count": 11,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "189590351127494958187702871",
+          "x_plus_t": "189590351127494958187702891"
+        },
+        "generated_utc": "2026-03-02T12:49:28.419Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k20_t24.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 20,
+          "t": 24,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "557940830126698960967415390",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "480071266527788365560716587",
+          "x_plus_t": "480071266527788365560716611"
+        },
+        "generated_utc": "2026-03-02T12:41:08.607Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k21_t20.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 21,
+          "t": 20,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "40729680599249024150621323470",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59
+        ],
+        "remaining_primes_count": 12,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "31434276838222636772362964711",
+          "x_plus_t": "31434276838222636772362964731"
+        },
+        "generated_utc": "2026-03-02T12:49:28.446Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k21_t26.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 21,
+          "t": 26,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "40729680599249024150621323470",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "12903553750682285229768499271",
+          "x_plus_t": "12903553750682285229768499297"
+        },
+        "generated_utc": "2026-03-02T12:41:08.627Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k22_t22.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 22,
+          "t": 22,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "3217644767340672907899084554130",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "remaining_primes_count": 12,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "1351317571948312793322396048151",
+          "x_plus_t": "1351317571948312793322396048173"
+        },
+        "generated_utc": "2026-03-02T12:49:28.472Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k22_t28.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 22,
+          "t": 28,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "3217644767340672907899084554130",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79
+        ],
+        "remaining_primes_count": 9,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "2918287436497112674640756240131",
+          "x_plus_t": "2918287436497112674640756240159"
+        },
+        "generated_utc": "2026-03-02T12:41:08.649Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k23_t22.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 23,
+          "t": 22,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "267064515689275851355624017992790",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83
+        ],
+        "used_primes_for_interior_points": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61
+        ],
+        "remaining_primes_count": 13,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "191192358845048014359368384741821",
+          "x_plus_t": "191192358845048014359368384741843"
+        },
+        "generated_utc": "2026-03-02T12:49:28.498Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k23_t28.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 23,
+          "t": 28,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "267064515689275851355624017992790",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79
+        ],
+        "remaining_primes_count": 10,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "167018170570871430977494068500761",
+          "x_plus_t": "167018170570871430977494068500789"
+        },
+        "generated_utc": "2026-03-02T12:41:08.669Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k24_t24.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 24,
+          "t": 24,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "23768741896345550770650537601358310",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71
+        ],
+        "remaining_primes_count": 13,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "8566551453528685903617135694775887",
+          "x_plus_t": "8566551453528685903617135694775911"
+        },
+        "generated_utc": "2026-03-02T12:49:28.524Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k24_t30.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 24,
+          "t": 30,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "23768741896345550770650537601358310",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89
+        ],
+        "used_primes_for_interior_points": [
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89
+        ],
+        "remaining_primes_count": 10,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "22624717992210868851573062042336101",
+          "x_plus_t": "22624717992210868851573062042336131"
+        },
+        "generated_utc": "2026-03-02T12:41:08.690Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k25_t24.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 25,
+          "t": 24,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "2305567963945518424753102147331756070",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71
+        ],
+        "remaining_primes_count": 14,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "2242828289710010458344767670222457027",
+          "x_plus_t": "2242828289710010458344767670222457051"
+        },
+        "generated_utc": "2026-03-02T12:49:28.551Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k25_t30.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 25,
+          "t": 30,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "2305567963945518424753102147331756070",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97
+        ],
+        "used_primes_for_interior_points": [
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89
+        ],
+        "remaining_primes_count": 11,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "355387104541048579640680588461352441",
+          "x_plus_t": "355387104541048579640680588461352471"
+        },
+        "generated_utc": "2026-03-02T12:41:08.711Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k26_t26.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 26,
+          "t": 26,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "232862364358497360900063316880507363070",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73
+        ],
+        "remaining_primes_count": 14,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "47762530401617008471803503125167876641",
+          "x_plus_t": "47762530401617008471803503125167876667"
+        },
+        "generated_utc": "2026-03-02T12:49:28.605Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k26_t32.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 26,
+          "t": 32,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "232862364358497360900063316880507363070",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101
+        ],
+        "used_primes_for_interior_points": [
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101
+        ],
+        "remaining_primes_count": 11,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "221630123155385985833819830492480417991",
+          "x_plus_t": "221630123155385985833819830492480418023"
+        },
+        "generated_utc": "2026-03-02T12:41:08.731Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k27_t26.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 27,
+          "t": 26,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "23984823528925228172706521638692258396210",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73
+        ],
+        "remaining_primes_count": 15,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "4006422724496072143772879890093793048831",
+          "x_plus_t": "4006422724496072143772879890093793048857"
+        },
+        "generated_utc": "2026-03-02T12:49:28.634Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k27_t34.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 27,
+          "t": 34,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "23984823528925228172706521638692258396210",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103
+        ],
+        "used_primes_for_interior_points": [
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103
+        ],
+        "remaining_primes_count": 11,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "20513720261959196269150246480454545860097",
+          "x_plus_t": "20513720261959196269150246480454545860131"
+        },
+        "generated_utc": "2026-03-02T12:41:08.751Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k28_t28.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 28,
+          "t": 28,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "2566376117594999414479597815340071648394470",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79
+        ],
+        "remaining_primes_count": 15,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "1901135122611552305584939355159819851679011",
+          "x_plus_t": "1901135122611552305584939355159819851679039"
+        },
+        "generated_utc": "2026-03-02T12:49:28.664Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k28_t36.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 28,
+          "t": 36,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "2566376117594999414479597815340071648394470",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107
+        ],
+        "used_primes_for_interior_points": [
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107
+        ],
+        "remaining_primes_count": 11,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "2534808506765578115288013900547937290308511",
+          "x_plus_t": "2534808506765578115288013900547937290308547"
+        },
+        "generated_utc": "2026-03-02T12:41:08.772Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k29_t28.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 29,
+          "t": 28,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "279734996817854936178276161872067809674997230",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109
+        ],
+        "used_primes_for_interior_points": [
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79
+        ],
+        "remaining_primes_count": 16,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "222609481235781501950830351474405981613603431",
+          "x_plus_t": "222609481235781501950830351474405981613603459"
+        },
+        "generated_utc": "2026-03-02T12:49:28.690Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k29_t36.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 29,
+          "t": 36,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "279734996817854936178276161872067809674997230",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109
+        ],
+        "used_primes_for_interior_points": [
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107
+        ],
+        "remaining_primes_count": 12,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "92357972622590557622073937437450444984114961",
+          "x_plus_t": "92357972622590557622073937437450444984114997"
+        },
+        "generated_utc": "2026-03-02T12:41:08.792Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k30_t30.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 30,
+          "t": 30,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "31610054640417607788145206291543662493274686990",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113
+        ],
+        "used_primes_for_interior_points": [
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89
+        ],
+        "remaining_primes_count": 16,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "16387183481614558488952559103325363228269229531",
+          "x_plus_t": "16387183481614558488952559103325363228269229561"
+        },
+        "generated_utc": "2026-03-02T12:49:28.715Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k30_t38.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 30,
+          "t": 38,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "31610054640417607788145206291543662493274686990",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113
+        ],
+        "used_primes_for_interior_points": [
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113
+        ],
+        "remaining_primes_count": 12,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "13945678643210518829406920886722049049898520521",
+          "x_plus_t": "13945678643210518829406920886722049049898520559"
+        },
+        "generated_utc": "2026-03-02T12:41:08.813Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k31_t40.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 31,
+          "t": 40,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "4014476939333036189094441199026045136645885247730",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127
+        ],
+        "used_primes_for_interior_points": [
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127
+        ],
+        "remaining_primes_count": 12,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "1557164756472829114435265197273879315388231957161",
+          "x_plus_t": "1557164756472829114435265197273879315388231957201"
+        },
+        "generated_utc": "2026-03-02T12:41:08.834Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k32_t40.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 32,
+          "t": 40,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "525896479052627740771371797072411912900610967452630",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131
+        ],
+        "used_primes_for_interior_points": [
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127
+        ],
+        "remaining_primes_count": 13,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "9586118635138901492624147595325969588680002452621",
+          "x_plus_t": "9586118635138901492624147595325969588680002452661"
+        },
+        "generated_utc": "2026-03-02T12:41:08.854Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k33_t42.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 33,
+          "t": 42,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "72047817630210000485677936198920432067383702541010310",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137
+        ],
+        "used_primes_for_interior_points": [
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137
+        ],
+        "remaining_primes_count": 13,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "23662103009889823490220523449503637468649221884442331",
+          "x_plus_t": "23662103009889823490220523449503637468649221884442373"
+        },
+        "generated_utc": "2026-03-02T12:41:08.875Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k34_t42.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 34,
+          "t": 42,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "10014646650599190067509233131649940057366334653200433090",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139
+        ],
+        "used_primes_for_interior_points": [
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137
+        ],
+        "remaining_primes_count": 14,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "4274483343192279852145218759185809129444287671804050621",
+          "x_plus_t": "4274483343192279852145218759185809129444287671804050663"
+        },
+        "generated_utc": "2026-03-02T12:41:08.896Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k35_t44.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 35,
+          "t": 44,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "1492182350939279320058875736615841068547583863326864530410",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149
+        ],
+        "remaining_primes_count": 14,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "612973408660129377754145961491307166032659925601088220077",
+          "x_plus_t": "612973408660129377754145961491307166032659925601088220121"
+        },
+        "generated_utc": "2026-03-02T12:41:08.917Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k36_t46.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 36,
+          "t": 46,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "225319534991831177328890236228992001350685163362356544091910",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151
+        ],
+        "remaining_primes_count": 14,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "174800393174972002005960240282447154567820616237957074403271",
+          "x_plus_t": "174800393174972002005960240282447154567820616237957074403317"
+        },
+        "generated_utc": "2026-03-02T12:41:08.937Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k37_t46.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 37,
+          "t": 46,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "35375166993717494840635767087951744212057570647889977422429870",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151
+        ],
+        "remaining_primes_count": 15,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "15721848307611323237699386540082895247765096888240558616745061",
+          "x_plus_t": "15721848307611323237699386540082895247765096888240558616745107"
+        },
+        "generated_utc": "2026-03-02T12:41:08.958Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k38_t48.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 38,
+          "t": 48,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "5766152219975951659023630035336134306565384015606066319856068810",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163
+        ],
+        "remaining_primes_count": 15,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "4693203885700639731802131164487963817674970400073578865068600431",
+          "x_plus_t": "4693203885700639731802131164487963817674970400073578865068600479"
+        },
+        "generated_utc": "2026-03-02T12:41:08.978Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k39_t50.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 39,
+          "t": 50,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "962947420735983927056946215901134429196419130606213075415963491270",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167
+        ],
+        "remaining_primes_count": 15,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "499241704791705300369461873606944816290295399458454936421575521701",
+          "x_plus_t": "499241704791705300369461873606944816290295399458454936421575521751"
+        },
+        "generated_utc": "2026-03-02T12:41:08.999Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k3_t4.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 3,
+          "t": 4,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "30",
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "used_primes_for_interior_points": [
+          5
+        ],
+        "remaining_primes_count": 2,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "13",
+          "x_plus_t": "17"
+        },
+        "generated_utc": "2026-03-02T12:41:08.249Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k40_t40.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 40,
+          "t": 40,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "166589903787325219380851695350896256250980509594874862046961683989710",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173
+        ],
+        "used_primes_for_interior_points": [
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127
+        ],
+        "remaining_primes_count": 21,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "115284213991686683682047126269735757859014095525482222486470285622121",
+          "x_plus_t": "115284213991686683682047126269735757859014095525482222486470285622161"
+        },
+        "generated_utc": "2026-03-02T12:46:55.332Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k40_t44.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 40,
+          "t": 44,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "166589903787325219380851695350896256250980509594874862046961683989710",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149
+        ],
+        "remaining_primes_count": 19,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "35219923559683894253923185081004466212530530977372919695007029384037",
+          "x_plus_t": "35219923559683894253923185081004466212530530977372919695007029384081"
+        },
+        "generated_utc": "2026-03-02T12:45:30.563Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k40_t52.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 40,
+          "t": 52,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "166589903787325219380851695350896256250980509594874862046961683989710",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173
+        ],
+        "remaining_primes_count": 15,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "95679985781852391110057028037481820455097135348201986567242594335271",
+          "x_plus_t": "95679985781852391110057028037481820455097135348201986567242594335323"
+        },
+        "generated_utc": "2026-03-02T12:41:09.020Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k41_t42.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 41,
+          "t": 42,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "29819592777931214269172453467810429868925511217482600306406141434158090",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179
+        ],
+        "used_primes_for_interior_points": [
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137
+        ],
+        "remaining_primes_count": 21,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "13683118570326504056786849581020634709545474105194287845703155079346631",
+          "x_plus_t": "13683118570326504056786849581020634709545474105194287845703155079346673"
+        },
+        "generated_utc": "2026-03-04T22:17:05.195Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k42_t42.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 42,
+          "t": 42,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "5397346292805549782720214077673687806275517530364350655459511599582614290",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181
+        ],
+        "used_primes_for_interior_points": [
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137
+        ],
+        "remaining_primes_count": 22,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "4844457148595183215662724311366310273475478291337375537483498067412957211",
+          "x_plus_t": "4844457148595183215662724311366310273475478291337375537483498067412957253"
+        },
+        "generated_utc": "2026-03-04T22:17:05.232Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k43_t44.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 43,
+          "t": 44,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "1030893141925860008499560888835674370998623848299590975192766715520279329390",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149
+        ],
+        "remaining_primes_count": 22,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "418969311907548015971032365586610042173019668668391788674615109237366301577",
+          "x_plus_t": "418969311907548015971032365586610042173019668668391788674615109237366301621"
+        },
+        "generated_utc": "2026-03-04T22:17:05.273Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k44_t44.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 44,
+          "t": 44,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "198962376391690981640415251545285153602734402721821058212203976095413910572270",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149
+        ],
+        "remaining_primes_count": 23,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "87013993233679788729934147027783257206057422925834033704867019212940829970337",
+          "x_plus_t": "87013993233679788729934147027783257206057422925834033704867019212940829970381"
+        },
+        "generated_utc": "2026-03-04T22:17:05.310Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k44_t58.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 44,
+          "t": 58,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "198962376391690981640415251545285153602734402721821058212203976095413910572270",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193
+        ],
+        "used_primes_for_interior_points": [
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193
+        ],
+        "remaining_primes_count": 16,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "163708983491606130344760128642875136825613461377901770469942903975940237284101",
+          "x_plus_t": "163708983491606130344760128642875136825613461377901770469942903975940237284159"
+        },
+        "generated_utc": "2026-03-04T22:17:05.329Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k45_t46.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 45,
+          "t": 46,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "39195588149163123383161804554421175259738677336198748467804183290796540382737190",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151
+        ],
+        "remaining_primes_count": 23,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "33277539901827805870831223281520135704322161143729822597975854630612268959046811",
+          "x_plus_t": "33277539901827805870831223281520135704322161143729822597975854630612268959046857"
+        },
+        "generated_utc": "2026-03-04T22:17:05.348Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k46_t46.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 46,
+          "t": 46,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "7799922041683461553249199106329813876687996789903550945093032474868511536164700810",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199
+        ],
+        "used_primes_for_interior_points": [
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151
+        ],
+        "remaining_primes_count": 24,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "2933751062939898936224804760308687104924984284022437209215485418149556257281598871",
+          "x_plus_t": "2933751062939898936224804760308687104924984284022437209215485418149556257281598917"
+        },
+        "generated_utc": "2026-03-04T22:17:05.385Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k46_t60.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 46,
+          "t": 60,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "7799922041683461553249199106329813876687996789903550945093032474868511536164700810",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199
+        ],
+        "used_primes_for_interior_points": [
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199
+        ],
+        "remaining_primes_count": 17,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "4895146005197217275907720438798740412163631958670362426501908011300997001244950001",
+          "x_plus_t": "4895146005197217275907720438798740412163631958670362426501908011300997001244950061"
+        },
+        "generated_utc": "2026-03-04T22:17:05.404Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k47_t48.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 47,
+          "t": 48,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "1645783550795210387735581011435590727981167322669649249414629852197255934130751870910",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163
+        ],
+        "remaining_primes_count": 24,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "1151685769398850638389896752908476314830691170270673906616326180848049209497901843971",
+          "x_plus_t": "1151685769398850638389896752908476314830691170270673906616326180848049209497901844019"
+        },
+        "generated_utc": "2026-03-04T22:17:05.423Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k48_t48.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 48,
+          "t": 48,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "367009731827331916465034565550136732339800312955331782619462457039988073311157667212930",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163
+        ],
+        "remaining_primes_count": 25,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "60399893598026424596870813164589742522152714786378046885543000859949262838204969196731",
+          "x_plus_t": "60399893598026424596870813164589742522152714786378046885543000859949262838204969196779"
+        },
+        "generated_utc": "2026-03-04T22:17:05.459Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k48_t62.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 48,
+          "t": 62,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "367009731827331916465034565550136732339800312955331782619462457039988073311157667212930",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223
+        ],
+        "used_primes_for_interior_points": [
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223
+        ],
+        "remaining_primes_count": 18,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "335559053470350962983813363222456844687573766349371082176136204360430935112151195422111",
+          "x_plus_t": "335559053470350962983813363222456844687573766349371082176136204360430935112151195422173"
+        },
+        "generated_utc": "2026-03-04T22:17:05.478Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k49_t50.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 49,
+          "t": 50,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "83311209124804345037562846379881038241134671040860314654617977748077292641632790457335110",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167
+        ],
+        "remaining_primes_count": 25,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "18724216603555664821795726589487850813786200066021885348300102636449791428596772911997761",
+          "x_plus_t": "18724216603555664821795726589487850813786200066021885348300102636449791428596772911997811"
+        },
+        "generated_utc": "2026-03-04T22:17:05.497Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k49_t64.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 49,
+          "t": 64,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "83311209124804345037562846379881038241134671040860314654617977748077292641632790457335110",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227
+        ],
+        "used_primes_for_interior_points": [
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227
+        ],
+        "remaining_primes_count": 18,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "51192084149203814212455137908773565012166364678345778422034073804506704994202884117027447",
+          "x_plus_t": "51192084149203814212455137908773565012166364678345778422034073804506704994202884117027511"
+        },
+        "generated_utc": "2026-03-04T22:17:05.516Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k4_t4.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 4,
+          "t": 4,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "210",
+        "primes": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "used_primes_for_interior_points": [
+          5
+        ],
+        "remaining_primes_count": 3,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "43",
+          "x_plus_t": "47"
+        },
+        "generated_utc": "2026-03-02T12:49:27.992Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k50_t50.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 50,
+          "t": 50,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "19078266889580195013601891820992757757219839668357012055907516904309700014933909014729740190",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227,
+          229
+        ],
+        "used_primes_for_interior_points": [
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167
+        ],
+        "remaining_primes_count": 26,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "7183488201336729338052200515259257139551367909580008945645446188971096958609016752242817221",
+          "x_plus_t": "7183488201336729338052200515259257139551367909580008945645446188971096958609016752242817271"
+        },
+        "generated_utc": "2026-03-04T22:17:05.535Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k50_t64.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 50,
+          "t": 64,
+          "flex_primes": 9,
+          "choices_per_prime": 4
+        },
+        "nk": "19078266889580195013601891820992757757219839668357012055907516904309700014933909014729740190",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227,
+          229
+        ],
+        "used_primes_for_interior_points": [
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227
+        ],
+        "remaining_primes_count": 19,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "9465358715252094803457056778835330886260384192295561334393865559337240773498708205795894877",
+          "x_plus_t": "9465358715252094803457056778835330886260384192295561334393865559337240773498708205795894941"
+        },
+        "generated_utc": "2026-03-04T22:17:05.554Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k5_t4.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 5,
+          "t": 4,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "2310",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11
+        ],
+        "used_primes_for_interior_points": [
+          5
+        ],
+        "remaining_primes_count": 4,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "463",
+          "x_plus_t": "467"
+        },
+        "generated_utc": "2026-03-02T12:49:28.017Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k5_t6.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 5,
+          "t": 6,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "2310",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11
+        ],
+        "used_primes_for_interior_points": [
+          7,
+          11
+        ],
+        "remaining_primes_count": 3,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "271",
+          "x_plus_t": "277"
+        },
+        "generated_utc": "2026-03-02T12:41:08.298Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k6_t6.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 6,
+          "t": 6,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "30030",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "used_primes_for_interior_points": [
+          7,
+          11
+        ],
+        "remaining_primes_count": 4,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "21061",
+          "x_plus_t": "21067"
+        },
+        "generated_utc": "2026-03-02T12:49:28.043Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k7_t6.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 7,
+          "t": 6,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "510510",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17
+        ],
+        "used_primes_for_interior_points": [
+          7,
+          11
+        ],
+        "remaining_primes_count": 5,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "351391",
+          "x_plus_t": "351397"
+        },
+        "generated_utc": "2026-03-02T12:49:28.067Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k7_t8.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 7,
+          "t": 8,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "510510",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17
+        ],
+        "remaining_primes_count": 4,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "176471",
+          "x_plus_t": "176479"
+        },
+        "generated_utc": "2026-03-02T12:41:08.339Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k8_t10.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 8,
+          "t": 10,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "9699690",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17,
+          19
+        ],
+        "remaining_primes_count": 4,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "516811",
+          "x_plus_t": "516821"
+        },
+        "generated_utc": "2026-03-02T12:41:08.360Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k8_t8.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 8,
+          "t": 8,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "9699690",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17
+        ],
+        "remaining_primes_count": 5,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "8855141",
+          "x_plus_t": "8855149"
+        },
+        "generated_utc": "2026-03-02T12:49:28.089Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k9_t10.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 9,
+          "t": 10,
+          "flex_primes": 6,
+          "choices_per_prime": 2
+        },
+        "nk": "223092870",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17,
+          19
+        ],
+        "remaining_primes_count": 5,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "516811",
+          "x_plus_t": "516821"
+        },
+        "generated_utc": "2026-03-02T12:41:08.380Z"
+      }
+    },
+    {
+      "source_file": "ep854_construct_witness_k9_t8.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_construct_fixed_gap_witness.mjs",
+        "params": {
+          "k": 9,
+          "t": 8,
+          "flex_primes": 7,
+          "choices_per_prime": 3
+        },
+        "nk": "223092870",
+        "primes": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23
+        ],
+        "used_primes_for_interior_points": [
+          11,
+          13,
+          17
+        ],
+        "remaining_primes_count": 6,
+        "tested_assignments": 1,
+        "witness_found": true,
+        "witness": {
+          "x": "67053281",
+          "x_plus_t": "67053289"
+        },
+        "generated_utc": "2026-03-02T12:49:28.113Z"
+      }
+    },
+    {
+      "source_file": "ep854_constructive_lower_bound_profile.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_constructive_lower_bound_profile.mjs",
+        "method": "explicit_distinct_large_prime_construction_lower_bound_profile",
+        "params": {
+          "kmax": 60,
+          "scan_path": "data/ep854_primorial_gap_scan.json"
+        },
+        "rows": [
+          {
+            "k": 1,
+            "p_k": 2,
+            "guaranteed_even_gaps_count": 1,
+            "guaranteed_max_even_gap": 2,
+            "observed_max_gap": 0,
+            "observed_represented_even_count": 0
+          },
+          {
+            "k": 2,
+            "p_k": 3,
+            "guaranteed_even_gaps_count": 1,
+            "guaranteed_max_even_gap": 2,
+            "observed_max_gap": 4,
+            "observed_represented_even_count": 1,
+            "guaranteed_count_over_observed_max": 0.25,
+            "observed_count_over_observed_max": 0.25
+          },
+          {
+            "k": 3,
+            "p_k": 5,
+            "guaranteed_even_gaps_count": 2,
+            "guaranteed_max_even_gap": 4,
+            "observed_max_gap": 6,
+            "observed_represented_even_count": 3,
+            "guaranteed_count_over_observed_max": 0.3333333333333333,
+            "observed_count_over_observed_max": 0.5
+          },
+          {
+            "k": 4,
+            "p_k": 7,
+            "guaranteed_even_gaps_count": 2,
+            "guaranteed_max_even_gap": 4,
+            "observed_max_gap": 10,
+            "observed_represented_even_count": 5,
+            "guaranteed_count_over_observed_max": 0.2,
+            "observed_count_over_observed_max": 0.5
+          },
+          {
+            "k": 5,
+            "p_k": 11,
+            "guaranteed_even_gaps_count": 3,
+            "guaranteed_max_even_gap": 6,
+            "observed_max_gap": 14,
+            "observed_represented_even_count": 7,
+            "guaranteed_count_over_observed_max": 0.21428571428571427,
+            "observed_count_over_observed_max": 0.5
+          },
+          {
+            "k": 6,
+            "p_k": 13,
+            "guaranteed_even_gaps_count": 3,
+            "guaranteed_max_even_gap": 6,
+            "observed_max_gap": 22,
+            "observed_represented_even_count": 10,
+            "guaranteed_count_over_observed_max": 0.13636363636363635,
+            "observed_count_over_observed_max": 0.45454545454545453
+          },
+          {
+            "k": 7,
+            "p_k": 17,
+            "guaranteed_even_gaps_count": 4,
+            "guaranteed_max_even_gap": 8,
+            "observed_max_gap": 26,
+            "observed_represented_even_count": 13,
+            "guaranteed_count_over_observed_max": 0.15384615384615385,
+            "observed_count_over_observed_max": 0.5
+          },
+          {
+            "k": 8,
+            "p_k": 19,
+            "guaranteed_even_gaps_count": 5,
+            "guaranteed_max_even_gap": 10,
+            "observed_max_gap": 34,
+            "observed_represented_even_count": 16,
+            "guaranteed_count_over_observed_max": 0.14705882352941177,
+            "observed_count_over_observed_max": 0.47058823529411764
+          },
+          {
+            "k": 9,
+            "p_k": 23,
+            "guaranteed_even_gaps_count": 5,
+            "guaranteed_max_even_gap": 10,
+            "observed_max_gap": 40,
+            "observed_represented_even_count": 20,
+            "guaranteed_count_over_observed_max": 0.125,
+            "observed_count_over_observed_max": 0.5
+          },
+          {
+            "k": 10,
+            "p_k": 29,
+            "guaranteed_even_gaps_count": 6,
+            "guaranteed_max_even_gap": 12
+          },
+          {
+            "k": 11,
+            "p_k": 31,
+            "guaranteed_even_gaps_count": 6,
+            "guaranteed_max_even_gap": 12
+          },
+          {
+            "k": 12,
+            "p_k": 37,
+            "guaranteed_even_gaps_count": 7,
+            "guaranteed_max_even_gap": 14
+          },
+          {
+            "k": 13,
+            "p_k": 41,
+            "guaranteed_even_gaps_count": 8,
+            "guaranteed_max_even_gap": 16
+          },
+          {
+            "k": 14,
+            "p_k": 43,
+            "guaranteed_even_gaps_count": 8,
+            "guaranteed_max_even_gap": 16
+          },
+          {
+            "k": 15,
+            "p_k": 47,
+            "guaranteed_even_gaps_count": 9,
+            "guaranteed_max_even_gap": 18
+          },
+          {
+            "k": 16,
+            "p_k": 53,
+            "guaranteed_even_gaps_count": 9,
+            "guaranteed_max_even_gap": 18
+          },
+          {
+            "k": 17,
+            "p_k": 59,
+            "guaranteed_even_gaps_count": 10,
+            "guaranteed_max_even_gap": 20
+          },
+          {
+            "k": 18,
+            "p_k": 61,
+            "guaranteed_even_gaps_count": 11,
+            "guaranteed_max_even_gap": 22
+          },
+          {
+            "k": 19,
+            "p_k": 67,
+            "guaranteed_even_gaps_count": 11,
+            "guaranteed_max_even_gap": 22
+          },
+          {
+            "k": 20,
+            "p_k": 71,
+            "guaranteed_even_gaps_count": 12,
+            "guaranteed_max_even_gap": 24
+          },
+          {
+            "k": 21,
+            "p_k": 73,
+            "guaranteed_even_gaps_count": 13,
+            "guaranteed_max_even_gap": 26
+          },
+          {
+            "k": 22,
+            "p_k": 79,
+            "guaranteed_even_gaps_count": 14,
+            "guaranteed_max_even_gap": 28
+          },
+          {
+            "k": 23,
+            "p_k": 83,
+            "guaranteed_even_gaps_count": 14,
+            "guaranteed_max_even_gap": 28
+          },
+          {
+            "k": 24,
+            "p_k": 89,
+            "guaranteed_even_gaps_count": 15,
+            "guaranteed_max_even_gap": 30
+          },
+          {
+            "k": 25,
+            "p_k": 97,
+            "guaranteed_even_gaps_count": 15,
+            "guaranteed_max_even_gap": 30
+          },
+          {
+            "k": 26,
+            "p_k": 101,
+            "guaranteed_even_gaps_count": 16,
+            "guaranteed_max_even_gap": 32
+          },
+          {
+            "k": 27,
+            "p_k": 103,
+            "guaranteed_even_gaps_count": 17,
+            "guaranteed_max_even_gap": 34
+          },
+          {
+            "k": 28,
+            "p_k": 107,
+            "guaranteed_even_gaps_count": 18,
+            "guaranteed_max_even_gap": 36
+          },
+          {
+            "k": 29,
+            "p_k": 109,
+            "guaranteed_even_gaps_count": 18,
+            "guaranteed_max_even_gap": 36
+          },
+          {
+            "k": 30,
+            "p_k": 113,
+            "guaranteed_even_gaps_count": 19,
+            "guaranteed_max_even_gap": 38
+          },
+          {
+            "k": 31,
+            "p_k": 127,
+            "guaranteed_even_gaps_count": 20,
+            "guaranteed_max_even_gap": 40
+          },
+          {
+            "k": 32,
+            "p_k": 131,
+            "guaranteed_even_gaps_count": 20,
+            "guaranteed_max_even_gap": 40
+          },
+          {
+            "k": 33,
+            "p_k": 137,
+            "guaranteed_even_gaps_count": 21,
+            "guaranteed_max_even_gap": 42
+          },
+          {
+            "k": 34,
+            "p_k": 139,
+            "guaranteed_even_gaps_count": 21,
+            "guaranteed_max_even_gap": 42
+          },
+          {
+            "k": 35,
+            "p_k": 149,
+            "guaranteed_even_gaps_count": 22,
+            "guaranteed_max_even_gap": 44
+          },
+          {
+            "k": 36,
+            "p_k": 151,
+            "guaranteed_even_gaps_count": 23,
+            "guaranteed_max_even_gap": 46
+          },
+          {
+            "k": 37,
+            "p_k": 157,
+            "guaranteed_even_gaps_count": 23,
+            "guaranteed_max_even_gap": 46
+          },
+          {
+            "k": 38,
+            "p_k": 163,
+            "guaranteed_even_gaps_count": 24,
+            "guaranteed_max_even_gap": 48
+          },
+          {
+            "k": 39,
+            "p_k": 167,
+            "guaranteed_even_gaps_count": 25,
+            "guaranteed_max_even_gap": 50
+          },
+          {
+            "k": 40,
+            "p_k": 173,
+            "guaranteed_even_gaps_count": 26,
+            "guaranteed_max_even_gap": 52
+          },
+          {
+            "k": 41,
+            "p_k": 179,
+            "guaranteed_even_gaps_count": 26,
+            "guaranteed_max_even_gap": 52
+          },
+          {
+            "k": 42,
+            "p_k": 181,
+            "guaranteed_even_gaps_count": 27,
+            "guaranteed_max_even_gap": 54
+          },
+          {
+            "k": 43,
+            "p_k": 191,
+            "guaranteed_even_gaps_count": 28,
+            "guaranteed_max_even_gap": 56
+          },
+          {
+            "k": 44,
+            "p_k": 193,
+            "guaranteed_even_gaps_count": 29,
+            "guaranteed_max_even_gap": 58
+          },
+          {
+            "k": 45,
+            "p_k": 197,
+            "guaranteed_even_gaps_count": 29,
+            "guaranteed_max_even_gap": 58
+          },
+          {
+            "k": 46,
+            "p_k": 199,
+            "guaranteed_even_gaps_count": 30,
+            "guaranteed_max_even_gap": 60
+          },
+          {
+            "k": 47,
+            "p_k": 211,
+            "guaranteed_even_gaps_count": 30,
+            "guaranteed_max_even_gap": 60
+          },
+          {
+            "k": 48,
+            "p_k": 223,
+            "guaranteed_even_gaps_count": 31,
+            "guaranteed_max_even_gap": 62
+          },
+          {
+            "k": 49,
+            "p_k": 227,
+            "guaranteed_even_gaps_count": 32,
+            "guaranteed_max_even_gap": 64
+          },
+          {
+            "k": 50,
+            "p_k": 229,
+            "guaranteed_even_gaps_count": 33,
+            "guaranteed_max_even_gap": 66
+          },
+          {
+            "k": 51,
+            "p_k": 233,
+            "guaranteed_even_gaps_count": 33,
+            "guaranteed_max_even_gap": 66
+          },
+          {
+            "k": 52,
+            "p_k": 239,
+            "guaranteed_even_gaps_count": 34,
+            "guaranteed_max_even_gap": 68
+          },
+          {
+            "k": 53,
+            "p_k": 241,
+            "guaranteed_even_gaps_count": 35,
+            "guaranteed_max_even_gap": 70
+          },
+          {
+            "k": 54,
+            "p_k": 251,
+            "guaranteed_even_gaps_count": 35,
+            "guaranteed_max_even_gap": 70
+          },
+          {
+            "k": 55,
+            "p_k": 257,
+            "guaranteed_even_gaps_count": 36,
+            "guaranteed_max_even_gap": 72
+          },
+          {
+            "k": 56,
+            "p_k": 263,
+            "guaranteed_even_gaps_count": 36,
+            "guaranteed_max_even_gap": 72
+          },
+          {
+            "k": 57,
+            "p_k": 269,
+            "guaranteed_even_gaps_count": 37,
+            "guaranteed_max_even_gap": 74
+          },
+          {
+            "k": 58,
+            "p_k": 271,
+            "guaranteed_even_gaps_count": 38,
+            "guaranteed_max_even_gap": 76
+          },
+          {
+            "k": 59,
+            "p_k": 277,
+            "guaranteed_even_gaps_count": 39,
+            "guaranteed_max_even_gap": 78
+          },
+          {
+            "k": 60,
+            "p_k": 281,
+            "guaranteed_even_gaps_count": 39,
+            "guaranteed_max_even_gap": 78
+          }
+        ],
+        "generated_utc": "2026-03-04T22:16:59.208Z"
+      }
+    },
+    {
+      "source_file": "ep854_k6_dual_check.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_k6_dual_check.mjs",
+        "n6": 30030,
+        "prime_factors": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "checks": {
+          "residues_equal_between_methods": true,
+          "gap_set_equal_between_methods": true
+        },
+        "gcd_method": {
+          "phi_n6": 5760,
+          "max_gap": 22,
+          "even_present_up_to_max": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            22
+          ],
+          "even_missing_up_to_max": [
+            20
+          ]
+        },
+        "marking_method": {
+          "phi_n6": 5760,
+          "max_gap": 22,
+          "even_present_up_to_max": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            22
+          ],
+          "even_missing_up_to_max": [
+            20
+          ]
+        },
+        "historical_subconjecture_all_even_up_to_max": false,
+        "verdict": "disproved_at_n6",
+        "generated_utc": "2026-03-04T22:17:08.844Z"
+      }
+    },
+    {
+      "source_file": "ep854_linear_k_witness_sanity_k4_30.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "method": "constructive_sanity_for_theorem_A_edge_t_equals_floor_even_k",
+        "range_k": [
+          4,
+          30
+        ],
+        "rows": [
+          {
+            "k": 4,
+            "t": 4,
+            "witness_found": true,
+            "witness": {
+              "x": "43",
+              "x_plus_t": "47"
+            }
+          },
+          {
+            "k": 5,
+            "t": 4,
+            "witness_found": true,
+            "witness": {
+              "x": "463",
+              "x_plus_t": "467"
+            }
+          },
+          {
+            "k": 6,
+            "t": 6,
+            "witness_found": true,
+            "witness": {
+              "x": "21061",
+              "x_plus_t": "21067"
+            }
+          },
+          {
+            "k": 7,
+            "t": 6,
+            "witness_found": true,
+            "witness": {
+              "x": "351391",
+              "x_plus_t": "351397"
+            }
+          },
+          {
+            "k": 8,
+            "t": 8,
+            "witness_found": true,
+            "witness": {
+              "x": "8855141",
+              "x_plus_t": "8855149"
+            }
+          },
+          {
+            "k": 9,
+            "t": 8,
+            "witness_found": true,
+            "witness": {
+              "x": "67053281",
+              "x_plus_t": "67053289"
+            }
+          },
+          {
+            "k": 10,
+            "t": 10,
+            "witness_found": true,
+            "witness": {
+              "x": "3793095601",
+              "x_plus_t": "3793095611"
+            }
+          },
+          {
+            "k": 11,
+            "t": 10,
+            "witness_found": true,
+            "witness": {
+              "x": "113777880511",
+              "x_plus_t": "113777880521"
+            }
+          },
+          {
+            "k": 12,
+            "t": 12,
+            "witness_found": true,
+            "witness": {
+              "x": "3216169946221",
+              "x_plus_t": "3216169946233"
+            }
+          },
+          {
+            "k": 13,
+            "t": 12,
+            "witness_found": true,
+            "witness": {
+              "x": "3216169946221",
+              "x_plus_t": "3216169946233"
+            }
+          },
+          {
+            "k": 14,
+            "t": 14,
+            "witness_found": true,
+            "witness": {
+              "x": "7317154380702167",
+              "x_plus_t": "7317154380702181"
+            }
+          },
+          {
+            "k": 15,
+            "t": 14,
+            "witness_found": true,
+            "witness": {
+              "x": "138144767697402467",
+              "x_plus_t": "138144767697402481"
+            }
+          },
+          {
+            "k": 16,
+            "t": 16,
+            "witness_found": true,
+            "witness": {
+              "x": "23260000234594072951",
+              "x_plus_t": "23260000234594072967"
+            }
+          },
+          {
+            "k": 17,
+            "t": 16,
+            "witness_found": true,
+            "witness": {
+              "x": "1522361290185336130531",
+              "x_plus_t": "1522361290185336130547"
+            }
+          },
+          {
+            "k": 18,
+            "t": 18,
+            "witness_found": true,
+            "witness": {
+              "x": "97821606352219067608291",
+              "x_plus_t": "97821606352219067608309"
+            }
+          },
+          {
+            "k": 19,
+            "t": 18,
+            "witness_found": true,
+            "witness": {
+              "x": "7369701250635451268571031",
+              "x_plus_t": "7369701250635451268571049"
+            }
+          },
+          {
+            "k": 20,
+            "t": 20,
+            "witness_found": true,
+            "witness": {
+              "x": "189590351127494958187702871",
+              "x_plus_t": "189590351127494958187702891"
+            }
+          },
+          {
+            "k": 21,
+            "t": 20,
+            "witness_found": true,
+            "witness": {
+              "x": "31434276838222636772362964711",
+              "x_plus_t": "31434276838222636772362964731"
+            }
+          },
+          {
+            "k": 22,
+            "t": 22,
+            "witness_found": true,
+            "witness": {
+              "x": "1351317571948312793322396048151",
+              "x_plus_t": "1351317571948312793322396048173"
+            }
+          },
+          {
+            "k": 23,
+            "t": 22,
+            "witness_found": true,
+            "witness": {
+              "x": "191192358845048014359368384741821",
+              "x_plus_t": "191192358845048014359368384741843"
+            }
+          },
+          {
+            "k": 24,
+            "t": 24,
+            "witness_found": true,
+            "witness": {
+              "x": "8566551453528685903617135694775887",
+              "x_plus_t": "8566551453528685903617135694775911"
+            }
+          },
+          {
+            "k": 25,
+            "t": 24,
+            "witness_found": true,
+            "witness": {
+              "x": "2242828289710010458344767670222457027",
+              "x_plus_t": "2242828289710010458344767670222457051"
+            }
+          },
+          {
+            "k": 26,
+            "t": 26,
+            "witness_found": true,
+            "witness": {
+              "x": "47762530401617008471803503125167876641",
+              "x_plus_t": "47762530401617008471803503125167876667"
+            }
+          },
+          {
+            "k": 27,
+            "t": 26,
+            "witness_found": true,
+            "witness": {
+              "x": "4006422724496072143772879890093793048831",
+              "x_plus_t": "4006422724496072143772879890093793048857"
+            }
+          },
+          {
+            "k": 28,
+            "t": 28,
+            "witness_found": true,
+            "witness": {
+              "x": "1901135122611552305584939355159819851679011",
+              "x_plus_t": "1901135122611552305584939355159819851679039"
+            }
+          },
+          {
+            "k": 29,
+            "t": 28,
+            "witness_found": true,
+            "witness": {
+              "x": "222609481235781501950830351474405981613603431",
+              "x_plus_t": "222609481235781501950830351474405981613603459"
+            }
+          },
+          {
+            "k": 30,
+            "t": 30,
+            "witness_found": true,
+            "witness": {
+              "x": "16387183481614558488952559103325363228269229531",
+              "x_plus_t": "16387183481614558488952559103325363228269229561"
+            }
+          }
+        ],
+        "generated_utc": "2026-03-02T12:49:28.719Z"
+      }
+    },
+    {
+      "source_file": "ep854_primorial_gap_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-854",
+        "script": "ep854_primorial_gap_scan.mjs",
+        "method": "exact_reduced_residue_gap_spectrum_scan_for_primorials",
+        "params": {
+          "kmax": 9,
+          "n_limit": 230000000
+        },
+        "rows": [
+          {
+            "k": 1,
+            "n_k": 2,
+            "prime_factors": [
+              2
+            ],
+            "phi_nk": 1,
+            "gap_count": 0,
+            "max_gap": 0,
+            "max_gap_occurrences": 0,
+            "first_index_with_max_gap": -1,
+            "represented_even_gap_count_up_to_max": 0,
+            "missing_even_gaps_up_to_max": [],
+            "first_missing_even_gap": null
+          },
+          {
+            "k": 2,
+            "n_k": 6,
+            "prime_factors": [
+              2,
+              3
+            ],
+            "phi_nk": 2,
+            "gap_count": 1,
+            "max_gap": 4,
+            "max_gap_occurrences": 1,
+            "first_index_with_max_gap": 1,
+            "represented_even_gap_count_up_to_max": 1,
+            "missing_even_gaps_up_to_max": [
+              2
+            ],
+            "first_missing_even_gap": 2
+          },
+          {
+            "k": 3,
+            "n_k": 30,
+            "prime_factors": [
+              2,
+              3,
+              5
+            ],
+            "phi_nk": 8,
+            "gap_count": 7,
+            "max_gap": 6,
+            "max_gap_occurrences": 2,
+            "first_index_with_max_gap": 1,
+            "represented_even_gap_count_up_to_max": 3,
+            "missing_even_gaps_up_to_max": [],
+            "first_missing_even_gap": null
+          },
+          {
+            "k": 4,
+            "n_k": 210,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "phi_nk": 48,
+            "gap_count": 47,
+            "max_gap": 10,
+            "max_gap_occurrences": 2,
+            "first_index_with_max_gap": 1,
+            "represented_even_gap_count_up_to_max": 5,
+            "missing_even_gaps_up_to_max": [],
+            "first_missing_even_gap": null
+          },
+          {
+            "k": 5,
+            "n_k": 2310,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "phi_nk": 480,
+            "gap_count": 479,
+            "max_gap": 14,
+            "max_gap_occurrences": 2,
+            "first_index_with_max_gap": 26,
+            "represented_even_gap_count_up_to_max": 7,
+            "missing_even_gaps_up_to_max": [],
+            "first_missing_even_gap": null
+          },
+          {
+            "k": 6,
+            "n_k": 30030,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "phi_nk": 5760,
+            "gap_count": 5759,
+            "max_gap": 22,
+            "max_gap_occurrences": 2,
+            "first_index_with_max_gap": 1813,
+            "represented_even_gap_count_up_to_max": 10,
+            "missing_even_gaps_up_to_max": [
+              20
+            ],
+            "first_missing_even_gap": 20
+          },
+          {
+            "k": 7,
+            "n_k": 510510,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "phi_nk": 92160,
+            "gap_count": 92159,
+            "max_gap": 26,
+            "max_gap_occurrences": 2,
+            "first_index_with_max_gap": 39199,
+            "represented_even_gap_count_up_to_max": 13,
+            "missing_even_gaps_up_to_max": [],
+            "first_missing_even_gap": null
+          },
+          {
+            "k": 8,
+            "n_k": 9699690,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "phi_nk": 1658880,
+            "gap_count": 1658879,
+            "max_gap": 34,
+            "max_gap_occurrences": 2,
+            "first_index_with_max_gap": 10276,
+            "represented_even_gap_count_up_to_max": 16,
+            "missing_even_gaps_up_to_max": [
+              32
+            ],
+            "first_missing_even_gap": 32
+          },
+          {
+            "k": 9,
+            "n_k": 223092870,
+            "prime_factors": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23
+            ],
+            "phi_nk": 36495360,
+            "gap_count": 36495359,
+            "max_gap": 40,
+            "max_gap_occurrences": 12,
+            "first_index_with_max_gap": 3326157,
+            "represented_even_gap_count_up_to_max": 20,
+            "missing_even_gaps_up_to_max": [],
+            "first_missing_even_gap": null
+          }
+        ],
+        "first_k_with_missing_even_gap_up_to_max": {
+          "k": 6,
+          "n_k": 30030,
+          "first_missing_even_gap": 20
+        },
+        "generated_utc": "2026-03-04T22:16:56.018Z"
+      }
+    }
+  ],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch2_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch2_compute.mjs",
+        "heading": ": summarize constructive witness profile.",
+        "extracted_section": "// EP-854: summarize constructive witness profile.\nif (fs.existsSync('data/ep854_constructive_lower_bound_profile.json')) {\n  const d = loadJSON('data/ep854_constructive_lower_bound_profile.json');\n  out.results.ep854 = {\n    params: d.params || null,\n    last_row: pickLastRow(d),\n  };\n}\n\nconst outPath = path.join('data', 'longterm_batch2_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ]
+  },
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [],
+    "script_sources": [
+      {
+        "source_file": "scripts/longterm_batch2_compute.mjs",
+        "heading": "summarize constructive witness profile.",
+        "content": "// EP-854: summarize constructive witness profile.\nif (fs.existsSync('data/ep854_constructive_lower_bound_profile.json')) {\n  const d = loadJSON('data/ep854_constructive_lower_bound_profile.json');\n  out.results.ep854 = {\n    params: d.params || null,\n    last_row: pickLastRow(d),\n  };\n}\n\nconst outPath = path.join('data', 'longterm_batch2_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/longterm_batch2_compute.json",
+        "key": "ep854",
+        "container_meta": {
+          "script": "longterm_batch2_compute.mjs",
+          "generated_utc": "2026-03-04T22:18:34.636Z"
+        },
+        "data": {
+          "params": {
+            "kmax": 60,
+            "scan_path": "data/ep854_primorial_gap_scan.json"
+          },
+          "last_row": {
+            "k": 60,
+            "p_k": 281,
+            "guaranteed_even_gaps_count": 39,
+            "guaranteed_max_even_gap": 78
+          }
+        }
+      }
+    ]
+  }
+}

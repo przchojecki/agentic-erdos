@@ -1,0 +1,67 @@
+{
+  "problem": "EP-1061",
+  "normalized_utc": "2026-03-05T08:54:16.973Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch23_web_compute.md",
+        "content": "### EP-1061\n- Quick literature check:\n  - Open; no listed asymptotic constant result.\n- Finite compute signal:\n  - Counting unordered solutions to `sigma(a)+sigma(b)=sigma(a+b)` with `a+b<=x` gives `18898` by `x=12000`.\n- Interpretation:\n  - Finite counts grow roughly linearly-to-superlinearly at this scale; this does not determine whether a clean `~c x` law holds."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch23_quick_compute.mjs",
+        "heading": "finite count of sigma(a)+sigma(b)=sigma(a+b), unordered pairs.",
+        "content": "// EP-1061: finite count of sigma(a)+sigma(b)=sigma(a+b), unordered pairs.\n{\n  const X = 12_000;\n  const probes = new Set([2_000, 4_000, 6_000, 8_000, 10_000, 12_000]);\n  let total = 0;\n  const rows = [];\n\n  for (let c = 2; c <= X; c += 1) {\n    const target = sigma[c];\n    for (let a = 1; a <= Math.floor((c - 1) / 2); a += 1) {\n      const b = c - a;\n      if (sigma[a] + sigma[b] === target) total += 1;\n    }\n    if (probes.has(c)) {\n      rows.push({\n        x: c,\n        unordered_solution_count_up_to_x: total,\n        count_over_x: Number((total / c).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep1061 = {\n    description: 'Finite count profile for sigma(a)+sigma(b)=sigma(a+b) with a+b<=x (unordered pairs a<b).',\n    X,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch23_quick_compute.json",
+        "key": "ep1061",
+        "container_meta": {
+          "script": "harder_batch23_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:43:44.789Z"
+        },
+        "data": {
+          "description": "Finite count profile for sigma(a)+sigma(b)=sigma(a+b) with a+b<=x (unordered pairs a<b).",
+          "X": 12000,
+          "rows": [
+            {
+              "x": 2000,
+              "unordered_solution_count_up_to_x": 1903,
+              "count_over_x": 0.9515
+            },
+            {
+              "x": 4000,
+              "unordered_solution_count_up_to_x": 4748,
+              "count_over_x": 1.187
+            },
+            {
+              "x": 6000,
+              "unordered_solution_count_up_to_x": 7879,
+              "count_over_x": 1.313167
+            },
+            {
+              "x": 8000,
+              "unordered_solution_count_up_to_x": 11341,
+              "count_over_x": 1.417625
+            },
+            {
+              "x": 10000,
+              "unordered_solution_count_up_to_x": 15006,
+              "count_over_x": 1.5006
+            },
+            {
+              "x": 12000,
+              "unordered_solution_count_up_to_x": 18898,
+              "count_over_x": 1.574833
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

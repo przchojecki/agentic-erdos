@@ -1,0 +1,61 @@
+{
+  "problem": "EP-373",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-373\n- Quick literature check:\n  - Full unconditional finiteness remains open in strongest form; ABC-conditional finiteness and quantitative sparse bounds are known.\n- Finite compute signal:\n  - Search recovered only known nontrivial low-factor identities in tested ranges:\n    - `10! = 7! 6!`\n    - `10! = 7! 5! 3!`\n    - `16! = 14! 5! 2!`\n- Interpretation:\n  - Finite search reinforces scarcity and aligns with classical conjectural finite-list behavior."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "finite search of low-factor-count factorial-product identities.",
+        "content": "// EP-373: finite search of low-factor-count factorial-product identities.\n{\n  const N2 = 400;\n  const N3 = 150;\n\n  const k2 = [];\n  for (let n = 3; n <= N2; n += 1) {\n    const fn = fact[n];\n    for (let a = 2; a <= n - 2; a += 1) {\n      const fa = fact[a];\n      if (fn % fa !== 0n) continue;\n      const q = fn / fa;\n      const b = factIndex.get(q);\n      if (b === undefined) continue;\n      if (b < 2 || b > a || b > n - 2) continue;\n      k2.push({ n, a, b });\n    }\n  }\n\n  const k3 = [];\n  for (let n = 4; n <= N3; n += 1) {\n    const fn = fact[n];\n    for (let a = 2; a <= n - 2; a += 1) {\n      const fa = fact[a];\n      for (let b = 2; b <= a; b += 1) {\n        const prod = fa * fact[b];\n        if (fn % prod !== 0n) continue;\n        const q = fn / prod;\n        const c = factIndex.get(q);\n        if (c === undefined) continue;\n        if (c < 2 || c > b || c > n - 2) continue;\n        k3.push({ n, a, b, c });\n      }\n    }\n  }\n\n  out.results.ep373 = {\n    description: 'Finite search for n! = product of 2 or 3 factorials with top index <= n-2.',\n    search_limits: { N2, N3 },\n    k2_solution_count: k2.length,\n    k2_solutions: k2,\n    k3_solution_count: k3.length,\n    k3_solutions_first_40: k3.slice(0, 40),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep373",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite search for n! = product of 2 or 3 factorials with top index <= n-2.",
+          "search_limits": {
+            "N2": 400,
+            "N3": 150
+          },
+          "k2_solution_count": 1,
+          "k2_solutions": [
+            {
+              "n": 10,
+              "a": 7,
+              "b": 6
+            }
+          ],
+          "k3_solution_count": 2,
+          "k3_solutions_first_40": [
+            {
+              "n": 10,
+              "a": 7,
+              "b": 5,
+              "c": 3
+            },
+            {
+              "n": 16,
+              "a": 14,
+              "b": 5,
+              "c": 2
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

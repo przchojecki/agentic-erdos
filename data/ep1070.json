@@ -1,0 +1,82 @@
+{
+  "problem": "EP-1070",
+  "normalized_utc": "2026-03-05T08:54:16.974Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch24_web_compute.md",
+        "content": "### EP-1070\n- Quick literature check:\n  - Open (edited 22 Jan 2026), with updated upper bound `f(n) <= (1/4+o(1))n` and classic spindle upper-construction context.\n- Finite compute signal:\n  - Disjoint spindle construction gives stable finite ratio `alpha/n = 2/7`.\n- Interpretation:\n  - Finite construction reproduces the classical upper-barrier pattern; no progress toward the `n/4` lower target."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch24_quick_compute.mjs",
+        "heading": "finite upper-bound proxy from Moser-spindle disjoint unions.",
+        "content": "// EP-1070: finite upper-bound proxy from Moser-spindle disjoint unions.\n{\n  // Moser spindle via Hajos construction from two K4.\n  const n = 7;\n  const edges = [\n    [0, 2],\n    [0, 3],\n    [1, 2],\n    [1, 3],\n    [2, 3],\n    [0, 4],\n    [0, 5],\n    [6, 4],\n    [6, 5],\n    [4, 5],\n    [1, 6],\n  ];\n  const masks = adjacencyMasksFromEdgeList(n, edges);\n  const adj = adjacencyListFromMasks(masks);\n\n  const comp = Array(n).fill(0n);\n  for (let i = 0; i < n; i += 1) {\n    let m = 0n;\n    for (let j = 0; j < n; j += 1) {\n      if (i === j) continue;\n      if (((masks[i] >> BigInt(j)) & 1n) === 0n) m |= 1n << BigInt(j);\n    }\n    comp[i] = m;\n  }\n  const alpha = maxCliqueSizeFromAdjMasks(comp, n);\n  const chi = chromaticNumberDSATUR(adj);\n\n  const rows = [];\n  for (let t = 1; t <= 8; t += 1) {\n    const N = 7 * t;\n    const a = alpha * t;\n    rows.push({\n      n: N,\n      disjoint_spindle_alpha: a,\n      alpha_over_n: Number((a / N).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1070 = {\n    description: 'Finite unit-distance upper-bound proxy using disjoint unions of a 7-vertex spindle graph.',\n    spindle_component_stats: { n_vertices: n, n_edges: edges.length, alpha_component: alpha, chi_component: chi },\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch24_quick_compute.json",
+        "key": "ep1070",
+        "container_meta": {
+          "script": "harder_batch24_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:28:27.056Z"
+        },
+        "data": {
+          "description": "Finite unit-distance upper-bound proxy using disjoint unions of a 7-vertex spindle graph.",
+          "spindle_component_stats": {
+            "n_vertices": 7,
+            "n_edges": 11,
+            "alpha_component": 2,
+            "chi_component": 4
+          },
+          "rows": [
+            {
+              "n": 7,
+              "disjoint_spindle_alpha": 2,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 14,
+              "disjoint_spindle_alpha": 4,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 21,
+              "disjoint_spindle_alpha": 6,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 28,
+              "disjoint_spindle_alpha": 8,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 35,
+              "disjoint_spindle_alpha": 10,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 42,
+              "disjoint_spindle_alpha": 12,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 49,
+              "disjoint_spindle_alpha": 14,
+              "alpha_over_n": 0.2857143
+            },
+            {
+              "n": 56,
+              "disjoint_spindle_alpha": 16,
+              "alpha_over_n": 0.2857143
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

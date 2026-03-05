@@ -1,0 +1,69 @@
+{
+  "problem": "EP-61",
+  "normalized_utc": "2026-03-05T08:54:16.948Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch2_web_compute.md",
+        "content": "### EP-61\n- Quick literature check:\n  - Confirmed 2023/2024 “loglog step” improvements toward Erdős-Hajnal.\n- Finite compute signal:\n  - In random cograph ($P_4$-free subclass) experiments, minimum observed $\\max(\\alpha,\\omega)$ scales around exponent $\\sim 0.64..0.66$ for $n=64..512$.\n- Interpretation:\n  - Special forbidden-induced classes exhibit strong polynomial behavior, but this does not settle general `H`.\n\n## Web sources used\n- EP-32:\n  - https://www.cambridge.org/core/journals/bulletin-of-the-london-mathematical-society/article/additive-complements-in-the-complement-of-a-set-of-positive-density/2D5A884D8575A416C0A2F251F33242ED\n- EP-33:\n  - https://www.sciencedirect.com/science/article/pii/S0012365X2500494X\n- EP-36:\n  - https://www.erdosproblems.com/36\n- EP-39:\n  - https://arxiv.org/abs/2308.13028\n  - https://arxiv.org/abs/2302.01936\n- EP-44:\n  - https://www.erdosproblems.com/44\n  - https://arxiv.org/abs/2507.00696\n- EP-51:\n  - https://nntdm.net/volume-31-2025/number-2/1049-1061/\n- EP-52:\n  - https://arxiv.org/abs/2501.09470\n  - https://www.cambridge.org/core/journals/compositio-mathematica/article/sumproduct-estimates-for-sets-with-few-prime-factors/39D63C9012834D2A3408830EB03F90FC\n- EP-60:\n  - https://arxiv.org/abs/2106.12431\n  - http://www.global-sci.com/article/91885/new-results-on-4-cycles-in-a-graph\n- EP-61:\n  - https://arxiv.org/abs/2301.10147\n  - https://academic.oup.com/imrn/article/2024/4/3094/7210838"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch2_quick_compute.mjs",
+        "heading": "random cograph proxy (P4-free case) for clique/independent size growth.",
+        "content": "// EP-61: random cograph proxy (P4-free case) for clique/independent size growth.\n{\n  const nList = [64, 128, 256, 512];\n  const rows = [];\n  for (const n of nList) {\n    const trials = 400;\n    let minBest = Infinity;\n    let avg = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const s = genRandomCographStats(n, rng);\n      const b = Math.max(s.alpha, s.omega);\n      avg += b;\n      if (b < minBest) minBest = b;\n    }\n    rows.push({\n      n,\n      trials,\n      min_max_clique_or_independent_found: minBest,\n      avg_max_clique_or_independent_found: Number((avg / trials).toFixed(4)),\n      min_over_sqrt_n: Number((minBest / Math.sqrt(n)).toFixed(6)),\n      min_effective_exponent: Number((Math.log(minBest) / Math.log(n)).toFixed(6)),\n    });\n  }\n  out.results.ep61 = {\n    description: 'Finite proxy on random cographs (P4-free subclass) for EH-type growth.',\n    rows,\n    caveat: 'This probes a special forbidden-induced-subgraph class, not general H.',\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch2_quick_compute.json');\nfs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\\n`);\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch2_quick_compute.json",
+        "key": "ep61",
+        "container_meta": {
+          "script": "harder_batch2_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:51:17.566Z"
+        },
+        "data": {
+          "description": "Finite proxy on random cographs (P4-free subclass) for EH-type growth.",
+          "rows": [
+            {
+              "n": 64,
+              "trials": 400,
+              "min_max_clique_or_independent_found": 14,
+              "avg_max_clique_or_independent_found": 22.68,
+              "min_over_sqrt_n": 1.75,
+              "min_effective_exponent": 0.634559
+            },
+            {
+              "n": 128,
+              "trials": 400,
+              "min_max_clique_or_independent_found": 22,
+              "avg_max_clique_or_independent_found": 37.2575,
+              "min_over_sqrt_n": 1.944544,
+              "min_effective_exponent": 0.637062
+            },
+            {
+              "n": 256,
+              "trials": 400,
+              "min_max_clique_or_independent_found": 38,
+              "avg_max_clique_or_independent_found": 61.24,
+              "min_over_sqrt_n": 2.375,
+              "min_effective_exponent": 0.655991
+            },
+            {
+              "n": 512,
+              "trials": 400,
+              "min_max_clique_or_independent_found": 58,
+              "avg_max_clique_or_independent_found": 100.46,
+              "min_over_sqrt_n": 2.563262,
+              "min_effective_exponent": 0.650887
+            }
+          ],
+          "caveat": "This probes a special forbidden-induced-subgraph class, not general H."
+        }
+      }
+    ]
+  }
+}

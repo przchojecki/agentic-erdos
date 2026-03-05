@@ -1,0 +1,79 @@
+{
+  "problem": "EP-483",
+  "normalized_utc": "2026-03-05T08:54:16.960Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch13_web_compute.md",
+        "content": "### EP-483\n- Quick literature check:\n  - Best asymptotic bounds remain exponential-type lower versus factorial upper; exact values are only known for small `k`.\n- Finite compute signal:\n  - Exact small-`k` checks recover `f(1)=2`, `f(2)=5`, `f(3)=14` (equivalently maximal sum-free-colorable lengths `1,4,13`).\n  - Greedy finite constructions for `k=5,6,7` are far below `3.2806^k` at tested scales.\n- Interpretation:\n  - Heuristic search is not competitive with state-of-the-art lower-bound constructions."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch13_quick_compute.mjs",
+        "heading": "Schur-number finite profiles.",
+        "content": "// EP-483: Schur-number finite profiles.\n{\n  function colorableSchur(N, k) {\n    const col = new Int8Array(N + 1);\n    col.fill(-1);\n\n    function dfs(x) {\n      if (x > N) return true;\n      for (let c = 0; c < k; c += 1) {\n        let ok = true;\n        for (let a = 1; a < x; a += 1) {\n          const b = x - a;\n          if (b < 1) continue;\n          if (col[a] === c && col[b] === c) {\n            ok = false;\n            break;\n          }\n        }\n        if (!ok) continue;\n        col[x] = c;\n        if (dfs(x + 1)) return true;\n        col[x] = -1;\n      }\n      return false;\n    }\n\n    return dfs(1);\n  }\n\n  function exactMaxForK(k, cap) {\n    let best = 0;\n    for (let N = 1; N <= cap; N += 1) {\n      if (colorableSchur(N, k)) best = N;\n      else return best;\n    }\n    return best;\n  }\n\n  const exactRows = [];\n  for (const [k, cap] of [[1, 6], [2, 12], [3, 20]]) {\n    const m = exactMaxForK(k, cap);\n    exactRows.push({ k, exact_max_sum_free_coloring_length: m });\n  }\n  exactRows.push({ k: 4, exact_max_sum_free_coloring_length: 45, source: 'known_value_background' });\n\n  const rng = makeRng(20260303 ^ 1301);\n\n  function greedyRun(k, Nmax) {\n    const col = new Int8Array(Nmax + 1);\n    col.fill(-1);\n    for (let x = 1; x <= Nmax; x += 1) {\n      const valid = [];\n      for (let c = 0; c < k; c += 1) {\n        let ok = true;\n        for (let a = 1; a < x; a += 1) {\n          const b = x - a;\n          if (b < 1) continue;\n          if (col[a] === c && col[b] === c) {\n            ok = false;\n            break;\n          }\n        }\n        if (ok) valid.push(c);\n      }\n      if (!valid.length) return x - 1;\n      const c = valid[Math.floor(rng() * valid.length)];\n      col[x] = c;\n    }\n    return Nmax;\n  }\n\n  const heuristicRows = [];\n  for (const [k, trials, Nmax] of [[5, 180, 350], [6, 180, 500], [7, 180, 700]]) {\n    let best = 0;\n    let avg = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const len = greedyRun(k, Nmax);\n      avg += len;\n      if (len > best) best = len;\n    }\n    heuristicRows.push({\n      k,\n      trials,\n      search_cap: Nmax,\n      best_greedy_length: best,\n      avg_greedy_length: Number((avg / trials).toPrecision(7)),\n      best_over_3p2806_pow_k: Number((best / (3.2806 ** k)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep483 = {\n    description: 'Exact small-k and heuristic larger-k profiles for Schur-number growth.',\n    exact_rows: exactRows,\n    heuristic_rows: heuristicRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch13_quick_compute.json",
+        "key": "ep483",
+        "container_meta": {
+          "script": "harder_batch13_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:44:19.727Z"
+        },
+        "data": {
+          "description": "Exact small-k and heuristic larger-k profiles for Schur-number growth.",
+          "exact_rows": [
+            {
+              "k": 1,
+              "exact_max_sum_free_coloring_length": 1
+            },
+            {
+              "k": 2,
+              "exact_max_sum_free_coloring_length": 4
+            },
+            {
+              "k": 3,
+              "exact_max_sum_free_coloring_length": 13
+            },
+            {
+              "k": 4,
+              "exact_max_sum_free_coloring_length": 45,
+              "source": "known_value_background"
+            }
+          ],
+          "heuristic_rows": [
+            {
+              "k": 5,
+              "trials": 180,
+              "search_cap": 350,
+              "best_greedy_length": 67,
+              "avg_greedy_length": 37.15,
+              "best_over_3p2806_pow_k": 0.1763228
+            },
+            {
+              "k": 6,
+              "trials": 180,
+              "search_cap": 500,
+              "best_greedy_length": 98,
+              "avg_greedy_length": 60.05,
+              "best_over_3p2806_pow_k": 0.07861518
+            },
+            {
+              "k": 7,
+              "trials": 180,
+              "search_cap": 700,
+              "best_greedy_length": 144,
+              "avg_greedy_length": 92.00556,
+              "best_over_3p2806_pow_k": 0.03521191
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

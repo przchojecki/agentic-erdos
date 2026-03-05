@@ -1,0 +1,84 @@
+{
+  "problem": "EP-687",
+  "normalized_utc": "2026-03-05T08:54:16.965Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch17_web_compute.md",
+        "content": "### EP-687\n- Quick literature check:\n  - Problem-page status remains open; classical upper bound still near `x^2` with much smaller known lower growth.\n- Finite compute signal:\n  - Random/hillclimb residue-covering search gives modest prefixes (`~0.65x` to `~1.35x` over tested `x=20..100`), far below quadratic scale in this range.\n- Interpretation:\n  - Finite optimization does not suggest near-`x^2` behavior at small scales; asymptotic upper/lower gap remains wide."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch17_quick_compute.mjs",
+        "heading": "random covering-system heuristic for Y(x).",
+        "content": "// EP-687: random covering-system heuristic for Y(x).\n{\n  const rng = makeRng(20260304 ^ 1701);\n\n  function longestCoveredPrefix(primes, residues, yMax) {\n    const covered = new Uint8Array(yMax + 1);\n    for (let i = 0; i < primes.length; i += 1) {\n      const p = primes[i];\n      const a = residues[i];\n      let t = a;\n      if (t <= 0) t += Math.ceil((1 - t) / p) * p;\n      for (let v = t; v <= yMax; v += p) {\n        if (v >= 1) covered[v] = 1;\n      }\n    }\n\n    let y = 0;\n    for (let v = 1; v <= yMax; v += 1) {\n      if (!covered[v]) break;\n      y = v;\n    }\n    return y;\n  }\n\n  function hillclimb(x, restarts, steps) {\n    const primes = sieve(x).primes;\n    const yMax = 6 * x * x;\n    let best = 0;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const residues = primes.map((p) => Math.floor(rng() * p));\n      let cur = longestCoveredPrefix(primes, residues, yMax);\n\n      for (let it = 0; it < steps; it += 1) {\n        const i = Math.floor(rng() * primes.length);\n        const old = residues[i];\n        residues[i] = Math.floor(rng() * primes[i]);\n        const nxt = longestCoveredPrefix(primes, residues, yMax);\n        if (nxt >= cur) cur = nxt;\n        else residues[i] = old;\n      }\n\n      if (cur > best) best = cur;\n    }\n\n    return { best, yMax, numPrimes: primes.length };\n  }\n\n  const rows = [];\n  for (const x of [20, 30, 40, 60, 80, 100]) {\n    const { best, yMax, numPrimes } = hillclimb(x, 20, 250);\n    rows.push({\n      x,\n      primes_up_to_x: numPrimes,\n      y_max_search_cap: yMax,\n      best_prefix_length_found: best,\n      best_over_x: Number((best / x).toPrecision(7)),\n      best_over_x2: Number((best / (x * x)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep687 = {\n    description: 'Heuristic coverage optimization for Jacobsthal-style Y(x) lower profiles.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch17_quick_compute.json",
+        "key": "ep687",
+        "container_meta": {
+          "script": "harder_batch17_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:13:20.362Z"
+        },
+        "data": {
+          "description": "Heuristic coverage optimization for Jacobsthal-style Y(x) lower profiles.",
+          "rows": [
+            {
+              "x": 20,
+              "primes_up_to_x": 8,
+              "y_max_search_cap": 2400,
+              "best_prefix_length_found": 27,
+              "best_over_x": 1.35,
+              "best_over_x2": 0.0675
+            },
+            {
+              "x": 30,
+              "primes_up_to_x": 10,
+              "y_max_search_cap": 5400,
+              "best_prefix_length_found": 33,
+              "best_over_x": 1.1,
+              "best_over_x2": 0.03666667
+            },
+            {
+              "x": 40,
+              "primes_up_to_x": 12,
+              "y_max_search_cap": 9600,
+              "best_prefix_length_found": 47,
+              "best_over_x": 1.175,
+              "best_over_x2": 0.029375
+            },
+            {
+              "x": 60,
+              "primes_up_to_x": 17,
+              "y_max_search_cap": 21600,
+              "best_prefix_length_found": 56,
+              "best_over_x": 0.9333333,
+              "best_over_x2": 0.01555556
+            },
+            {
+              "x": 80,
+              "primes_up_to_x": 22,
+              "y_max_search_cap": 38400,
+              "best_prefix_length_found": 67,
+              "best_over_x": 0.8375,
+              "best_over_x2": 0.01046875
+            },
+            {
+              "x": 100,
+              "primes_up_to_x": 25,
+              "y_max_search_cap": 60000,
+              "best_prefix_length_found": 65,
+              "best_over_x": 0.65,
+              "best_over_x2": 0.0065
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

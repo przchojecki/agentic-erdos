@@ -1,0 +1,156 @@
+{
+  "problem": "EP-165",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-165\n- Quick literature check:\n  - The page reflects active 2025 updates on the leading lower constant in $R(3,k)\\sim c\\,k^2/\\log k$ scale; full asymptotic formula remains open.\n- Finite compute signal:\n  - Triangle-free process proxy gives empirical witnesses with independence number below $k$ at $n\\approx(0.64..0.75)\\,k^2/\\log k$ for tested $k=20,30,40,50$.\n- Interpretation:\n  - Finite process behavior matches the expected $k^2/\\log k$ scale but does not identify the true asymptotic constant."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "finite triangle-free process proxy for off-diagonal Ramsey scale.",
+        "content": "// EP-165: finite triangle-free process proxy for off-diagonal Ramsey scale.\n{\n  function triangleFreeProcess(n) {\n    const edges = [];\n    for (let u = 0; u < n; u += 1) for (let v = u + 1; v < n; v += 1) edges.push([u, v]);\n    shuffle(edges, rng);\n\n    const adj = Array.from({ length: n }, () => new Uint8Array(n));\n    let m = 0;\n    for (const [u, v] of edges) {\n      let createsTri = false;\n      for (let w = 0; w < n; w += 1) {\n        if (adj[u][w] && adj[v][w]) {\n          createsTri = true;\n          break;\n        }\n      }\n      if (createsTri) continue;\n      adj[u][v] = 1;\n      adj[v][u] = 1;\n      m += 1;\n    }\n    return { adj, edges: m };\n  }\n\n  function greedyIndependentSize(adj, trials = 24) {\n    const n = adj.length;\n    let best = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const ord = Array.from({ length: n }, (_, i) => i);\n      shuffle(ord, rng);\n      const dead = new Uint8Array(n);\n      let sz = 0;\n      for (const v of ord) {\n        if (dead[v]) continue;\n        sz += 1;\n        dead[v] = 1;\n        for (let u = 0; u < n; u += 1) if (adj[v][u]) dead[u] = 1;\n      }\n      if (sz > best) best = sz;\n    }\n    return best;\n  }\n\n  const rows = [];\n  for (const k of [20, 30, 40, 50]) {\n    const cand = [0.45, 0.55, 0.65, 0.75].map((c) => Math.max(12, Math.floor((c * k * k) / Math.log(k))));\n    let bestN = null;\n    for (const n of cand) {\n      let found = false;\n      let bestAlpha = Infinity;\n      for (let t = 0; t < 6; t += 1) {\n        const g = triangleFreeProcess(n);\n        const alphaEst = greedyIndependentSize(g.adj, 20);\n        if (alphaEst < bestAlpha) bestAlpha = alphaEst;\n        if (alphaEst < k) found = true;\n      }\n      rows.push({\n        k,\n        n_tested: n,\n        six_runs_min_greedy_independent_size: bestAlpha,\n        witness_alpha_less_than_k_found: found,\n      });\n      if (found) bestN = n;\n    }\n    rows.push({\n      k,\n      empirical_lower_bound_n_with_alpha_less_k: bestN,\n      k2_over_logn: Number((k * k / Math.log(k)).toFixed(3)),\n      empirical_ratio_n_over_k2_over_logn: bestN ? Number((bestN / (k * k / Math.log(k))).toFixed(6)) : null,\n    });\n  }\n\n  out.results.ep165 = {\n    description: 'Triangle-free process finite proxy for R(3,k) lower-scale constants.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep165",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Triangle-free process finite proxy for R(3,k) lower-scale constants.",
+          "rows": [
+            {
+              "k": 20,
+              "n_tested": 60,
+              "six_runs_min_greedy_independent_size": 15,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 20,
+              "n_tested": 73,
+              "six_runs_min_greedy_independent_size": 16,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 20,
+              "n_tested": 86,
+              "six_runs_min_greedy_independent_size": 19,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 20,
+              "n_tested": 100,
+              "six_runs_min_greedy_independent_size": 21,
+              "witness_alpha_less_than_k_found": false
+            },
+            {
+              "k": 20,
+              "empirical_lower_bound_n_with_alpha_less_k": 86,
+              "k2_over_logn": 133.523,
+              "empirical_ratio_n_over_k2_over_logn": 0.644082
+            },
+            {
+              "k": 30,
+              "n_tested": 119,
+              "six_runs_min_greedy_independent_size": 22,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 30,
+              "n_tested": 145,
+              "six_runs_min_greedy_independent_size": 24,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 30,
+              "n_tested": 171,
+              "six_runs_min_greedy_independent_size": 27,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 30,
+              "n_tested": 198,
+              "six_runs_min_greedy_independent_size": 29,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 30,
+              "empirical_lower_bound_n_with_alpha_less_k": 198,
+              "k2_over_logn": 264.613,
+              "empirical_ratio_n_over_k2_over_logn": 0.748263
+            },
+            {
+              "k": 40,
+              "n_tested": 195,
+              "six_runs_min_greedy_independent_size": 28,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 40,
+              "n_tested": 238,
+              "six_runs_min_greedy_independent_size": 33,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 40,
+              "n_tested": 281,
+              "six_runs_min_greedy_independent_size": 35,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 40,
+              "n_tested": 325,
+              "six_runs_min_greedy_independent_size": 37,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 40,
+              "empirical_lower_bound_n_with_alpha_less_k": 325,
+              "k2_over_logn": 433.736,
+              "empirical_ratio_n_over_k2_over_logn": 0.749304
+            },
+            {
+              "k": 50,
+              "n_tested": 287,
+              "six_runs_min_greedy_independent_size": 35,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 50,
+              "n_tested": 351,
+              "six_runs_min_greedy_independent_size": 39,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 50,
+              "n_tested": 415,
+              "six_runs_min_greedy_independent_size": 42,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 50,
+              "n_tested": 479,
+              "six_runs_min_greedy_independent_size": 46,
+              "witness_alpha_less_than_k_found": true
+            },
+            {
+              "k": 50,
+              "empirical_lower_bound_n_with_alpha_less_k": 479,
+              "k2_over_logn": 639.056,
+              "empirical_ratio_n_over_k2_over_logn": 0.749544
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

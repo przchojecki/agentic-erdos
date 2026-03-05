@@ -1,0 +1,108 @@
+{
+  "problem": "EP-683",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep683_binom_largest_prime_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-683",
+        "method": "exact_largest_prime_divisor_of_binomial_via_factorial_prime_valuations",
+        "params": {
+          "Nmax": 2000
+        },
+        "global_min_margin_c": 0.0989955041151472,
+        "global_min_witness": {
+          "n": 1972,
+          "k": 986,
+          "largest_prime_divisor": 1951,
+          "margin_c": 0.0989955041151472
+        },
+        "checkpoints": [
+          {
+            "n": 250,
+            "min_margin_c_up_to_n": 0.13596531458105854,
+            "witness": {
+              "n": 250,
+              "k": 125,
+              "largest_prime_divisor": 241,
+              "margin_c": 0.13596531458105854
+            }
+          },
+          {
+            "n": 500,
+            "min_margin_c_up_to_n": 0.12231720331656908,
+            "witness": {
+              "n": 478,
+              "k": 239,
+              "largest_prime_divisor": 467,
+              "margin_c": 0.12231720331656908
+            }
+          },
+          {
+            "n": 750,
+            "min_margin_c_up_to_n": 0.1153667205818374,
+            "witness": {
+              "n": 750,
+              "k": 375,
+              "largest_prime_divisor": 743,
+              "margin_c": 0.1153667205818374
+            }
+          },
+          {
+            "n": 1000,
+            "min_margin_c_up_to_n": 0.10986996549967344,
+            "witness": {
+              "n": 906,
+              "k": 453,
+              "largest_prime_divisor": 887,
+              "margin_c": 0.10986996549967344
+            }
+          },
+          {
+            "n": 1250,
+            "min_margin_c_up_to_n": 0.10618165436075981,
+            "witness": {
+              "n": 1150,
+              "k": 575,
+              "largest_prime_divisor": 1129,
+              "margin_c": 0.10618165436075981
+            }
+          },
+          {
+            "n": 1500,
+            "min_margin_c_up_to_n": 0.10251053716218722,
+            "witness": {
+              "n": 1360,
+              "k": 680,
+              "largest_prime_divisor": 1327,
+              "margin_c": 0.10251053716218722
+            }
+          },
+          {
+            "n": 1750,
+            "min_margin_c_up_to_n": 0.10080240524601142,
+            "witness": {
+              "n": 1692,
+              "k": 846,
+              "largest_prime_divisor": 1669,
+              "margin_c": 0.10080240524601142
+            }
+          },
+          {
+            "n": 2000,
+            "min_margin_c_up_to_n": 0.0989955041151472,
+            "witness": {
+              "n": 1972,
+              "k": 986,
+              "largest_prime_divisor": 1951,
+              "margin_c": 0.0989955041151472
+            }
+          }
+        ],
+        "generated_utc": "2026-03-01T17:48:41.323Z"
+      }
+    }
+  ]
+}

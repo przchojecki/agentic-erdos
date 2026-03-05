@@ -1,0 +1,108 @@
+{
+  "problem": "EP-92",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-92\n- Quick literature check:\n  - The problem page now cites a circle-point incidence consequence giving $f(n)\\ll n^{4/11}$ (via Janzer-Janzer-Methuku-Tardos-type input).\n- Finite compute signal:\n  - Model families (grids, triangular patches, regular polygons) gave finite $f$-values mostly in the low single digits for $n\\le 64$.\n- Interpretation:\n  - Finite models are compatible with subpolynomial ambitions, but too small-scale to discriminate between $n^{o(1)}$ and slower power laws."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "finite profiles for f(n)-style local equidistance in model sets.",
+        "content": "// EP-92: finite profiles for f(n)-style local equidistance in model sets.\n{\n  const rows = [];\n\n  for (const m of [4, 5, 6, 8]) {\n    const pts = gridPoints(m);\n    const n = pts.length;\n    const f = localEquidistantMin(pts);\n    rows.push({\n      model: 'square_grid',\n      n,\n      f_model: f,\n      f_over_n_pow_4_over_11: Number((f / n ** (4 / 11)).toFixed(6)),\n    });\n  }\n\n  for (const n of [16, 25, 36, 64]) {\n    const pts = triPatchPoints(n);\n    const f = localEquidistantMin(pts);\n    rows.push({\n      model: 'triangular_patch',\n      n,\n      f_model: f,\n      f_over_n_pow_4_over_11: Number((f / n ** (4 / 11)).toFixed(6)),\n    });\n  }\n\n  for (const n of [12, 18, 24, 30]) {\n    const pts = regularPolygon(n, 1, 0);\n    const f = localEquidistantMin(pts);\n    rows.push({\n      model: 'regular_polygon',\n      n,\n      f_model: f,\n      f_over_n_pow_4_over_11: Number((f / n ** (4 / 11)).toFixed(6)),\n    });\n  }\n\n  out.results.ep92 = {\n    description: 'Finite model lower profiles for per-center equidistant multiplicity.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep92",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite model lower profiles for per-center equidistant multiplicity.",
+          "rows": [
+            {
+              "model": "square_grid",
+              "n": 16,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.72974
+            },
+            {
+              "model": "square_grid",
+              "n": 25,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.620423
+            },
+            {
+              "model": "square_grid",
+              "n": 36,
+              "f_model": 3,
+              "f_over_n_pow_4_over_11": 0.815067
+            },
+            {
+              "model": "square_grid",
+              "n": 64,
+              "f_model": 4,
+              "f_over_n_pow_4_over_11": 0.881591
+            },
+            {
+              "model": "triangular_patch",
+              "n": 16,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.72974
+            },
+            {
+              "model": "triangular_patch",
+              "n": 25,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.620423
+            },
+            {
+              "model": "triangular_patch",
+              "n": 36,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.543378
+            },
+            {
+              "model": "triangular_patch",
+              "n": 64,
+              "f_model": 4,
+              "f_over_n_pow_4_over_11": 0.881591
+            },
+            {
+              "model": "regular_polygon",
+              "n": 12,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.810215
+            },
+            {
+              "model": "regular_polygon",
+              "n": 18,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.699145
+            },
+            {
+              "model": "regular_polygon",
+              "n": 24,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.629702
+            },
+            {
+              "model": "regular_polygon",
+              "n": 30,
+              "f_model": 2,
+              "f_over_n_pow_4_over_11": 0.580624
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

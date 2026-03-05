@@ -1,0 +1,192 @@
+{
+  "problem": "EP-561",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep561_star44_lowercheck.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-561",
+        "method": "exhaustive_lower_bound_check_for_hatR(K1,4,K1,4)",
+        "rows": [
+          {
+            "m": 0,
+            "exists_ramsey_host": false,
+            "witness": null
+          },
+          {
+            "m": 1,
+            "exists_ramsey_host": false,
+            "witness": null
+          },
+          {
+            "m": 2,
+            "exists_ramsey_host": false,
+            "witness": null
+          },
+          {
+            "m": 3,
+            "exists_ramsey_host": false,
+            "witness": null
+          },
+          {
+            "m": 4,
+            "exists_ramsey_host": false,
+            "witness": null
+          },
+          {
+            "m": 5,
+            "exists_ramsey_host": false,
+            "witness": null
+          },
+          {
+            "m": 6,
+            "exists_ramsey_host": false,
+            "witness": null
+          }
+        ],
+        "implication": "No Ramsey host exists for m<=6, so hatR(K1,4,K1,4)>=7. Combined with star K1,7 upper bound gives equality 7.",
+        "generated_utc": "2026-03-01T17:18:43.362Z"
+      }
+    },
+    {
+      "source_file": "ep561_star_size_ramsey_small_exact.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-561",
+        "method": "exact_exhaustive_small_cases_for_single-star_vs_single-star_size_ramsey",
+        "rows": [
+          {
+            "a": 2,
+            "b": 2,
+            "exact_m_found": 3,
+            "witness_n": 3,
+            "witness_edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "predicted_a_plus_b_minus_1": 3,
+            "matches_prediction": true,
+            "runtime_ms": 1
+          },
+          {
+            "a": 2,
+            "b": 3,
+            "exact_m_found": 4,
+            "witness_n": 5,
+            "witness_edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "predicted_a_plus_b_minus_1": 4,
+            "matches_prediction": true,
+            "runtime_ms": 0
+          },
+          {
+            "a": 3,
+            "b": 3,
+            "exact_m_found": 5,
+            "witness_n": 6,
+            "witness_edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "predicted_a_plus_b_minus_1": 5,
+            "matches_prediction": true,
+            "runtime_ms": 4
+          },
+          {
+            "a": 3,
+            "b": 4,
+            "exact_m_found": 6,
+            "witness_n": 7,
+            "witness_edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ],
+              [
+                0,
+                6
+              ]
+            ],
+            "predicted_a_plus_b_minus_1": 6,
+            "matches_prediction": true,
+            "runtime_ms": 6
+          },
+          {
+            "a": 4,
+            "b": 4,
+            "exact_m_found": null,
+            "witness_n": null,
+            "witness_edges": [],
+            "predicted_a_plus_b_minus_1": 7,
+            "matches_prediction": false,
+            "runtime_ms": 642
+          }
+        ],
+        "generated_utc": "2026-03-01T17:18:09.331Z"
+      }
+    }
+  ]
+}

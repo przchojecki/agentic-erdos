@@ -1,0 +1,66 @@
+{
+  "problem": "EP-256",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-256\n- Quick literature check:\n  - The specific growth question `\\log f(n) \\gg n^c` is known to fail (Belov-Konyagin upper bounds of polylog type); the broader quantitative behavior remains open.\n- Finite compute signal:\n  - Grid maximization of `\\max_{|z|=1}\\prod_i|1-z^{a_i}|` for sample families shows slow log-growth in tested `n`.\n  - Consecutive exponents: `\\log` max values around `2.89,3.88,4.81,5.71,6.59` for `n=8..24`.\n- Interpretation:\n  - Finite profiles match subpolynomial-growth expectations and do not suggest a hidden `n^c` lower law."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "max-product profile for candidate exponent sets.",
+        "content": "// EP-256: max-product profile for candidate exponent sets.\n{\n  function maxLogProduct(exponents, grid = 2048) {\n    let best = -Infinity;\n    for (let t = 1; t <= grid; t += 1) {\n      const theta = (2 * Math.PI * t) / (grid + 1);\n      let s = 0;\n      for (const a of exponents) {\n        const v = Math.abs(2 * Math.sin((a * theta) / 2));\n        s += Math.log(Math.max(v, 1e-15));\n      }\n      if (s > best) best = s;\n    }\n    return best;\n  }\n\n  function randomSet(n, m) {\n    const arr = Array.from({ length: m }, (_, i) => i + 1);\n    shuffle(arr, rng);\n    return arr.slice(0, n).sort((a, b) => a - b);\n  }\n\n  const rows = [];\n  for (const n of [8, 12, 16, 20, 24]) {\n    const consec = Array.from({ length: n }, (_, i) => i + 1);\n    const p2 = Array.from({ length: n }, (_, i) => 2 ** i);\n\n    const lc = maxLogProduct(consec);\n    const lp2 = maxLogProduct(p2);\n\n    let bestRnd = Infinity;\n    for (let t = 0; t < 60; t += 1) {\n      const ex = randomSet(n, 6 * n);\n      const v = maxLogProduct(ex, 1536);\n      if (v < bestRnd) bestRnd = v;\n    }\n\n    rows.push({\n      n,\n      log_max_product_consecutive: Number(lc.toFixed(6)),\n      log_max_product_powers_of_2: Number(lp2.toFixed(6)),\n      min_log_max_product_random_60: Number(bestRnd.toFixed(6)),\n    });\n  }\n\n  out.results.ep256 = {\n    description: 'Grid-based finite profile for log max_{|z|=1} prod_i |1-z^{a_i}| over candidate exponent sets.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep256",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Grid-based finite profile for log max_{|z|=1} prod_i |1-z^{a_i}| over candidate exponent sets.",
+          "rows": [
+            {
+              "n": 8,
+              "log_max_product_consecutive": 2.894137,
+              "log_max_product_powers_of_2": 4.436866,
+              "min_log_max_product_random_60": 3.671172
+            },
+            {
+              "n": 12,
+              "log_max_product_consecutive": 3.875716,
+              "log_max_product_powers_of_2": 6.591674,
+              "min_log_max_product_random_60": 5.008533
+            },
+            {
+              "n": 16,
+              "log_max_product_consecutive": 4.805593,
+              "log_max_product_powers_of_2": 8.788898,
+              "min_log_max_product_random_60": 6.23874
+            },
+            {
+              "n": 20,
+              "log_max_product_consecutive": 5.705961,
+              "log_max_product_powers_of_2": 10.986123,
+              "min_log_max_product_random_60": 7.170132
+            },
+            {
+              "n": 24,
+              "log_max_product_consecutive": 6.588988,
+              "log_max_product_powers_of_2": 13.183347,
+              "min_log_max_product_random_60": 8.319463
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "problem": "EP-322",
+  "normalized_utc": "2026-03-05T08:54:16.956Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-322\n- Quick literature check:\n  - Problem page still lists the classical Hypothesis-$K$ landscape: disproved for cubes (Mahler), higher-`k` polynomial-power growth question open.\n- Finite compute signal:\n  - For `k=3` and `n<=2e5`, max observed representation count in `n=a^3+b^3+c^3` (nondecreasing triples) is `5`.\n  - For `k=4` and `n<=3.5e5`, max observed count in 4-term fourth-power sums is `4`.\n- Interpretation:\n  - Finite multiplicities are small in tested ranges; this gives no direct leverage on the conjectured infinite-often polynomial lower growth question."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "finite max multiplicity profile of representations by k k-th powers.",
+        "content": "// EP-322: finite max multiplicity profile of representations by k k-th powers.\n{\n  const rows = [];\n\n  {\n    const N = 200000;\n    const { cnt, vals } = repCounts3Powers(3, N);\n    let maxRep = 0;\n    let argMax = 0;\n    let witness = 0;\n    for (let n = 1; n <= N; n += 1) {\n      if (cnt[n] > maxRep) {\n        maxRep = cnt[n];\n        argMax = n;\n      }\n      if (cnt[n] > n ** 0.1) witness += 1;\n    }\n    rows.push({\n      k: 3,\n      N,\n      basis_values_count: vals.length,\n      max_representation_count: maxRep,\n      argmax_n: argMax,\n      max_over_N_pow_0_1: Number((maxRep / (N ** 0.1)).toPrecision(6)),\n      count_n_with_r_n_gt_n_pow_0_1: witness,\n    });\n  }\n\n  {\n    const N = 350000;\n    const { cnt, vals } = repCounts4Powers(4, N);\n    let maxRep = 0;\n    let argMax = 0;\n    let witness = 0;\n    for (let n = 1; n <= N; n += 1) {\n      if (cnt[n] > maxRep) {\n        maxRep = cnt[n];\n        argMax = n;\n      }\n      if (cnt[n] > n ** 0.05) witness += 1;\n    }\n    rows.push({\n      k: 4,\n      N,\n      basis_values_count: vals.length,\n      max_representation_count: maxRep,\n      argmax_n: argMax,\n      max_over_N_pow_0_05: Number((maxRep / (N ** 0.05)).toPrecision(6)),\n      count_n_with_r_n_gt_n_pow_0_05: witness,\n    });\n  }\n\n  out.results.ep322 = {\n    description: 'Finite representation-multiplicity profile for sums of k many k-th powers (small k).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep322",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Finite representation-multiplicity profile for sums of k many k-th powers (small k).",
+          "rows": [
+            {
+              "k": 3,
+              "N": 200000,
+              "basis_values_count": 59,
+              "max_representation_count": 5,
+              "argmax_n": 161568,
+              "max_over_N_pow_0_1": 1.47525,
+              "count_n_with_r_n_gt_n_pow_0_1": 100
+            },
+            {
+              "k": 4,
+              "N": 350000,
+              "basis_values_count": 25,
+              "max_representation_count": 4,
+              "argmax_n": 236674,
+              "max_over_N_pow_0_05": 2.11279,
+              "count_n_with_r_n_gt_n_pow_0_05": 1254
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

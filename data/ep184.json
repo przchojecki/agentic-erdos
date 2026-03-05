@@ -1,0 +1,141 @@
+{
+  "problem": "EP-184",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-184\n- Quick literature check:\n  - Current best bound remains near-linear with an iterated-log factor ($O(n\\log^* n)$, Bucić-Montgomery 2022), while the conjectured $O(n)$ remains open.\n- Finite compute signal:\n  - Greedy cycle+edge decomposition on random sparse/dense graphs gave piece counts around `0.6n..0.9n` in tested regimes.\n  - For `K_{3,n-3}` (linear lower-obstruction family), decomposition counts were about `1.45n..1.48n` in this greedy run.\n- Interpretation:\n  - Finite behavior is consistent with linear-scale piece counts but does not address worst-case constants rigorously."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "edge-disjoint cycle+edge decomposition proxy.",
+        "content": "// EP-184: edge-disjoint cycle+edge decomposition proxy.\n{\n  function graphFromEdges(n, edges) {\n    const adj = Array.from({ length: n }, () => new Set());\n    for (const [u, v] of edges) {\n      adj[u].add(v);\n      adj[v].add(u);\n    }\n    return adj;\n  }\n\n  function findAnyCycle(adj) {\n    const n = adj.length;\n    const state = new Int8Array(n); // 0=unseen,1=active,2=done\n    const parent = new Int32Array(n);\n    parent.fill(-1);\n\n    function dfs(u) {\n      state[u] = 1;\n      for (const v of adj[u]) {\n        if (v === parent[u]) continue;\n        if (state[v] === 0) {\n          parent[v] = u;\n          const cyc = dfs(v);\n          if (cyc) return cyc;\n        } else if (state[v] === 1) {\n          // back edge u-v gives a cycle\n          const path = [u];\n          let x = u;\n          while (x !== v) {\n            x = parent[x];\n            path.push(x);\n          }\n          const cycleEdges = [];\n          for (let i = 0; i + 1 < path.length; i += 1) {\n            const a = path[i];\n            const b = path[i + 1];\n            cycleEdges.push(a < b ? [a, b] : [b, a]);\n          }\n          const a = u < v ? [u, v] : [v, u];\n          cycleEdges.push(a);\n          return cycleEdges;\n        }\n      }\n      state[u] = 2;\n      return null;\n    }\n\n    for (let s = 0; s < n; s += 1) {\n      if (state[s] !== 0) continue;\n      const cyc = dfs(s);\n      if (cyc) return cyc;\n    }\n    return null;\n  }\n\n  function decomposeCount(n, edges) {\n    const adj = graphFromEdges(n, edges);\n    let cyclePieces = 0;\n\n    while (true) {\n      const cyc = findAnyCycle(adj);\n      if (!cyc) break;\n      for (const [u, v] of cyc) {\n        adj[u].delete(v);\n        adj[v].delete(u);\n      }\n      cyclePieces += 1;\n    }\n\n    let edgePieces = 0;\n    for (let u = 0; u < n; u += 1) edgePieces += adj[u].size;\n    edgePieces /= 2;\n    return cyclePieces + edgePieces;\n  }\n\n  function randomGraphEdges(n, m) {\n    const pairs = [];\n    for (let u = 0; u < n; u += 1) for (let v = u + 1; v < n; v += 1) pairs.push([u, v]);\n    shuffle(pairs, rng);\n    return pairs.slice(0, Math.min(m, pairs.length));\n  }\n\n  const rows = [];\n  for (const n of [60, 90, 120]) {\n    for (const c of [2, 3, 4]) {\n      const m = c * n;\n      let best = Infinity;\n      let avg = 0;\n      const trials = 18;\n      for (let t = 0; t < trials; t += 1) {\n        const val = decomposeCount(n, randomGraphEdges(n, m));\n        avg += val;\n        if (val < best) best = val;\n      }\n      rows.push({\n        model: 'random_graph',\n        n,\n        m,\n        trials,\n        best_pieces_found: best,\n        avg_pieces: Number((avg / trials).toFixed(3)),\n        best_over_n: Number((best / n).toFixed(6)),\n      });\n    }\n  }\n\n  for (const n of [60, 90, 120]) {\n    const edges = [];\n    const left = [0, 1, 2];\n    for (const u of left) for (let v = 3; v < n; v += 1) edges.push([u, v]);\n    const m = edges.length;\n    const pieces = decomposeCount(n, edges);\n    rows.push({\n      model: 'K_3_n_minus_3',\n      n,\n      m,\n      decomposition_pieces_found: pieces,\n      lower_bound_m_over_6: Number((m / 6).toFixed(6)),\n      pieces_over_n: Number((pieces / n).toFixed(6)),\n    });\n  }\n\n  out.results.ep184 = {\n    description: 'Greedy edge-disjoint cycle+edge decomposition profile on random graphs and K_{3,n-3}.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep184",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Greedy edge-disjoint cycle+edge decomposition profile on random graphs and K_{3,n-3}.",
+          "rows": [
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 120,
+              "trials": 18,
+              "best_pieces_found": 42,
+              "avg_pieces": 46.833,
+              "best_over_n": 0.7
+            },
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 180,
+              "trials": 18,
+              "best_pieces_found": 44,
+              "avg_pieces": 51.333,
+              "best_over_n": 0.733333
+            },
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 240,
+              "trials": 18,
+              "best_pieces_found": 48,
+              "avg_pieces": 62.056,
+              "best_over_n": 0.8
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 180,
+              "trials": 18,
+              "best_pieces_found": 56,
+              "avg_pieces": 67.778,
+              "best_over_n": 0.622222
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 270,
+              "trials": 18,
+              "best_pieces_found": 64,
+              "avg_pieces": 74.833,
+              "best_over_n": 0.711111
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 360,
+              "trials": 18,
+              "best_pieces_found": 73,
+              "avg_pieces": 84.222,
+              "best_over_n": 0.811111
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 240,
+              "trials": 18,
+              "best_pieces_found": 73,
+              "avg_pieces": 89.222,
+              "best_over_n": 0.608333
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 360,
+              "trials": 18,
+              "best_pieces_found": 88,
+              "avg_pieces": 98.222,
+              "best_over_n": 0.733333
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 480,
+              "trials": 18,
+              "best_pieces_found": 87,
+              "avg_pieces": 106.444,
+              "best_over_n": 0.725
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 60,
+              "m": 171,
+              "decomposition_pieces_found": 87,
+              "lower_bound_m_over_6": 28.5,
+              "pieces_over_n": 1.45
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 90,
+              "m": 261,
+              "decomposition_pieces_found": 132,
+              "lower_bound_m_over_6": 43.5,
+              "pieces_over_n": 1.466667
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 120,
+              "m": 351,
+              "decomposition_pieces_found": 177,
+              "lower_bound_m_over_6": 58.5,
+              "pieces_over_n": 1.475
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

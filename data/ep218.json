@@ -1,0 +1,58 @@
+{
+  "problem": "EP-218",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep218_prime_gap_monotonicity_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep218_prime_gap_monotonicity_scan.mjs",
+        "n_max": 1000000,
+        "checkpoints": [
+          {
+            "x": 10000,
+            "comparisons_used": 10000,
+            "proportion_ge": 0.5252,
+            "proportion_le": 0.5198,
+            "equal_count": 450,
+            "equal_frequency": 0.045
+          },
+          {
+            "x": 30000,
+            "comparisons_used": 30000,
+            "proportion_ge": 0.521067,
+            "proportion_le": 0.520233,
+            "equal_count": 1239,
+            "equal_frequency": 0.0413
+          },
+          {
+            "x": 100000,
+            "comparisons_used": 100000,
+            "proportion_ge": 0.51945,
+            "proportion_le": 0.51813,
+            "equal_count": 3758,
+            "equal_frequency": 0.03758
+          },
+          {
+            "x": 300000,
+            "comparisons_used": 300000,
+            "proportion_ge": 0.517477,
+            "proportion_le": 0.516997,
+            "equal_count": 10342,
+            "equal_frequency": 0.034473
+          },
+          {
+            "x": 1000000,
+            "comparisons_used": 1000000,
+            "proportion_ge": 0.516161,
+            "proportion_le": 0.515817,
+            "equal_count": 31978,
+            "equal_frequency": 0.031978
+          }
+        ],
+        "timestamp_utc": "2026-03-01T19:10:42.010Z"
+      }
+    }
+  ]
+}

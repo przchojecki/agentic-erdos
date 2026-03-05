@@ -1,0 +1,64 @@
+{
+  "problem": "EP-202",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-202\n- Quick literature check:\n  - State of the art remains around $N/L(N)^c$-type envelopes with a gap between known lower and upper exponents.\n- Finite compute signal:\n  - Randomized residue-class packing heuristics gave best `r` values roughly `0.15N..0.25N` on tested `N`.\n- Interpretation:\n  - Finite heuristic solutions are substantial but far from asymptotic sharpness."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "disjoint congruence classes packing heuristic.",
+        "content": "// EP-202: disjoint congruence classes packing heuristic.\n{\n  function bestPacking(N, restarts) {\n    let best = 0;\n\n    const moduli = Array.from({ length: N - 1 }, (_, i) => i + 2);\n    for (let rep = 0; rep < restarts; rep += 1) {\n      const ord = [...moduli];\n      shuffle(ord, rng);\n      const selected = []; // [n,a]\n      for (const n of ord) {\n        const feasible = [];\n        for (let a = 0; a < n; a += 1) {\n          let ok = true;\n          for (const [m, b] of selected) {\n            const g = gcd(n, m);\n            if (a % g === b % g) {\n              ok = false;\n              break;\n            }\n          }\n          if (ok) feasible.push(a);\n        }\n        if (feasible.length === 0) continue;\n        const a = feasible[Math.floor(rng() * feasible.length)];\n        selected.push([n, a]);\n      }\n      if (selected.length > best) best = selected.length;\n    }\n\n    return best;\n  }\n\n  function gcd(a, b) {\n    let x = a;\n    let y = b;\n    while (y !== 0) {\n      const t = x % y;\n      x = y;\n      y = t;\n    }\n    return x;\n  }\n\n  const rows = [];\n  for (const [N, restarts] of [\n    [40, 500],\n    [80, 400],\n    [120, 320],\n    [160, 260],\n  ]) {\n    const r = bestPacking(N, restarts);\n    const L = Math.exp(Math.sqrt(Math.log(N) * Math.log(Math.log(N))));\n    rows.push({\n      N,\n      restarts,\n      best_r_found: r,\n      ratio_r_over_N: Number((r / N).toFixed(6)),\n      ratio_r_times_L_over_N: Number((r * L / N).toFixed(6)),\n    });\n  }\n\n  out.results.ep202 = {\n    description: 'Randomized packing profile for disjoint residue classes with distinct moduli <= N.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep202",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Randomized packing profile for disjoint residue classes with distinct moduli <= N.",
+          "rows": [
+            {
+              "N": 40,
+              "restarts": 500,
+              "best_r_found": 10,
+              "ratio_r_over_N": 0.25,
+              "ratio_r_times_L_over_N": 2.243545
+            },
+            {
+              "N": 80,
+              "restarts": 400,
+              "best_r_found": 16,
+              "ratio_r_over_N": 0.2,
+              "ratio_r_times_L_over_N": 2.547378
+            },
+            {
+              "N": 120,
+              "restarts": 320,
+              "best_r_found": 20,
+              "ratio_r_over_N": 0.166667,
+              "ratio_r_times_L_over_N": 2.576289
+            },
+            {
+              "N": 160,
+              "restarts": 260,
+              "best_r_found": 24,
+              "ratio_r_over_N": 0.15,
+              "ratio_r_times_L_over_N": 2.648786
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

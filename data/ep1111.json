@@ -1,0 +1,110 @@
+{
+  "problem": "EP-1111",
+  "normalized_utc": "2026-03-05T08:54:16.976Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1111\n- Quick literature check:\n  - Page still presents the statement as unresolved in full strength, while recording the 2024 Nguyen--Scott--Seymour strengthening in a related direction.\n- Finite compute signal:\n  - Exact anticomplete-pair scan on `Mycielski(C5)` (`n=11`, `chi=4`, `omega=2`) finds best `min(chi(A),chi(B))=2`; sampled search on the `n=23` lift also found only `2`.\n- Interpretation:\n  - Finite high-chi triangle-free proxies show anticomplete pair phenomena, but do not force high chromaticity on both sides at larger `c`."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite anticomplete-pair chromatic profile in high-chi, omega=2 examples.",
+        "content": "// EP-1111: finite anticomplete-pair chromatic profile in high-chi, omega=2 examples.\n{\n  function mycielski(masks) {\n    const n = masks.length;\n    const outMasks = Array(2 * n + 1).fill(0n);\n    for (let u = 0; u < n; u += 1) {\n      let m = masks[u];\n      while (m) {\n        const b = m & -m;\n        const v = bitIndexBigInt(b);\n        m ^= b;\n        if (u < v) {\n          outMasks[u] |= 1n << BigInt(v);\n          outMasks[v] |= 1n << BigInt(u);\n          outMasks[u] |= 1n << BigInt(n + v);\n          outMasks[n + v] |= 1n << BigInt(u);\n          outMasks[v] |= 1n << BigInt(n + u);\n          outMasks[n + u] |= 1n << BigInt(v);\n        }\n      }\n    }\n    const w = 2 * n;\n    for (let u = 0; u < n; u += 1) {\n      outMasks[n + u] |= 1n << BigInt(w);\n      outMasks[w] |= 1n << BigInt(n + u);\n    }\n    return outMasks;\n  }\n\n  const c5 = adjacencyMasksFromEdgeList(5, [\n    [0, 1],\n    [1, 2],\n    [2, 3],\n    [3, 4],\n    [4, 0],\n  ]);\n  const m1 = mycielski(c5); // n=11, chi=4\n  const m2 = mycielski(m1); // n=23, chi=5\n\n  const n1 = m1.length;\n  const ALL1 = (1n << BigInt(n1)) - 1n;\n  const neighUnion = Array(1 << n1).fill(0n);\n  for (let mask = 1; mask < (1 << n1); mask += 1) {\n    const b = mask & -mask;\n    const i = Math.log2(b) | 0;\n    neighUnion[mask] = neighUnion[mask ^ b] | m1[i];\n  }\n\n  const chiCache = new Map();\n  function chiSubset(maskBig) {\n    if (chiCache.has(maskBig)) return chiCache.get(maskBig);\n    const adj = inducedAdjListFromMask(m1, maskBig);\n    const c = chromaticNumberDSATUR(adj);\n    chiCache.set(maskBig, c);\n    return c;\n  }\n\n  let bestMinChi = 0;\n  let bestPair = null;\n  for (let A = 1; A < (1 << n1); A += 1) {\n    const ABig = BigInt(A);\n    const allowedB = (ALL1 ^ ABig) & ~neighUnion[A];\n    let B = allowedB;\n    const chiA = chiSubset(ABig);\n    while (B > 0n) {\n      const chiB = chiSubset(B);\n      const mm = Math.min(chiA, chiB);\n      if (mm > bestMinChi) {\n        bestMinChi = mm;\n        bestPair = { A_mask: ABig.toString(), B_mask: B.toString(), chiA, chiB };\n      }\n      B = (B - 1n) & allowedB;\n    }\n  }\n\n  // Random sampling on n=23 variant.\n  const rng = makeRng(20260304 ^ 1111);\n  const samples = [];\n  let best23 = 0;\n  for (let t = 0; t < 2000; t += 1) {\n    let A = 0n;\n    for (let i = 0; i < m2.length; i += 1) if (rng() < 0.28) A |= 1n << BigInt(i);\n    if (A === 0n) continue;\n    let neigh = 0n;\n    for (let i = 0; i < m2.length; i += 1) if ((A >> BigInt(i)) & 1n) neigh |= m2[i];\n    const allowed = (((1n << BigInt(m2.length)) - 1n) ^ A) & ~neigh;\n    if (allowed === 0n) continue;\n    let B = 0n;\n    for (let i = 0; i < m2.length; i += 1) if (((allowed >> BigInt(i)) & 1n) && rng() < 0.45) B |= 1n << BigInt(i);\n    if (B === 0n) continue;\n    const chiA = chromaticNumberDSATUR(inducedAdjListFromMask(m2, A));\n    const chiB = chromaticNumberDSATUR(inducedAdjListFromMask(m2, B));\n    const mm = Math.min(chiA, chiB);\n    if (mm > best23) best23 = mm;\n    if (samples.length < 12 && mm >= 2) samples.push({ chiA, chiB, minChi: mm });\n  }\n\n  out.results.ep1111 = {\n    description: 'Finite anticomplete-pair chromatic search on Mycielski triangle-free high-chromatic graphs.',\n    exact_on_mycielski1_n11: {\n      chi_graph: chromaticNumberDSATUR(adjacencyListFromMasks(m1)),\n      best_min_of_chiA_chiB_over_anticomplete_pairs: bestMinChi,\n      witness_pair_summary: bestPair,\n    },\n    sampled_on_mycielski2_n23: {\n      chi_graph: chromaticNumberDSATUR(adjacencyListFromMasks(m2)),\n      best_min_of_chiA_chiB_in_samples: best23,\n      sample_rows: samples,\n    },\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1111",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite anticomplete-pair chromatic search on Mycielski triangle-free high-chromatic graphs.",
+          "exact_on_mycielski1_n11": {
+            "chi_graph": 4,
+            "best_min_of_chiA_chiB_over_anticomplete_pairs": 2,
+            "witness_pair_summary": {
+              "A_mask": "3",
+              "B_mask": "1288",
+              "chiA": 2,
+              "chiB": 2
+            }
+          },
+          "sampled_on_mycielski2_n23": {
+            "chi_graph": 5,
+            "best_min_of_chiA_chiB_in_samples": 2,
+            "sample_rows": [
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              },
+              {
+                "chiA": 2,
+                "chiB": 2,
+                "minChi": 2
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

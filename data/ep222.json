@@ -1,0 +1,71 @@
+{
+  "problem": "EP-222",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-222\n- Quick literature check:\n  - Recent work continues to improve large-gap lower constants; best upper bounds are still far from conjectural logarithmic order.\n- Finite compute signal:\n  - Max observed gaps between sums of two squares reached `48` by `X=5e6`, with normalized log-scale ratios growing in tested range.\n- Interpretation:\n  - Finite data supports existence of comparatively large gaps and aligns with the hard asymptotic gap problem."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "gaps between sums of two squares.",
+        "content": "// EP-222: gaps between sums of two squares.\n{\n  function sumsOfTwoSquaresMask(X) {\n    const mark = new Uint8Array(X + 1);\n    const r = Math.floor(Math.sqrt(X));\n    for (let a = 0; a <= r; a += 1) {\n      const aa = a * a;\n      for (let b = a; aa + b * b <= X; b += 1) {\n        mark[aa + b * b] = 1;\n      }\n    }\n    return mark;\n  }\n\n  const rows = [];\n  for (const X of [200000, 500000, 1000000, 2000000, 5000000]) {\n    const mark = sumsOfTwoSquaresMask(X);\n    let prev = -1;\n    let maxGap = 0;\n    let start = 0;\n    for (let n = 0; n <= X; n += 1) {\n      if (!mark[n]) continue;\n      if (prev >= 0) {\n        const g = n - prev;\n        if (g > maxGap) {\n          maxGap = g;\n          start = prev;\n        }\n      }\n      prev = n;\n    }\n    rows.push({\n      X,\n      max_gap_observed: maxGap,\n      gap_starts_at: start,\n      max_gap_over_log_start: Number((maxGap / Math.log(Math.max(3, start))).toFixed(6)),\n      max_gap_over_log_div_sqrtloglog: Number((maxGap / (Math.log(Math.max(3, start)) / Math.sqrt(Math.log(Math.log(Math.max(5, start)))))).toFixed(6)),\n    });\n  }\n\n  out.results.ep222 = {\n    description: 'Finite max-gap profile for integers representable as a sum of two squares.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep222",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Finite max-gap profile for integers representable as a sum of two squares.",
+          "rows": [
+            {
+              "X": 200000,
+              "max_gap_observed": 29,
+              "gap_starts_at": 105572,
+              "max_gap_over_log_start": 2.5071,
+              "max_gap_over_log_div_sqrtloglog": 3.922766
+            },
+            {
+              "X": 500000,
+              "max_gap_observed": 34,
+              "gap_starts_at": 284002,
+              "max_gap_over_log_start": 2.70771,
+              "max_gap_over_log_div_sqrtloglog": 4.307095
+            },
+            {
+              "X": 1000000,
+              "max_gap_observed": 35,
+              "gap_starts_at": 685541,
+              "max_gap_over_log_start": 2.604561,
+              "max_gap_over_log_div_sqrtloglog": 4.198181
+            },
+            {
+              "X": 2000000,
+              "max_gap_observed": 48,
+              "gap_starts_at": 1853866,
+              "max_gap_over_log_start": 3.325762,
+              "max_gap_over_log_div_sqrtloglog": 5.433833
+            },
+            {
+              "X": 5000000,
+              "max_gap_observed": 48,
+              "gap_starts_at": 1853866,
+              "max_gap_over_log_start": 3.325762,
+              "max_gap_over_log_div_sqrtloglog": 5.433833
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

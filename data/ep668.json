@@ -1,0 +1,64 @@
+{
+  "problem": "EP-668",
+  "normalized_utc": "2026-03-05T08:54:16.965Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch16_web_compute.md",
+        "content": "### EP-668\n- Quick literature check:\n  - Open with 2025 computational evidence indicating uniqueness (up to graph isomorphism) for many tested small `n`.\n- Finite compute signal:\n  - Random lattice search found one best coarse signature for `n=4,5`, and multiple for `n=6,7` (using distance-multiset signature only).\n- Interpretation:\n  - Coarse finite signatures are not decisive for congruence-class counting; consistent with unresolved uniqueness/multiplicity question."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch16_quick_compute.mjs",
+        "heading": "random lattice search for many unit distances and multiplicity of maximizers found.",
+        "content": "// EP-668: random lattice search for many unit distances and multiplicity of maximizers found.\n{\n  const rng = makeRng(20260304 ^ 1608);\n\n  function randomPointSetFromLattice(n, side) {\n    const all = [];\n    for (let x = 0; x < side; x += 1) {\n      for (let y = 0; y < side; y += 1) all.push([x, y]);\n    }\n    shuffle(all, rng);\n    return all.slice(0, n);\n  }\n\n  function unitEdgeCount(pts) {\n    let c = 0;\n    for (let i = 0; i < pts.length; i += 1) {\n      for (let j = i + 1; j < pts.length; j += 1) {\n        const dx = pts[i][0] - pts[j][0];\n        const dy = pts[i][1] - pts[j][1];\n        if (dx * dx + dy * dy === 1) c += 1;\n      }\n    }\n    return c;\n  }\n\n  function signature(pts) {\n    const D = [];\n    for (let i = 0; i < pts.length; i += 1) {\n      for (let j = i + 1; j < pts.length; j += 1) {\n        const dx = pts[i][0] - pts[j][0];\n        const dy = pts[i][1] - pts[j][1];\n        D.push(dx * dx + dy * dy);\n      }\n    }\n    D.sort((a, b) => a - b);\n    return D.join(',');\n  }\n\n  const rows = [];\n  for (const [n, side, trials] of [[4, 5, 6000], [5, 6, 8000], [6, 7, 12000], [7, 8, 16000]]) {\n    let best = -1;\n    const sig = new Set();\n\n    for (let t = 0; t < trials; t += 1) {\n      const pts = randomPointSetFromLattice(n, side);\n      const u = unitEdgeCount(pts);\n      if (u > best) {\n        best = u;\n        sig.clear();\n        sig.add(signature(pts));\n      } else if (u === best) {\n        sig.add(signature(pts));\n      }\n    }\n\n    rows.push({\n      n,\n      lattice_side: side,\n      trials,\n      best_unit_edges_found: best,\n      distinct_distance_multiset_signatures_at_best: sig.size,\n    });\n  }\n\n  out.results.ep668 = {\n    description: 'Random lattice search for extremal unit-edge counts and multiplicity of best signatures.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch16_quick_compute.json",
+        "key": "ep668",
+        "container_meta": {
+          "script": "harder_batch16_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:01:32.236Z"
+        },
+        "data": {
+          "description": "Random lattice search for extremal unit-edge counts and multiplicity of best signatures.",
+          "rows": [
+            {
+              "n": 4,
+              "lattice_side": 5,
+              "trials": 6000,
+              "best_unit_edges_found": 4,
+              "distinct_distance_multiset_signatures_at_best": 1
+            },
+            {
+              "n": 5,
+              "lattice_side": 6,
+              "trials": 8000,
+              "best_unit_edges_found": 5,
+              "distinct_distance_multiset_signatures_at_best": 1
+            },
+            {
+              "n": 6,
+              "lattice_side": 7,
+              "trials": 12000,
+              "best_unit_edges_found": 5,
+              "distinct_distance_multiset_signatures_at_best": 12
+            },
+            {
+              "n": 7,
+              "lattice_side": 8,
+              "trials": 16000,
+              "best_unit_edges_found": 6,
+              "distinct_distance_multiset_signatures_at_best": 6
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

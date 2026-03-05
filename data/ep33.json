@@ -1,0 +1,162 @@
+{
+  "problem": "EP-33",
+  "normalized_utc": "2026-03-05T08:54:16.938Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch2_web_compute.md",
+        "content": "### EP-33\n- Quick literature check:\n  - Found a recent note on additive complements of squares (2026), indicating current activity.\n- Finite compute signal:\n  - Greedy bounded-shift cover of $[X/2, X]$ using $n=t^2+a$ with at most $120$ shifts and $a\\le 4\\sqrt{X}$ reaches coverage about:\n    - $0.504$ for $X=20000$\n    - $0.319$ for $X=50000$\n    - $0.224$ for $X=100000$\n- Interpretation:\n  - Finite interval-covering difficulty grows quickly with scale in this constrained model."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch2_quick_compute.mjs",
+        "heading": "greedy finite additive complement to squares on intervals.",
+        "content": "// EP-33: greedy finite additive complement to squares on intervals.\n{\n  const XList = [20000, 50000, 100000];\n  const rows = [];\n  for (const X of XList) {\n    const low = Math.floor(X / 2);\n    const high = X;\n    const U = high - low + 1;\n    const maxA = Math.floor(4 * Math.sqrt(X));\n    const squares = [];\n    for (let t = 0; t * t <= high; t += 1) squares.push(t * t);\n\n    const covers = [];\n    for (let a = 0; a <= maxA; a += 1) {\n      const arr = [];\n      for (const s of squares) {\n        const n = s + a;\n        if (n < low || n > high) continue;\n        arr.push(n - low);\n      }\n      covers.push(arr);\n    }\n\n    const uncovered = new Uint8Array(U);\n    uncovered.fill(1);\n    let uncoveredCount = U;\n    const chosen = [];\n    const checkpoints = new Set([20, 40, 60, 80, 100, 120]);\n    const profile = [];\n\n    for (let step = 1; step <= 120; step += 1) {\n      let bestA = -1;\n      let bestGain = -1;\n      for (let a = 0; a <= maxA; a += 1) {\n        if (chosen.includes(a)) continue;\n        let gain = 0;\n        for (const idx of covers[a]) if (uncovered[idx]) gain += 1;\n        if (gain > bestGain) {\n          bestGain = gain;\n          bestA = a;\n        }\n      }\n      if (bestA < 0 || bestGain <= 0) break;\n      chosen.push(bestA);\n      for (const idx of covers[bestA]) {\n        if (uncovered[idx]) {\n          uncovered[idx] = 0;\n          uncoveredCount -= 1;\n        }\n      }\n      if (checkpoints.has(step)) {\n        profile.push({\n          t: step,\n          coverage_fraction: Number(((U - uncoveredCount) / U).toFixed(6)),\n          t_over_sqrtX: Number((step / Math.sqrt(X)).toFixed(6)),\n        });\n      }\n    }\n\n    rows.push({\n      X,\n      interval: [low, high],\n      candidate_a_max: maxA,\n      profile,\n      final_step_count: chosen.length,\n      final_coverage_fraction: Number(((U - uncoveredCount) / U).toFixed(6)),\n    });\n  }\n  out.results.ep33 = {\n    description: 'Greedy finite interval coverage by n = square + a with bounded a.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch2_quick_compute.json",
+        "key": "ep33",
+        "container_meta": {
+          "script": "harder_batch2_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:51:17.566Z"
+        },
+        "data": {
+          "description": "Greedy finite interval coverage by n = square + a with bounded a.",
+          "rows": [
+            {
+              "X": 20000,
+              "interval": [
+                10000,
+                20000
+              ],
+              "candidate_a_max": 565,
+              "profile": [
+                {
+                  "t": 20,
+                  "coverage_fraction": 0.084492,
+                  "t_over_sqrtX": 0.141421
+                },
+                {
+                  "t": 40,
+                  "coverage_fraction": 0.168483,
+                  "t_over_sqrtX": 0.282843
+                },
+                {
+                  "t": 60,
+                  "coverage_fraction": 0.252475,
+                  "t_over_sqrtX": 0.424264
+                },
+                {
+                  "t": 80,
+                  "coverage_fraction": 0.336466,
+                  "t_over_sqrtX": 0.565685
+                },
+                {
+                  "t": 100,
+                  "coverage_fraction": 0.420458,
+                  "t_over_sqrtX": 0.707107
+                },
+                {
+                  "t": 120,
+                  "coverage_fraction": 0.50395,
+                  "t_over_sqrtX": 0.848528
+                }
+              ],
+              "final_step_count": 120,
+              "final_coverage_fraction": 0.50395
+            },
+            {
+              "X": 50000,
+              "interval": [
+                25000,
+                50000
+              ],
+              "candidate_a_max": 894,
+              "profile": [
+                {
+                  "t": 20,
+                  "coverage_fraction": 0.053598,
+                  "t_over_sqrtX": 0.089443
+                },
+                {
+                  "t": 40,
+                  "coverage_fraction": 0.107196,
+                  "t_over_sqrtX": 0.178885
+                },
+                {
+                  "t": 60,
+                  "coverage_fraction": 0.160514,
+                  "t_over_sqrtX": 0.268328
+                },
+                {
+                  "t": 80,
+                  "coverage_fraction": 0.213311,
+                  "t_over_sqrtX": 0.357771
+                },
+                {
+                  "t": 100,
+                  "coverage_fraction": 0.266109,
+                  "t_over_sqrtX": 0.447214
+                },
+                {
+                  "t": 120,
+                  "coverage_fraction": 0.318907,
+                  "t_over_sqrtX": 0.536656
+                }
+              ],
+              "final_step_count": 120,
+              "final_coverage_fraction": 0.318907
+            },
+            {
+              "X": 100000,
+              "interval": [
+                50000,
+                100000
+              ],
+              "candidate_a_max": 1264,
+              "profile": [
+                {
+                  "t": 20,
+                  "coverage_fraction": 0.037599,
+                  "t_over_sqrtX": 0.063246
+                },
+                {
+                  "t": 40,
+                  "coverage_fraction": 0.075198,
+                  "t_over_sqrtX": 0.126491
+                },
+                {
+                  "t": 60,
+                  "coverage_fraction": 0.112798,
+                  "t_over_sqrtX": 0.189737
+                },
+                {
+                  "t": 80,
+                  "coverage_fraction": 0.149997,
+                  "t_over_sqrtX": 0.252982
+                },
+                {
+                  "t": 100,
+                  "coverage_fraction": 0.187196,
+                  "t_over_sqrtX": 0.316228
+                },
+                {
+                  "t": 120,
+                  "coverage_fraction": 0.224396,
+                  "t_over_sqrtX": 0.379473
+                }
+              ],
+              "final_step_count": 120,
+              "final_coverage_fraction": 0.224396
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "problem": "EP-1052",
+  "normalized_utc": "2026-03-05T08:54:16.973Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch23_web_compute.md",
+        "content": "### EP-1052\n- Quick literature check:\n  - Still open; page still lists five known unitary perfect numbers and no odd examples.\n- Finite compute signal:\n  - Exact scan to `N=2,000,000` found `4` hits: `6, 60, 90, 87360`, with `0` odd hits.\n- Interpretation:\n  - Finite search matches the classical small list and gives no evidence on finiteness beyond known examples."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch23_quick_compute.mjs",
+        "heading": "finite scan for unitary perfect numbers.",
+        "content": "// EP-1052: finite scan for unitary perfect numbers.\n{\n  const N = 2_000_000;\n  const hits = [];\n  let oddHitCount = 0;\n\n  for (let n = 2; n <= N; n += 1) {\n    let x = n;\n    let sigmaStar = 1;\n    while (x > 1) {\n      const p = spf[x] || x;\n      let pe = 1;\n      while (x % p === 0) {\n        x = Math.floor(x / p);\n        pe *= p;\n      }\n      sigmaStar *= pe + 1;\n    }\n    if (sigmaStar === 2 * n) {\n      hits.push(n);\n      if (n % 2 === 1) oddHitCount += 1;\n    }\n  }\n\n  out.results.ep1052 = {\n    description: 'Finite unitary-perfect scan via sigma*(n)=prod(p^a+1).',\n    N,\n    unitary_perfect_hits_up_to_N: hits,\n    odd_hits_count: oddHitCount,\n    hit_count: hits.length,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch23_quick_compute.json",
+        "key": "ep1052",
+        "container_meta": {
+          "script": "harder_batch23_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:43:44.789Z"
+        },
+        "data": {
+          "description": "Finite unitary-perfect scan via sigma*(n)=prod(p^a+1).",
+          "N": 2000000,
+          "unitary_perfect_hits_up_to_N": [
+            6,
+            60,
+            90,
+            87360
+          ],
+          "odd_hits_count": 0,
+          "hit_count": 4
+        }
+      }
+    ]
+  }
+}

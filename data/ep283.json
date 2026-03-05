@@ -1,0 +1,86 @@
+{
+  "problem": "EP-283",
+  "normalized_utc": "2026-03-05T08:54:16.955Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-283\n- Quick literature check:\n  - The polynomial Egyptian-fraction direction has active 2025 updates (including recent Erdos-Graham-question papers); case `p(n)=n^2` has strong known progress.\n- Finite compute signal:\n  - Random split-generated decompositions of `1` produced many attainable `m=\\sum p(n_i)` values.\n  - Coverage is nontrivial for `p(x)=x` and much sparser for `p(x)=x^2` in tested finite ranges.\n- Interpretation:\n  - Supports abundance heuristics for linear-type polynomials; quadratic and general-polynomial asymptotics are still hard."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "random split-generated Egyptian decompositions of 1; induced polynomial-sum coverage proxies.",
+        "content": "// EP-283: random split-generated Egyptian decompositions of 1; induced polynomial-sum coverage proxies.\n{\n  function splitStep(D, maxDen) {\n    const present = new Set(D);\n    const options = [];\n    for (let i = 0; i < D.length; i += 1) {\n      const d = D[i];\n      const a = d + 1;\n      const b = d * (d + 1);\n      if (b > maxDen) continue;\n      if (present.has(a) || present.has(b)) continue;\n      options.push(i);\n    }\n    if (!options.length) return false;\n    const i = options[Math.floor(rng() * options.length)];\n    const d = D[i];\n    D.splice(i, 1, d + 1, d * (d + 1));\n    D.sort((x, y) => x - y);\n    return true;\n  }\n\n  const m1Set = new Set();\n  const m2Set = new Set();\n  let bestTerms = 0;\n\n  const restarts = 6000;\n  const maxSteps = 14;\n  const maxDen = 200000;\n\n  for (let r = 0; r < restarts; r += 1) {\n    const D = [2, 3, 6];\n    const steps = 1 + Math.floor(rng() * maxSteps);\n    for (let s = 0; s < steps; s += 1) {\n      if (!splitStep(D, maxDen)) break;\n    }\n\n    let m1 = 0;\n    let m2 = 0;\n    for (const d of D) {\n      m1 += d;\n      m2 += d * d;\n    }\n    m1Set.add(m1);\n    m2Set.add(m2);\n    if (D.length > bestTerms) bestTerms = D.length;\n  }\n\n  function coverageStats(set, M, tail) {\n    let c = 0;\n    let t = 0;\n    for (let x = 1; x <= M; x += 1) {\n      if (set.has(x)) c += 1;\n      if (x > M - tail && set.has(x)) t += 1;\n    }\n    return {\n      M,\n      covered_count: c,\n      covered_density: Number((c / M).toPrecision(6)),\n      tail_window: tail,\n      tail_density: Number((t / tail).toPrecision(6)),\n    };\n  }\n\n  out.results.ep283 = {\n    description: 'Random split-generated Egyptian decompositions and resulting m=Σp(n_i) coverage proxies for p(x)=x and p(x)=x^2.',\n    generation: { restarts, maxSteps, maxDen, best_terms_found: bestTerms },\n    linear_p_of_x_rows: [\n      coverageStats(m1Set, 10000, 2000),\n      coverageStats(m1Set, 25000, 5000),\n      coverageStats(m1Set, 50000, 10000),\n    ],\n    quadratic_p_of_x_rows: [\n      coverageStats(m2Set, 20000, 4000),\n      coverageStats(m2Set, 50000, 10000),\n      coverageStats(m2Set, 100000, 20000),\n    ],\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep283",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Random split-generated Egyptian decompositions and resulting m=Σp(n_i) coverage proxies for p(x)=x and p(x)=x^2.",
+          "generation": {
+            "restarts": 6000,
+            "maxSteps": 14,
+            "maxDen": 200000,
+            "best_terms_found": 17
+          },
+          "linear_p_of_x_rows": [
+            {
+              "M": 10000,
+              "covered_count": 776,
+              "covered_density": 0.0776,
+              "tail_window": 2000,
+              "tail_density": 0.065
+            },
+            {
+              "M": 25000,
+              "covered_count": 1333,
+              "covered_density": 0.05332,
+              "tail_window": 5000,
+              "tail_density": 0.0208
+            },
+            {
+              "M": 50000,
+              "covered_count": 1942,
+              "covered_density": 0.03884,
+              "tail_window": 10000,
+              "tail_density": 0.0103
+            }
+          ],
+          "quadratic_p_of_x_rows": [
+            {
+              "M": 20000,
+              "covered_count": 25,
+              "covered_density": 0.00125,
+              "tail_window": 4000,
+              "tail_density": 0.00125
+            },
+            {
+              "M": 50000,
+              "covered_count": 49,
+              "covered_density": 0.00098,
+              "tail_window": 10000,
+              "tail_density": 0.0004
+            },
+            {
+              "M": 100000,
+              "covered_count": 63,
+              "covered_density": 0.00063,
+              "tail_window": 20000,
+              "tail_density": 0
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

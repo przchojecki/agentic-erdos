@@ -1,0 +1,77 @@
+{
+  "problem": "EP-306",
+  "normalized_utc": "2026-03-05T08:54:16.956Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch9_web_compute.md",
+        "content": "### EP-306\n- Quick literature check:\n  - Distinct-semiprime-denominator variant remains much harder than unrestricted Egyptian fractions, with only partial analogous results known.\n- Finite compute signal:\n  - For squarefree `b in {6,10,14,15,21,30}`, only a subset of coprime numerators were representable within search limits.\n- Interpretation:\n  - Finite search suggests real structural obstructions under semiprime restrictions; likely needs new constructive machinery."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch9_quick_compute.mjs",
+        "heading": "restricted Egyptian representations with semiprime (distinct-prime-product) denominators.",
+        "content": "// EP-306: restricted Egyptian representations with semiprime (distinct-prime-product) denominators.\n{\n  const maxDen = 700;\n  const { isPrime } = sieve(maxDen + 10);\n  const semiprimes = [];\n  for (let n = 6; n <= maxDen; n += 1) {\n    let cnt = 0;\n    let p1 = -1;\n    let p2 = -1;\n    for (let p = 2; p * p <= n; p += 1) {\n      if (!isPrime[p] || n % p !== 0) continue;\n      const q = n / p;\n      if (q !== p && isPrime[q]) {\n        cnt += 1;\n        p1 = p;\n        p2 = q;\n      }\n    }\n    if (cnt === 1 && p1 !== p2) semiprimes.push(n);\n  }\n\n  function minEgyptLengthSemiprime(a, b, kMax) {\n    const [num0, den0] = reduceFrac(BigInt(a), BigInt(b));\n\n    function canAtDepth(num, den, pos, termsLeft, memo) {\n      const key = `${num}/${den}|${pos}|${termsLeft}`;\n      if (memo.has(key)) return memo.get(key);\n\n      if (termsLeft === 1) {\n        if (num <= 0n || den % num !== 0n) {\n          memo.set(key, false);\n          return false;\n        }\n        const d = Number(den / num);\n        const ok = Number.isFinite(d) && semiprimes.includes(d) && d >= semiprimes[pos];\n        memo.set(key, ok);\n        return ok;\n      }\n\n      const start = semiprimes[pos] ?? maxDen + 1;\n      if (!Number.isFinite(start)) {\n        memo.set(key, false);\n        return false;\n      }\n      if (num * BigInt(start) > den * BigInt(termsLeft)) {\n        memo.set(key, false);\n        return false;\n      }\n\n      const dMin0 = Number(ceilDivBig(den, num));\n      for (let i = pos; i < semiprimes.length; i += 1) {\n        const d = semiprimes[i];\n        if (d < dMin0) continue;\n        const bd = BigInt(d);\n        const newNumRaw = num * bd - den;\n        if (newNumRaw <= 0n) continue;\n        const newDenRaw = den * bd;\n        const [newNum, newDen] = reduceFrac(newNumRaw, newDenRaw);\n        const t = termsLeft - 1;\n        const nextStart = semiprimes[i + 1] ?? (maxDen + 1);\n        if (newNum * BigInt(nextStart) > newDen * BigInt(t)) continue;\n        if (canAtDepth(newNum, newDen, i + 1, t, memo)) {\n          memo.set(key, true);\n          return true;\n        }\n      }\n\n      memo.set(key, false);\n      return false;\n    }\n\n    for (let k = 1; k <= kMax; k += 1) {\n      const memo = new Map();\n      if (canAtDepth(num0, den0, 0, k, memo)) return k;\n    }\n    return null;\n  }\n\n  const rows = [];\n  for (const b of [6, 10, 14, 15, 21, 30]) {\n    let solved = 0;\n    let unresolved = 0;\n    let maxLen = 0;\n    for (let a = 1; a < b; a += 1) {\n      if (gcdInt(a, b) !== 1) continue;\n      const k = minEgyptLengthSemiprime(a, b, 8);\n      if (k === null) {\n        unresolved += 1;\n      } else {\n        solved += 1;\n        if (k > maxLen) maxLen = k;\n      }\n    }\n    rows.push({\n      b,\n      represented_coprime_a_count: solved,\n      unresolved_coprime_a_count: unresolved,\n      max_min_length_among_represented: maxLen,\n    });\n  }\n\n  out.results.ep306 = {\n    description: 'Finite representability profile for a/b using distinct semiprime denominators.',\n    semiprime_count_up_to_maxDen: semiprimes.length,\n    search_limits: { maxDen, kMax: 8 },\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch9_quick_compute.json",
+        "key": "ep306",
+        "container_meta": {
+          "script": "harder_batch9_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:14:05.299Z"
+        },
+        "data": {
+          "description": "Finite representability profile for a/b using distinct semiprime denominators.",
+          "semiprime_count_up_to_maxDen": 203,
+          "search_limits": {
+            "maxDen": 700,
+            "kMax": 8
+          },
+          "rows": [
+            {
+              "b": 6,
+              "represented_coprime_a_count": 1,
+              "unresolved_coprime_a_count": 1,
+              "max_min_length_among_represented": 1
+            },
+            {
+              "b": 10,
+              "represented_coprime_a_count": 2,
+              "unresolved_coprime_a_count": 2,
+              "max_min_length_among_represented": 5
+            },
+            {
+              "b": 14,
+              "represented_coprime_a_count": 3,
+              "unresolved_coprime_a_count": 3,
+              "max_min_length_among_represented": 6
+            },
+            {
+              "b": 15,
+              "represented_coprime_a_count": 4,
+              "unresolved_coprime_a_count": 4,
+              "max_min_length_among_represented": 8
+            },
+            {
+              "b": 21,
+              "represented_coprime_a_count": 6,
+              "unresolved_coprime_a_count": 6,
+              "max_min_length_among_represented": 8
+            },
+            {
+              "b": 30,
+              "represented_coprime_a_count": 4,
+              "unresolved_coprime_a_count": 4,
+              "max_min_length_among_represented": 5
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

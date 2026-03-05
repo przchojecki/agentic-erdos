@@ -1,0 +1,80 @@
+{
+  "problem": "EP-52",
+  "normalized_utc": "2026-03-05T08:54:16.947Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch2_web_compute.md",
+        "content": "### EP-52\n- Quick literature check:\n  - Found 2025 updates on sum-product (Bloom lecture notes survey and Compositio paper on few-prime-factor sets), consistent with ongoing active progress.\n- Finite compute signal:\n  - Effective exponents $\\log(\\max(\\lvert A+A\\rvert,\\lvert AA\\rvert))/\\log\\lvert A\\rvert$ in tested finite regimes:\n    - AP sets: about $1.68..1.71$\n    - best random sets found: about $1.76..1.82$ for $\\lvert A\\rvert=20..60$\n- Interpretation:\n  - Finite exponents remain well above $1$, but far below the conjectural near-$2$."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch2_quick_compute.mjs",
+        "heading": "sum-product finite exponent proxies.",
+        "content": "// EP-52: sum-product finite exponent proxies.\n{\n  const mList = [20, 30, 40, 60];\n  const rows = [];\n  for (const m of mList) {\n    const AP = Array.from({ length: m }, (_, i) => i + 1);\n    const apStats = sumProductStats(AP);\n    let bestRandom = Infinity;\n    let bestRandomPair = null;\n    const trials = 240;\n    for (let t = 0; t < trials; t += 1) {\n      const base = Array.from({ length: 8 * m }, (_, i) => i + 1);\n      shuffle(base, rng);\n      const A = base.slice(0, m).sort((a, b) => a - b);\n      const st = sumProductStats(A);\n      const mx = Math.max(st.sumset, st.prodset);\n      const exp = Math.log(mx) / Math.log(m);\n      if (exp < bestRandom) {\n        bestRandom = exp;\n        bestRandomPair = { sumset: st.sumset, prodset: st.prodset };\n      }\n    }\n    rows.push({\n      m,\n      AP_max_sum_or_product_size: Math.max(apStats.sumset, apStats.prodset),\n      AP_effective_exponent: Number((Math.log(Math.max(apStats.sumset, apStats.prodset)) / Math.log(m)).toFixed(6)),\n      random_trials: trials,\n      best_random_effective_exponent: Number(bestRandom.toFixed(6)),\n      best_random_pair: bestRandomPair,\n    });\n  }\n  out.results.ep52 = {\n    description: 'Finite effective exponent profile for max(|A+A|,|AA|).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch2_quick_compute.json",
+        "key": "ep52",
+        "container_meta": {
+          "script": "harder_batch2_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:51:17.566Z"
+        },
+        "data": {
+          "description": "Finite effective exponent profile for max(|A+A|,|AA|).",
+          "rows": [
+            {
+              "m": 20,
+              "AP_max_sum_or_product_size": 152,
+              "AP_effective_exponent": 1.677013,
+              "random_trials": 240,
+              "best_random_effective_exponent": 1.763577,
+              "best_random_pair": {
+                "sumset": 149,
+                "prodset": 197
+              }
+            },
+            {
+              "m": 30,
+              "AP_max_sum_or_product_size": 308,
+              "AP_effective_exponent": 1.68473,
+              "random_trials": 240,
+              "best_random_effective_exponent": 1.786913,
+              "best_random_pair": {
+                "sumset": 291,
+                "prodset": 436
+              }
+            },
+            {
+              "m": 40,
+              "AP_max_sum_or_product_size": 517,
+              "AP_effective_exponent": 1.693751,
+              "random_trials": 240,
+              "best_random_effective_exponent": 1.807312,
+              "best_random_pair": {
+                "sumset": 390,
+                "prodset": 786
+              }
+            },
+            {
+              "m": 60,
+              "AP_max_sum_or_product_size": 1116,
+              "AP_effective_exponent": 1.713951,
+              "random_trials": 240,
+              "best_random_effective_exponent": 1.822707,
+              "best_random_pair": {
+                "sumset": 770,
+                "prodset": 1742
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

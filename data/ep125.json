@@ -1,0 +1,90 @@
+{
+  "problem": "EP-125",
+  "normalized_utc": "2026-03-05T08:54:16.950Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-125\n- Quick literature check:\n  - Recent progress improved counting-function exponents (Hasler-Melfi 2024), while positive asymptotic density remains open; upper bounds on lower density are known.\n- Finite compute signal:\n  - For $A+B$ (base-3/base-4 binary-digit sets), observed initial-segment density over $[1,N]$ stayed around `0.84..0.89` on tested $N$, with substantial uncovered gaps still present.\n- Interpretation:\n  - Finite densities are high but unstable across windows/scales and do not settle positive asymptotic density.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/91\n  - https://www.erdosproblems.com/92\n  - https://www.erdosproblems.com/96\n  - https://www.erdosproblems.com/100\n  - https://www.erdosproblems.com/101\n  - https://www.erdosproblems.com/114\n  - https://www.erdosproblems.com/120\n  - https://www.erdosproblems.com/123\n  - https://www.erdosproblems.com/124\n  - https://www.erdosproblems.com/125\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2512.12455\n  - https://terrytao.wordpress.com/2025/12/15/the-maximal-length-of-the-erdos-herzog-piranian-lemniscate-in-high-degree/comment-page-1/\n  - https://arxiv.org/abs/2412.11062\n  - https://academic.oup.com/imrn/article/2024/17/12327/7725885\n  - https://www.sciencedirect.com/science/article/pii/S0012365X14003847\n  - https://doi.org/10.1007/s00454-013-9526-9\n  - https://doi.org/10.2140/cnt.2024.13.141"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "density profile for A+B where A uses base-3 digits {0,1}, B base-4 digits {0,1}.",
+        "content": "// EP-125: density profile for A+B where A uses base-3 digits {0,1}, B base-4 digits {0,1}.\n{\n  function markAB(N) {\n    const A = digitSet(3, 0, N);\n    const B = digitSet(4, 0, N);\n    const mark = new Uint8Array(N + 1);\n    for (const a of A) {\n      for (const b of B) {\n        const s = a + b;\n        if (s <= N) mark[s] = 1;\n      }\n    }\n    return { A, B, mark };\n  }\n\n  const rows = [];\n  for (const N of [20000, 50000, 100000, 200000, 500000, 800000]) {\n    const { A, B, mark } = markAB(N);\n    let covered = 0;\n    for (let x = 1; x <= N; x += 1) covered += mark[x];\n    const dens = covered / N;\n\n    let tail = 0;\n    const L = Math.floor((3 * N) / 4);\n    for (let x = L; x <= N; x += 1) tail += mark[x];\n    const tailD = tail / (N - L + 1);\n\n    rows.push({\n      N,\n      size_A: A.length,\n      size_B: B.length,\n      covered_1_to_N: covered,\n      density_1_to_N: Number(dens.toFixed(6)),\n      density_tail_3N_over_4_to_N: Number(tailD.toFixed(6)),\n      longest_missing_gap_up_to_N: longestGap(mark, N),\n    });\n  }\n\n  out.results.ep125 = {\n    description: 'Finite density and gap profile for sums of base-{3,4} binary-digit sets.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch4_quick_compute.json');\nfs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\\n`);\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep125",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite density and gap profile for sums of base-{3,4} binary-digit sets.",
+          "rows": [
+            {
+              "N": 20000,
+              "size_A": 560,
+              "size_B": 192,
+              "covered_1_to_N": 17342,
+              "density_1_to_N": 0.8671,
+              "density_tail_3N_over_4_to_N": 0.705259,
+              "longest_missing_gap_up_to_N": 1081
+            },
+            {
+              "N": 50000,
+              "size_A": 1024,
+              "size_B": 256,
+              "covered_1_to_N": 44741,
+              "density_1_to_N": 0.89482,
+              "density_tail_3N_over_4_to_N": 0.924966,
+              "longest_missing_gap_up_to_N": 1081
+            },
+            {
+              "N": 100000,
+              "size_A": 2048,
+              "size_B": 512,
+              "covered_1_to_N": 86162,
+              "density_1_to_N": 0.86162,
+              "density_tail_3N_over_4_to_N": 0.99684,
+              "longest_missing_gap_up_to_N": 7679
+            },
+            {
+              "N": 200000,
+              "size_A": 2790,
+              "size_B": 512,
+              "covered_1_to_N": 168458,
+              "density_1_to_N": 0.84229,
+              "density_tail_3N_over_4_to_N": 0.868123,
+              "longest_missing_gap_up_to_N": 7679
+            },
+            {
+              "N": 500000,
+              "size_A": 4096,
+              "size_B": 1024,
+              "covered_1_to_N": 425240,
+              "density_1_to_N": 0.85048,
+              "density_tail_3N_over_4_to_N": 0.776378,
+              "longest_missing_gap_up_to_N": 7679
+            },
+            {
+              "N": 800000,
+              "size_A": 8192,
+              "size_B": 1024,
+              "covered_1_to_N": 695124,
+              "density_1_to_N": 0.868905,
+              "density_tail_3N_over_4_to_N": 0.855766,
+              "longest_missing_gap_up_to_N": 7679
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

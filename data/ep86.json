@@ -1,0 +1,84 @@
+{
+  "problem": "EP-86",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-86\n- Quick literature check:\n  - Quick scan did not surface a full post-2014 resolution; known bounds remain around constants above $1/2$ on the upper side.\n- Finite compute signal:\n  - Random greedy $C_4$-free subgraphs of $Q_d$ ($d=4..9$) reach edge-density about $0.56..0.69$ of all hypercube edges.\n- Interpretation:\n  - Finite constructive densities staying above $1/2$ align with known difficulty of proving the sharp asymptotic threshold."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "greedy C4-free subgraphs in Q_d.",
+        "content": "// EP-86: greedy C4-free subgraphs in Q_d.\n{\n  const rows = [];\n  for (let d = 4; d <= 9; d += 1) {\n    const { edges, c4ByEdge } = hypercubeData(d);\n    let best = 0;\n    const trials = 100;\n    for (let t = 0; t < trials; t += 1) {\n      const order = Array.from({ length: edges.length }, (_, i) => i);\n      shuffle(order, rng);\n      const inG = new Uint8Array(edges.length);\n      let m = 0;\n      for (const e of order) {\n        let ok = true;\n        for (const tri of c4ByEdge[e]) {\n          if (inG[tri[0]] && inG[tri[1]] && inG[tri[2]]) {\n            ok = false;\n            break;\n          }\n        }\n        if (!ok) continue;\n        inG[e] = 1;\n        m += 1;\n      }\n      if (m > best) best = m;\n    }\n    rows.push({\n      d,\n      vertices: 2 ** d,\n      total_edges: edges.length,\n      best_C4_free_edges_found: best,\n      density_over_total_edges: Number((best / edges.length).toFixed(6)),\n      half_density_benchmark_edges: edges.length / 2,\n    });\n  }\n  out.results.ep86 = {\n    description: 'Random greedy lower profile for C4-free subgraphs of hypercubes.',\n    rows,\n  };\n}\n\n// EP-89 and EP-90: distance profiles on grid/random/triangular models.\n{\n  const nList = [256, 400, 625, 900];\n  const rows89 = [];\n  const rows90 = [];\n  for (const n of nList) {\n    const grid = sqrtNGridPoints(n);\n    const tri = triPatchPoints(n);\n    const rnd = randomPoints(n, rng);\n\n    const dGrid = distinctSquaredDistances(grid);\n    const dTri = distinctSquaredDistances(tri);\n    const dRnd = distinctSquaredDistances(rnd);\n\n    rows89.push({\n      n,\n      distinct_distances_grid: dGrid,\n      distinct_distances_tri_patch: dTri,\n      distinct_distances_random: dRnd,\n      grid_ratio_over_n_over_sqrt_log_n: Number((dGrid / (n / Math.sqrt(Math.log(n)))).toFixed(6)),\n    });\n\n    const uGrid = countUnitPairsLattice(grid, 'square');\n    const uTri = countUnitPairsLattice(tri, 'tri');\n    rows90.push({\n      n,\n      unit_pairs_grid: uGrid,\n      unit_pairs_tri_patch: uTri,\n      grid_ratio_over_n_1_plus_1_over_loglog_n: Number((uGrid / n ** (1 + 1 / Math.log(Math.log(n)))).toFixed(6)),\n      tri_ratio_over_n_1_plus_1_over_loglog_n: Number((uTri / n ** (1 + 1 / Math.log(Math.log(n)))).toFixed(6)),\n    });\n  }\n  out.results.ep89 = {\n    description: 'Distinct-distance finite profiles for grid/triangular/random point sets.',\n    rows: rows89,\n  };\n  out.results.ep90 = {\n    description: 'Unit-distance finite profiles for square-grid and triangular-lattice patches.',\n    rows: rows90,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch3_quick_compute.json');\nfs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\\n`);\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep86",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Random greedy lower profile for C4-free subgraphs of hypercubes.",
+          "rows": [
+            {
+              "d": 4,
+              "vertices": 16,
+              "total_edges": 32,
+              "best_C4_free_edges_found": 22,
+              "density_over_total_edges": 0.6875,
+              "half_density_benchmark_edges": 16
+            },
+            {
+              "d": 5,
+              "vertices": 32,
+              "total_edges": 80,
+              "best_C4_free_edges_found": 54,
+              "density_over_total_edges": 0.675,
+              "half_density_benchmark_edges": 40
+            },
+            {
+              "d": 6,
+              "vertices": 64,
+              "total_edges": 192,
+              "best_C4_free_edges_found": 121,
+              "density_over_total_edges": 0.630208,
+              "half_density_benchmark_edges": 96
+            },
+            {
+              "d": 7,
+              "vertices": 128,
+              "total_edges": 448,
+              "best_C4_free_edges_found": 268,
+              "density_over_total_edges": 0.598214,
+              "half_density_benchmark_edges": 224
+            },
+            {
+              "d": 8,
+              "vertices": 256,
+              "total_edges": 1024,
+              "best_C4_free_edges_found": 592,
+              "density_over_total_edges": 0.578125,
+              "half_density_benchmark_edges": 512
+            },
+            {
+              "d": 9,
+              "vertices": 512,
+              "total_edges": 2304,
+              "best_C4_free_edges_found": 1290,
+              "density_over_total_edges": 0.559896,
+              "half_density_benchmark_edges": 1152
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

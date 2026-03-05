@@ -1,0 +1,120 @@
+{
+  "problem": "EP-1112",
+  "normalized_utc": "2026-03-05T08:54:16.976Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1112\n- Quick literature check:\n  - Page status is **OPEN**; background includes known negative results for some concrete parameter choices.\n- Finite compute signal:\n  - Greedy bounded-gap constructions for `k=3, d1=2, d2=3` are highly sensitive to `B`: very long avoidance for `B={2^i}`, immediate obstruction for `B={3^i}`, intermediate for random lacunary examples.\n- Interpretation:\n  - Finite behavior is strongly model-dependent, consistent with the known delicate/non-universal nature of `k>=3` cases."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite greedy construction profile for bounded-gap A avoiding kA ∩ B.",
+        "content": "// EP-1112: finite greedy construction profile for bounded-gap A avoiding kA ∩ B.\n{\n  function buildLacunaryPowers(base, N) {\n    const outB = [];\n    let x = base;\n    while (x <= N) {\n      outB.push(x);\n      x *= base;\n    }\n    return outB;\n  }\n\n  function buildLacunaryRandom(r, N, rng) {\n    const outB = [5];\n    while (true) {\n      const prev = outB[outB.length - 1];\n      const next = Math.floor(r * prev + 1 + rng() * prev * 0.25);\n      if (next > N) break;\n      outB.push(next);\n    }\n    return outB;\n  }\n\n  function greedyGapSequenceAvoidingB({ d1, d2, k, N, B }) {\n    const isB = new Uint8Array(N + 1);\n    for (const b of B) if (b <= N) isB[b] = 1;\n\n    const A = [1];\n    const inS1 = new Uint8Array(N + 1);\n    const inS2 = new Uint8Array(N + 1);\n    const inS3 = new Uint8Array(N + 1);\n    inS1[1] = 1;\n    if (k === 2) inS2[2] = 1;\n    if (k === 3) {\n      inS2[2] = 1;\n      inS3[3] = 1;\n    }\n\n    function tryAdd(a) {\n      if (a > N) return false;\n      if (k === 2) {\n        const new2 = [];\n        for (let x = 1; x <= N; x += 1) {\n          if (!inS1[x]) continue;\n          const s = a + x;\n          if (s <= N && !inS2[s]) {\n            if (isB[s]) return false;\n            new2.push(s);\n          }\n        }\n        if (2 * a <= N && !inS2[2 * a]) {\n          if (isB[2 * a]) return false;\n          new2.push(2 * a);\n        }\n        A.push(a);\n        inS1[a] = 1;\n        for (const s of new2) inS2[s] = 1;\n        return true;\n      }\n\n      // k=3\n      const mark2 = new Uint8Array(N + 1);\n      const new2 = [];\n      for (let x = 1; x <= N; x += 1) {\n        if (!inS1[x]) continue;\n        const s = a + x;\n        if (s <= N && !inS2[s] && !mark2[s]) {\n          mark2[s] = 1;\n          new2.push(s);\n        }\n      }\n      if (2 * a <= N && !inS2[2 * a] && !mark2[2 * a]) {\n        mark2[2 * a] = 1;\n        new2.push(2 * a);\n      }\n\n      const mark3 = new Uint8Array(N + 1);\n      const new3 = [];\n      for (let t = 1; t <= N; t += 1) {\n        if (!inS2[t] && !mark2[t]) continue;\n        const s = a + t;\n        if (s <= N && !inS3[s] && !mark3[s]) {\n          if (isB[s]) return false;\n          mark3[s] = 1;\n          new3.push(s);\n        }\n      }\n\n      A.push(a);\n      inS1[a] = 1;\n      for (const s of new2) inS2[s] = 1;\n      for (const s of new3) inS3[s] = 1;\n      return true;\n    }\n\n    while (true) {\n      const cur = A[A.length - 1];\n      let moved = false;\n      for (let gap = d1; gap <= d2; gap += 1) {\n        if (tryAdd(cur + gap)) {\n          moved = true;\n          break;\n        }\n      }\n      if (!moved) break;\n    }\n    return { length: A.length, last: A[A.length - 1], first_terms: A.slice(0, 30) };\n  }\n\n  const N = 1200;\n  const rng = makeRng(20260304 ^ 1112);\n  const scenarios = [\n    { name: 'k3_gaps2_3_B=2^i', d1: 2, d2: 3, k: 3, B: buildLacunaryPowers(2, N) },\n    { name: 'k3_gaps2_3_B=3^i', d1: 2, d2: 3, k: 3, B: buildLacunaryPowers(3, N) },\n    { name: 'k3_gaps2_3_random_lacunary_r2', d1: 2, d2: 3, k: 3, B: buildLacunaryRandom(2, N, rng) },\n    { name: 'k2_gaps2_3_B=2^i_control', d1: 2, d2: 3, k: 2, B: buildLacunaryPowers(2, N) },\n  ];\n\n  const rows = scenarios.map((s) => ({\n    scenario: s.name,\n    B_size: s.B.length,\n    ...greedyGapSequenceAvoidingB({ d1: s.d1, d2: s.d2, k: s.k, N, B: s.B }),\n  }));\n\n  out.results.ep1112 = {\n    description: 'Finite greedy bounded-gap construction tests for avoiding k-fold sumsets against lacunary B.',\n    N,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1112",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite greedy bounded-gap construction tests for avoiding k-fold sumsets against lacunary B.",
+          "N": 1200,
+          "rows": [
+            {
+              "scenario": "k3_gaps2_3_B=2^i",
+              "B_size": 10,
+              "length": 600,
+              "last": 1199,
+              "first_terms": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11,
+                13,
+                15,
+                17,
+                19,
+                21,
+                23,
+                25,
+                27,
+                29,
+                31,
+                33,
+                35,
+                37,
+                39,
+                41,
+                43,
+                45,
+                47,
+                49,
+                51,
+                53,
+                55,
+                57,
+                59
+              ]
+            },
+            {
+              "scenario": "k3_gaps2_3_B=3^i",
+              "B_size": 6,
+              "length": 1,
+              "last": 1,
+              "first_terms": [
+                1
+              ]
+            },
+            {
+              "scenario": "k3_gaps2_3_random_lacunary_r2",
+              "B_size": 7,
+              "length": 19,
+              "last": 53,
+              "first_terms": [
+                1,
+                4,
+                7,
+                10,
+                13,
+                15,
+                18,
+                21,
+                24,
+                27,
+                29,
+                32,
+                35,
+                38,
+                41,
+                44,
+                47,
+                50,
+                53
+              ]
+            },
+            {
+              "scenario": "k2_gaps2_3_B=2^i_control",
+              "B_size": 10,
+              "length": 1,
+              "last": 1,
+              "first_terms": [
+                1
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

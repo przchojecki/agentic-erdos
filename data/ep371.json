@@ -1,0 +1,72 @@
+{
+  "problem": "EP-371",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-371\n- Quick literature check:\n  - Modern work gives logarithmic-density and almost-all-scales support; best unconditional asymptotic-density lower bound is still below `1/2`.\n- Finite compute signal:\n  - Prefix density of `{n: P(n)<P(n+1)}` is near `0.5001` by `n=3e6`.\n- Interpretation:\n  - Strong computational support for density `1/2`, consistent with current theory direction."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "density of P(n)<P(n+1).",
+        "content": "// EP-371: density of P(n)<P(n+1).\n{\n  const milestones = [10_000, 100_000, 500_000, 1_000_000, 2_000_000, 3_000_000];\n  const mset = new Set(milestones);\n  const rows = [];\n\n  let cnt = 0;\n  for (let n = 1; n <= LIMIT; n += 1) {\n    if (lpf[n] < lpf[n + 1]) cnt += 1;\n    if (mset.has(n)) {\n      const dens = cnt / n;\n      rows.push({\n        X: n,\n        count: cnt,\n        density: Number(dens.toPrecision(8)),\n        signed_error_from_half: Number((dens - 0.5).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep371 = {\n    description: 'Finite density profile of {n: P(n)<P(n+1)}.',\n    rows,\n  };\n}\n\n// Factorial tables for EP-373/393.\nconst FACT_MAX = 1000;\nconst fact = [1n];\nfor (let n = 1; n <= FACT_MAX; n += 1) fact.push(fact[n - 1] * BigInt(n));\nconst factIndex = new Map();\nfor (let n = 0; n <= FACT_MAX; n += 1) factIndex.set(fact[n], n);"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep371",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite density profile of {n: P(n)<P(n+1)}.",
+          "rows": [
+            {
+              "X": 10000,
+              "count": 5009,
+              "density": 0.5009,
+              "signed_error_from_half": 0.0009
+            },
+            {
+              "X": 100000,
+              "count": 50080,
+              "density": 0.5008,
+              "signed_error_from_half": 0.0008
+            },
+            {
+              "X": 500000,
+              "count": 250193,
+              "density": 0.500386,
+              "signed_error_from_half": 0.000386
+            },
+            {
+              "X": 1000000,
+              "count": 500149,
+              "density": 0.500149,
+              "signed_error_from_half": 0.000149
+            },
+            {
+              "X": 2000000,
+              "count": 1000308,
+              "density": 0.500154,
+              "signed_error_from_half": 0.000154
+            },
+            {
+              "X": 3000000,
+              "count": 1500197,
+              "density": 0.50006567,
+              "signed_error_from_half": 0.0000656667
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

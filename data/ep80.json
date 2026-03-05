@@ -1,0 +1,106 @@
+{
+  "problem": "EP-80",
+  "normalized_utc": "2026-03-05T08:54:16.948Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-80\n- Quick literature check:\n  - The problem page still highlights Fox-Loh style upper behavior for $c<1/4$ and very weak general lower bounds; no quick closure found.\n- Finite compute signal:\n  - In complete-multipartite models ($n=300$), edge density from $0.333$ to $0.458$ coincides with large books of size about $(0.333..0.833)n$.\n- Interpretation:\n  - Structured dense examples naturally force linear-size books in these regimes, but this does not settle universal lower growth for all admissible graphs."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "complete multipartite proxies (every edge in a triangle if >=3 parts).",
+        "content": "// EP-80: complete multipartite proxies (every edge in a triangle if >=3 parts).\n{\n  const n = 300;\n  const rows = [];\n  for (let t = 3; t <= 12; t += 1) {\n    const parts = Array(t).fill(Math.floor(n / t));\n    for (let i = 0; i < n % t; i += 1) parts[i] += 1;\n    let edges = 0;\n    for (let i = 0; i < t; i += 1) for (let j = i + 1; j < t; j += 1) edges += parts[i] * parts[j];\n    let maxBook = 0;\n    for (let i = 0; i < t; i += 1) {\n      for (let j = i + 1; j < t; j += 1) {\n        const common = n - parts[i] - parts[j];\n        if (common > maxBook) maxBook = common;\n      }\n    }\n    rows.push({\n      n,\n      parts_count_t: t,\n      edge_density_c: Number((edges / (n * n)).toFixed(6)),\n      max_book_size_in_model: maxBook,\n      book_over_n: Number((maxBook / n).toFixed(6)),\n    });\n  }\n  out.results.ep80 = {\n    description: 'Complete-multipartite model profile for edge-density vs max book size.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep80",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Complete-multipartite model profile for edge-density vs max book size.",
+          "rows": [
+            {
+              "n": 300,
+              "parts_count_t": 3,
+              "edge_density_c": 0.333333,
+              "max_book_size_in_model": 100,
+              "book_over_n": 0.333333
+            },
+            {
+              "n": 300,
+              "parts_count_t": 4,
+              "edge_density_c": 0.375,
+              "max_book_size_in_model": 150,
+              "book_over_n": 0.5
+            },
+            {
+              "n": 300,
+              "parts_count_t": 5,
+              "edge_density_c": 0.4,
+              "max_book_size_in_model": 180,
+              "book_over_n": 0.6
+            },
+            {
+              "n": 300,
+              "parts_count_t": 6,
+              "edge_density_c": 0.416667,
+              "max_book_size_in_model": 200,
+              "book_over_n": 0.666667
+            },
+            {
+              "n": 300,
+              "parts_count_t": 7,
+              "edge_density_c": 0.428567,
+              "max_book_size_in_model": 215,
+              "book_over_n": 0.716667
+            },
+            {
+              "n": 300,
+              "parts_count_t": 8,
+              "edge_density_c": 0.437489,
+              "max_book_size_in_model": 226,
+              "book_over_n": 0.753333
+            },
+            {
+              "n": 300,
+              "parts_count_t": 9,
+              "edge_density_c": 0.444433,
+              "max_book_size_in_model": 234,
+              "book_over_n": 0.78
+            },
+            {
+              "n": 300,
+              "parts_count_t": 10,
+              "edge_density_c": 0.45,
+              "max_book_size_in_model": 240,
+              "book_over_n": 0.8
+            },
+            {
+              "n": 300,
+              "parts_count_t": 11,
+              "edge_density_c": 0.454533,
+              "max_book_size_in_model": 246,
+              "book_over_n": 0.82
+            },
+            {
+              "n": 300,
+              "parts_count_t": 12,
+              "edge_density_c": 0.458333,
+              "max_book_size_in_model": 250,
+              "book_over_n": 0.833333
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

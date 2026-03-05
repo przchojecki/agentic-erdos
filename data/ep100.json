@@ -1,0 +1,76 @@
+{
+  "problem": "EP-100",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-100\n- Quick literature check:\n  - The page still records the $\\gg n/\\log n$ lower bound route via Guth-Katz distinct-distance theory and no known linear lower bound theorem.\n- Finite compute signal:\n  - Lattice-greedy search under 1-separated distance-spectrum constraints found size-$n$ sets for $n=6..10$ with best diameters around `8..11`.\n- Interpretation:\n  - Small finite constructions are compatible with linear-diameter growth, but do not close the asymptotic gap."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "lattice greedy search under separated-distance constraints.",
+        "content": "// EP-100: lattice greedy search under separated-distance constraints.\n{\n  const rows = [];\n\n  function admissible(existingPts, uniqueD, cand) {\n    const nd = [];\n    for (const p of existingPts) {\n      const d = Math.hypot(cand[0] - p[0], cand[1] - p[1]);\n      if (d < 1 - 1e-9) return null;\n      nd.push(d);\n    }\n\n    for (let i = 0; i < nd.length; i += 1) {\n      for (const e of uniqueD) {\n        const diff = Math.abs(nd[i] - e);\n        if (diff > 1e-9 && diff < 1 - 1e-9) return null;\n      }\n      for (let j = i + 1; j < nd.length; j += 1) {\n        const diff = Math.abs(nd[i] - nd[j]);\n        if (diff > 1e-9 && diff < 1 - 1e-9) return null;\n      }\n    }\n\n    const nu = [...uniqueD];\n    for (const d of nd) {\n      let seen = false;\n      for (const e of nu) {\n        if (Math.abs(d - e) <= 1e-9) {\n          seen = true;\n          break;\n        }\n      }\n      if (!seen) nu.push(d);\n    }\n    return nu;\n  }\n\n  function diameter(pts) {\n    let mx = 0;\n    for (let i = 0; i < pts.length; i += 1) {\n      for (let j = i + 1; j < pts.length; j += 1) {\n        const d = Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1]);\n        if (d > mx) mx = d;\n      }\n    }\n    return mx;\n  }\n\n  const R = 7;\n  const pool = [];\n  for (let x = -R; x <= R; x += 1) for (let y = -R; y <= R; y += 1) pool.push([x, y]);\n\n  for (const n of [6, 7, 8, 9, 10]) {\n    let bestDiam = Infinity;\n    let bestDistinct = null;\n    let reached = false;\n\n    const restarts = 420;\n    for (let rep = 0; rep < restarts; rep += 1) {\n      const ord = [...pool];\n      shuffle(ord, rng);\n      const pts = [];\n      let uniq = [];\n\n      for (const c of ord) {\n        const nu = admissible(pts, uniq, c);\n        if (!nu) continue;\n        pts.push(c);\n        uniq = nu;\n        if (pts.length >= n) break;\n      }\n\n      if (pts.length < n) continue;\n      reached = true;\n      const d = diameter(pts);\n      if (d < bestDiam) {\n        bestDiam = d;\n        bestDistinct = uniq.length;\n      }\n    }\n\n    rows.push({\n      n,\n      restarts,\n      found_size_n_set: reached,\n      best_diameter_found: reached ? Number(bestDiam.toFixed(6)) : null,\n      best_diameter_over_n: reached ? Number((bestDiam / n).toFixed(6)) : null,\n      distinct_distance_count_in_best: bestDistinct,\n    });\n  }\n\n  out.results.ep100 = {\n    description: 'Finite lattice-greedy search for small-diameter sets with 1-separated distinct distance spectrum.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep100",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite lattice-greedy search for small-diameter sets with 1-separated distinct distance spectrum.",
+          "rows": [
+            {
+              "n": 6,
+              "restarts": 420,
+              "found_size_n_set": true,
+              "best_diameter_found": 9.899495,
+              "best_diameter_over_n": 1.649916,
+              "distinct_distance_count_in_best": 7
+            },
+            {
+              "n": 7,
+              "restarts": 420,
+              "found_size_n_set": true,
+              "best_diameter_found": 8,
+              "best_diameter_over_n": 1.142857,
+              "distinct_distance_count_in_best": 8
+            },
+            {
+              "n": 8,
+              "restarts": 420,
+              "found_size_n_set": true,
+              "best_diameter_found": 10,
+              "best_diameter_over_n": 1.25,
+              "distinct_distance_count_in_best": 9
+            },
+            {
+              "n": 9,
+              "restarts": 420,
+              "found_size_n_set": true,
+              "best_diameter_found": 11,
+              "best_diameter_over_n": 1.222222,
+              "distinct_distance_count_in_best": 11
+            },
+            {
+              "n": 10,
+              "restarts": 420,
+              "found_size_n_set": true,
+              "best_diameter_found": 10,
+              "best_diameter_over_n": 1,
+              "distinct_distance_count_in_best": 10
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "problem": "EP-1005",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-1005\n- Quick literature check:\n  - Open; 2025 update gives bounds `((1/12)-o(1))n <= f(n) <= n/4 + O(1)` and conjectures the upper-constant side is sharp.\n- Finite compute signal:\n  - Exact finite `f(n)` computation up to `n=240` gives `f(n)/n` drifting from `0.525` (`n=40`) to about `0.504` (`n=240`).\n- Interpretation:\n  - Finite trend is near a linear law with constant close to `1/2` in this range; asymptotic constant remains unresolved."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "exact finite f(n) from Farey sequences via similarly-ordered run lengths.",
+        "content": "// EP-1005: exact finite f(n) from Farey sequences via similarly-ordered run lengths.\n{\n  const rows = [];\n  for (const n of [40, 60, 80, 120, 160, 200, 240]) {\n    const { numer, denom } = fareySequence(n);\n    const runLen = longestSimilarOrderRunLength(numer, denom);\n    const f = runLen - 1;\n    rows.push({\n      n,\n      farey_length: numer.length,\n      f_n_exact_in_this_computation: f,\n      f_over_n: Number((f / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1005 = {\n    description: 'Exact finite computation of similarly-ordered local window lengths in Farey sequences.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep1005",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Exact finite computation of similarly-ordered local window lengths in Farey sequences.",
+          "rows": [
+            {
+              "n": 40,
+              "farey_length": 491,
+              "f_n_exact_in_this_computation": 21,
+              "f_over_n": 0.525
+            },
+            {
+              "n": 60,
+              "farey_length": 1103,
+              "f_n_exact_in_this_computation": 31,
+              "f_over_n": 0.5166667
+            },
+            {
+              "n": 80,
+              "farey_length": 1967,
+              "f_n_exact_in_this_computation": 41,
+              "f_over_n": 0.5125
+            },
+            {
+              "n": 120,
+              "farey_length": 4387,
+              "f_n_exact_in_this_computation": 61,
+              "f_over_n": 0.5083333
+            },
+            {
+              "n": 160,
+              "farey_length": 7807,
+              "f_n_exact_in_this_computation": 81,
+              "f_over_n": 0.50625
+            },
+            {
+              "n": 200,
+              "farey_length": 12233,
+              "f_n_exact_in_this_computation": 101,
+              "f_over_n": 0.505
+            },
+            {
+              "n": 240,
+              "farey_length": 17545,
+              "f_n_exact_in_this_computation": 121,
+              "f_over_n": 0.5041667
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "problem": "EP-213",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-213\n- Quick literature check:\n  - Best known explicit construction size remains `7`; no general all-`n` construction known.\n- Finite compute signal:\n  - Integer-grid proxy with general-position constraints (`no 3 collinear`, `no 4 concyclic`) found max size `4` in tested boxes.\n- Interpretation:\n  - Crude finite search remains far from known best constructions, confirming the problem’s geometric delicacy."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep213",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Integer-grid proxy for general-position all-integer-distance finite sets.",
+          "rows": [
+            {
+              "M": 4,
+              "grid_points": 81,
+              "best_general_position_integer_distance_subset_size_found": 4
+            },
+            {
+              "M": 5,
+              "grid_points": 121,
+              "best_general_position_integer_distance_subset_size_found": 4
+            },
+            {
+              "M": 6,
+              "grid_points": 169,
+              "best_general_position_integer_distance_subset_size_found": 4
+            },
+            {
+              "M": 7,
+              "grid_points": 225,
+              "best_general_position_integer_distance_subset_size_found": 4
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

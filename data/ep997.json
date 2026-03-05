@@ -1,0 +1,185 @@
+{
+  "problem": "EP-997",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-997\n- Quick literature check:\n  - Open as stated (\"for every `alpha`\"); page records 2024 progress proving existence of an irrational `alpha` where `{alpha p_n}` is not well-distributed.\n- Finite compute signal:\n  - Sliding-window discrepancy scan on first `40000` primes for several irrational `alpha` found max relative deviations around `0.09..0.115`.\n- Interpretation:\n  - Finite windows show persistent irregularity signals for tested `alpha`, but this is far from an all-`alpha` theorem."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "sliding-window discrepancy profile for {alpha * p_n} on sampled irrational alphas.",
+        "content": "// EP-997: sliding-window discrepancy profile for {alpha * p_n} on sampled irrational alphas.\n{\n  const N = 40_000;\n  const { primes } = sievePrimes(500_000);\n  const p = primes.slice(0, N);\n\n  const alphaRows = [\n    { name: 'sqrt2', val: Math.SQRT2 },\n    { name: 'pi', val: Math.PI },\n    { name: 'e', val: Math.E },\n    { name: 'phi', val: (1 + Math.sqrt(5)) / 2 },\n  ];\n  const windows = [200, 500, 1000, 2000];\n  const intervals = [\n    [0, 0.5],\n    [0, 1 / 3],\n    [1 / 3, 2 / 3],\n    [0.2, 0.7],\n  ];\n\n  const outRows = [];\n  for (const a of alphaRows) {\n    const vals = p.map((x) => frac(a.val * x));\n    const stats = [];\n\n    for (const k of windows) {\n      let best = { relDev: -1, interval: null };\n      for (const [L, R] of intervals) {\n        const ind = new Uint8Array(N);\n        for (let i = 0; i < N; i += 1) if (vals[i] >= L && vals[i] < R) ind[i] = 1;\n        const pref = new Int32Array(N + 1);\n        for (let i = 0; i < N; i += 1) pref[i + 1] = pref[i] + ind[i];\n\n        let localBest = 0;\n        for (let s = 0; s + k <= N; s += 97) {\n          const c = pref[s + k] - pref[s];\n          const dev = Math.abs(c - (R - L) * k) / k;\n          if (dev > localBest) localBest = dev;\n        }\n\n        if (localBest > best.relDev) best = { relDev: localBest, interval: [L, R] };\n      }\n      stats.push({\n        k,\n        max_relative_deviation_found: Number(best.relDev.toPrecision(7)),\n        interval: best.interval,\n      });\n    }\n    outRows.push({ alpha: a.name, rows: stats });\n  }\n\n  out.results.ep997 = {\n    description: 'Finite discrepancy scan for fractional parts of alpha times primes in sliding windows.',\n    N,\n    sampled_alphas: outRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep997",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Finite discrepancy scan for fractional parts of alpha times primes in sliding windows.",
+          "N": 40000,
+          "sampled_alphas": [
+            {
+              "alpha": "sqrt2",
+              "rows": [
+                {
+                  "k": 200,
+                  "max_relative_deviation_found": 0.09333333,
+                  "interval": [
+                    0,
+                    0.3333333333333333
+                  ]
+                },
+                {
+                  "k": 500,
+                  "max_relative_deviation_found": 0.06,
+                  "interval": [
+                    0,
+                    0.5
+                  ]
+                },
+                {
+                  "k": 1000,
+                  "max_relative_deviation_found": 0.03066667,
+                  "interval": [
+                    0,
+                    0.3333333333333333
+                  ]
+                },
+                {
+                  "k": 2000,
+                  "max_relative_deviation_found": 0.02233333,
+                  "interval": [
+                    0,
+                    0.3333333333333333
+                  ]
+                }
+              ]
+            },
+            {
+              "alpha": "pi",
+              "rows": [
+                {
+                  "k": 200,
+                  "max_relative_deviation_found": 0.095,
+                  "interval": [
+                    0.2,
+                    0.7
+                  ]
+                },
+                {
+                  "k": 500,
+                  "max_relative_deviation_found": 0.06066667,
+                  "interval": [
+                    0.3333333333333333,
+                    0.6666666666666666
+                  ]
+                },
+                {
+                  "k": 1000,
+                  "max_relative_deviation_found": 0.04,
+                  "interval": [
+                    0,
+                    0.5
+                  ]
+                },
+                {
+                  "k": 2000,
+                  "max_relative_deviation_found": 0.027,
+                  "interval": [
+                    0,
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "alpha": "e",
+              "rows": [
+                {
+                  "k": 200,
+                  "max_relative_deviation_found": 0.115,
+                  "interval": [
+                    0,
+                    0.5
+                  ]
+                },
+                {
+                  "k": 500,
+                  "max_relative_deviation_found": 0.066,
+                  "interval": [
+                    0,
+                    0.5
+                  ]
+                },
+                {
+                  "k": 1000,
+                  "max_relative_deviation_found": 0.04566667,
+                  "interval": [
+                    0,
+                    0.3333333333333333
+                  ]
+                },
+                {
+                  "k": 2000,
+                  "max_relative_deviation_found": 0.026,
+                  "interval": [
+                    0,
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "alpha": "phi",
+              "rows": [
+                {
+                  "k": 200,
+                  "max_relative_deviation_found": 0.115,
+                  "interval": [
+                    0.2,
+                    0.7
+                  ]
+                },
+                {
+                  "k": 500,
+                  "max_relative_deviation_found": 0.05133333,
+                  "interval": [
+                    0.3333333333333333,
+                    0.6666666666666666
+                  ]
+                },
+                {
+                  "k": 1000,
+                  "max_relative_deviation_found": 0.031,
+                  "interval": [
+                    0.2,
+                    0.7
+                  ]
+                },
+                {
+                  "k": 2000,
+                  "max_relative_deviation_found": 0.02616667,
+                  "interval": [
+                    0.3333333333333333,
+                    0.6666666666666666
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

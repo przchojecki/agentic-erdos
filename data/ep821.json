@@ -1,0 +1,160 @@
+{
+  "problem": "EP-821",
+  "normalized_utc": "2026-03-05T08:54:16.968Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch18_web_compute.md",
+        "content": "### EP-821\n- Quick literature check:\n  - Open; best current exponent remains below the `1-epsilon` target.\n- Finite compute signal:\n  - Totient-preimage scan up to `5e5` found maximum `g(n)=639` at `n=120960` (effective finite exponent around `0.552`).\n- Interpretation:\n  - Finite data is far from the conjectured near-linear exponent regime."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch18_quick_compute.mjs",
+        "heading": "totient preimage multiplicity scan.",
+        "content": "// EP-821: totient preimage multiplicity scan.\n{\n  const N = 500_000;\n  const phi = Array.from({ length: N + 1 }, (_, i) => i);\n  for (let p = 2; p <= N; p += 1) {\n    if (phi[p] !== p) continue;\n    for (let k = p; k <= N; k += p) {\n      phi[k] -= Math.floor(phi[k] / p);\n    }\n  }\n\n  const freq = new Uint32Array(N + 1);\n  for (let m = 1; m <= N; m += 1) {\n    const v = phi[m];\n    if (v <= N) freq[v] += 1;\n  }\n\n  let bestN = 1;\n  let bestG = 0;\n  const tops = [];\n  for (let n = 1; n <= N; n += 1) {\n    const g = freq[n];\n    if (g > bestG) {\n      bestG = g;\n      bestN = n;\n    }\n    if (g >= 20) tops.push({ n, g });\n  }\n\n  const topSorted = tops.sort((a, b) => b.g - a.g || a.n - b.n).slice(0, 30);\n\n  out.results.ep821 = {\n    description: 'Finite scan of g(n)=#{m:phi(m)=n} for n up to 5e5.',\n    N,\n    max_g_n_found: bestG,\n    argmax_n_found: bestN,\n    max_exponent_log_g_over_log_n: Number((Math.log(bestG) / Math.log(bestN)).toPrecision(7)),\n    top_values: topSorted,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch18_quick_compute.json",
+        "key": "ep821",
+        "container_meta": {
+          "script": "harder_batch18_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:20:32.592Z"
+        },
+        "data": {
+          "description": "Finite scan of g(n)=#{m:phi(m)=n} for n up to 5e5.",
+          "N": 500000,
+          "max_g_n_found": 639,
+          "argmax_n_found": 120960,
+          "max_exponent_log_g_over_log_n": 0.5519769,
+          "top_values": [
+            {
+              "n": 120960,
+              "g": 639
+            },
+            {
+              "n": 103680,
+              "g": 549
+            },
+            {
+              "n": 80640,
+              "g": 525
+            },
+            {
+              "n": 95040,
+              "g": 468
+            },
+            {
+              "n": 100800,
+              "g": 462
+            },
+            {
+              "n": 86400,
+              "g": 458
+            },
+            {
+              "n": 69120,
+              "g": 454
+            },
+            {
+              "n": 126720,
+              "g": 448
+            },
+            {
+              "n": 115200,
+              "g": 446
+            },
+            {
+              "n": 60480,
+              "g": 441
+            },
+            {
+              "n": 138240,
+              "g": 437
+            },
+            {
+              "n": 161280,
+              "g": 436
+            },
+            {
+              "n": 90720,
+              "g": 422
+            },
+            {
+              "n": 129600,
+              "g": 418
+            },
+            {
+              "n": 96768,
+              "g": 406
+            },
+            {
+              "n": 181440,
+              "g": 400
+            },
+            {
+              "n": 51840,
+              "g": 399
+            },
+            {
+              "n": 77760,
+              "g": 396
+            },
+            {
+              "n": 112320,
+              "g": 391
+            },
+            {
+              "n": 155520,
+              "g": 379
+            },
+            {
+              "n": 107520,
+              "g": 369
+            },
+            {
+              "n": 63360,
+              "g": 363
+            },
+            {
+              "n": 92160,
+              "g": 362
+            },
+            {
+              "n": 151200,
+              "g": 362
+            },
+            {
+              "n": 40320,
+              "g": 359
+            },
+            {
+              "n": 145152,
+              "g": 353
+            },
+            {
+              "n": 142560,
+              "g": 348
+            },
+            {
+              "n": 57600,
+              "g": 346
+            },
+            {
+              "n": 74880,
+              "g": 342
+            },
+            {
+              "n": 172800,
+              "g": 340
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

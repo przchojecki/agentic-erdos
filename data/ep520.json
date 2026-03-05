@@ -1,0 +1,82 @@
+{
+  "problem": "EP-520",
+  "normalized_utc": "2026-03-05T08:54:16.961Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch13_web_compute.md",
+        "content": "### EP-520\n- Quick literature check:\n  - Best almost-sure upper bounds are near `N^{1/2}(log log N)^{3/4+o(1)}`; the LIL-type constant formulation remains open.\n- Finite compute signal:\n  - Monte Carlo limsup proxy for `S_N/sqrt(N log log N)` sits around `O(1)` across trials up to `N=3e5`.\n  - Alternative quarter-log normalization also remains bounded in tested range.\n- Interpretation:\n  - Finite runs are compatible with multiple conjectural normalizations; asymptotic discrimination is not possible at this scale."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch13_quick_compute.mjs",
+        "heading": "random multiplicative function partial-sum limsup proxies.",
+        "content": "// EP-520: random multiplicative function partial-sum limsup proxies.\n{\n  const N = 300000;\n  const trials = 24;\n  const primeList = primes.filter((p) => p <= N);\n  const rng = makeRng(20260303 ^ 1306);\n\n  const limsupRows = [];\n  const samplePathMilestones = [5000, 20000, 50000, 100000, 200000, 300000];\n  const samplePath = [];\n\n  for (let tr = 0; tr < trials; tr += 1) {\n    const sign = new Int8Array(N + 1);\n    for (const p of primeList) sign[p] = rng() < 0.5 ? -1 : 1;\n\n    const f = new Int8Array(N + 1);\n    f[1] = 1;\n    let S = 0;\n    let limsupLIL = -Infinity;\n    let limsupQuarter = -Infinity;\n\n    for (let n = 1; n <= N; n += 1) {\n      if (n > 1) {\n        const p = spf[n];\n        const m = Math.floor(n / p);\n        if (m % p === 0) f[n] = 0;\n        else f[n] = f[m] * sign[p];\n      }\n      S += f[n];\n\n      if (n >= 20) {\n        const ll = Math.log(Math.log(n));\n        const rL = S / Math.sqrt(n * ll);\n        const rQ = Math.abs(S) / (Math.sqrt(n) * (ll ** 0.25));\n        if (rL > limsupLIL) limsupLIL = rL;\n        if (rQ > limsupQuarter) limsupQuarter = rQ;\n      }\n\n      if (tr === 0 && samplePathMilestones.includes(n)) {\n        const ll = Math.log(Math.log(n));\n        samplePath.push({\n          n,\n          S_n: S,\n          S_over_sqrt_n_loglog_n: Number((S / Math.sqrt(n * ll)).toPrecision(7)),\n          absS_over_sqrt_n_loglog_quarter: Number((Math.abs(S) / (Math.sqrt(n) * (ll ** 0.25))).toPrecision(7)),\n        });\n      }\n    }\n\n    limsupRows.push({ trial: tr + 1, limsup_lil_norm: limsupLIL, limsup_quarter_norm: limsupQuarter });\n  }\n\n  const lilVals = limsupRows.map((r) => r.limsup_lil_norm).sort((a, b) => a - b);\n  const qVals = limsupRows.map((r) => r.limsup_quarter_norm).sort((a, b) => a - b);\n\n  function quant(arr, q) {\n    const i = Math.max(0, Math.min(arr.length - 1, Math.floor(q * (arr.length - 1))));\n    return arr[i];\n  }\n\n  out.results.ep520 = {\n    description: 'Monte-Carlo limsup proxies for partial sums of random Rademacher multiplicative functions.',\n    N,\n    trials,\n    summary: {\n      lil_norm_mean: Number((lilVals.reduce((a, b) => a + b, 0) / lilVals.length).toPrecision(7)),\n      lil_norm_median: Number(quant(lilVals, 0.5).toPrecision(7)),\n      lil_norm_q90: Number(quant(lilVals, 0.9).toPrecision(7)),\n      quarter_norm_mean: Number((qVals.reduce((a, b) => a + b, 0) / qVals.length).toPrecision(7)),\n      quarter_norm_median: Number(quant(qVals, 0.5).toPrecision(7)),\n      quarter_norm_q90: Number(quant(qVals, 0.9).toPrecision(7)),\n    },\n    sample_path_trial_1: samplePath,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch13_quick_compute.json",
+        "key": "ep520",
+        "container_meta": {
+          "script": "harder_batch13_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:44:19.727Z"
+        },
+        "data": {
+          "description": "Monte-Carlo limsup proxies for partial sums of random Rademacher multiplicative functions.",
+          "N": 300000,
+          "trials": 24,
+          "summary": {
+            "lil_norm_mean": 1.01796,
+            "lil_norm_median": 0.8870429,
+            "lil_norm_q90": 1.269136,
+            "quarter_norm_mean": 1.271113,
+            "quarter_norm_median": 1.078206,
+            "quarter_norm_q90": 1.86168
+          },
+          "sample_path_trial_1": [
+            {
+              "n": 5000,
+              "S_n": 30,
+              "S_over_sqrt_n_loglog_n": 0.2898796,
+              "absS_over_sqrt_n_loglog_quarter": 0.3506929
+            },
+            {
+              "n": 20000,
+              "S_n": 16,
+              "S_over_sqrt_n_loglog_n": 0.07471601,
+              "absS_over_sqrt_n_loglog_quarter": 0.09194102
+            },
+            {
+              "n": 50000,
+              "S_n": -149,
+              "S_over_sqrt_n_loglog_n": -0.4318046,
+              "absS_over_sqrt_n_loglog_quarter": 0.5364068
+            },
+            {
+              "n": 100000,
+              "S_n": 18,
+              "S_over_sqrt_n_loglog_n": 0.03641405,
+              "absS_over_sqrt_n_loglog_quarter": 0.04552718
+            },
+            {
+              "n": 200000,
+              "S_n": 65,
+              "S_over_sqrt_n_loglog_n": 0.09188835,
+              "absS_over_sqrt_n_loglog_quarter": 0.1155658
+            },
+            {
+              "n": 300000,
+              "S_n": -224,
+              "S_over_sqrt_n_loglog_n": -0.2568808,
+              "absS_over_sqrt_n_loglog_quarter": 0.3241228
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

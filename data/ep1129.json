@@ -1,0 +1,53 @@
+{
+  "problem": "EP-1129",
+  "normalized_utc": "2026-03-05T08:54:16.977Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch26_web_compute.md",
+        "content": "### EP-1129\n- Quick literature check:\n  - Page status is **PROVED**.\n- Finite compute signal:\n  - Numerical Lebesgue-constant comparisons match theory direction (Chebyshev nodes far better than equispaced), and symmetric `n=4` search gives `t≈0.418`, close to the known `~0.4177`.\n- Interpretation:\n  - Treat as resolved on the list; finite numerics are consistency checks."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch26_quick_compute.mjs",
+        "heading": "finite Lebesgue-constant comparisons for node systems.",
+        "content": "// EP-1129: finite Lebesgue-constant comparisons for node systems.\n{\n  function lebesgueConstant(nodes, samples = 4000) {\n    const n = nodes.length;\n    const w = Array(n).fill(1);\n    for (let i = 0; i < n; i += 1) {\n      let den = 1;\n      for (let j = 0; j < n; j += 1) if (i !== j) den *= nodes[i] - nodes[j];\n      w[i] = 1 / den;\n    }\n\n    let best = 0;\n    for (let s = 0; s <= samples; s += 1) {\n      const x = -1 + (2 * s) / samples;\n      let atNode = -1;\n      for (let i = 0; i < n; i += 1) if (Math.abs(x - nodes[i]) < 1e-12) atNode = i;\n      if (atNode !== -1) {\n        if (1 > best) best = 1;\n        continue;\n      }\n      let denom = 0;\n      const tmp = Array(n).fill(0);\n      for (let i = 0; i < n; i += 1) {\n        tmp[i] = w[i] / (x - nodes[i]);\n        denom += tmp[i];\n      }\n      let sum = 0;\n      for (let i = 0; i < n; i += 1) sum += Math.abs(tmp[i] / denom);\n      if (sum > best) best = sum;\n    }\n    return best;\n  }\n\n  function equispaced(n) {\n    return [...Array(n).keys()].map((i) => -1 + (2 * i) / (n - 1));\n  }\n  function chebyshevRoots(n) {\n    return [...Array(n).keys()].map((i) => Math.cos(((2 * (i + 1) - 1) * Math.PI) / (2 * n)));\n  }\n\n  const rows = [];\n  for (const n of [8, 16]) {\n    const lEq = lebesgueConstant(equispaced(n), 4000);\n    const lCh = lebesgueConstant(chebyshevRoots(n), 4000);\n    rows.push({\n      n,\n      lambda_equispaced_est: Number(lEq.toPrecision(8)),\n      lambda_chebyshev_est: Number(lCh.toPrecision(8)),\n      ratio_eq_over_cheb: Number((lEq / lCh).toPrecision(7)),\n    });\n  }\n\n  // Canonical n=4 symmetric family: nodes (-1,-t,t,1).\n  let bestT = 0;\n  let bestL = Infinity;\n  for (let i = 0; i <= 1000; i += 1) {\n    const t = 0.2 + (0.5 * i) / 1000;\n    const l = lebesgueConstant([-1, -t, t, 1], 4000);\n    if (l < bestL) {\n      bestL = l;\n      bestT = t;\n    }\n  }\n\n  out.results.ep1129 = {\n    description: 'Finite numerical Lebesgue-constant comparisons and symmetric n=4 canonical search.',\n    rows,\n    n4_symmetric_search: {\n      best_t_est: Number(bestT.toPrecision(7)),\n      lambda_est: Number(bestL.toPrecision(8)),\n      reference_t_from_literature_approx: 0.4177,\n    },\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch26_quick_compute.json",
+        "key": "ep1129",
+        "container_meta": {
+          "script": "harder_batch26_quick_compute.mjs",
+          "generated_utc": "2026-03-04T12:00:49.945Z"
+        },
+        "data": {
+          "description": "Finite numerical Lebesgue-constant comparisons and symmetric n=4 canonical search.",
+          "rows": [
+            {
+              "n": 8,
+              "lambda_equispaced_est": 6.9297308,
+              "lambda_chebyshev_est": 2.2870161,
+              "ratio_eq_over_cheb": 3.030032
+            },
+            {
+              "n": 16,
+              "lambda_equispaced_est": 512.34784,
+              "lambda_chebyshev_est": 2.7277779,
+              "ratio_eq_over_cheb": 187.8261
+            }
+          ],
+          "n4_symmetric_search": {
+            "best_t_est": 0.418,
+            "lambda_est": 1.4234317,
+            "reference_t_from_literature_approx": 0.4177
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "problem": "EP-241",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-241\n- Quick literature check:\n  - Quick scan did not surface a newer theorem improving the classical asymptotic framework on this page; the listed benchmark remains Bose-Chowla lower construction and Green's upper bound.\n- Finite compute signal:\n  - Greedy/random finite constructions gave sizes `16,19,23,28` for `N=5e3,1e4,2e4,5e4`.\n  - The normalized ratio `|A|/N^{1/3}` decreases from about `0.94` to `0.76`.\n- Interpretation:\n  - Finite data is consistent with an `N^{1/3}`-scale law, but does not resolve the asymptotic constant question."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "B3-set finite profiles.",
+        "content": "// EP-241: B3-set finite profiles.\n{\n  function tryAddB3(A, sumSet, x) {\n    const newSums = new Set();\n\n    const s0 = 3 * x;\n    if (sumSet.has(s0)) return false;\n    newSums.add(s0);\n\n    for (const a of A) {\n      const s = 2 * x + a;\n      if (sumSet.has(s) || newSums.has(s)) return false;\n      newSums.add(s);\n    }\n\n    for (let i = 0; i < A.length; i += 1) {\n      for (let j = i; j < A.length; j += 1) {\n        const s = x + A[i] + A[j];\n        if (sumSet.has(s) || newSums.has(s)) return false;\n        newSums.add(s);\n      }\n    }\n\n    A.push(x);\n    for (const s of newSums) sumSet.add(s);\n    return true;\n  }\n\n  function greedyB3UpTo(N) {\n    const A = [];\n    const sumSet = new Set();\n    for (let x = 1; x <= N; x += 1) tryAddB3(A, sumSet, x);\n    return A.length;\n  }\n\n  function randomGreedyB3(N, trials) {\n    const base = Array.from({ length: N }, (_, i) => i + 1);\n    let best = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const ord = [...base];\n      shuffle(ord, rng);\n      const A = [];\n      const sumSet = new Set();\n      for (const x of ord) tryAddB3(A, sumSet, x);\n      if (A.length > best) best = A.length;\n    }\n    return best;\n  }\n\n  const rows = [];\n  for (const N of [5000, 10000, 20000, 50000]) {\n    const g = greedyB3UpTo(N);\n    const r = randomGreedyB3(N, 20);\n    rows.push({\n      N,\n      greedy_size: g,\n      random_best_of_20: r,\n      greedy_over_N_pow_1_over_3: Number((g / N ** (1 / 3)).toFixed(6)),\n      random_over_N_pow_1_over_3: Number((r / N ** (1 / 3)).toFixed(6)),\n    });\n  }\n\n  out.results.ep241 = {\n    description: 'Finite greedy profiles for B3-type sets with distinct triple sums.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep241",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Finite greedy profiles for B3-type sets with distinct triple sums.",
+          "rows": [
+            {
+              "N": 5000,
+              "greedy_size": 16,
+              "random_best_of_20": 16,
+              "greedy_over_N_pow_1_over_3": 0.935686,
+              "random_over_N_pow_1_over_3": 0.935686
+            },
+            {
+              "N": 10000,
+              "greedy_size": 19,
+              "random_best_of_20": 19,
+              "greedy_over_N_pow_1_over_3": 0.881902,
+              "random_over_N_pow_1_over_3": 0.881902
+            },
+            {
+              "N": 20000,
+              "greedy_size": 23,
+              "random_best_of_20": 22,
+              "greedy_over_N_pow_1_over_3": 0.847327,
+              "random_over_N_pow_1_over_3": 0.810487
+            },
+            {
+              "N": 50000,
+              "greedy_size": 28,
+              "random_best_of_20": 27,
+              "greedy_over_N_pow_1_over_3": 0.760037,
+              "random_over_N_pow_1_over_3": 0.732893
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

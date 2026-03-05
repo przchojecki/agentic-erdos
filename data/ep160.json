@@ -1,0 +1,186 @@
+{
+  "problem": "EP-160",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-160\n- Quick literature check:\n  - The problem page records recent bounds: upper exponent around $N^{0.355+o(1)}$ and lower growth at least stretched-polylogarithmic via 3-AP-free set technology.\n- Finite compute signal:\n  - Local search found feasible colorings at small scales with empirical upper bounds:\n    - $h(20)\\le 4$, $h(30)\\le 5$, $h(40)\\le 6$, $h(60)\\le 8$ (no witness found for $N=80$ up to $k=8$ in this run).\n- Interpretation:\n  - Finite trend supports growth of $h(N)$, but is too small-scale/noisy to infer exponents."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "color [1..N] with k colors so every 4-AP has >=3 distinct colors.",
+        "content": "// EP-160: color [1..N] with k colors so every 4-AP has >=3 distinct colors.\n{\n  function build4APs(N) {\n    const aps = [];\n    for (let a = 1; a <= N; a += 1) {\n      for (let d = 1; a + 3 * d <= N; d += 1) {\n        aps.push([a - 1, a + d - 1, a + 2 * d - 1, a + 3 * d - 1]);\n      }\n    }\n    return aps;\n  }\n\n  function apBad(colors, ap) {\n    const c0 = colors[ap[0]];\n    const c1 = colors[ap[1]];\n    const c2 = colors[ap[2]];\n    const c3 = colors[ap[3]];\n    let distinct = 1;\n    if (c1 !== c0) distinct += 1;\n    if (c2 !== c0 && c2 !== c1) distinct += 1;\n    if (c3 !== c0 && c3 !== c1 && c3 !== c2) distinct += 1;\n    return distinct < 3;\n  }\n\n  function findColoring(N, k, restarts, steps) {\n    const aps = build4APs(N);\n    const apByPos = Array.from({ length: N }, () => []);\n    for (let i = 0; i < aps.length; i += 1) for (const p of aps[i]) apByPos[p].push(i);\n\n    for (let t = 0; t < restarts; t += 1) {\n      const colors = new Uint8Array(N);\n      for (let i = 0; i < N; i += 1) colors[i] = Math.floor(rng() * k);\n\n      const bad = new Uint8Array(aps.length);\n      let badCount = 0;\n      for (let i = 0; i < aps.length; i += 1) {\n        if (apBad(colors, aps[i])) {\n          bad[i] = 1;\n          badCount += 1;\n        }\n      }\n\n      for (let step = 0; step < steps; step += 1) {\n        if (badCount === 0) return true;\n\n        const pos = Math.floor(rng() * N);\n        const oldColor = colors[pos];\n        let newColor = oldColor;\n        while (newColor === oldColor) newColor = Math.floor(rng() * k);\n\n        let delta = 0;\n        for (const apId of apByPos[pos]) {\n          const before = bad[apId];\n          const ap = aps[apId];\n          colors[pos] = newColor;\n          const after = apBad(colors, ap) ? 1 : 0;\n          colors[pos] = oldColor;\n          delta += after - before;\n        }\n\n        if (delta <= 0 || rng() < 0.01) {\n          colors[pos] = newColor;\n          for (const apId of apByPos[pos]) {\n            const ap = aps[apId];\n            const before = bad[apId];\n            const after = apBad(colors, ap) ? 1 : 0;\n            if (before !== after) {\n              bad[apId] = after;\n              badCount += after - before;\n            }\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  const rows = [];\n  for (const N of [20, 30, 40, 60, 80]) {\n    let found = null;\n    const triesByN = N <= 40 ? [2, 3, 4, 5, 6] : [2, 3, 4, 5, 6, 7, 8];\n    for (const k of triesByN) {\n      const ok = findColoring(N, k, 24, 35000);\n      rows.push({ N, k_tested: k, valid_coloring_found: ok });\n      if (ok && found === null) {\n        found = k;\n        break;\n      }\n    }\n    rows.push({ N, empirical_upper_bound_h_of_N: found });\n  }\n\n  out.results.ep160 = {\n    description: 'Finite local-search profile for h(N): minimum colors forcing >=3 colors on each 4-AP.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep160",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Finite local-search profile for h(N): minimum colors forcing >=3 colors on each 4-AP.",
+          "rows": [
+            {
+              "N": 20,
+              "k_tested": 2,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 20,
+              "k_tested": 3,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 20,
+              "k_tested": 4,
+              "valid_coloring_found": true
+            },
+            {
+              "N": 20,
+              "empirical_upper_bound_h_of_N": 4
+            },
+            {
+              "N": 30,
+              "k_tested": 2,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 30,
+              "k_tested": 3,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 30,
+              "k_tested": 4,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 30,
+              "k_tested": 5,
+              "valid_coloring_found": true
+            },
+            {
+              "N": 30,
+              "empirical_upper_bound_h_of_N": 5
+            },
+            {
+              "N": 40,
+              "k_tested": 2,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 40,
+              "k_tested": 3,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 40,
+              "k_tested": 4,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 40,
+              "k_tested": 5,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 40,
+              "k_tested": 6,
+              "valid_coloring_found": true
+            },
+            {
+              "N": 40,
+              "empirical_upper_bound_h_of_N": 6
+            },
+            {
+              "N": 60,
+              "k_tested": 2,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 60,
+              "k_tested": 3,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 60,
+              "k_tested": 4,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 60,
+              "k_tested": 5,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 60,
+              "k_tested": 6,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 60,
+              "k_tested": 7,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 60,
+              "k_tested": 8,
+              "valid_coloring_found": true
+            },
+            {
+              "N": 60,
+              "empirical_upper_bound_h_of_N": 8
+            },
+            {
+              "N": 80,
+              "k_tested": 2,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "k_tested": 3,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "k_tested": 4,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "k_tested": 5,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "k_tested": 6,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "k_tested": 7,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "k_tested": 8,
+              "valid_coloring_found": false
+            },
+            {
+              "N": 80,
+              "empirical_upper_bound_h_of_N": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

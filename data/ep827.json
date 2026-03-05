@@ -1,0 +1,57 @@
+{
+  "problem": "EP-827",
+  "normalized_utc": "2026-03-05T08:54:16.968Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch19_web_compute.md",
+        "content": "### EP-827\n- Quick literature check:\n  - Still open; corrected existence/bound argument from Martinez--Roldan-Pensado gives polynomial upper bound (`n_k << k^9`).\n- Finite compute signal:\n  - Random general-position tests for `n=10,12,13` often achieved full-size subsets with all circumradii distinct.\n- Interpretation:\n  - Small finite behavior is favorable, but no route to asymptotic/sharp `n_k` from current methods."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch19_quick_compute.mjs",
+        "heading": "subset with all circumradii distinct.",
+        "content": "// EP-827: subset with all circumradii distinct.\n{\n  const rng = makeRng(20260304 ^ 1902);\n\n  function randomGeneralPositionPoints(n, side) {\n    while (true) {\n      const pts = [];\n      const used = new Set();\n      while (pts.length < n) {\n        const x = Math.floor(rng() * side);\n        const y = Math.floor(rng() * side);\n        const key = `${x},${y}`;\n        if (used.has(key)) continue;\n        used.add(key);\n        pts.push([x, y]);\n      }\n\n      let good = true;\n      for (let i = 0; i < n && good; i += 1) {\n        for (let j = i + 1; j < n && good; j += 1) {\n          for (let k = j + 1; k < n; k += 1) {\n            const x1 = pts[i][0];\n            const y1 = pts[i][1];\n            const x2 = pts[j][0];\n            const y2 = pts[j][1];\n            const x3 = pts[k][0];\n            const y3 = pts[k][1];\n            const cross = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1);\n            if (cross === 0) {\n              good = false;\n              break;\n            }\n          }\n        }\n      }\n      if (good) return pts;\n    }\n  }\n\n  function radiusKey(p1, p2, p3) {\n    const a2 = (p2[0] - p3[0]) ** 2 + (p2[1] - p3[1]) ** 2;\n    const b2 = (p1[0] - p3[0]) ** 2 + (p1[1] - p3[1]) ** 2;\n    const c2 = (p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2;\n    const cross = Math.abs((p2[0] - p1[0]) * (p3[1] - p1[1]) - (p2[1] - p1[1]) * (p3[0] - p1[0]));\n    if (cross === 0) return null;\n    let num = a2 * b2 * c2;\n    let den = 4 * cross * cross;\n    const g = gcd(num, den);\n    num /= g;\n    den /= g;\n    return `${num}/${den}`;\n  }\n\n  function bestSubsetSize(pts) {\n    const n = pts.length;\n    const chosen = [];\n    const radSet = new Set();\n    let best = 0;\n\n    function dfs(i) {\n      if (chosen.length + (n - i) <= best) return;\n      if (i === n) {\n        if (chosen.length > best) best = chosen.length;\n        return;\n      }\n\n      // try include i\n      const newKeys = [];\n      let ok = true;\n      for (let a = 0; a < chosen.length && ok; a += 1) {\n        for (let b = a + 1; b < chosen.length; b += 1) {\n          const key = radiusKey(pts[chosen[a]], pts[chosen[b]], pts[i]);\n          if (key === null || radSet.has(key)) {\n            ok = false;\n            break;\n          }\n          newKeys.push(key);\n        }\n      }\n\n      if (ok) {\n        for (const k of newKeys) radSet.add(k);\n        chosen.push(i);\n        dfs(i + 1);\n        chosen.pop();\n        for (const k of newKeys) radSet.delete(k);\n      }\n\n      // skip i\n      dfs(i + 1);\n    }\n\n    dfs(0);\n    return best;\n  }\n\n  const rows = [];\n  for (const [n, side, samples] of [[10, 36, 8], [12, 44, 6], [13, 52, 5]]) {\n    let best = 0;\n    let avg = 0;\n    for (let t = 0; t < samples; t += 1) {\n      const pts = randomGeneralPositionPoints(n, side);\n      const b = bestSubsetSize(pts);\n      avg += b;\n      if (b > best) best = b;\n    }\n    rows.push({\n      n,\n      samples,\n      best_subset_size_all_circumradii_distinct: best,\n      avg_best_subset_size: Number((avg / samples).toPrecision(7)),\n      best_over_n: Number((best / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep827 = {\n    description: 'Finite random-general-position profile for distinct-circumradius subset sizes.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch19_quick_compute.json",
+        "key": "ep827",
+        "container_meta": {
+          "script": "harder_batch19_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:37:57.048Z"
+        },
+        "data": {
+          "description": "Finite random-general-position profile for distinct-circumradius subset sizes.",
+          "rows": [
+            {
+              "n": 10,
+              "samples": 8,
+              "best_subset_size_all_circumradii_distinct": 10,
+              "avg_best_subset_size": 9.625,
+              "best_over_n": 1
+            },
+            {
+              "n": 12,
+              "samples": 6,
+              "best_subset_size_all_circumradii_distinct": 12,
+              "avg_best_subset_size": 11,
+              "best_over_n": 1
+            },
+            {
+              "n": 13,
+              "samples": 5,
+              "best_subset_size_all_circumradii_distinct": 13,
+              "avg_best_subset_size": 12.6,
+              "best_over_n": 1
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

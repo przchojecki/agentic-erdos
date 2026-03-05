@@ -1,0 +1,121 @@
+{
+  "problem": "EP-1055",
+  "normalized_utc": "2026-03-05T08:54:16.973Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch23_web_compute.md",
+        "content": "### EP-1055\n- Quick literature check:\n  - Open; recursive prime-class question remains unresolved.\n- Finite compute signal:\n  - Class computation for primes `<=10^6` recovers initial sequence (`2,13,37,73,1021,...`) and reaches class `9` (first at `532801`).\n- Interpretation:\n  - Finite recursion is coherent with known early terms; no asymptotic conclusion on infinitude in every class."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch23_quick_compute.mjs",
+        "heading": "finite class recursion profile for primes.",
+        "content": "// EP-1055: finite class recursion profile for primes.\n{\n  const LIMIT = 1_000_000;\n  const primes = [];\n  for (let p = 2; p <= LIMIT; p += 1) if (spf[p] === p) primes.push(p);\n\n  const cls = new Map();\n  const firstPrime = new Map();\n  const counts = new Map();\n\n  for (const p of primes) {\n    const facts = distinctPrimeFactors(p + 1, spf);\n    let c;\n    if (facts.every((q) => q === 2 || q === 3)) {\n      c = 1;\n    } else {\n      let mx = 0;\n      for (const q of facts) {\n        if (q === 2 || q === 3) continue;\n        const cq = cls.get(q) || 0;\n        if (cq > mx) mx = cq;\n      }\n      c = mx + 1;\n    }\n    cls.set(p, c);\n    if (!firstPrime.has(c)) firstPrime.set(c, p);\n    counts.set(c, (counts.get(c) || 0) + 1);\n  }\n\n  const classes = [...firstPrime.entries()]\n    .sort((a, b) => a[0] - b[0])\n    .slice(0, 12)\n    .map(([c, p]) => ({ class: c, first_prime: p, p_to_1_over_class: Number((p ** (1 / c)).toPrecision(7)) }));\n\n  const countRows = [...counts.entries()]\n    .sort((a, b) => a[0] - b[0])\n    .map(([c, cnt]) => ({ class: c, prime_count_up_to_limit: cnt }))\n    .slice(0, 12);\n\n  out.results.ep1055 = {\n    description: 'Finite recursive prime-class computation based on prime factors of p+1.',\n    LIMIT,\n    first_primes_by_class: classes,\n    class_population_rows: countRows,\n    max_class_seen: Math.max(...counts.keys()),\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch23_quick_compute.json",
+        "key": "ep1055",
+        "container_meta": {
+          "script": "harder_batch23_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:43:44.789Z"
+        },
+        "data": {
+          "description": "Finite recursive prime-class computation based on prime factors of p+1.",
+          "LIMIT": 1000000,
+          "first_primes_by_class": [
+            {
+              "class": 1,
+              "first_prime": 2,
+              "p_to_1_over_class": 2
+            },
+            {
+              "class": 2,
+              "first_prime": 13,
+              "p_to_1_over_class": 3.605551
+            },
+            {
+              "class": 3,
+              "first_prime": 37,
+              "p_to_1_over_class": 3.332222
+            },
+            {
+              "class": 4,
+              "first_prime": 73,
+              "p_to_1_over_class": 2.923013
+            },
+            {
+              "class": 5,
+              "first_prime": 1021,
+              "p_to_1_over_class": 3.997653
+            },
+            {
+              "class": 6,
+              "first_prime": 2917,
+              "p_to_1_over_class": 3.779979
+            },
+            {
+              "class": 7,
+              "first_prime": 15013,
+              "p_to_1_over_class": 3.950374
+            },
+            {
+              "class": 8,
+              "first_prime": 49681,
+              "p_to_1_over_class": 3.863881
+            },
+            {
+              "class": 9,
+              "first_prime": 532801,
+              "p_to_1_over_class": 4.327978
+            }
+          ],
+          "class_population_rows": [
+            {
+              "class": 1,
+              "prime_count_up_to_limit": 43
+            },
+            {
+              "class": 2,
+              "prime_count_up_to_limit": 3103
+            },
+            {
+              "class": 3,
+              "prime_count_up_to_limit": 25428
+            },
+            {
+              "class": 4,
+              "prime_count_up_to_limit": 31186
+            },
+            {
+              "class": 5,
+              "prime_count_up_to_limit": 14374
+            },
+            {
+              "class": 6,
+              "prime_count_up_to_limit": 3664
+            },
+            {
+              "class": 7,
+              "prime_count_up_to_limit": 620
+            },
+            {
+              "class": 8,
+              "prime_count_up_to_limit": 77
+            },
+            {
+              "class": 9,
+              "prime_count_up_to_limit": 3
+            }
+          ],
+          "max_class_seen": 9
+        }
+      }
+    ]
+  }
+}

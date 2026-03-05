@@ -1,0 +1,57 @@
+{
+  "problem": "EP-338",
+  "normalized_utc": "2026-03-05T08:54:16.957Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-338\n- Quick literature check:\n  - Bateman/Kelly/Hennecart phenomenon remains central: unrestricted order may exist while distinct-summand restricted order can fail.\n- Finite compute signal:\n  - For `A={1}\\cup h\\mathbb{N}` (`h=3,4,5` truncated), unrestricted finite order proxy exists, while distinct-summand coverage misses an entire residue class.\n- Interpretation:\n  - Finite behavior cleanly mirrors the theoretical obstruction to restricted order in these constructions."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "restricted-order proxy with distinct summands for Bateman-type examples.",
+        "content": "// EP-338: restricted-order proxy with distinct summands for Bateman-type examples.\n{\n  function setBateman(h, limit) {\n    const A = [1];\n    for (let x = h; x <= limit; x += h) A.push(x);\n    return A;\n  }\n\n  function distinctSubsetCoverage(A, Nmax) {\n    const can = new Uint8Array(Nmax + 1);\n    can[0] = 1;\n    for (const a of A) {\n      for (let s = Nmax - a; s >= 0; s -= 1) {\n        if (can[s]) can[s + a] = 1;\n      }\n    }\n    let covered = 0;\n    for (let n = 1; n <= Nmax; n += 1) if (can[n]) covered += 1;\n    return { can, covered };\n  }\n\n  function unrestrictedCoverage(A, Nmax, tMax) {\n    const can = Array.from({ length: tMax + 1 }, () => new Uint8Array(Nmax + 1));\n    can[0][0] = 1;\n    for (let t = 1; t <= tMax; t += 1) {\n      const cur = can[t];\n      const prev = can[t - 1];\n      for (let s = 0; s <= Nmax; s += 1) {\n        if (!prev[s]) continue;\n        for (const a of A) {\n          const u = s + a;\n          if (u > Nmax) break;\n          cur[u] = 1;\n        }\n      }\n    }\n    return can;\n  }\n\n  const rows = [];\n  for (const h of [3, 4, 5]) {\n    const A = setBateman(h, 600);\n    const Nmax = 1200;\n    const { can: distCan, covered } = distinctSubsetCoverage(A, Nmax);\n    let missingResidue = null;\n    for (let r = 0; r < h; r += 1) {\n      let allMissing = true;\n      for (let n = r; n <= Nmax; n += h) {\n        if (n > 0 && distCan[n]) {\n          allMissing = false;\n          break;\n        }\n      }\n      if (allMissing) {\n        missingResidue = r;\n        break;\n      }\n    }\n\n    const un = unrestrictedCoverage(A, Nmax, h + 2);\n    let unrestrictedOrderProxy = null;\n    for (let t = 1; t <= h + 2; t += 1) {\n      let ok = true;\n      for (let n = 400; n <= Nmax; n += 1) {\n        let hit = false;\n        for (let j = 1; j <= t; j += 1) {\n          if (un[j][n]) {\n            hit = true;\n            break;\n          }\n        }\n        if (!hit) {\n          ok = false;\n          break;\n        }\n      }\n      if (ok) {\n        unrestrictedOrderProxy = t;\n        break;\n      }\n    }\n\n    rows.push({\n      h,\n      A_size_up_to_600: A.length,\n      distinct_coverage_density_up_to_1200: Number((covered / Nmax).toPrecision(6)),\n      residue_class_fully_missing_distinct: missingResidue,\n      unrestricted_order_proxy_window_400_1200: unrestrictedOrderProxy,\n    });\n  }\n\n  out.results.ep338 = {\n    description: 'Finite distinct-vs-unrestricted summand behavior for Bateman-style bases.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep338",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Finite distinct-vs-unrestricted summand behavior for Bateman-style bases.",
+          "rows": [
+            {
+              "h": 3,
+              "A_size_up_to_600": 201,
+              "distinct_coverage_density_up_to_1200": 0.666667,
+              "residue_class_fully_missing_distinct": 2,
+              "unrestricted_order_proxy_window_400_1200": 4
+            },
+            {
+              "h": 4,
+              "A_size_up_to_600": 151,
+              "distinct_coverage_density_up_to_1200": 0.5,
+              "residue_class_fully_missing_distinct": 2,
+              "unrestricted_order_proxy_window_400_1200": 5
+            },
+            {
+              "h": 5,
+              "A_size_up_to_600": 121,
+              "distinct_coverage_density_up_to_1200": 0.4,
+              "residue_class_fully_missing_distinct": 2,
+              "unrestricted_order_proxy_window_400_1200": 6
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "problem": "EP-856",
+  "normalized_utc": "2026-03-05T08:54:16.969Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch19_web_compute.md",
+        "content": "### EP-856\n- Quick literature check:\n  - Open but has recent 2025 progress (Tang--Zhang) linking exponents to sunflower-free capacity and giving explicit polylog-power bounds.\n- Finite compute signal:\n  - Greedy constructions gave harmonic sums around `4.04` (`k=3,N=500`) and `6.25` (`k=4,N=500`), with `k=3` profile below `log N` scale in tested range.\n- Interpretation:\n  - Finite experiments are consistent with sub-`log N` behavior trends for `k=3`, aligning directionally with current theory."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch19_quick_compute.mjs",
+        "heading": "greedy harmonic-sum maximization under no-k-equal-pairwise-lcm constraint.",
+        "content": "// EP-856: greedy harmonic-sum maximization under no-k-equal-pairwise-lcm constraint.\n{\n  function greedyFk(N, k) {\n    const A = [];\n\n    for (let x = 1; x <= N; x += 1) {\n      let ok = true;\n\n      if (k === 3) {\n        for (let i = 0; i < A.length && ok; i += 1) {\n          for (let j = i + 1; j < A.length; j += 1) {\n            const l1 = lcm(A[i], A[j]);\n            const l2 = lcm(A[i], x);\n            const l3 = lcm(A[j], x);\n            if (l1 === l2 && l2 === l3) {\n              ok = false;\n              break;\n            }\n          }\n        }\n      } else if (k === 4) {\n        for (let i = 0; i < A.length && ok; i += 1) {\n          for (let j = i + 1; j < A.length && ok; j += 1) {\n            for (let t = j + 1; t < A.length; t += 1) {\n              const vals = [A[i], A[j], A[t], x];\n              let target = null;\n              let allSame = true;\n              for (let u = 0; u < 4 && allSame; u += 1) {\n                for (let v = u + 1; v < 4; v += 1) {\n                  const ll = lcm(vals[u], vals[v]);\n                  if (target === null) target = ll;\n                  else if (ll !== target) {\n                    allSame = false;\n                    break;\n                  }\n                }\n              }\n              if (allSame) {\n                ok = false;\n                break;\n              }\n            }\n          }\n        }\n      }\n\n      if (ok) A.push(x);\n    }\n\n    let h = 0;\n    for (const a of A) h += 1 / a;\n    return { size: A.length, harmonic: h };\n  }\n\n  const rows = [];\n  for (const N of [120, 200, 320, 500]) {\n    for (const k of [3, 4]) {\n      const g = greedyFk(N, k);\n      rows.push({\n        k,\n        N,\n        greedy_set_size: g.size,\n        greedy_harmonic_sum: Number(g.harmonic.toPrecision(7)),\n        over_logN: Number((g.harmonic / Math.log(N)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep856 = {\n    description: 'Finite greedy harmonic-sum profile under no-k-subset equal pairwise-lcm constraint.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch19_quick_compute.json",
+        "key": "ep856",
+        "container_meta": {
+          "script": "harder_batch19_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:37:57.048Z"
+        },
+        "data": {
+          "description": "Finite greedy harmonic-sum profile under no-k-subset equal pairwise-lcm constraint.",
+          "rows": [
+            {
+              "k": 3,
+              "N": 120,
+              "greedy_set_size": 47,
+              "greedy_harmonic_sum": 3.658764,
+              "over_logN": 0.7642341
+            },
+            {
+              "k": 4,
+              "N": 120,
+              "greedy_set_size": 107,
+              "greedy_harmonic_sum": 5.184261,
+              "over_logN": 1.082876
+            },
+            {
+              "k": 3,
+              "N": 200,
+              "greedy_set_size": 72,
+              "greedy_harmonic_sum": 3.819064,
+              "over_logN": 0.720807
+            },
+            {
+              "k": 4,
+              "N": 200,
+              "greedy_set_size": 169,
+              "greedy_harmonic_sum": 5.580749,
+              "over_logN": 1.053306
+            },
+            {
+              "k": 3,
+              "N": 320,
+              "greedy_set_size": 103,
+              "greedy_harmonic_sum": 3.938051,
+              "over_logN": 0.6827031
+            },
+            {
+              "k": 4,
+              "N": 320,
+              "greedy_set_size": 257,
+              "greedy_harmonic_sum": 5.928375,
+              "over_logN": 1.027747
+            },
+            {
+              "k": 3,
+              "N": 500,
+              "greedy_set_size": 146,
+              "greedy_harmonic_sum": 4.044206,
+              "over_logN": 0.650758
+            },
+            {
+              "k": 4,
+              "N": 500,
+              "greedy_set_size": 386,
+              "greedy_harmonic_sum": 6.249652,
+              "over_logN": 1.005639
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "problem": "EP-203",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep203_2k3l_m_plus_1_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-203",
+        "script": "ep203_2k3l_m_plus_1_scan.mjs",
+        "method": "finite_exponent_box_composite_filter_for_2k3l_m_plus_1",
+        "params": {
+          "MMAX": 50000,
+          "KMAX": 8,
+          "LMAX": 6
+        },
+        "tested_m_coprime_to_6": 16667,
+        "survivors_count": 0,
+        "survivors_first_200": [],
+        "near_miss_examples": [
+          {
+            "m": 1,
+            "witness": {
+              "k": 0,
+              "l": 0,
+              "prime": 2
+            }
+          },
+          {
+            "m": 5,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 11
+            }
+          },
+          {
+            "m": 7,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 43
+            }
+          },
+          {
+            "m": 11,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 23
+            }
+          },
+          {
+            "m": 13,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 79
+            }
+          },
+          {
+            "m": 17,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 103
+            }
+          },
+          {
+            "m": 19,
+            "witness": {
+              "k": 1,
+              "l": 4,
+              "prime": 3079
+            }
+          },
+          {
+            "m": 23,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 47
+            }
+          },
+          {
+            "m": 25,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 151
+            }
+          },
+          {
+            "m": 29,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 59
+            }
+          },
+          {
+            "m": 31,
+            "witness": {
+              "k": 1,
+              "l": 4,
+              "prime": 5023
+            }
+          },
+          {
+            "m": 35,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 71
+            }
+          },
+          {
+            "m": 37,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 223
+            }
+          },
+          {
+            "m": 41,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 83
+            }
+          },
+          {
+            "m": 43,
+            "witness": {
+              "k": 1,
+              "l": 4,
+              "prime": 6967
+            }
+          },
+          {
+            "m": 47,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 283
+            }
+          },
+          {
+            "m": 49,
+            "witness": {
+              "k": 1,
+              "l": 2,
+              "prime": 883
+            }
+          },
+          {
+            "m": 53,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 107
+            }
+          },
+          {
+            "m": 55,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 331
+            }
+          },
+          {
+            "m": 59,
+            "witness": {
+              "k": 1,
+              "l": 2,
+              "prime": 1063
+            }
+          },
+          {
+            "m": 61,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 367
+            }
+          },
+          {
+            "m": 65,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 131
+            }
+          },
+          {
+            "m": 67,
+            "witness": {
+              "k": 1,
+              "l": 5,
+              "prime": 32563
+            }
+          },
+          {
+            "m": 71,
+            "witness": {
+              "k": 1,
+              "l": 2,
+              "prime": 1279
+            }
+          },
+          {
+            "m": 73,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 439
+            }
+          },
+          {
+            "m": 77,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 463
+            }
+          },
+          {
+            "m": 79,
+            "witness": {
+              "k": 1,
+              "l": 2,
+              "prime": 1423
+            }
+          },
+          {
+            "m": 83,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 167
+            }
+          },
+          {
+            "m": 85,
+            "witness": {
+              "k": 1,
+              "l": 2,
+              "prime": 1531
+            }
+          },
+          {
+            "m": 89,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 179
+            }
+          },
+          {
+            "m": 91,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 547
+            }
+          },
+          {
+            "m": 95,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 191
+            }
+          },
+          {
+            "m": 97,
+            "witness": {
+              "k": 1,
+              "l": 2,
+              "prime": 1747
+            }
+          },
+          {
+            "m": 101,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 607
+            }
+          },
+          {
+            "m": 103,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 619
+            }
+          },
+          {
+            "m": 107,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 643
+            }
+          },
+          {
+            "m": 109,
+            "witness": {
+              "k": 1,
+              "l": 4,
+              "prime": 17659
+            }
+          },
+          {
+            "m": 113,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 227
+            }
+          },
+          {
+            "m": 115,
+            "witness": {
+              "k": 1,
+              "l": 1,
+              "prime": 691
+            }
+          },
+          {
+            "m": 119,
+            "witness": {
+              "k": 1,
+              "l": 0,
+              "prime": 239
+            }
+          }
+        ],
+        "generated_utc": "2026-03-02T14:05:22.569Z"
+      }
+    }
+  ]
+}

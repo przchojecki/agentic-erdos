@@ -1,0 +1,77 @@
+{
+  "problem": "EP-60",
+  "normalized_utc": "2026-03-05T08:54:16.947Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch2_web_compute.md",
+        "content": "### EP-60\n- Quick literature check:\n  - Located published work proving the conjecture for infinitely many $n$ of special form (and related 2023 cycle-count papers).\n- Finite compute signal:\n  - At small exact-table points $n\\le 39$, random search at $\\mathrm{ex}(n;C_4)+1$ edges still gives substantial minimum $C_4$ counts (e.g. $28$ at $n=20$, $115$ at $n=36$).\n- Interpretation:\n  - Finite supersaturation signal is strong; global $\\gg\\sqrt{n}$ lower bound for all $n$ remains open."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch2_quick_compute.mjs",
+        "heading": "small-n random search at ex(n,C4)+1 edge level.",
+        "content": "// EP-60: small-n random search at ex(n,C4)+1 edge level.\n{\n  // ex(n,C4) for n=1..39 from OEIS A006855 small exact values.\n  const exSmall = [\n    0, // n=1\n    1, 3, 4, 6, 7, 9, 11, 13, 16, 18, 21, 24, 27, 30, 33, 36, 39, 42, 46,\n    50, 52, 56, 59, 63, 67, 71, 76, 80, 85, 90, 92, 96, 102, 106, 110, 113, 117, 122,\n  ];\n  const nList = [20, 24, 28, 32, 36];\n  const rows = [];\n  for (const n of nList) {\n    const ex = exSmall[n - 1];\n    const m = ex + 1;\n    let best = Infinity;\n    const trials = 320;\n    for (let t = 0; t < trials; t += 1) {\n      const g = randomGraphWithEdges(n, m, rng);\n      const c4 = countC4InGraph(n, g);\n      if (c4 < best) best = c4;\n    }\n    rows.push({\n      n,\n      ex_n_C4_assumed_exact_small_n: ex,\n      tested_edges: m,\n      random_trials: trials,\n      min_C4_found: best,\n      min_C4_over_sqrt_n: Number((best / Math.sqrt(n)).toFixed(6)),\n    });\n  }\n  out.results.ep60 = {\n    description: 'Small-n random lower-envelope search for C4 counts at ex(n,C4)+1 edges.',\n    rows,\n    caveat: 'Uses known small exact ex(n,C4) table values only for n<=39.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch2_quick_compute.json",
+        "key": "ep60",
+        "container_meta": {
+          "script": "harder_batch2_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:51:17.566Z"
+        },
+        "data": {
+          "description": "Small-n random lower-envelope search for C4 counts at ex(n,C4)+1 edges.",
+          "rows": [
+            {
+              "n": 20,
+              "ex_n_C4_assumed_exact_small_n": 46,
+              "tested_edges": 47,
+              "random_trials": 320,
+              "min_C4_found": 28,
+              "min_C4_over_sqrt_n": 6.26099
+            },
+            {
+              "n": 24,
+              "ex_n_C4_assumed_exact_small_n": 59,
+              "tested_edges": 60,
+              "random_trials": 320,
+              "min_C4_found": 37,
+              "min_C4_over_sqrt_n": 7.552593
+            },
+            {
+              "n": 28,
+              "ex_n_C4_assumed_exact_small_n": 76,
+              "tested_edges": 77,
+              "random_trials": 320,
+              "min_C4_found": 60,
+              "min_C4_over_sqrt_n": 11.338934
+            },
+            {
+              "n": 32,
+              "ex_n_C4_assumed_exact_small_n": 92,
+              "tested_edges": 93,
+              "random_trials": 320,
+              "min_C4_found": 83,
+              "min_C4_over_sqrt_n": 14.672466
+            },
+            {
+              "n": 36,
+              "ex_n_C4_assumed_exact_small_n": 110,
+              "tested_edges": 111,
+              "random_trials": 320,
+              "min_C4_found": 115,
+              "min_C4_over_sqrt_n": 19.166667
+            }
+          ],
+          "caveat": "Uses known small exact ex(n,C4) table values only for n<=39."
+        }
+      }
+    ]
+  }
+}

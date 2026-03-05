@@ -1,0 +1,72 @@
+{
+  "problem": "EP-1011",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-1011\n- Quick literature check:\n  - Still open in full generality; recent updates sharpen `f_4(n)` substantially (including corrected exact formula for large `n`).\n- Finite compute signal:\n  - Random triangle-free process search found small `n` examples with `chi>=4` and edges up to `45` at `n=16`; none found at `n=11,12` in sampled runs.\n- Interpretation:\n  - Small finite search confirms feasibility of relatively dense triangle-free `4`-chromatic graphs, but is not close to asymptotic threshold determination."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "sampled max edges of triangle-free 4-chromatic graphs for small n.",
+        "content": "// EP-1011: sampled max edges of triangle-free 4-chromatic graphs for small n.\n{\n  const rng = makeRng(20260304 ^ 1011);\n  const rows = [];\n  for (const n of [11, 12, 13, 14, 15, 16]) {\n    let bestM = -1;\n    let sampleCount = 0;\n    for (let t = 0; t < 120; t += 1) {\n      const G = triangleFreeProcess(n, rng);\n      const chi = chromaticNumberDSATUR(graphToAdjLists(G));\n      if (chi >= 4) {\n        sampleCount += 1;\n        if (G.m > bestM) bestM = G.m;\n      }\n    }\n\n    rows.push({\n      n,\n      max_edges_seen_with_triangle_free_and_chi_ge_4: bestM,\n      sampled_graphs_with_chi_ge_4: sampleCount,\n      rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6: Math.floor(((n - 3) * (n - 3)) / 4) + 6,\n    });\n  }\n\n  out.results.ep1011 = {\n    description: 'Finite random triangle-free process search for dense chi>=4 graphs at small n.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep1011",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Finite random triangle-free process search for dense chi>=4 graphs at small n.",
+          "rows": [
+            {
+              "n": 11,
+              "max_edges_seen_with_triangle_free_and_chi_ge_4": -1,
+              "sampled_graphs_with_chi_ge_4": 0,
+              "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 22
+            },
+            {
+              "n": 12,
+              "max_edges_seen_with_triangle_free_and_chi_ge_4": -1,
+              "sampled_graphs_with_chi_ge_4": 0,
+              "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 26
+            },
+            {
+              "n": 13,
+              "max_edges_seen_with_triangle_free_and_chi_ge_4": 30,
+              "sampled_graphs_with_chi_ge_4": 1,
+              "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 31
+            },
+            {
+              "n": 14,
+              "max_edges_seen_with_triangle_free_and_chi_ge_4": 34,
+              "sampled_graphs_with_chi_ge_4": 5,
+              "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 36
+            },
+            {
+              "n": 15,
+              "max_edges_seen_with_triangle_free_and_chi_ge_4": 40,
+              "sampled_graphs_with_chi_ge_4": 9,
+              "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 42
+            },
+            {
+              "n": 16,
+              "max_edges_seen_with_triangle_free_and_chi_ge_4": 45,
+              "sampled_graphs_with_chi_ge_4": 12,
+              "rwwy24_formula_floor_n_minus_3_sq_over_4_plus_6": 48
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

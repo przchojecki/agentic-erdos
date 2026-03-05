@@ -1,0 +1,171 @@
+{
+  "problem": "EP-1017",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-1017\n- Quick literature check:\n  - Open for the sharpened `k>n^2/4` question; page records complete `K_4`-free additive-triangle result (Gyori--Keszegh 2017).\n- Finite compute signal:\n  - In explicit `K_4`-free constructions with `e = floor(n^2/4)+q`, greedy edge-disjoint triangle packing reached at least `q` in tested cases.\n- Interpretation:\n  - Finite construction checks align with the known `K_4`-free phenomenon, without resolving the full clique-partition function."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "edge-disjoint triangle packing in K4-free graphs above n^2/4 via explicit constructions.",
+        "content": "// EP-1017: edge-disjoint triangle packing in K4-free graphs above n^2/4 via explicit constructions.\n{\n  const rng = makeRng(20260304 ^ 1017);\n  const rows = [];\n  for (const n of [20, 26, 32]) {\n    const base = Math.floor((n * n) / 4);\n    for (const q of [1, 2, 3, 4, 5]) {\n      const G = buildBipartitePlusInternalEdges(n, q, rng);\n      const { best, triangle_count } = greedyEdgeDisjointTrianglePacking(G.adj, rng, 60);\n      rows.push({\n        n,\n        edges: G.m,\n        floor_n2_over_4: base,\n        q_above_threshold: G.m - base,\n        total_triangles_in_graph: triangle_count,\n        best_greedy_edge_disjoint_triangles_found: best,\n        verifies_best_ge_q_in_greedy_trials: best >= q,\n      });\n    }\n  }\n\n  out.results.ep1017 = {\n    description: 'Finite exact packing checks for K4-free constructions with edges floor(n^2/4)+q.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep1017",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Finite exact packing checks for K4-free constructions with edges floor(n^2/4)+q.",
+          "rows": [
+            {
+              "n": 20,
+              "edges": 101,
+              "floor_n2_over_4": 100,
+              "q_above_threshold": 1,
+              "total_triangles_in_graph": 10,
+              "best_greedy_edge_disjoint_triangles_found": 1,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 20,
+              "edges": 102,
+              "floor_n2_over_4": 100,
+              "q_above_threshold": 2,
+              "total_triangles_in_graph": 20,
+              "best_greedy_edge_disjoint_triangles_found": 2,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 20,
+              "edges": 103,
+              "floor_n2_over_4": 100,
+              "q_above_threshold": 3,
+              "total_triangles_in_graph": 30,
+              "best_greedy_edge_disjoint_triangles_found": 3,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 20,
+              "edges": 104,
+              "floor_n2_over_4": 100,
+              "q_above_threshold": 4,
+              "total_triangles_in_graph": 40,
+              "best_greedy_edge_disjoint_triangles_found": 4,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 20,
+              "edges": 105,
+              "floor_n2_over_4": 100,
+              "q_above_threshold": 5,
+              "total_triangles_in_graph": 50,
+              "best_greedy_edge_disjoint_triangles_found": 5,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 26,
+              "edges": 170,
+              "floor_n2_over_4": 169,
+              "q_above_threshold": 1,
+              "total_triangles_in_graph": 13,
+              "best_greedy_edge_disjoint_triangles_found": 1,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 26,
+              "edges": 171,
+              "floor_n2_over_4": 169,
+              "q_above_threshold": 2,
+              "total_triangles_in_graph": 26,
+              "best_greedy_edge_disjoint_triangles_found": 2,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 26,
+              "edges": 172,
+              "floor_n2_over_4": 169,
+              "q_above_threshold": 3,
+              "total_triangles_in_graph": 39,
+              "best_greedy_edge_disjoint_triangles_found": 3,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 26,
+              "edges": 173,
+              "floor_n2_over_4": 169,
+              "q_above_threshold": 4,
+              "total_triangles_in_graph": 52,
+              "best_greedy_edge_disjoint_triangles_found": 4,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 26,
+              "edges": 174,
+              "floor_n2_over_4": 169,
+              "q_above_threshold": 5,
+              "total_triangles_in_graph": 65,
+              "best_greedy_edge_disjoint_triangles_found": 5,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 32,
+              "edges": 257,
+              "floor_n2_over_4": 256,
+              "q_above_threshold": 1,
+              "total_triangles_in_graph": 16,
+              "best_greedy_edge_disjoint_triangles_found": 1,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 32,
+              "edges": 258,
+              "floor_n2_over_4": 256,
+              "q_above_threshold": 2,
+              "total_triangles_in_graph": 32,
+              "best_greedy_edge_disjoint_triangles_found": 2,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 32,
+              "edges": 259,
+              "floor_n2_over_4": 256,
+              "q_above_threshold": 3,
+              "total_triangles_in_graph": 48,
+              "best_greedy_edge_disjoint_triangles_found": 3,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 32,
+              "edges": 260,
+              "floor_n2_over_4": 256,
+              "q_above_threshold": 4,
+              "total_triangles_in_graph": 64,
+              "best_greedy_edge_disjoint_triangles_found": 4,
+              "verifies_best_ge_q_in_greedy_trials": true
+            },
+            {
+              "n": 32,
+              "edges": 261,
+              "floor_n2_over_4": 256,
+              "q_above_threshold": 5,
+              "total_triangles_in_graph": 80,
+              "best_greedy_edge_disjoint_triangles_found": 5,
+              "verifies_best_ge_q_in_greedy_trials": true
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

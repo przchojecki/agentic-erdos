@@ -1,0 +1,58 @@
+{
+  "problem": "EP-1039",
+  "normalized_utc": "2026-03-05T08:54:16.972Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch22_web_compute.md",
+        "content": "### EP-1039\n- Quick literature check:\n  - Open; latest listed progress (2025) improves lower bound to about `1/(n*sqrt(log n))`, still short of the target `1/n`.\n- Finite compute signal:\n  - Coarse grid lemniscate estimates for `z^n-1` gave `n*rho` around `1.21..1.33` for `n=8,12,16`.\n- Interpretation:\n  - Finite numerics are compatible with `rho` on `1/n`-scale in canonical examples; this does not settle uniform lower bounds over all root configurations.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/970\n  - https://www.erdosproblems.com/978\n  - https://www.erdosproblems.com/986\n  - https://www.erdosproblems.com/997\n  - https://www.erdosproblems.com/1005\n  - https://www.erdosproblems.com/1011\n  - https://www.erdosproblems.com/1016\n  - https://www.erdosproblems.com/1017\n  - https://www.erdosproblems.com/1021\n  - https://www.erdosproblems.com/1039"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch22_quick_compute.mjs",
+        "heading": "grid-based radius estimates for largest discs in {|f|<1}.",
+        "content": "// EP-1039: grid-based radius estimates for largest discs in {|f|<1}.\n{\n  const rng = makeRng(20260304 ^ 1039);\n  const rows = [];\n\n  function rootsOnUnitCircle(n) {\n    const r = [];\n    for (let j = 0; j < n; j += 1) {\n      const ang = (2 * Math.PI * j) / n;\n      r.push([Math.cos(ang), Math.sin(ang)]);\n    }\n    return r;\n  }\n\n  function randomRootsInUnitDisk(n) {\n    const roots = [];\n    for (let i = 0; i < n; i += 1) {\n      const ang = 2 * Math.PI * rng();\n      const rad = Math.sqrt(rng());\n      roots.push([rad * Math.cos(ang), rad * Math.sin(ang)]);\n    }\n    return roots;\n  }\n\n  for (const n of [8, 12, 16]) {\n    const circ = rootsOnUnitCircle(n);\n    const rand = randomRootsInUnitDisk(n);\n    const e1 = estimateRhoByGrid(circ);\n    const e2 = estimateRhoByGrid(rand);\n\n    rows.push({\n      n,\n      circle_roots_rho_est: Number(e1.rho_est.toPrecision(7)),\n      circle_roots_n_times_rho_est: Number((n * e1.rho_est).toPrecision(7)),\n      random_roots_rho_est: Number(e2.rho_est.toPrecision(7)),\n      random_roots_n_times_rho_est: Number((n * e2.rho_est).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1039 = {\n    description: 'Finite grid-based geometric estimates for largest inscribed discs in polynomial lemniscate sublevel sets.',\n    rows,\n    caveat: 'These are coarse numerical estimates (grid + boundary sampling), not certified exact radii.',\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch22_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch22_quick_compute.json",
+        "key": "ep1039",
+        "container_meta": {
+          "script": "harder_batch22_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:34:53.027Z"
+        },
+        "data": {
+          "description": "Finite grid-based geometric estimates for largest inscribed discs in polynomial lemniscate sublevel sets.",
+          "rows": [
+            {
+              "n": 8,
+              "circle_roots_rho_est": 0.1515625,
+              "circle_roots_n_times_rho_est": 1.2125,
+              "random_roots_rho_est": 0.7984375,
+              "random_roots_n_times_rho_est": 6.3875
+            },
+            {
+              "n": 12,
+              "circle_roots_rho_est": 0.10625,
+              "circle_roots_n_times_rho_est": 1.275,
+              "random_roots_rho_est": 0.7984375,
+              "random_roots_n_times_rho_est": 9.58125
+            },
+            {
+              "n": 16,
+              "circle_roots_rho_est": 0.0828125,
+              "circle_roots_n_times_rho_est": 1.325,
+              "random_roots_rho_est": 0.7984375,
+              "random_roots_n_times_rho_est": 12.775
+            }
+          ],
+          "caveat": "These are coarse numerical estimates (grid + boundary sampling), not certified exact radii."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "problem": "EP-342",
+  "normalized_utc": "2026-03-05T08:54:16.957Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-342\n- Quick literature check:\n  - Ulam sequence remains open on density/periodicity/twin-gap style questions.\n- Finite compute signal:\n  - Generated 3500 terms of `U(1,2)` (last term `45132`); empirical density in `[1,X]` decreases from `0.125` (`X=1e3`) to `~0.0776` (`X=4e4`).\n  - Tail difference periodicity checks do not show a strong small-period signature.\n- Interpretation:\n  - Finite data is consistent with low-density irregular behavior and gives no sign of eventual strict periodicity."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "Ulam sequence (1,2) finite structural diagnostics.",
+        "content": "// EP-342: Ulam sequence (1,2) finite structural diagnostics.\n{\n  function ulam12(terms) {\n    const a = [1, 2];\n    while (a.length < terms) {\n      const n = a[a.length - 1];\n      let x = n + 1;\n      while (true) {\n        let cnt = 0;\n        let i = 0;\n        let j = a.length - 1;\n        while (i < j) {\n          const s = a[i] + a[j];\n          if (s < x) i += 1;\n          else if (s > x) j -= 1;\n          else {\n            cnt += 1;\n            if (cnt > 1) break;\n            i += 1;\n            j -= 1;\n          }\n        }\n        if (cnt === 1) {\n          a.push(x);\n          break;\n        }\n        x += 1;\n      }\n    }\n    return a;\n  }\n\n  const A = ulam12(3500);\n  const rows = [];\n  for (const X of [1000, 2000, 5000, 10000, 20000, 40000]) {\n    let c = 0;\n    for (const v of A) if (v <= X) c += 1;\n    rows.push({\n      X,\n      count_terms_le_X: c,\n      density: Number((c / X).toPrecision(6)),\n    });\n  }\n\n  let twinPairs = 0;\n  const setA = new Set(A);\n  for (const x of A) if (setA.has(x + 2)) twinPairs += 1;\n\n  const diffs = [];\n  for (let i = 1; i < A.length; i += 1) diffs.push(A[i] - A[i - 1]);\n  const tail = diffs.slice(-1200);\n  const periodRows = [];\n  for (const p of [2, 4, 6, 8, 10, 12, 16, 20]) {\n    let eq = 0;\n    let tot = 0;\n    for (let i = p; i < tail.length; i += 1) {\n      if (tail[i] === tail[i - p]) eq += 1;\n      tot += 1;\n    }\n    periodRows.push({\n      period: p,\n      tail_match_ratio: Number((eq / Math.max(1, tot)).toPrecision(6)),\n    });\n  }\n\n  out.results.ep342 = {\n    description: 'Finite density and gap-structure diagnostics for the Ulam (1,2) sequence.',\n    terms_generated: A.length,\n    last_term: A[A.length - 1],\n    twin_pair_count_in_prefix: twinPairs,\n    density_rows: rows,\n    periodicity_tail_rows: periodRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep342",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Finite density and gap-structure diagnostics for the Ulam (1,2) sequence.",
+          "terms_generated": 3500,
+          "last_term": 45132,
+          "twin_pair_count_in_prefix": 1244,
+          "density_rows": [
+            {
+              "X": 1000,
+              "count_terms_le_X": 125,
+              "density": 0.125
+            },
+            {
+              "X": 2000,
+              "count_terms_le_X": 216,
+              "density": 0.108
+            },
+            {
+              "X": 5000,
+              "count_terms_le_X": 451,
+              "density": 0.0902
+            },
+            {
+              "X": 10000,
+              "count_terms_le_X": 827,
+              "density": 0.0827
+            },
+            {
+              "X": 20000,
+              "count_terms_le_X": 1592,
+              "density": 0.0796
+            },
+            {
+              "X": 40000,
+              "count_terms_le_X": 3103,
+              "density": 0.077575
+            }
+          ],
+          "periodicity_tail_rows": [
+            {
+              "period": 2,
+              "tail_match_ratio": 0.19616
+            },
+            {
+              "period": 4,
+              "tail_match_ratio": 0.141304
+            },
+            {
+              "period": 6,
+              "tail_match_ratio": 0.172529
+            },
+            {
+              "period": 8,
+              "tail_match_ratio": 0.151846
+            },
+            {
+              "period": 10,
+              "tail_match_ratio": 0.164706
+            },
+            {
+              "period": 12,
+              "tail_match_ratio": 0.183502
+            },
+            {
+              "period": 16,
+              "tail_match_ratio": 0.169764
+            },
+            {
+              "period": 20,
+              "tail_match_ratio": 0.179661
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

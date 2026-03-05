@@ -1,0 +1,141 @@
+{
+  "problem": "EP-450",
+  "normalized_utc": "2026-03-05T08:54:16.960Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch12_web_compute.md",
+        "content": "### EP-450\n- Quick literature check:\n  - Ford (2008) distribution results drive current understanding; quantifier interpretation in the original question remains delicate.\n- Finite compute signal:\n  - For tested `n` and `y`, interval densities of numbers having a divisor in `(n,2n)` remain bounded away from `0` uniformly over scanned `x` windows.\n- Interpretation:\n  - Empirics align with the idea that demanding very small density for all `x` is often impossible in broad parameter regimes."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch12_quick_compute.mjs",
+        "heading": "interval densities of integers having a divisor in (n,2n).",
+        "content": "// EP-450: interval densities of integers having a divisor in (n,2n).\n{\n  function buildHasDiv(N, n) {\n    const arr = new Uint8Array(N + 1);\n    for (let d = n + 1; d <= 2 * n - 1; d += 1) {\n      for (let m = d; m <= N; m += d) arr[m] = 1;\n    }\n    return arr;\n  }\n\n  function prefix(arr) {\n    const p = new Uint32Array(arr.length);\n    for (let i = 1; i < arr.length; i += 1) p[i] = p[i - 1] + arr[i];\n    return p;\n  }\n\n  const rows = [];\n  for (const n of [120, 300, 700]) {\n    const YMAX = 24 * n;\n    const XMAX = 200000;\n    const arr = buildHasDiv(XMAX + YMAX + 5, n);\n    const prefArr = prefix(arr);\n\n    for (const y of [2 * n, 4 * n, 8 * n, 16 * n, 24 * n]) {\n      let minD = 1;\n      let maxD = 0;\n      let avgD = 0;\n      let cnt = 0;\n      for (let x = 0; x <= XMAX; x += 1) {\n        const c = prefArr[x + y] - prefArr[x];\n        const d = c / y;\n        if (d < minD) minD = d;\n        if (d > maxD) maxD = d;\n        avgD += d;\n        cnt += 1;\n      }\n      rows.push({\n        n,\n        y,\n        min_density_over_x: Number(minD.toPrecision(6)),\n        max_density_over_x: Number(maxD.toPrecision(6)),\n        mean_density_over_x: Number((avgD / cnt).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep450 = {\n    description: 'Finite x-window density profile for having a divisor in (n,2n).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch12_quick_compute.json",
+        "key": "ep450",
+        "container_meta": {
+          "script": "harder_batch12_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:42:39.714Z"
+        },
+        "data": {
+          "description": "Finite x-window density profile for having a divisor in (n,2n).",
+          "rows": [
+            {
+              "n": 120,
+              "y": 240,
+              "min_density_over_x": 0.245833,
+              "max_density_over_x": 0.745833,
+              "mean_density_over_x": 0.362071
+            },
+            {
+              "n": 120,
+              "y": 480,
+              "min_density_over_x": 0.258333,
+              "max_density_over_x": 0.664583,
+              "mean_density_over_x": 0.36191
+            },
+            {
+              "n": 120,
+              "y": 960,
+              "min_density_over_x": 0.265625,
+              "max_density_over_x": 0.594792,
+              "mean_density_over_x": 0.36167
+            },
+            {
+              "n": 120,
+              "y": 1920,
+              "min_density_over_x": 0.269792,
+              "max_density_over_x": 0.535937,
+              "mean_density_over_x": 0.361323
+            },
+            {
+              "n": 120,
+              "y": 2880,
+              "min_density_over_x": 0.272222,
+              "max_density_over_x": 0.511806,
+              "mean_density_over_x": 0.36105
+            },
+            {
+              "n": 300,
+              "y": 600,
+              "min_density_over_x": 0.238333,
+              "max_density_over_x": 0.748333,
+              "mean_density_over_x": 0.338499
+            },
+            {
+              "n": 300,
+              "y": 1200,
+              "min_density_over_x": 0.249167,
+              "max_density_over_x": 0.665833,
+              "mean_density_over_x": 0.33794
+            },
+            {
+              "n": 300,
+              "y": 2400,
+              "min_density_over_x": 0.252917,
+              "max_density_over_x": 0.594167,
+              "mean_density_over_x": 0.337013
+            },
+            {
+              "n": 300,
+              "y": 4800,
+              "min_density_over_x": 0.255417,
+              "max_density_over_x": 0.535417,
+              "mean_density_over_x": 0.335539
+            },
+            {
+              "n": 300,
+              "y": 7200,
+              "min_density_over_x": 0.257222,
+              "max_density_over_x": 0.509167,
+              "mean_density_over_x": 0.334286
+            },
+            {
+              "n": 700,
+              "y": 1400,
+              "min_density_over_x": 0.358571,
+              "max_density_over_x": 0.749286,
+              "mean_density_over_x": 0.402683
+            },
+            {
+              "n": 700,
+              "y": 2800,
+              "min_density_over_x": 0.363214,
+              "max_density_over_x": 0.666071,
+              "mean_density_over_x": 0.401711
+            },
+            {
+              "n": 700,
+              "y": 5600,
+              "min_density_over_x": 0.365179,
+              "max_density_over_x": 0.594821,
+              "mean_density_over_x": 0.400217
+            },
+            {
+              "n": 700,
+              "y": 11200,
+              "min_density_over_x": 0.365893,
+              "max_density_over_x": 0.534821,
+              "mean_density_over_x": 0.398075
+            },
+            {
+              "n": 700,
+              "y": 16800,
+              "min_density_over_x": 0.365476,
+              "max_density_over_x": 0.508155,
+              "mean_density_over_x": 0.396432
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "problem": "EP-1085",
+  "normalized_utc": "2026-03-05T08:54:16.975Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch25_web_compute.md",
+        "content": "### EP-1085\n- Quick literature check:\n  - Page is open (last edited 17 October 2025); core difficult cases remain `d=2` and `d=3`.\n- Finite compute signal:\n  - Grid constructions in `d=2,3` show the expected polynomial scaling profiles for unit-distance counts (with declining normalized constants as side length grows).\n- Interpretation:\n  - Finite lattice behavior is consistent with classical exponent frameworks but does not improve extremal bounds."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch25_quick_compute.mjs",
+        "heading": "finite construction profile for unit-distance pair counts.",
+        "content": "// EP-1085: finite construction profile for unit-distance pair counts.\n{\n  const rows2 = [];\n  for (let t = 4; t <= 20; t += 4) {\n    const n = t * t;\n    const unitPairs = 2 * t * (t - 1);\n    rows2.push({\n      t,\n      n,\n      unit_pairs_grid_2d: unitPairs,\n      pairs_over_n_4_over_3: Number((unitPairs / (n ** (4 / 3))).toPrecision(7)),\n      pairs_over_n_log_n: Number((unitPairs / (n * Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  const rows3 = [];\n  for (let t = 3; t <= 11; t += 2) {\n    const n = t ** 3;\n    const unitPairs = 3 * t * t * (t - 1);\n    rows3.push({\n      t,\n      n,\n      unit_pairs_grid_3d: unitPairs,\n      pairs_over_n_4_over_3: Number((unitPairs / (n ** (4 / 3))).toPrecision(7)),\n      pairs_over_n_3_over_2: Number((unitPairs / (n ** (3 / 2))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1085 = {\n    description: 'Finite lattice-construction profile for unit-distance pair counts in d=2 and d=3.',\n    rows_2d_grid: rows2,\n    rows_3d_grid: rows3,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch25_quick_compute.json",
+        "key": "ep1085",
+        "container_meta": {
+          "script": "harder_batch25_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:52:16.569Z"
+        },
+        "data": {
+          "description": "Finite lattice-construction profile for unit-distance pair counts in d=2 and d=3.",
+          "rows_2d_grid": [
+            {
+              "t": 4,
+              "n": 16,
+              "unit_pairs_grid_2d": 24,
+              "pairs_over_n_4_over_3": 0.5952754,
+              "pairs_over_n_log_n": 0.5410106
+            },
+            {
+              "t": 8,
+              "n": 64,
+              "unit_pairs_grid_2d": 112,
+              "pairs_over_n_4_over_3": 0.4375,
+              "pairs_over_n_log_n": 0.4207861
+            },
+            {
+              "t": 12,
+              "n": 144,
+              "unit_pairs_grid_2d": 264,
+              "pairs_over_n_4_over_3": 0.3497738,
+              "pairs_over_n_log_n": 0.3688938
+            },
+            {
+              "t": 16,
+              "n": 256,
+              "unit_pairs_grid_2d": 480,
+              "pairs_over_n_4_over_3": 0.295294,
+              "pairs_over_n_log_n": 0.3381317
+            },
+            {
+              "t": 20,
+              "n": 400,
+              "unit_pairs_grid_2d": 760,
+              "pairs_over_n_4_over_3": 0.2578697,
+              "pairs_over_n_log_n": 0.3171178
+            }
+          ],
+          "rows_3d_grid": [
+            {
+              "t": 3,
+              "n": 27,
+              "unit_pairs_grid_3d": 54,
+              "pairs_over_n_4_over_3": 0.6666667,
+              "pairs_over_n_3_over_2": 0.3849002
+            },
+            {
+              "t": 5,
+              "n": 125,
+              "unit_pairs_grid_3d": 300,
+              "pairs_over_n_4_over_3": 0.48,
+              "pairs_over_n_3_over_2": 0.2146625
+            },
+            {
+              "t": 7,
+              "n": 343,
+              "unit_pairs_grid_3d": 882,
+              "pairs_over_n_4_over_3": 0.3673469,
+              "pairs_over_n_3_over_2": 0.1388441
+            },
+            {
+              "t": 9,
+              "n": 729,
+              "unit_pairs_grid_3d": 1944,
+              "pairs_over_n_4_over_3": 0.2962963,
+              "pairs_over_n_3_over_2": 0.09876543
+            },
+            {
+              "t": 11,
+              "n": 1331,
+              "unit_pairs_grid_3d": 3630,
+              "pairs_over_n_4_over_3": 0.2479339,
+              "pairs_over_n_3_over_2": 0.07475488
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

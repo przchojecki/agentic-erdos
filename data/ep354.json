@@ -1,0 +1,135 @@
+{
+  "problem": "EP-354",
+  "normalized_utc": "2026-03-05T08:54:16.957Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch10_web_compute.md",
+        "content": "### EP-354\n- Quick literature check:\n  - Newer results refine negative regimes near power-of-two-related pairs (`\\beta=2^k\\alpha`), while broad completeness remains open.\n- Finite compute signal:\n  - For `(\\alpha,\\beta)=(\\sqrt2,\\sqrt3)`, contiguous subset-sum reach from `1` grows rapidly with truncation depth.\n  - For a power-of-two-related case `(1.5,6)`, reach stays essentially stuck at `1` in tested truncations.\n- Interpretation:\n  - Finite behavior supports the structural distinction between generic irrational-ratio cases and known problematic power-of-two-related regimes."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch10_quick_compute.mjs",
+        "heading": "finite completeness proxy for floor(alpha*2^k), floor(beta*2^k).",
+        "content": "// EP-354: finite completeness proxy for floor(alpha*2^k), floor(beta*2^k).\n{\n  function floorSeq(alpha, K) {\n    const arr = [];\n    for (let k = 0; k <= K; k += 1) arr.push(Math.floor(alpha * (2 ** k)));\n    return arr;\n  }\n\n  function contiguousReachFromMultiset(values) {\n    const v = [...values].filter((x) => x > 0).sort((a, b) => a - b);\n    let reach = 0;\n    for (const x of v) {\n      if (x > reach + 1) break;\n      reach += x;\n    }\n    return reach;\n  }\n\n  const cases = [\n    { name: 'irr_ratio_sqrt2_sqrt3', alpha: Math.SQRT2, beta: Math.sqrt(3) },\n    { name: 'irr_ratio_pi_e', alpha: Math.PI, beta: Math.E },\n    { name: 'power2_related_alpha1.5_beta6', alpha: 1.5, beta: 6.0 },\n  ];\n\n  const rows = [];\n  for (const c of cases) {\n    const row = { case: c.name, rows: [] };\n    for (const K of [10, 12, 14, 16]) {\n      const s1 = floorSeq(c.alpha, K);\n      const s2 = floorSeq(c.beta, K);\n      const reach = contiguousReachFromMultiset([...s1, ...s2]);\n      row.rows.push({\n        K,\n        terms_total: s1.length + s2.length,\n        min_term: Math.min(...s1, ...s2),\n        max_term: Math.max(...s1, ...s2),\n        contiguous_reach_from_1: reach,\n      });\n    }\n    rows.push(row);\n  }\n\n  out.results.ep354 = {\n    description: 'Contiguous subset-sum reach proxy for two floor-doubling sequences.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch10_quick_compute.json",
+        "key": "ep354",
+        "container_meta": {
+          "script": "harder_batch10_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:21:00.337Z"
+        },
+        "data": {
+          "description": "Contiguous subset-sum reach proxy for two floor-doubling sequences.",
+          "rows": [
+            {
+              "case": "irr_ratio_sqrt2_sqrt3",
+              "rows": [
+                {
+                  "K": 10,
+                  "terms_total": 22,
+                  "min_term": 1,
+                  "max_term": 1773,
+                  "contiguous_reach_from_1": 6429
+                },
+                {
+                  "K": 12,
+                  "terms_total": 26,
+                  "min_term": 1,
+                  "max_term": 7094,
+                  "contiguous_reach_from_1": 25758
+                },
+                {
+                  "K": 14,
+                  "terms_total": 30,
+                  "min_term": 1,
+                  "max_term": 28377,
+                  "contiguous_reach_from_1": 103078
+                },
+                {
+                  "K": 16,
+                  "terms_total": 34,
+                  "min_term": 1,
+                  "max_term": 113511,
+                  "contiguous_reach_from_1": 412365
+                }
+              ]
+            },
+            {
+              "case": "irr_ratio_pi_e",
+              "rows": [
+                {
+                  "K": 10,
+                  "terms_total": 22,
+                  "min_term": 2,
+                  "max_term": 3216,
+                  "contiguous_reach_from_1": 0
+                },
+                {
+                  "K": 12,
+                  "terms_total": 26,
+                  "min_term": 2,
+                  "max_term": 12867,
+                  "contiguous_reach_from_1": 0
+                },
+                {
+                  "K": 14,
+                  "terms_total": 30,
+                  "min_term": 2,
+                  "max_term": 51471,
+                  "contiguous_reach_from_1": 0
+                },
+                {
+                  "K": 16,
+                  "terms_total": 34,
+                  "min_term": 2,
+                  "max_term": 205887,
+                  "contiguous_reach_from_1": 0
+                }
+              ]
+            },
+            {
+              "case": "power2_related_alpha1.5_beta6",
+              "rows": [
+                {
+                  "K": 10,
+                  "terms_total": 22,
+                  "min_term": 1,
+                  "max_term": 6144,
+                  "contiguous_reach_from_1": 1
+                },
+                {
+                  "K": 12,
+                  "terms_total": 26,
+                  "min_term": 1,
+                  "max_term": 24576,
+                  "contiguous_reach_from_1": 1
+                },
+                {
+                  "K": 14,
+                  "terms_total": 30,
+                  "min_term": 1,
+                  "max_term": 98304,
+                  "contiguous_reach_from_1": 1
+                },
+                {
+                  "K": 16,
+                  "terms_total": 34,
+                  "min_term": 1,
+                  "max_term": 393216,
+                  "contiguous_reach_from_1": 1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

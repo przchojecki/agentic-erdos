@@ -1,0 +1,109 @@
+{
+  "problem": "EP-840",
+  "normalized_utc": "2026-03-05T08:54:16.968Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch19_web_compute.md",
+        "content": "### EP-840\n- Quick literature check:\n  - Open; classical `N^{1/2}`-scale bounds remain the main asymptotic frame in quick scan.\n- Finite compute signal:\n  - Greedy quasi-Sidon constructions (`|A+A|` ratio thresholds `0.9,0.95,0.98`) give `|A|/sqrt(N)` around `0.94..1.48` in tested `N`.\n- Interpretation:\n  - Finite behavior matches `sqrt(N)` growth heuristic; no asymptotic constant improvement."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch19_quick_compute.mjs",
+        "heading": "quasi-Sidon greedy profile.",
+        "content": "// EP-840: quasi-Sidon greedy profile.\n{\n  const rng = makeRng(20260304 ^ 1903);\n\n  function greedyQuasiSidon(N, tau, trials) {\n    let best = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const A = [];\n      const sums = new Map();\n      const vals = Array.from({ length: N }, (_, i) => i + 1);\n      shuffle(vals, rng);\n\n      function currentRatio(nextWith = null) {\n        const m = A.length + (nextWith === null ? 0 : 1);\n        if (m < 2) return 1;\n        const bin = (m * (m - 1)) / 2;\n        const distinct = sums.size + (nextWith === null ? 0 : nextWith);\n        return distinct / bin;\n      }\n\n      for (const x of vals) {\n        let newDistinct = 0;\n        const touched = [];\n\n        // sums with existing elements (unordered pair i<j proxy; also include x+x to be conservative for A+A)\n        for (const a of A) {\n          const s = a + x;\n          if (!sums.has(s)) {\n            newDistinct += 1;\n            touched.push(s);\n          }\n        }\n        const d = x + x;\n        if (!sums.has(d) && !touched.includes(d)) {\n          newDistinct += 1;\n          touched.push(d);\n        }\n\n        if (currentRatio(newDistinct) >= tau) {\n          A.push(x);\n          for (const s of touched) sums.set(s, 1);\n        }\n      }\n\n      if (A.length > best) best = A.length;\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const N of [200, 500, 1000, 2000]) {\n    for (const tau of [0.9, 0.95, 0.98]) {\n      const best = greedyQuasiSidon(N, tau, 25);\n      rows.push({\n        N,\n        tau_ratio_threshold: tau,\n        best_size_found: best,\n        best_over_sqrtN: Number((best / Math.sqrt(N)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep840 = {\n    description: 'Greedy finite profile for maximal quasi-Sidon subsets under ratio thresholds.',\n    rows,\n    note: 'Local metadata has latest_reference_year=2097, likely a typo; web page indicates open status as of 2025 edits.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch19_quick_compute.json",
+        "key": "ep840",
+        "container_meta": {
+          "script": "harder_batch19_quick_compute.mjs",
+          "generated_utc": "2026-03-04T08:37:57.048Z"
+        },
+        "data": {
+          "description": "Greedy finite profile for maximal quasi-Sidon subsets under ratio thresholds.",
+          "rows": [
+            {
+              "N": 200,
+              "tau_ratio_threshold": 0.9,
+              "best_size_found": 21,
+              "best_over_sqrtN": 1.484924
+            },
+            {
+              "N": 200,
+              "tau_ratio_threshold": 0.95,
+              "best_size_found": 19,
+              "best_over_sqrtN": 1.343503
+            },
+            {
+              "N": 200,
+              "tau_ratio_threshold": 0.98,
+              "best_size_found": 18,
+              "best_over_sqrtN": 1.272792
+            },
+            {
+              "N": 500,
+              "tau_ratio_threshold": 0.9,
+              "best_size_found": 30,
+              "best_over_sqrtN": 1.341641
+            },
+            {
+              "N": 500,
+              "tau_ratio_threshold": 0.95,
+              "best_size_found": 26,
+              "best_over_sqrtN": 1.162755
+            },
+            {
+              "N": 500,
+              "tau_ratio_threshold": 0.98,
+              "best_size_found": 25,
+              "best_over_sqrtN": 1.118034
+            },
+            {
+              "N": 1000,
+              "tau_ratio_threshold": 0.9,
+              "best_size_found": 40,
+              "best_over_sqrtN": 1.264911
+            },
+            {
+              "N": 1000,
+              "tau_ratio_threshold": 0.95,
+              "best_size_found": 35,
+              "best_over_sqrtN": 1.106797
+            },
+            {
+              "N": 1000,
+              "tau_ratio_threshold": 0.98,
+              "best_size_found": 33,
+              "best_over_sqrtN": 1.043552
+            },
+            {
+              "N": 2000,
+              "tau_ratio_threshold": 0.9,
+              "best_size_found": 52,
+              "best_over_sqrtN": 1.162755
+            },
+            {
+              "N": 2000,
+              "tau_ratio_threshold": 0.95,
+              "best_size_found": 45,
+              "best_over_sqrtN": 1.006231
+            },
+            {
+              "N": 2000,
+              "tau_ratio_threshold": 0.98,
+              "best_size_found": 42,
+              "best_over_sqrtN": 0.9391486
+            }
+          ],
+          "note": "Local metadata has latest_reference_year=2097, likely a typo; web page indicates open status as of 2025 edits."
+        }
+      }
+    ]
+  }
+}

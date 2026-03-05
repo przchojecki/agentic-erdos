@@ -1,0 +1,45 @@
+{
+  "problem": "EP-876",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep876_gap_less_than_n_backtrack.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep876_gap_less_than_n_backtrack.mjs",
+        "target_len": 20,
+        "a1_max": 50,
+        "a2_max": 300,
+        "max_next": 5000,
+        "found_full_length_prefix": true,
+        "longest_prefix_len_found": 20,
+        "best_prefix": [
+          4,
+          33,
+          34,
+          36,
+          39,
+          41,
+          42,
+          44,
+          47,
+          49,
+          50,
+          52,
+          55,
+          57,
+          58,
+          60,
+          63,
+          65,
+          66,
+          68
+        ],
+        "first_failure_next_index_guess": 3,
+        "interpretation": "failure to reach long prefix with gap<a_index is finite evidence against possibility but not a proof",
+        "timestamp_utc": "2026-03-02T09:42:03.558Z"
+      }
+    }
+  ]
+}

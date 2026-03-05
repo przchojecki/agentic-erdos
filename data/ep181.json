@@ -1,0 +1,94 @@
+{
+  "problem": "EP-181",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-181\n- Quick literature check:\n  - Current best upper bound remains sub-$2^{2n}$ but still far from linear-in-$2^n$ (Tikhomirov 2022 framework on page).\n- Finite compute signal:\n  - Bound-exponent table shows large remaining gap to the target $\\log_2 R(Q_n)=n+O(1)$ scale.\n  - As a small proxy, random colorings of $K_m$ almost surely contain monochromatic $C_4$ for $m\\ge6$.\n- Interpretation:\n  - Data is consistent with the conjectural direction but far from proving $R(Q_n)\\ll 2^n$."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "bound profile + finite Q2=C4 monochromatic proxy.",
+        "content": "// EP-181: bound profile + finite Q2=C4 monochromatic proxy.\n{\n  const c = 0.03656;\n  const boundRows = [];\n  for (const n of [4, 6, 8, 10, 12, 16]) {\n    const log2Upper = (2 - c) * n;\n    const log2Target = n;\n    boundRows.push({\n      n,\n      log2_upper_bound_tikhomirov_style: Number(log2Upper.toFixed(6)),\n      log2_linear_target_2_pow_n: log2Target,\n      ratio_exponent_log2_upper_over_target: Number((log2Upper - log2Target).toFixed(6)),\n    });\n  }\n\n  function randomColorK(m) {\n    const cmat = Array.from({ length: m }, () => new Uint8Array(m));\n    for (let i = 0; i < m; i += 1) {\n      for (let j = i + 1; j < m; j += 1) {\n        const c0 = rng() < 0.5 ? 0 : 1;\n        cmat[i][j] = c0;\n        cmat[j][i] = c0;\n      }\n    }\n    return cmat;\n  }\n\n  function hasMonoC4(cmat) {\n    const m = cmat.length;\n    for (let u = 0; u < m; u += 1) {\n      for (let v = u + 1; v < m; v += 1) {\n        let redCommon = 0;\n        let blueCommon = 0;\n        for (let w = 0; w < m; w += 1) {\n          if (w === u || w === v) continue;\n          if (cmat[u][w] === 1 && cmat[v][w] === 1) redCommon += 1;\n          if (cmat[u][w] === 0 && cmat[v][w] === 0) blueCommon += 1;\n          if (redCommon >= 2 || blueCommon >= 2) return true;\n        }\n      }\n    }\n    return false;\n  }\n\n  const proxyRows = [];\n  for (const m of [6, 8, 10, 12]) {\n    const trials = 400;\n    let hits = 0;\n    for (let t = 0; t < trials; t += 1) if (hasMonoC4(randomColorK(m))) hits += 1;\n    proxyRows.push({\n      m,\n      trials,\n      monochromatic_C4_found_rate: Number((hits / trials).toFixed(6)),\n    });\n  }\n\n  out.results.ep181 = {\n    description: 'Asymptotic-bound profile for R(Q_n) plus finite monochromatic C4 proxy.',\n    bound_rows: boundRows,\n    q2_proxy_rows: proxyRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep181",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Asymptotic-bound profile for R(Q_n) plus finite monochromatic C4 proxy.",
+          "bound_rows": [
+            {
+              "n": 4,
+              "log2_upper_bound_tikhomirov_style": 7.85376,
+              "log2_linear_target_2_pow_n": 4,
+              "ratio_exponent_log2_upper_over_target": 3.85376
+            },
+            {
+              "n": 6,
+              "log2_upper_bound_tikhomirov_style": 11.78064,
+              "log2_linear_target_2_pow_n": 6,
+              "ratio_exponent_log2_upper_over_target": 5.78064
+            },
+            {
+              "n": 8,
+              "log2_upper_bound_tikhomirov_style": 15.70752,
+              "log2_linear_target_2_pow_n": 8,
+              "ratio_exponent_log2_upper_over_target": 7.70752
+            },
+            {
+              "n": 10,
+              "log2_upper_bound_tikhomirov_style": 19.6344,
+              "log2_linear_target_2_pow_n": 10,
+              "ratio_exponent_log2_upper_over_target": 9.6344
+            },
+            {
+              "n": 12,
+              "log2_upper_bound_tikhomirov_style": 23.56128,
+              "log2_linear_target_2_pow_n": 12,
+              "ratio_exponent_log2_upper_over_target": 11.56128
+            },
+            {
+              "n": 16,
+              "log2_upper_bound_tikhomirov_style": 31.41504,
+              "log2_linear_target_2_pow_n": 16,
+              "ratio_exponent_log2_upper_over_target": 15.41504
+            }
+          ],
+          "q2_proxy_rows": [
+            {
+              "m": 6,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 8,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 10,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 12,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

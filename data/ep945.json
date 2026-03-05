@@ -1,0 +1,62 @@
+{
+  "problem": "EP-945",
+  "normalized_utc": "2026-03-05T08:54:16.971Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch21_web_compute.md",
+        "content": "### EP-945\n- Quick literature check:\n  - Still open; known bounds leave a large gap relative to polylog target.\n- Finite compute signal:\n  - Distinct-`\\tau` run proxy up to `x=2e6` reached length `11`, with `F(x)/\\log x` decreasing in sampled scales.\n- Interpretation:\n  - Finite behavior is mild and compatible with polylogarithmic-scale hypotheses, but far from proof-level evidence."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch21_quick_compute.mjs",
+        "heading": "longest run with distinct tau(n) values up to x.",
+        "content": "// EP-945: longest run with distinct tau(n) values up to x.\n{\n  const X = 2_000_000;\n  const tau = new Uint16Array(X + 1);\n  for (let d = 1; d <= X; d += 1) {\n    for (let m = d; m <= X; m += d) tau[m] += 1;\n  }\n\n  let maxTau = 0;\n  for (let i = 1; i <= X; i += 1) {\n    if (tau[i] > maxTau) maxTau = tau[i];\n  }\n  const lastPos = new Int32Array(maxTau + 1);\n  lastPos.fill(0);\n\n  let left = 1;\n  let best = 0;\n  const scales = new Set([10_000, 100_000, 500_000, 1_000_000, 2_000_000]);\n  const rows = [];\n\n  for (let i = 1; i <= X; i += 1) {\n    const t = tau[i];\n    if (lastPos[t] >= left) left = lastPos[t] + 1;\n    lastPos[t] = i;\n    const len = i - left + 1;\n    if (len > best) best = len;\n\n    if (scales.has(i)) {\n      rows.push({\n        x: i,\n        F_x_finite_proxy: best,\n        over_log_x: Number((best / Math.log(i)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep945 = {\n    description: 'Finite profile of maximal consecutive runs with pairwise distinct divisor counts.',\n    X,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch21_quick_compute.json",
+        "key": "ep945",
+        "container_meta": {
+          "script": "harder_batch21_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:09:50.566Z"
+        },
+        "data": {
+          "description": "Finite profile of maximal consecutive runs with pairwise distinct divisor counts.",
+          "X": 2000000,
+          "rows": [
+            {
+              "x": 10000,
+              "F_x_finite_proxy": 9,
+              "over_log_x": 0.9771626
+            },
+            {
+              "x": 100000,
+              "F_x_finite_proxy": 10,
+              "over_log_x": 0.868589
+            },
+            {
+              "x": 500000,
+              "F_x_finite_proxy": 10,
+              "over_log_x": 0.7620578
+            },
+            {
+              "x": 1000000,
+              "F_x_finite_proxy": 11,
+              "over_log_x": 0.7962066
+            },
+            {
+              "x": 2000000,
+              "F_x_finite_proxy": 11,
+              "over_log_x": 0.758168
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

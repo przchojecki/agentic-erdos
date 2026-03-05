@@ -1,0 +1,78 @@
+{
+  "problem": "EP-28",
+  "normalized_utc": "2026-03-05T08:54:16.937Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-28\n- Quick literature check:\n  - No direct post-2004 decisive result for this exact Erdos-Turan representation-growth form was identified quickly.\n  - Related modern bounded-representation variants exist.\n- Finite compute signal:\n  - Random finite proxies at $N=1000,2000$ reached coverage $\\ge 0.99$ with minimum observed peak representation counts $58$ and $112$, respectively.\n- Interpretation:\n  - In finite experiments, forcing near-full sumset coverage already pushes high multiplicities, aligned with the conjectural direction."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "near-cover random additive-basis proxies and max representation counts.",
+        "content": "// EP-28: near-cover random additive-basis proxies and max representation counts.\n{\n  const rng = makeRng(28032026);\n  const NList = [500, 1000, 2000];\n  const densities = [0.1, 0.13, 0.16, 0.2, 0.24];\n  const trials = 60;\n  const rows = [];\n\n  for (const N of NList) {\n    let bestCoverage = 0;\n    let minMax99 = null;\n    let minMax995 = null;\n    for (const d of densities) {\n      for (let t = 0; t < trials; t += 1) {\n        const A = [];\n        for (let x = 1; x <= N; x += 1) {\n          if (rng() < d) A.push(x);\n        }\n        if (A.length < 2) continue;\n        const r = new Uint16Array(2 * N + 1);\n        for (let i = 0; i < A.length; i += 1) {\n          const ai = A[i];\n          for (let j = 0; j < A.length; j += 1) {\n            r[ai + A[j]] += 1;\n          }\n        }\n        let covered = 0;\n        let maxR = 0;\n        for (let s = 2; s <= 2 * N; s += 1) {\n          if (r[s] > 0) covered += 1;\n          if (r[s] > maxR) maxR = r[s];\n        }\n        const cov = covered / (2 * N - 1);\n        if (cov > bestCoverage) bestCoverage = cov;\n        if (cov >= 0.99 && (minMax99 === null || maxR < minMax99)) minMax99 = maxR;\n        if (cov >= 0.995 && (minMax995 === null || maxR < minMax995)) minMax995 = maxR;\n      }\n    }\n    rows.push({\n      N,\n      densities,\n      trials_per_density: trials,\n      best_coverage_found: Number(bestCoverage.toFixed(6)),\n      min_observed_max_rep_if_coverage_ge_0_99: minMax99,\n      min_observed_max_rep_if_coverage_ge_0_995: minMax995,\n    });\n  }\n\n  out.results.ep28 = {\n    description: 'Random finite proxies: near-full sumset coverage versus peak representation multiplicity.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep28",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Random finite proxies: near-full sumset coverage versus peak representation multiplicity.",
+          "rows": [
+            {
+              "N": 500,
+              "densities": [
+                0.1,
+                0.13,
+                0.16,
+                0.2,
+                0.24
+              ],
+              "trials_per_density": 60,
+              "best_coverage_found": 0.985986,
+              "min_observed_max_rep_if_coverage_ge_0_99": null,
+              "min_observed_max_rep_if_coverage_ge_0_995": null
+            },
+            {
+              "N": 1000,
+              "densities": [
+                0.1,
+                0.13,
+                0.16,
+                0.2,
+                0.24
+              ],
+              "trials_per_density": 60,
+              "best_coverage_found": 0.991496,
+              "min_observed_max_rep_if_coverage_ge_0_99": 58,
+              "min_observed_max_rep_if_coverage_ge_0_995": null
+            },
+            {
+              "N": 2000,
+              "densities": [
+                0.1,
+                0.13,
+                0.16,
+                0.2,
+                0.24
+              ],
+              "trials_per_density": 60,
+              "best_coverage_found": 0.993748,
+              "min_observed_max_rep_if_coverage_ge_0_99": 112,
+              "min_observed_max_rep_if_coverage_ge_0_995": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

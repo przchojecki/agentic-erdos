@@ -1,0 +1,50 @@
+{
+  "problem": "EP-148",
+  "normalized_utc": "2026-03-05T08:54:16.951Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-148\n- Quick literature check:\n  - Bounds continue to be very far apart (double-exponential style lower and much larger upper envelopes).\n- Finite compute signal:\n  - Exact small-$k$ counts from the script: $F(2)=0$, $F(3)=1$, $F(4)=6$, $F(5)=72$.\n- Interpretation:\n  - Small-$k$ exact growth is rapid, but asymptotic regime remains wide open."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep148",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Exact small-k values for the number of distinct-denominator Egyptian-fraction representations of 1.",
+          "rows": [
+            {
+              "k": 2,
+              "exact_F_k_small_k": 0,
+              "log2_F_k": 0
+            },
+            {
+              "k": 3,
+              "exact_F_k_small_k": 1,
+              "log2_F_k": 0
+            },
+            {
+              "k": 4,
+              "exact_F_k_small_k": 6,
+              "log2_F_k": 2.584963
+            },
+            {
+              "k": 5,
+              "exact_F_k_small_k": 72,
+              "log2_F_k": 6.169925
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

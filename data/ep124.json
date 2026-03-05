@@ -1,0 +1,112 @@
+{
+  "problem": "EP-124",
+  "normalized_utc": "2026-03-05T08:54:16.950Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch4_web_compute.md",
+        "content": "### EP-124\n- Quick literature check:\n  - The first question is now reported as positively resolved (with a simple proof and Lean formalization); the second question remains open in general.\n- Finite compute signal:\n  - For $(3,4,7)$ with $k=0$, full coverage held up to $N=20000$ in this probe.\n  - Shifted versions ($k=1$) remained near-full in tested ranges; a comparison bad-family case ($3,9,81$) had much lower coverage.\n- Interpretation:\n  - Finite evidence aligns with known positive and negative structural directions from the literature notes."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch4_quick_compute.mjs",
+        "heading": "finite coverage probes for tuple-of-bases formulation.",
+        "content": "// EP-124: finite coverage probes for tuple-of-bases formulation.\n{\n  const rows = [];\n  const N = 20000;\n\n  const configs = [\n    { d: [3, 4, 7], k: 0, label: 'classical_positive_example' },\n    { d: [3, 4, 7], k: 1, label: 'gcd_condition_shifted_digits' },\n    { d: [3, 5, 7], k: 1, label: 'pairwise_coprime_shifted_digits' },\n    { d: [3, 9, 81], k: 0, label: 'known_bad_generalized_family_comparison' },\n  ];\n\n  for (const cfg of configs) {\n    const sets = cfg.d.map((dd) => digitSet(dd, cfg.k, N));\n    const cov = sumsetCoverage(sets, N);\n    rows.push({\n      label: cfg.label,\n      d_tuple: cfg.d,\n      k: cfg.k,\n      set_sizes: sets.map((s) => s.length),\n      ...Object.fromEntries(Object.entries(cov).map(([k, v]) => [k, typeof v === 'number' ? Number(v.toFixed(6)) : v])),\n    });\n  }\n\n  out.results.ep124 = {\n    description: 'Finite coverage profile for base-digit sumset representations.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch4_quick_compute.json",
+        "key": "ep124",
+        "container_meta": {
+          "script": "harder_batch4_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:28:37.643Z"
+        },
+        "data": {
+          "description": "Finite coverage profile for base-digit sumset representations.",
+          "rows": [
+            {
+              "label": "classical_positive_example",
+              "d_tuple": [
+                3,
+                4,
+                7
+              ],
+              "k": 0,
+              "set_sizes": [
+                560,
+                192,
+                64
+              ],
+              "covered_1_to_N": 20000,
+              "density_1_to_N": 1,
+              "covered_tail_L_to_N": 10001,
+              "density_tail_L_to_N": 1,
+              "first_missing": null
+            },
+            {
+              "label": "gcd_condition_shifted_digits",
+              "d_tuple": [
+                3,
+                4,
+                7
+              ],
+              "k": 1,
+              "set_sizes": [
+                280,
+                96,
+                32
+              ],
+              "covered_1_to_N": 19963,
+              "density_1_to_N": 0.99815,
+              "covered_tail_L_to_N": 10001,
+              "density_tail_L_to_N": 1,
+              "first_missing": 1
+            },
+            {
+              "label": "pairwise_coprime_shifted_digits",
+              "d_tuple": [
+                3,
+                5,
+                7
+              ],
+              "k": 1,
+              "set_sizes": [
+                280,
+                64,
+                32
+              ],
+              "covered_1_to_N": 19797,
+              "density_1_to_N": 0.98985,
+              "covered_tail_L_to_N": 9932,
+              "density_tail_L_to_N": 0.993101,
+              "first_missing": 1
+            },
+            {
+              "label": "known_bad_generalized_family_comparison",
+              "d_tuple": [
+                3,
+                9,
+                81
+              ],
+              "k": 0,
+              "set_sizes": [
+                560,
+                32,
+                8
+              ],
+              "covered_1_to_N": 5459,
+              "density_1_to_N": 0.27295,
+              "covered_tail_L_to_N": 2239,
+              "density_tail_L_to_N": 0.223878,
+              "first_missing": 7
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "problem": "EP-1087",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep1087_random_quadruple_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-1087",
+        "method": "random_integer_point_sets_and_degenerate_quadruple_count",
+        "interpretation_note": "Degenerate quadruple here means among the six pairwise distances in the 4-point set, at least two are equal.",
+        "coord_box": [
+          -20000,
+          20000
+        ],
+        "rows": [
+          {
+            "n": 12,
+            "trials": 80,
+            "min_degenerate_quadruples_found": 0,
+            "avg_degenerate_quadruples_found": 0,
+            "max_degenerate_quadruples_found": 0,
+            "total_quadruples": 495
+          },
+          {
+            "n": 16,
+            "trials": 80,
+            "min_degenerate_quadruples_found": 0,
+            "avg_degenerate_quadruples_found": 0,
+            "max_degenerate_quadruples_found": 0,
+            "total_quadruples": 1820
+          },
+          {
+            "n": 20,
+            "trials": 80,
+            "min_degenerate_quadruples_found": 0,
+            "avg_degenerate_quadruples_found": 0,
+            "max_degenerate_quadruples_found": 0,
+            "total_quadruples": 4845
+          },
+          {
+            "n": 24,
+            "trials": 80,
+            "min_degenerate_quadruples_found": 0,
+            "avg_degenerate_quadruples_found": 0,
+            "max_degenerate_quadruples_found": 0,
+            "total_quadruples": 10626
+          },
+          {
+            "n": 28,
+            "trials": 80,
+            "min_degenerate_quadruples_found": 0,
+            "avg_degenerate_quadruples_found": 0,
+            "max_degenerate_quadruples_found": 0,
+            "total_quadruples": 20475
+          },
+          {
+            "n": 32,
+            "trials": 80,
+            "min_degenerate_quadruples_found": 0,
+            "avg_degenerate_quadruples_found": 0,
+            "max_degenerate_quadruples_found": 0,
+            "total_quadruples": 35960
+          }
+        ],
+        "generated_utc": "2026-03-01T13:02:39.923Z"
+      }
+    }
+  ]
+}

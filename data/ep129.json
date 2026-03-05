@@ -1,0 +1,18 @@
+{
+  "problem": "EP-129",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch1_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch1_compute.mjs",
+        "heading": ": compute c_r from Steiner-triple-system heuristic bound.",
+        "extracted_section": "// EP-129: compute c_r from Steiner-triple-system heuristic bound.\n{\n  function c_r(r) {\n    return (1 / 6) * Math.log(1 / (1 - 1 / (r ** 3)));\n  }\n  const rows = [2, 3, 4, 5].map((r) => ({\n    r,\n    c_r: Number(c_r(r).toPrecision(8)),\n  }));\n\n  out.results.ep129 = {\n    description: 'Computed c_r = (1/6) log(1/(1-r^{-3})) from STS-based lower bound.',\n    rows,\n  };\n}"
+      }
+    ]
+  }
+}

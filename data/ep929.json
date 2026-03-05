@@ -1,0 +1,517 @@
+{
+  "problem": "EP-929",
+  "normalized_utc": "2026-03-05T08:54:16.970Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch20_web_compute.md",
+        "content": "### EP-929\n- Quick literature check:\n  - Open; known lower and upper bounds still leave a substantial asymptotic gap.\n- Finite compute signal:\n  - For `N=250000`, minimal `x` with any occurrence of a fully `x`-smooth block of length `k` rose with `k` (e.g. `x=7` for `k=6`, `x=17` for `k=16`), while tested densities remained below `10^{-4}`.\n- Interpretation:\n  - Finite proxy indicates increasing smoothness threshold with block length, consistent with nontrivial growth of `S(k)`.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/860\n  - https://www.erdosproblems.com/872\n  - https://www.erdosproblems.com/885\n  - https://www.erdosproblems.com/889\n  - https://www.erdosproblems.com/893\n  - https://www.erdosproblems.com/901\n  - https://www.erdosproblems.com/917\n  - https://www.erdosproblems.com/920\n  - https://www.erdosproblems.com/928\n  - https://www.erdosproblems.com/929\n- Additional primary references surfaced in quick scan/background:\n  - https://arxiv.org/abs/2506.04883"
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch20_quick_compute.mjs",
+        "heading": "finite-density proxy for S(k).",
+        "content": "// EP-929: finite-density proxy for S(k).\n{\n  const N = 250000;\n  const LIM = N + 80;\n  const lpf = new Uint32Array(LIM + 1);\n  for (let p = 2; p <= LIM; p += 1) {\n    if (lpf[p] !== 0) continue;\n    for (let m = p; m <= LIM; m += p) lpf[m] = p;\n  }\n  lpf[1] = 1;\n\n  function blockDensity(k, x) {\n    const M = N + k + 2;\n    const bad = new Uint8Array(M + 1);\n    for (let i = 1; i <= M; i += 1) bad[i] = lpf[i] <= x ? 0 : 1;\n\n    let curBad = 0;\n    for (let i = 2; i <= 1 + k; i += 1) curBad += bad[i];\n\n    let good = 0;\n    const total = N;\n    for (let n = 1; n <= N; n += 1) {\n      if (curBad === 0) good += 1;\n      curBad -= bad[n + 1];\n      curBad += bad[n + k + 1];\n    }\n\n    return { good, density: good / total };\n  }\n\n  const rows = [];\n  for (const k of [6, 8, 10, 12, 16]) {\n    const maxX = k + 8;\n    let xPos = null;\n    let xDense = null;\n    const eps = 1e-4;\n    const profile = [];\n\n    for (let x = 2; x <= maxX; x += 1) {\n      const d = blockDensity(k, x);\n      profile.push({ x, good_starts: d.good, density: Number(d.density.toPrecision(7)) });\n      if (xPos === null && d.good > 0) xPos = x;\n      if (xDense === null && d.density >= eps) xDense = x;\n    }\n\n    rows.push({\n      k,\n      N,\n      eps_density_threshold: eps,\n      finite_min_x_with_any_occurrence: xPos,\n      finite_min_x_with_density_at_least_eps: xDense,\n      profile,\n    });\n  }\n\n  out.results.ep929 = {\n    description: 'Finite positive-density proxy profile for S(k) using bounded-window smooth blocks.',\n    rows,\n    note: 'Finite-N proxy depends on chosen epsilon threshold and search range for x.',\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch20_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch20_quick_compute.json",
+        "key": "ep929",
+        "container_meta": {
+          "script": "harder_batch20_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:01:58.630Z"
+        },
+        "data": {
+          "description": "Finite positive-density proxy profile for S(k) using bounded-window smooth blocks.",
+          "rows": [
+            {
+              "k": 6,
+              "N": 250000,
+              "eps_density_threshold": 0.0001,
+              "finite_min_x_with_any_occurrence": 7,
+              "finite_min_x_with_density_at_least_eps": null,
+              "profile": [
+                {
+                  "x": 2,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 3,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 4,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 5,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 6,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 7,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 8,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 9,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 10,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 11,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 12,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 13,
+                  "good_starts": 10,
+                  "density": 0.00004
+                },
+                {
+                  "x": 14,
+                  "good_starts": 10,
+                  "density": 0.00004
+                }
+              ]
+            },
+            {
+              "k": 8,
+              "N": 250000,
+              "eps_density_threshold": 0.0001,
+              "finite_min_x_with_any_occurrence": 7,
+              "finite_min_x_with_density_at_least_eps": null,
+              "profile": [
+                {
+                  "x": 2,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 3,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 4,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 5,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 6,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 7,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 8,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 9,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 10,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 11,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 12,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 13,
+                  "good_starts": 8,
+                  "density": 0.000032
+                },
+                {
+                  "x": 14,
+                  "good_starts": 8,
+                  "density": 0.000032
+                },
+                {
+                  "x": 15,
+                  "good_starts": 8,
+                  "density": 0.000032
+                },
+                {
+                  "x": 16,
+                  "good_starts": 8,
+                  "density": 0.000032
+                }
+              ]
+            },
+            {
+              "k": 10,
+              "N": 250000,
+              "eps_density_threshold": 0.0001,
+              "finite_min_x_with_any_occurrence": 11,
+              "finite_min_x_with_density_at_least_eps": null,
+              "profile": [
+                {
+                  "x": 2,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 3,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 4,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 5,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 6,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 7,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 8,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 9,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 10,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 11,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 12,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 13,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 14,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 15,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 16,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 17,
+                  "good_starts": 8,
+                  "density": 0.000032
+                },
+                {
+                  "x": 18,
+                  "good_starts": 8,
+                  "density": 0.000032
+                }
+              ]
+            },
+            {
+              "k": 12,
+              "N": 250000,
+              "eps_density_threshold": 0.0001,
+              "finite_min_x_with_any_occurrence": 13,
+              "finite_min_x_with_density_at_least_eps": null,
+              "profile": [
+                {
+                  "x": 2,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 3,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 4,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 5,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 6,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 7,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 8,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 9,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 10,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 11,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 12,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 13,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 14,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 15,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 16,
+                  "good_starts": 4,
+                  "density": 0.000016
+                },
+                {
+                  "x": 17,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 18,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 19,
+                  "good_starts": 10,
+                  "density": 0.00004
+                },
+                {
+                  "x": 20,
+                  "good_starts": 10,
+                  "density": 0.00004
+                }
+              ]
+            },
+            {
+              "k": 16,
+              "N": 250000,
+              "eps_density_threshold": 0.0001,
+              "finite_min_x_with_any_occurrence": 17,
+              "finite_min_x_with_density_at_least_eps": null,
+              "profile": [
+                {
+                  "x": 2,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 3,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 4,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 5,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 6,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 7,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 8,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 9,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 10,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 11,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 12,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 13,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 14,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 15,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 16,
+                  "good_starts": 0,
+                  "density": 0
+                },
+                {
+                  "x": 17,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 18,
+                  "good_starts": 2,
+                  "density": 0.000008
+                },
+                {
+                  "x": 19,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 20,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 21,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 22,
+                  "good_starts": 6,
+                  "density": 0.000024
+                },
+                {
+                  "x": 23,
+                  "good_starts": 12,
+                  "density": 0.000048
+                },
+                {
+                  "x": 24,
+                  "good_starts": 12,
+                  "density": 0.000048
+                }
+              ]
+            }
+          ],
+          "note": "Finite-N proxy depends on chosen epsilon threshold and search range for x."
+        }
+      }
+    ]
+  }
+}

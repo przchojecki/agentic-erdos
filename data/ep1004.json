@@ -1,0 +1,153 @@
+{
+  "problem": "EP-1004",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep1004_phi_distinct_run_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep1004_phi_distinct_run_scan.mjs",
+        "x_max": 4000000,
+        "checkpoints": [
+          {
+            "x": 200000,
+            "best_run_length_distinct_phi": 143,
+            "witness_n": 181143,
+            "targets": [
+              {
+                "c": 0.5,
+                "target": 3,
+                "achieved": true
+              },
+              {
+                "c": 1,
+                "target": 12,
+                "achieved": true
+              },
+              {
+                "c": 1.5,
+                "target": 42,
+                "achieved": true
+              },
+              {
+                "c": 2,
+                "target": 148,
+                "achieved": false
+              }
+            ]
+          },
+          {
+            "x": 500000,
+            "best_run_length_distinct_phi": 174,
+            "witness_n": 440241,
+            "targets": [
+              {
+                "c": 0.5,
+                "target": 3,
+                "achieved": true
+              },
+              {
+                "c": 1,
+                "target": 13,
+                "achieved": true
+              },
+              {
+                "c": 1.5,
+                "target": 47,
+                "achieved": true
+              },
+              {
+                "c": 2,
+                "target": 172,
+                "achieved": true
+              }
+            ]
+          },
+          {
+            "x": 1000000,
+            "best_run_length_distinct_phi": 194,
+            "witness_n": 900978,
+            "targets": [
+              {
+                "c": 0.5,
+                "target": 3,
+                "achieved": true
+              },
+              {
+                "c": 1,
+                "target": 13,
+                "achieved": true
+              },
+              {
+                "c": 1.5,
+                "target": 51,
+                "achieved": true
+              },
+              {
+                "c": 2,
+                "target": 190,
+                "achieved": true
+              }
+            ]
+          },
+          {
+            "x": 2000000,
+            "best_run_length_distinct_phi": 257,
+            "witness_n": 1218072,
+            "targets": [
+              {
+                "c": 0.5,
+                "target": 3,
+                "achieved": true
+              },
+              {
+                "c": 1,
+                "target": 14,
+                "achieved": true
+              },
+              {
+                "c": 1.5,
+                "target": 55,
+                "achieved": true
+              },
+              {
+                "c": 2,
+                "target": 210,
+                "achieved": true
+              }
+            ]
+          },
+          {
+            "x": 4000000,
+            "best_run_length_distinct_phi": 271,
+            "witness_n": 3661872,
+            "targets": [
+              {
+                "c": 0.5,
+                "target": 3,
+                "achieved": true
+              },
+              {
+                "c": 1,
+                "target": 15,
+                "achieved": true
+              },
+              {
+                "c": 1.5,
+                "target": 59,
+                "achieved": true
+              },
+              {
+                "c": 2,
+                "target": 231,
+                "achieved": true
+              }
+            ]
+          }
+        ],
+        "timestamp_utc": "2026-03-01T19:10:49.925Z"
+      }
+    }
+  ]
+}

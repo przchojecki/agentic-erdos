@@ -1,0 +1,73 @@
+{
+  "problem": "EP-944",
+  "normalized_utc": "2026-03-05T08:54:16.971Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch21_web_compute.md",
+        "content": "### EP-944\n- Quick literature check:\n  - 2025 progress shows existence for large enough `k` (depending on `r`), while the `k=4, r=1` case remains open.\n- Finite compute signal:\n  - Random search on `n=8..12` found many `\\chi=4` graphs but no sampled graph that was simultaneously vertex-critical and free of single critical edges.\n- Interpretation:\n  - No small witness emerged; this is consistent with the listed hardness of the unresolved `k=4` case."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch21_quick_compute.mjs",
+        "heading": "random search for k=4 vertex-critical graphs with no single critical edge.",
+        "content": "// EP-944: random search for k=4 vertex-critical graphs with no single critical edge.\n{\n  const rng = makeRng(20260304 ^ 942);\n\n  function randomGraph(n, p) {\n    const adj = makeGraph(n);\n    for (let u = 0; u < n; u += 1) {\n      for (let v = u + 1; v < n; v += 1) {\n        if (rng() < p) addEdge(adj, u, v);\n      }\n    }\n    return adj;\n  }\n\n  function isVertexCriticalK(adj, k) {\n    if (chromaticNumberDSATUR(adj) !== k) return false;\n    for (let v = 0; v < adj.length; v += 1) {\n      const keep = [];\n      for (let u = 0; u < adj.length; u += 1) if (u !== v) keep.push(u);\n      const H = inducedSubgraph(adj, keep);\n      if (chromaticNumberDSATUR(H) >= k) return false;\n    }\n    return true;\n  }\n\n  function hasSingleCriticalEdge(adj, k) {\n    const E = edgesOfGraph(adj);\n    for (const [u, v] of E) {\n      const H = copyAdj(adj);\n      removeEdge(H, u, v);\n      if (chromaticNumberDSATUR(H) < k) return true;\n    }\n    return false;\n  }\n\n  const rows = [];\n  const candidates = [];\n\n  for (const n of [8, 9, 10, 11, 12]) {\n    let sampled = 0;\n    let chi4 = 0;\n    let vc4 = 0;\n    let vc4_no_single_critical_edge = 0;\n\n    for (let t = 0; t < 260; t += 1) {\n      const p = 0.25 + 0.5 * rng();\n      const G = randomGraph(n, p);\n      sampled += 1;\n\n      const chi = chromaticNumberDSATUR(G);\n      if (chi !== 4) continue;\n      chi4 += 1;\n\n      if (!isVertexCriticalK(G, 4)) continue;\n      vc4 += 1;\n\n      if (!hasSingleCriticalEdge(G, 4)) {\n        vc4_no_single_critical_edge += 1;\n        if (candidates.length < 3) {\n          candidates.push({\n            n,\n            edge_count: edgesOfGraph(G).length,\n            adjacency_bitmasks: G.map((nbrs, i) => {\n              let m = 0;\n              for (const v of nbrs) m |= 1 << v;\n              return { v: i, mask: m };\n            }),\n          });\n        }\n      }\n    }\n\n    rows.push({\n      n,\n      sampled_graphs: sampled,\n      chi4_graphs: chi4,\n      vertex_critical_chi4_graphs: vc4,\n      vertex_critical_chi4_without_single_critical_edge: vc4_no_single_critical_edge,\n    });\n  }\n\n  out.results.ep944 = {\n    description: 'Finite random search for k=4 vertex-critical graphs with no critical single edge.',\n    rows,\n    candidate_graphs_if_any: candidates,\n    note: 'Any candidate would require independent verification; non-detection is not evidence of nonexistence.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch21_quick_compute.json",
+        "key": "ep944",
+        "container_meta": {
+          "script": "harder_batch21_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:09:50.566Z"
+        },
+        "data": {
+          "description": "Finite random search for k=4 vertex-critical graphs with no critical single edge.",
+          "rows": [
+            {
+              "n": 8,
+              "sampled_graphs": 260,
+              "chi4_graphs": 80,
+              "vertex_critical_chi4_graphs": 0,
+              "vertex_critical_chi4_without_single_critical_edge": 0
+            },
+            {
+              "n": 9,
+              "sampled_graphs": 260,
+              "chi4_graphs": 94,
+              "vertex_critical_chi4_graphs": 0,
+              "vertex_critical_chi4_without_single_critical_edge": 0
+            },
+            {
+              "n": 10,
+              "sampled_graphs": 260,
+              "chi4_graphs": 106,
+              "vertex_critical_chi4_graphs": 0,
+              "vertex_critical_chi4_without_single_critical_edge": 0
+            },
+            {
+              "n": 11,
+              "sampled_graphs": 260,
+              "chi4_graphs": 99,
+              "vertex_critical_chi4_graphs": 0,
+              "vertex_critical_chi4_without_single_critical_edge": 0
+            },
+            {
+              "n": 12,
+              "sampled_graphs": 260,
+              "chi4_graphs": 99,
+              "vertex_critical_chi4_graphs": 0,
+              "vertex_critical_chi4_without_single_critical_edge": 0
+            }
+          ],
+          "candidate_graphs_if_any": [],
+          "note": "Any candidate would require independent verification; non-detection is not evidence of nonexistence."
+        }
+      }
+    ]
+  }
+}

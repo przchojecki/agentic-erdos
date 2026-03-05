@@ -1,0 +1,183 @@
+{
+  "problem": "EP-132",
+  "normalized_utc": "2026-03-05T08:54:16.950Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch5_web_compute.md",
+        "content": "### EP-132\n- Quick literature check:\n  - The problem page records a 2025 result with at least $n^{0.864+o(1)}$ such distances for convex sets (Cibulka-Dvořák-Lidický).\n- Finite compute signal:\n  - For the known $n=4$ glued-triangles example, exactly one distance has multiplicity $\\le n$.\n  - Grid/triangular models at $n=36..144$ already show many distances with multiplicity $\\le n$.\n- Interpretation:\n  - Counterexample at $n=4$ persists, while larger structured models support the “many such distances” direction."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch5_quick_compute.json",
+        "key": "ep132",
+        "container_meta": {
+          "script": "harder_batch5_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:51:42.404Z"
+        },
+        "data": {
+          "description": "Distance-multiplicity finite profiles for representative planar point models.",
+          "rows": [
+            {
+              "model": "n4_two_equilateral_triangles_sharing_edge",
+              "n": 4,
+              "distances_with_multiplicity_le_n": 1,
+              "top_multiplicities": [
+                5,
+                1
+              ]
+            },
+            {
+              "model": "grid",
+              "n": 36,
+              "distinct_distance_count": 19,
+              "distances_with_multiplicity_le_n": 12,
+              "distances_with_multiplicity_gt_n": 7,
+              "top3_multiplicities": [
+                80,
+                60,
+                60
+              ]
+            },
+            {
+              "model": "tri_patch",
+              "n": 36,
+              "distinct_distance_count": 19,
+              "distances_with_multiplicity_le_n": 13,
+              "distances_with_multiplicity_gt_n": 6,
+              "top3_multiplicities": [
+                90,
+                84,
+                63
+              ]
+            },
+            {
+              "model": "random",
+              "n": 36,
+              "distinct_distance_count": 630,
+              "distances_with_multiplicity_le_n": 630,
+              "distances_with_multiplicity_gt_n": 0,
+              "top3_multiplicities": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "model": "grid",
+              "n": 64,
+              "distinct_distance_count": 33,
+              "distances_with_multiplicity_le_n": 20,
+              "distances_with_multiplicity_gt_n": 13,
+              "top3_multiplicities": [
+                168,
+                140,
+                128
+              ]
+            },
+            {
+              "model": "tri_patch",
+              "n": 64,
+              "distinct_distance_count": 34,
+              "distances_with_multiplicity_le_n": 22,
+              "distances_with_multiplicity_gt_n": 12,
+              "top3_multiplicities": [
+                211,
+                163,
+                160
+              ]
+            },
+            {
+              "model": "random",
+              "n": 64,
+              "distinct_distance_count": 2016,
+              "distances_with_multiplicity_le_n": 2016,
+              "distances_with_multiplicity_gt_n": 0,
+              "top3_multiplicities": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "model": "grid",
+              "n": 100,
+              "distinct_distance_count": 50,
+              "distances_with_multiplicity_le_n": 29,
+              "distances_with_multiplicity_gt_n": 21,
+              "top3_multiplicities": [
+                288,
+                268,
+                252
+              ]
+            },
+            {
+              "model": "tri_patch",
+              "n": 100,
+              "distinct_distance_count": 52,
+              "distances_with_multiplicity_le_n": 32,
+              "distances_with_multiplicity_gt_n": 20,
+              "top3_multiplicities": [
+                375,
+                312,
+                259
+              ]
+            },
+            {
+              "model": "random",
+              "n": 100,
+              "distinct_distance_count": 4950,
+              "distances_with_multiplicity_le_n": 4950,
+              "distances_with_multiplicity_gt_n": 0,
+              "top3_multiplicities": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "model": "grid",
+              "n": 144,
+              "distinct_distance_count": 70,
+              "distances_with_multiplicity_le_n": 42,
+              "distances_with_multiplicity_gt_n": 28,
+              "top3_multiplicities": [
+                456,
+                440,
+                396
+              ]
+            },
+            {
+              "model": "tri_patch",
+              "n": 144,
+              "distinct_distance_count": 74,
+              "distances_with_multiplicity_le_n": 45,
+              "distances_with_multiplicity_gt_n": 29,
+              "top3_multiplicities": [
+                585,
+                504,
+                429
+              ]
+            },
+            {
+              "model": "random",
+              "n": 144,
+              "distinct_distance_count": 10296,
+              "distances_with_multiplicity_le_n": 10296,
+              "distances_with_multiplicity_gt_n": 0,
+              "top3_multiplicities": [
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

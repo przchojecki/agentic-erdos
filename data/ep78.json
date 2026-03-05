@@ -1,0 +1,60 @@
+{
+  "problem": "EP-78",
+  "normalized_utc": "2026-03-05T08:54:16.948Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-78\n- Quick literature check:\n  - The problem page notes explicit-construction progress (Cohen 2015; Li 2023) but still no constructive $R(k)>C^k$ theorem.\n- Finite compute signal:\n  - Random search did not find colorings with zero monochromatic $K_k$ in tested runs.\n  - The explicit Paley-type check for $(k,n)=(4,17)$ verifies `0` monochromatic $K_4$ (as expected from the known construction).\n- Interpretation:\n  - Finite checks validate known small explicit witnesses but do not advance asymptotic constructive bounds."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch3_quick_compute.mjs",
+        "heading": "random-coloring explicit witness search for small k.",
+        "content": "// EP-78: random-coloring explicit witness search for small k.\n{\n  function countMonochK(n, k, bits) {\n    const verts = Array.from({ length: n }, (_, i) => i);\n    let bad = 0;\n    function rec(start, left, cur) {\n      if (left === 0) {\n        let red = true;\n        let blue = true;\n        for (let i = 0; i < cur.length; i += 1) {\n          for (let j = i + 1; j < cur.length; j += 1) {\n            const a = cur[i];\n            const b = cur[j];\n            const id = a * n + b;\n            const c = bits[id];\n            red = red && c === 1;\n            blue = blue && c === 0;\n            if (!red && !blue) return;\n          }\n        }\n        if (red || blue) bad += 1;\n        return;\n      }\n      for (let x = start; x <= n - left; x += 1) {\n        cur.push(verts[x]);\n        rec(x + 1, left - 1, cur);\n        cur.pop();\n      }\n    }\n    rec(0, k, []);\n    return bad;\n  }\n\n  const tests = [\n    { k: 4, n: 17, trials: 120 },\n    { k: 5, n: 30, trials: 60 },\n    { k: 5, n: 35, trials: 40 },\n  ];\n  const rows = [];\n  for (const { k, n, trials } of tests) {\n    let knownConstructionBad = null;\n    if (k === 4 && n === 17) {\n      // Paley-type coloring on F_17: red iff difference is a nonzero square mod 17.\n      const squares = new Set([1, 2, 4, 8, 9, 13, 15, 16]);\n      const bits = new Uint8Array(n * n);\n      for (let i = 0; i < n; i += 1) {\n        for (let j = i + 1; j < n; j += 1) {\n          const d = (j - i + n) % n;\n          const red = squares.has(d) ? 1 : 0;\n          bits[i * n + j] = red;\n          bits[j * n + i] = red;\n        }\n      }\n      knownConstructionBad = countMonochK(n, k, bits);\n    }\n\n    let foundZero = false;\n    let best = Infinity;\n    for (let t = 0; t < trials; t += 1) {\n      const bits = new Uint8Array(n * n);\n      for (let i = 0; i < n; i += 1) {\n        for (let j = i + 1; j < n; j += 1) {\n          const c = rng() < 0.5 ? 1 : 0;\n          bits[i * n + j] = c;\n          bits[j * n + i] = c;\n        }\n      }\n      const bad = countMonochK(n, k, bits);\n      if (bad < best) best = bad;\n      if (bad === 0) {\n        foundZero = true;\n        break;\n      }\n    }\n    rows.push({\n      k,\n      n_tested: n,\n      trials,\n      known_construction_monochromatic_Kk_count: knownConstructionBad,\n      found_explicit_coloring_without_monochromatic_Kk: foundZero,\n      best_monochromatic_Kk_count_found: best,\n    });\n  }\n  out.results.ep78 = {\n    description: 'Small-k explicit witness search by random 2-colorings.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep78",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Small-k explicit witness search by random 2-colorings.",
+          "rows": [
+            {
+              "k": 4,
+              "n_tested": 17,
+              "trials": 120,
+              "known_construction_monochromatic_Kk_count": 0,
+              "found_explicit_coloring_without_monochromatic_Kk": false,
+              "best_monochromatic_Kk_count_found": 43
+            },
+            {
+              "k": 5,
+              "n_tested": 30,
+              "trials": 60,
+              "known_construction_monochromatic_Kk_count": null,
+              "found_explicit_coloring_without_monochromatic_Kk": false,
+              "best_monochromatic_Kk_count_found": 159
+            },
+            {
+              "k": 5,
+              "n_tested": 35,
+              "trials": 40,
+              "known_construction_monochromatic_Kk_count": null,
+              "found_explicit_coloring_without_monochromatic_Kk": false,
+              "best_monochromatic_Kk_count_found": 395
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

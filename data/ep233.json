@@ -1,0 +1,72 @@
+{
+  "problem": "EP-233",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-233\n- Quick literature check:\n  - Core second-moment bound remains open in the strong $N(\\log N)^2$ form.\n- Finite compute signal:\n  - For `N` up to `5e5`, $\n  \\sum_{n\\le N} d_n^2 /(N(\\log N)^2)$ stabilized near `~2.13` in this finite range.\n- Interpretation:\n  - Finite profile is consistent with conjectured order of magnitude, without providing proof-level control."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "second moment of prime gaps.",
+        "content": "// EP-233: second moment of prime gaps.\n{\n  const Nmax = 500000;\n  const lim = 8000000;\n  const { primes } = sieve(lim);\n\n  const rows = [];\n  let S = 0;\n  let ptr = 1;\n  const checkpoints = new Set([10000, 50000, 100000, 200000, 500000]);\n\n  while (ptr <= Nmax && ptr < primes.length) {\n    const d = primes[ptr] - primes[ptr - 1];\n    S += d * d;\n    if (checkpoints.has(ptr)) {\n      const N = ptr;\n      const pN = primes[ptr - 1];\n      rows.push({\n        N,\n        p_N: pN,\n        sum_d_n_sq: S,\n        ratio_over_N_logN_sq: Number((S / (N * Math.log(N) ** 2)).toFixed(6)),\n        ratio_over_N_logpN_sq: Number((S / (N * Math.log(pN) ** 2)).toFixed(6)),\n      });\n    }\n    ptr += 1;\n  }\n\n  out.results.ep233 = {\n    description: 'Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.',\n    sieve_limit: lim,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep233",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Finite profile for sum_{n<=N} (p_{n+1}-p_n)^2.",
+          "sieve_limit": 8000000,
+          "rows": [
+            {
+              "N": 10000,
+              "p_N": 104729,
+              "sum_d_n_sq": 1748249,
+              "ratio_over_N_logN_sq": 2.060876,
+              "ratio_over_N_logpN_sq": 1.308437
+            },
+            {
+              "N": 50000,
+              "p_N": 611953,
+              "sum_d_n_sq": 12311637,
+              "ratio_over_N_logN_sq": 2.103338,
+              "ratio_over_N_logpN_sq": 1.386915
+            },
+            {
+              "N": 100000,
+              "p_N": 1299709,
+              "sum_d_n_sq": 28095621,
+              "ratio_over_N_logN_sq": 2.119665,
+              "ratio_over_N_logpN_sq": 1.41768
+            },
+            {
+              "N": 200000,
+              "p_N": 2750159,
+              "sum_d_n_sq": 63463821,
+              "ratio_over_N_logN_sq": 2.129827,
+              "ratio_over_N_logpN_sq": 1.443377
+            },
+            {
+              "N": 500000,
+              "p_N": 7368787,
+              "sum_d_n_sq": 183881521,
+              "ratio_over_N_logN_sq": 2.135718,
+              "ratio_over_N_logpN_sq": 1.470796
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

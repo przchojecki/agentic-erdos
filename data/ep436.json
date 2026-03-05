@@ -1,0 +1,58 @@
+{
+  "problem": "EP-436",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep436_lambda_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep436_lambda_scan.mjs",
+        "convention": "0_included_as_kth_power_residue",
+        "p_max": 20000,
+        "k_list": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "m": 3,
+        "rows": [
+          {
+            "k": 3,
+            "m": 3,
+            "p_max": 20000,
+            "max_r_observed": 281,
+            "prime_at_max": 283,
+            "missing": 0
+          },
+          {
+            "k": 5,
+            "m": 3,
+            "p_max": 20000,
+            "max_r_observed": 3329,
+            "prime_at_max": 3331,
+            "missing": 0
+          },
+          {
+            "k": 7,
+            "m": 3,
+            "p_max": 20000,
+            "max_r_observed": 6832,
+            "prime_at_max": 6833,
+            "missing": 0
+          },
+          {
+            "k": 9,
+            "m": 3,
+            "p_max": 20000,
+            "max_r_observed": 17189,
+            "prime_at_max": 17191,
+            "missing": 0
+          }
+        ],
+        "timestamp_utc": "2026-03-01T20:26:21.780Z"
+      }
+    }
+  ]
+}

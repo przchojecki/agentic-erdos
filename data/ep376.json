@@ -1,0 +1,86 @@
+{
+  "problem": "EP-376",
+  "normalized_utc": "2026-03-05T08:54:16.958Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch11_web_compute.md",
+        "content": "### EP-376\n- Quick literature check:\n  - Strong recent progress for large-prime analogues exists, but the specific `105=3*5*7` infinitude remains open.\n- Finite compute signal:\n  - Using the no-carry digit criterion, only `12` hits up to `2e6`; first terms include `1,10,756,757,3160,...`.\n- Interpretation:\n  - Finite data indicates extreme sparsity; no sign of closure either way on infinitude."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch11_quick_compute.mjs",
+        "heading": "n such that C(2n,n) is coprime to 105.",
+        "content": "// EP-376: n such that C(2n,n) is coprime to 105.\n{\n  const N = 2_000_000;\n  const milestones = [10_000, 50_000, 100_000, 500_000, 1_000_000, 2_000_000];\n  const mset = new Set(milestones);\n\n  let cnt = 0;\n  let lastHit = 0;\n  let maxGap = 0;\n  const first = [];\n  const rows = [];\n\n  for (let n = 1; n <= N; n += 1) {\n    const ok = noCarryDoubleInBase(n, 3) && noCarryDoubleInBase(n, 5) && noCarryDoubleInBase(n, 7);\n    if (ok) {\n      cnt += 1;\n      if (first.length < 30) first.push(n);\n      if (lastHit !== 0) {\n        const gap = n - lastHit;\n        if (gap > maxGap) maxGap = gap;\n      }\n      lastHit = n;\n    }\n    if (mset.has(n)) {\n      rows.push({\n        X: n,\n        count_up_to_X: cnt,\n        density: Number((cnt / n).toPrecision(8)),\n        max_gap_so_far: maxGap,\n      });\n    }\n  }\n\n  out.results.ep376 = {\n    description: 'Finite count of n with C(2n,n) coprime to 3*5*7 (digit/no-carry criterion).',\n    first_terms: first,\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch11_quick_compute.json",
+        "key": "ep376",
+        "container_meta": {
+          "script": "harder_batch11_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:36:15.711Z"
+        },
+        "data": {
+          "description": "Finite count of n with C(2n,n) coprime to 3*5*7 (digit/no-carry criterion).",
+          "first_terms": [
+            1,
+            10,
+            756,
+            757,
+            3160,
+            3186,
+            3187,
+            3250,
+            7560,
+            7561,
+            7651,
+            20007
+          ],
+          "rows": [
+            {
+              "X": 10000,
+              "count_up_to_X": 11,
+              "density": 0.0011,
+              "max_gap_so_far": 4310
+            },
+            {
+              "X": 50000,
+              "count_up_to_X": 12,
+              "density": 0.00024,
+              "max_gap_so_far": 12356
+            },
+            {
+              "X": 100000,
+              "count_up_to_X": 12,
+              "density": 0.00012,
+              "max_gap_so_far": 12356
+            },
+            {
+              "X": 500000,
+              "count_up_to_X": 12,
+              "density": 0.000024,
+              "max_gap_so_far": 12356
+            },
+            {
+              "X": 1000000,
+              "count_up_to_X": 12,
+              "density": 0.000012,
+              "max_gap_so_far": 12356
+            },
+            {
+              "X": 2000000,
+              "count_up_to_X": 12,
+              "density": 0.000006,
+              "max_gap_so_far": 12356
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "problem": "EP-1053",
+  "normalized_utc": "2026-03-05T08:54:16.973Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch23_web_compute.md",
+        "content": "### EP-1053\n- Quick literature check:\n  - Open; page/background still treats large-`k` multiperfect behavior as unresolved (with reported known values up to much larger `k` outside tiny ranges).\n- Finite compute signal:\n  - For `n<=10^6`, exact `sigma(n)=k n` scan found maximal observed `k=4` and only a few `k>=3` cases.\n- Interpretation:\n  - Small-range data shows rarity of large multipliers, but is far from asymptotic claims like `k=o(log log n)`."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch23_quick_compute.mjs",
+        "heading": "finite profile of multiply-perfect multipliers k = sigma(n)/n.",
+        "content": "// EP-1053: finite profile of multiply-perfect multipliers k = sigma(n)/n.\n{\n  const N = 1_000_000;\n  const topByK = new Map();\n  const probes = new Set([100_000, 300_000, 600_000, 1_000_000]);\n  const probeRows = [];\n  let runningMaxK = 0;\n  let argAtMax = 1;\n  let countKge3 = 0;\n\n  for (let n = 2; n <= N; n += 1) {\n    const s = sigma[n];\n    if (s % n !== 0) {\n      if (probes.has(n)) {\n        probeRows.push({\n          n,\n          running_max_k: runningMaxK,\n          n_attaining_running_max_k: argAtMax,\n          count_k_ge_3_up_to_n: countKge3,\n        });\n      }\n      continue;\n    }\n    const k = s / n;\n    if (k > runningMaxK) {\n      runningMaxK = k;\n      argAtMax = n;\n    }\n    if (k >= 3) countKge3 += 1;\n    const prev = topByK.get(k);\n    if (!prev || n > prev.max_n) topByK.set(k, { max_n: n, sample: prev ? prev.sample : [] });\n    if (topByK.get(k).sample.length < 4) topByK.get(k).sample.push(n);\n\n    if (probes.has(n)) {\n      probeRows.push({\n        n,\n        running_max_k: runningMaxK,\n        n_attaining_running_max_k: argAtMax,\n        count_k_ge_3_up_to_n: countKge3,\n      });\n    }\n  }\n\n  const topKRows = [...topByK.entries()]\n    .sort((a, b) => b[0] - a[0])\n    .slice(0, 8)\n    .map(([k, v]) => ({ k, max_n_with_this_k_up_to_N: v.max_n, sample_n: v.sample }));\n\n  out.results.ep1053 = {\n    description: 'Finite scan of integer multipliers k with sigma(n)=k*n.',\n    N,\n    probe_rows: probeRows,\n    top_k_rows: topKRows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch23_quick_compute.json",
+        "key": "ep1053",
+        "container_meta": {
+          "script": "harder_batch23_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:43:44.789Z"
+        },
+        "data": {
+          "description": "Finite scan of integer multipliers k with sigma(n)=k*n.",
+          "N": 1000000,
+          "probe_rows": [
+            {
+              "n": 100000,
+              "running_max_k": 4,
+              "n_attaining_running_max_k": 30240,
+              "count_k_ge_3_up_to_n": 4
+            },
+            {
+              "n": 300000,
+              "running_max_k": 4,
+              "n_attaining_running_max_k": 30240,
+              "count_k_ge_3_up_to_n": 4
+            },
+            {
+              "n": 600000,
+              "running_max_k": 4,
+              "n_attaining_running_max_k": 30240,
+              "count_k_ge_3_up_to_n": 5
+            },
+            {
+              "n": 1000000,
+              "running_max_k": 4,
+              "n_attaining_running_max_k": 30240,
+              "count_k_ge_3_up_to_n": 5
+            }
+          ],
+          "top_k_rows": [
+            {
+              "k": 4,
+              "max_n_with_this_k_up_to_N": 32760,
+              "sample_n": [
+                30240,
+                32760
+              ]
+            },
+            {
+              "k": 3,
+              "max_n_with_this_k_up_to_N": 523776,
+              "sample_n": [
+                120,
+                672,
+                523776
+              ]
+            },
+            {
+              "k": 2,
+              "max_n_with_this_k_up_to_N": 8128,
+              "sample_n": [
+                6,
+                28,
+                496,
+                8128
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

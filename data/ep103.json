@@ -1,0 +1,18 @@
+{
+  "problem": "EP-103",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch1_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch1_compute.mjs",
+        "heading": ": heuristic unit-distance packing proxy for minimal diameter.",
+        "extracted_section": "// EP-103: heuristic unit-distance packing proxy for minimal diameter.\n{\n  const rng = makeRng(20260304 ^ 103);\n\n  function energy(points, minDist, lambda) {\n    let e = 0;\n    let maxD = 0;\n    for (let i = 0; i < points.length; i += 1) {\n      for (let j = i + 1; j < points.length; j += 1) {\n        const dx = points[i][0] - points[j][0];\n        const dy = points[i][1] - points[j][1];\n        const d = Math.hypot(dx, dy);\n        if (d < minDist) e += lambda * (minDist - d) * (minDist - d);\n        if (d > maxD) maxD = d;\n      }\n    }\n    return { e: e + maxD, maxD };\n  }\n\n  function randomPoints(n) {\n    const pts = [];\n    for (let i = 0; i < n; i += 1) pts.push([rng() * 3, rng() * 3]);\n    return pts;\n  }\n\n  function optimize(n, iters) {\n    let pts = randomPoints(n);\n    let { e, maxD } = energy(pts, 1, 10);\n    for (let t = 0; t < iters; t += 1) {\n      const i = Math.floor(rng() * n);\n      const old = pts[i].slice();\n      pts[i][0] += (rng() - 0.5) * 0.2;\n      pts[i][1] += (rng() - 0.5) * 0.2;\n      const ne = energy(pts, 1, 10);\n      if (ne.e < e || rng() < Math.exp((e - ne.e) / 0.2)) {\n        e = ne.e;\n        maxD = ne.maxD;\n      } else {\n        pts[i] = old;\n      }\n    }\n    return { maxD, pts };\n  }\n\n  const rows = [];\n  for (const n of [7, 8, 9, 10]) {\n    let best = Infinity;\n    const sigs = new Set();\n    for (let r = 0; r < 20; r += 1) {\n      const { maxD, pts } = optimize(n, 800);\n      if (maxD < best) best = maxD;\n      // signature: rounded multiset of distances\n      const dists = [];\n      for (let i = 0; i < pts.length; i += 1) {\n        for (let j = i + 1; j < pts.length; j += 1) {\n          const dx = pts[i][0] - pts[j][0];\n          const dy = pts[i][1] - pts[j][1];\n          dists.push(Math.round(Math.hypot(dx, dy) * 1000));\n        }\n      }\n      dists.sort((a, b) => a - b);\n      sigs.add(dists.slice(0, 30).join(','));\n    }\n    rows.push({ n, best_diameter_est: Number(best.toPrecision(6)), distinct_signature_count: sigs.size });\n  }\n\n  out.results.ep103 = {\n    description: 'Heuristic plane packing proxy with unit-distance penalty; counts distinct distance signatures among local minima.',\n    rows,\n  };\n}"
+      }
+    ]
+  }
+}

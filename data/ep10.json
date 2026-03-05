@@ -1,0 +1,143 @@
+{
+  "problem": "EP-10",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep10_prime_plus_pow2_scan.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "script": "ep10_prime_plus_pow2_scan.mjs",
+        "n_max": 250000,
+        "k_list": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "powers_count": 18,
+        "rows": [
+          {
+            "k": 1,
+            "n_max": 250000,
+            "distinct_power_sums_count": 19,
+            "covered_count": 140993,
+            "covered_ratio": 0.563972,
+            "first_missing": [
+              1,
+              16,
+              22,
+              26,
+              28,
+              36,
+              40,
+              46,
+              50,
+              52,
+              56,
+              58,
+              64,
+              70,
+              76,
+              78,
+              82,
+              86,
+              88,
+              92,
+              94,
+              96,
+              100,
+              106,
+              112,
+              116,
+              118,
+              120,
+              122,
+              124,
+              126,
+              134,
+              136,
+              142,
+              144,
+              146,
+              148,
+              154,
+              156,
+              160
+            ]
+          },
+          {
+            "k": 2,
+            "n_max": 250000,
+            "distinct_power_sums_count": 172,
+            "covered_count": 243940,
+            "covered_ratio": 0.97576,
+            "first_missing": [
+              1,
+              906,
+              960,
+              1200,
+              1208,
+              1212,
+              1244,
+              1272,
+              1478,
+              1530,
+              1542,
+              1590,
+              1650,
+              1720,
+              1808,
+              1830,
+              1860,
+              1928,
+              1970,
+              1986,
+              2172,
+              2232,
+              2264,
+              2280,
+              2430,
+              2466,
+              2670,
+              2984,
+              2994,
+              3030,
+              3150,
+              3216,
+              3240,
+              3342,
+              3354,
+              3432,
+              3506,
+              3666,
+              3818,
+              3846
+            ]
+          },
+          {
+            "k": 3,
+            "n_max": 250000,
+            "distinct_power_sums_count": 988,
+            "covered_count": 249999,
+            "covered_ratio": 0.999996,
+            "first_missing": [
+              1
+            ]
+          },
+          {
+            "k": 4,
+            "n_max": 250000,
+            "distinct_power_sums_count": 4048,
+            "covered_count": 249999,
+            "covered_ratio": 0.999996,
+            "first_missing": [
+              1
+            ]
+          }
+        ],
+        "timestamp_utc": "2026-03-02T09:12:19.867Z"
+      }
+    }
+  ]
+}

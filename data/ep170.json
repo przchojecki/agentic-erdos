@@ -1,0 +1,60 @@
+{
+  "problem": "EP-170",
+  "normalized_utc": "2026-03-05T08:54:16.952Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch6_web_compute.md",
+        "content": "### EP-170\n- Quick literature check:\n  - The known asymptotic constant lies in $[1.56,\\sqrt{3}]$ from classical sparse-ruler bounds.\n- Finite compute signal:\n  - A naive greedy difference-cover heuristic produced ratios `2.0+`, clearly above the known upper-constant window.\n- Interpretation:\n  - This computation is a weak baseline and confirms the heuristic is far from extremal-quality sparse-ruler constructions."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch6_quick_compute.mjs",
+        "heading": "sparse ruler greedy construction profile.",
+        "content": "// EP-170: sparse ruler greedy construction profile.\n{\n  function greedySparseRuler(N, restarts) {\n    const allTargetCount = N + 1;\n    let best = Infinity;\n\n    for (let t = 0; t < restarts; t += 1) {\n      const inA = new Uint8Array(N + 1);\n      const A = [0, N];\n      inA[0] = 1;\n      inA[N] = 1;\n\n      const covered = new Uint8Array(N + 1);\n      covered[0] = 1;\n      covered[N] = 1;\n      let coveredCount = 2;\n\n      while (coveredCount < allTargetCount) {\n        let bestX = -1;\n        let bestGain = -1;\n        const candidates = [];\n\n        for (let x = 0; x <= N; x += 1) {\n          if (inA[x]) continue;\n          let gain = 0;\n          for (const a of A) {\n            const d = Math.abs(x - a);\n            if (!covered[d]) gain += 1;\n          }\n          if (gain > bestGain) {\n            bestGain = gain;\n            candidates.length = 0;\n            candidates.push(x);\n          } else if (gain === bestGain) {\n            candidates.push(x);\n          }\n        }\n\n        if (candidates.length === 0) break;\n        bestX = candidates[Math.floor(rng() * candidates.length)];\n        inA[bestX] = 1;\n        A.push(bestX);\n\n        for (const a of A) {\n          const d = Math.abs(bestX - a);\n          if (!covered[d]) {\n            covered[d] = 1;\n            coveredCount += 1;\n          }\n        }\n      }\n\n      if (A.length < best) best = A.length;\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const [N, restarts] of [\n    [200, 80],\n    [400, 70],\n    [800, 60],\n    [1200, 50],\n  ]) {\n    const sz = greedySparseRuler(N, restarts);\n    rows.push({\n      N,\n      restarts,\n      best_size_found: sz,\n      ratio_over_sqrtN: Number((sz / Math.sqrt(N)).toFixed(6)),\n    });\n  }\n\n  out.results.ep170 = {\n    description: 'Greedy finite sparse-ruler profile for F(N)/sqrt(N).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch6_quick_compute.json",
+        "key": "ep170",
+        "container_meta": {
+          "script": "harder_batch6_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:59:20.046Z"
+        },
+        "data": {
+          "description": "Greedy finite sparse-ruler profile for F(N)/sqrt(N).",
+          "rows": [
+            {
+              "N": 200,
+              "restarts": 80,
+              "best_size_found": 28,
+              "ratio_over_sqrtN": 1.979899
+            },
+            {
+              "N": 400,
+              "restarts": 70,
+              "best_size_found": 42,
+              "ratio_over_sqrtN": 2.1
+            },
+            {
+              "N": 800,
+              "restarts": 60,
+              "best_size_found": 64,
+              "ratio_over_sqrtN": 2.262742
+            },
+            {
+              "N": 1200,
+              "restarts": 50,
+              "best_size_found": 78,
+              "ratio_over_sqrtN": 2.251666
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

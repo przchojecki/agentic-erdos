@@ -1,0 +1,87 @@
+{
+  "problem": "EP-920",
+  "normalized_utc": "2026-03-05T08:54:16.970Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch20_web_compute.md",
+        "content": "### EP-920\n- Quick literature check:\n  - Open (updated 2026); known bounds improved for `k=4` but target exponent form remains unresolved.\n- Finite compute signal:\n  - Mycielski K4-free constructions verified through several iterations (still K4-free), yielding explicit finite lower bounds for `f_4(n)` via high chromatic number.\n- Interpretation:\n  - Construction data gives concrete finite lower bounds but no evidence close to conjectured near-optimal asymptotic growth."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch20_quick_compute.mjs",
+        "heading": "K4-free high-chromatic finite constructions (Mycielski chain).",
+        "content": "// EP-920: K4-free high-chromatic finite constructions (Mycielski chain).\n{\n  function makeC5() {\n    const adj = makeGraph(5);\n    for (let i = 0; i < 5; i += 1) addUndirectedEdge(adj, i, (i + 1) % 5);\n    return adj;\n  }\n\n  function mycielskian(adj) {\n    const n = adj.length;\n    const outN = 2 * n + 1;\n    const g = makeGraph(outN);\n\n    // Old edges\n    for (let u = 0; u < n; u += 1) {\n      for (const v of adj[u]) if (u < v) addUndirectedEdge(g, u, v);\n    }\n\n    // Clone vertices u_i = n+i; connect u_i to neighbors of v_i.\n    for (let i = 0; i < n; i += 1) {\n      for (const nb of adj[i]) addUndirectedEdge(g, n + i, nb);\n    }\n\n    // New apex w connected to all clones.\n    const w = 2 * n;\n    for (let i = 0; i < n; i += 1) addUndirectedEdge(g, w, n + i);\n\n    return g;\n  }\n\n  function hasK4(adj) {\n    const n = adj.length;\n    const mat = Array.from({ length: n }, () => new Uint8Array(n));\n    for (let u = 0; u < n; u += 1) for (const v of adj[u]) mat[u][v] = 1;\n\n    for (let a = 0; a < n; a += 1) {\n      for (let b = a + 1; b < n; b += 1) {\n        if (!mat[a][b]) continue;\n        for (let c = b + 1; c < n; c += 1) {\n          if (!(mat[a][c] && mat[b][c])) continue;\n          for (let d = c + 1; d < n; d += 1) {\n            if (mat[a][d] && mat[b][d] && mat[c][d]) return true;\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  const rows = [];\n  let G = makeC5();\n  for (let it = 0; it <= 4; it += 1) {\n    const n = G.length;\n    const chiExact = n <= 23 ? chromaticNumberDSATUR(G) : null;\n    const chiKnown = 3 + it;\n\n    let e = 0;\n    for (let u = 0; u < n; u += 1) e += G[u].length;\n    e /= 2;\n\n    rows.push({\n      iteration_from_C5: it,\n      n,\n      edge_count: e,\n      k4_free_check: !hasK4(G),\n      chromatic_number_exact_if_computed: chiExact,\n      chromatic_number_from_mycielski_construction: chiKnown,\n      lower_bound_f4_of_n_from_construction: chiKnown,\n      chi_over_n_to_2over3: Number((chiKnown / (n ** (2 / 3))).toPrecision(7)),\n    });\n\n    G = mycielskian(G);\n  }\n\n  out.results.ep920 = {\n    description: 'Finite K4-free high-chromatic profile via Mycielski constructions.',\n    rows,\n    note: 'These are constructive lower bounds for f_4(n), not extremal optima.',\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch20_quick_compute.json",
+        "key": "ep920",
+        "container_meta": {
+          "script": "harder_batch20_quick_compute.mjs",
+          "generated_utc": "2026-03-04T09:01:58.630Z"
+        },
+        "data": {
+          "description": "Finite K4-free high-chromatic profile via Mycielski constructions.",
+          "rows": [
+            {
+              "iteration_from_C5": 0,
+              "n": 5,
+              "edge_count": 5,
+              "k4_free_check": true,
+              "chromatic_number_exact_if_computed": 3,
+              "chromatic_number_from_mycielski_construction": 3,
+              "lower_bound_f4_of_n_from_construction": 3,
+              "chi_over_n_to_2over3": 1.025986
+            },
+            {
+              "iteration_from_C5": 1,
+              "n": 11,
+              "edge_count": 20,
+              "k4_free_check": true,
+              "chromatic_number_exact_if_computed": 4,
+              "chromatic_number_from_mycielski_construction": 4,
+              "lower_bound_f4_of_n_from_construction": 4,
+              "chi_over_n_to_2over3": 0.80872
+            },
+            {
+              "iteration_from_C5": 2,
+              "n": 23,
+              "edge_count": 71,
+              "k4_free_check": true,
+              "chromatic_number_exact_if_computed": 5,
+              "chromatic_number_from_mycielski_construction": 5,
+              "lower_bound_f4_of_n_from_construction": 5,
+              "chi_over_n_to_2over3": 0.618232
+            },
+            {
+              "iteration_from_C5": 3,
+              "n": 47,
+              "edge_count": 236,
+              "k4_free_check": true,
+              "chromatic_number_exact_if_computed": null,
+              "chromatic_number_from_mycielski_construction": 6,
+              "lower_bound_f4_of_n_from_construction": 6,
+              "chi_over_n_to_2over3": 0.4607012
+            },
+            {
+              "iteration_from_C5": 4,
+              "n": 95,
+              "edge_count": 755,
+              "k4_free_check": true,
+              "chromatic_number_exact_if_computed": null,
+              "chromatic_number_from_mycielski_construction": 7,
+              "lower_bound_f4_of_n_from_construction": 7,
+              "chi_over_n_to_2over3": 0.3362139
+            }
+          ],
+          "note": "These are constructive lower bounds for f_4(n), not extremal optima."
+        }
+      }
+    ]
+  }
+}

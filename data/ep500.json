@@ -1,0 +1,54 @@
+{
+  "problem": "EP-500",
+  "normalized_utc": "2026-03-05T08:54:16.960Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch13_web_compute.md",
+        "content": "### EP-500\n- Quick literature check:\n  - Turán’s `5/9`-density construction and Razborov’s upper bound remain the key asymptotic window.\n- Finite compute signal:\n  - Random greedy K4^3-free packings are clearly suboptimal relative to Turán construction on tested `n`.\n  - Explicit Turán-density values in finite `n` remain near `0.59..0.62`, above random greedy outputs.\n- Interpretation:\n  - The experiment confirms random local heuristics are not enough for this extremal problem."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch13_quick_compute.mjs",
+        "heading": "K4^3-free 3-graph random-greedy lower-bound profile.",
+        "content": "// EP-500: K4^3-free 3-graph random-greedy lower-bound profile.\n{\n  function turanConstructionDensity(n) {\n    const s = [Math.floor(n / 3), Math.floor((n + 1) / 3), Math.floor((n + 2) / 3)];\n    s.sort((a, b) => b - a);\n    const [a, b, c] = s;\n\n    let e = a * b * c; // one from each class\n    // two in Xi, one in Xi+1 cyclic\n    e += choose2(a) * b;\n    e += choose2(b) * c;\n    e += choose2(c) * a;\n\n    return e / choose3(n);\n  }\n\n  function greedyLower(n, trials, rng) {\n    const triples = [];\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) {\n        for (let k = j + 1; k < n; k += 1) triples.push([i, j, k]);\n      }\n    }\n    const E = triples.length;\n\n    const foursets = [];\n    for (let a = 0; a < n; a += 1) {\n      for (let b = a + 1; b < n; b += 1) {\n        for (let c = b + 1; c < n; c += 1) {\n          for (let d = c + 1; d < n; d += 1) {\n            foursets.push([a, b, c, d]);\n          }\n        }\n      }\n    }\n\n    const keyToEdge = new Map();\n    for (let i = 0; i < E; i += 1) {\n      const [a, b, c] = triples[i];\n      keyToEdge.set(`${a},${b},${c}`, i);\n    }\n\n    const contain = Array.from({ length: E }, () => []);\n    for (let fi = 0; fi < foursets.length; fi += 1) {\n      const [a, b, c, d] = foursets[fi];\n      const edgeIds = [\n        keyToEdge.get(`${a},${b},${c}`),\n        keyToEdge.get(`${a},${b},${d}`),\n        keyToEdge.get(`${a},${c},${d}`),\n        keyToEdge.get(`${b},${c},${d}`),\n      ];\n      for (const e of edgeIds) contain[e].push(fi);\n    }\n\n    let best = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const ord = Array.from({ length: E }, (_, i) => i);\n      shuffle(ord, rng);\n      const cnt4 = new Uint8Array(foursets.length);\n      let kept = 0;\n\n      for (const e of ord) {\n        let ok = true;\n        for (const fi of contain[e]) {\n          if (cnt4[fi] >= 3) {\n            ok = false;\n            break;\n          }\n        }\n        if (!ok) continue;\n        kept += 1;\n        for (const fi of contain[e]) cnt4[fi] += 1;\n      }\n      if (kept > best) best = kept;\n    }\n\n    return best / E;\n  }\n\n  const rng = makeRng(20260303 ^ 1303);\n  const rows = [];\n  for (const [n, trials] of [[12, 120], [16, 100], [20, 90]]) {\n    const g = greedyLower(n, trials, rng);\n    rows.push({\n      n,\n      random_greedy_best_density: Number(g.toPrecision(7)),\n      turan_construction_density: Number(turanConstructionDensity(n).toPrecision(7)),\n      razborov_upper_density: 0.5611666,\n    });\n  }\n\n  out.results.ep500 = {\n    description: 'Finite random-greedy lower-bound densities for K4^3-free 3-graphs.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch13_quick_compute.json",
+        "key": "ep500",
+        "container_meta": {
+          "script": "harder_batch13_quick_compute.mjs",
+          "generated_utc": "2026-03-03T21:44:19.727Z"
+        },
+        "data": {
+          "description": "Finite random-greedy lower-bound densities for K4^3-free 3-graphs.",
+          "rows": [
+            {
+              "n": 12,
+              "random_greedy_best_density": 0.5590909,
+              "turan_construction_density": 0.6181818,
+              "razborov_upper_density": 0.5611666
+            },
+            {
+              "n": 16,
+              "random_greedy_best_density": 0.5035714,
+              "turan_construction_density": 0.5982143,
+              "razborov_upper_density": 0.5611666
+            },
+            {
+              "n": 20,
+              "random_greedy_best_density": 0.472807,
+              "turan_construction_density": 0.5894737,
+              "razborov_upper_density": 0.5611666
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem": "EP-20",
+  "normalized_utc": "2026-03-05T08:54:16.935Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch1_web_compute.md",
+        "content": "### EP-20\n- Quick literature check:\n  - Recent sunflower progress includes 2025 results for small VC-dimension frameworks.\n- Finite compute signal:\n  - Random greedy 3-sunflower-free families (small-universe proxy):\n    - $m=3$: best $14$\n    - $m=4$: best $27$\n    - $m=5$: best $52$\n- Interpretation:\n  - Small-scale growth is consistent with exponential-type behavior in $m$, but does not settle the full $c_k^n$ threshold question."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch1_quick_compute.mjs",
+        "heading": "random greedy sunflower-free families (k=3), small n-uniform regimes.",
+        "content": "// EP-20: random greedy sunflower-free families (k=3), small n-uniform regimes.\n{\n  const rng = makeRng(20260303);\n  const rows = [];\n  const mList = [3, 4, 5];\n  for (const m of mList) {\n    const U = 2 * m + 6;\n    const all = allSubsetsOfSize(U, m);\n    const trials = 60;\n    let best = 0;\n    let sum = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const order = all.slice();\n      shuffle(order, rng);\n      const fam = [];\n      for (const s of order) {\n        if (!candCreates3Sunflower(s, fam)) fam.push(s);\n      }\n      if (fam.length > best) best = fam.length;\n      sum += fam.length;\n    }\n    rows.push({\n      m,\n      universe_size: U,\n      candidate_sets_total: all.length,\n      trials,\n      best_family_size_found: best,\n      avg_family_size: Number((sum / trials).toFixed(4)),\n      best_size_to_the_1_over_m: Number((best ** (1 / m)).toFixed(6)),\n    });\n  }\n  out.results.ep20 = {\n    description: 'Small-scale random greedy profile for 3-sunflower-free m-uniform families.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch1_quick_compute.json",
+        "key": "ep20",
+        "container_meta": {
+          "script": "harder_batch1_quick_compute.mjs",
+          "generated_utc": "2026-03-03T15:38:58.045Z"
+        },
+        "data": {
+          "description": "Small-scale random greedy profile for 3-sunflower-free m-uniform families.",
+          "rows": [
+            {
+              "m": 3,
+              "universe_size": 12,
+              "candidate_sets_total": 220,
+              "trials": 60,
+              "best_family_size_found": 14,
+              "avg_family_size": 11.5167,
+              "best_size_to_the_1_over_m": 2.410142
+            },
+            {
+              "m": 4,
+              "universe_size": 14,
+              "candidate_sets_total": 1001,
+              "trials": 60,
+              "best_family_size_found": 27,
+              "avg_family_size": 24.2167,
+              "best_size_to_the_1_over_m": 2.279507
+            },
+            {
+              "m": 5,
+              "universe_size": 16,
+              "candidate_sets_total": 4368,
+              "trials": 60,
+              "best_family_size_found": 52,
+              "avg_family_size": 47.0667,
+              "best_size_to_the_1_over_m": 2.203945
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

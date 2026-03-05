@@ -1,0 +1,251 @@
+{
+  "problem": "EP-411",
+  "normalized_utc": "2026-03-05T08:54:16.959Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch12_web_compute.md",
+        "content": "### EP-411\n- Quick literature check:\n  - 2025 work (Steinerberger/Cambie context) reframes the `r=2` case via explicit totient equations and arithmetic restrictions.\n- Finite compute signal:\n  - Windowed search up to `n<=20000` finds many candidates for `r=2` with eventual doubling behavior; known examples (`n=10,94`) verify on long windows.\n- Interpretation:\n  - Finite dynamics suggest broad structured families, but a complete parameterization by `(n,r)` remains open."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch12_quick_compute.mjs",
+        "heading": "search for finite-window eventual patterns g_{k+r}(n)=2g_k(n).",
+        "content": "// EP-411: search for finite-window eventual patterns g_{k+r}(n)=2g_k(n).\n{\n  function g(n) {\n    if (n <= N_SMALL) return n + phi[n];\n    return n + phiByFactorization(n, primes);\n  }\n\n  function iterG(n, len, cap) {\n    const arr = [n];\n    let x = n;\n    for (let i = 0; i < len; i += 1) {\n      x = g(x);\n      if (!Number.isFinite(x) || x > cap) return null;\n      arr.push(x);\n    }\n    return arr;\n  }\n\n  const N = 20000;\n  const RMAX = 6;\n  const LEN = 26;\n  const CAP = 5e8;\n  const hits = [];\n\n  for (let n = 2; n <= N; n += 1) {\n    const seq = iterG(n, LEN + RMAX, CAP);\n    if (!seq) continue;\n    for (let r = 1; r <= RMAX; r += 1) {\n      let found = false;\n      let bestK = null;\n      for (let K = 2; K <= 12; K += 1) {\n        let ok = true;\n        for (let k = K; k <= K + 7; k += 1) {\n          if (seq[k + r] !== 2 * seq[k]) {\n            ok = false;\n            break;\n          }\n        }\n        if (ok) {\n          found = true;\n          bestK = K;\n          break;\n        }\n      }\n      if (found) hits.push({ n, r, witness_K: bestK });\n    }\n  }\n\n  function verifyKnown(n, r) {\n    const seq = iterG(n, 40 + r, 5e12);\n    if (!seq) return null;\n    for (let k = 4; k <= 35; k += 1) {\n      if (seq[k + r] !== 2 * seq[k]) return false;\n    }\n    return true;\n  }\n\n  out.results.ep411 = {\n    description: 'Finite-window search for eventual doubling under iterates of g(n)=n+phi(n).',\n    scan_limit_n: N,\n    scan_limit_r: RMAX,\n    candidate_hits_first_40: hits.slice(0, 40),\n    hit_count_total: hits.length,\n    known_case_checks: [\n      { n: 10, r: 2, holds_on_checked_window: verifyKnown(10, 2) },\n      { n: 94, r: 2, holds_on_checked_window: verifyKnown(94, 2) },\n    ],\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch12_quick_compute.json",
+        "key": "ep411",
+        "container_meta": {
+          "script": "harder_batch12_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:42:39.714Z"
+        },
+        "data": {
+          "description": "Finite-window search for eventual doubling under iterates of g(n)=n+phi(n).",
+          "scan_limit_n": 20000,
+          "scan_limit_r": 6,
+          "candidate_hits_first_40": [
+            {
+              "n": 4,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 6,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 8,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 10,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 12,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 14,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 16,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 18,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 20,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 22,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 24,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 26,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 28,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 30,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 32,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 34,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 36,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 38,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 40,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 42,
+              "r": 2,
+              "witness_K": 3
+            },
+            {
+              "n": 44,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 46,
+              "r": 2,
+              "witness_K": 3
+            },
+            {
+              "n": 48,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 50,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 52,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 54,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 56,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 58,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 60,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 62,
+              "r": 2,
+              "witness_K": 4
+            },
+            {
+              "n": 64,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 66,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 68,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 70,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 72,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 74,
+              "r": 2,
+              "witness_K": 6
+            },
+            {
+              "n": 76,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 78,
+              "r": 2,
+              "witness_K": 4
+            },
+            {
+              "n": 80,
+              "r": 2,
+              "witness_K": 2
+            },
+            {
+              "n": 82,
+              "r": 2,
+              "witness_K": 7
+            }
+          ],
+          "hit_count_total": 1090,
+          "known_case_checks": [
+            {
+              "n": 10,
+              "r": 2,
+              "holds_on_checked_window": true
+            },
+            {
+              "n": 94,
+              "r": 2,
+              "holds_on_checked_window": true
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

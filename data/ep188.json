@@ -1,0 +1,60 @@
+{
+  "problem": "EP-188",
+  "normalized_utc": "2026-03-05T08:54:16.953Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch7_web_compute.md",
+        "content": "### EP-188\n- Quick literature check:\n  - Known lower bound is now at least `6` for the intended distance-1 blue progression version.\n- Finite compute signal:\n  - Triangular-lattice proxy optimization produced colorings with best max blue run lengths `4,5,6,7` as patch size increased.\n- Interpretation:\n  - Proxy supports growth pressure on unavoidable blue unit-step progressions, but this is not a proof in the Euclidean plane."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch7_quick_compute.mjs",
+        "heading": "finite triangular-lattice proxy.",
+        "content": "// EP-188: finite triangular-lattice proxy.\n{\n  function triPatch(m) {\n    const pts = [];\n    const id = new Map();\n    for (let x = 0; x < m; x += 1) {\n      for (let y = 0; y < m; y += 1) {\n        const k = `${x},${y}`;\n        id.set(k, pts.length);\n        pts.push([x, y]);\n      }\n    }\n    const dirs = [\n      [1, 0],\n      [0, 1],\n      [1, -1],\n      [-1, 0],\n      [0, -1],\n      [-1, 1],\n    ];\n    const neigh = Array.from({ length: pts.length }, () => []);\n    for (let i = 0; i < pts.length; i += 1) {\n      const [x, y] = pts[i];\n      for (const [dx, dy] of dirs) {\n        const j = id.get(`${x + dx},${y + dy}`);\n        if (j !== undefined) neigh[i].push(j);\n      }\n    }\n    return { pts, neigh, m };\n  }\n\n  function maxBlueRun(colors, patch) {\n    const { pts, m } = patch;\n    const id = new Map(pts.map((p, i) => [`${p[0]},${p[1]}`, i]));\n    const dirs = [\n      [1, 0],\n      [0, 1],\n      [1, -1],\n    ];\n    let best = 0;\n\n    for (let i = 0; i < pts.length; i += 1) {\n      const [x, y] = pts[i];\n      for (const [dx, dy] of dirs) {\n        const prev = id.get(`${x - dx},${y - dy}`);\n        if (prev !== undefined) continue;\n        let cx = x;\n        let cy = y;\n        let cur = 0;\n        while (cx >= 0 && cx < m && cy >= 0 && cy < m) {\n          const j = id.get(`${cx},${cy}`);\n          if (j === undefined) break;\n          if (colors[j] === 0) {\n            cur += 1;\n            if (cur > best) best = cur;\n          } else {\n            cur = 0;\n          }\n          cx += dx;\n          cy += dy;\n        }\n      }\n    }\n\n    return best;\n  }\n\n  function redConflicts(colors, patch) {\n    let c = 0;\n    const { neigh } = patch;\n    for (let i = 0; i < neigh.length; i += 1) {\n      if (colors[i] !== 1) continue;\n      for (const j of neigh[i]) if (j > i && colors[j] === 1) c += 1;\n    }\n    return c;\n  }\n\n  function optimize(m, restarts = 40, steps = 12000) {\n    const patch = triPatch(m);\n    let bestRun = Infinity;\n    for (let rep = 0; rep < restarts; rep += 1) {\n      const colors = new Uint8Array(patch.pts.length);\n      for (let i = 0; i < colors.length; i += 1) colors[i] = rng() < 0.35 ? 1 : 0;\n\n      let conf = redConflicts(colors, patch);\n      let run = maxBlueRun(colors, patch);\n      let score = conf * 1000 + run;\n\n      for (let step = 0; step < steps; step += 1) {\n        const v = Math.floor(rng() * colors.length);\n        colors[v] ^= 1;\n        const nConf = redConflicts(colors, patch);\n        const nRun = maxBlueRun(colors, patch);\n        const nScore = nConf * 1000 + nRun;\n        if (nScore <= score || rng() < 0.002) {\n          conf = nConf;\n          run = nRun;\n          score = nScore;\n        } else {\n          colors[v] ^= 1;\n        }\n      }\n\n      if (conf === 0 && run < bestRun) bestRun = run;\n    }\n    return bestRun;\n  }\n\n  const rows = [];\n  for (const m of [8, 10, 12, 14]) {\n    const run = optimize(m, 36, 10000);\n    rows.push({\n      lattice_side_m: m,\n      vertices: m * m,\n      best_max_blue_unit_step_AP_run_found: run,\n      proxy_k_upper_bound_from_found_coloring: run < Infinity ? run + 1 : null,\n    });\n  }\n\n  out.results.ep188 = {\n    description: 'Finite triangular-lattice proxy balancing red unit-distance avoidance vs blue unit-step AP runs.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch7_quick_compute.json",
+        "key": "ep188",
+        "container_meta": {
+          "script": "harder_batch7_quick_compute.mjs",
+          "generated_utc": "2026-03-03T18:20:02.729Z"
+        },
+        "data": {
+          "description": "Finite triangular-lattice proxy balancing red unit-distance avoidance vs blue unit-step AP runs.",
+          "rows": [
+            {
+              "lattice_side_m": 8,
+              "vertices": 64,
+              "best_max_blue_unit_step_AP_run_found": 4,
+              "proxy_k_upper_bound_from_found_coloring": 5
+            },
+            {
+              "lattice_side_m": 10,
+              "vertices": 100,
+              "best_max_blue_unit_step_AP_run_found": 5,
+              "proxy_k_upper_bound_from_found_coloring": 6
+            },
+            {
+              "lattice_side_m": 12,
+              "vertices": 144,
+              "best_max_blue_unit_step_AP_run_found": 6,
+              "proxy_k_upper_bound_from_found_coloring": 7
+            },
+            {
+              "lattice_side_m": 14,
+              "vertices": 196,
+              "best_max_blue_unit_step_AP_run_found": 7,
+              "proxy_k_upper_bound_from_found_coloring": 8
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

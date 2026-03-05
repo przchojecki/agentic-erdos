@@ -1,0 +1,57 @@
+{
+  "problem": "EP-1068",
+  "normalized_utc": "2026-03-05T08:54:16.974Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch24_web_compute.md",
+        "content": "### EP-1068\n- Quick literature check:\n  - Open (edited 18 Jan 2026); page notes this is a later \"version\" entry and records modern related counterexample-style context.\n- Finite compute signal:\n  - Finite proxy on `C5` and first two Mycielski lifts shows rising finite chromatic complexity (`chi=3,4,5`) and nontrivial connectivity profiles.\n- Interpretation:\n  - This finite analogue captures high-chromatic/connected tension, but does not address the countable-subgraph infinite-connectivity statement itself."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch24_quick_compute.mjs",
+        "heading": "finite analogue on high-chromatic Mycielski graphs.",
+        "content": "// EP-1068: finite analogue on high-chromatic Mycielski graphs.\n{\n  function cycle5() {\n    const n = 5;\n    const edges = [\n      [0, 1],\n      [1, 2],\n      [2, 3],\n      [3, 4],\n      [4, 0],\n    ];\n    return adjacencyMasksFromEdgeList(n, edges);\n  }\n\n  function mycielski(masks) {\n    const n = masks.length;\n    const m2 = Array(2 * n + 1).fill(0n);\n\n    for (let u = 0; u < n; u += 1) {\n      let mu = masks[u];\n      while (mu) {\n        const b = mu & -mu;\n        const v = bitIndexBigInt(b);\n        mu ^= b;\n        if (u < v) {\n          m2[u] |= 1n << BigInt(v);\n          m2[v] |= 1n << BigInt(u);\n          m2[u] |= 1n << BigInt(n + v);\n          m2[n + v] |= 1n << BigInt(u);\n          m2[v] |= 1n << BigInt(n + u);\n          m2[n + u] |= 1n << BigInt(v);\n        }\n      }\n    }\n    const w = 2 * n;\n    for (let u = 0; u < n; u += 1) {\n      m2[n + u] |= 1n << BigInt(w);\n      m2[w] |= 1n << BigInt(n + u);\n    }\n    return m2;\n  }\n\n  function kCoreNumber(masks) {\n    const n = masks.length;\n    const deg = Array(n).fill(0);\n    for (let i = 0; i < n; i += 1) {\n      let c = 0;\n      let m = masks[i];\n      while (m) {\n        m &= m - 1n;\n        c += 1;\n      }\n      deg[i] = c;\n    }\n    let best = 0;\n    for (let k = 1; k <= n; k += 1) {\n      const alive = new Uint8Array(n);\n      alive.fill(1);\n      let changed = true;\n      const d = [...deg];\n      while (changed) {\n        changed = false;\n        for (let v = 0; v < n; v += 1) {\n          if (!alive[v] || d[v] >= k) continue;\n          alive[v] = 0;\n          changed = true;\n          let m = masks[v];\n          while (m) {\n            const b = m & -m;\n            const u = bitIndexBigInt(b);\n            m ^= b;\n            if (alive[u]) d[u] -= 1;\n          }\n        }\n      }\n      if (alive.some((x) => x)) best = k;\n    }\n    return best;\n  }\n\n  function isConnectedAfterRemoving(masks, remSet) {\n    const n = masks.length;\n    const banned = new Uint8Array(n);\n    for (const v of remSet) banned[v] = 1;\n    let s = -1;\n    for (let i = 0; i < n; i += 1) {\n      if (!banned[i]) {\n        s = i;\n        break;\n      }\n    }\n    if (s === -1) return true;\n    const q = [s];\n    const seen = new Uint8Array(n);\n    seen[s] = 1;\n    let head = 0;\n    while (head < q.length) {\n      const v = q[head++];\n      let m = masks[v];\n      while (m) {\n        const b = m & -m;\n        const u = bitIndexBigInt(b);\n        m ^= b;\n        if (banned[u] || seen[u]) continue;\n        seen[u] = 1;\n        q.push(u);\n      }\n    }\n    for (let i = 0; i < n; i += 1) if (!banned[i] && !seen[i]) return false;\n    return true;\n  }\n\n  function minVertexCutSize(masks, cap = 4) {\n    const n = masks.length;\n    if (!isConnectedAfterRemoving(masks, [])) return 0;\n    for (let t = 1; t <= Math.min(cap, n - 1); t += 1) {\n      const cur = [];\n      function dfs(start) {\n        if (cur.length === t) return !isConnectedAfterRemoving(masks, cur);\n        for (let v = start; v < n; v += 1) {\n          cur.push(v);\n          if (dfs(v + 1)) return true;\n          cur.pop();\n        }\n        return false;\n      }\n      if (dfs(0)) return t;\n    }\n    return cap + 1;\n  }\n\n  const g0 = cycle5();\n  const g1 = mycielski(g0);\n  const g2 = mycielski(g1);\n  const family = [g0, g1, g2];\n\n  const rows = family.map((masks, idx) => {\n    const adj = adjacencyListFromMasks(masks);\n    return {\n      graph: idx === 0 ? 'C5' : `Mycielski^${idx}(C5)`,\n      n: masks.length,\n      chi_exact: chromaticNumberDSATUR(adj),\n      k_core_max: kCoreNumber(masks),\n      min_vertex_cut_size_up_to_cap4: minVertexCutSize(masks, 4),\n    };\n  });\n\n  out.results.ep1068 = {\n    description: 'Finite high-chromatic proxy on Mycielski graphs (not a transfinite analogue).',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch24_quick_compute.json",
+        "key": "ep1068",
+        "container_meta": {
+          "script": "harder_batch24_quick_compute.mjs",
+          "generated_utc": "2026-03-04T11:28:27.056Z"
+        },
+        "data": {
+          "description": "Finite high-chromatic proxy on Mycielski graphs (not a transfinite analogue).",
+          "rows": [
+            {
+              "graph": "C5",
+              "n": 5,
+              "chi_exact": 3,
+              "k_core_max": 2,
+              "min_vertex_cut_size_up_to_cap4": 2
+            },
+            {
+              "graph": "Mycielski^1(C5)",
+              "n": 11,
+              "chi_exact": 4,
+              "k_core_max": 3,
+              "min_vertex_cut_size_up_to_cap4": 3
+            },
+            {
+              "graph": "Mycielski^2(C5)",
+              "n": 23,
+              "chi_exact": 5,
+              "k_core_max": 5,
+              "min_vertex_cut_size_up_to_cap4": 4
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

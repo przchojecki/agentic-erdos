@@ -1,0 +1,72 @@
+{
+  "problem": "EP-257",
+  "normalized_utc": "2026-03-05T08:54:16.954Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch8_web_compute.md",
+        "content": "### EP-257\n- Quick literature check:\n  - Recent progress (Tao-Teräväinen, 2025) settles important special cases (primes / prime powers), but the full all-infinite-`A` statement remains open.\n- Finite compute signal:\n  - Partial sums for representative infinite `A` (primes, prime powers, powers of 2, squares) stabilize quickly in tested truncations (`L=200` vs `L=400`).\n  - Rational approximation with moderate denominator gives tiny but nonzero residuals.\n- Interpretation:\n  - Data supports irrational-looking behavior in examples, without addressing full universal quantification over all infinite `A`."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch8_quick_compute.mjs",
+        "heading": "partial sums for canonical infinite sets A.",
+        "content": "// EP-257: partial sums for canonical infinite sets A.\n{\n  function primePowers(limit) {\n    const { primes } = sieve(limit);\n    const set = new Set();\n    for (const p of primes) {\n      let v = p;\n      while (v <= limit) {\n        set.add(v);\n        if (v > Math.floor(limit / p)) break;\n        v *= p;\n      }\n    }\n    return [...set].sort((a, b) => a - b);\n  }\n\n  function partialAhmes(A, L) {\n    let s = 0;\n    for (const n of A) {\n      if (n > L) break;\n      s += 1 / (2 ** n - 1);\n    }\n    return s;\n  }\n\n  const L = 400;\n  const { primes } = sieve(L);\n  const families = [\n    { name: 'primes', A: primes },\n    { name: 'prime_powers', A: primePowers(L) },\n    { name: 'powers_of_2', A: Array.from({ length: 15 }, (_, i) => 2 ** i).filter((x) => x <= L) },\n    { name: 'squares', A: Array.from({ length: Math.floor(Math.sqrt(L)) }, (_, i) => (i + 1) ** 2) },\n  ];\n\n  const rows = [];\n  for (const f of families) {\n    const s200 = partialAhmes(f.A, 200);\n    const s400 = partialAhmes(f.A, 400);\n    const best = bestRationalApprox(s400, 50000);\n    rows.push({\n      family: f.name,\n      terms_up_to_400: f.A.filter((x) => x <= 400).length,\n      partial_sum_L200: Number(s200.toPrecision(14)),\n      partial_sum_L400: Number(s400.toPrecision(14)),\n      delta_200_to_400: Number(Math.abs(s400 - s200).toExponential(4)),\n      best_rational_q_le_50000: `${best.p}/${best.q}`,\n      approx_error: Number(best.err.toExponential(4)),\n    });\n  }\n\n  out.results.ep257 = {\n    description: 'Finite partial-sum profile of sum_{n in A} 1/(2^n-1) for representative infinite sets A.',\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch8_quick_compute.json",
+        "key": "ep257",
+        "container_meta": {
+          "script": "harder_batch8_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:03:33.452Z"
+        },
+        "data": {
+          "description": "Finite partial-sum profile of sum_{n in A} 1/(2^n-1) for representative infinite sets A.",
+          "rows": [
+            {
+              "family": "primes",
+              "terms_up_to_400": 78,
+              "partial_sum_L200": 0.51694281980564,
+              "partial_sum_L400": 0.51694281980564,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "20061/38807",
+              "approx_error": 2.1124e-10
+            },
+            {
+              "family": "prime_powers",
+              "terms_up_to_400": 97,
+              "partial_sum_L200": 0.58950329876982,
+              "partial_sum_L400": 0.58950329876982,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "29125/49406",
+              "approx_error": 4.2461e-10
+            },
+            {
+              "family": "powers_of_2",
+              "terms_up_to_400": 9,
+              "partial_sum_L200": 1.4039368278822,
+              "partial_sum_L400": 1.4039368278822,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "30669/21845",
+              "approx_error": 2.3283e-10
+            },
+            {
+              "family": "squares",
+              "terms_up_to_400": 20,
+              "partial_sum_L200": 1.0686389026679,
+              "partial_sum_L400": 1.0686389026679,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "50319/47087",
+              "approx_error": 2.1071e-10
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

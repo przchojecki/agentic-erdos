@@ -1,0 +1,58 @@
+{
+  "problem": "EP-89",
+  "normalized_utc": "2026-03-05T08:54:16.949Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch3_web_compute.md",
+        "content": "### EP-89\n- Quick literature check:\n  - The Guth-Katz lower bound benchmark remains the central near-solution baseline in quick scan.\n- Finite compute signal:\n  - On square-grid samples, distinct-distance counts normalize to about $1.09..1.10$ times $n/\\sqrt{\\log n}$.\n- Interpretation:\n  - Finite grid behavior is consistent with the conjectured sharp scale, but does not constitute a proof for all point sets."
+      }
+    ],
+    "script_sources": [],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch3_quick_compute.json",
+        "key": "ep89",
+        "container_meta": {
+          "script": "harder_batch3_quick_compute.mjs",
+          "generated_utc": "2026-03-03T16:11:25.282Z"
+        },
+        "data": {
+          "description": "Distinct-distance finite profiles for grid/triangular/random point sets.",
+          "rows": [
+            {
+              "n": 256,
+              "distinct_distances_grid": 119,
+              "distinct_distances_tri_patch": 233,
+              "distinct_distances_random": 32640,
+              "grid_ratio_over_n_over_sqrt_log_n": 1.094623
+            },
+            {
+              "n": 400,
+              "distinct_distances_grid": 179,
+              "distinct_distances_tri_patch": 335,
+              "distinct_distances_random": 79800,
+              "grid_ratio_over_n_over_sqrt_log_n": 1.095367
+            },
+            {
+              "n": 625,
+              "distinct_distances_grid": 272,
+              "distinct_distances_tri_patch": 506,
+              "distinct_distances_random": 195000,
+              "grid_ratio_over_n_over_sqrt_log_n": 1.104221
+            },
+            {
+              "n": 900,
+              "distinct_distances_grid": 381,
+              "distinct_distances_tri_patch": 713,
+              "distinct_distances_random": 404550,
+              "grid_ratio_over_n_over_sqrt_log_n": 1.104113
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

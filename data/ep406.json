@@ -1,0 +1,80 @@
+{
+  "problem": "EP-406",
+  "normalized_utc": "2026-03-05T08:54:16.959Z",
+  "computations": [],
+  "batch_split_integrations_from_head": {
+    "integrated_utc": "2026-03-05T08:56:18.891Z",
+    "note_sources": [
+      {
+        "source_file": "notes/harder_batch12_web_compute.md",
+        "content": "### EP-406\n- Quick literature check:\n  - Saye (2022) gives extremely large computational verification ranges for ternary-digit behavior of powers of two.\n- Finite compute signal:\n  - Up to exponent `20000`, only `n=0,2,8` give ternary digits in `{0,1}` for `2^n`.\n  - For digits in `{1,2}`, only `n=0,1,2,3,4,15` appear in this range.\n- Interpretation:\n  - Finite data strongly matches the conjectural finiteness picture."
+      }
+    ],
+    "script_sources": [
+      {
+        "source_file": "scripts/harder_batch12_quick_compute.mjs",
+        "heading": "powers of 2 with ternary digits constraints.",
+        "content": "// EP-406: powers of 2 with ternary digits constraints.\n{\n  const NEXP = 20000;\n  const rows = [];\n\n  const allow01 = new Set(['0', '1']);\n  const allow12 = new Set(['1', '2']);\n\n  let v = 1n;\n  const hits01 = [];\n  const hits12 = [];\n\n  let missing0After16 = 0;\n  let missing1After16 = 0;\n  let missing2After16 = 0;\n\n  for (let n = 0; n <= NEXP; n += 1) {\n    const s = v.toString(3);\n\n    if (hasOnlyDigitsSetBase(v, 3, allow01)) hits01.push(n);\n    if (hasOnlyDigitsSetBase(v, 3, allow12)) hits12.push(n);\n\n    if (n >= 16) {\n      if (!s.includes('0')) missing0After16 += 1;\n      if (!s.includes('1')) missing1After16 += 1;\n      if (!s.includes('2')) missing2After16 += 1;\n    }\n\n    if ([100, 1000, 5000, 10000, 20000].includes(n)) {\n      rows.push({\n        n,\n        count_hits_01_up_to_n: hits01.length,\n        count_hits_12_up_to_n: hits12.length,\n      });\n    }\n\n    v <<= 1n;\n  }\n\n  out.results.ep406 = {\n    description: 'Finite ternary-digit profile for powers of two.',\n    exponent_limit: NEXP,\n    exponents_with_only_digits_0_1: hits01,\n    exponents_with_only_digits_1_2: hits12,\n    counts_missing_digit_after_n_ge_16: {\n      missing_0: missing0After16,\n      missing_1: missing1After16,\n      missing_2: missing2After16,\n    },\n    rows,\n  };\n}"
+      }
+    ],
+    "data_sources": [
+      {
+        "source_file": "data/harder_batch12_quick_compute.json",
+        "key": "ep406",
+        "container_meta": {
+          "script": "harder_batch12_quick_compute.mjs",
+          "generated_utc": "2026-03-03T19:42:39.714Z"
+        },
+        "data": {
+          "description": "Finite ternary-digit profile for powers of two.",
+          "exponent_limit": 20000,
+          "exponents_with_only_digits_0_1": [
+            0,
+            2,
+            8
+          ],
+          "exponents_with_only_digits_1_2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            15
+          ],
+          "counts_missing_digit_after_n_ge_16": {
+            "missing_0": 0,
+            "missing_1": 0,
+            "missing_2": 0
+          },
+          "rows": [
+            {
+              "n": 100,
+              "count_hits_01_up_to_n": 3,
+              "count_hits_12_up_to_n": 6
+            },
+            {
+              "n": 1000,
+              "count_hits_01_up_to_n": 3,
+              "count_hits_12_up_to_n": 6
+            },
+            {
+              "n": 5000,
+              "count_hits_01_up_to_n": 3,
+              "count_hits_12_up_to_n": 6
+            },
+            {
+              "n": 10000,
+              "count_hits_01_up_to_n": 3,
+              "count_hits_12_up_to_n": 6
+            },
+            {
+              "n": 20000,
+              "count_hits_01_up_to_n": 3,
+              "count_hits_12_up_to_n": 6
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

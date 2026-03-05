@@ -1,0 +1,1028 @@
+{
+  "problem": "EP-40",
+  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "computations": [
+    {
+      "source_file": "ep40_experiments.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "set": "A={2^k}",
+        "note": "rmax is computed on finite truncation A∩[1,N]; for full infinite set, max ordered representations remains <=2.",
+        "rows": [
+          {
+            "N": 10000,
+            "m": 14,
+            "rmax": 2,
+            "rhs_for_g_sqrtN_over_logN": 9.210340371976184,
+            "ratio_m_over_rhs1": 1.5200306866613813,
+            "rhs_for_g_sqrtN_over_sqrtlogN": 3.034854258770293,
+            "ratio_m_over_rhs2": 4.613071602875825,
+            "rhs_for_g_sqrtN_over_log2N": 84.83036976765439,
+            "ratio_m_over_rhs3": 0.16503523488516214
+          },
+          {
+            "N": 100000,
+            "m": 17,
+            "rmax": 2,
+            "rhs_for_g_sqrtN_over_logN": 11.512925464970229,
+            "ratio_m_over_rhs1": 1.4766012384710563,
+            "rhs_for_g_sqrtN_over_sqrtlogN": 3.393070212207556,
+            "ratio_m_over_rhs2": 5.010211677564927,
+            "rhs_for_g_sqrtN_over_log2N": 132.54745276195996,
+            "ratio_m_over_rhs3": 0.12825595396789746
+          },
+          {
+            "N": 1000000,
+            "m": 20,
+            "rmax": 2,
+            "rhs_for_g_sqrtN_over_logN": 13.815510557964274,
+            "ratio_m_over_rhs1": 1.4476482730108395,
+            "rhs_for_g_sqrtN_over_sqrtlogN": 3.7169221888498383,
+            "ratio_m_over_rhs2": 5.380795987604138,
+            "rhs_for_g_sqrtN_over_log2N": 190.8683319772223,
+            "ratio_m_over_rhs3": 0.1047842761175633
+          },
+          {
+            "N": 10000000,
+            "m": 24,
+            "rmax": 2,
+            "rhs_for_g_sqrtN_over_logN": 16.11809565095832,
+            "ratio_m_over_rhs1": 1.4890096522397205,
+            "rhs_for_g_sqrtN_over_sqrtlogN": 4.0147348170157295,
+            "ratio_m_over_rhs2": 5.977978893719288,
+            "rhs_for_g_sqrtN_over_log2N": 259.7930074134415,
+            "ratio_m_over_rhs3": 0.09238123935262724
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_frontier_classifier.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "note": [
+          "This classifier is numerical and sample-based (finite N only).",
+          "Do not treat these rows as asymptotic proof/disproof on their own.",
+          "The rigorous theorem is existence of bounded-representation sequences with exponent 1/2-eps for every eps>0 (Erdos-Renyi 1960, Theorem 8 and following note).",
+          "A positive guarantee regime is still only partial (e.g. m(N)^2/N -> infinity implies unbounded limsup)."
+        ],
+        "Ns": [
+          1000000,
+          100000000,
+          10000000000,
+          1000000000000
+        ],
+        "families": [
+          {
+            "family": "log N",
+            "thresholds": {
+              "1000000": 72.38241365054198,
+              "100000000": 542.8681023790647,
+              "10000000000": 4342.944819032518,
+              "1000000000000": 36191.20682527099
+            },
+            "sample_met_by_powers2_all_Ns": false,
+            "sample_met_by_ER_eps_0p05_all_Ns": true,
+            "sample_met_by_ER_eps_0p1_all_Ns": true,
+            "classification": "sample_only_not_asymptotic_proof"
+          },
+          {
+            "family": "(log N)^2",
+            "thresholds": {
+              "1000000": 5.239213805878165,
+              "100000000": 29.47057765806467,
+              "10000000000": 188.61169701161393,
+              "1000000000000": 1309.8034514695412
+            },
+            "sample_met_by_powers2_all_Ns": false,
+            "sample_met_by_ER_eps_0p05_all_Ns": true,
+            "sample_met_by_ER_eps_0p1_all_Ns": true,
+            "classification": "sample_only_not_asymptotic_proof"
+          },
+          {
+            "family": "exp(sqrt(log N))",
+            "thresholds": {
+              "1000000": 24.308670323227517,
+              "100000000": 136.78472223696684,
+              "10000000000": 824.1887364587426,
+              "1000000000000": 5213.4066477884935
+            },
+            "sample_met_by_powers2_all_Ns": false,
+            "sample_met_by_ER_eps_0p05_all_Ns": true,
+            "sample_met_by_ER_eps_0p1_all_Ns": true,
+            "classification": "sample_only_not_asymptotic_proof"
+          },
+          {
+            "family": "N^0.05",
+            "thresholds": {
+              "1000000": 501.18723362727224,
+              "100000000": 3981.0717055349724,
+              "10000000000": 31622.776601683792,
+              "1000000000000": 251188.643150958
+            },
+            "sample_met_by_powers2_all_Ns": false,
+            "sample_met_by_ER_eps_0p05_all_Ns": true,
+            "sample_met_by_ER_eps_0p1_all_Ns": false,
+            "classification": "sample_only_not_asymptotic_proof"
+          },
+          {
+            "family": "N^0.1",
+            "thresholds": {
+              "1000000": 251.188643150958,
+              "100000000": 1584.8931924611134,
+              "10000000000": 9999.999999999998,
+              "1000000000000": 63095.73444801932
+            },
+            "sample_met_by_powers2_all_Ns": false,
+            "sample_met_by_ER_eps_0p05_all_Ns": true,
+            "sample_met_by_ER_eps_0p1_all_Ns": true,
+            "classification": "sample_only_not_asymptotic_proof"
+          },
+          {
+            "family": "sqrt(N)/log N",
+            "thresholds": {
+              "1000000": 13.815510557964274,
+              "100000000": 18.42068074395237,
+              "10000000000": 23.025850929940457,
+              "1000000000000": 27.631021115928547
+            },
+            "sample_met_by_powers2_all_Ns": true,
+            "sample_met_by_ER_eps_0p05_all_Ns": true,
+            "sample_met_by_ER_eps_0p1_all_Ns": true,
+            "classification": "sample_only_not_asymptotic_proof"
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_1e6.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 1000000,
+        "Ks": [
+          2,
+          4
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 1000000,
+            "size": 381,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 5.263709522584389,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              },
+              {
+                "N": 1000000,
+                "m": 381,
+                "ratio_m_log_over_sqrtN": 5.263709522584389
+              }
+            ]
+          },
+          {
+            "K": 4,
+            "Nmax": 1000000,
+            "size": 870,
+            "max_ordered_rep_observed": 4,
+            "final_ratio_m_log_over_sqrtN": 12.019494185428917,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 48,
+                "ratio_m_log_over_sqrtN": 10.485235296304992
+              },
+              {
+                "N": 3000,
+                "m": 77,
+                "ratio_m_log_over_sqrtN": 11.255521509231508
+              },
+              {
+                "N": 10000,
+                "m": 127,
+                "ratio_m_log_over_sqrtN": 11.697132272409753
+              },
+              {
+                "N": 30000,
+                "m": 200,
+                "ratio_m_log_over_sqrtN": 11.903753187372184
+              },
+              {
+                "N": 100000,
+                "m": 332,
+                "ratio_m_log_over_sqrtN": 12.087146244351588
+              },
+              {
+                "N": 300000,
+                "m": 528,
+                "ratio_m_log_over_sqrtN": 12.157417733992515
+              },
+              {
+                "N": 1000000,
+                "m": 870,
+                "ratio_m_log_over_sqrtN": 12.019494185428917
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_1e7.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 10000000,
+        "Ks": [
+          2
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 10000000,
+            "size": 886,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 4.515932590811359,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              },
+              {
+                "N": 1000000,
+                "m": 381,
+                "ratio_m_log_over_sqrtN": 5.263709522584389
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_1e8_sparse.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 100000000,
+        "Ks": [
+          2
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 100000000,
+            "mode": "sparse",
+            "size": 2025,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 3.730187850650354,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              },
+              {
+                "N": 1000000,
+                "m": 381,
+                "ratio_m_log_over_sqrtN": 5.263709522584389
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_2e7.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 20000000,
+        "Ks": [
+          2
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 20000000,
+            "size": 1138,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 4.277865104007014,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              },
+              {
+                "N": 1000000,
+                "m": 381,
+                "ratio_m_log_over_sqrtN": 5.263709522584389
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_2e7_K4_sparse.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 20000000,
+        "Ks": [
+          4
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 4,
+            "Nmax": 20000000,
+            "mode": "sparse",
+            "size": 3000,
+            "max_ordered_rep_observed": 4,
+            "final_ratio_m_log_over_sqrtN": 11.277324527259266,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 48,
+                "ratio_m_log_over_sqrtN": 10.485235296304992
+              },
+              {
+                "N": 3000,
+                "m": 77,
+                "ratio_m_log_over_sqrtN": 11.255521509231508
+              },
+              {
+                "N": 10000,
+                "m": 127,
+                "ratio_m_log_over_sqrtN": 11.697132272409753
+              },
+              {
+                "N": 30000,
+                "m": 200,
+                "ratio_m_log_over_sqrtN": 11.903753187372184
+              },
+              {
+                "N": 100000,
+                "m": 332,
+                "ratio_m_log_over_sqrtN": 12.087146244351588
+              },
+              {
+                "N": 300000,
+                "m": 528,
+                "ratio_m_log_over_sqrtN": 12.157417733992515
+              },
+              {
+                "N": 1000000,
+                "m": 870,
+                "ratio_m_log_over_sqrtN": 12.019494185428917
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_2e8_sparse.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 200000000,
+        "Ks": [
+          2
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 200000000,
+            "mode": "sparse",
+            "size": 2591,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 3.5018705427565466,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              },
+              {
+                "N": 1000000,
+                "m": 381,
+                "ratio_m_log_over_sqrtN": 5.263709522584389
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_300k.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 300000,
+        "Ks": [
+          2,
+          4,
+          8
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 300000,
+            "size": 246,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 5.6642514442465135,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              }
+            ]
+          },
+          {
+            "K": 4,
+            "Nmax": 300000,
+            "size": 528,
+            "max_ordered_rep_observed": 4,
+            "final_ratio_m_log_over_sqrtN": 12.157417733992515,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 48,
+                "ratio_m_log_over_sqrtN": 10.485235296304992
+              },
+              {
+                "N": 3000,
+                "m": 77,
+                "ratio_m_log_over_sqrtN": 11.255521509231508
+              },
+              {
+                "N": 10000,
+                "m": 127,
+                "ratio_m_log_over_sqrtN": 11.697132272409753
+              },
+              {
+                "N": 30000,
+                "m": 200,
+                "ratio_m_log_over_sqrtN": 11.903753187372184
+              },
+              {
+                "N": 100000,
+                "m": 332,
+                "ratio_m_log_over_sqrtN": 12.087146244351588
+              },
+              {
+                "N": 300000,
+                "m": 528,
+                "ratio_m_log_over_sqrtN": 12.157417733992515
+              }
+            ]
+          },
+          {
+            "K": 8,
+            "Nmax": 300000,
+            "size": 990,
+            "max_ordered_rep_observed": 8,
+            "final_ratio_m_log_over_sqrtN": 22.795158251235968,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 70,
+                "ratio_m_log_over_sqrtN": 15.290968140444782
+              },
+              {
+                "N": 3000,
+                "m": 123,
+                "ratio_m_log_over_sqrtN": 17.979599293967215
+              },
+              {
+                "N": 10000,
+                "m": 215,
+                "ratio_m_log_over_sqrtN": 19.802231799748796
+              },
+              {
+                "N": 30000,
+                "m": 352,
+                "ratio_m_log_over_sqrtN": 20.950605609775042
+              },
+              {
+                "N": 100000,
+                "m": 604,
+                "ratio_m_log_over_sqrtN": 21.989868468639635
+              },
+              {
+                "N": 300000,
+                "m": 990,
+                "ratio_m_log_over_sqrtN": 22.795158251235968
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_bounded_rep_3e6.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "Nmax": 3000000,
+        "Ks": [
+          2
+        ],
+        "note": "Greedy sequence is heuristic, not extremal. Ratio shown is m(N)*log(N)/sqrt(N). If this stays bounded away from 0, it is suggestive but not a proof.",
+        "results": [
+          {
+            "K": 2,
+            "Nmax": 3000000,
+            "size": 573,
+            "max_ordered_rep_observed": 2,
+            "final_ratio_m_log_over_sqrtN": 4.933915537451994,
+            "sample": [
+              {
+                "N": 1000,
+                "m": 27,
+                "ratio_m_log_over_sqrtN": 5.897944854171559
+              },
+              {
+                "N": 3000,
+                "m": 41,
+                "ratio_m_log_over_sqrtN": 5.9931997646557384
+              },
+              {
+                "N": 10000,
+                "m": 66,
+                "ratio_m_log_over_sqrtN": 6.078824645504281
+              },
+              {
+                "N": 30000,
+                "m": 102,
+                "ratio_m_log_over_sqrtN": 6.070914125559813
+              },
+              {
+                "N": 100000,
+                "m": 161,
+                "ratio_m_log_over_sqrtN": 5.861537787170499
+              },
+              {
+                "N": 300000,
+                "m": 246,
+                "ratio_m_log_over_sqrtN": 5.6642514442465135
+              },
+              {
+                "N": 1000000,
+                "m": 381,
+                "ratio_m_log_over_sqrtN": 5.263709522584389
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep40_logN_greedy_summary.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "k2_dense_300k": {
+          "K": 2,
+          "Nmax": 300000,
+          "size": 246,
+          "max_ordered_rep_observed": 2,
+          "final_ratio_m_log_over_sqrtN": 5.6642514442465135,
+          "sample": [
+            {
+              "N": 1000,
+              "m": 27,
+              "ratio_m_log_over_sqrtN": 5.897944854171559
+            },
+            {
+              "N": 3000,
+              "m": 41,
+              "ratio_m_log_over_sqrtN": 5.9931997646557384
+            },
+            {
+              "N": 10000,
+              "m": 66,
+              "ratio_m_log_over_sqrtN": 6.078824645504281
+            },
+            {
+              "N": 30000,
+              "m": 102,
+              "ratio_m_log_over_sqrtN": 6.070914125559813
+            },
+            {
+              "N": 100000,
+              "m": 161,
+              "ratio_m_log_over_sqrtN": 5.861537787170499
+            },
+            {
+              "N": 300000,
+              "m": 246,
+              "ratio_m_log_over_sqrtN": 5.6642514442465135
+            }
+          ]
+        },
+        "k2_dense_1e6": {
+          "K": 2,
+          "Nmax": 1000000,
+          "size": 381,
+          "max_ordered_rep_observed": 2,
+          "final_ratio_m_log_over_sqrtN": 5.263709522584389,
+          "sample": [
+            {
+              "N": 1000,
+              "m": 27,
+              "ratio_m_log_over_sqrtN": 5.897944854171559
+            },
+            {
+              "N": 3000,
+              "m": 41,
+              "ratio_m_log_over_sqrtN": 5.9931997646557384
+            },
+            {
+              "N": 10000,
+              "m": 66,
+              "ratio_m_log_over_sqrtN": 6.078824645504281
+            },
+            {
+              "N": 30000,
+              "m": 102,
+              "ratio_m_log_over_sqrtN": 6.070914125559813
+            },
+            {
+              "N": 100000,
+              "m": 161,
+              "ratio_m_log_over_sqrtN": 5.861537787170499
+            },
+            {
+              "N": 300000,
+              "m": 246,
+              "ratio_m_log_over_sqrtN": 5.6642514442465135
+            },
+            {
+              "N": 1000000,
+              "m": 381,
+              "ratio_m_log_over_sqrtN": 5.263709522584389
+            }
+          ]
+        },
+        "k2_sparse_2e7": {
+          "K": 2,
+          "Nmax": 20000000,
+          "size": 1138,
+          "max_ordered_rep_observed": 2,
+          "final_ratio_m_log_over_sqrtN": 4.277865104007014,
+          "sample": [
+            {
+              "N": 1000,
+              "m": 27,
+              "ratio_m_log_over_sqrtN": 5.897944854171559
+            },
+            {
+              "N": 3000,
+              "m": 41,
+              "ratio_m_log_over_sqrtN": 5.9931997646557384
+            },
+            {
+              "N": 10000,
+              "m": 66,
+              "ratio_m_log_over_sqrtN": 6.078824645504281
+            },
+            {
+              "N": 30000,
+              "m": 102,
+              "ratio_m_log_over_sqrtN": 6.070914125559813
+            },
+            {
+              "N": 100000,
+              "m": 161,
+              "ratio_m_log_over_sqrtN": 5.861537787170499
+            },
+            {
+              "N": 300000,
+              "m": 246,
+              "ratio_m_log_over_sqrtN": 5.6642514442465135
+            },
+            {
+              "N": 1000000,
+              "m": 381,
+              "ratio_m_log_over_sqrtN": 5.263709522584389
+            }
+          ]
+        },
+        "k2_sparse_1e8": {
+          "K": 2,
+          "Nmax": 100000000,
+          "mode": "sparse",
+          "size": 2025,
+          "max_ordered_rep_observed": 2,
+          "final_ratio_m_log_over_sqrtN": 3.730187850650354,
+          "sample": [
+            {
+              "N": 1000,
+              "m": 27,
+              "ratio_m_log_over_sqrtN": 5.897944854171559
+            },
+            {
+              "N": 3000,
+              "m": 41,
+              "ratio_m_log_over_sqrtN": 5.9931997646557384
+            },
+            {
+              "N": 10000,
+              "m": 66,
+              "ratio_m_log_over_sqrtN": 6.078824645504281
+            },
+            {
+              "N": 30000,
+              "m": 102,
+              "ratio_m_log_over_sqrtN": 6.070914125559813
+            },
+            {
+              "N": 100000,
+              "m": 161,
+              "ratio_m_log_over_sqrtN": 5.861537787170499
+            },
+            {
+              "N": 300000,
+              "m": 246,
+              "ratio_m_log_over_sqrtN": 5.6642514442465135
+            },
+            {
+              "N": 1000000,
+              "m": 381,
+              "ratio_m_log_over_sqrtN": 5.263709522584389
+            }
+          ]
+        },
+        "k4_dense_1e6": {
+          "K": 4,
+          "Nmax": 1000000,
+          "size": 870,
+          "max_ordered_rep_observed": 4,
+          "final_ratio_m_log_over_sqrtN": 12.019494185428917,
+          "sample": [
+            {
+              "N": 1000,
+              "m": 48,
+              "ratio_m_log_over_sqrtN": 10.485235296304992
+            },
+            {
+              "N": 3000,
+              "m": 77,
+              "ratio_m_log_over_sqrtN": 11.255521509231508
+            },
+            {
+              "N": 10000,
+              "m": 127,
+              "ratio_m_log_over_sqrtN": 11.697132272409753
+            },
+            {
+              "N": 30000,
+              "m": 200,
+              "ratio_m_log_over_sqrtN": 11.903753187372184
+            },
+            {
+              "N": 100000,
+              "m": 332,
+              "ratio_m_log_over_sqrtN": 12.087146244351588
+            },
+            {
+              "N": 300000,
+              "m": 528,
+              "ratio_m_log_over_sqrtN": 12.157417733992515
+            },
+            {
+              "N": 1000000,
+              "m": 870,
+              "ratio_m_log_over_sqrtN": 12.019494185428917
+            }
+          ]
+        },
+        "k4_sparse_2e7": {
+          "K": 4,
+          "Nmax": 20000000,
+          "mode": "sparse",
+          "size": 3000,
+          "max_ordered_rep_observed": 4,
+          "final_ratio_m_log_over_sqrtN": 11.277324527259266,
+          "sample": [
+            {
+              "N": 1000,
+              "m": 48,
+              "ratio_m_log_over_sqrtN": 10.485235296304992
+            },
+            {
+              "N": 3000,
+              "m": 77,
+              "ratio_m_log_over_sqrtN": 11.255521509231508
+            },
+            {
+              "N": 10000,
+              "m": 127,
+              "ratio_m_log_over_sqrtN": 11.697132272409753
+            },
+            {
+              "N": 30000,
+              "m": 200,
+              "ratio_m_log_over_sqrtN": 11.903753187372184
+            },
+            {
+              "N": 100000,
+              "m": 332,
+              "ratio_m_log_over_sqrtN": 12.087146244351588
+            },
+            {
+              "N": 300000,
+              "m": 528,
+              "ratio_m_log_over_sqrtN": 12.157417733992515
+            },
+            {
+              "N": 1000000,
+              "m": 870,
+              "ratio_m_log_over_sqrtN": 12.019494185428917
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "batch_script_integrations": {
+    "integrated_utc": "2026-03-05T08:51:27.301Z",
+    "source_files": [
+      "longterm_batch1_compute.mjs"
+    ],
+    "entries": [
+      {
+        "script": "longterm_batch1_compute.mjs",
+        "heading": ": bounded ordered representation greedy construction.",
+        "extracted_section": "// EP-40: bounded ordered representation greedy construction.\n{\n  function boundedRepGreedy(N, R, seed) {\n    const rng = makeRng(seed);\n    const order = Array.from({ length: N }, (_, i) => i + 1);\n    shuffle(order, rng);\n    const rep = new Uint16Array(2 * N + 2);\n    const A = [];\n\n    for (const x of order) {\n      let ok = true;\n      for (const a of A) {\n        const s = a + x;\n        if (rep[s] + 2 > R) {\n          ok = false;\n          break;\n        }\n      }\n      if (!ok) continue;\n      const sx = x + x;\n      if (rep[sx] + 1 > R) continue;\n\n      for (const a of A) rep[a + x] += 2;\n      rep[sx] += 1;\n      A.push(x);\n    }\n    A.sort((a, b) => a - b);\n    return A;\n  }\n\n  const Ns = [2000, 5000, 10000];\n  const rows = [];\n  for (const N of Ns) {\n    for (const R of [2, 3]) {\n      let best = [];\n      for (let r = 0; r < 10; r += 1) {\n        const A = boundedRepGreedy(N, R, 20260304 ^ (N + R * 13 + r));\n        if (A.length > best.length) best = A;\n      }\n      rows.push({\n        N,\n        R,\n        size: best.length,\n        size_over_sqrtN: Number((best.length / Math.sqrt(N)).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep40 = {\n    description: 'Random-order greedy construction with bounded ordered representation r_A(n) <= R.',\n    rows,\n  };\n}"
+      }
+    ]
+  }
+}
