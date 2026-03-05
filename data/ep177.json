@@ -1,7 +1,260 @@
 {
   "problem": "EP-177",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite discrepancy profile h_N(d) for Thue-Morse and random +/-1 sequences.",
+        "rows": [
+          {
+            "d": 1,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 201,
+            "thue_over_sqrt_d": 2,
+            "random_over_sqrt_d": 201
+          },
+          {
+            "d": 2,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 157,
+            "thue_over_sqrt_d": 1.414214,
+            "random_over_sqrt_d": 111.015765
+          },
+          {
+            "d": 3,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2025,
+            "random_best_of_10_hN_d": 144,
+            "thue_over_sqrt_d": 1169.134295,
+            "random_over_sqrt_d": 83.138439
+          },
+          {
+            "d": 4,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 117,
+            "thue_over_sqrt_d": 1,
+            "random_over_sqrt_d": 58.5
+          },
+          {
+            "d": 6,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 1296,
+            "random_best_of_10_hN_d": 132,
+            "thue_over_sqrt_d": 529.089784,
+            "random_over_sqrt_d": 53.888774
+          },
+          {
+            "d": 8,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 115,
+            "thue_over_sqrt_d": 0.707107,
+            "random_over_sqrt_d": 40.65864
+          },
+          {
+            "d": 12,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 675,
+            "random_best_of_10_hN_d": 104,
+            "thue_over_sqrt_d": 194.855716,
+            "random_over_sqrt_d": 30.022214
+          },
+          {
+            "d": 16,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 95,
+            "thue_over_sqrt_d": 0.5,
+            "random_over_sqrt_d": 23.75
+          },
+          {
+            "d": 24,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 432,
+            "random_best_of_10_hN_d": 75,
+            "thue_over_sqrt_d": 88.181631,
+            "random_over_sqrt_d": 15.309311
+          },
+          {
+            "d": 32,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 68,
+            "thue_over_sqrt_d": 0.353553,
+            "random_over_sqrt_d": 12.020815
+          },
+          {
+            "d": 48,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 225,
+            "random_best_of_10_hN_d": 69,
+            "thue_over_sqrt_d": 32.475953,
+            "random_over_sqrt_d": 9.959292
+          },
+          {
+            "d": 64,
+            "N_prefix": 30000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_10_hN_d": 50,
+            "thue_over_sqrt_d": 0.25,
+            "random_over_sqrt_d": 6.25
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep177_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-177",
+        "script": "ep177.mjs",
+        "method": "standalone_discrepancy_profile_thue_vs_random",
+        "params": {
+          "N": 40000,
+          "D_LIST": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            8,
+            12,
+            16,
+            24,
+            32,
+            48,
+            64,
+            96,
+            128
+          ],
+          "RANDOM_TRIALS": 16,
+          "SEED": 1772026
+        },
+        "rows": [
+          {
+            "d": 1,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 191,
+            "thue_over_sqrt_d": 2,
+            "random_over_sqrt_d": 191
+          },
+          {
+            "d": 2,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 153,
+            "thue_over_sqrt_d": 1.414214,
+            "random_over_sqrt_d": 108.187338
+          },
+          {
+            "d": 3,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2772,
+            "random_best_of_trials_hN_d": 170,
+            "thue_over_sqrt_d": 1600.414946,
+            "random_over_sqrt_d": 98.149546
+          },
+          {
+            "d": 4,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 136,
+            "thue_over_sqrt_d": 1,
+            "random_over_sqrt_d": 68
+          },
+          {
+            "d": 6,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 1647,
+            "random_best_of_trials_hN_d": 131,
+            "thue_over_sqrt_d": 672.384934,
+            "random_over_sqrt_d": 53.480526
+          },
+          {
+            "d": 8,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 122,
+            "thue_over_sqrt_d": 0.707107,
+            "random_over_sqrt_d": 43.133514
+          },
+          {
+            "d": 12,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 924,
+            "random_best_of_trials_hN_d": 107,
+            "thue_over_sqrt_d": 266.735824,
+            "random_over_sqrt_d": 30.888239
+          },
+          {
+            "d": 16,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 95,
+            "thue_over_sqrt_d": 0.5,
+            "random_over_sqrt_d": 23.75
+          },
+          {
+            "d": 24,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 549,
+            "random_best_of_trials_hN_d": 78,
+            "thue_over_sqrt_d": 112.064156,
+            "random_over_sqrt_d": 15.921683
+          },
+          {
+            "d": 32,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 88,
+            "thue_over_sqrt_d": 0.353553,
+            "random_over_sqrt_d": 15.556349
+          },
+          {
+            "d": 48,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 308,
+            "random_best_of_trials_hN_d": 68,
+            "thue_over_sqrt_d": 44.455971,
+            "random_over_sqrt_d": 9.814955
+          },
+          {
+            "d": 64,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 63,
+            "thue_over_sqrt_d": 0.25,
+            "random_over_sqrt_d": 7.875
+          },
+          {
+            "d": 96,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 183,
+            "random_best_of_trials_hN_d": 50,
+            "thue_over_sqrt_d": 18.677359,
+            "random_over_sqrt_d": 5.103104
+          },
+          {
+            "d": 128,
+            "N_prefix": 40000,
+            "thue_morse_hN_d": 2,
+            "random_best_of_trials_hN_d": 48,
+            "thue_over_sqrt_d": 0.176777,
+            "random_over_sqrt_d": 4.242641
+          }
+        ],
+        "generated_utc": "2026-03-05T09:51:13.337Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,359 @@
 {
   "problem": "EP-165",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Triangle-free process finite proxy for R(3,k) lower-scale constants.",
+        "rows": [
+          {
+            "k": 20,
+            "n_tested": 60,
+            "six_runs_min_greedy_independent_size": 15,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 20,
+            "n_tested": 73,
+            "six_runs_min_greedy_independent_size": 16,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 20,
+            "n_tested": 86,
+            "six_runs_min_greedy_independent_size": 19,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 20,
+            "n_tested": 100,
+            "six_runs_min_greedy_independent_size": 21,
+            "witness_alpha_less_than_k_found": false
+          },
+          {
+            "k": 20,
+            "empirical_lower_bound_n_with_alpha_less_k": 86,
+            "k2_over_logn": 133.523,
+            "empirical_ratio_n_over_k2_over_logn": 0.644082
+          },
+          {
+            "k": 30,
+            "n_tested": 119,
+            "six_runs_min_greedy_independent_size": 22,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "n_tested": 145,
+            "six_runs_min_greedy_independent_size": 24,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "n_tested": 171,
+            "six_runs_min_greedy_independent_size": 27,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "n_tested": 198,
+            "six_runs_min_greedy_independent_size": 29,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "empirical_lower_bound_n_with_alpha_less_k": 198,
+            "k2_over_logn": 264.613,
+            "empirical_ratio_n_over_k2_over_logn": 0.748263
+          },
+          {
+            "k": 40,
+            "n_tested": 195,
+            "six_runs_min_greedy_independent_size": 28,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "n_tested": 238,
+            "six_runs_min_greedy_independent_size": 33,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "n_tested": 281,
+            "six_runs_min_greedy_independent_size": 35,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "n_tested": 325,
+            "six_runs_min_greedy_independent_size": 37,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "empirical_lower_bound_n_with_alpha_less_k": 325,
+            "k2_over_logn": 433.736,
+            "empirical_ratio_n_over_k2_over_logn": 0.749304
+          },
+          {
+            "k": 50,
+            "n_tested": 287,
+            "six_runs_min_greedy_independent_size": 35,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "n_tested": 351,
+            "six_runs_min_greedy_independent_size": 39,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "n_tested": 415,
+            "six_runs_min_greedy_independent_size": 42,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "n_tested": 479,
+            "six_runs_min_greedy_independent_size": 46,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "empirical_lower_bound_n_with_alpha_less_k": 479,
+            "k2_over_logn": 639.056,
+            "empirical_ratio_n_over_k2_over_logn": 0.749544
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep165_deeper_onebyone.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-165",
+        "script": "ep165.mjs",
+        "method": "triangle_free_process_proxy_for_R3k_scale",
+        "params": {
+          "K_LIST": [
+            30,
+            40,
+            50,
+            60,
+            70
+          ],
+          "RATIOS": [
+            0.55,
+            0.65,
+            0.75,
+            0.85
+          ],
+          "PROCESS_RUNS": 10,
+          "ALPHA_TRIALS": 24,
+          "SEED": 1652026
+        },
+        "rows": [
+          {
+            "k": 30,
+            "n_tested": 145,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 23,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "n_tested": 171,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 26,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "n_tested": 198,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 29,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 30,
+            "n_tested": 224,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 30,
+            "witness_alpha_less_than_k_found": false
+          },
+          {
+            "k": 30,
+            "empirical_lower_bound_n_with_alpha_less_k": 198,
+            "k2_over_logn": 264.613,
+            "empirical_ratio_n_over_k2_over_logn": 0.748263
+          },
+          {
+            "k": 40,
+            "n_tested": 238,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 31,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "n_tested": 281,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 34,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "n_tested": 325,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 37,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 40,
+            "n_tested": 368,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 40,
+            "witness_alpha_less_than_k_found": false
+          },
+          {
+            "k": 40,
+            "empirical_lower_bound_n_with_alpha_less_k": 325,
+            "k2_over_logn": 433.736,
+            "empirical_ratio_n_over_k2_over_logn": 0.749304
+          },
+          {
+            "k": 50,
+            "n_tested": 351,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 39,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "n_tested": 415,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 43,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "n_tested": 479,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 46,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "n_tested": 543,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 49,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 50,
+            "empirical_lower_bound_n_with_alpha_less_k": 543,
+            "k2_over_logn": 639.056,
+            "empirical_ratio_n_over_k2_over_logn": 0.849691
+          },
+          {
+            "k": 60,
+            "n_tested": 483,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 47,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 60,
+            "n_tested": 571,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 50,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 60,
+            "n_tested": 659,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 53,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 60,
+            "n_tested": 747,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 59,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 60,
+            "empirical_lower_bound_n_with_alpha_less_k": 747,
+            "k2_over_logn": 879.262,
+            "empirical_ratio_n_over_k2_over_logn": 0.849576
+          },
+          {
+            "k": 70,
+            "n_tested": 634,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 53,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 70,
+            "n_tested": 749,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 58,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 70,
+            "n_tested": 865,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 62,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 70,
+            "n_tested": 980,
+            "process_runs": 10,
+            "greedy_alpha_trials": 24,
+            "min_greedy_independent_size": 67,
+            "witness_alpha_less_than_k_found": true
+          },
+          {
+            "k": 70,
+            "empirical_lower_bound_n_with_alpha_less_k": 980,
+            "k2_over_logn": 1153.35,
+            "empirical_ratio_n_over_k2_over_logn": 0.849699
+          }
+        ],
+        "generated_utc": "2026-03-05T09:37:34.821Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

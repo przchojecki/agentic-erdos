@@ -1,7 +1,58 @@
 {
   "problem": "EP-358",
   "normalized_utc": "2026-03-05T08:54:16.957Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite interval-sum multiplicity profile f(n) for representative increasing sequences A.",
+        "rows": [
+          {
+            "kind": "integers",
+            "terms_used": 1800,
+            "Xmax": 200000,
+            "max_f_n": 35,
+            "argmax_n": 135135,
+            "min_f_on_tail_X_over_2_to_X": 0,
+            "argmin_tail_n": 100001,
+            "tail_positive_density": 0.57596
+          },
+          {
+            "kind": "primes",
+            "terms_used": 700,
+            "Xmax": 200000,
+            "max_f_n": 5,
+            "argmax_n": 311,
+            "min_f_on_tail_X_over_2_to_X": 0,
+            "argmin_tail_n": 100001,
+            "tail_positive_density": 0.24039
+          },
+          {
+            "kind": "squares",
+            "terms_used": 350,
+            "Xmax": 200000,
+            "max_f_n": 3,
+            "argmax_n": 20449,
+            "min_f_on_tail_X_over_2_to_X": 0,
+            "argmin_tail_n": 100001,
+            "tail_positive_density": 0.01995
+          },
+          {
+            "kind": "n_plus_sqrt_n",
+            "terms_used": 1200,
+            "Xmax": 200000,
+            "max_f_n": 13,
+            "argmax_n": 3465,
+            "min_f_on_tail_X_over_2_to_X": 0,
+            "argmin_tail_n": 100003,
+            "tail_positive_density": 0.74779
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,44 @@
 {
   "problem": "EP-41",
   "normalized_utc": "2026-03-05T08:54:16.947Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Greedy finite B3-type sequence profile.",
+        "rows": [
+          {
+            "N": 2000,
+            "count": 13,
+            "count_over_N_pow_1_3": 1.031811
+          },
+          {
+            "N": 5000,
+            "count": 16,
+            "count_over_N_pow_1_3": 0.935686
+          },
+          {
+            "N": 10000,
+            "count": 19,
+            "count_over_N_pow_1_3": 0.881902
+          },
+          {
+            "N": 30000,
+            "count": 25,
+            "count_over_N_pow_1_3": 0.804574
+          },
+          {
+            "N": 60000,
+            "count": 29,
+            "count_over_N_pow_1_3": 0.740766
+          }
+        ],
+        "last_term_in_prefix": 50877
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

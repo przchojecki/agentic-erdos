@@ -1,7 +1,35 @@
 {
   "problem": "EP-1129",
   "normalized_utc": "2026-03-05T08:54:16.977Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch26_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite numerical Lebesgue-constant comparisons and symmetric n=4 canonical search.",
+        "rows": [
+          {
+            "n": 8,
+            "lambda_equispaced_est": 6.9297308,
+            "lambda_chebyshev_est": 2.2870161,
+            "ratio_eq_over_cheb": 3.030032
+          },
+          {
+            "n": 16,
+            "lambda_equispaced_est": 512.34784,
+            "lambda_chebyshev_est": 2.7277779,
+            "ratio_eq_over_cheb": 187.8261
+          }
+        ],
+        "n4_symmetric_search": {
+          "best_t_est": 0.418,
+          "lambda_est": 1.4234317,
+          "reference_t_from_literature_approx": 0.4177
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

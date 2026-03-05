@@ -1,7 +1,193 @@
 {
   "problem": "EP-1135",
   "normalized_utc": "2026-03-05T08:54:16.977Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch26_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite accelerated-Collatz stopping-time verification for all starts n<=2,000,000.",
+        "N": 3000000,
+        "rows": [
+          {
+            "x": 100000,
+            "max_steps_up_to_x": 221,
+            "n_attaining_max_steps": 77031
+          },
+          {
+            "x": 300000,
+            "max_steps_up_to_x": 278,
+            "n_attaining_max_steps": 230631
+          },
+          {
+            "x": 600000,
+            "max_steps_up_to_x": 295,
+            "n_attaining_max_steps": 511935
+          },
+          {
+            "x": 1000000,
+            "max_steps_up_to_x": 329,
+            "n_attaining_max_steps": 837799
+          },
+          {
+            "x": 1500000,
+            "max_steps_up_to_x": 331,
+            "n_attaining_max_steps": 1117065
+          },
+          {
+            "x": 2000000,
+            "max_steps_up_to_x": 349,
+            "n_attaining_max_steps": 1723519
+          },
+          {
+            "x": 2500000,
+            "max_steps_up_to_x": 351,
+            "n_attaining_max_steps": 2298025
+          },
+          {
+            "x": 3000000,
+            "max_steps_up_to_x": 351,
+            "n_attaining_max_steps": 2298025
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep1135_deeper2_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "generated_utc": "2026-03-05T09:18:39.677Z",
+        "description": "Finite accelerated-Collatz stopping-time verification.",
+        "N": 4000000,
+        "rows": [
+          {
+            "x": 100000,
+            "max_steps_up_to_x": 221,
+            "n_attaining_max_steps": 77031
+          },
+          {
+            "x": 300000,
+            "max_steps_up_to_x": 278,
+            "n_attaining_max_steps": 230631
+          },
+          {
+            "x": 600000,
+            "max_steps_up_to_x": 295,
+            "n_attaining_max_steps": 511935
+          },
+          {
+            "x": 1000000,
+            "max_steps_up_to_x": 329,
+            "n_attaining_max_steps": 837799
+          },
+          {
+            "x": 1500000,
+            "max_steps_up_to_x": 331,
+            "n_attaining_max_steps": 1117065
+          },
+          {
+            "x": 2000000,
+            "max_steps_up_to_x": 349,
+            "n_attaining_max_steps": 1723519
+          },
+          {
+            "x": 2500000,
+            "max_steps_up_to_x": 351,
+            "n_attaining_max_steps": 2298025
+          },
+          {
+            "x": 3000000,
+            "max_steps_up_to_x": 351,
+            "n_attaining_max_steps": 2298025
+          },
+          {
+            "x": 3500000,
+            "max_steps_up_to_x": 353,
+            "n_attaining_max_steps": 3064033
+          },
+          {
+            "x": 4000000,
+            "max_steps_up_to_x": 374,
+            "n_attaining_max_steps": 3732423
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep1135_deeper3_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "generated_utc": "2026-03-05T09:25:00.075Z",
+        "description": "Finite accelerated-Collatz stopping-time verification.",
+        "N": 6000000,
+        "rows": [
+          {
+            "x": 100000,
+            "max_steps_up_to_x": 221,
+            "n_attaining_max_steps": 77031
+          },
+          {
+            "x": 300000,
+            "max_steps_up_to_x": 278,
+            "n_attaining_max_steps": 230631
+          },
+          {
+            "x": 600000,
+            "max_steps_up_to_x": 295,
+            "n_attaining_max_steps": 511935
+          },
+          {
+            "x": 1000000,
+            "max_steps_up_to_x": 329,
+            "n_attaining_max_steps": 837799
+          },
+          {
+            "x": 1500000,
+            "max_steps_up_to_x": 331,
+            "n_attaining_max_steps": 1117065
+          },
+          {
+            "x": 2000000,
+            "max_steps_up_to_x": 349,
+            "n_attaining_max_steps": 1723519
+          },
+          {
+            "x": 2500000,
+            "max_steps_up_to_x": 351,
+            "n_attaining_max_steps": 2298025
+          },
+          {
+            "x": 3000000,
+            "max_steps_up_to_x": 351,
+            "n_attaining_max_steps": 2298025
+          },
+          {
+            "x": 3500000,
+            "max_steps_up_to_x": 353,
+            "n_attaining_max_steps": 3064033
+          },
+          {
+            "x": 4000000,
+            "max_steps_up_to_x": 374,
+            "n_attaining_max_steps": 3732423
+          },
+          {
+            "x": 5000000,
+            "max_steps_up_to_x": 374,
+            "n_attaining_max_steps": 3732423
+          },
+          {
+            "x": 6000000,
+            "max_steps_up_to_x": 384,
+            "n_attaining_max_steps": 5649499
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

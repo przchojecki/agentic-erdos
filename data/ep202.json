@@ -1,7 +1,146 @@
 {
   "problem": "EP-202",
   "normalized_utc": "2026-03-05T08:54:16.953Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Randomized packing profile for disjoint residue classes with distinct moduli <= N.",
+        "rows": [
+          {
+            "N": 40,
+            "restarts": 500,
+            "best_r_found": 10,
+            "ratio_r_over_N": 0.25,
+            "ratio_r_times_L_over_N": 2.243545
+          },
+          {
+            "N": 80,
+            "restarts": 400,
+            "best_r_found": 16,
+            "ratio_r_over_N": 0.2,
+            "ratio_r_times_L_over_N": 2.547378
+          },
+          {
+            "N": 120,
+            "restarts": 320,
+            "best_r_found": 20,
+            "ratio_r_over_N": 0.166667,
+            "ratio_r_times_L_over_N": 2.576289
+          },
+          {
+            "N": 160,
+            "restarts": 260,
+            "best_r_found": 24,
+            "ratio_r_over_N": 0.15,
+            "ratio_r_times_L_over_N": 2.648786
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep202_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-202",
+        "script": "ep202.mjs",
+        "generated_utc": "2026-03-05T09:57:22.193Z",
+        "result": {
+          "description": "Randomized packing profile for disjoint residue classes with distinct moduli <= N.",
+          "rows": [
+            {
+              "N": 40,
+              "restarts": 500,
+              "best_r_found": 10,
+              "ratio_r_over_N": 0.25,
+              "ratio_r_times_L_over_N": 2.243545
+            },
+            {
+              "N": 80,
+              "restarts": 400,
+              "best_r_found": 15,
+              "ratio_r_over_N": 0.1875,
+              "ratio_r_times_L_over_N": 2.388167
+            },
+            {
+              "N": 120,
+              "restarts": 320,
+              "best_r_found": 20,
+              "ratio_r_over_N": 0.166667,
+              "ratio_r_times_L_over_N": 2.576289
+            },
+            {
+              "N": 160,
+              "restarts": 260,
+              "best_r_found": 24,
+              "ratio_r_over_N": 0.15,
+              "ratio_r_times_L_over_N": 2.648786
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "ep202_standalone_deeper_20260305T100611Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-202",
+        "script": "ep202.mjs",
+        "generated_utc": "2026-03-05T10:06:13.156Z",
+        "result": {
+          "description": "Randomized packing profile for disjoint residue classes with distinct moduli <= N.",
+          "rows": [
+            {
+              "N": 40,
+              "restarts": 3000,
+              "best_r_found": 10,
+              "ratio_r_over_N": 0.25,
+              "ratio_r_times_L_over_N": 2.243545
+            },
+            {
+              "N": 80,
+              "restarts": 2200,
+              "best_r_found": 15,
+              "ratio_r_over_N": 0.1875,
+              "ratio_r_times_L_over_N": 2.388167
+            },
+            {
+              "N": 120,
+              "restarts": 1600,
+              "best_r_found": 22,
+              "ratio_r_over_N": 0.183333,
+              "ratio_r_times_L_over_N": 2.833918
+            },
+            {
+              "N": 160,
+              "restarts": 1200,
+              "best_r_found": 26,
+              "ratio_r_over_N": 0.1625,
+              "ratio_r_times_L_over_N": 2.869519
+            },
+            {
+              "N": 220,
+              "restarts": 900,
+              "best_r_found": 32,
+              "ratio_r_over_N": 0.145455,
+              "ratio_r_times_L_over_N": 2.965299
+            },
+            {
+              "N": 300,
+              "restarts": 700,
+              "best_r_found": 38,
+              "ratio_r_over_N": 0.126667,
+              "ratio_r_times_L_over_N": 2.959903
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

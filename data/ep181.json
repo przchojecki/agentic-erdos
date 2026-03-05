@@ -1,7 +1,237 @@
 {
   "problem": "EP-181",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Asymptotic-bound profile for R(Q_n) plus finite monochromatic C4 proxy.",
+        "bound_rows": [
+          {
+            "n": 4,
+            "log2_upper_bound_tikhomirov_style": 7.85376,
+            "log2_linear_target_2_pow_n": 4,
+            "ratio_exponent_log2_upper_over_target": 3.85376
+          },
+          {
+            "n": 6,
+            "log2_upper_bound_tikhomirov_style": 11.78064,
+            "log2_linear_target_2_pow_n": 6,
+            "ratio_exponent_log2_upper_over_target": 5.78064
+          },
+          {
+            "n": 8,
+            "log2_upper_bound_tikhomirov_style": 15.70752,
+            "log2_linear_target_2_pow_n": 8,
+            "ratio_exponent_log2_upper_over_target": 7.70752
+          },
+          {
+            "n": 10,
+            "log2_upper_bound_tikhomirov_style": 19.6344,
+            "log2_linear_target_2_pow_n": 10,
+            "ratio_exponent_log2_upper_over_target": 9.6344
+          },
+          {
+            "n": 12,
+            "log2_upper_bound_tikhomirov_style": 23.56128,
+            "log2_linear_target_2_pow_n": 12,
+            "ratio_exponent_log2_upper_over_target": 11.56128
+          },
+          {
+            "n": 16,
+            "log2_upper_bound_tikhomirov_style": 31.41504,
+            "log2_linear_target_2_pow_n": 16,
+            "ratio_exponent_log2_upper_over_target": 15.41504
+          }
+        ],
+        "q2_proxy_rows": [
+          {
+            "m": 6,
+            "trials": 400,
+            "monochromatic_C4_found_rate": 1
+          },
+          {
+            "m": 8,
+            "trials": 400,
+            "monochromatic_C4_found_rate": 1
+          },
+          {
+            "m": 10,
+            "trials": 400,
+            "monochromatic_C4_found_rate": 1
+          },
+          {
+            "m": 12,
+            "trials": 400,
+            "monochromatic_C4_found_rate": 1
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep181_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-181",
+        "script": "ep181.mjs",
+        "generated_utc": "2026-03-05T09:56:38.419Z",
+        "result": {
+          "description": "Asymptotic-bound profile for R(Q_n) plus finite monochromatic C4 proxy.",
+          "bound_rows": [
+            {
+              "n": 4,
+              "log2_upper_bound_tikhomirov_style": 7.85376,
+              "log2_linear_target_2_pow_n": 4,
+              "ratio_exponent_log2_upper_over_target": 3.85376
+            },
+            {
+              "n": 6,
+              "log2_upper_bound_tikhomirov_style": 11.78064,
+              "log2_linear_target_2_pow_n": 6,
+              "ratio_exponent_log2_upper_over_target": 5.78064
+            },
+            {
+              "n": 8,
+              "log2_upper_bound_tikhomirov_style": 15.70752,
+              "log2_linear_target_2_pow_n": 8,
+              "ratio_exponent_log2_upper_over_target": 7.70752
+            },
+            {
+              "n": 10,
+              "log2_upper_bound_tikhomirov_style": 19.6344,
+              "log2_linear_target_2_pow_n": 10,
+              "ratio_exponent_log2_upper_over_target": 9.6344
+            },
+            {
+              "n": 12,
+              "log2_upper_bound_tikhomirov_style": 23.56128,
+              "log2_linear_target_2_pow_n": 12,
+              "ratio_exponent_log2_upper_over_target": 11.56128
+            },
+            {
+              "n": 16,
+              "log2_upper_bound_tikhomirov_style": 31.41504,
+              "log2_linear_target_2_pow_n": 16,
+              "ratio_exponent_log2_upper_over_target": 15.41504
+            }
+          ],
+          "q2_proxy_rows": [
+            {
+              "m": 6,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 8,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 10,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 12,
+              "trials": 400,
+              "monochromatic_C4_found_rate": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "ep181_standalone_deeper_20260305T100013Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-181",
+        "script": "ep181.mjs",
+        "generated_utc": "2026-03-05T10:00:13.583Z",
+        "result": {
+          "description": "Asymptotic-bound profile for R(Q_n) plus finite monochromatic C4 proxy.",
+          "bound_rows": [
+            {
+              "n": 4,
+              "log2_upper_bound_tikhomirov_style": 7.85376,
+              "log2_linear_target_2_pow_n": 4,
+              "ratio_exponent_log2_upper_over_target": 3.85376
+            },
+            {
+              "n": 6,
+              "log2_upper_bound_tikhomirov_style": 11.78064,
+              "log2_linear_target_2_pow_n": 6,
+              "ratio_exponent_log2_upper_over_target": 5.78064
+            },
+            {
+              "n": 8,
+              "log2_upper_bound_tikhomirov_style": 15.70752,
+              "log2_linear_target_2_pow_n": 8,
+              "ratio_exponent_log2_upper_over_target": 7.70752
+            },
+            {
+              "n": 10,
+              "log2_upper_bound_tikhomirov_style": 19.6344,
+              "log2_linear_target_2_pow_n": 10,
+              "ratio_exponent_log2_upper_over_target": 9.6344
+            },
+            {
+              "n": 12,
+              "log2_upper_bound_tikhomirov_style": 23.56128,
+              "log2_linear_target_2_pow_n": 12,
+              "ratio_exponent_log2_upper_over_target": 11.56128
+            },
+            {
+              "n": 16,
+              "log2_upper_bound_tikhomirov_style": 31.41504,
+              "log2_linear_target_2_pow_n": 16,
+              "ratio_exponent_log2_upper_over_target": 15.41504
+            }
+          ],
+          "q2_proxy_rows": [
+            {
+              "m": 4,
+              "trials": 120000,
+              "monochromatic_C4_found_rate": 0.3142
+            },
+            {
+              "m": 5,
+              "trials": 80000,
+              "monochromatic_C4_found_rate": 0.932262
+            },
+            {
+              "m": 6,
+              "trials": 40000,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 7,
+              "trials": 30000,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 8,
+              "trials": 20000,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 10,
+              "trials": 12000,
+              "monochromatic_C4_found_rate": 1
+            },
+            {
+              "m": 12,
+              "trials": 8000,
+              "monochromatic_C4_found_rate": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

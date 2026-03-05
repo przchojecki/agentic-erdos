@@ -1,7 +1,48 @@
 {
   "problem": "EP-91",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Explicit finite configuration check for non-similar low-distance candidates.",
+        "rows": [
+          {
+            "n": 4,
+            "model": "square",
+            "distinct_distances": 2
+          },
+          {
+            "n": 4,
+            "model": "two_equilateral_triangles_sharing_edge",
+            "distinct_distances": 2
+          },
+          {
+            "n": 5,
+            "model": "regular_pentagon",
+            "distinct_distances": 2
+          },
+          {
+            "n": 9,
+            "model": "regular_nonagon",
+            "distinct_distances": 4
+          },
+          {
+            "n": 9,
+            "model": "hexagon_plus_center_plus_two_reflections",
+            "distinct_distances": 4
+          },
+          {
+            "n": 9,
+            "model": "pair_same_distinct_count_in_this_probe",
+            "value": true
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,72 @@
 {
   "problem": "EP-125",
   "normalized_utc": "2026-03-05T08:54:16.950Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite density and gap profile for sums of base-{3,4} binary-digit sets.",
+        "rows": [
+          {
+            "N": 20000,
+            "size_A": 560,
+            "size_B": 192,
+            "covered_1_to_N": 17342,
+            "density_1_to_N": 0.8671,
+            "density_tail_3N_over_4_to_N": 0.705259,
+            "longest_missing_gap_up_to_N": 1081
+          },
+          {
+            "N": 50000,
+            "size_A": 1024,
+            "size_B": 256,
+            "covered_1_to_N": 44741,
+            "density_1_to_N": 0.89482,
+            "density_tail_3N_over_4_to_N": 0.924966,
+            "longest_missing_gap_up_to_N": 1081
+          },
+          {
+            "N": 100000,
+            "size_A": 2048,
+            "size_B": 512,
+            "covered_1_to_N": 86162,
+            "density_1_to_N": 0.86162,
+            "density_tail_3N_over_4_to_N": 0.99684,
+            "longest_missing_gap_up_to_N": 7679
+          },
+          {
+            "N": 200000,
+            "size_A": 2790,
+            "size_B": 512,
+            "covered_1_to_N": 168458,
+            "density_1_to_N": 0.84229,
+            "density_tail_3N_over_4_to_N": 0.868123,
+            "longest_missing_gap_up_to_N": 7679
+          },
+          {
+            "N": 500000,
+            "size_A": 4096,
+            "size_B": 1024,
+            "covered_1_to_N": 425240,
+            "density_1_to_N": 0.85048,
+            "density_tail_3N_over_4_to_N": 0.776378,
+            "longest_missing_gap_up_to_N": 7679
+          },
+          {
+            "N": 800000,
+            "size_A": 8192,
+            "size_B": 1024,
+            "covered_1_to_N": 695124,
+            "density_1_to_N": 0.868905,
+            "density_tail_3N_over_4_to_N": 0.855766,
+            "longest_missing_gap_up_to_N": 7679
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

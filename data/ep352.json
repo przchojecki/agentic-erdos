@@ -1,7 +1,36 @@
 {
   "problem": "EP-352",
   "normalized_utc": "2026-03-05T08:54:16.957Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Grid-geometry proxy: large subsets of [0,m]^2 with no area-1 triangle among chosen points.",
+        "rows": [
+          {
+            "grid_m": 6,
+            "total_points": 49,
+            "best_area1_free_subset_size": 21,
+            "density": 0.428571
+          },
+          {
+            "grid_m": 8,
+            "total_points": 81,
+            "best_area1_free_subset_size": 23,
+            "density": 0.283951
+          },
+          {
+            "grid_m": 10,
+            "total_points": 121,
+            "best_area1_free_subset_size": 28,
+            "density": 0.231405
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

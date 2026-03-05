@@ -1,7 +1,144 @@
 {
   "problem": "EP-33",
   "normalized_utc": "2026-03-05T08:54:16.938Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Greedy finite interval coverage by n = square + a with bounded a.",
+        "rows": [
+          {
+            "X": 20000,
+            "interval": [
+              10000,
+              20000
+            ],
+            "candidate_a_max": 565,
+            "profile": [
+              {
+                "t": 20,
+                "coverage_fraction": 0.084492,
+                "t_over_sqrtX": 0.141421
+              },
+              {
+                "t": 40,
+                "coverage_fraction": 0.168483,
+                "t_over_sqrtX": 0.282843
+              },
+              {
+                "t": 60,
+                "coverage_fraction": 0.252475,
+                "t_over_sqrtX": 0.424264
+              },
+              {
+                "t": 80,
+                "coverage_fraction": 0.336466,
+                "t_over_sqrtX": 0.565685
+              },
+              {
+                "t": 100,
+                "coverage_fraction": 0.420458,
+                "t_over_sqrtX": 0.707107
+              },
+              {
+                "t": 120,
+                "coverage_fraction": 0.50395,
+                "t_over_sqrtX": 0.848528
+              }
+            ],
+            "final_step_count": 120,
+            "final_coverage_fraction": 0.50395
+          },
+          {
+            "X": 50000,
+            "interval": [
+              25000,
+              50000
+            ],
+            "candidate_a_max": 894,
+            "profile": [
+              {
+                "t": 20,
+                "coverage_fraction": 0.053598,
+                "t_over_sqrtX": 0.089443
+              },
+              {
+                "t": 40,
+                "coverage_fraction": 0.107196,
+                "t_over_sqrtX": 0.178885
+              },
+              {
+                "t": 60,
+                "coverage_fraction": 0.160514,
+                "t_over_sqrtX": 0.268328
+              },
+              {
+                "t": 80,
+                "coverage_fraction": 0.213311,
+                "t_over_sqrtX": 0.357771
+              },
+              {
+                "t": 100,
+                "coverage_fraction": 0.266109,
+                "t_over_sqrtX": 0.447214
+              },
+              {
+                "t": 120,
+                "coverage_fraction": 0.318907,
+                "t_over_sqrtX": 0.536656
+              }
+            ],
+            "final_step_count": 120,
+            "final_coverage_fraction": 0.318907
+          },
+          {
+            "X": 100000,
+            "interval": [
+              50000,
+              100000
+            ],
+            "candidate_a_max": 1264,
+            "profile": [
+              {
+                "t": 20,
+                "coverage_fraction": 0.037599,
+                "t_over_sqrtX": 0.063246
+              },
+              {
+                "t": 40,
+                "coverage_fraction": 0.075198,
+                "t_over_sqrtX": 0.126491
+              },
+              {
+                "t": 60,
+                "coverage_fraction": 0.112798,
+                "t_over_sqrtX": 0.189737
+              },
+              {
+                "t": 80,
+                "coverage_fraction": 0.149997,
+                "t_over_sqrtX": 0.252982
+              },
+              {
+                "t": 100,
+                "coverage_fraction": 0.187196,
+                "t_over_sqrtX": 0.316228
+              },
+              {
+                "t": 120,
+                "coverage_fraction": 0.224396,
+                "t_over_sqrtX": 0.379473
+              }
+            ],
+            "final_step_count": 120,
+            "final_coverage_fraction": 0.224396
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

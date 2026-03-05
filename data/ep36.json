@@ -1,7 +1,36 @@
 {
   "problem": "EP-36",
   "normalized_utc": "2026-03-05T08:54:16.938Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite local-search profile for minimum overlap constant c.",
+        "rows": [
+          {
+            "N": 120,
+            "best_max_overlap_found": 51,
+            "best_ratio_over_N": 0.425,
+            "restarts": 18
+          },
+          {
+            "N": 200,
+            "best_max_overlap_found": 84,
+            "best_ratio_over_N": 0.42,
+            "restarts": 18
+          },
+          {
+            "N": 300,
+            "best_max_overlap_found": 128,
+            "best_ratio_over_N": 0.426667,
+            "restarts": 18
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

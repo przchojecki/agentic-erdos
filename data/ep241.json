@@ -1,7 +1,89 @@
 {
   "problem": "EP-241",
   "normalized_utc": "2026-03-05T08:54:16.954Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch8_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite greedy profiles for B3-type sets with distinct triple sums.",
+        "rows": [
+          {
+            "N": 5000,
+            "greedy_size": 16,
+            "random_best_of_20": 16,
+            "greedy_over_N_pow_1_over_3": 0.935686,
+            "random_over_N_pow_1_over_3": 0.935686
+          },
+          {
+            "N": 10000,
+            "greedy_size": 19,
+            "random_best_of_20": 19,
+            "greedy_over_N_pow_1_over_3": 0.881902,
+            "random_over_N_pow_1_over_3": 0.881902
+          },
+          {
+            "N": 20000,
+            "greedy_size": 23,
+            "random_best_of_20": 22,
+            "greedy_over_N_pow_1_over_3": 0.847327,
+            "random_over_N_pow_1_over_3": 0.810487
+          },
+          {
+            "N": 50000,
+            "greedy_size": 28,
+            "random_best_of_20": 27,
+            "greedy_over_N_pow_1_over_3": 0.760037,
+            "random_over_N_pow_1_over_3": 0.732893
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep241_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-241",
+        "script": "ep241.mjs",
+        "generated_utc": "2026-03-05T09:57:24.701Z",
+        "result": {
+          "description": "Finite greedy profiles for B3-type sets with distinct triple sums.",
+          "rows": [
+            {
+              "N": 5000,
+              "greedy_size": 16,
+              "random_best_of_20": 16,
+              "greedy_over_N_pow_1_over_3": 0.935686,
+              "random_over_N_pow_1_over_3": 0.935686
+            },
+            {
+              "N": 10000,
+              "greedy_size": 19,
+              "random_best_of_20": 19,
+              "greedy_over_N_pow_1_over_3": 0.881902,
+              "random_over_N_pow_1_over_3": 0.881902
+            },
+            {
+              "N": 20000,
+              "greedy_size": 23,
+              "random_best_of_20": 22,
+              "greedy_over_N_pow_1_over_3": 0.847327,
+              "random_over_N_pow_1_over_3": 0.810487
+            },
+            {
+              "N": 50000,
+              "greedy_size": 28,
+              "random_best_of_20": 27,
+              "greedy_over_N_pow_1_over_3": 0.760037,
+              "random_over_N_pow_1_over_3": 0.732893
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

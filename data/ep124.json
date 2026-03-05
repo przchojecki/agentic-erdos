@@ -1,7 +1,94 @@
 {
   "problem": "EP-124",
   "normalized_utc": "2026-03-05T08:54:16.950Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite coverage profile for base-digit sumset representations.",
+        "rows": [
+          {
+            "label": "classical_positive_example",
+            "d_tuple": [
+              3,
+              4,
+              7
+            ],
+            "k": 0,
+            "set_sizes": [
+              560,
+              192,
+              64
+            ],
+            "covered_1_to_N": 20000,
+            "density_1_to_N": 1,
+            "covered_tail_L_to_N": 10001,
+            "density_tail_L_to_N": 1,
+            "first_missing": null
+          },
+          {
+            "label": "gcd_condition_shifted_digits",
+            "d_tuple": [
+              3,
+              4,
+              7
+            ],
+            "k": 1,
+            "set_sizes": [
+              280,
+              96,
+              32
+            ],
+            "covered_1_to_N": 19963,
+            "density_1_to_N": 0.99815,
+            "covered_tail_L_to_N": 10001,
+            "density_tail_L_to_N": 1,
+            "first_missing": 1
+          },
+          {
+            "label": "pairwise_coprime_shifted_digits",
+            "d_tuple": [
+              3,
+              5,
+              7
+            ],
+            "k": 1,
+            "set_sizes": [
+              280,
+              64,
+              32
+            ],
+            "covered_1_to_N": 19797,
+            "density_1_to_N": 0.98985,
+            "covered_tail_L_to_N": 9932,
+            "density_tail_L_to_N": 0.993101,
+            "first_missing": 1
+          },
+          {
+            "label": "known_bad_generalized_family_comparison",
+            "d_tuple": [
+              3,
+              9,
+              81
+            ],
+            "k": 0,
+            "set_sizes": [
+              560,
+              32,
+              8
+            ],
+            "covered_1_to_N": 5459,
+            "density_1_to_N": 0.27295,
+            "covered_tail_L_to_N": 2239,
+            "density_tail_L_to_N": 0.223878,
+            "first_missing": 7
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

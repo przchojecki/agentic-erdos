@@ -1,7 +1,85 @@
 {
   "problem": "EP-342",
   "normalized_utc": "2026-03-05T08:54:16.957Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite density and gap-structure diagnostics for the Ulam (1,2) sequence.",
+        "terms_generated": 3500,
+        "last_term": 45132,
+        "twin_pair_count_in_prefix": 1244,
+        "density_rows": [
+          {
+            "X": 1000,
+            "count_terms_le_X": 125,
+            "density": 0.125
+          },
+          {
+            "X": 2000,
+            "count_terms_le_X": 216,
+            "density": 0.108
+          },
+          {
+            "X": 5000,
+            "count_terms_le_X": 451,
+            "density": 0.0902
+          },
+          {
+            "X": 10000,
+            "count_terms_le_X": 827,
+            "density": 0.0827
+          },
+          {
+            "X": 20000,
+            "count_terms_le_X": 1592,
+            "density": 0.0796
+          },
+          {
+            "X": 40000,
+            "count_terms_le_X": 3103,
+            "density": 0.077575
+          }
+        ],
+        "periodicity_tail_rows": [
+          {
+            "period": 2,
+            "tail_match_ratio": 0.19616
+          },
+          {
+            "period": 4,
+            "tail_match_ratio": 0.141304
+          },
+          {
+            "period": 6,
+            "tail_match_ratio": 0.172529
+          },
+          {
+            "period": 8,
+            "tail_match_ratio": 0.151846
+          },
+          {
+            "period": 10,
+            "tail_match_ratio": 0.164706
+          },
+          {
+            "period": 12,
+            "tail_match_ratio": 0.183502
+          },
+          {
+            "period": 16,
+            "tail_match_ratio": 0.169764
+          },
+          {
+            "period": 20,
+            "tail_match_ratio": 0.179661
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

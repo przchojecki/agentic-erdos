@@ -1,7 +1,131 @@
 {
   "problem": "EP-161",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Sampled finite hypergraph-coloring profile for F^{(3)}(n,alpha).",
+        "rows": [
+          {
+            "n": 20,
+            "alpha": 0,
+            "random_colorings_tested": 36,
+            "sampled_empirical_F_3_n_alpha": 4
+          },
+          {
+            "n": 20,
+            "alpha": 0.02,
+            "random_colorings_tested": 36,
+            "sampled_empirical_F_3_n_alpha": 6
+          },
+          {
+            "n": 20,
+            "alpha": 0.05,
+            "random_colorings_tested": 36,
+            "sampled_empirical_F_3_n_alpha": 6
+          },
+          {
+            "n": 20,
+            "alpha": 0.1,
+            "random_colorings_tested": 36,
+            "sampled_empirical_F_3_n_alpha": 6
+          },
+          {
+            "n": 20,
+            "alpha": 0.15,
+            "random_colorings_tested": 36,
+            "sampled_empirical_F_3_n_alpha": 7
+          },
+          {
+            "n": 20,
+            "alpha": 0.2,
+            "random_colorings_tested": 36,
+            "sampled_empirical_F_3_n_alpha": 7
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep161_deeper_onebyone.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-161",
+        "script": "ep161.mjs",
+        "method": "sampled_random_coloring_profile_for_F3",
+        "params": {
+          "n": 24,
+          "colorings": 120,
+          "samples": 64,
+          "seed": 1612026,
+          "alphas": [
+            0,
+            0.02,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25
+          ]
+        },
+        "rows": [
+          {
+            "n": 24,
+            "alpha": 0,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 4
+          },
+          {
+            "n": 24,
+            "alpha": 0.02,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 6
+          },
+          {
+            "n": 24,
+            "alpha": 0.05,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 6
+          },
+          {
+            "n": 24,
+            "alpha": 0.1,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 6
+          },
+          {
+            "n": 24,
+            "alpha": 0.15,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 7
+          },
+          {
+            "n": 24,
+            "alpha": 0.2,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 7
+          },
+          {
+            "n": 24,
+            "alpha": 0.25,
+            "random_colorings_tested": 120,
+            "subset_samples_per_size": 64,
+            "sampled_empirical_F_3_n_alpha": 8
+          }
+        ],
+        "generated_utc": "2026-03-05T09:36:11.843Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,67 @@
 {
   "problem": "EP-320",
   "normalized_utc": "2026-03-05T08:54:16.956Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Exact S(N) for small N using subset-sum DP over common denominator lcm(1..N).",
+        "rows": [
+          {
+            "N": 8,
+            "S_N": 208,
+            "log_S_N": 5.3375381,
+            "lcm_digits": 3,
+            "log_S_over_N_over_logN": 1.38739
+          },
+          {
+            "N": 10,
+            "S_N": 832,
+            "log_S_N": 6.7238324,
+            "lcm_digits": 4,
+            "log_S_over_N_over_logN": 1.54822
+          },
+          {
+            "N": 12,
+            "S_N": 1856,
+            "log_S_N": 7.5261789,
+            "lcm_digits": 5,
+            "log_S_over_N_over_logN": 1.55849
+          },
+          {
+            "N": 14,
+            "S_N": 7424,
+            "log_S_N": 8.9124733,
+            "lcm_digits": 6,
+            "log_S_over_N_over_logN": 1.68004
+          },
+          {
+            "N": 16,
+            "S_N": 19328,
+            "log_S_N": 9.8693101,
+            "lcm_digits": 6,
+            "log_S_over_N_over_logN": 1.71022
+          },
+          {
+            "N": 18,
+            "S_N": 59264,
+            "log_S_N": 10.989757,
+            "lcm_digits": 8,
+            "log_S_over_N_over_logN": 1.76469
+          },
+          {
+            "N": 20,
+            "S_N": 126976,
+            "log_S_N": 11.751753,
+            "lcm_digits": 9,
+            "log_S_over_N_over_logN": 1.76026
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -36,3 +36,6 @@ Batch scripts were integrated into `data/ep1.json` with extracted EP-specific se
   - Central-binomial scale check gives $\binom{n}{\lfloor n/2\rfloor} 2^{-n}\sqrt{n}$ approaching about $0.795$ by $n=64$.
 - Interpretation:
   - Finite profile matches the known $2^n/\sqrt{n}$ scale and still leaves the $\sqrt{n}$ gap to the conjectural $c\,2^n$ target.
+
+## New Experiments
+- 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-1.

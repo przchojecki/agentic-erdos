@@ -1,7 +1,143 @@
 {
   "problem": "EP-170",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Greedy finite sparse-ruler profile for F(N)/sqrt(N).",
+        "rows": [
+          {
+            "N": 200,
+            "restarts": 80,
+            "best_size_found": 28,
+            "ratio_over_sqrtN": 1.979899
+          },
+          {
+            "N": 400,
+            "restarts": 70,
+            "best_size_found": 42,
+            "ratio_over_sqrtN": 2.1
+          },
+          {
+            "N": 800,
+            "restarts": 60,
+            "best_size_found": 64,
+            "ratio_over_sqrtN": 2.262742
+          },
+          {
+            "N": 1200,
+            "restarts": 50,
+            "best_size_found": 78,
+            "ratio_over_sqrtN": 2.251666
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep170_real_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-170",
+        "script": "harder_batch6_quick_compute.mjs",
+        "generated_utc": "2026-03-05T09:44:15.408Z",
+        "source_batch_file": "harder_batch6_quick_compute.json",
+        "result": {
+          "description": "Greedy finite sparse-ruler profile for F(N)/sqrt(N).",
+          "rows": [
+            {
+              "N": 200,
+              "restarts": 80,
+              "best_size_found": 28,
+              "ratio_over_sqrtN": 1.979899
+            },
+            {
+              "N": 400,
+              "restarts": 70,
+              "best_size_found": 42,
+              "ratio_over_sqrtN": 2.1
+            },
+            {
+              "N": 800,
+              "restarts": 60,
+              "best_size_found": 64,
+              "ratio_over_sqrtN": 2.262742
+            },
+            {
+              "N": 1200,
+              "restarts": 50,
+              "best_size_found": 78,
+              "ratio_over_sqrtN": 2.251666
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "ep170_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-170",
+        "script": "ep170.mjs",
+        "method": "standalone_greedy_sparse_ruler_search",
+        "params": {
+          "N_LIST": [
+            200,
+            400,
+            800,
+            1200,
+            1600,
+            2000
+          ],
+          "RESTARTS": 160,
+          "SEED": 1702026
+        },
+        "rows": [
+          {
+            "N": 200,
+            "restarts": 160,
+            "best_size_found": 29,
+            "ratio_over_sqrtN": 2.05061
+          },
+          {
+            "N": 400,
+            "restarts": 160,
+            "best_size_found": 42,
+            "ratio_over_sqrtN": 2.1
+          },
+          {
+            "N": 800,
+            "restarts": 160,
+            "best_size_found": 63,
+            "ratio_over_sqrtN": 2.227386
+          },
+          {
+            "N": 1200,
+            "restarts": 160,
+            "best_size_found": 80,
+            "ratio_over_sqrtN": 2.309401
+          },
+          {
+            "N": 1600,
+            "restarts": 160,
+            "best_size_found": 93,
+            "ratio_over_sqrtN": 2.325
+          },
+          {
+            "N": 2000,
+            "restarts": 160,
+            "best_size_found": 105,
+            "ratio_over_sqrtN": 2.347871
+          }
+        ],
+        "generated_utc": "2026-03-05T09:47:44.644Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,466 @@
 {
   "problem": "EP-160",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite local-search profile for h(N): minimum colors forcing >=3 colors on each 4-AP.",
+        "rows": [
+          {
+            "N": 20,
+            "k_tested": 2,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 20,
+            "k_tested": 3,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 20,
+            "k_tested": 4,
+            "valid_coloring_found": true
+          },
+          {
+            "N": 20,
+            "empirical_upper_bound_h_of_N": 4
+          },
+          {
+            "N": 30,
+            "k_tested": 2,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 30,
+            "k_tested": 3,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 30,
+            "k_tested": 4,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 30,
+            "k_tested": 5,
+            "valid_coloring_found": true
+          },
+          {
+            "N": 30,
+            "empirical_upper_bound_h_of_N": 5
+          },
+          {
+            "N": 40,
+            "k_tested": 2,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 40,
+            "k_tested": 3,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 40,
+            "k_tested": 4,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 40,
+            "k_tested": 5,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 40,
+            "k_tested": 6,
+            "valid_coloring_found": true
+          },
+          {
+            "N": 40,
+            "empirical_upper_bound_h_of_N": 6
+          },
+          {
+            "N": 60,
+            "k_tested": 2,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 60,
+            "k_tested": 3,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 60,
+            "k_tested": 4,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 60,
+            "k_tested": 5,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 60,
+            "k_tested": 6,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 60,
+            "k_tested": 7,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 60,
+            "k_tested": 8,
+            "valid_coloring_found": true
+          },
+          {
+            "N": 60,
+            "empirical_upper_bound_h_of_N": 8
+          },
+          {
+            "N": 80,
+            "k_tested": 2,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "k_tested": 3,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "k_tested": 4,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "k_tested": 5,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "k_tested": 6,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "k_tested": 7,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "k_tested": 8,
+            "valid_coloring_found": false
+          },
+          {
+            "N": 80,
+            "empirical_upper_bound_h_of_N": null
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep160_deeper_onebyone_fast.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-160",
+        "script": "ep160.mjs",
+        "method": "randomized_local_search_for_4AP_at_least_3_colors",
+        "params": {
+          "N_LIST": [
+            80
+          ],
+          "K_MIN": 4,
+          "K_MAX": 9,
+          "RESTARTS": 8,
+          "STEPS": 10000,
+          "SEED": 1602027
+        },
+        "rows": [
+          {
+            "N": 80,
+            "k_tested": 4,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 8,
+            "steps_per_restart": 10000
+          },
+          {
+            "N": 80,
+            "k_tested": 5,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 8,
+            "steps_per_restart": 10000
+          },
+          {
+            "N": 80,
+            "k_tested": 6,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 8,
+            "steps_per_restart": 10000
+          },
+          {
+            "N": 80,
+            "k_tested": 7,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 8,
+            "steps_per_restart": 10000
+          },
+          {
+            "N": 80,
+            "k_tested": 8,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 8,
+            "steps_per_restart": 10000
+          },
+          {
+            "N": 80,
+            "k_tested": 9,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 8,
+            "steps_per_restart": 10000
+          },
+          {
+            "N": 80,
+            "empirical_upper_bound_h_of_N": null
+          }
+        ],
+        "generated_utc": "2026-03-05T09:34:47.678Z"
+      }
+    },
+    {
+      "source_file": "ep160_deeper_onebyone.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-160",
+        "script": "ep160.mjs",
+        "method": "randomized_local_search_for_4AP_at_least_3_colors",
+        "params": {
+          "N_LIST": [
+            80,
+            100,
+            120
+          ],
+          "K_MIN": 4,
+          "K_MAX": 10,
+          "RESTARTS": 64,
+          "STEPS": 90000,
+          "SEED": 1602026
+        },
+        "rows": [
+          {
+            "N": 80,
+            "k_tested": 4,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 80,
+            "k_tested": 5,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 80,
+            "k_tested": 6,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 80,
+            "k_tested": 7,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 80,
+            "k_tested": 8,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 80,
+            "k_tested": 9,
+            "valid_coloring_found": true,
+            "witness_restart": 2,
+            "witness_steps_used": 63233,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 80,
+            "empirical_upper_bound_h_of_N": 9
+          },
+          {
+            "N": 100,
+            "k_tested": 4,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "k_tested": 5,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "k_tested": 6,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "k_tested": 7,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "k_tested": 8,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "k_tested": 9,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "k_tested": 10,
+            "valid_coloring_found": true,
+            "witness_restart": 33,
+            "witness_steps_used": 46596,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 100,
+            "empirical_upper_bound_h_of_N": 10
+          },
+          {
+            "N": 120,
+            "k_tested": 4,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "k_tested": 5,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "k_tested": 6,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "k_tested": 7,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "k_tested": 8,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "k_tested": 9,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "k_tested": 10,
+            "valid_coloring_found": false,
+            "witness_restart": null,
+            "witness_steps_used": null,
+            "restarts": 64,
+            "steps_per_restart": 90000
+          },
+          {
+            "N": 120,
+            "empirical_upper_bound_h_of_N": null
+          }
+        ],
+        "generated_utc": "2026-03-05T09:34:54.895Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

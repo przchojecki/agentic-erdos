@@ -404,6 +404,46 @@
         },
         "generated_utc": "2026-03-04T22:15:59.140Z"
       }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:11:27.266Z",
+      "source": "overnight_deeper_rerun",
+      "payload": {
+        "method": "deeper_residue_cover_scan",
+        "params": {
+          "K": 3,
+          "N": 800000,
+          "P_MAX": 350,
+          "RESTARTS": 220,
+          "seed": 2792026
+        },
+        "best": {
+          "covered_ratio": 0.90608,
+          "tail_covered_ratio": 0.90607433,
+          "uncovered_count": 75136,
+          "prime_count": 70
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:23:32.403Z",
+      "source": "overnight_deeper_rerun2",
+      "payload": {
+        "method": "deeper_residue_cover_scan",
+        "params": {
+          "K": 3,
+          "N": 1200000,
+          "P_MAX": 400,
+          "RESTARTS": 320,
+          "seed": 2792026
+        },
+        "best": {
+          "covered_ratio": 0.90772667,
+          "tail_covered_ratio": 0.90774317,
+          "uncovered_count": 110728,
+          "prime_count": 78
+        }
+      }
     }
   ],
   "batch_script_integrations": {

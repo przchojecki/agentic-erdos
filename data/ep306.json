@@ -1,7 +1,59 @@
 {
   "problem": "EP-306",
   "normalized_utc": "2026-03-05T08:54:16.956Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite representability profile for a/b using distinct semiprime denominators.",
+        "semiprime_count_up_to_maxDen": 203,
+        "search_limits": {
+          "maxDen": 700,
+          "kMax": 8
+        },
+        "rows": [
+          {
+            "b": 6,
+            "represented_coprime_a_count": 1,
+            "unresolved_coprime_a_count": 1,
+            "max_min_length_among_represented": 1
+          },
+          {
+            "b": 10,
+            "represented_coprime_a_count": 2,
+            "unresolved_coprime_a_count": 2,
+            "max_min_length_among_represented": 5
+          },
+          {
+            "b": 14,
+            "represented_coprime_a_count": 3,
+            "unresolved_coprime_a_count": 3,
+            "max_min_length_among_represented": 6
+          },
+          {
+            "b": 15,
+            "represented_coprime_a_count": 4,
+            "unresolved_coprime_a_count": 4,
+            "max_min_length_among_represented": 8
+          },
+          {
+            "b": 21,
+            "represented_coprime_a_count": 6,
+            "unresolved_coprime_a_count": 6,
+            "max_min_length_among_represented": 8
+          },
+          {
+            "b": 30,
+            "represented_coprime_a_count": 4,
+            "unresolved_coprime_a_count": 4,
+            "max_min_length_among_represented": 5
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,116 @@
 {
   "problem": "EP-319",
   "normalized_utc": "2026-03-05T08:54:16.956Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Randomized split construction lower-bound proxy for large minimal signed harmonic relation sets.",
+        "rows": [
+          {
+            "N": 30,
+            "best_B_size_found": 5,
+            "implied_A_size_lower_bound": 6,
+            "implied_A_over_N": 0.2,
+            "proper_subset_sum_1_exists": false,
+            "sample_B_prefix": [
+              2,
+              5,
+              6,
+              12,
+              20
+            ]
+          },
+          {
+            "N": 40,
+            "best_B_size_found": 5,
+            "implied_A_size_lower_bound": 6,
+            "implied_A_over_N": 0.15,
+            "proper_subset_sum_1_exists": false,
+            "sample_B_prefix": [
+              2,
+              5,
+              6,
+              12,
+              20
+            ]
+          },
+          {
+            "N": 50,
+            "best_B_size_found": 7,
+            "implied_A_size_lower_bound": 8,
+            "implied_A_over_N": 0.16,
+            "proper_subset_sum_1_exists": false,
+            "sample_B_prefix": [
+              3,
+              5,
+              6,
+              7,
+              12,
+              20,
+              42
+            ]
+          },
+          {
+            "N": 60,
+            "best_B_size_found": 8,
+            "implied_A_size_lower_bound": 9,
+            "implied_A_over_N": 0.15,
+            "proper_subset_sum_1_exists": false,
+            "sample_B_prefix": [
+              3,
+              5,
+              6,
+              8,
+              12,
+              20,
+              42,
+              56
+            ]
+          },
+          {
+            "N": 80,
+            "best_B_size_found": 9,
+            "implied_A_size_lower_bound": 10,
+            "implied_A_over_N": 0.125,
+            "proper_subset_sum_1_exists": false,
+            "sample_B_prefix": [
+              3,
+              5,
+              6,
+              9,
+              12,
+              20,
+              42,
+              56,
+              72
+            ]
+          },
+          {
+            "N": 100,
+            "best_B_size_found": 10,
+            "implied_A_size_lower_bound": 11,
+            "implied_A_over_N": 0.11,
+            "proper_subset_sum_1_exists": false,
+            "sample_B_prefix": [
+              3,
+              5,
+              6,
+              10,
+              12,
+              20,
+              42,
+              56,
+              72,
+              90
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

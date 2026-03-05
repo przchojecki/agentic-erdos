@@ -1,7 +1,105 @@
 {
   "problem": "EP-261",
   "normalized_utc": "2026-03-05T08:54:16.954Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch8_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite coverage profile from subset-offset representation ansatz a_i = n + i.",
+        "Nmax": 5000,
+        "rows": [
+          {
+            "offset_window_L": 8,
+            "represented_n_count_up_to_Nmax": 13,
+            "density_up_to_Nmax": 0.0026,
+            "largest_represented_n_up_to_Nmax": 502
+          },
+          {
+            "offset_window_L": 10,
+            "represented_n_count_up_to_Nmax": 18,
+            "density_up_to_Nmax": 0.0036,
+            "largest_represented_n_up_to_Nmax": 2036
+          },
+          {
+            "offset_window_L": 12,
+            "represented_n_count_up_to_Nmax": 24,
+            "density_up_to_Nmax": 0.0048,
+            "largest_represented_n_up_to_Nmax": 4083
+          },
+          {
+            "offset_window_L": 15,
+            "represented_n_count_up_to_Nmax": 36,
+            "density_up_to_Nmax": 0.0072,
+            "largest_represented_n_up_to_Nmax": 4083
+          },
+          {
+            "offset_window_L": 20,
+            "represented_n_count_up_to_Nmax": 50,
+            "density_up_to_Nmax": 0.01,
+            "largest_represented_n_up_to_Nmax": 4083
+          }
+        ],
+        "union_over_L_up_to_20": {
+          "represented_count": 50,
+          "represented_density": 0.01,
+          "largest_represented_n": 4083
+        }
+      }
+    },
+    {
+      "source_file": "ep261_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-261",
+        "script": "ep261.mjs",
+        "generated_utc": "2026-03-05T09:57:25.103Z",
+        "result": {
+          "description": "Finite coverage profile from subset-offset representation ansatz a_i = n + i.",
+          "Nmax": 5000,
+          "rows": [
+            {
+              "offset_window_L": 8,
+              "represented_n_count_up_to_Nmax": 13,
+              "density_up_to_Nmax": 0.0026,
+              "largest_represented_n_up_to_Nmax": 502
+            },
+            {
+              "offset_window_L": 10,
+              "represented_n_count_up_to_Nmax": 18,
+              "density_up_to_Nmax": 0.0036,
+              "largest_represented_n_up_to_Nmax": 2036
+            },
+            {
+              "offset_window_L": 12,
+              "represented_n_count_up_to_Nmax": 24,
+              "density_up_to_Nmax": 0.0048,
+              "largest_represented_n_up_to_Nmax": 4083
+            },
+            {
+              "offset_window_L": 15,
+              "represented_n_count_up_to_Nmax": 36,
+              "density_up_to_Nmax": 0.0072,
+              "largest_represented_n_up_to_Nmax": 4083
+            },
+            {
+              "offset_window_L": 20,
+              "represented_n_count_up_to_Nmax": 50,
+              "density_up_to_Nmax": 0.01,
+              "largest_represented_n_up_to_Nmax": 4083
+            }
+          ],
+          "union_over_L_up_to_20": {
+            "represented_count": 50,
+            "represented_density": 0.01,
+            "largest_represented_n": 4083
+          }
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

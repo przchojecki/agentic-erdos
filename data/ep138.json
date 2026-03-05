@@ -1,7 +1,81 @@
 {
   "problem": "EP-138",
   "normalized_utc": "2026-03-05T08:54:16.951Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite coloring search at small k and classical Berlekamp lower-root profile.",
+        "known_exact_small_k": [
+          {
+            "k": 3,
+            "exact_W_k": 27
+          },
+          {
+            "k": 4,
+            "exact_W_k": 35
+          }
+        ],
+        "search_rows": [
+          {
+            "k": 4,
+            "N_tested": 34,
+            "found_coloring_without_monochromatic_kAP": true
+          },
+          {
+            "k": 4,
+            "N_tested": 35,
+            "found_coloring_without_monochromatic_kAP": false
+          },
+          {
+            "k": 4,
+            "N_tested": 40,
+            "found_coloring_without_monochromatic_kAP": false
+          }
+        ],
+        "berlekamp_rows": [
+          {
+            "prime_p": 2,
+            "k": 3,
+            "lower_bound_W_of_k": 8,
+            "lower_root_bound": "2.000000"
+          },
+          {
+            "prime_p": 3,
+            "k": 4,
+            "lower_bound_W_of_k": 24,
+            "lower_root_bound": "2.213364"
+          },
+          {
+            "prime_p": 5,
+            "k": 6,
+            "lower_bound_W_of_k": 160,
+            "lower_root_bound": "2.329986"
+          },
+          {
+            "prime_p": 7,
+            "k": 8,
+            "lower_bound_W_of_k": 896,
+            "lower_root_bound": "2.339045"
+          },
+          {
+            "prime_p": 11,
+            "k": 12,
+            "lower_bound_W_of_k": 22528,
+            "lower_root_bound": "2.305297"
+          },
+          {
+            "prime_p": 13,
+            "k": 14,
+            "lower_bound_W_of_k": 106496,
+            "lower_root_bound": "2.286100"
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

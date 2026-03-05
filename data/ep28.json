@@ -1,7 +1,60 @@
 {
   "problem": "EP-28",
   "normalized_utc": "2026-03-05T08:54:16.937Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random finite proxies: near-full sumset coverage versus peak representation multiplicity.",
+        "rows": [
+          {
+            "N": 500,
+            "densities": [
+              0.1,
+              0.13,
+              0.16,
+              0.2,
+              0.24
+            ],
+            "trials_per_density": 60,
+            "best_coverage_found": 0.985986,
+            "min_observed_max_rep_if_coverage_ge_0_99": null,
+            "min_observed_max_rep_if_coverage_ge_0_995": null
+          },
+          {
+            "N": 1000,
+            "densities": [
+              0.1,
+              0.13,
+              0.16,
+              0.2,
+              0.24
+            ],
+            "trials_per_density": 60,
+            "best_coverage_found": 0.991496,
+            "min_observed_max_rep_if_coverage_ge_0_99": 58,
+            "min_observed_max_rep_if_coverage_ge_0_995": null
+          },
+          {
+            "N": 2000,
+            "densities": [
+              0.1,
+              0.13,
+              0.16,
+              0.2,
+              0.24
+            ],
+            "trials_per_density": 60,
+            "best_coverage_found": 0.993748,
+            "min_observed_max_rep_if_coverage_ge_0_99": 112,
+            "min_observed_max_rep_if_coverage_ge_0_995": null
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -988,6 +988,111 @@
         ],
         "generated_utc": "2026-03-03T11:42:54.299Z"
       }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:11:27.266Z",
+      "source": "overnight_deeper_rerun",
+      "payload": {
+        "method": "deeper_composite_lpf_scan",
+        "n_max": 3000000,
+        "total_bad": 69135,
+        "checkpoints": [
+          {
+            "n": 500000,
+            "good_count": 481086,
+            "bad_count": 18913,
+            "bad_ratio": 0.037826
+          },
+          {
+            "n": 1000000,
+            "good_count": 968716,
+            "bad_count": 31283,
+            "bad_ratio": 0.031283
+          },
+          {
+            "n": 2000000,
+            "good_count": 1948115,
+            "bad_count": 51884,
+            "bad_ratio": 0.025942
+          },
+          {
+            "n": 3000000,
+            "good_count": 2930864,
+            "bad_count": 69135,
+            "bad_ratio": 0.023045
+          }
+        ]
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:22:23.251Z",
+      "source": "overnight_deeper_rerun2",
+      "payload": {
+        "method": "deeper_composite_lpf_scan",
+        "n_max": 5000000,
+        "total_bad": 98713,
+        "checkpoints": [
+          {
+            "n": 1000000,
+            "good_count": 968716,
+            "bad_count": 31283,
+            "bad_ratio": 0.031283
+          },
+          {
+            "n": 3000000,
+            "good_count": 2930864,
+            "bad_count": 69135,
+            "bad_ratio": 0.023045
+          },
+          {
+            "n": 5000000,
+            "good_count": 4901286,
+            "bad_count": 98713,
+            "bad_ratio": 0.019743
+          }
+        ]
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:24:59.624Z",
+      "source": "overnight_deeper_rerun3",
+      "payload": {
+        "method": "deeper_composite_lpf_scan",
+        "n_max": 8000000,
+        "total_bad": 135620,
+        "checkpoints": [
+          {
+            "n": 1000000,
+            "good_count": 968716,
+            "bad_count": 31283,
+            "bad_ratio": 0.031283
+          },
+          {
+            "n": 3000000,
+            "good_count": 2930864,
+            "bad_count": 69135,
+            "bad_ratio": 0.023045
+          },
+          {
+            "n": 5000000,
+            "good_count": 4901286,
+            "bad_count": 98713,
+            "bad_ratio": 0.019743
+          },
+          {
+            "n": 6500000,
+            "good_count": 6382030,
+            "bad_count": 117969,
+            "bad_ratio": 0.018149
+          },
+          {
+            "n": 8000000,
+            "good_count": 7864379,
+            "bad_count": 135620,
+            "bad_ratio": 0.016953
+          }
+        ]
+      }
     }
   ],
   "batch_script_integrations": {

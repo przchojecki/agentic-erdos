@@ -1,7 +1,58 @@
 {
   "problem": "EP-84",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Small-n cycle-set counting profile (exact for n<=6, sampled for n=7).",
+        "rows": [
+          {
+            "n": 3,
+            "graphs_processed": 8,
+            "total_graphs_if_exhaustive": 8,
+            "distinct_cycle_sets_found": 2,
+            "normalized_over_2_pow_n": 0.25,
+            "exact": true
+          },
+          {
+            "n": 4,
+            "graphs_processed": 64,
+            "total_graphs_if_exhaustive": 64,
+            "distinct_cycle_sets_found": 4,
+            "normalized_over_2_pow_n": 0.25,
+            "exact": true
+          },
+          {
+            "n": 5,
+            "graphs_processed": 1024,
+            "total_graphs_if_exhaustive": 1024,
+            "distinct_cycle_sets_found": 6,
+            "normalized_over_2_pow_n": 0.1875,
+            "exact": true
+          },
+          {
+            "n": 6,
+            "graphs_processed": 32768,
+            "total_graphs_if_exhaustive": 32768,
+            "distinct_cycle_sets_found": 11,
+            "normalized_over_2_pow_n": 0.171875,
+            "exact": true
+          },
+          {
+            "n": 7,
+            "graphs_processed": 30000,
+            "total_graphs_if_exhaustive": 2097152,
+            "distinct_cycle_sets_found": 11,
+            "normalized_over_2_pow_n": 0.085938,
+            "exact": false
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

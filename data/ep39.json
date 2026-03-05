@@ -1,7 +1,49 @@
 {
   "problem": "EP-39",
   "normalized_utc": "2026-03-05T08:54:16.939Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Ascending greedy Sidon sequence finite growth profile.",
+        "rows": [
+          {
+            "N": 10000,
+            "count": 66,
+            "count_over_N_pow_1_3": 3.063449,
+            "count_over_N_pow_sqrt2_minus1": 1.454419
+          },
+          {
+            "N": 100000,
+            "count": 161,
+            "count_over_N_pow_1_3": 3.46864,
+            "count_over_N_pow_sqrt2_minus1": 1.366967
+          },
+          {
+            "N": 500000,
+            "count": 296,
+            "count_over_N_pow_1_3": 3.729366,
+            "count_over_N_pow_sqrt2_minus1": 1.290331
+          },
+          {
+            "N": 1000000,
+            "count": 381,
+            "count_over_N_pow_1_3": 3.81,
+            "count_over_N_pow_sqrt2_minus1": 1.24636
+          },
+          {
+            "N": 2000000,
+            "count": 490,
+            "count_over_N_pow_1_3": 3.889133,
+            "count_over_N_pow_sqrt2_minus1": 1.202885
+          }
+        ],
+        "last_term_in_prefix": 1995385
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

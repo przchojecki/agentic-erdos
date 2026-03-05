@@ -1,7 +1,81 @@
 {
   "problem": "EP-120",
   "normalized_utc": "2026-03-05T08:54:16.950Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite proxy: large subsets of [1,N] avoiding affine copies of {1,2,4,...,2^(m-1)}.",
+        "rows": [
+          {
+            "m": 4,
+            "N": 128,
+            "best_avoidance_set_size_found": 50,
+            "best_density_found": 0.390625,
+            "copies_tested": 976
+          },
+          {
+            "m": 4,
+            "N": 256,
+            "best_avoidance_set_size_found": 82,
+            "best_density_found": 0.320313,
+            "copies_tested": 4000
+          },
+          {
+            "m": 4,
+            "N": 384,
+            "best_avoidance_set_size_found": 108,
+            "best_density_found": 0.28125,
+            "copies_tested": 9072
+          },
+          {
+            "m": 5,
+            "N": 128,
+            "best_avoidance_set_size_found": 72,
+            "best_density_found": 0.5625,
+            "copies_tested": 456
+          },
+          {
+            "m": 5,
+            "N": 256,
+            "best_avoidance_set_size_found": 123,
+            "best_density_found": 0.480469,
+            "copies_tested": 1936
+          },
+          {
+            "m": 5,
+            "N": 384,
+            "best_avoidance_set_size_found": 166,
+            "best_density_found": 0.432292,
+            "copies_tested": 4440
+          },
+          {
+            "m": 6,
+            "N": 128,
+            "best_avoidance_set_size_found": 89,
+            "best_density_found": 0.695313,
+            "copies_tested": 196
+          },
+          {
+            "m": 6,
+            "N": 256,
+            "best_avoidance_set_size_found": 156,
+            "best_density_found": 0.609375,
+            "copies_tested": 904
+          },
+          {
+            "m": 6,
+            "N": 384,
+            "best_avoidance_set_size_found": 216,
+            "best_density_found": 0.5625,
+            "copies_tested": 2124
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

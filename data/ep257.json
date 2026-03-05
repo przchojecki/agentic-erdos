@@ -1,7 +1,105 @@
 {
   "problem": "EP-257",
   "normalized_utc": "2026-03-05T08:54:16.954Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch8_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite partial-sum profile of sum_{n in A} 1/(2^n-1) for representative infinite sets A.",
+        "rows": [
+          {
+            "family": "primes",
+            "terms_up_to_400": 78,
+            "partial_sum_L200": 0.51694281980564,
+            "partial_sum_L400": 0.51694281980564,
+            "delta_200_to_400": 0,
+            "best_rational_q_le_50000": "20061/38807",
+            "approx_error": 2.1124e-10
+          },
+          {
+            "family": "prime_powers",
+            "terms_up_to_400": 97,
+            "partial_sum_L200": 0.58950329876982,
+            "partial_sum_L400": 0.58950329876982,
+            "delta_200_to_400": 0,
+            "best_rational_q_le_50000": "29125/49406",
+            "approx_error": 4.2461e-10
+          },
+          {
+            "family": "powers_of_2",
+            "terms_up_to_400": 9,
+            "partial_sum_L200": 1.4039368278822,
+            "partial_sum_L400": 1.4039368278822,
+            "delta_200_to_400": 0,
+            "best_rational_q_le_50000": "30669/21845",
+            "approx_error": 2.3283e-10
+          },
+          {
+            "family": "squares",
+            "terms_up_to_400": 20,
+            "partial_sum_L200": 1.0686389026679,
+            "partial_sum_L400": 1.0686389026679,
+            "delta_200_to_400": 0,
+            "best_rational_q_le_50000": "50319/47087",
+            "approx_error": 2.1071e-10
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep257_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-257",
+        "script": "ep257.mjs",
+        "generated_utc": "2026-03-05T09:57:25.043Z",
+        "result": {
+          "description": "Finite partial-sum profile of sum_{n in A} 1/(2^n-1) for representative infinite sets A.",
+          "rows": [
+            {
+              "family": "primes",
+              "terms_up_to_400": 78,
+              "partial_sum_L200": 0.51694281980564,
+              "partial_sum_L400": 0.51694281980564,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "20061/38807",
+              "approx_error": 2.1124e-10
+            },
+            {
+              "family": "prime_powers",
+              "terms_up_to_400": 97,
+              "partial_sum_L200": 0.58950329876982,
+              "partial_sum_L400": 0.58950329876982,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "29125/49406",
+              "approx_error": 4.2461e-10
+            },
+            {
+              "family": "powers_of_2",
+              "terms_up_to_400": 9,
+              "partial_sum_L200": 1.4039368278822,
+              "partial_sum_L400": 1.4039368278822,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "30669/21845",
+              "approx_error": 2.3283e-10
+            },
+            {
+              "family": "squares",
+              "terms_up_to_400": 20,
+              "partial_sum_L200": 1.0686389026679,
+              "partial_sum_L400": 1.0686389026679,
+              "delta_200_to_400": 0,
+              "best_rational_q_le_50000": "50319/47087",
+              "approx_error": 2.1071e-10
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

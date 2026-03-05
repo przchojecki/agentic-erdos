@@ -35,3 +35,6 @@ Batch scripts were integrated into `data/ep9.json` with extracted EP-specific se
   - Up to $10^6$, only $2$ odd numbers were found not representable as $p+2^a+2^b$ (density among odds about $4\times 10^{-6}$).
 - Interpretation:
   - Finite range remains extremely sparse for exceptions; this does not contradict known infinitude but gives no density-positivity evidence.
+
+## New Experiments
+- 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-9.

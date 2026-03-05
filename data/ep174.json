@@ -1,7 +1,115 @@
 {
   "problem": "EP-174",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite F2^d rectangle proxy under random 2-colorings.",
+        "rows": [
+          {
+            "d": 5,
+            "cube_vertices": 32,
+            "trials": 70,
+            "sampled_rectangles_per_trial": 3500,
+            "min_mono_rectangle_rate_observed": 0.090857,
+            "avg_mono_rectangle_rate_observed": 0.120192
+          },
+          {
+            "d": 6,
+            "cube_vertices": 64,
+            "trials": 70,
+            "sampled_rectangles_per_trial": 3500,
+            "min_mono_rectangle_rate_observed": 0.104571,
+            "avg_mono_rectangle_rate_observed": 0.124429
+          },
+          {
+            "d": 7,
+            "cube_vertices": 128,
+            "trials": 70,
+            "sampled_rectangles_per_trial": 3500,
+            "min_mono_rectangle_rate_observed": 0.107714,
+            "avg_mono_rectangle_rate_observed": 0.124424
+          },
+          {
+            "d": 8,
+            "cube_vertices": 256,
+            "trials": 70,
+            "sampled_rectangles_per_trial": 3500,
+            "min_mono_rectangle_rate_observed": 0.111143,
+            "avg_mono_rectangle_rate_observed": 0.12471
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep174_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-174",
+        "script": "ep174.mjs",
+        "method": "standalone_F2d_rectangle_random_coloring_profile",
+        "params": {
+          "D_LIST": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "TRIALS": 120,
+          "SAMPLES": 6000,
+          "SEED": 1742026
+        },
+        "rows": [
+          {
+            "d": 5,
+            "cube_vertices": 32,
+            "trials": 120,
+            "sampled_rectangles_per_trial": 6000,
+            "min_mono_rectangle_rate_observed": 0.092167,
+            "avg_mono_rectangle_rate_observed": 0.131386
+          },
+          {
+            "d": 6,
+            "cube_vertices": 64,
+            "trials": 120,
+            "sampled_rectangles_per_trial": 6000,
+            "min_mono_rectangle_rate_observed": 0.104833,
+            "avg_mono_rectangle_rate_observed": 0.125281
+          },
+          {
+            "d": 7,
+            "cube_vertices": 128,
+            "trials": 120,
+            "sampled_rectangles_per_trial": 6000,
+            "min_mono_rectangle_rate_observed": 0.109833,
+            "avg_mono_rectangle_rate_observed": 0.123219
+          },
+          {
+            "d": 8,
+            "cube_vertices": 256,
+            "trials": 120,
+            "sampled_rectangles_per_trial": 6000,
+            "min_mono_rectangle_rate_observed": 0.110167,
+            "avg_mono_rectangle_rate_observed": 0.124247
+          },
+          {
+            "d": 9,
+            "cube_vertices": 512,
+            "trials": 120,
+            "sampled_rectangles_per_trial": 6000,
+            "min_mono_rectangle_rate_observed": 0.112667,
+            "avg_mono_rectangle_rate_observed": 0.124699
+          }
+        ],
+        "generated_utc": "2026-03-05T09:50:44.395Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

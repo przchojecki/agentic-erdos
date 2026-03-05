@@ -1,7 +1,48 @@
 {
   "problem": "EP-3",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Ascending greedy 3-AP-free set profile (finite proxy only).",
+        "rows": [
+          {
+            "N": 1000,
+            "greedy_3ap_free_size": 105,
+            "size_over_sqrtN": 3.320392,
+            "harmonic_sum_over_set": 2.842751
+          },
+          {
+            "N": 3000,
+            "greedy_3ap_free_size": 210,
+            "size_over_sqrtN": 3.834058,
+            "harmonic_sum_over_set": 2.897799
+          },
+          {
+            "N": 10000,
+            "greedy_3ap_free_size": 512,
+            "size_over_sqrtN": 5.12,
+            "harmonic_sum_over_set": 2.944226
+          },
+          {
+            "N": 30000,
+            "greedy_3ap_free_size": 1024,
+            "size_over_sqrtN": 5.912067,
+            "harmonic_sum_over_set": 2.965463
+          },
+          {
+            "N": 100000,
+            "greedy_3ap_free_size": 2048,
+            "size_over_sqrtN": 6.476345,
+            "harmonic_sum_over_set": 2.979622
+          }
+        ]
+      }
+    }
+  ],
   "batch_script_integrations": {
     "integrated_utc": "2026-03-05T08:51:27.301Z",
     "source_files": [

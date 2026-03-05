@@ -1,7 +1,102 @@
 {
   "problem": "EP-325",
   "normalized_utc": "2026-03-05T08:54:16.956Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite coverage profile f_{k,3}(X) for sums of three nonnegative k-th powers.",
+        "rows": [
+          {
+            "k": 3,
+            "X": 20000,
+            "f_k3_X": 2558,
+            "ratio_over_X_pow_3_over_k": 0.1279,
+            "density": 0.1279
+          },
+          {
+            "k": 3,
+            "X": 50000,
+            "f_k3_X": 6020,
+            "ratio_over_X_pow_3_over_k": 0.1204,
+            "density": 0.1204
+          },
+          {
+            "k": 3,
+            "X": 100000,
+            "f_k3_X": 11663,
+            "ratio_over_X_pow_3_over_k": 0.11663,
+            "density": 0.11663
+          },
+          {
+            "k": 3,
+            "X": 200000,
+            "f_k3_X": 22657,
+            "ratio_over_X_pow_3_over_k": 0.113285,
+            "density": 0.113285
+          },
+          {
+            "k": 4,
+            "X": 30000,
+            "f_k3_X": 429,
+            "ratio_over_X_pow_3_over_k": 0.188199,
+            "density": 0.0143
+          },
+          {
+            "k": 4,
+            "X": 80000,
+            "f_k3_X": 816,
+            "ratio_over_X_pow_3_over_k": 0.171543,
+            "density": 0.0102
+          },
+          {
+            "k": 4,
+            "X": 150000,
+            "f_k3_X": 1266,
+            "ratio_over_X_pow_3_over_k": 0.166098,
+            "density": 0.00844
+          },
+          {
+            "k": 4,
+            "X": 300000,
+            "f_k3_X": 2070,
+            "ratio_over_X_pow_3_over_k": 0.161484,
+            "density": 0.0069
+          },
+          {
+            "k": 5,
+            "X": 40000,
+            "f_k3_X": 139,
+            "ratio_over_X_pow_3_over_k": 0.240868,
+            "density": 0.003475
+          },
+          {
+            "k": 5,
+            "X": 100000,
+            "f_k3_X": 209,
+            "ratio_over_X_pow_3_over_k": 0.209,
+            "density": 0.00209
+          },
+          {
+            "k": 5,
+            "X": 200000,
+            "f_k3_X": 317,
+            "ratio_over_X_pow_3_over_k": 0.209142,
+            "density": 0.001585
+          },
+          {
+            "k": 5,
+            "X": 400000,
+            "f_k3_X": 461,
+            "ratio_over_X_pow_3_over_k": 0.200662,
+            "density": 0.0011525
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

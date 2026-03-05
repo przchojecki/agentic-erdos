@@ -1,7 +1,46 @@
 {
   "problem": "EP-293",
   "normalized_utc": "2026-03-05T08:54:16.955Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Exact finite-k denominator-appearance scan for 1=sum 1/n_i, yielding a proxy for v(k).",
+        "rows": [
+          {
+            "k": 3,
+            "max_denom_searched": 400,
+            "solution_count": 1,
+            "distinct_denominators_seen": 3,
+            "v_proxy_min_missing_from_2": 4
+          },
+          {
+            "k": 4,
+            "max_denom_searched": 800,
+            "solution_count": 6,
+            "distinct_denominators_seen": 15,
+            "v_proxy_min_missing_from_2": 11
+          },
+          {
+            "k": 5,
+            "max_denom_searched": 1500,
+            "solution_count": 71,
+            "distinct_denominators_seen": 75,
+            "v_proxy_min_missing_from_2": 17
+          },
+          {
+            "k": 6,
+            "max_denom_searched": 2200,
+            "solution_count": 1669,
+            "distinct_denominators_seen": 503,
+            "v_proxy_min_missing_from_2": 53
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

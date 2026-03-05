@@ -1,7 +1,67 @@
 {
   "problem": "EP-51",
   "normalized_utc": "2026-03-05T08:54:16.947Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite profile of minimal preimage ratio n_a/a for Euler totient values up to 5e5.",
+        "limit": 500000,
+        "max_ratio_found": 2.035496,
+        "argmax_a": 5888,
+        "min_n_for_argmax": 11985,
+        "sampled_points": [
+          {
+            "a": 50000,
+            "ratio_min_n_over_a": 1.2625,
+            "preimage_count_within_limit": 15
+          },
+          {
+            "a": 100000,
+            "ratio_min_n_over_a": 1.00651,
+            "preimage_count_within_limit": 24
+          },
+          {
+            "a": 150000,
+            "ratio_min_n_over_a": 1.000007,
+            "preimage_count_within_limit": 51
+          },
+          {
+            "a": 200000,
+            "ratio_min_n_over_a": 1.253125,
+            "preimage_count_within_limit": 13
+          },
+          {
+            "a": 250000,
+            "ratio_min_n_over_a": 1.115444,
+            "preimage_count_within_limit": 5
+          },
+          {
+            "a": 300000,
+            "ratio_min_n_over_a": 1.003837,
+            "preimage_count_within_limit": 20
+          },
+          {
+            "a": 350000,
+            "ratio_min_n_over_a": 1.251786,
+            "preimage_count_within_limit": 4
+          },
+          {
+            "a": 400000,
+            "ratio_min_n_over_a": 1.004628,
+            "preimage_count_within_limit": 4
+          },
+          {
+            "a": 450000,
+            "ratio_min_n_over_a": 1.000002,
+            "preimage_count_within_limit": 11
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

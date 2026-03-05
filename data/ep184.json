@@ -1,7 +1,433 @@
 {
   "problem": "EP-184",
   "normalized_utc": "2026-03-05T08:54:16.953Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Greedy edge-disjoint cycle+edge decomposition profile on random graphs and K_{3,n-3}.",
+        "rows": [
+          {
+            "model": "random_graph",
+            "n": 60,
+            "m": 120,
+            "trials": 18,
+            "best_pieces_found": 42,
+            "avg_pieces": 46.833,
+            "best_over_n": 0.7
+          },
+          {
+            "model": "random_graph",
+            "n": 60,
+            "m": 180,
+            "trials": 18,
+            "best_pieces_found": 44,
+            "avg_pieces": 51.333,
+            "best_over_n": 0.733333
+          },
+          {
+            "model": "random_graph",
+            "n": 60,
+            "m": 240,
+            "trials": 18,
+            "best_pieces_found": 48,
+            "avg_pieces": 62.056,
+            "best_over_n": 0.8
+          },
+          {
+            "model": "random_graph",
+            "n": 90,
+            "m": 180,
+            "trials": 18,
+            "best_pieces_found": 56,
+            "avg_pieces": 67.778,
+            "best_over_n": 0.622222
+          },
+          {
+            "model": "random_graph",
+            "n": 90,
+            "m": 270,
+            "trials": 18,
+            "best_pieces_found": 64,
+            "avg_pieces": 74.833,
+            "best_over_n": 0.711111
+          },
+          {
+            "model": "random_graph",
+            "n": 90,
+            "m": 360,
+            "trials": 18,
+            "best_pieces_found": 73,
+            "avg_pieces": 84.222,
+            "best_over_n": 0.811111
+          },
+          {
+            "model": "random_graph",
+            "n": 120,
+            "m": 240,
+            "trials": 18,
+            "best_pieces_found": 73,
+            "avg_pieces": 89.222,
+            "best_over_n": 0.608333
+          },
+          {
+            "model": "random_graph",
+            "n": 120,
+            "m": 360,
+            "trials": 18,
+            "best_pieces_found": 88,
+            "avg_pieces": 98.222,
+            "best_over_n": 0.733333
+          },
+          {
+            "model": "random_graph",
+            "n": 120,
+            "m": 480,
+            "trials": 18,
+            "best_pieces_found": 87,
+            "avg_pieces": 106.444,
+            "best_over_n": 0.725
+          },
+          {
+            "model": "K_3_n_minus_3",
+            "n": 60,
+            "m": 171,
+            "decomposition_pieces_found": 87,
+            "lower_bound_m_over_6": 28.5,
+            "pieces_over_n": 1.45
+          },
+          {
+            "model": "K_3_n_minus_3",
+            "n": 90,
+            "m": 261,
+            "decomposition_pieces_found": 132,
+            "lower_bound_m_over_6": 43.5,
+            "pieces_over_n": 1.466667
+          },
+          {
+            "model": "K_3_n_minus_3",
+            "n": 120,
+            "m": 351,
+            "decomposition_pieces_found": 177,
+            "lower_bound_m_over_6": 58.5,
+            "pieces_over_n": 1.475
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep184_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-184",
+        "script": "ep184.mjs",
+        "generated_utc": "2026-03-05T09:56:38.473Z",
+        "result": {
+          "description": "Greedy edge-disjoint cycle+edge decomposition profile on random graphs and K_{3,n-3}.",
+          "rows": [
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 120,
+              "trials": 18,
+              "best_pieces_found": 42,
+              "avg_pieces": 46.833,
+              "best_over_n": 0.7
+            },
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 180,
+              "trials": 18,
+              "best_pieces_found": 44,
+              "avg_pieces": 51.333,
+              "best_over_n": 0.733333
+            },
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 240,
+              "trials": 18,
+              "best_pieces_found": 48,
+              "avg_pieces": 62.056,
+              "best_over_n": 0.8
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 180,
+              "trials": 18,
+              "best_pieces_found": 56,
+              "avg_pieces": 67.778,
+              "best_over_n": 0.622222
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 270,
+              "trials": 18,
+              "best_pieces_found": 64,
+              "avg_pieces": 74.833,
+              "best_over_n": 0.711111
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 360,
+              "trials": 18,
+              "best_pieces_found": 73,
+              "avg_pieces": 84.222,
+              "best_over_n": 0.811111
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 240,
+              "trials": 18,
+              "best_pieces_found": 73,
+              "avg_pieces": 89.222,
+              "best_over_n": 0.608333
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 360,
+              "trials": 18,
+              "best_pieces_found": 88,
+              "avg_pieces": 98.222,
+              "best_over_n": 0.733333
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 480,
+              "trials": 18,
+              "best_pieces_found": 87,
+              "avg_pieces": 106.444,
+              "best_over_n": 0.725
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 60,
+              "m": 171,
+              "decomposition_pieces_found": 87,
+              "lower_bound_m_over_6": 28.5,
+              "pieces_over_n": 1.45
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 90,
+              "m": 261,
+              "decomposition_pieces_found": 132,
+              "lower_bound_m_over_6": 43.5,
+              "pieces_over_n": 1.466667
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 120,
+              "m": 351,
+              "decomposition_pieces_found": 177,
+              "lower_bound_m_over_6": 58.5,
+              "pieces_over_n": 1.475
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "ep184_standalone_deeper_20260305T100120Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-184",
+        "script": "ep184.mjs",
+        "generated_utc": "2026-03-05T10:01:20.892Z",
+        "result": {
+          "description": "Greedy edge-disjoint cycle+edge decomposition profile on random graphs and K_{3,n-3}.",
+          "rows": [
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 120,
+              "trials": 50,
+              "best_pieces_found": 36,
+              "avg_pieces": 45.92,
+              "best_over_n": 0.6
+            },
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 180,
+              "trials": 50,
+              "best_pieces_found": 43,
+              "avg_pieces": 54.08,
+              "best_over_n": 0.716667
+            },
+            {
+              "model": "random_graph",
+              "n": 60,
+              "m": 240,
+              "trials": 50,
+              "best_pieces_found": 50,
+              "avg_pieces": 58.36,
+              "best_over_n": 0.833333
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 180,
+              "trials": 50,
+              "best_pieces_found": 54,
+              "avg_pieces": 66.94,
+              "best_over_n": 0.6
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 270,
+              "trials": 50,
+              "best_pieces_found": 62,
+              "avg_pieces": 74.9,
+              "best_over_n": 0.688889
+            },
+            {
+              "model": "random_graph",
+              "n": 90,
+              "m": 360,
+              "trials": 50,
+              "best_pieces_found": 73,
+              "avg_pieces": 83.72,
+              "best_over_n": 0.811111
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 240,
+              "trials": 50,
+              "best_pieces_found": 72,
+              "avg_pieces": 85.7,
+              "best_over_n": 0.6
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 360,
+              "trials": 50,
+              "best_pieces_found": 82,
+              "avg_pieces": 96.36,
+              "best_over_n": 0.683333
+            },
+            {
+              "model": "random_graph",
+              "n": 120,
+              "m": 480,
+              "trials": 50,
+              "best_pieces_found": 89,
+              "avg_pieces": 108.58,
+              "best_over_n": 0.741667
+            },
+            {
+              "model": "random_graph",
+              "n": 150,
+              "m": 300,
+              "trials": 30,
+              "best_pieces_found": 93,
+              "avg_pieces": 106.233,
+              "best_over_n": 0.62
+            },
+            {
+              "model": "random_graph",
+              "n": 150,
+              "m": 450,
+              "trials": 30,
+              "best_pieces_found": 99,
+              "avg_pieces": 119.867,
+              "best_over_n": 0.66
+            },
+            {
+              "model": "random_graph",
+              "n": 150,
+              "m": 600,
+              "trials": 30,
+              "best_pieces_found": 120,
+              "avg_pieces": 130.533,
+              "best_over_n": 0.8
+            },
+            {
+              "model": "random_graph",
+              "n": 180,
+              "m": 360,
+              "trials": 30,
+              "best_pieces_found": 113,
+              "avg_pieces": 127.833,
+              "best_over_n": 0.627778
+            },
+            {
+              "model": "random_graph",
+              "n": 180,
+              "m": 540,
+              "trials": 30,
+              "best_pieces_found": 122,
+              "avg_pieces": 143.033,
+              "best_over_n": 0.677778
+            },
+            {
+              "model": "random_graph",
+              "n": 180,
+              "m": 720,
+              "trials": 30,
+              "best_pieces_found": 137,
+              "avg_pieces": 151.567,
+              "best_over_n": 0.761111
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 60,
+              "m": 171,
+              "decomposition_pieces_found": 87,
+              "lower_bound_m_over_6": 28.5,
+              "pieces_over_n": 1.45
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 90,
+              "m": 261,
+              "decomposition_pieces_found": 132,
+              "lower_bound_m_over_6": 43.5,
+              "pieces_over_n": 1.466667
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 120,
+              "m": 351,
+              "decomposition_pieces_found": 177,
+              "lower_bound_m_over_6": 58.5,
+              "pieces_over_n": 1.475
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 150,
+              "m": 441,
+              "decomposition_pieces_found": 222,
+              "lower_bound_m_over_6": 73.5,
+              "pieces_over_n": 1.48
+            },
+            {
+              "model": "K_3_n_minus_3",
+              "n": 180,
+              "m": 531,
+              "decomposition_pieces_found": 267,
+              "lower_bound_m_over_6": 88.5,
+              "pieces_over_n": 1.483333
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,59 @@
 {
   "problem": "EP-60",
   "normalized_utc": "2026-03-05T08:54:16.947Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Small-n random lower-envelope search for C4 counts at ex(n,C4)+1 edges.",
+        "rows": [
+          {
+            "n": 20,
+            "ex_n_C4_assumed_exact_small_n": 46,
+            "tested_edges": 47,
+            "random_trials": 320,
+            "min_C4_found": 28,
+            "min_C4_over_sqrt_n": 6.26099
+          },
+          {
+            "n": 24,
+            "ex_n_C4_assumed_exact_small_n": 59,
+            "tested_edges": 60,
+            "random_trials": 320,
+            "min_C4_found": 37,
+            "min_C4_over_sqrt_n": 7.552593
+          },
+          {
+            "n": 28,
+            "ex_n_C4_assumed_exact_small_n": 76,
+            "tested_edges": 77,
+            "random_trials": 320,
+            "min_C4_found": 60,
+            "min_C4_over_sqrt_n": 11.338934
+          },
+          {
+            "n": 32,
+            "ex_n_C4_assumed_exact_small_n": 92,
+            "tested_edges": 93,
+            "random_trials": 320,
+            "min_C4_found": 83,
+            "min_C4_over_sqrt_n": 14.672466
+          },
+          {
+            "n": 36,
+            "ex_n_C4_assumed_exact_small_n": 110,
+            "tested_edges": 111,
+            "random_trials": 320,
+            "min_C4_found": 115,
+            "min_C4_over_sqrt_n": 19.166667
+          }
+        ],
+        "caveat": "Uses known small exact ex(n,C4) table values only for n<=39."
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

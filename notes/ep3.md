@@ -35,3 +35,6 @@ Batch scripts were integrated into `data/ep3.json` with extracted EP-specific se
   - A simple ascending greedy 3-AP-free proxy in $[1,N]$ reaches size $2048$ at $N=100000$, with reciprocal sum about $2.9796$.
 - Interpretation:
   - Finite proxies show substantial AP-avoidance room, but do not resolve the divergent-harmonic implication for all progression lengths.
+
+## New Experiments
+- 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-3.

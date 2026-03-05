@@ -1,7 +1,108 @@
 {
   "problem": "EP-66",
   "normalized_utc": "2026-03-05T08:54:16.948Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite self-convolution-over-log profile for simple model sets.",
+        "rows": [
+          {
+            "model": "squares",
+            "checkpoints": [
+              {
+                "n": 20000,
+                "conv_value": 5,
+                "ratio_over_logn": 0.504873
+              },
+              {
+                "n": 50000,
+                "conv_value": 6,
+                "ratio_over_logn": 0.55454
+              },
+              {
+                "n": 100000,
+                "conv_value": 6,
+                "ratio_over_logn": 0.521153
+              },
+              {
+                "n": 150000,
+                "conv_value": 0,
+                "ratio_over_logn": 0
+              },
+              {
+                "n": 200000,
+                "conv_value": 6,
+                "ratio_over_logn": 0.491559
+              }
+            ]
+          },
+          {
+            "model": "primes",
+            "checkpoints": [
+              {
+                "n": 20000,
+                "conv_value": 462,
+                "ratio_over_logn": 46.650233
+              },
+              {
+                "n": 50000,
+                "conv_value": 900,
+                "ratio_over_logn": 83.181002
+              },
+              {
+                "n": 100000,
+                "conv_value": 1620,
+                "ratio_over_logn": 140.711412
+              },
+              {
+                "n": 150000,
+                "conv_value": 4540,
+                "ratio_over_logn": 380.923915
+              },
+              {
+                "n": 200000,
+                "conv_value": 2834,
+                "ratio_over_logn": 232.179513
+              }
+            ]
+          },
+          {
+            "model": "powers_of_2",
+            "checkpoints": [
+              {
+                "n": 20000,
+                "conv_value": 0,
+                "ratio_over_logn": 0
+              },
+              {
+                "n": 50000,
+                "conv_value": 0,
+                "ratio_over_logn": 0
+              },
+              {
+                "n": 100000,
+                "conv_value": 0,
+                "ratio_over_logn": 0
+              },
+              {
+                "n": 150000,
+                "conv_value": 0,
+                "ratio_over_logn": 0
+              },
+              {
+                "n": 200000,
+                "conv_value": 0,
+                "ratio_over_logn": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

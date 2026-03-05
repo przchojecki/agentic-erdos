@@ -1,7 +1,39 @@
 {
   "problem": "EP-338",
   "normalized_utc": "2026-03-05T08:54:16.957Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite distinct-vs-unrestricted summand behavior for Bateman-style bases.",
+        "rows": [
+          {
+            "h": 3,
+            "A_size_up_to_600": 201,
+            "distinct_coverage_density_up_to_1200": 0.666667,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window_400_1200": 4
+          },
+          {
+            "h": 4,
+            "A_size_up_to_600": 151,
+            "distinct_coverage_density_up_to_1200": 0.5,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window_400_1200": 5
+          },
+          {
+            "h": 5,
+            "A_size_up_to_600": 121,
+            "distinct_coverage_density_up_to_1200": 0.4,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window_400_1200": 6
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

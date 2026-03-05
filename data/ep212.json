@@ -1,7 +1,81 @@
 {
   "problem": "EP-212",
   "normalized_utc": "2026-03-05T08:54:16.953Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Integer-grid proxy for large finite all-rational-distance subsets (integer-distance specialization).",
+        "rows": [
+          {
+            "M": 4,
+            "grid_points": 81,
+            "best_all_integer_distance_subset_size_found": 9,
+            "ratio_over_grid_size": 0.111111
+          },
+          {
+            "M": 5,
+            "grid_points": 121,
+            "best_all_integer_distance_subset_size_found": 11,
+            "ratio_over_grid_size": 0.090909
+          },
+          {
+            "M": 6,
+            "grid_points": 169,
+            "best_all_integer_distance_subset_size_found": 13,
+            "ratio_over_grid_size": 0.076923
+          },
+          {
+            "M": 7,
+            "grid_points": 225,
+            "best_all_integer_distance_subset_size_found": 15,
+            "ratio_over_grid_size": 0.066667
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep212_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-212",
+        "script": "ep212.mjs",
+        "generated_utc": "2026-03-05T09:57:22.274Z",
+        "result": {
+          "description": "Integer-grid proxy for large finite all-rational-distance subsets (integer-distance specialization).",
+          "rows": [
+            {
+              "M": 4,
+              "grid_points": 81,
+              "best_all_integer_distance_subset_size_found": 9,
+              "ratio_over_grid_size": 0.111111
+            },
+            {
+              "M": 5,
+              "grid_points": 121,
+              "best_all_integer_distance_subset_size_found": 11,
+              "ratio_over_grid_size": 0.090909
+            },
+            {
+              "M": 6,
+              "grid_points": 169,
+              "best_all_integer_distance_subset_size_found": 13,
+              "ratio_over_grid_size": 0.076923
+            },
+            {
+              "M": 7,
+              "grid_points": 225,
+              "best_all_integer_distance_subset_size_found": 15,
+              "ratio_over_grid_size": 0.066667
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

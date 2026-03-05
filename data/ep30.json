@@ -1,7 +1,105 @@
 {
   "problem": "EP-30",
   "normalized_utc": "2026-03-05T08:54:16.937Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random greedy Sidon lower-bound profile against sqrt(N) and refined N^(1/4) correction scale.",
+        "rows": [
+          {
+            "N": 500,
+            "trials": 300,
+            "min_size_found": 17,
+            "avg_size_found": 18.5533,
+            "max_size_found": 20,
+            "max_minus_sqrtN": -2.36068,
+            "refined_upper_sqrt_plus_0_98183_N_quarter": 27.003467,
+            "refined_upper_minus_max_found": 7.003467
+          },
+          {
+            "N": 1000,
+            "trials": 300,
+            "min_size_found": 22,
+            "avg_size_found": 24.3167,
+            "max_size_found": 26,
+            "max_minus_sqrtN": -5.622777,
+            "refined_upper_sqrt_plus_0_98183_N_quarter": 37.144012,
+            "refined_upper_minus_max_found": 11.144012
+          },
+          {
+            "N": 2000,
+            "trials": 300,
+            "min_size_found": 30,
+            "avg_size_found": 32.0767,
+            "max_size_found": 35,
+            "max_minus_sqrtN": -9.72136,
+            "refined_upper_sqrt_plus_0_98183_N_quarter": 51.287252,
+            "refined_upper_minus_max_found": 16.287252
+          },
+          {
+            "N": 5000,
+            "trials": 300,
+            "min_size_found": 43,
+            "avg_size_found": 45.57,
+            "max_size_found": 48,
+            "max_minus_sqrtN": -22.710678,
+            "refined_upper_sqrt_plus_0_98183_N_quarter": 78.966851,
+            "refined_upper_minus_max_found": 30.966851
+          },
+          {
+            "N": 10000,
+            "trials": 300,
+            "min_size_found": 57,
+            "avg_size_found": 59.45,
+            "max_size_found": 63,
+            "max_minus_sqrtN": -37,
+            "refined_upper_sqrt_plus_0_98183_N_quarter": 109.8183,
+            "refined_upper_minus_max_found": 46.8183
+          }
+        ],
+        "structured_prime_power_family_profile": [
+          {
+            "q_prime": 31,
+            "N_q2_plus_q_plus_1": 993,
+            "lower_bound_size_q_plus_1": 32,
+            "ratio_over_sqrtN": 1.015489,
+            "lower_bound_minus_sqrtN": 0.488097
+          },
+          {
+            "q_prime": 61,
+            "N_q2_plus_q_plus_1": 3783,
+            "lower_bound_size_q_plus_1": 62,
+            "ratio_over_sqrtN": 1.00803,
+            "lower_bound_minus_sqrtN": 0.493903
+          },
+          {
+            "q_prime": 127,
+            "N_q2_plus_q_plus_1": 16257,
+            "lower_bound_size_q_plus_1": 128,
+            "ratio_over_sqrtN": 1.003898,
+            "lower_bound_minus_sqrtN": 0.497059
+          },
+          {
+            "q_prime": 251,
+            "N_q2_plus_q_plus_1": 63253,
+            "lower_bound_size_q_plus_1": 252,
+            "ratio_over_sqrtN": 1.001982,
+            "lower_bound_minus_sqrtN": 0.498509
+          },
+          {
+            "q_prime": 509,
+            "N_q2_plus_q_plus_1": 259591,
+            "lower_bound_size_q_plus_1": 510,
+            "ratio_over_sqrtN": 1.00098,
+            "lower_bound_minus_sqrtN": 0.499264
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

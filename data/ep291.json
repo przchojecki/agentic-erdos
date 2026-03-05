@@ -1,7 +1,50 @@
 {
   "problem": "EP-291",
   "normalized_utc": "2026-03-05T08:54:16.955Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Exact finite profile of gcd(a_n,L_n) for n<=500 via BigInt harmonic arithmetic.",
+        "first_n_with_gcd_eq_1": 1,
+        "first_n_with_gcd_gt_1": 6,
+        "rows": [
+          {
+            "n": 100,
+            "coprime_count_up_to_n": 37,
+            "nontrivial_count_up_to_n": 63,
+            "coprime_density": 0.37
+          },
+          {
+            "n": 200,
+            "coprime_count_up_to_n": 68,
+            "nontrivial_count_up_to_n": 132,
+            "coprime_density": 0.34
+          },
+          {
+            "n": 300,
+            "coprime_count_up_to_n": 102,
+            "nontrivial_count_up_to_n": 198,
+            "coprime_density": 0.34
+          },
+          {
+            "n": 400,
+            "coprime_count_up_to_n": 104,
+            "nontrivial_count_up_to_n": 296,
+            "coprime_density": 0.26
+          },
+          {
+            "n": 500,
+            "coprime_count_up_to_n": 106,
+            "nontrivial_count_up_to_n": 394,
+            "coprime_density": 0.212
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

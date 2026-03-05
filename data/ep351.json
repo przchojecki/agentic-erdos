@@ -1,7 +1,78 @@
 {
   "problem": "EP-351",
   "normalized_utc": "2026-03-05T08:54:16.957Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite subset-sum integer reach for sequences p(n)+1/n with polynomial p.",
+        "rows": [
+          {
+            "kind": "linear",
+            "n_range": [
+              2,
+              18
+            ],
+            "terms_used": 17,
+            "subset_count": 128512,
+            "lcm_digits": 8,
+            "integer_values_count": 11,
+            "min_integer_value": 0,
+            "max_integer_value": 72,
+            "longest_consecutive_integer_run_length": 1,
+            "longest_run_start": 0
+          },
+          {
+            "kind": "linear",
+            "n_range": [
+              4,
+              20
+            ],
+            "terms_used": 17,
+            "subset_count": 125440,
+            "lcm_digits": 9,
+            "integer_values_count": 2,
+            "min_integer_value": 0,
+            "max_integer_value": 88,
+            "longest_consecutive_integer_run_length": 1,
+            "longest_run_start": 0
+          },
+          {
+            "kind": "quadratic",
+            "n_range": [
+              2,
+              16
+            ],
+            "terms_used": 15,
+            "subset_count": 32640,
+            "lcm_digits": 6,
+            "integer_values_count": 6,
+            "min_integer_value": 0,
+            "max_integer_value": 531,
+            "longest_consecutive_integer_run_length": 1,
+            "longest_run_start": 0
+          },
+          {
+            "kind": "quadratic",
+            "n_range": [
+              4,
+              18
+            ],
+            "terms_used": 15,
+            "subset_count": 32768,
+            "lcm_digits": 8,
+            "integer_values_count": 1,
+            "min_integer_value": 0,
+            "max_integer_value": 0,
+            "longest_consecutive_integer_run_length": 1,
+            "longest_run_start": 0
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

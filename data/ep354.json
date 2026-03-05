@@ -1,7 +1,117 @@
 {
   "problem": "EP-354",
   "normalized_utc": "2026-03-05T08:54:16.957Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Contiguous subset-sum reach proxy for two floor-doubling sequences.",
+        "rows": [
+          {
+            "case": "irr_ratio_sqrt2_sqrt3",
+            "rows": [
+              {
+                "K": 10,
+                "terms_total": 22,
+                "min_term": 1,
+                "max_term": 1773,
+                "contiguous_reach_from_1": 6429
+              },
+              {
+                "K": 12,
+                "terms_total": 26,
+                "min_term": 1,
+                "max_term": 7094,
+                "contiguous_reach_from_1": 25758
+              },
+              {
+                "K": 14,
+                "terms_total": 30,
+                "min_term": 1,
+                "max_term": 28377,
+                "contiguous_reach_from_1": 103078
+              },
+              {
+                "K": 16,
+                "terms_total": 34,
+                "min_term": 1,
+                "max_term": 113511,
+                "contiguous_reach_from_1": 412365
+              }
+            ]
+          },
+          {
+            "case": "irr_ratio_pi_e",
+            "rows": [
+              {
+                "K": 10,
+                "terms_total": 22,
+                "min_term": 2,
+                "max_term": 3216,
+                "contiguous_reach_from_1": 0
+              },
+              {
+                "K": 12,
+                "terms_total": 26,
+                "min_term": 2,
+                "max_term": 12867,
+                "contiguous_reach_from_1": 0
+              },
+              {
+                "K": 14,
+                "terms_total": 30,
+                "min_term": 2,
+                "max_term": 51471,
+                "contiguous_reach_from_1": 0
+              },
+              {
+                "K": 16,
+                "terms_total": 34,
+                "min_term": 2,
+                "max_term": 205887,
+                "contiguous_reach_from_1": 0
+              }
+            ]
+          },
+          {
+            "case": "power2_related_alpha1.5_beta6",
+            "rows": [
+              {
+                "K": 10,
+                "terms_total": 22,
+                "min_term": 1,
+                "max_term": 6144,
+                "contiguous_reach_from_1": 1
+              },
+              {
+                "K": 12,
+                "terms_total": 26,
+                "min_term": 1,
+                "max_term": 24576,
+                "contiguous_reach_from_1": 1
+              },
+              {
+                "K": 14,
+                "terms_total": 30,
+                "min_term": 1,
+                "max_term": 98304,
+                "contiguous_reach_from_1": 1
+              },
+              {
+                "K": 16,
+                "terms_total": 34,
+                "min_term": 1,
+                "max_term": 393216,
+                "contiguous_reach_from_1": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

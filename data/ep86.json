@@ -1,7 +1,66 @@
 {
   "problem": "EP-86",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random greedy lower profile for C4-free subgraphs of hypercubes.",
+        "rows": [
+          {
+            "d": 4,
+            "vertices": 16,
+            "total_edges": 32,
+            "best_C4_free_edges_found": 22,
+            "density_over_total_edges": 0.6875,
+            "half_density_benchmark_edges": 16
+          },
+          {
+            "d": 5,
+            "vertices": 32,
+            "total_edges": 80,
+            "best_C4_free_edges_found": 54,
+            "density_over_total_edges": 0.675,
+            "half_density_benchmark_edges": 40
+          },
+          {
+            "d": 6,
+            "vertices": 64,
+            "total_edges": 192,
+            "best_C4_free_edges_found": 121,
+            "density_over_total_edges": 0.630208,
+            "half_density_benchmark_edges": 96
+          },
+          {
+            "d": 7,
+            "vertices": 128,
+            "total_edges": 448,
+            "best_C4_free_edges_found": 268,
+            "density_over_total_edges": 0.598214,
+            "half_density_benchmark_edges": 224
+          },
+          {
+            "d": 8,
+            "vertices": 256,
+            "total_edges": 1024,
+            "best_C4_free_edges_found": 592,
+            "density_over_total_edges": 0.578125,
+            "half_density_benchmark_edges": 512
+          },
+          {
+            "d": 9,
+            "vertices": 512,
+            "total_edges": 2304,
+            "best_C4_free_edges_found": 1290,
+            "density_over_total_edges": 0.559896,
+            "half_density_benchmark_edges": 1152
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -6335,6 +6335,120 @@
         },
         "generated_utc": "2026-03-04T22:16:56.018Z"
       }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:11:27.266Z",
+      "source": "overnight_deeper_rerun",
+      "payload": {
+        "method": "deeper_primorial_gap_scan",
+        "params": {
+          "kmax": 9,
+          "n_limit": 230000000
+        },
+        "rows": 9,
+        "last_row": {
+          "k": 9,
+          "n_k": 223092870,
+          "prime_factors": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23
+          ],
+          "phi_nk": 36495360,
+          "gap_count": 36495359,
+          "max_gap": 40,
+          "max_gap_occurrences": 12,
+          "first_index_with_max_gap": 3326157,
+          "represented_even_gap_count_up_to_max": 20,
+          "missing_even_gaps_up_to_max": [],
+          "first_missing_even_gap": null
+        },
+        "first_failure": {
+          "k": 6,
+          "n_k": 30030,
+          "first_missing_even_gap": 20
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:22:23.015Z",
+      "source": "overnight_deeper_rerun2",
+      "payload": {
+        "method": "deeper_constructive_lower_bound_profile",
+        "params": {
+          "kmax": 100,
+          "scan_path": "data/ep854_primorial_gap_scan.json"
+        },
+        "key_rows": [
+          {
+            "k": 60,
+            "p_k": 281,
+            "guaranteed_even_gaps_count": 39,
+            "guaranteed_max_even_gap": 78
+          },
+          {
+            "k": 80,
+            "p_k": 409,
+            "guaranteed_even_gaps_count": 53,
+            "guaranteed_max_even_gap": 106
+          },
+          {
+            "k": 100,
+            "p_k": 541,
+            "guaranteed_even_gaps_count": 68,
+            "guaranteed_max_even_gap": 136
+          }
+        ],
+        "last_row": {
+          "k": 100,
+          "p_k": 541,
+          "guaranteed_even_gaps_count": 68,
+          "guaranteed_max_even_gap": 136
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:24:59.258Z",
+      "source": "overnight_deeper_rerun3",
+      "payload": {
+        "method": "deeper_constructive_lower_bound_profile",
+        "params": {
+          "kmax": 140,
+          "scan_path": "data/ep854_primorial_gap_scan.json"
+        },
+        "key_rows": [
+          {
+            "k": 100,
+            "p_k": 541,
+            "guaranteed_even_gaps_count": 68,
+            "guaranteed_max_even_gap": 136
+          },
+          {
+            "k": 120,
+            "p_k": 659,
+            "guaranteed_even_gaps_count": 83,
+            "guaranteed_max_even_gap": 166
+          },
+          {
+            "k": 140,
+            "p_k": 809,
+            "guaranteed_even_gaps_count": 97,
+            "guaranteed_max_even_gap": 194
+          }
+        ],
+        "last_row": {
+          "k": 140,
+          "p_k": 809,
+          "guaranteed_even_gaps_count": 97,
+          "guaranteed_max_even_gap": 194
+        }
+      }
     }
   ],
   "batch_script_integrations": {

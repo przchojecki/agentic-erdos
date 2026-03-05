@@ -1,7 +1,45 @@
 {
   "problem": "EP-20",
   "normalized_utc": "2026-03-05T08:54:16.935Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Small-scale random greedy profile for 3-sunflower-free m-uniform families.",
+        "rows": [
+          {
+            "m": 3,
+            "universe_size": 12,
+            "candidate_sets_total": 220,
+            "trials": 60,
+            "best_family_size_found": 14,
+            "avg_family_size": 11.5167,
+            "best_size_to_the_1_over_m": 2.410142
+          },
+          {
+            "m": 4,
+            "universe_size": 14,
+            "candidate_sets_total": 1001,
+            "trials": 60,
+            "best_family_size_found": 27,
+            "avg_family_size": 24.2167,
+            "best_size_to_the_1_over_m": 2.279507
+          },
+          {
+            "m": 5,
+            "universe_size": 16,
+            "candidate_sets_total": 4368,
+            "trials": 60,
+            "best_family_size_found": 52,
+            "avg_family_size": 47.0667,
+            "best_size_to_the_1_over_m": 2.203945
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

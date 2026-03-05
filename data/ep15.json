@@ -78,6 +78,42 @@
         ],
         "timestamp_utc": "2026-03-02T09:41:02.898Z"
       }
+    },
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Partial sums of sum (-1)^n n / p_n up to n=1e6.",
+        "n_max": 1000000,
+        "partial_sum_at_n_max": -0.019859216298,
+        "min_partial_sum": -0.5,
+        "argmin_n": 1,
+        "max_partial_sum": 0.166666666667,
+        "argmax_n": 2,
+        "checkpoints": [
+          {
+            "n": 1000,
+            "partial_sum": 0.0118688917
+          },
+          {
+            "n": 10000,
+            "partial_sum": -0.0032901792
+          },
+          {
+            "n": 100000,
+            "partial_sum": -0.0135356832
+          },
+          {
+            "n": 500000,
+            "partial_sum": -0.018248073
+          },
+          {
+            "n": 1000000,
+            "partial_sum": -0.0198592163
+          }
+        ]
+      }
     }
   ],
   "batch_script_integrations": {

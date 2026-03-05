@@ -1,7 +1,58 @@
 {
   "problem": "EP-9",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite scan of exceptional odd integers for p + 2^a + 2^b up to 1e6.",
+        "N_max": 1000000,
+        "exceptional_odds": 2,
+        "odd_count": 500000,
+        "exceptional_density_among_odds": 0.000004,
+        "checkpoints": [
+          {
+            "N": 100000,
+            "exceptional_odds": 2,
+            "odd_count": 50000,
+            "exceptional_density_among_odds": 0.00004
+          },
+          {
+            "N": 200000,
+            "exceptional_odds": 2,
+            "odd_count": 100000,
+            "exceptional_density_among_odds": 0.00002
+          },
+          {
+            "N": 400000,
+            "exceptional_odds": 2,
+            "odd_count": 200000,
+            "exceptional_density_among_odds": 0.00001
+          },
+          {
+            "N": 600000,
+            "exceptional_odds": 2,
+            "odd_count": 300000,
+            "exceptional_density_among_odds": 0.000007
+          },
+          {
+            "N": 800000,
+            "exceptional_odds": 2,
+            "odd_count": 400000,
+            "exceptional_density_among_odds": 0.000005
+          },
+          {
+            "N": 1000000,
+            "exceptional_odds": 2,
+            "odd_count": 500000,
+            "exceptional_density_among_odds": 0.000004
+          }
+        ]
+      }
+    }
+  ],
   "batch_script_integrations": {
     "integrated_utc": "2026-03-05T08:51:27.301Z",
     "source_files": [

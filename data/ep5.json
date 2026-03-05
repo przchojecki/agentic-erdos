@@ -1,7 +1,25 @@
 {
   "problem": "EP-5",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Normalized prime-gap empirical distribution for first 4e5 prime indices.",
+        "n_primes_used": 400000,
+        "min_value": 0.155048,
+        "max_value": 12.419947,
+        "argmax_index_n": 149689,
+        "q05": 0.166029,
+        "q50": 0.94926,
+        "q95": 3.216941,
+        "occupied_bins_in_0_10_step_0_25": 40,
+        "total_bins_in_0_10_step_0_25": 40
+      }
+    }
+  ],
   "batch_script_integrations": {
     "integrated_utc": "2026-03-05T08:51:27.301Z",
     "source_files": [

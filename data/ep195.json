@@ -1,7 +1,139 @@
 {
   "problem": "EP-195",
   "normalized_utc": "2026-03-05T08:54:16.953Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random-permutation finite profile for monotone value-AP occurrences.",
+        "rows": [
+          {
+            "N": 30,
+            "random_trials": 1500,
+            "min_monotone_4AP_count_found": 3,
+            "exists_trial_without_monotone_4AP": false,
+            "min_monotone_3AP_count_among_4AP_free_trials": null
+          },
+          {
+            "N": 40,
+            "random_trials": 1500,
+            "min_monotone_4AP_count_found": 7,
+            "exists_trial_without_monotone_4AP": false,
+            "min_monotone_3AP_count_among_4AP_free_trials": null
+          },
+          {
+            "N": 50,
+            "random_trials": 1500,
+            "min_monotone_4AP_count_found": 15,
+            "exists_trial_without_monotone_4AP": false,
+            "min_monotone_3AP_count_among_4AP_free_trials": null
+          },
+          {
+            "N": 60,
+            "random_trials": 1500,
+            "min_monotone_4AP_count_found": 27,
+            "exists_trial_without_monotone_4AP": false,
+            "min_monotone_3AP_count_among_4AP_free_trials": null
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep195_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-195",
+        "script": "ep195.mjs",
+        "generated_utc": "2026-03-05T09:57:22.074Z",
+        "result": {
+          "description": "Random-permutation finite profile for monotone value-AP occurrences.",
+          "rows": [
+            {
+              "N": 30,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 0,
+              "exists_trial_without_monotone_4AP": true,
+              "min_monotone_3AP_count_among_4AP_free_trials": 54
+            },
+            {
+              "N": 40,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 9,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 50,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 16,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 60,
+              "random_trials": 1500,
+              "min_monotone_4AP_count_found": 24,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "ep195_standalone_deeper_20260305T100546Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-195",
+        "script": "ep195.mjs",
+        "generated_utc": "2026-03-05T10:05:46.972Z",
+        "result": {
+          "description": "Random-permutation finite profile for monotone value-AP occurrences.",
+          "rows": [
+            {
+              "N": 30,
+              "random_trials": 7000,
+              "min_monotone_4AP_count_found": 0,
+              "exists_trial_without_monotone_4AP": true,
+              "min_monotone_3AP_count_among_4AP_free_trials": 54
+            },
+            {
+              "N": 40,
+              "random_trials": 7000,
+              "min_monotone_4AP_count_found": 6,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 50,
+              "random_trials": 4500,
+              "min_monotone_4AP_count_found": 14,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 60,
+              "random_trials": 4500,
+              "min_monotone_4AP_count_found": 26,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            },
+            {
+              "N": 70,
+              "random_trials": 2500,
+              "min_monotone_4AP_count_found": 35,
+              "exists_trial_without_monotone_4AP": false,
+              "min_monotone_3AP_count_among_4AP_free_trials": null
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

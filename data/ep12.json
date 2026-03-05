@@ -1,7 +1,53 @@
 {
   "problem": "EP-12",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Classical p^2 (p = 3 mod 4) construction profile and local property check.",
+        "rows": [
+          {
+            "N": 10000,
+            "count": 13,
+            "count_times_logN_over_sqrtN": 1.197344,
+            "reciprocal_sum_partial": 0.14749209
+          },
+          {
+            "N": 100000,
+            "count": 34,
+            "count_times_logN_over_sqrtN": 1.23784,
+            "reciprocal_sum_partial": 0.14820382
+          },
+          {
+            "N": 1000000,
+            "count": 87,
+            "count_times_logN_over_sqrtN": 1.201949,
+            "reciprocal_sum_partial": 0.1483705
+          },
+          {
+            "N": 10000000,
+            "count": 225,
+            "count_times_logN_over_sqrtN": 1.146823,
+            "reciprocal_sum_partial": 0.14841569
+          },
+          {
+            "N": 100000000,
+            "count": 619,
+            "count_times_logN_over_sqrtN": 1.14024,
+            "reciprocal_sum_partial": 0.14842871
+          }
+        ],
+        "local_property_check_first_terms": {
+          "checked_terms": 120,
+          "found_violation_a_divides_b_plus_c": false,
+          "witness_if_any": null
+        }
+      }
+    }
+  ],
   "batch_script_integrations": {
     "integrated_utc": "2026-03-05T08:51:27.301Z",
     "source_files": [

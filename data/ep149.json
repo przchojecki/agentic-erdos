@@ -1,7 +1,74 @@
 {
   "problem": "EP-149",
   "normalized_utc": "2026-03-05T08:54:16.951Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite strong-edge-coloring profiles for extremal blowup and random bounded-degree graphs.",
+        "blowup_rows": [
+          {
+            "construction": "C5_blowup",
+            "t": 2,
+            "n_vertices": 10,
+            "edge_count": 20,
+            "Delta": 4,
+            "target_5_over_4_Delta_sq": 20,
+            "greedy_strong_color_count": 20,
+            "greedy_over_Delta_sq": 1.25
+          },
+          {
+            "construction": "C5_blowup",
+            "t": 3,
+            "n_vertices": 15,
+            "edge_count": 45,
+            "Delta": 6,
+            "target_5_over_4_Delta_sq": 45,
+            "greedy_strong_color_count": 45,
+            "greedy_over_Delta_sq": 1.25
+          },
+          {
+            "construction": "C5_blowup",
+            "t": 4,
+            "n_vertices": 20,
+            "edge_count": 80,
+            "Delta": 8,
+            "target_5_over_4_Delta_sq": 80,
+            "greedy_strong_color_count": 80,
+            "greedy_over_Delta_sq": 1.25
+          }
+        ],
+        "random_rows": [
+          {
+            "n": 42,
+            "Delta_target": 4,
+            "trials": 18,
+            "max_greedy_strong_colors_found": 14,
+            "ratio_over_Delta_sq": 0.875,
+            "ratio_over_5_over_4_Delta_sq": 0.7
+          },
+          {
+            "n": 42,
+            "Delta_target": 6,
+            "trials": 18,
+            "max_greedy_strong_colors_found": 27,
+            "ratio_over_Delta_sq": 0.75,
+            "ratio_over_5_over_4_Delta_sq": 0.6
+          },
+          {
+            "n": 42,
+            "Delta_target": 8,
+            "trials": 18,
+            "max_greedy_strong_colors_found": 41,
+            "ratio_over_Delta_sq": 0.640625,
+            "ratio_over_5_over_4_Delta_sq": 0.5125
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

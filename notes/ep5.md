@@ -35,3 +35,6 @@ Batch scripts were integrated into `data/ep5.json` with extracted EP-specific se
   - For first $4\times 10^5$ prime indices, normalized gaps $\frac{p_{n+1}-p_n}{\log n}$ occupy all bins in $[0,10]$ at step $0.25$; observed max about $12.42$.
 - Interpretation:
   - Empirically broad spread supports rich limit-point behavior, but finite data cannot prove full $S=[0,\infty)$.
+
+## New Experiments
+- 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-5.

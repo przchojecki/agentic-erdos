@@ -1,7 +1,45 @@
 {
   "problem": "EP-44",
   "normalized_utc": "2026-03-05T08:54:16.947Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite random extension tests from initial Sidon sets into [N+1,3N].",
+        "rows": [
+          {
+            "N": 120,
+            "M_test": 360,
+            "epsilon": 0.2,
+            "trials": 18,
+            "success_count": 17,
+            "success_fraction": 0.944444,
+            "avg_final_ratio_over_sqrtM": 0.866698
+          },
+          {
+            "N": 180,
+            "M_test": 540,
+            "epsilon": 0.2,
+            "trials": 18,
+            "success_count": 15,
+            "success_fraction": 0.833333,
+            "avg_final_ratio_over_sqrtM": 0.827193
+          },
+          {
+            "N": 240,
+            "M_test": 720,
+            "epsilon": 0.2,
+            "trials": 18,
+            "success_count": 9,
+            "success_fraction": 0.5,
+            "avg_final_ratio_over_sqrtM": 0.801258
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

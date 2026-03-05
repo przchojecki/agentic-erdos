@@ -1,7 +1,62 @@
 {
   "problem": "EP-52",
   "normalized_utc": "2026-03-05T08:54:16.947Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite effective exponent profile for max(|A+A|,|AA|).",
+        "rows": [
+          {
+            "m": 20,
+            "AP_max_sum_or_product_size": 152,
+            "AP_effective_exponent": 1.677013,
+            "random_trials": 240,
+            "best_random_effective_exponent": 1.763577,
+            "best_random_pair": {
+              "sumset": 149,
+              "prodset": 197
+            }
+          },
+          {
+            "m": 30,
+            "AP_max_sum_or_product_size": 308,
+            "AP_effective_exponent": 1.68473,
+            "random_trials": 240,
+            "best_random_effective_exponent": 1.786913,
+            "best_random_pair": {
+              "sumset": 291,
+              "prodset": 436
+            }
+          },
+          {
+            "m": 40,
+            "AP_max_sum_or_product_size": 517,
+            "AP_effective_exponent": 1.693751,
+            "random_trials": 240,
+            "best_random_effective_exponent": 1.807312,
+            "best_random_pair": {
+              "sumset": 390,
+              "prodset": 786
+            }
+          },
+          {
+            "m": 60,
+            "AP_max_sum_or_product_size": 1116,
+            "AP_effective_exponent": 1.713951,
+            "random_trials": 240,
+            "best_random_effective_exponent": 1.822707,
+            "best_random_pair": {
+              "sumset": 770,
+              "prodset": 1742
+            }
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,51 @@
 {
   "problem": "EP-61",
   "normalized_utc": "2026-03-05T08:54:16.948Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite proxy on random cographs (P4-free subclass) for EH-type growth.",
+        "rows": [
+          {
+            "n": 64,
+            "trials": 400,
+            "min_max_clique_or_independent_found": 14,
+            "avg_max_clique_or_independent_found": 22.68,
+            "min_over_sqrt_n": 1.75,
+            "min_effective_exponent": 0.634559
+          },
+          {
+            "n": 128,
+            "trials": 400,
+            "min_max_clique_or_independent_found": 22,
+            "avg_max_clique_or_independent_found": 37.2575,
+            "min_over_sqrt_n": 1.944544,
+            "min_effective_exponent": 0.637062
+          },
+          {
+            "n": 256,
+            "trials": 400,
+            "min_max_clique_or_independent_found": 38,
+            "avg_max_clique_or_independent_found": 61.24,
+            "min_over_sqrt_n": 2.375,
+            "min_effective_exponent": 0.655991
+          },
+          {
+            "n": 512,
+            "trials": 400,
+            "min_max_clique_or_independent_found": 58,
+            "avg_max_clique_or_independent_found": 100.46,
+            "min_over_sqrt_n": 2.563262,
+            "min_effective_exponent": 0.650887
+          }
+        ],
+        "caveat": "This probes a special forbidden-induced-subgraph class, not general H."
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,0 +1,58 @@
+{
+  "problem": "EP-188",
+  "script": "ep188.mjs",
+  "generated_utc": "2026-03-05T10:06:10.469Z",
+  "result": {
+    "description": "Finite triangular-lattice proxy balancing red unit-distance avoidance vs blue unit-step AP runs.",
+    "rows": [
+      {
+        "lattice_side_m": 8,
+        "vertices": 64,
+        "restarts": 70,
+        "steps_per_restart": 22000,
+        "best_max_blue_unit_step_AP_run_found": 4,
+        "proxy_k_upper_bound_from_found_coloring": 5
+      },
+      {
+        "lattice_side_m": 10,
+        "vertices": 100,
+        "restarts": 70,
+        "steps_per_restart": 22000,
+        "best_max_blue_unit_step_AP_run_found": 5,
+        "proxy_k_upper_bound_from_found_coloring": 6
+      },
+      {
+        "lattice_side_m": 12,
+        "vertices": 144,
+        "restarts": 70,
+        "steps_per_restart": 22000,
+        "best_max_blue_unit_step_AP_run_found": 6,
+        "proxy_k_upper_bound_from_found_coloring": 7
+      },
+      {
+        "lattice_side_m": 14,
+        "vertices": 196,
+        "restarts": 50,
+        "steps_per_restart": 16000,
+        "best_max_blue_unit_step_AP_run_found": 7,
+        "proxy_k_upper_bound_from_found_coloring": 8
+      },
+      {
+        "lattice_side_m": 16,
+        "vertices": 256,
+        "restarts": 50,
+        "steps_per_restart": 16000,
+        "best_max_blue_unit_step_AP_run_found": 8,
+        "proxy_k_upper_bound_from_found_coloring": 9
+      },
+      {
+        "lattice_side_m": 18,
+        "vertices": 324,
+        "restarts": 50,
+        "steps_per_restart": 16000,
+        "best_max_blue_unit_step_AP_run_found": 8,
+        "proxy_k_upper_bound_from_found_coloring": 9
+      }
+    ]
+  }
+}

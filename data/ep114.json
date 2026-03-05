@@ -1,7 +1,72 @@
 {
   "problem": "EP-114",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Exact length profile for the conjectured extremizer p(z)=z^n-1.",
+        "rows": [
+          {
+            "n": 2,
+            "lemniscate_length_z_pow_n_minus_1": 5.244115109,
+            "asymptotic_2n_plus_4log2": 6.772588722,
+            "relative_gap": -0.225685285
+          },
+          {
+            "n": 3,
+            "lemniscate_length_z_pow_n_minus_1": 7.285951944,
+            "asymptotic_2n_plus_4log2": 8.772588722,
+            "relative_gap": -0.169463864
+          },
+          {
+            "n": 4,
+            "lemniscate_length_z_pow_n_minus_1": 9.30874057,
+            "asymptotic_2n_plus_4log2": 10.772588722,
+            "relative_gap": -0.135886386
+          },
+          {
+            "n": 5,
+            "lemniscate_length_z_pow_n_minus_1": 11.323086975,
+            "asymptotic_2n_plus_4log2": 12.772588722,
+            "relative_gap": -0.113485354
+          },
+          {
+            "n": 8,
+            "lemniscate_length_z_pow_n_minus_1": 17.345638705,
+            "asymptotic_2n_plus_4log2": 18.772588722,
+            "relative_gap": -0.076012426
+          },
+          {
+            "n": 12,
+            "lemniscate_length_z_pow_n_minus_1": 25.358742137,
+            "asymptotic_2n_plus_4log2": 26.772588722,
+            "relative_gap": -0.052809484
+          },
+          {
+            "n": 20,
+            "lemniscate_length_z_pow_n_minus_1": 41.369540453,
+            "asymptotic_2n_plus_4log2": 42.772588722,
+            "relative_gap": -0.03280251
+          },
+          {
+            "n": 40,
+            "lemniscate_length_z_pow_n_minus_1": 81.377831706,
+            "asymptotic_2n_plus_4log2": 82.772588722,
+            "relative_gap": -0.01685047
+          },
+          {
+            "n": 80,
+            "lemniscate_length_z_pow_n_minus_1": 161.382041237,
+            "asymptotic_2n_plus_4log2": 162.772588722,
+            "relative_gap": -0.008542885
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

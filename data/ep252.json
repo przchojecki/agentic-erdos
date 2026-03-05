@@ -1,7 +1,129 @@
 {
   "problem": "EP-252",
   "normalized_utc": "2026-03-05T08:54:16.954Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch8_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite high-truncation approximants for alpha_k = sum sigma_k(n)/n! (k<=6).",
+        "rows": [
+          {
+            "k": 1,
+            "partial_sum_N40": 3.527000471853,
+            "extended_sum_N140": 3.527000471853,
+            "N40_to_N140_tail_size": 0,
+            "best_rational_q_le_20000": "52055/14759",
+            "approx_error": 2.4339e-9
+          },
+          {
+            "k": 2,
+            "partial_sum_N40": 6.3400966688922,
+            "extended_sum_N140": 6.3400966688922,
+            "N40_to_N140_tail_size": 0,
+            "best_rational_q_le_20000": "119365/18827",
+            "approx_error": 7.8436e-10
+          },
+          {
+            "k": 3,
+            "partial_sum_N40": 14.693532847269,
+            "extended_sum_N140": 14.693532847269,
+            "N40_to_N140_tail_size": 0,
+            "best_rational_q_le_20000": "259238/17643",
+            "approx_error": 1.3814e-9
+          },
+          {
+            "k": 4,
+            "partial_sum_N40": 42.301047503734,
+            "extended_sum_N140": 42.301047503734,
+            "N40_to_N140_tail_size": 0,
+            "best_rational_q_le_20000": "573433/13556",
+            "approx_error": 2.9056e-9
+          },
+          {
+            "k": 5,
+            "partial_sum_N40": 143.81196393274,
+            "extended_sum_N140": 143.81196393274,
+            "N40_to_N140_tail_size": 0,
+            "best_rational_q_le_20000": "653913/4547",
+            "approx_error": 4.7521e-10
+          },
+          {
+            "k": 6,
+            "partial_sum_N40": 556.40716454558,
+            "extended_sum_N140": 556.40716454558,
+            "N40_to_N140_tail_size": 0,
+            "best_rational_q_le_20000": "4582013/8235",
+            "approx_error": 3.9939e-9
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep252_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-252",
+        "script": "ep252.mjs",
+        "generated_utc": "2026-03-05T09:57:24.785Z",
+        "result": {
+          "description": "Finite high-truncation approximants for alpha_k = sum sigma_k(n)/n! (k<=6).",
+          "rows": [
+            {
+              "k": 1,
+              "partial_sum_N40": 3.527000471853,
+              "extended_sum_N140": 3.527000471853,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "52055/14759",
+              "approx_error": 2.4339e-9
+            },
+            {
+              "k": 2,
+              "partial_sum_N40": 6.3400966688922,
+              "extended_sum_N140": 6.3400966688922,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "119365/18827",
+              "approx_error": 7.8436e-10
+            },
+            {
+              "k": 3,
+              "partial_sum_N40": 14.693532847269,
+              "extended_sum_N140": 14.693532847269,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "259238/17643",
+              "approx_error": 1.3814e-9
+            },
+            {
+              "k": 4,
+              "partial_sum_N40": 42.301047503734,
+              "extended_sum_N140": 42.301047503734,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "573433/13556",
+              "approx_error": 2.9056e-9
+            },
+            {
+              "k": 5,
+              "partial_sum_N40": 143.81196393274,
+              "extended_sum_N140": 143.81196393274,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "653913/4547",
+              "approx_error": 4.7521e-10
+            },
+            {
+              "k": 6,
+              "partial_sum_N40": 556.40716454558,
+              "extended_sum_N140": 556.40716454558,
+              "N40_to_N140_tail_size": 0,
+              "best_rational_q_le_20000": "4582013/8235",
+              "approx_error": 3.9939e-9
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

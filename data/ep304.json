@@ -1,7 +1,64 @@
 {
   "problem": "EP-304",
   "normalized_utc": "2026-03-05T08:54:16.955Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite search profile for minimal Egyptian lengths N(a,b) on small denominators b.",
+        "search_limits": {
+          "maxDen": 600,
+          "kMax": 8
+        },
+        "rows": [
+          {
+            "b": 8,
+            "solved_count": 7,
+            "unresolved_count": 0,
+            "max_min_length_among_solved": 3,
+            "loglog_b": 0.732099
+          },
+          {
+            "b": 10,
+            "solved_count": 9,
+            "unresolved_count": 0,
+            "max_min_length_among_solved": 3,
+            "loglog_b": 0.834032
+          },
+          {
+            "b": 12,
+            "solved_count": 11,
+            "unresolved_count": 0,
+            "max_min_length_among_solved": 3,
+            "loglog_b": 0.910235
+          },
+          {
+            "b": 15,
+            "solved_count": 14,
+            "unresolved_count": 0,
+            "max_min_length_among_solved": 3,
+            "loglog_b": 0.996229
+          },
+          {
+            "b": 18,
+            "solved_count": 17,
+            "unresolved_count": 0,
+            "max_min_length_among_solved": 3,
+            "loglog_b": 1.06139
+          },
+          {
+            "b": 24,
+            "solved_count": 23,
+            "unresolved_count": 0,
+            "max_min_length_among_solved": 3,
+            "loglog_b": 1.15627
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

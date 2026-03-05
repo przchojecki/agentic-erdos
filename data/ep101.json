@@ -1,7 +1,64 @@
 {
   "problem": "EP-101",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite no-5-collinear construction search and asymptotic comparison profile.",
+        "rows": [
+          {
+            "target_n": 40,
+            "trials": 90,
+            "best_achieved_n": 40,
+            "best_four_point_lines_found": 2,
+            "max_collinear_in_best_case": 4,
+            "four_lines_over_n2": 0.00125
+          },
+          {
+            "target_n": 60,
+            "trials": 90,
+            "best_achieved_n": 60,
+            "best_four_point_lines_found": 7,
+            "max_collinear_in_best_case": 4,
+            "four_lines_over_n2": 0.001944
+          },
+          {
+            "target_n": 80,
+            "trials": 90,
+            "best_achieved_n": 80,
+            "best_four_point_lines_found": 13,
+            "max_collinear_in_best_case": 4,
+            "four_lines_over_n2": 0.002031
+          }
+        ],
+        "theory_profile": [
+          {
+            "n": 1000,
+            "model_value_n_2_minus_c_over_sqrtlogn_c1": 72203.924,
+            "ratio_to_n2": 0.072204
+          },
+          {
+            "n": 10000,
+            "model_value_n_2_minus_c_over_sqrtlogn_c1": 4808166.985,
+            "ratio_to_n2": 0.048082
+          },
+          {
+            "n": 100000,
+            "model_value_n_2_minus_c_over_sqrtlogn_c1": 336053428.182,
+            "ratio_to_n2": 0.033605
+          },
+          {
+            "n": 1000000,
+            "model_value_n_2_minus_c_over_sqrtlogn_c1": 24308670323.227,
+            "ratio_to_n2": 0.024309
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,46 @@
 {
   "problem": "EP-146",
   "normalized_utc": "2026-03-05T08:54:16.951Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite random-greedy H-free edge profiles for r=2-degenerate examples (C4 and K2,3).",
+        "rows": [
+          {
+            "n": 40,
+            "best_edges_C4_free_found": 262,
+            "C4_ratio_over_n_3_over_2": 1.035646,
+            "best_edges_K2_3_free_found": 152,
+            "K23_ratio_over_n_3_over_2": 0.600833
+          },
+          {
+            "n": 60,
+            "best_edges_C4_free_found": 497,
+            "C4_ratio_over_n_3_over_2": 1.069374,
+            "best_edges_K2_3_free_found": 266,
+            "K23_ratio_over_n_3_over_2": 0.572341
+          },
+          {
+            "n": 80,
+            "best_edges_C4_free_found": 797,
+            "C4_ratio_over_n_3_over_2": 1.113841,
+            "best_edges_K2_3_free_found": 398,
+            "K23_ratio_over_n_3_over_2": 0.556222
+          },
+          {
+            "n": 100,
+            "best_edges_C4_free_found": 1143,
+            "C4_ratio_over_n_3_over_2": 1.143,
+            "best_edges_K2_3_free_found": 544,
+            "K23_ratio_over_n_3_over_2": 0.544
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

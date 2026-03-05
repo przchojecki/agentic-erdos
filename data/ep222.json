@@ -1,7 +1,103 @@
 {
   "problem": "EP-222",
   "normalized_utc": "2026-03-05T08:54:16.953Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite max-gap profile for integers representable as a sum of two squares.",
+        "rows": [
+          {
+            "X": 200000,
+            "max_gap_observed": 29,
+            "gap_starts_at": 105572,
+            "max_gap_over_log_start": 2.5071,
+            "max_gap_over_log_div_sqrtloglog": 3.922766
+          },
+          {
+            "X": 500000,
+            "max_gap_observed": 34,
+            "gap_starts_at": 284002,
+            "max_gap_over_log_start": 2.70771,
+            "max_gap_over_log_div_sqrtloglog": 4.307095
+          },
+          {
+            "X": 1000000,
+            "max_gap_observed": 35,
+            "gap_starts_at": 685541,
+            "max_gap_over_log_start": 2.604561,
+            "max_gap_over_log_div_sqrtloglog": 4.198181
+          },
+          {
+            "X": 2000000,
+            "max_gap_observed": 48,
+            "gap_starts_at": 1853866,
+            "max_gap_over_log_start": 3.325762,
+            "max_gap_over_log_div_sqrtloglog": 5.433833
+          },
+          {
+            "X": 5000000,
+            "max_gap_observed": 48,
+            "gap_starts_at": 1853866,
+            "max_gap_over_log_start": 3.325762,
+            "max_gap_over_log_div_sqrtloglog": 5.433833
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep222_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-222",
+        "script": "ep222.mjs",
+        "generated_utc": "2026-03-05T09:57:22.359Z",
+        "result": {
+          "description": "Finite max-gap profile for integers representable as a sum of two squares.",
+          "rows": [
+            {
+              "X": 200000,
+              "max_gap_observed": 29,
+              "gap_starts_at": 105572,
+              "max_gap_over_log_start": 2.5071,
+              "max_gap_over_log_div_sqrtloglog": 3.922766
+            },
+            {
+              "X": 500000,
+              "max_gap_observed": 34,
+              "gap_starts_at": 284002,
+              "max_gap_over_log_start": 2.70771,
+              "max_gap_over_log_div_sqrtloglog": 4.307095
+            },
+            {
+              "X": 1000000,
+              "max_gap_observed": 35,
+              "gap_starts_at": 685541,
+              "max_gap_over_log_start": 2.604561,
+              "max_gap_over_log_div_sqrtloglog": 4.198181
+            },
+            {
+              "X": 2000000,
+              "max_gap_observed": 48,
+              "gap_starts_at": 1853866,
+              "max_gap_over_log_start": 3.325762,
+              "max_gap_over_log_div_sqrtloglog": 5.433833
+            },
+            {
+              "X": 5000000,
+              "max_gap_observed": 48,
+              "gap_starts_at": 1853866,
+              "max_gap_over_log_start": 3.325762,
+              "max_gap_over_log_div_sqrtloglog": 5.433833
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

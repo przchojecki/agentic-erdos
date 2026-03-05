@@ -1,7 +1,102 @@
 {
   "problem": "EP-1112",
   "normalized_utc": "2026-03-05T08:54:16.976Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch26_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite greedy bounded-gap construction tests for avoiding k-fold sumsets against lacunary B.",
+        "N": 5000,
+        "rows": [
+          {
+            "scenario": "k3_gaps2_3_B=2^i",
+            "B_size": 12,
+            "length": 2500,
+            "last": 4999,
+            "first_terms": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29,
+              31,
+              33,
+              35,
+              37,
+              39,
+              41,
+              43,
+              45,
+              47,
+              49,
+              51,
+              53,
+              55,
+              57,
+              59
+            ]
+          },
+          {
+            "scenario": "k3_gaps2_3_B=3^i",
+            "B_size": 7,
+            "length": 1,
+            "last": 1,
+            "first_terms": [
+              1
+            ]
+          },
+          {
+            "scenario": "k3_gaps2_3_random_lacunary_r2",
+            "B_size": 9,
+            "length": 19,
+            "last": 53,
+            "first_terms": [
+              1,
+              4,
+              7,
+              10,
+              13,
+              15,
+              18,
+              21,
+              24,
+              27,
+              29,
+              32,
+              35,
+              38,
+              41,
+              44,
+              47,
+              50,
+              53
+            ]
+          },
+          {
+            "scenario": "k2_gaps2_3_B=2^i_control",
+            "B_size": 12,
+            "length": 1,
+            "last": 1,
+            "first_terms": [
+              1
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

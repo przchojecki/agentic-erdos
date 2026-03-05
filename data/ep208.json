@@ -1,7 +1,167 @@
 {
   "problem": "EP-208",
   "normalized_utc": "2026-03-05T08:54:16.953Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite maximum-gap profile for squarefree numbers.",
+        "rows": [
+          {
+            "X": 200000,
+            "max_gap_observed": 7,
+            "gap_start_at": 22019,
+            "ratio_over_pi2_over6_log_over_loglog": 0.979882,
+            "ratio_over_gap_start_pow_0_2": 0.947411
+          },
+          {
+            "X": 500000,
+            "max_gap_observed": 8,
+            "gap_start_at": 217069,
+            "ratio_over_pi2_over6_log_over_loglog": 0.992879,
+            "ratio_over_gap_start_pow_0_2": 0.685126
+          },
+          {
+            "X": 1000000,
+            "max_gap_observed": 8,
+            "gap_start_at": 217069,
+            "ratio_over_pi2_over6_log_over_loglog": 0.992879,
+            "ratio_over_gap_start_pow_0_2": 0.685126
+          },
+          {
+            "X": 2000000,
+            "max_gap_observed": 9,
+            "gap_start_at": 1092746,
+            "ratio_over_pi2_over6_log_over_loglog": 1.035775,
+            "ratio_over_gap_start_pow_0_2": 0.557877
+          },
+          {
+            "X": 5000000,
+            "max_gap_observed": 9,
+            "gap_start_at": 1092746,
+            "ratio_over_pi2_over6_log_over_loglog": 1.035775,
+            "ratio_over_gap_start_pow_0_2": 0.557877
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep208_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-208",
+        "script": "ep208.mjs",
+        "generated_utc": "2026-03-05T09:57:22.233Z",
+        "result": {
+          "description": "Finite maximum-gap profile for squarefree numbers.",
+          "rows": [
+            {
+              "X": 200000,
+              "max_gap_observed": 7,
+              "gap_start_at": 22019,
+              "ratio_over_pi2_over6_log_over_loglog": 0.979882,
+              "ratio_over_gap_start_pow_0_2": 0.947411
+            },
+            {
+              "X": 500000,
+              "max_gap_observed": 8,
+              "gap_start_at": 217069,
+              "ratio_over_pi2_over6_log_over_loglog": 0.992879,
+              "ratio_over_gap_start_pow_0_2": 0.685126
+            },
+            {
+              "X": 1000000,
+              "max_gap_observed": 8,
+              "gap_start_at": 217069,
+              "ratio_over_pi2_over6_log_over_loglog": 0.992879,
+              "ratio_over_gap_start_pow_0_2": 0.685126
+            },
+            {
+              "X": 2000000,
+              "max_gap_observed": 9,
+              "gap_start_at": 1092746,
+              "ratio_over_pi2_over6_log_over_loglog": 1.035775,
+              "ratio_over_gap_start_pow_0_2": 0.557877
+            },
+            {
+              "X": 5000000,
+              "max_gap_observed": 9,
+              "gap_start_at": 1092746,
+              "ratio_over_pi2_over6_log_over_loglog": 1.035775,
+              "ratio_over_gap_start_pow_0_2": 0.557877
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source_file": "ep208_standalone_deeper_20260305T100648Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-208",
+        "script": "ep208.mjs",
+        "generated_utc": "2026-03-05T10:06:49.034Z",
+        "result": {
+          "description": "Finite maximum-gap profile for squarefree numbers.",
+          "rows": [
+            {
+              "X": 200000,
+              "max_gap_observed": 7,
+              "gap_start_at": 22019,
+              "ratio_over_pi2_over6_log_over_loglog": 0.979882,
+              "ratio_over_gap_start_pow_0_2": 0.947411
+            },
+            {
+              "X": 500000,
+              "max_gap_observed": 8,
+              "gap_start_at": 217069,
+              "ratio_over_pi2_over6_log_over_loglog": 0.992879,
+              "ratio_over_gap_start_pow_0_2": 0.685126
+            },
+            {
+              "X": 1000000,
+              "max_gap_observed": 8,
+              "gap_start_at": 217069,
+              "ratio_over_pi2_over6_log_over_loglog": 0.992879,
+              "ratio_over_gap_start_pow_0_2": 0.685126
+            },
+            {
+              "X": 2000000,
+              "max_gap_observed": 9,
+              "gap_start_at": 1092746,
+              "ratio_over_pi2_over6_log_over_loglog": 1.035775,
+              "ratio_over_gap_start_pow_0_2": 0.557877
+            },
+            {
+              "X": 5000000,
+              "max_gap_observed": 9,
+              "gap_start_at": 1092746,
+              "ratio_over_pi2_over6_log_over_loglog": 1.035775,
+              "ratio_over_gap_start_pow_0_2": 0.557877
+            },
+            {
+              "X": 10000000,
+              "max_gap_observed": 10,
+              "gap_start_at": 8870023,
+              "ratio_over_pi2_over6_log_over_loglog": 1.053534,
+              "ratio_over_gap_start_pow_0_2": 0.40777
+            },
+            {
+              "X": 20000000,
+              "max_gap_observed": 10,
+              "gap_start_at": 8870023,
+              "ratio_over_pi2_over6_log_over_loglog": 1.053534,
+              "ratio_over_gap_start_pow_0_2": 0.40777
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

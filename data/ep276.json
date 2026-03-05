@@ -1,7 +1,35 @@
 {
   "problem": "EP-276",
   "normalized_utc": "2026-03-05T08:54:16.955Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Small-seed Lucas scan for long initial composite runs and gcd behavior.",
+        "seed_range": [
+          4,
+          120
+        ],
+        "terms_tested": 28,
+        "best_overall": {
+          "a0": 65,
+          "a1": 112,
+          "composite_prefix_len": 28,
+          "gcd_prefix": 1,
+          "prefix_tail_value": 29889361
+        },
+        "best_with_prefix_gcd_1": {
+          "a0": 65,
+          "a1": 112,
+          "composite_prefix_len": 28,
+          "gcd_prefix": 1,
+          "prefix_tail_value": 29889361
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

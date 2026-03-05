@@ -1,7 +1,74 @@
 {
   "problem": "EP-96",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite convex-polygon distance-multiplicity profile (scaling to unit distance).",
+        "rows": [
+          {
+            "model": "regular_polygon_theoretical_after_scaling",
+            "n": 20,
+            "max_unit_pairs_possible": 20,
+            "ratio_over_n": 1
+          },
+          {
+            "model": "regular_polygon_theoretical_after_scaling",
+            "n": 40,
+            "max_unit_pairs_possible": 40,
+            "ratio_over_n": 1
+          },
+          {
+            "model": "regular_polygon_theoretical_after_scaling",
+            "n": 80,
+            "max_unit_pairs_possible": 80,
+            "ratio_over_n": 1
+          },
+          {
+            "model": "regular_polygon_theoretical_after_scaling",
+            "n": 120,
+            "max_unit_pairs_possible": 120,
+            "ratio_over_n": 1
+          },
+          {
+            "model": "random_convex_on_circle_best_distance_multiplicity",
+            "n": 20,
+            "trials": 160,
+            "best_distance_multiplicity_found": 1,
+            "ratio_over_n": 0.05,
+            "compare_to_nlog2n_plus_4n": 0.006008
+          },
+          {
+            "model": "random_convex_on_circle_best_distance_multiplicity",
+            "n": 40,
+            "trials": 160,
+            "best_distance_multiplicity_found": 1,
+            "ratio_over_n": 0.025,
+            "compare_to_nlog2n_plus_4n": 0.002682
+          },
+          {
+            "model": "random_convex_on_circle_best_distance_multiplicity",
+            "n": 80,
+            "trials": 160,
+            "best_distance_multiplicity_found": 2,
+            "ratio_over_n": 0.025,
+            "compare_to_nlog2n_plus_4n": 0.002422
+          },
+          {
+            "model": "random_convex_on_circle_best_distance_multiplicity",
+            "n": 120,
+            "trials": 160,
+            "best_distance_multiplicity_found": 2,
+            "ratio_over_n": 0.016667,
+            "compare_to_nlog2n_plus_4n": 0.001528
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

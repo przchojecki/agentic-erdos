@@ -1,7 +1,157 @@
 {
   "problem": "EP-1122",
   "normalized_utc": "2026-03-05T08:54:16.977Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch26_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite density comparison of descent set A for sample additive functions.",
+        "N": 1000000,
+        "rows": [
+          {
+            "x": 10000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.4298,
+            "density_A_for_omega": 0.3645,
+            "density_A_for_random_additive": 0.5009
+          },
+          {
+            "x": 30000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43,
+            "density_A_for_omega": 0.3708,
+            "density_A_for_random_additive": 0.5011333
+          },
+          {
+            "x": 60000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43005,
+            "density_A_for_omega": 0.3737167,
+            "density_A_for_random_additive": 0.5009333
+          },
+          {
+            "x": 100000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43076,
+            "density_A_for_omega": 0.37494,
+            "density_A_for_random_additive": 0.50023
+          },
+          {
+            "x": 150000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43114,
+            "density_A_for_omega": 0.37652,
+            "density_A_for_random_additive": 0.50012
+          },
+          {
+            "x": 200000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.431205,
+            "density_A_for_omega": 0.377695,
+            "density_A_for_random_additive": 0.49989
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep1122_deeper2_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "generated_utc": "2026-03-05T09:18:39.262Z",
+        "description": "Finite density comparison of descent set A for sample additive functions.",
+        "N": 2000000,
+        "rows": [
+          {
+            "x": 10000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.4298,
+            "density_A_for_omega": 0.3645,
+            "density_A_for_random_additive": 0.5014
+          },
+          {
+            "x": 30000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43,
+            "density_A_for_omega": 0.3708,
+            "density_A_for_random_additive": 0.5021
+          },
+          {
+            "x": 60000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43005,
+            "density_A_for_omega": 0.3737167,
+            "density_A_for_random_additive": 0.5018
+          },
+          {
+            "x": 100000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43076,
+            "density_A_for_omega": 0.37494,
+            "density_A_for_random_additive": 0.50065
+          },
+          {
+            "x": 150000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43114,
+            "density_A_for_omega": 0.37652,
+            "density_A_for_random_additive": 0.4999333
+          },
+          {
+            "x": 200000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.431205,
+            "density_A_for_omega": 0.377695,
+            "density_A_for_random_additive": 0.499815
+          },
+          {
+            "x": 300000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.43163,
+            "density_A_for_omega": 0.3789833,
+            "density_A_for_random_additive": 0.49987
+          },
+          {
+            "x": 500000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.431984,
+            "density_A_for_omega": 0.38033,
+            "density_A_for_random_additive": 0.500088
+          },
+          {
+            "x": 800000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.4324237,
+            "density_A_for_omega": 0.3817575,
+            "density_A_for_random_additive": 0.5001437
+          },
+          {
+            "x": 1000000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.432475,
+            "density_A_for_omega": 0.38237,
+            "density_A_for_random_additive": 0.499987
+          },
+          {
+            "x": 1500000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.4325187,
+            "density_A_for_omega": 0.3832467,
+            "density_A_for_random_additive": 0.500052
+          },
+          {
+            "x": 2000000,
+            "density_A_for_log_n": 0,
+            "density_A_for_Omega": 0.432667,
+            "density_A_for_omega": 0.3840495,
+            "density_A_for_random_additive": 0.4999545
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

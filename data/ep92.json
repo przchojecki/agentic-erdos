@@ -1,7 +1,90 @@
 {
   "problem": "EP-92",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch4_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite model lower profiles for per-center equidistant multiplicity.",
+        "rows": [
+          {
+            "model": "square_grid",
+            "n": 16,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.72974
+          },
+          {
+            "model": "square_grid",
+            "n": 25,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.620423
+          },
+          {
+            "model": "square_grid",
+            "n": 36,
+            "f_model": 3,
+            "f_over_n_pow_4_over_11": 0.815067
+          },
+          {
+            "model": "square_grid",
+            "n": 64,
+            "f_model": 4,
+            "f_over_n_pow_4_over_11": 0.881591
+          },
+          {
+            "model": "triangular_patch",
+            "n": 16,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.72974
+          },
+          {
+            "model": "triangular_patch",
+            "n": 25,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.620423
+          },
+          {
+            "model": "triangular_patch",
+            "n": 36,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.543378
+          },
+          {
+            "model": "triangular_patch",
+            "n": 64,
+            "f_model": 4,
+            "f_over_n_pow_4_over_11": 0.881591
+          },
+          {
+            "model": "regular_polygon",
+            "n": 12,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.810215
+          },
+          {
+            "model": "regular_polygon",
+            "n": 18,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.699145
+          },
+          {
+            "model": "regular_polygon",
+            "n": 24,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.629702
+          },
+          {
+            "model": "regular_polygon",
+            "n": 30,
+            "f_model": 2,
+            "f_over_n_pow_4_over_11": 0.580624
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

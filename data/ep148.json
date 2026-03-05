@@ -1,7 +1,38 @@
 {
   "problem": "EP-148",
   "normalized_utc": "2026-03-05T08:54:16.951Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Exact small-k values for the number of distinct-denominator Egyptian-fraction representations of 1.",
+        "rows": [
+          {
+            "k": 2,
+            "exact_F_k_small_k": 0,
+            "log2_F_k": 0
+          },
+          {
+            "k": 3,
+            "exact_F_k_small_k": 1,
+            "log2_F_k": 0
+          },
+          {
+            "k": 4,
+            "exact_F_k_small_k": 6,
+            "log2_F_k": 2.584963
+          },
+          {
+            "k": 5,
+            "exact_F_k_small_k": 72,
+            "log2_F_k": 6.169925
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,51 @@
 {
   "problem": "EP-265",
   "normalized_utc": "2026-03-05T08:54:16.955Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch8_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite partial-sum and growth profiles for canonical constructions related to dual-shift rationality phenomena.",
+        "rows": [
+          {
+            "family": "triangular_choose_n_2_start_n=3",
+            "terms_used": 79998,
+            "partial_sum_shift_0": 0.99997499999999,
+            "partial_sum_shift_1": 1.2221972222222,
+            "best_rational_shift_0_q<=5000": "1/1",
+            "best_rational_shift_1_q<=5000": "5429/4442"
+          },
+          {
+            "family": "cubic_n3+6n2+5n_start_n=2",
+            "terms_used": 49999,
+            "partial_sum_shift_0": 0.05249999980002,
+            "partial_sum_shift_12": 0.064166666466686,
+            "best_rational_shift_0_q<=5000": "21/400",
+            "best_rational_shift_12_q<=5000": "77/1200"
+          }
+        ],
+        "growth_rows": [
+          {
+            "family": "triangular",
+            "n": 2000,
+            "root_n": 1.00728
+          },
+          {
+            "family": "cubic_shifted",
+            "n": 2000,
+            "root_n": 1.011468
+          },
+          {
+            "family": "double_exponential_model_2^(2^n)",
+            "n": 10,
+            "root_n": null
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

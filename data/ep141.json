@@ -1,7 +1,61 @@
 {
   "problem": "EP-141",
   "normalized_utc": "2026-03-05T08:54:16.951Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Counts of consecutive-prime arithmetic progressions up to 5e6.",
+        "prime_limit": 5000000,
+        "rows": [
+          {
+            "k": 3,
+            "count_up_to_5e6": 11896,
+            "first_example": {
+              "start": 3,
+              "diff": 2
+            },
+            "last_example": {
+              "start": 4999391,
+              "diff": 18
+            }
+          },
+          {
+            "k": 4,
+            "count_up_to_5e6": 882,
+            "first_example": {
+              "start": 251,
+              "diff": 6
+            },
+            "last_example": {
+              "start": 4995871,
+              "diff": 6
+            }
+          },
+          {
+            "k": 5,
+            "count_up_to_5e6": 0,
+            "first_example": null,
+            "last_example": null
+          },
+          {
+            "k": 6,
+            "count_up_to_5e6": 0,
+            "first_example": null,
+            "last_example": null
+          },
+          {
+            "k": 7,
+            "count_up_to_5e6": 0,
+            "first_example": null,
+            "last_example": null
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

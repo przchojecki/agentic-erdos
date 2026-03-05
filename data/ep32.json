@@ -1,7 +1,153 @@
 {
   "problem": "EP-32",
   "normalized_utc": "2026-03-05T08:54:16.938Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch2_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random finite coverage proxies for representations n=p+a on [X/2, X].",
+        "rows": [
+          {
+            "X": 50000,
+            "low": 25000,
+            "B": 4024,
+            "k": 8,
+            "trials": 120,
+            "best_coverage_fraction": 0.594416,
+            "k_over_logX": 0.7394
+          },
+          {
+            "X": 50000,
+            "low": 25000,
+            "B": 4024,
+            "k": 12,
+            "trials": 120,
+            "best_coverage_fraction": 0.74493,
+            "k_over_logX": 1.1091
+          },
+          {
+            "X": 50000,
+            "low": 25000,
+            "B": 4024,
+            "k": 16,
+            "trials": 120,
+            "best_coverage_fraction": 0.844206,
+            "k_over_logX": 1.4788
+          },
+          {
+            "X": 50000,
+            "low": 25000,
+            "B": 4024,
+            "k": 20,
+            "trials": 120,
+            "best_coverage_fraction": 0.896124,
+            "k_over_logX": 1.8485
+          },
+          {
+            "X": 50000,
+            "low": 25000,
+            "B": 4024,
+            "k": 24,
+            "trials": 120,
+            "best_coverage_fraction": 0.938722,
+            "k_over_logX": 2.2182
+          },
+          {
+            "X": 100000,
+            "low": 50000,
+            "B": 5692,
+            "k": 8,
+            "trials": 120,
+            "best_coverage_fraction": 0.570549,
+            "k_over_logX": 0.6949
+          },
+          {
+            "X": 100000,
+            "low": 50000,
+            "B": 5692,
+            "k": 12,
+            "trials": 120,
+            "best_coverage_fraction": 0.718586,
+            "k_over_logX": 1.0423
+          },
+          {
+            "X": 100000,
+            "low": 50000,
+            "B": 5692,
+            "k": 16,
+            "trials": 120,
+            "best_coverage_fraction": 0.818284,
+            "k_over_logX": 1.3897
+          },
+          {
+            "X": 100000,
+            "low": 50000,
+            "B": 5692,
+            "k": 20,
+            "trials": 120,
+            "best_coverage_fraction": 0.879842,
+            "k_over_logX": 1.7372
+          },
+          {
+            "X": 100000,
+            "low": 50000,
+            "B": 5692,
+            "k": 24,
+            "trials": 120,
+            "best_coverage_fraction": 0.924042,
+            "k_over_logX": 2.0846
+          },
+          {
+            "X": 200000,
+            "low": 100000,
+            "B": 8049,
+            "k": 8,
+            "trials": 120,
+            "best_coverage_fraction": 0.540355,
+            "k_over_logX": 0.6554
+          },
+          {
+            "X": 200000,
+            "low": 100000,
+            "B": 8049,
+            "k": 12,
+            "trials": 120,
+            "best_coverage_fraction": 0.688773,
+            "k_over_logX": 0.9831
+          },
+          {
+            "X": 200000,
+            "low": 100000,
+            "B": 8049,
+            "k": 16,
+            "trials": 120,
+            "best_coverage_fraction": 0.788442,
+            "k_over_logX": 1.3108
+          },
+          {
+            "X": 200000,
+            "low": 100000,
+            "B": 8049,
+            "k": 20,
+            "trials": 120,
+            "best_coverage_fraction": 0.859061,
+            "k_over_logX": 1.6385
+          },
+          {
+            "X": 200000,
+            "low": 100000,
+            "B": 8049,
+            "k": 24,
+            "trials": 120,
+            "best_coverage_fraction": 0.906771,
+            "k_over_logX": 1.9662
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,46 @@
 {
   "problem": "EP-89",
   "normalized_utc": "2026-03-05T08:54:16.949Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Distinct-distance finite profiles for grid/triangular/random point sets.",
+        "rows": [
+          {
+            "n": 256,
+            "distinct_distances_grid": 119,
+            "distinct_distances_tri_patch": 233,
+            "distinct_distances_random": 32640,
+            "grid_ratio_over_n_over_sqrt_log_n": 1.094623
+          },
+          {
+            "n": 400,
+            "distinct_distances_grid": 179,
+            "distinct_distances_tri_patch": 335,
+            "distinct_distances_random": 79800,
+            "grid_ratio_over_n_over_sqrt_log_n": 1.095367
+          },
+          {
+            "n": 625,
+            "distinct_distances_grid": 272,
+            "distinct_distances_tri_patch": 506,
+            "distinct_distances_random": 195000,
+            "grid_ratio_over_n_over_sqrt_log_n": 1.104221
+          },
+          {
+            "n": 900,
+            "distinct_distances_grid": 381,
+            "distinct_distances_tri_patch": 713,
+            "distinct_distances_random": 404550,
+            "grid_ratio_over_n_over_sqrt_log_n": 1.104113
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

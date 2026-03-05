@@ -1,7 +1,157 @@
 {
   "problem": "EP-172",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite random-coloring proxy for monochromatic sum/product patterns (|A|=3).",
+        "rows": [
+          {
+            "colors": 2,
+            "N_domain_for_A": 18,
+            "color_domain_max": 5832,
+            "trials": 90,
+            "witness_size3_found_count": 90,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 2,
+            "N_domain_for_A": 24,
+            "color_domain_max": 13824,
+            "trials": 90,
+            "witness_size3_found_count": 90,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 2,
+            "N_domain_for_A": 30,
+            "color_domain_max": 27000,
+            "trials": 90,
+            "witness_size3_found_count": 90,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 18,
+            "color_domain_max": 5832,
+            "trials": 90,
+            "witness_size3_found_count": 43,
+            "witness_size3_found_rate": 0.477778
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 24,
+            "color_domain_max": 13824,
+            "trials": 90,
+            "witness_size3_found_count": 56,
+            "witness_size3_found_rate": 0.622222
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 30,
+            "color_domain_max": 27000,
+            "trials": 90,
+            "witness_size3_found_count": 76,
+            "witness_size3_found_rate": 0.844444
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep172_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-172",
+        "script": "ep172.mjs",
+        "method": "standalone_random_coloring_sum_product_witness_search",
+        "params": {
+          "COLORS": [
+            2,
+            3
+          ],
+          "N_LIST": [
+            18,
+            24,
+            30,
+            36
+          ],
+          "TRIALS": 200,
+          "SEED": 1722026
+        },
+        "rows": [
+          {
+            "colors": 2,
+            "N_domain_for_A": 18,
+            "color_domain_max": 5832,
+            "trials": 200,
+            "witness_size3_found_count": 200,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 2,
+            "N_domain_for_A": 24,
+            "color_domain_max": 13824,
+            "trials": 200,
+            "witness_size3_found_count": 200,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 2,
+            "N_domain_for_A": 30,
+            "color_domain_max": 27000,
+            "trials": 200,
+            "witness_size3_found_count": 200,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 2,
+            "N_domain_for_A": 36,
+            "color_domain_max": 46656,
+            "trials": 200,
+            "witness_size3_found_count": 200,
+            "witness_size3_found_rate": 1
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 18,
+            "color_domain_max": 5832,
+            "trials": 200,
+            "witness_size3_found_count": 75,
+            "witness_size3_found_rate": 0.375
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 24,
+            "color_domain_max": 13824,
+            "trials": 200,
+            "witness_size3_found_count": 135,
+            "witness_size3_found_rate": 0.675
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 30,
+            "color_domain_max": 27000,
+            "trials": 200,
+            "witness_size3_found_count": 160,
+            "witness_size3_found_rate": 0.8
+          },
+          {
+            "colors": 3,
+            "N_domain_for_A": 36,
+            "color_domain_max": 46656,
+            "trials": 200,
+            "witness_size3_found_count": 195,
+            "witness_size3_found_rate": 0.975
+          }
+        ],
+        "generated_utc": "2026-03-05T09:50:15.964Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,7 +1,97 @@
 {
   "problem": "EP-236",
   "normalized_utc": "2026-03-05T08:54:16.954Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch7_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite distribution profile of f(n)=#{(p,2^k): n=p+2^k}.",
+        "rows": [
+          {
+            "X": 200000,
+            "max_f_n": 12,
+            "argmax_n": 80685,
+            "max_f_over_log_n": 1.062106,
+            "mean_f": 1.508715,
+            "percentile99_f": 7
+          },
+          {
+            "X": 500000,
+            "max_f_n": 13,
+            "argmax_n": 229845,
+            "max_f_over_log_n": 1.053044,
+            "mean_f": 1.497144,
+            "percentile99_f": 7
+          },
+          {
+            "X": 1000000,
+            "max_f_n": 13,
+            "argmax_n": 229845,
+            "max_f_over_log_n": 1.053044,
+            "mean_f": 1.493127,
+            "percentile99_f": 7
+          },
+          {
+            "X": 2000000,
+            "max_f_n": 15,
+            "argmax_n": 1575285,
+            "max_f_over_log_n": 1.05116,
+            "mean_f": 1.490438,
+            "percentile99_f": 7
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep236_standalone_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-236",
+        "script": "ep236.mjs",
+        "generated_utc": "2026-03-05T09:57:22.492Z",
+        "result": {
+          "description": "Finite distribution profile of f(n)=#{(p,2^k): n=p+2^k}.",
+          "rows": [
+            {
+              "X": 200000,
+              "max_f_n": 12,
+              "argmax_n": 80685,
+              "max_f_over_log_n": 1.062106,
+              "mean_f": 1.508715,
+              "percentile99_f": 7
+            },
+            {
+              "X": 500000,
+              "max_f_n": 13,
+              "argmax_n": 229845,
+              "max_f_over_log_n": 1.053044,
+              "mean_f": 1.497144,
+              "percentile99_f": 7
+            },
+            {
+              "X": 1000000,
+              "max_f_n": 13,
+              "argmax_n": 229845,
+              "max_f_over_log_n": 1.053044,
+              "mean_f": 1.493127,
+              "percentile99_f": 7
+            },
+            {
+              "X": 2000000,
+              "max_f_n": 15,
+              "argmax_n": 1575285,
+              "max_f_over_log_n": 1.05116,
+              "mean_f": 1.490438,
+              "percentile99_f": 7
+            }
+          ]
+        }
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

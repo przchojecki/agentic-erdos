@@ -1,7 +1,42 @@
 {
   "problem": "EP-82",
   "normalized_utc": "2026-03-05T08:54:16.948Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random finite lower-envelope for guaranteed regular induced subgraph size.",
+        "rows": [
+          {
+            "n": 10,
+            "trials": 40,
+            "worst_max_regular_induced_size_found": 4,
+            "ratio_over_logn": 1.737178
+          },
+          {
+            "n": 12,
+            "trials": 40,
+            "worst_max_regular_induced_size_found": 5,
+            "ratio_over_logn": 2.012148
+          },
+          {
+            "n": 14,
+            "trials": 40,
+            "worst_max_regular_induced_size_found": 6,
+            "ratio_over_logn": 2.273539
+          },
+          {
+            "n": 16,
+            "trials": 40,
+            "worst_max_regular_induced_size_found": 6,
+            "ratio_over_logn": 2.164043
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

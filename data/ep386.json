@@ -445,6 +445,363 @@
         ],
         "generated_utc": "2026-03-03T09:49:50.734Z"
       }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:11:27.266Z",
+      "source": "overnight_deeper_rerun",
+      "payload": {
+        "method": "deeper_binomial_consecutive_prime_scan",
+        "params": {
+          "nmax": 600000,
+          "kmax": 12
+        },
+        "total_hits": 9,
+        "per_k": [
+          {
+            "k": 2,
+            "hit_count": 5,
+            "first_hit": {
+              "n": 4,
+              "k": 2,
+              "prime_factors": [
+                2,
+                3
+              ],
+              "product_is_from": 2,
+              "product_is_to": 3
+            }
+          },
+          {
+            "k": 3,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 7,
+              "k": 3,
+              "prime_factors": [
+                5,
+                7
+              ],
+              "product_is_from": 5,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 4,
+            "hit_count": 2,
+            "first_hit": {
+              "n": 10,
+              "k": 4,
+              "prime_factors": [
+                2,
+                3,
+                5,
+                7
+              ],
+              "product_is_from": 2,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 5,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 6,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 15,
+              "k": 6,
+              "prime_factors": [
+                5,
+                7,
+                11,
+                13
+              ],
+              "product_is_from": 5,
+              "product_is_to": 13
+            }
+          },
+          {
+            "k": 7,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 8,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 9,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 10,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 11,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 12,
+            "hit_count": 0,
+            "first_hit": null
+          }
+        ]
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:22:27.709Z",
+      "source": "overnight_deeper_rerun2",
+      "payload": {
+        "method": "deeper_binomial_consecutive_prime_scan",
+        "params": {
+          "nmax": 1200000,
+          "kmax": 14
+        },
+        "total_hits": 9,
+        "per_k": [
+          {
+            "k": 2,
+            "hit_count": 5,
+            "first_hit": {
+              "n": 4,
+              "k": 2,
+              "prime_factors": [
+                2,
+                3
+              ],
+              "product_is_from": 2,
+              "product_is_to": 3
+            }
+          },
+          {
+            "k": 3,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 7,
+              "k": 3,
+              "prime_factors": [
+                5,
+                7
+              ],
+              "product_is_from": 5,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 4,
+            "hit_count": 2,
+            "first_hit": {
+              "n": 10,
+              "k": 4,
+              "prime_factors": [
+                2,
+                3,
+                5,
+                7
+              ],
+              "product_is_from": 2,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 5,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 6,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 15,
+              "k": 6,
+              "prime_factors": [
+                5,
+                7,
+                11,
+                13
+              ],
+              "product_is_from": 5,
+              "product_is_to": 13
+            }
+          },
+          {
+            "k": 7,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 8,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 9,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 10,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 11,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 12,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 13,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 14,
+            "hit_count": 0,
+            "first_hit": null
+          }
+        ]
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-05T09:25:08.198Z",
+      "source": "overnight_deeper_rerun3",
+      "payload": {
+        "method": "deeper_binomial_consecutive_prime_scan",
+        "params": {
+          "nmax": 2000000,
+          "kmax": 16
+        },
+        "total_hits": 9,
+        "per_k": [
+          {
+            "k": 2,
+            "hit_count": 5,
+            "first_hit": {
+              "n": 4,
+              "k": 2,
+              "prime_factors": [
+                2,
+                3
+              ],
+              "product_is_from": 2,
+              "product_is_to": 3
+            }
+          },
+          {
+            "k": 3,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 7,
+              "k": 3,
+              "prime_factors": [
+                5,
+                7
+              ],
+              "product_is_from": 5,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 4,
+            "hit_count": 2,
+            "first_hit": {
+              "n": 10,
+              "k": 4,
+              "prime_factors": [
+                2,
+                3,
+                5,
+                7
+              ],
+              "product_is_from": 2,
+              "product_is_to": 7
+            }
+          },
+          {
+            "k": 5,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 6,
+            "hit_count": 1,
+            "first_hit": {
+              "n": 15,
+              "k": 6,
+              "prime_factors": [
+                5,
+                7,
+                11,
+                13
+              ],
+              "product_is_from": 5,
+              "product_is_to": 13
+            }
+          },
+          {
+            "k": 7,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 8,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 9,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 10,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 11,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 12,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 13,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 14,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 15,
+            "hit_count": 0,
+            "first_hit": null
+          },
+          {
+            "k": 16,
+            "hit_count": 0,
+            "first_hit": null
+          }
+        ]
+      }
     }
   ],
   "batch_script_integrations": {

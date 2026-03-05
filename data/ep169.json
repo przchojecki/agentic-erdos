@@ -1,7 +1,159 @@
 {
   "problem": "EP-169",
   "normalized_utc": "2026-03-05T08:54:16.952Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch6_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Greedy finite harmonic-sum profiles for k-AP-free sets.",
+        "rows": [
+          {
+            "k": 3,
+            "N": 20000,
+            "greedy_size": 560,
+            "harmonic_sum": 2.946648,
+            "harmonic_over_logN": 0.297536
+          },
+          {
+            "k": 3,
+            "N": 50000,
+            "greedy_size": 1024,
+            "harmonic_sum": 2.965463,
+            "harmonic_over_logN": 0.274078
+          },
+          {
+            "k": 3,
+            "N": 100000,
+            "greedy_size": 2048,
+            "harmonic_sum": 2.979622,
+            "harmonic_over_logN": 0.258807
+          },
+          {
+            "k": 4,
+            "N": 4000,
+            "greedy_size": 565,
+            "harmonic_sum": 3.955268,
+            "harmonic_over_logN": 0.47688
+          },
+          {
+            "k": 4,
+            "N": 8000,
+            "greedy_size": 925,
+            "harmonic_sum": 4.017928,
+            "harmonic_over_logN": 0.447072
+          },
+          {
+            "k": 4,
+            "N": 12000,
+            "greedy_size": 1239,
+            "harmonic_sum": 4.049629,
+            "harmonic_over_logN": 0.431148
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep169_real_deeper_20260305.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "problem": "EP-169",
+        "script": "ep169.mjs",
+        "method": "deterministic_greedy_kAP_free_harmonic_profile",
+        "params": {
+          "N3_LIST": [
+            20000,
+            50000,
+            100000,
+            200000,
+            300000
+          ],
+          "N4_LIST": [
+            4000,
+            8000,
+            12000,
+            16000,
+            20000
+          ]
+        },
+        "rows": [
+          {
+            "k": 3,
+            "N": 20000,
+            "greedy_size": 560,
+            "harmonic_sum": 2.946648,
+            "harmonic_over_logN": 0.297536
+          },
+          {
+            "k": 3,
+            "N": 50000,
+            "greedy_size": 1024,
+            "harmonic_sum": 2.965463,
+            "harmonic_over_logN": 0.274078
+          },
+          {
+            "k": 3,
+            "N": 100000,
+            "greedy_size": 2048,
+            "harmonic_sum": 2.979622,
+            "harmonic_over_logN": 0.258807
+          },
+          {
+            "k": 3,
+            "N": 200000,
+            "greedy_size": 2790,
+            "harmonic_sum": 2.983595,
+            "harmonic_over_logN": 0.244435
+          },
+          {
+            "k": 3,
+            "N": 300000,
+            "greedy_size": 4096,
+            "harmonic_sum": 2.989061,
+            "harmonic_over_logN": 0.23701
+          },
+          {
+            "k": 4,
+            "N": 4000,
+            "greedy_size": 565,
+            "harmonic_sum": 3.955268,
+            "harmonic_over_logN": 0.47688
+          },
+          {
+            "k": 4,
+            "N": 8000,
+            "greedy_size": 925,
+            "harmonic_sum": 4.017928,
+            "harmonic_over_logN": 0.447072
+          },
+          {
+            "k": 4,
+            "N": 12000,
+            "greedy_size": 1239,
+            "harmonic_sum": 4.049629,
+            "harmonic_over_logN": 0.431148
+          },
+          {
+            "k": 4,
+            "N": 16000,
+            "greedy_size": 1491,
+            "harmonic_sum": 4.067718,
+            "harmonic_over_logN": 0.420204
+          },
+          {
+            "k": 4,
+            "N": 20000,
+            "greedy_size": 1768,
+            "harmonic_sum": 4.083215,
+            "harmonic_over_logN": 0.412301
+          }
+        ],
+        "generated_utc": "2026-03-05T09:43:18.338Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

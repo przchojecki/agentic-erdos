@@ -1,7 +1,42 @@
 {
   "problem": "EP-78",
   "normalized_utc": "2026-03-05T08:54:16.948Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Small-k explicit witness search by random 2-colorings.",
+        "rows": [
+          {
+            "k": 4,
+            "n_tested": 17,
+            "trials": 120,
+            "known_construction_monochromatic_Kk_count": 0,
+            "found_explicit_coloring_without_monochromatic_Kk": false,
+            "best_monochromatic_Kk_count_found": 43
+          },
+          {
+            "k": 5,
+            "n_tested": 30,
+            "trials": 60,
+            "known_construction_monochromatic_Kk_count": null,
+            "found_explicit_coloring_without_monochromatic_Kk": false,
+            "best_monochromatic_Kk_count_found": 159
+          },
+          {
+            "k": 5,
+            "n_tested": 35,
+            "trials": 40,
+            "known_construction_monochromatic_Kk_count": null,
+            "found_explicit_coloring_without_monochromatic_Kk": false,
+            "best_monochromatic_Kk_count_found": 395
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

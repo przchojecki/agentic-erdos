@@ -1,7 +1,60 @@
 {
   "problem": "EP-142",
   "normalized_utc": "2026-03-05T08:54:16.951Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite greedy AP-free set sizes for k=3 and k=4.",
+        "rows": [
+          {
+            "k": 3,
+            "N": 10000,
+            "greedy_size": 512,
+            "density": 0.0512,
+            "size_over_N_div_logN": 0.471569
+          },
+          {
+            "k": 3,
+            "N": 20000,
+            "greedy_size": 560,
+            "density": 0.028,
+            "size_over_N_div_logN": 0.277298
+          },
+          {
+            "k": 3,
+            "N": 50000,
+            "greedy_size": 1024,
+            "density": 0.02048,
+            "size_over_N_div_logN": 0.221589
+          },
+          {
+            "k": 4,
+            "N": 4000,
+            "greedy_size": 565,
+            "density": 0.14125,
+            "size_over_N_div_sqrtlogN": 0.406791
+          },
+          {
+            "k": 4,
+            "N": 8000,
+            "greedy_size": 925,
+            "density": 0.115625,
+            "size_over_N_div_sqrtlogN": 0.346628
+          },
+          {
+            "k": 4,
+            "N": 12000,
+            "greedy_size": 1239,
+            "density": 0.10325,
+            "size_over_N_div_sqrtlogN": 0.316435
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

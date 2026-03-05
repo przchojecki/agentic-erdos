@@ -1,7 +1,84 @@
 {
   "problem": "EP-1",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch1_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Central-binomial lower bound profile against 2^n scale.",
+        "rows": [
+          {
+            "n": 8,
+            "lower_bound_binom_central": "70",
+            "ratio_binom_over_2pow_n": 0.2734375,
+            "scaled_ratio_times_sqrt_n": 0.77339804
+          },
+          {
+            "n": 12,
+            "lower_bound_binom_central": "924",
+            "ratio_binom_over_2pow_n": 0.22558594,
+            "scaled_ratio_times_sqrt_n": 0.78145261
+          },
+          {
+            "n": 16,
+            "lower_bound_binom_central": "12870",
+            "ratio_binom_over_2pow_n": 0.19638062,
+            "scaled_ratio_times_sqrt_n": 0.78552246
+          },
+          {
+            "n": 20,
+            "lower_bound_binom_central": "184756",
+            "ratio_binom_over_2pow_n": 0.17619705,
+            "scaled_ratio_times_sqrt_n": 0.78797717
+          },
+          {
+            "n": 24,
+            "lower_bound_binom_central": "2704156",
+            "ratio_binom_over_2pow_n": 0.16118026,
+            "scaled_ratio_times_sqrt_n": 0.78961878
+          },
+          {
+            "n": 28,
+            "lower_bound_binom_central": "40116600",
+            "ratio_binom_over_2pow_n": 0.14944598,
+            "scaled_ratio_times_sqrt_n": 0.7907938
+          },
+          {
+            "n": 32,
+            "lower_bound_binom_central": "601080390",
+            "ratio_binom_over_2pow_n": 0.13994993,
+            "scaled_ratio_times_sqrt_n": 0.79167638
+          },
+          {
+            "n": 40,
+            "lower_bound_binom_central": "137846528820",
+            "ratio_binom_over_2pow_n": 0.12537069,
+            "scaled_ratio_times_sqrt_n": 0.79291385
+          },
+          {
+            "n": 48,
+            "lower_bound_binom_central": "32247603683100",
+            "ratio_binom_over_2pow_n": 0.1145665,
+            "scaled_ratio_times_sqrt_n": 0.79374001
+          },
+          {
+            "n": 56,
+            "lower_bound_binom_central": "7648690600760440",
+            "ratio_binom_over_2pow_n": 0.10614691,
+            "scaled_ratio_times_sqrt_n": 0.7943307
+          },
+          {
+            "n": 64,
+            "lower_bound_binom_central": "1832624140942590534",
+            "ratio_binom_over_2pow_n": 0.09934675,
+            "scaled_ratio_times_sqrt_n": 0.79477403
+          }
+        ]
+      }
+    }
+  ],
   "batch_script_integrations": {
     "integrated_utc": "2026-03-05T08:51:27.301Z",
     "source_files": [

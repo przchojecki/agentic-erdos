@@ -1,7 +1,46 @@
 {
   "problem": "EP-131",
   "normalized_utc": "2026-03-05T08:54:16.950Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch5_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random-greedy finite profile for non-dividing sets in [1,N].",
+        "rows": [
+          {
+            "N": 80,
+            "restarts": 120,
+            "best_size_found": 7,
+            "best_size_over_N_pow_quarter": 2.340591,
+            "best_size_over_sqrtN": 0.782624
+          },
+          {
+            "N": 120,
+            "restarts": 100,
+            "best_size_found": 7,
+            "best_size_over_N_pow_quarter": 2.114963,
+            "best_size_over_sqrtN": 0.63901
+          },
+          {
+            "N": 180,
+            "restarts": 80,
+            "best_size_found": 8,
+            "best_size_over_N_pow_quarter": 2.184097,
+            "best_size_over_sqrtN": 0.596285
+          },
+          {
+            "N": 260,
+            "restarts": 60,
+            "best_size_found": 8,
+            "best_size_over_N_pow_quarter": 1.992263,
+            "best_size_over_sqrtN": 0.496139
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

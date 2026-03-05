@@ -1,7 +1,68 @@
 {
   "problem": "EP-283",
   "normalized_utc": "2026-03-05T08:54:16.955Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch9_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Random split-generated Egyptian decompositions and resulting m=Σp(n_i) coverage proxies for p(x)=x and p(x)=x^2.",
+        "generation": {
+          "restarts": 6000,
+          "maxSteps": 14,
+          "maxDen": 200000,
+          "best_terms_found": 17
+        },
+        "linear_p_of_x_rows": [
+          {
+            "M": 10000,
+            "covered_count": 776,
+            "covered_density": 0.0776,
+            "tail_window": 2000,
+            "tail_density": 0.065
+          },
+          {
+            "M": 25000,
+            "covered_count": 1333,
+            "covered_density": 0.05332,
+            "tail_window": 5000,
+            "tail_density": 0.0208
+          },
+          {
+            "M": 50000,
+            "covered_count": 1942,
+            "covered_density": 0.03884,
+            "tail_window": 10000,
+            "tail_density": 0.0103
+          }
+        ],
+        "quadratic_p_of_x_rows": [
+          {
+            "M": 20000,
+            "covered_count": 25,
+            "covered_density": 0.00125,
+            "tail_window": 4000,
+            "tail_density": 0.00125
+          },
+          {
+            "M": 50000,
+            "covered_count": 49,
+            "covered_density": 0.00098,
+            "tail_window": 10000,
+            "tail_density": 0.0004
+          },
+          {
+            "M": 100000,
+            "covered_count": 63,
+            "covered_density": 0.00063,
+            "tail_window": 20000,
+            "tail_density": 0
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

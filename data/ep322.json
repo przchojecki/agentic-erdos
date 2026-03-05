@@ -1,7 +1,36 @@
 {
   "problem": "EP-322",
   "normalized_utc": "2026-03-05T08:54:16.956Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch10_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Finite representation-multiplicity profile for sums of k many k-th powers (small k).",
+        "rows": [
+          {
+            "k": 3,
+            "N": 200000,
+            "basis_values_count": 59,
+            "max_representation_count": 5,
+            "argmax_n": 161568,
+            "max_over_N_pow_0_1": 1.47525,
+            "count_n_with_r_n_gt_n_pow_0_1": 100
+          },
+          {
+            "k": 4,
+            "N": 350000,
+            "basis_values_count": 25,
+            "max_representation_count": 4,
+            "argmax_n": 236674,
+            "max_over_N_pow_0_05": 2.11279,
+            "count_n_with_r_n_gt_n_pow_0_05": 1254
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

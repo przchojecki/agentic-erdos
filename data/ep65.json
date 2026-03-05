@@ -1,7 +1,102 @@
 {
   "problem": "EP-65",
   "normalized_utc": "2026-03-05T08:54:16.948Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "harder_batch3_quick_compute.json",
+      "extension": ".json",
+      "kind": "json",
+      "data": {
+        "description": "Complete-bipartite cycle-length reciprocal profile at edge scale kn.",
+        "rows": [
+          {
+            "n": 400,
+            "k": 2,
+            "target_edges_kn": 800,
+            "bipartition": [
+              3,
+              397
+            ],
+            "edges_in_Kab": 1191,
+            "reciprocal_cycle_length_sum_even_cycles_only": 0.416667,
+            "reciprocal_sum_over_logk": 0.601123
+          },
+          {
+            "n": 400,
+            "k": 4,
+            "target_edges_kn": 1600,
+            "bipartition": [
+              5,
+              395
+            ],
+            "edges_in_Kab": 1975,
+            "reciprocal_cycle_length_sum_even_cycles_only": 0.641667,
+            "reciprocal_sum_over_logk": 0.462865
+          },
+          {
+            "n": 400,
+            "k": 8,
+            "target_edges_kn": 3200,
+            "bipartition": [
+              9,
+              391
+            ],
+            "edges_in_Kab": 3519,
+            "reciprocal_cycle_length_sum_even_cycles_only": 0.914484,
+            "reciprocal_sum_over_logk": 0.439774
+          },
+          {
+            "n": 400,
+            "k": 16,
+            "target_edges_kn": 6400,
+            "bipartition": [
+              17,
+              383
+            ],
+            "edges_in_Kab": 6511,
+            "reciprocal_cycle_length_sum_even_cycles_only": 1.219776,
+            "reciprocal_sum_over_logk": 0.439941
+          },
+          {
+            "n": 400,
+            "k": 24,
+            "target_edges_kn": 9600,
+            "bipartition": [
+              26,
+              374
+            ],
+            "edges_in_Kab": 9724,
+            "reciprocal_cycle_length_sum_even_cycles_only": 1.42721,
+            "reciprocal_sum_over_logk": 0.449083
+          },
+          {
+            "n": 400,
+            "k": 32,
+            "target_edges_kn": 12800,
+            "bipartition": [
+              36,
+              364
+            ],
+            "edges_in_Kab": 13104,
+            "reciprocal_cycle_length_sum_even_cycles_only": 1.58728,
+            "reciprocal_sum_over_logk": 0.457992
+          },
+          {
+            "n": 400,
+            "k": 40,
+            "target_edges_kn": 16000,
+            "bipartition": [
+              46,
+              354
+            ],
+            "edges_in_Kab": 16284,
+            "reciprocal_cycle_length_sum_even_cycles_only": 1.708344,
+            "reciprocal_sum_over_logk": 0.463106
+          }
+        ]
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [
