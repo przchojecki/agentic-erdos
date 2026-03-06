@@ -38,9 +38,12 @@ function logB2(n, spf) {
   return out;
 }
 
-const LIMIT = Number(process.env.LIMIT || 30000000);
-const K_LIST = parseIntList(process.env.K_LIST, Array.from({ length: 120 }, (_, i) => i + 1));
-const MILESTONES = parseIntList(process.env.MILESTONES, [100000, 1000000, 5000000, 10000000, 20000000, 30000000]);
+const LIMIT = Number(process.env.LIMIT || 45000000);
+const K_LIST = parseIntList(process.env.K_LIST, Array.from({ length: 160 }, (_, i) => i + 1));
+const MILESTONES = parseIntList(
+  process.env.MILESTONES,
+  [100000, 1000000, 5000000, 10000000, 20000000, 30000000, 40000000, 45000000],
+);
 const OUT = process.env.OUT || '';
 
 const t0 = Date.now();

@@ -21,13 +21,13 @@ function sieveLargestPrimeFactor(limit) {
   return lpf;
 }
 
-const LIMIT = Number(process.env.LIMIT || 100000000);
+const LIMIT = Number(process.env.LIMIT || 200000000);
 const MILESTONES = parseIntList(
   process.env.MILESTONES,
-  [1000000, 5000000, 10000000, 20000000, 40000000, 60000000, 80000000, 100000000],
+  [10000000, 20000000, 50000000, 100000000, 150000000, 200000000],
 );
 const BLOCK = Number(process.env.BLOCK || 1000000);
-const SHIFTS = parseIntList(process.env.SHIFTS, Array.from({ length: 25 }, (_, i) => i + 1));
+const SHIFTS = parseIntList(process.env.SHIFTS, Array.from({ length: 100 }, (_, i) => i + 1));
 const OUT = process.env.OUT || '';
 
 const t0 = Date.now();

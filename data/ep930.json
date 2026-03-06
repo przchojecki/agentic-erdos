@@ -267,6 +267,145 @@
         ],
         "generated_utc": "2026-03-03T08:54:35.844Z"
       }
+    },
+    {
+      "source_file": "ep930.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-06T15:33:03.414Z",
+      "data": {
+        "problem": "EP-930",
+        "script": "ep930.mjs",
+        "method": "standalone_deep_exact_square_counterexample_search_for_r2_interval_products",
+        "params": {
+          "NMAX": 70000,
+          "K_LIST": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "LEN_EXTRA": 20
+        },
+        "rows": [
+          {
+            "k": 4,
+            "len_range": [
+              4,
+              24
+            ],
+            "interval_count": 1469727,
+            "distinct_parity_buckets": 1459164,
+            "square_counterexample_found": {
+              "I1": [
+                33,
+                36
+              ],
+              "len1": 4,
+              "I2": [
+                1680,
+                1683
+              ],
+              "len2": 4
+            },
+            "witness_bucket_size": 2
+          },
+          {
+            "k": 5,
+            "len_range": [
+              5,
+              25
+            ],
+            "interval_count": 1469706,
+            "distinct_parity_buckets": 1459151,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 6,
+            "len_range": [
+              6,
+              26
+            ],
+            "interval_count": 1469685,
+            "distinct_parity_buckets": 1459133,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 7,
+            "len_range": [
+              7,
+              27
+            ],
+            "interval_count": 1469664,
+            "distinct_parity_buckets": 1459112,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 8,
+            "len_range": [
+              8,
+              28
+            ],
+            "interval_count": 1469643,
+            "distinct_parity_buckets": 1459090,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 9,
+            "len_range": [
+              9,
+              29
+            ],
+            "interval_count": 1469622,
+            "distinct_parity_buckets": 1459072,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 10,
+            "len_range": [
+              10,
+              30
+            ],
+            "interval_count": 1469601,
+            "distinct_parity_buckets": 1459057,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 11,
+            "len_range": [
+              11,
+              31
+            ],
+            "interval_count": 1469580,
+            "distinct_parity_buckets": 1459036,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          },
+          {
+            "k": 12,
+            "len_range": [
+              12,
+              32
+            ],
+            "interval_count": 1469559,
+            "distinct_parity_buckets": 1459018,
+            "square_counterexample_found": null,
+            "witness_bucket_size": 0
+          }
+        ],
+        "runtime_seconds": 38.263,
+        "generated_utc": "2026-03-06T15:33:03.414Z"
+      }
     }
   ]
 }

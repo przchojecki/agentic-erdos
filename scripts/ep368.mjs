@@ -30,11 +30,11 @@ function sieveLargestPrimeFactor(limit) {
   return lpf;
 }
 
-const LIMIT = Number(process.env.LIMIT || 60000000);
+const LIMIT = Number(process.env.LIMIT || 120000000);
 const ALPHAS = parseNumList(process.env.ALPHAS, [1.6, 1.8, 2.0, 2.2, 2.5]);
 const MILESTONES = parseIntList(
   process.env.MILESTONES,
-  [100000, 1000000, 5000000, 10000000, 20000000, 40000000, 60000000],
+  [100000, 1000000, 5000000, 10000000, 20000000, 40000000, 60000000, 80000000, 100000000, 120000000],
 );
 const OUT = process.env.OUT || '';
 

@@ -5,13 +5,13 @@
     {
       "source_file": "ep368.mjs",
       "kind": "standalone_deep_run",
-      "generated_utc": "2026-03-06T14:22:41.862Z",
+      "generated_utc": "2026-03-06T15:41:10.405Z",
       "data": {
         "problem": "EP-368",
         "script": "ep368.mjs",
         "method": "standalone_deep_scan_lpf_n_nplus1_against_log_powers",
         "params": {
-          "LIMIT": 100000000,
+          "LIMIT": 120000000,
           "ALPHAS": [
             1.6,
             1.8,
@@ -28,7 +28,8 @@
             40000000,
             60000000,
             80000000,
-            100000000
+            100000000,
+            120000000
           ]
         },
         "max_fraction_F_over_n": 1.5,
@@ -36,8 +37,8 @@
         "rows": [
           {
             "alpha": 1.6,
-            "final_count": 3806,
-            "final_proportion": 0.00003806,
+            "final_count": 4051,
+            "final_proportion": 0.000033758334,
             "milestones": [
               {
                 "X": 100000,
@@ -92,13 +93,19 @@
                 "alpha": 1.6,
                 "count_F_le_logn_alpha": 3806,
                 "proportion_F_le_logn_alpha": 0.00003806
+              },
+              {
+                "X": 120000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 4051,
+                "proportion_F_le_logn_alpha": 0.000033758334
               }
             ]
           },
           {
             "alpha": 1.8,
-            "final_count": 26383,
-            "final_proportion": 0.00026383,
+            "final_count": 28489,
+            "final_proportion": 0.00023740834,
             "milestones": [
               {
                 "X": 100000,
@@ -153,13 +160,19 @@
                 "alpha": 1.8,
                 "count_F_le_logn_alpha": 26383,
                 "proportion_F_le_logn_alpha": 0.00026383
+              },
+              {
+                "X": 120000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 28489,
+                "proportion_F_le_logn_alpha": 0.00023740834
               }
             ]
           },
           {
             "alpha": 2,
-            "final_count": 120709,
-            "final_proportion": 0.00120709,
+            "final_count": 132050,
+            "final_proportion": 0.0011004167,
             "milestones": [
               {
                 "X": 100000,
@@ -214,13 +227,19 @@
                 "alpha": 2,
                 "count_F_le_logn_alpha": 120709,
                 "proportion_F_le_logn_alpha": 0.00120709
+              },
+              {
+                "X": 120000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 132050,
+                "proportion_F_le_logn_alpha": 0.0011004167
               }
             ]
           },
           {
             "alpha": 2.2,
-            "final_count": 393597,
-            "final_proportion": 0.00393597,
+            "final_count": 438135,
+            "final_proportion": 0.003651125,
             "milestones": [
               {
                 "X": 100000,
@@ -275,13 +294,19 @@
                 "alpha": 2.2,
                 "count_F_le_logn_alpha": 393597,
                 "proportion_F_le_logn_alpha": 0.00393597
+              },
+              {
+                "X": 120000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 438135,
+                "proportion_F_le_logn_alpha": 0.003651125
               }
             ]
           },
           {
             "alpha": 2.5,
-            "final_count": 1516710,
-            "final_proportion": 0.0151671,
+            "final_count": 1713489,
+            "final_proportion": 0.014279075,
             "milestones": [
               {
                 "X": 100000,
@@ -336,12 +361,18 @@
                 "alpha": 2.5,
                 "count_F_le_logn_alpha": 1516710,
                 "proportion_F_le_logn_alpha": 0.0151671
+              },
+              {
+                "X": 120000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 1713489,
+                "proportion_F_le_logn_alpha": 0.014279075
               }
             ]
           }
         ],
-        "runtime_seconds": 12.093,
-        "generated_utc": "2026-03-06T14:22:41.862Z"
+        "runtime_seconds": 14.615,
+        "generated_utc": "2026-03-06T15:41:10.405Z"
       }
     }
   ],

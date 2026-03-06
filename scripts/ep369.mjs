@@ -30,13 +30,13 @@ function sieveLargestPrimeFactor(limit) {
   return lpf;
 }
 
-const N_MAX = Number(process.env.N_MAX || 200000000);
-const EPS_LIST = parseNumList(process.env.EPS_LIST, [0.15, 0.2, 0.25, 0.3, 0.4]);
-const K_LIST = parseIntList(process.env.K_LIST, [2, 3, 4, 5, 6, 8, 10]);
-const TOP_WINDOW = Number(process.env.TOP_WINDOW || 3000000);
+const N_MAX = Number(process.env.N_MAX || 220000000);
+const EPS_LIST = parseNumList(process.env.EPS_LIST, [0.12, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45]);
+const K_LIST = parseIntList(process.env.K_LIST, [2, 3, 4, 5, 6, 8, 10, 12]);
+const TOP_WINDOW = Number(process.env.TOP_WINDOW || 5000000);
 const MILESTONES = parseIntList(
   process.env.MILESTONES,
-  [10000000, 20000000, 40000000, 60000000, 80000000, 100000000, 120000000, 150000000, 180000000, 200000000],
+  [10000000, 20000000, 40000000, 60000000, 80000000, 100000000, 120000000, 150000000, 180000000, 200000000, 220000000],
 );
 const OUT = process.env.OUT || '';
 
