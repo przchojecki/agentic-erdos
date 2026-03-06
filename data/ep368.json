@@ -1,7 +1,350 @@
 {
   "problem": "EP-368",
   "normalized_utc": "2026-03-05T08:54:16.958Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep368.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-06T14:22:41.862Z",
+      "data": {
+        "problem": "EP-368",
+        "script": "ep368.mjs",
+        "method": "standalone_deep_scan_lpf_n_nplus1_against_log_powers",
+        "params": {
+          "LIMIT": 100000000,
+          "ALPHAS": [
+            1.6,
+            1.8,
+            2,
+            2.2,
+            2.5
+          ],
+          "MILESTONES": [
+            100000,
+            1000000,
+            5000000,
+            10000000,
+            20000000,
+            40000000,
+            60000000,
+            80000000,
+            100000000
+          ]
+        },
+        "max_fraction_F_over_n": 1.5,
+        "argmax_n_for_fraction": 2,
+        "rows": [
+          {
+            "alpha": 1.6,
+            "final_count": 3806,
+            "final_proportion": 0.00003806,
+            "milestones": [
+              {
+                "X": 100000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 327,
+                "proportion_F_le_logn_alpha": 0.0032700327
+              },
+              {
+                "X": 1000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 779,
+                "proportion_F_le_logn_alpha": 0.00077900078
+              },
+              {
+                "X": 5000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 1431,
+                "proportion_F_le_logn_alpha": 0.00028620006
+              },
+              {
+                "X": 10000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 1837,
+                "proportion_F_le_logn_alpha": 0.00018370002
+              },
+              {
+                "X": 20000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 2339,
+                "proportion_F_le_logn_alpha": 0.00011695001
+              },
+              {
+                "X": 40000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 2876,
+                "proportion_F_le_logn_alpha": 0.000071900002
+              },
+              {
+                "X": 60000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 3220,
+                "proportion_F_le_logn_alpha": 0.000053666668
+              },
+              {
+                "X": 80000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 3536,
+                "proportion_F_le_logn_alpha": 0.000044200001
+              },
+              {
+                "X": 100000000,
+                "alpha": 1.6,
+                "count_F_le_logn_alpha": 3806,
+                "proportion_F_le_logn_alpha": 0.00003806
+              }
+            ]
+          },
+          {
+            "alpha": 1.8,
+            "final_count": 26383,
+            "final_proportion": 0.00026383,
+            "milestones": [
+              {
+                "X": 100000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 1075,
+                "proportion_F_le_logn_alpha": 0.010750108
+              },
+              {
+                "X": 1000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 3420,
+                "proportion_F_le_logn_alpha": 0.0034200034
+              },
+              {
+                "X": 5000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 7103,
+                "proportion_F_le_logn_alpha": 0.0014206003
+              },
+              {
+                "X": 10000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 9591,
+                "proportion_F_le_logn_alpha": 0.0009591001
+              },
+              {
+                "X": 20000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 13086,
+                "proportion_F_le_logn_alpha": 0.00065430003
+              },
+              {
+                "X": 40000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 17685,
+                "proportion_F_le_logn_alpha": 0.00044212501
+              },
+              {
+                "X": 60000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 21133,
+                "proportion_F_le_logn_alpha": 0.00035221667
+              },
+              {
+                "X": 80000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 24087,
+                "proportion_F_le_logn_alpha": 0.0003010875
+              },
+              {
+                "X": 100000000,
+                "alpha": 1.8,
+                "count_F_le_logn_alpha": 26383,
+                "proportion_F_le_logn_alpha": 0.00026383
+              }
+            ]
+          },
+          {
+            "alpha": 2,
+            "final_count": 120709,
+            "final_proportion": 0.00120709,
+            "milestones": [
+              {
+                "X": 100000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 2777,
+                "proportion_F_le_logn_alpha": 0.027770278
+              },
+              {
+                "X": 1000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 10263,
+                "proportion_F_le_logn_alpha": 0.01026301
+              },
+              {
+                "X": 5000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 24793,
+                "proportion_F_le_logn_alpha": 0.004958601
+              },
+              {
+                "X": 10000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 35931,
+                "proportion_F_le_logn_alpha": 0.0035931004
+              },
+              {
+                "X": 20000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 52005,
+                "proportion_F_le_logn_alpha": 0.0026002501
+              },
+              {
+                "X": 40000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 75313,
+                "proportion_F_le_logn_alpha": 0.001882825
+              },
+              {
+                "X": 60000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 93252,
+                "proportion_F_le_logn_alpha": 0.0015542
+              },
+              {
+                "X": 80000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 107919,
+                "proportion_F_le_logn_alpha": 0.0013489875
+              },
+              {
+                "X": 100000000,
+                "alpha": 2,
+                "count_F_le_logn_alpha": 120709,
+                "proportion_F_le_logn_alpha": 0.00120709
+              }
+            ]
+          },
+          {
+            "alpha": 2.2,
+            "final_count": 393597,
+            "final_proportion": 0.00393597,
+            "milestones": [
+              {
+                "X": 100000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 5663,
+                "proportion_F_le_logn_alpha": 0.056630566
+              },
+              {
+                "X": 1000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 24661,
+                "proportion_F_le_logn_alpha": 0.024661025
+              },
+              {
+                "X": 5000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 66194,
+                "proportion_F_le_logn_alpha": 0.013238803
+              },
+              {
+                "X": 10000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 100750,
+                "proportion_F_le_logn_alpha": 0.010075001
+              },
+              {
+                "X": 20000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 153815,
+                "proportion_F_le_logn_alpha": 0.0076907504
+              },
+              {
+                "X": 40000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 232380,
+                "proportion_F_le_logn_alpha": 0.0058095001
+              },
+              {
+                "X": 60000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 293056,
+                "proportion_F_le_logn_alpha": 0.0048842667
+              },
+              {
+                "X": 80000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 345913,
+                "proportion_F_le_logn_alpha": 0.0043239126
+              },
+              {
+                "X": 100000000,
+                "alpha": 2.2,
+                "count_F_le_logn_alpha": 393597,
+                "proportion_F_le_logn_alpha": 0.00393597
+              }
+            ]
+          },
+          {
+            "alpha": 2.5,
+            "final_count": 1516710,
+            "final_proportion": 0.0151671,
+            "milestones": [
+              {
+                "X": 100000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 12949,
+                "proportion_F_le_logn_alpha": 0.12949129
+              },
+              {
+                "X": 1000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 65365,
+                "proportion_F_le_logn_alpha": 0.065365065
+              },
+              {
+                "X": 5000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 198223,
+                "proportion_F_le_logn_alpha": 0.039644608
+              },
+              {
+                "X": 10000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 318474,
+                "proportion_F_le_logn_alpha": 0.031847403
+              },
+              {
+                "X": 20000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 513078,
+                "proportion_F_le_logn_alpha": 0.025653901
+              },
+              {
+                "X": 40000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 820180,
+                "proportion_F_le_logn_alpha": 0.020504501
+              },
+              {
+                "X": 60000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 1080519,
+                "proportion_F_le_logn_alpha": 0.01800865
+              },
+              {
+                "X": 80000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 1308520,
+                "proportion_F_le_logn_alpha": 0.0163565
+              },
+              {
+                "X": 100000000,
+                "alpha": 2.5,
+                "count_F_le_logn_alpha": 1516710,
+                "proportion_F_le_logn_alpha": 0.0151671
+              }
+            ]
+          }
+        ],
+        "runtime_seconds": 12.093,
+        "generated_utc": "2026-03-06T14:22:41.862Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

@@ -1,5 +1,260 @@
 {
   "problem": "EP-345",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep345.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:58:24.767Z",
+      "data": {
+        "problem": "EP-345",
+        "script": "ep345.mjs",
+        "method": "standalone_deep_finite_proxy_scan_for_power_completeness_thresholds",
+        "params": {
+          "K_LIST": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "LIMIT_LIST": [
+            2500000,
+            4000000,
+            5500000,
+            7000000,
+            8500000
+          ],
+          "N_MAX_TERM": 480
+        },
+        "rows": [
+          {
+            "k": 2,
+            "limit": 2500000,
+            "terms_used": 480,
+            "largest_missing_le_limit": 128,
+            "tail_consecutive_covered_from_limit": 2499872,
+            "runtime_ms": 1056
+          },
+          {
+            "k": 3,
+            "limit": 2500000,
+            "terms_used": 135,
+            "largest_missing_le_limit": 12758,
+            "tail_consecutive_covered_from_limit": 2487242,
+            "runtime_ms": 225
+          },
+          {
+            "k": 4,
+            "limit": 2500000,
+            "terms_used": 39,
+            "largest_missing_le_limit": 2500000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 68
+          },
+          {
+            "k": 5,
+            "limit": 2500000,
+            "terms_used": 19,
+            "largest_missing_le_limit": 2500000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 28
+          },
+          {
+            "k": 6,
+            "limit": 2500000,
+            "terms_used": 11,
+            "largest_missing_le_limit": 2500000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 17
+          },
+          {
+            "k": 2,
+            "limit": 4000000,
+            "terms_used": 480,
+            "largest_missing_le_limit": 128,
+            "tail_consecutive_covered_from_limit": 3999872,
+            "runtime_ms": 1707
+          },
+          {
+            "k": 3,
+            "limit": 4000000,
+            "terms_used": 158,
+            "largest_missing_le_limit": 12758,
+            "tail_consecutive_covered_from_limit": 3987242,
+            "runtime_ms": 423
+          },
+          {
+            "k": 4,
+            "limit": 4000000,
+            "terms_used": 44,
+            "largest_missing_le_limit": 4000000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 128
+          },
+          {
+            "k": 5,
+            "limit": 4000000,
+            "terms_used": 20,
+            "largest_missing_le_limit": 4000000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 51
+          },
+          {
+            "k": 6,
+            "limit": 4000000,
+            "terms_used": 12,
+            "largest_missing_le_limit": 4000000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 35
+          },
+          {
+            "k": 2,
+            "limit": 5500000,
+            "terms_used": 480,
+            "largest_missing_le_limit": 128,
+            "tail_consecutive_covered_from_limit": 5499872,
+            "runtime_ms": 2436
+          },
+          {
+            "k": 3,
+            "limit": 5500000,
+            "terms_used": 176,
+            "largest_missing_le_limit": 12758,
+            "tail_consecutive_covered_from_limit": 5487242,
+            "runtime_ms": 649
+          },
+          {
+            "k": 4,
+            "limit": 5500000,
+            "terms_used": 48,
+            "largest_missing_le_limit": 5134240,
+            "tail_consecutive_covered_from_limit": 365760,
+            "runtime_ms": 183
+          },
+          {
+            "k": 5,
+            "limit": 5500000,
+            "terms_used": 22,
+            "largest_missing_le_limit": 5499999,
+            "tail_consecutive_covered_from_limit": 1,
+            "runtime_ms": 74
+          },
+          {
+            "k": 6,
+            "limit": 5500000,
+            "terms_used": 13,
+            "largest_missing_le_limit": 5500000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 44
+          },
+          {
+            "k": 2,
+            "limit": 7000000,
+            "terms_used": 480,
+            "largest_missing_le_limit": 128,
+            "tail_consecutive_covered_from_limit": 6999872,
+            "runtime_ms": 2909
+          },
+          {
+            "k": 3,
+            "limit": 7000000,
+            "terms_used": 191,
+            "largest_missing_le_limit": 12758,
+            "tail_consecutive_covered_from_limit": 6987242,
+            "runtime_ms": 897
+          },
+          {
+            "k": 4,
+            "limit": 7000000,
+            "terms_used": 51,
+            "largest_missing_le_limit": 5134240,
+            "tail_consecutive_covered_from_limit": 1865760,
+            "runtime_ms": 250
+          },
+          {
+            "k": 5,
+            "limit": 7000000,
+            "terms_used": 23,
+            "largest_missing_le_limit": 7000000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 101
+          },
+          {
+            "k": 6,
+            "limit": 7000000,
+            "terms_used": 13,
+            "largest_missing_le_limit": 7000000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 59
+          },
+          {
+            "k": 2,
+            "limit": 8500000,
+            "terms_used": 480,
+            "largest_missing_le_limit": 128,
+            "tail_consecutive_covered_from_limit": 8499872,
+            "runtime_ms": 3535
+          },
+          {
+            "k": 3,
+            "limit": 8500000,
+            "terms_used": 204,
+            "largest_missing_le_limit": 12758,
+            "tail_consecutive_covered_from_limit": 8487242,
+            "runtime_ms": 1189
+          },
+          {
+            "k": 4,
+            "limit": 8500000,
+            "terms_used": 53,
+            "largest_missing_le_limit": 5134240,
+            "tail_consecutive_covered_from_limit": 3365760,
+            "runtime_ms": 323
+          },
+          {
+            "k": 5,
+            "limit": 8500000,
+            "terms_used": 24,
+            "largest_missing_le_limit": 8500000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 128
+          },
+          {
+            "k": 6,
+            "limit": 8500000,
+            "terms_used": 14,
+            "largest_missing_le_limit": 8500000,
+            "tail_consecutive_covered_from_limit": 0,
+            "runtime_ms": 73
+          }
+        ],
+        "monotonic_drop_checks": [
+          {
+            "limit": 2500000,
+            "monotonic_drops": []
+          },
+          {
+            "limit": 4000000,
+            "monotonic_drops": []
+          },
+          {
+            "limit": 5500000,
+            "monotonic_drops": []
+          },
+          {
+            "limit": 7000000,
+            "monotonic_drops": []
+          },
+          {
+            "limit": 8500000,
+            "monotonic_drops": []
+          }
+        ],
+        "runtime_seconds": 16.589,
+        "generated_utc": "2026-03-05T14:58:24.767Z"
+      },
+      "runtime_seconds": 16.589
+    }
+  ]
 }

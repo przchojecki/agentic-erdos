@@ -42,6 +42,160 @@
         "hard_instances_sample": [],
         "timestamp_utc": "2026-03-01T20:08:14.181Z"
       }
+    },
+    {
+      "source_file": "ep334.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:45:38.061Z",
+      "data": {
+        "problem": "EP-334",
+        "script": "ep334.mjs",
+        "method": "standalone_exact_scan_min_y_in_n_equals_a_plus_b_with_y_smooth_parts",
+        "params": {
+          "N_MAX": 120000,
+          "CHECKPOINTS": [
+            20000,
+            40000,
+            60000,
+            80000,
+            100000,
+            120000
+          ]
+        },
+        "checkpoints": [
+          {
+            "N": 20000,
+            "max_min_smoothness_up_to_N": 29,
+            "argmax_n": 18191,
+            "max_log_ratio_logY_over_logN": 0.340011,
+            "mean_log_ratio": 0.206458
+          },
+          {
+            "N": 40000,
+            "max_min_smoothness_up_to_N": 31,
+            "argmax_n": 31391,
+            "max_log_ratio_logY_over_logN": 0.324064,
+            "mean_log_ratio": 0.201461
+          },
+          {
+            "N": 60000,
+            "max_min_smoothness_up_to_N": 31,
+            "argmax_n": 31391,
+            "max_log_ratio_logY_over_logN": 0.312121,
+            "mean_log_ratio": 0.19894
+          },
+          {
+            "N": 80000,
+            "max_min_smoothness_up_to_N": 31,
+            "argmax_n": 31391,
+            "max_log_ratio_logY_over_logN": 0.304168,
+            "mean_log_ratio": 0.197011
+          },
+          {
+            "N": 100000,
+            "max_min_smoothness_up_to_N": 31,
+            "argmax_n": 31391,
+            "max_log_ratio_logY_over_logN": 0.298272,
+            "mean_log_ratio": 0.19565
+          },
+          {
+            "N": 120000,
+            "max_min_smoothness_up_to_N": 37,
+            "argmax_n": 118271,
+            "max_log_ratio_logY_over_logN": 0.308751,
+            "mean_log_ratio": 0.194601
+          }
+        ],
+        "hard_instances_sample": [
+          {
+            "n": 18191,
+            "best_y": 29
+          },
+          {
+            "n": 31391,
+            "best_y": 31
+          },
+          {
+            "n": 35279,
+            "best_y": 29
+          },
+          {
+            "n": 36382,
+            "best_y": 29
+          },
+          {
+            "n": 38639,
+            "best_y": 29
+          },
+          {
+            "n": 54573,
+            "best_y": 29
+          },
+          {
+            "n": 62782,
+            "best_y": 31
+          },
+          {
+            "n": 63839,
+            "best_y": 29
+          },
+          {
+            "n": 70558,
+            "best_y": 29
+          },
+          {
+            "n": 72764,
+            "best_y": 29
+          },
+          {
+            "n": 75071,
+            "best_y": 29
+          },
+          {
+            "n": 77278,
+            "best_y": 29
+          },
+          {
+            "n": 90955,
+            "best_y": 29
+          },
+          {
+            "n": 94173,
+            "best_y": 31
+          },
+          {
+            "n": 95471,
+            "best_y": 29
+          },
+          {
+            "n": 99791,
+            "best_y": 29
+          },
+          {
+            "n": 104711,
+            "best_y": 29
+          },
+          {
+            "n": 105837,
+            "best_y": 29
+          },
+          {
+            "n": 109146,
+            "best_y": 29
+          },
+          {
+            "n": 115917,
+            "best_y": 29
+          },
+          {
+            "n": 118271,
+            "best_y": 37
+          }
+        ],
+        "runtime_seconds": 11.32,
+        "generated_utc": "2026-03-05T14:45:38.061Z"
+      },
+      "runtime_seconds": 11.32
     }
   ]
 }

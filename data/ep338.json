@@ -32,6 +32,160 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep338.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:51:01.195Z",
+      "data": {
+        "problem": "EP-338",
+        "script": "ep338.mjs",
+        "method": "standalone_deep_distinct_vs_unrestricted_order_profiles_for_bateman_sets",
+        "params": {
+          "H_LIST": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            15,
+            18,
+            20
+          ],
+          "LIMIT": 12000,
+          "NMAX": 600000,
+          "WINDOW_START": 200000
+        },
+        "rows": [
+          {
+            "h": 3,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 4001,
+            "distinct_coverage_density": 0.66666667,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 52,
+            "argmax_unrestricted_terms": 588005,
+            "runtime_ms": 4959
+          },
+          {
+            "h": 4,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 3001,
+            "distinct_coverage_density": 0.5,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 53,
+            "argmax_unrestricted_terms": 588007,
+            "runtime_ms": 3585
+          },
+          {
+            "h": 5,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 2401,
+            "distinct_coverage_density": 0.4,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 54,
+            "argmax_unrestricted_terms": 588009,
+            "runtime_ms": 2853
+          },
+          {
+            "h": 6,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 2001,
+            "distinct_coverage_density": 0.33333333,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 55,
+            "argmax_unrestricted_terms": 588011,
+            "runtime_ms": 2362
+          },
+          {
+            "h": 7,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 1715,
+            "distinct_coverage_density": 0.285715,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 57,
+            "argmax_unrestricted_terms": 599913,
+            "runtime_ms": 1906
+          },
+          {
+            "h": 8,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 1501,
+            "distinct_coverage_density": 0.25,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 57,
+            "argmax_unrestricted_terms": 588015,
+            "runtime_ms": 1658
+          },
+          {
+            "h": 10,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 1201,
+            "distinct_coverage_density": 0.2,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 59,
+            "argmax_unrestricted_terms": 588019,
+            "runtime_ms": 1489
+          },
+          {
+            "h": 12,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 1001,
+            "distinct_coverage_density": 0.16666667,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 61,
+            "argmax_unrestricted_terms": 588023,
+            "runtime_ms": 1109
+          },
+          {
+            "h": 15,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 801,
+            "distinct_coverage_density": 0.13333333,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 64,
+            "argmax_unrestricted_terms": 588029,
+            "runtime_ms": 888
+          },
+          {
+            "h": 18,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 667,
+            "distinct_coverage_density": 0.11111167,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 68,
+            "argmax_unrestricted_terms": 599435,
+            "runtime_ms": 741
+          },
+          {
+            "h": 20,
+            "limit": 12000,
+            "NMAX": 600000,
+            "A_size": 601,
+            "distinct_coverage_density": 0.1,
+            "residue_class_fully_missing_distinct": 2,
+            "unrestricted_order_proxy_window": 69,
+            "argmax_unrestricted_terms": 588039,
+            "runtime_ms": 661
+          }
+        ],
+        "runtime_seconds": 22.211,
+        "generated_utc": "2026-03-05T14:51:01.195Z"
+      },
+      "runtime_seconds": 22.211
     }
   ],
   "batch_split_integrations_from_head": {

@@ -1,40 +1,108 @@
 #!/usr/bin/env node
-const meta={problem:'EP-371',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-371 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch11_quick_compute.mjs | density of P(n)<P(n+1). ----
-// // EP-371: density of P(n)<P(n+1).
-// {
-//   const milestones = [10_000, 100_000, 500_000, 1_000_000, 2_000_000, 3_000_000];
-//   const mset = new Set(milestones);
-//   const rows = [];
-// 
-//   let cnt = 0;
-//   for (let n = 1; n <= LIMIT; n += 1) {
-//     if (lpf[n] < lpf[n + 1]) cnt += 1;
-//     if (mset.has(n)) {
-//       const dens = cnt / n;
-//       rows.push({
-//         X: n,
-//         count: cnt,
-//         density: Number(dens.toPrecision(8)),
-//         signed_error_from_half: Number((dens - 0.5).toPrecision(6)),
-//       });
-//     }
-//   }
-// 
-//   out.results.ep371 = {
-//     description: 'Finite density profile of {n: P(n)<P(n+1)}.',
-//     rows,
-//   };
-// }
-// 
-// // Factorial tables for EP-373/393.
-// const FACT_MAX = 1000;
-// const fact = [1n];
-// for (let n = 1; n <= FACT_MAX; n += 1) fact.push(fact[n - 1] * BigInt(n));
-// const factIndex = new Map();
-// for (let n = 0; n <= FACT_MAX; n += 1) factIndex.set(fact[n], n);
-// ==== End Batch Split Integrations ====
+import fs from 'node:fs';
+import path from 'node:path';
+
+function parseIntList(value, fallback) {
+  if (!value) return fallback;
+  const xs = value
+    .split(',')
+    .map((x) => Number(x.trim()))
+    .filter((x) => Number.isInteger(x) && x >= 1)
+    .sort((a, b) => a - b);
+  return xs.length ? xs : fallback;
+}
+
+function sieveLargestPrimeFactor(limit) {
+  const lpf = new Int32Array(limit + 1);
+  for (let p = 2; p <= limit; p += 1) {
+    if (lpf[p] !== 0) continue;
+    for (let j = p; j <= limit; j += p) lpf[j] = p;
+  }
+  return lpf;
+}
+
+const LIMIT = Number(process.env.LIMIT || 100000000);
+const MILESTONES = parseIntList(
+  process.env.MILESTONES,
+  [1000000, 5000000, 10000000, 20000000, 40000000, 60000000, 80000000, 100000000],
+);
+const BLOCK = Number(process.env.BLOCK || 1000000);
+const SHIFTS = parseIntList(process.env.SHIFTS, Array.from({ length: 25 }, (_, i) => i + 1));
+const OUT = process.env.OUT || '';
+
+const t0 = Date.now();
+const lpf = sieveLargestPrimeFactor(LIMIT + 1);
+
+const blockRows = [];
+const milestoneRows = [];
+const mset = new Set(MILESTONES);
+const shiftRows = [];
+let countShift1 = 0;
+let curWin = 0;
+
+for (const shift of SHIFTS) {
+  let count = 0;
+  for (let n = 1; n <= LIMIT - shift; n += 1) {
+    const good = lpf[n] < lpf[n + shift] ? 1 : 0;
+    count += good;
+    if (shift === 1) {
+      countShift1 += good;
+      curWin += good;
+      if (n % BLOCK === 0) {
+        const dens = curWin / BLOCK;
+        blockRows.push({
+          end: n,
+          block_density: Number(dens.toPrecision(8)),
+          signed_error_from_half: Number((dens - 0.5).toPrecision(8)),
+        });
+        curWin = 0;
+      }
+      if (mset.has(n)) {
+        const dens = countShift1 / n;
+        milestoneRows.push({
+          X: n,
+          count: countShift1,
+          prefix_density: Number(dens.toPrecision(8)),
+          signed_error_from_half: Number((dens - 0.5).toPrecision(8)),
+        });
+      }
+    }
+  }
+  const denom = LIMIT - shift;
+  const dens = count / denom;
+  shiftRows.push({
+    shift,
+    count,
+    denominator: denom,
+    density: Number(dens.toPrecision(10)),
+    signed_error_from_half: Number((dens - 0.5).toPrecision(10)),
+  });
+}
+
+let minBlock = Infinity;
+let maxBlock = -Infinity;
+for (const row of blockRows) {
+  if (row.block_density < minBlock) minBlock = row.block_density;
+  if (row.block_density > maxBlock) maxBlock = row.block_density;
+}
+
+const out = {
+  problem: 'EP-371',
+  script: path.basename(process.argv[1]),
+  method: 'standalone_deep_density_profile_lpf_n_lt_lpf_nplus1',
+  params: { LIMIT, MILESTONES, BLOCK, SHIFTS },
+  final_prefix_density_shift1: Number((countShift1 / LIMIT).toPrecision(10)),
+  final_signed_error_from_half_shift1: Number(((countShift1 / LIMIT) - 0.5).toPrecision(10)),
+  block_density_range: {
+    min: Number(minBlock.toPrecision(8)),
+    max: Number(maxBlock.toPrecision(8)),
+  },
+  shift_densities: shiftRows,
+  milestones: milestoneRows,
+  block_rows: blockRows,
+  runtime_seconds: Number(((Date.now() - t0) / 1000).toFixed(3)),
+  generated_utc: new Date().toISOString(),
+};
+
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

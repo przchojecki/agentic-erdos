@@ -1,7 +1,99 @@
 {
   "problem": "EP-365",
   "normalized_utc": "2026-03-05T08:54:16.958Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep365.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-06T13:50:14.360Z",
+      "data": {
+        "problem": "EP-365",
+        "script": "ep365.mjs",
+        "method": "standalone_deep_spf_scan_for_consecutive_powerful_pairs",
+        "params": {
+          "LIMIT": 200000000,
+          "MILESTONES": [
+            1000000,
+            5000000,
+            10000000,
+            25000000,
+            50000000,
+            100000000,
+            150000000,
+            200000000
+          ]
+        },
+        "first_pair_starts": [
+          8,
+          288,
+          675,
+          9800,
+          12167,
+          235224,
+          332928,
+          465124,
+          1825200,
+          11309768
+        ],
+        "first_both_non_square_pair_starts": [
+          12167
+        ],
+        "rows": [
+          {
+            "X": 1000000,
+            "pair_count_up_to_X": 8,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.04191371
+          },
+          {
+            "X": 5000000,
+            "pair_count_up_to_X": 9,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.0378264
+          },
+          {
+            "X": 10000000,
+            "pair_count_up_to_X": 9,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.03464296
+          },
+          {
+            "X": 25000000,
+            "pair_count_up_to_X": 10,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.03446252
+          },
+          {
+            "X": 50000000,
+            "pair_count_up_to_X": 10,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.03182023
+          },
+          {
+            "X": 100000000,
+            "pair_count_up_to_X": 10,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.02947058
+          },
+          {
+            "X": 150000000,
+            "pair_count_up_to_X": 10,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.02821481
+          },
+          {
+            "X": 200000000,
+            "pair_count_up_to_X": 10,
+            "both_non_square_count_up_to_X": 1,
+            "pair_count_over_log2": 0.02737188
+          }
+        ],
+        "runtime_seconds": 33.129,
+        "generated_utc": "2026-03-06T13:50:14.360Z"
+      },
+      "runtime_seconds": 33.129
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

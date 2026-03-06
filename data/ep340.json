@@ -137,6 +137,168 @@
         ],
         "generated_utc": "2026-03-01T17:48:19.075Z"
       }
+    },
+    {
+      "source_file": "ep340.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:52:16.456Z",
+      "data": {
+        "problem": "EP-340",
+        "script": "ep340.mjs",
+        "method": "standalone_deep_direct_generation_of_mian_chowla_greedy_sidon_sequence",
+        "params": {
+          "NMAX": 20000000,
+          "CHECKPOINTS": [
+            1000,
+            3000,
+            10000,
+            30000,
+            100000,
+            300000,
+            1000000,
+            3000000,
+            7000000,
+            12000000,
+            20000000
+          ]
+        },
+        "generated_terms": 1140,
+        "last_term": 20027529,
+        "first_terms": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          30,
+          39,
+          53,
+          74,
+          95,
+          128,
+          152,
+          182,
+          212,
+          258,
+          316,
+          374,
+          413,
+          476,
+          531,
+          546,
+          608,
+          717,
+          798,
+          862,
+          965,
+          1060,
+          1161,
+          1307,
+          1386,
+          1435,
+          1556,
+          1722,
+          1834,
+          1934,
+          2058,
+          2261,
+          2497,
+          2699,
+          2874,
+          3061,
+          3197,
+          3332,
+          3629,
+          3712,
+          3868,
+          4140,
+          4447
+        ],
+        "rows": [
+          {
+            "N": 1000,
+            "count_A_le_N": 28,
+            "count_over_sqrtN": 0.88543774,
+            "count_over_Npow_045": 1.25071406,
+            "count_over_Npow_049": 0.94876364
+          },
+          {
+            "N": 3000,
+            "count_A_le_N": 42,
+            "count_over_sqrtN": 0.76681158,
+            "count_over_Npow_045": 1.14431272,
+            "count_over_Npow_049": 0.83072996
+          },
+          {
+            "N": 10000,
+            "count_A_le_N": 67,
+            "count_over_sqrtN": 0.67,
+            "count_over_Npow_045": 1.06187844,
+            "count_over_Npow_049": 0.73464039
+          },
+          {
+            "N": 30000,
+            "count_A_le_N": 103,
+            "count_over_sqrtN": 0.59467078,
+            "count_over_Npow_045": 0.99570952,
+            "count_over_Npow_049": 0.65924647
+          },
+          {
+            "N": 100000,
+            "count_A_le_N": 164,
+            "count_over_sqrtN": 0.51861354,
+            "count_over_Npow_045": 0.92223977,
+            "count_over_Npow_049": 0.58189396
+          },
+          {
+            "N": 300000,
+            "count_A_le_N": 244,
+            "count_over_sqrtN": 0.44548101,
+            "count_over_Npow_045": 0.83692253,
+            "count_over_Npow_049": 0.50535947
+          },
+          {
+            "N": 1000000,
+            "count_A_le_N": 384,
+            "count_over_sqrtN": 0.384,
+            "count_over_Npow_045": 0.76618073,
+            "count_over_Npow_049": 0.44089099
+          },
+          {
+            "N": 3000000,
+            "count_A_le_N": 574,
+            "count_over_sqrtN": 0.33139905,
+            "count_over_Npow_045": 0.69856581,
+            "count_over_Npow_049": 0.38470026
+          },
+          {
+            "N": 7000000,
+            "count_A_le_N": 777,
+            "count_over_sqrtN": 0.2936784,
+            "count_over_Npow_045": 0.64584292,
+            "count_over_Npow_049": 0.34381354
+          },
+          {
+            "N": 12000000,
+            "count_A_le_N": 945,
+            "count_over_sqrtN": 0.272798,
+            "count_over_Npow_045": 0.61631147,
+            "count_over_Npow_049": 0.3210946
+          },
+          {
+            "N": 20000000,
+            "count_A_le_N": 1139,
+            "count_over_sqrtN": 0.25468814,
+            "count_over_Npow_045": 0.59028293,
+            "count_over_Npow_049": 0.3013138
+          }
+        ],
+        "runtime_seconds": 14.303,
+        "generated_utc": "2026-03-05T14:52:16.456Z"
+      },
+      "runtime_seconds": 14.303
     }
   ]
 }

@@ -121,6 +121,115 @@
         ],
         "timestamp_utc": "2026-03-01T19:09:46.942Z"
       }
+    },
+    {
+      "source_file": "ep357.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-06T09:25:22.385Z",
+      "data": {
+        "problem": "EP-357",
+        "script": "ep357.mjs",
+        "method": "standalone_deep_exact_branch_and_bound_for_distinct_consecutive_sums",
+        "params": {
+          "N_LIST": [
+            42,
+            44,
+            46
+          ],
+          "MAX_NODES": 12000000
+        },
+        "rows": [
+          {
+            "n": 42,
+            "greedy_seed_k": 14,
+            "best_k_found": 18,
+            "search_nodes": 12000000,
+            "aborted_at_node_limit": true,
+            "witness_sequence": [
+              15,
+              19,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              35,
+              36,
+              38,
+              42
+            ],
+            "runtime_ms": 9670
+          },
+          {
+            "n": 44,
+            "greedy_seed_k": 14,
+            "best_k_found": 19,
+            "search_nodes": 12000000,
+            "aborted_at_node_limit": true,
+            "witness_sequence": [
+              8,
+              11,
+              15,
+              22,
+              23,
+              24,
+              25,
+              27,
+              28,
+              31,
+              32,
+              33,
+              35,
+              38,
+              40,
+              41,
+              42,
+              43,
+              44
+            ],
+            "runtime_ms": 8580
+          },
+          {
+            "n": 46,
+            "greedy_seed_k": 14,
+            "best_k_found": 19,
+            "search_nodes": 12000000,
+            "aborted_at_node_limit": true,
+            "witness_sequence": [
+              20,
+              21,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              35,
+              36,
+              38,
+              39,
+              40,
+              42,
+              43,
+              45
+            ],
+            "runtime_ms": 8598
+          }
+        ],
+        "runtime_seconds": 26.848,
+        "generated_utc": "2026-03-06T09:25:22.385Z"
+      },
+      "runtime_seconds": 26.848
     }
   ]
 }

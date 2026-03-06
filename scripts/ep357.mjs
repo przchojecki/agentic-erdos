@@ -1,88 +1,117 @@
 #!/usr/bin/env node
-// Canonical per-problem script for EP-357.
-// Auto-generated during repository normalization.
+import fs from 'node:fs';
+import path from 'node:path';
 
-const meta = {
-  problem: 'EP-357',
-  source_count: 1,
-  source_files: ["ep357_consecutive_sums_distinct_search.mjs"],
-};
-
-if (process.argv.includes('--json')) {
-  console.log(JSON.stringify(meta, null, 2));
-} else {
-  console.log('EP-357 canonical script');
-  console.log(`Integrated sections: ${meta.source_count}`);
-  console.log('Use --json for machine-readable metadata.');
+function parseIntList(value, fallback) {
+  if (!value) return fallback;
+  const out = value
+    .split(',')
+    .map((x) => Number(x.trim()))
+    .filter((x) => Number.isInteger(x) && x > 0)
+    .sort((a, b) => a - b);
+  return out.length ? out : fallback;
 }
 
-// ==== Integrated Snippet 1/1 ====
-// Source: ep357_consecutive_sums_distinct_search.mjs
-// Kind: current_script_file
-// Label: From ep357_consecutive_sums_distinct_search.mjs
-// #!/usr/bin/env node
-// import fs from 'node:fs';
-// import path from 'node:path';
-// 
-// const N_LIST = (process.env.N_LIST || '20,25,30,35,40').split(',').map(Number);
-// 
-// function maxKForN(n) {
-//   let best = [];
-// 
-//   function dfs(seq, prefixSums, intervalSet, startVal) {
-//     if (seq.length > best.length) best = seq.slice();
-// 
-//     // Upper bound by remaining values
-//     if (seq.length + (n - startVal + 1) <= best.length) return;
-// 
-//     for (let a = startVal; a <= n; a++) {
-//       const newPrefix = prefixSums[prefixSums.length - 1] + a;
-//       const newSums = [];
-//       let ok = true;
-//       for (let i = 0; i < prefixSums.length; i++) {
-//         const s = newPrefix - prefixSums[i];
-//         if (intervalSet.has(s)) {
-//           ok = false;
-//           break;
-//         }
-//         newSums.push(s);
-//       }
-//       if (!ok) continue;
-// 
-//       // commit
-//       for (const s of newSums) intervalSet.add(s);
-//       prefixSums.push(newPrefix);
-//       seq.push(a);
-// 
-//       dfs(seq, prefixSums, intervalSet, a + 1);
-// 
-//       // rollback
-//       seq.pop();
-//       prefixSums.pop();
-//       for (const s of newSums) intervalSet.delete(s);
-//     }
-//   }
-// 
-//   dfs([], [0], new Set(), 1);
-//   return best;
-// }
-// 
-// const rows = [];
-// for (const n of N_LIST) {
-//   const best = maxKForN(n);
-//   rows.push({ n, best_k_found: best.length, witness_sequence: best });
-// }
-// 
-// const out = {
-//   script: path.basename(process.argv[1]),
-//   n_list: N_LIST,
-//   rows,
-//   timestamp_utc: new Date().toISOString(),
-// };
-// 
-// const outPath = path.join('data', 'ep357_consecutive_sums_distinct_search.json');
-// fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
-// console.log(JSON.stringify({ outPath, n_list: N_LIST, rows: rows.length }, null, 2));
-// 
-// ==== End Snippet ====
+function greedySeed(n) {
+  const seq = [];
+  const pref = [0];
+  const used = new Set();
+  for (let a = 1; a <= n; a += 1) {
+    const np = pref[pref.length - 1] + a;
+    let ok = true;
+    for (let i = 0; i < pref.length; i += 1) {
+      const s = np - pref[i];
+      if (used.has(s)) {
+        ok = false;
+        break;
+      }
+    }
+    if (!ok) continue;
+    for (let i = 0; i < pref.length; i += 1) used.add(np - pref[i]);
+    pref.push(np);
+    seq.push(a);
+  }
+  return seq;
+}
 
+function exactMaxK(n, startBest = [], maxNodes) {
+  let best = [...startBest];
+  let nodes = 0;
+  let aborted = false;
+  const seq = [];
+  const pref = [0];
+  const used = new Set();
+
+  function place(a) {
+    const np = pref[pref.length - 1] + a;
+    const newSums = [];
+    for (let i = 0; i < pref.length; i += 1) {
+      const s = np - pref[i];
+      if (used.has(s)) return null;
+      newSums.push(s);
+    }
+    return { np, newSums };
+  }
+
+  function dfs(startVal) {
+    if (aborted) return;
+    nodes += 1;
+    if (nodes >= maxNodes) {
+      aborted = true;
+      return;
+    }
+    if (seq.length > best.length) best = seq.slice();
+    if (seq.length + (n - startVal + 1) <= best.length) return;
+
+    for (let a = n; a >= startVal; a -= 1) {
+      const plc = place(a);
+      if (!plc) continue;
+      const { np, newSums } = plc;
+      for (const s of newSums) used.add(s);
+      pref.push(np);
+      seq.push(a);
+      dfs(a + 1);
+      seq.pop();
+      pref.pop();
+      for (const s of newSums) used.delete(s);
+    }
+  }
+
+  dfs(1);
+  return { best, nodes, aborted };
+}
+
+const N_LIST = parseIntList(process.env.N_LIST, [42, 44, 46]);
+const MAX_NODES = Number(process.env.MAX_NODES || 12000000);
+const OUT = process.env.OUT || '';
+
+const t0 = Date.now();
+const rows = [];
+for (const n of N_LIST) {
+  const t1 = Date.now();
+  const seed = greedySeed(n);
+  const { best, nodes, aborted } = exactMaxK(n, seed, MAX_NODES);
+  rows.push({
+    n,
+    greedy_seed_k: seed.length,
+    best_k_found: best.length,
+    search_nodes: nodes,
+    aborted_at_node_limit: aborted,
+    witness_sequence: best,
+    runtime_ms: Date.now() - t1,
+  });
+}
+const runtime_seconds = Number(((Date.now() - t0) / 1000).toFixed(3));
+
+const out = {
+  problem: 'EP-357',
+  script: path.basename(process.argv[1]),
+  method: 'standalone_deep_exact_branch_and_bound_for_distinct_consecutive_sums',
+  params: { N_LIST, MAX_NODES },
+  rows,
+  runtime_seconds,
+  generated_utc: new Date().toISOString(),
+};
+
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

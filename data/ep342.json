@@ -78,6 +78,174 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep342.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T14:55:52.184Z",
+      "data": {
+        "problem": "EP-342",
+        "script": "ep342.mjs",
+        "method": "standalone_deep_ulam12_generation_and_tail_structure_diagnostics",
+        "params": {
+          "TERMS": 50000,
+          "X_LIST": [
+            10000,
+            30000,
+            100000,
+            300000,
+            1000000,
+            3000000,
+            7000000,
+            12000000
+          ],
+          "PERIODS": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            16,
+            20,
+            24,
+            30,
+            40,
+            60
+          ],
+          "TAIL_LEN": 14000
+        },
+        "terms_generated": 50000,
+        "last_term": 675999,
+        "twin_pair_count_in_prefix": 18450,
+        "density_rows": [
+          {
+            "X": 10000,
+            "count_terms_le_X": 827,
+            "density": 0.0827
+          },
+          {
+            "X": 30000,
+            "count_terms_le_X": 2339,
+            "density": 0.07796667
+          },
+          {
+            "X": 100000,
+            "count_terms_le_X": 7584,
+            "density": 0.07584
+          },
+          {
+            "X": 300000,
+            "count_terms_le_X": 22339,
+            "density": 0.07446333
+          },
+          {
+            "X": 1000000,
+            "count_terms_le_X": 50000,
+            "density": 0.05
+          },
+          {
+            "X": 3000000,
+            "count_terms_le_X": 50000,
+            "density": 0.01666667
+          },
+          {
+            "X": 7000000,
+            "count_terms_le_X": 50000,
+            "density": 0.00714286
+          },
+          {
+            "X": 12000000,
+            "count_terms_le_X": 50000,
+            "density": 0.00416667
+          }
+        ],
+        "periodicity_tail_rows": [
+          {
+            "period": 2,
+            "tail_match_ratio": 0.207387
+          },
+          {
+            "period": 4,
+            "tail_match_ratio": 0.147614
+          },
+          {
+            "period": 6,
+            "tail_match_ratio": 0.149064
+          },
+          {
+            "period": 8,
+            "tail_match_ratio": 0.164165
+          },
+          {
+            "period": 10,
+            "tail_match_ratio": 0.200143
+          },
+          {
+            "period": 12,
+            "tail_match_ratio": 0.194023
+          },
+          {
+            "period": 16,
+            "tail_match_ratio": 0.183352
+          },
+          {
+            "period": 20,
+            "tail_match_ratio": 0.192203
+          },
+          {
+            "period": 24,
+            "tail_match_ratio": 0.182169
+          },
+          {
+            "period": 30,
+            "tail_match_ratio": 0.179957
+          },
+          {
+            "period": 40,
+            "tail_match_ratio": 0.184384
+          },
+          {
+            "period": 60,
+            "tail_match_ratio": 0.176327
+          }
+        ],
+        "sample_last_terms": [
+          675677,
+          675679,
+          675718,
+          675721,
+          675723,
+          675748,
+          675750,
+          675765,
+          675767,
+          675784,
+          675831,
+          675833,
+          675845,
+          675848,
+          675889,
+          675897,
+          675899,
+          675914,
+          675916,
+          675919,
+          675921,
+          675936,
+          675938,
+          675941,
+          675943,
+          675955,
+          675977,
+          675980,
+          675982,
+          675999
+        ],
+        "runtime_seconds": 15.7,
+        "generated_utc": "2026-03-05T14:55:52.184Z"
+      },
+      "runtime_seconds": 15.7
     }
   ],
   "batch_split_integrations_from_head": {

@@ -71,6 +71,300 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep351.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T15:13:46.942Z",
+      "data": {
+        "problem": "EP-351",
+        "script": "ep351.mjs",
+        "method": "standalone_deep_exact_mitm_integer_subset_sums_for_poly_plus_inverse_terms",
+        "params": {
+          "CASES": [
+            {
+              "degree": 1,
+              "nFrom": 2,
+              "nTo": 46
+            },
+            {
+              "degree": 1,
+              "nFrom": 4,
+              "nTo": 48
+            },
+            {
+              "degree": 1,
+              "nFrom": 6,
+              "nTo": 50
+            },
+            {
+              "degree": 2,
+              "nFrom": 2,
+              "nTo": 44
+            },
+            {
+              "degree": 2,
+              "nFrom": 4,
+              "nTo": 46
+            },
+            {
+              "degree": 2,
+              "nFrom": 6,
+              "nTo": 48
+            },
+            {
+              "degree": 3,
+              "nFrom": 2,
+              "nTo": 42
+            },
+            {
+              "degree": 3,
+              "nFrom": 4,
+              "nTo": 44
+            },
+            {
+              "degree": 3,
+              "nFrom": 6,
+              "nTo": 46
+            },
+            {
+              "degree": 4,
+              "nFrom": 2,
+              "nTo": 40
+            },
+            {
+              "degree": 4,
+              "nFrom": 4,
+              "nTo": 42
+            }
+          ]
+        },
+        "rows": [
+          {
+            "degree": 1,
+            "n_range": [
+              2,
+              46
+            ],
+            "terms_used": 45,
+            "lcm_digits": 19,
+            "half_sizes": [
+              4194304,
+              8388608
+            ],
+            "integer_subset_pair_count": 8320,
+            "integer_values_count": 402,
+            "min_integer_value": "0",
+            "max_integer_value": "487",
+            "longest_consecutive_integer_run_length": 330,
+            "longest_run_start": "79",
+            "runtime_ms": 4500
+          },
+          {
+            "degree": 1,
+            "n_range": [
+              4,
+              48
+            ],
+            "terms_used": 45,
+            "lcm_digits": 21,
+            "half_sizes": [
+              4194304,
+              8388608
+            ],
+            "integer_subset_pair_count": 6148,
+            "integer_values_count": 357,
+            "min_integer_value": "0",
+            "max_integer_value": "492",
+            "longest_consecutive_integer_run_length": 308,
+            "longest_run_start": "136",
+            "runtime_ms": 5556
+          },
+          {
+            "degree": 1,
+            "n_range": [
+              6,
+              50
+            ],
+            "terms_used": 45,
+            "lcm_digits": 22,
+            "half_sizes": [
+              4194304,
+              8388608
+            ],
+            "integer_subset_pair_count": 1011,
+            "integer_values_count": 236,
+            "min_integer_value": "0",
+            "max_integer_value": "492",
+            "longest_consecutive_integer_run_length": 120,
+            "longest_run_start": "269",
+            "runtime_ms": 5426
+          },
+          {
+            "degree": 2,
+            "n_range": [
+              2,
+              44
+            ],
+            "terms_used": 43,
+            "lcm_digits": 19,
+            "half_sizes": [
+              2097152,
+              4194304
+            ],
+            "integer_subset_pair_count": 4160,
+            "integer_values_count": 3141,
+            "min_integer_value": "0",
+            "max_integer_value": "11769",
+            "longest_consecutive_integer_run_length": 12,
+            "longest_run_start": "6609",
+            "runtime_ms": 2309
+          },
+          {
+            "degree": 2,
+            "n_range": [
+              4,
+              46
+            ],
+            "terms_used": 43,
+            "lcm_digits": 19,
+            "half_sizes": [
+              2097152,
+              4194304
+            ],
+            "integer_subset_pair_count": 3036,
+            "integer_values_count": 2463,
+            "min_integer_value": "0",
+            "max_integer_value": "13281",
+            "longest_consecutive_integer_run_length": 8,
+            "longest_run_start": "7668",
+            "runtime_ms": 1936
+          },
+          {
+            "degree": 2,
+            "n_range": [
+              6,
+              48
+            ],
+            "terms_used": 43,
+            "lcm_digits": 21,
+            "half_sizes": [
+              2097152,
+              4194304
+            ],
+            "integer_subset_pair_count": 1011,
+            "integer_values_count": 941,
+            "min_integer_value": "0",
+            "max_integer_value": "15660",
+            "longest_consecutive_integer_run_length": 5,
+            "longest_run_start": "10846",
+            "runtime_ms": 2298
+          },
+          {
+            "degree": 3,
+            "n_range": [
+              2,
+              42
+            ],
+            "terms_used": 41,
+            "lcm_digits": 18,
+            "half_sizes": [
+              1048576,
+              2097152
+            ],
+            "integer_subset_pair_count": 4160,
+            "integer_values_count": 4089,
+            "min_integer_value": "0",
+            "max_integer_value": "370847",
+            "longest_consecutive_integer_run_length": 3,
+            "longest_run_start": "199261",
+            "runtime_ms": 798
+          },
+          {
+            "degree": 3,
+            "n_range": [
+              4,
+              44
+            ],
+            "terms_used": 41,
+            "lcm_digits": 19,
+            "half_sizes": [
+              1048576,
+              2097152
+            ],
+            "integer_subset_pair_count": 1480,
+            "integer_values_count": 1480,
+            "min_integer_value": "0",
+            "max_integer_value": "370595",
+            "longest_consecutive_integer_run_length": 2,
+            "longest_run_start": "204102",
+            "runtime_ms": 939
+          },
+          {
+            "degree": 3,
+            "n_range": [
+              6,
+              46
+            ],
+            "terms_used": 41,
+            "lcm_digits": 19,
+            "half_sizes": [
+              1048576,
+              2097152
+            ],
+            "integer_subset_pair_count": 387,
+            "integer_values_count": 385,
+            "min_integer_value": "0",
+            "max_integer_value": "452721",
+            "longest_consecutive_integer_run_length": 1,
+            "longest_run_start": "0",
+            "runtime_ms": 932
+          },
+          {
+            "degree": 4,
+            "n_range": [
+              2,
+              40
+            ],
+            "terms_used": 39,
+            "lcm_digits": 16,
+            "half_sizes": [
+              524288,
+              1048576
+            ],
+            "integer_subset_pair_count": 2080,
+            "integer_values_count": 2080,
+            "min_integer_value": "0",
+            "max_integer_value": "9512022",
+            "longest_consecutive_integer_run_length": 2,
+            "longest_run_start": "4346773",
+            "runtime_ms": 295
+          },
+          {
+            "degree": 4,
+            "n_range": [
+              4,
+              42
+            ],
+            "terms_used": 39,
+            "lcm_digits": 18,
+            "half_sizes": [
+              524288,
+              1048576
+            ],
+            "integer_subset_pair_count": 1480,
+            "integer_values_count": 1480,
+            "min_integer_value": "0",
+            "max_integer_value": "12624823",
+            "longest_consecutive_integer_run_length": 1,
+            "longest_run_start": "0",
+            "runtime_ms": 324
+          }
+        ],
+        "runtime_seconds": 25.313,
+        "generated_utc": "2026-03-05T15:13:46.942Z"
+      },
+      "runtime_seconds": 25.313
     }
   ],
   "batch_split_integrations_from_head": {

@@ -1,95 +1,109 @@
 #!/usr/bin/env node
-// Canonical per-problem script for EP-334.
-// Auto-generated during repository normalization.
+import fs from 'node:fs';
+import path from 'node:path';
 
-const meta = {
-  problem: 'EP-334',
-  source_count: 1,
-  source_files: ["ep334_smooth_sum_min_y_scan.mjs"],
-};
-
-if (process.argv.includes('--json')) {
-  console.log(JSON.stringify(meta, null, 2));
-} else {
-  console.log('EP-334 canonical script');
-  console.log(`Integrated sections: ${meta.source_count}`);
-  console.log('Use --json for machine-readable metadata.');
+function parseIntList(value, fallback) {
+  if (!value) return fallback;
+  const out = value
+    .split(',')
+    .map((x) => Number(x.trim()))
+    .filter((x) => Number.isInteger(x) && x >= 1000);
+  return out.length ? out : fallback;
 }
 
-// ==== Integrated Snippet 1/1 ====
-// Source: ep334_smooth_sum_min_y_scan.mjs
-// Kind: current_script_file
-// Label: From ep334_smooth_sum_min_y_scan.mjs
-// #!/usr/bin/env node
-// import fs from 'node:fs';
-// import path from 'node:path';
-// 
-// const N_MAX = Number(process.env.N_MAX || 12000);
-// const CHECKPOINTS = [2000,5000,10000,20000,50000,100000,N_MAX].filter((x,i,a)=>x<=N_MAX&&a.indexOf(x)===i);
-// 
-// function sieveSpf(n){
-//   const spf=new Int32Array(n+1);
-//   for(let i=2;i<=n;i++){
-//     if(spf[i]===0){spf[i]=i; if(i*i<=n){for(let j=i*i;j<=n;j+=i) if(spf[j]===0) spf[j]=i;}}
-//   }
-//   return spf;
-// }
-// 
-// const spf=sieveSpf(N_MAX+5);
-// const P=new Int32Array(N_MAX+1);
-// P[1]=1;
-// for(let n=2;n<=N_MAX;n++) P[n]=spf[n]; // largest prime factor via spf recursion below
-// for(let n=2;n<=N_MAX;n++){
-//   let x=n, mx=1;
-//   while(x>1){const p=spf[x]; if(p>mx) mx=p; while(x%p===0) x=Math.floor(x/p);} 
-//   P[n]=mx;
-// }
-// 
-// const bestY=new Int32Array(N_MAX+1);
-// for(let n=2;n<=N_MAX;n++){
-//   let best=1e9;
-//   for(let a=1;a<n;a++){
-//     const y=Math.max(P[a],P[n-a]);
-//     if(y<best) best=y;
-//     if(best<=3) break;
-//   }
-//   bestY[n]=best;
-// }
-// 
-// const rows=[];
-// for(const N of CHECKPOINTS){
-//   let maxY=0, arg=-1;
-//   let sumAlpha=0;
-//   for(let n=2;n<=N;n++){
-//     const y=bestY[n];
-//     if(y>maxY){maxY=y; arg=n;}
-//     sumAlpha += Math.log(y)/Math.log(n);
-//   }
-//   rows.push({
-//     N,
-//     max_min_smoothness_up_to_N:maxY,
-//     argmax_n:arg,
-//     max_log_ratio_logY_over_logN:Number((Math.log(maxY)/Math.log(N)).toFixed(6)),
-//     mean_log_ratio:Number((sumAlpha/(N-1)).toFixed(6)),
-//   });
-// }
-// 
-// const hardInstances=[];
-// for(let n=2;n<=Math.min(N_MAX,20000);n++){
-//   if(bestY[n]>=200) hardInstances.push({n,best_y:bestY[n]});
-// }
-// 
-// const out={
-//   script:path.basename(process.argv[1]),
-//   n_max:N_MAX,
-//   checkpoints:rows,
-//   hard_instances_sample:hardInstances.slice(0,120),
-//   timestamp_utc:new Date().toISOString(),
-// };
-// 
-// const outPath=path.join('data','ep334_smooth_sum_min_y_scan.json');
-// fs.writeFileSync(outPath,JSON.stringify(out,null,2));
-// console.log(JSON.stringify({outPath,n_max:N_MAX,rows:rows.length},null,2));
-// 
-// ==== End Snippet ====
+function sieveSpf(n) {
+  const spf = new Int32Array(n + 1);
+  for (let i = 2; i <= n; i += 1) {
+    if (spf[i] !== 0) continue;
+    spf[i] = i;
+    if (i * i > n) continue;
+    for (let j = i * i; j <= n; j += i) if (spf[j] === 0) spf[j] = i;
+  }
+  return spf;
+}
 
+function buildLargestPrimeFactor(n, spf) {
+  const lp = new Int32Array(n + 1);
+  lp[1] = 1;
+  for (let x = 2; x <= n; x += 1) {
+    let t = x;
+    let m = 1;
+    while (t > 1) {
+      const p = spf[t];
+      if (p > m) m = p;
+      while (t % p === 0) t = Math.floor(t / p);
+    }
+    lp[x] = m;
+  }
+  return lp;
+}
+
+function minYProfile(nMax, lp) {
+  const bestY = new Int32Array(nMax + 1);
+  bestY[2] = 1;
+  for (let n = 3; n <= nMax; n += 1) {
+    let best = 1 << 30;
+    const half = Math.floor(n / 2);
+    for (let a = 1; a <= half; a += 1) {
+      const y = lp[a] > lp[n - a] ? lp[a] : lp[n - a];
+      if (y < best) best = y;
+      if (best <= 2) break;
+    }
+    bestY[n] = best;
+  }
+  return bestY;
+}
+
+const N_MAX = Number(process.env.N_MAX || 120000);
+const CHECKPOINTS = parseIntList(process.env.CHECKPOINTS, [20000, 40000, 60000, 80000, 100000, 120000])
+  .filter((x) => x <= N_MAX);
+const OUT = process.env.OUT || '';
+
+const t0 = Date.now();
+const spf = sieveSpf(N_MAX + 5);
+const lp = buildLargestPrimeFactor(N_MAX, spf);
+const bestY = minYProfile(N_MAX, lp);
+
+const checkpoints = [];
+for (const N of CHECKPOINTS) {
+  let maxY = 0;
+  let arg = -1;
+  let sumAlpha = 0;
+  for (let n = 3; n <= N; n += 1) {
+    const y = bestY[n];
+    if (y > maxY) {
+      maxY = y;
+      arg = n;
+    }
+    sumAlpha += Math.log(y) / Math.log(n);
+  }
+  checkpoints.push({
+    N,
+    max_min_smoothness_up_to_N: maxY,
+    argmax_n: arg,
+    max_log_ratio_logY_over_logN: Number((Math.log(maxY) / Math.log(N)).toFixed(6)),
+    mean_log_ratio: Number((sumAlpha / (N - 2)).toFixed(6)),
+  });
+}
+
+const hard_instances_sample = [];
+for (let n = 3; n <= N_MAX; n += 1) {
+  if (bestY[n] >= 29 && hard_instances_sample.length < 200) {
+    hard_instances_sample.push({ n, best_y: bestY[n] });
+  }
+}
+
+const runtime_seconds = Number(((Date.now() - t0) / 1000).toFixed(3));
+const out = {
+  problem: 'EP-334',
+  script: path.basename(process.argv[1]),
+  method: 'standalone_exact_scan_min_y_in_n_equals_a_plus_b_with_y_smooth_parts',
+  params: { N_MAX, CHECKPOINTS },
+  checkpoints,
+  hard_instances_sample,
+  runtime_seconds,
+  generated_utc: new Date().toISOString(),
+};
+
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

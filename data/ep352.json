@@ -29,6 +29,54 @@
           }
         ]
       }
+    },
+    {
+      "source_file": "ep352.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-05T15:15:33.907Z",
+      "data": {
+        "problem": "EP-352",
+        "script": "ep352.mjs",
+        "method": "standalone_deep_lattice_subset_search_avoiding_area1_triangles",
+        "params": {
+          "M_LIST": [
+            16,
+            18,
+            20
+          ],
+          "RESTARTS": 15000,
+          "SEED": 3522026
+        },
+        "rows": [
+          {
+            "grid_m": 16,
+            "total_points": 289,
+            "restarts": 15000,
+            "best_area1_free_subset_size": 97,
+            "density": 0.33564014,
+            "runtime_ms": 2529
+          },
+          {
+            "grid_m": 18,
+            "total_points": 361,
+            "restarts": 15000,
+            "best_area1_free_subset_size": 114,
+            "density": 0.31578947,
+            "runtime_ms": 3975
+          },
+          {
+            "grid_m": 20,
+            "total_points": 441,
+            "restarts": 15000,
+            "best_area1_free_subset_size": 93,
+            "density": 0.21088435,
+            "runtime_ms": 6607
+          }
+        ],
+        "runtime_seconds": 13.111,
+        "generated_utc": "2026-03-05T15:15:33.907Z"
+      },
+      "runtime_seconds": 13.111
     }
   ],
   "batch_split_integrations_from_head": {
