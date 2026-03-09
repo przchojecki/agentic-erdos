@@ -1,25 +1,27 @@
 # Agentic Erdős
 
-Tracking repository for experimental progress on Erdős problems from the local canonical per-problem files.
+This repository runs a parallel, agentic research loop over the full open Erdős problem set: each problem is tracked as its own computational and proof object, and the system iterates across all of them rather than solving one problem in isolation.
+
+In practice, work is done one problem at a time but at portfolio scale: each EP entry gets standalone script runs, structured data snapshots, literature checks, and proof-attempt notes, then is revisited with deeper computations or stronger arguments as new signals appear.
 
 ## Scope
 
 - Total problems tracked: **632**
 - Triaged as `to-check`: **632**
 - Triaged as `harder`: **0**
-- README last generated (UTC): **2026-03-05T13:45:49.170Z**
+- README last generated (UTC): **2026-03-09T16:00:25.934Z**
 
 ## Closure State Counts
 
-- `open`: 625
+- `open`: 626
 - `counterexample`: 0
-- `resolved`: 7
+- `resolved`: 6
 - `dataset_issue`: 0
 
 ## Progress Status Counts
 
-- `no_progress`: 392
-- `has_computation`: 240
+- `no_progress`: 365
+- `has_computation`: 267
 
 ## Data and Notes
 
@@ -180,68 +182,68 @@ node generate_readme_progress.mjs
 | EP-261 | Erdos Problem #261 | to-check |  |  | open | has_computation | Computations: 4 |
 | EP-263 | Erdos Problem #263 | to-check |  |  | open | has_computation | Computations: 5 |
 | EP-264 | Erdos Problem #264 | to-check |  |  | open | has_computation | Computations: 4 |
-| EP-265 | Erdos Problem #265 | to-check |  |  | open | has_computation | Computations: 3 |
+| EP-265 | Erdos Problem #265 | to-check |  |  | open | has_computation | Computations: 4 |
 | EP-267 | Erdos Problem #267 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-269 | Erdos Problem #269 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-271 | Erdos Problem #271 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-271 | Erdos Problem #271 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-272 | Erdos Problem #272 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-273 | Erdos Problem #273 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-274 | Erdos Problem #274 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-276 | Erdos Problem #276 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-274 | Erdos Problem #274 | to-check |  |  | open | has_computation | Computations: 4 |
+| EP-276 | Erdos Problem #276 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-278 | Erdos Problem #278 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-279 | Erdos Problem #279 | to-check |  |  | open | has_computation | Computations: 3 |
+| EP-279 | Erdos Problem #279 | to-check |  |  | open | has_computation | Computations: 4 |
 | EP-281 | Erdos Problem #281 | to-check |  |  | resolved | no_progress | Computations: 0 |
 | EP-282 | Erdos Problem #282 | to-check |  |  | open | has_computation | Computations: 2 |
-| EP-283 | Erdos Problem #283 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-283 | Erdos Problem #283 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-288 | Erdos Problem #288 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-289 | Erdos Problem #289 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-291 | Erdos Problem #291 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-293 | Erdos Problem #293 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-291 | Erdos Problem #291 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-293 | Erdos Problem #293 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-295 | Erdos Problem #295 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-301 | Erdos Problem #301 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-302 | Erdos Problem #302 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-304 | Erdos Problem #304 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-306 | Erdos Problem #306 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-304 | Erdos Problem #304 | to-check |  |  | open | has_computation | Computations: 4 |
+| EP-306 | Erdos Problem #306 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-311 | Erdos Problem #311 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-312 | Erdos Problem #312 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-313 | Erdos Problem #313 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-317 | Erdos Problem #317 | to-check |  |  | open | has_computation | Computations: 3 |
+| EP-317 | Erdos Problem #317 | to-check |  |  | open | has_computation | Computations: 4 |
 | EP-318 | Erdos Problem #318 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-319 | Erdos Problem #319 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-320 | Erdos Problem #320 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-319 | Erdos Problem #319 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-320 | Erdos Problem #320 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-321 | Erdos Problem #321 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-322 | Erdos Problem #322 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-323 | Erdos Problem #323 | to-check |  |  | open | has_computation | Computations: 4 |
+| EP-322 | Erdos Problem #322 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-323 | Erdos Problem #323 | to-check |  |  | open | has_computation | Computations: 5 |
 | EP-324 | Erdos Problem #324 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-325 | Erdos Problem #325 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-326 | Erdos Problem #326 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-327 | Erdos Problem #327 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-329 | Erdos Problem #329 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-330 | Erdos Problem #330 | to-check |  |  | open | has_computation | Computations: 2 |
-| EP-332 | Erdos Problem #332 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-334 | Erdos Problem #334 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-335 | Erdos Problem #335 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-336 | Erdos Problem #336 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-338 | Erdos Problem #338 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-340 | Erdos Problem #340 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-341 | Erdos Problem #341 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-342 | Erdos Problem #342 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-345 | Erdos Problem #345 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-346 | Erdos Problem #346 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-348 | Erdos Problem #348 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-349 | Erdos Problem #349 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-351 | Erdos Problem #351 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-352 | Erdos Problem #352 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-354 | Erdos Problem #354 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-357 | Erdos Problem #357 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-358 | Erdos Problem #358 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-359 | Erdos Problem #359 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-325 | Erdos Problem #325 | to-check |  |  | open | has_computation | Computations: 9 |
+| EP-326 | Erdos Problem #326 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-327 | Erdos Problem #327 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-329 | Erdos Problem #329 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-330 | Erdos Problem #330 | to-check |  |  | open | has_computation | Computations: 3 |
+| EP-332 | Erdos Problem #332 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-334 | Erdos Problem #334 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-335 | Erdos Problem #335 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-336 | Erdos Problem #336 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-338 | Erdos Problem #338 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-340 | Erdos Problem #340 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-341 | Erdos Problem #341 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-342 | Erdos Problem #342 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-345 | Erdos Problem #345 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-346 | Erdos Problem #346 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-348 | Erdos Problem #348 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-349 | Erdos Problem #349 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-351 | Erdos Problem #351 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-352 | Erdos Problem #352 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-354 | Erdos Problem #354 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-357 | Erdos Problem #357 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-358 | Erdos Problem #358 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-359 | Erdos Problem #359 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-361 | Erdos Problem #361 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-365 | Erdos Problem #365 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-367 | Erdos Problem #367 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-368 | Erdos Problem #368 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-369 | Erdos Problem #369 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-371 | Erdos Problem #371 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-365 | Erdos Problem #365 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-367 | Erdos Problem #367 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-368 | Erdos Problem #368 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-369 | Erdos Problem #369 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-371 | Erdos Problem #371 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-373 | Erdos Problem #373 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-374 | Erdos Problem #374 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-376 | Erdos Problem #376 | to-check |  |  | open | no_progress | Computations: 0 |
@@ -505,7 +507,7 @@ node generate_readme_progress.mjs
 | EP-851 | Erdos Problem #851 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-852 | Erdos Problem #852 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-853 | Erdos Problem #853 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-854 | Erdos Problem #854 | to-check |  |  | open | has_computation | Computations: 88 |
+| EP-854 | Erdos Problem #854 | to-check |  |  | open | has_computation | Computations: 8 |
 | EP-856 | Erdos Problem #856 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-857 | Erdos Problem #857 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-858 | Erdos Problem #858 | to-check |  |  | open | has_computation | Computations: 2 |
@@ -548,31 +550,31 @@ node generate_readme_progress.mjs
 | EP-920 | Erdos Problem #920 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-928 | Erdos Problem #928 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-929 | Erdos Problem #929 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-930 | Erdos Problem #930 | to-check |  |  | open | has_computation | Computations: 3 |
-| EP-931 | Erdos Problem #931 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-932 | Erdos Problem #932 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-933 | Erdos Problem #933 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-934 | Erdos Problem #934 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-930 | Erdos Problem #930 | to-check |  |  | open | has_computation | Computations: 4 |
+| EP-931 | Erdos Problem #931 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-932 | Erdos Problem #932 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-933 | Erdos Problem #933 | to-check |  |  | open | has_computation | Computations: 2 |
+| EP-934 | Erdos Problem #934 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-935 | Erdos Problem #935 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-936 | Erdos Problem #936 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-938 | Erdos Problem #938 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-939 | Erdos Problem #939 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-940 | Erdos Problem #940 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-942 | Erdos Problem #942 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-936 | Erdos Problem #936 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-938 | Erdos Problem #938 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-939 | Erdos Problem #939 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-940 | Erdos Problem #940 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-942 | Erdos Problem #942 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-943 | Erdos Problem #943 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-944 | Erdos Problem #944 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-945 | Erdos Problem #945 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-944 | Erdos Problem #944 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-945 | Erdos Problem #945 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-948 | Erdos Problem #948 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-949 | Erdos Problem #949 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-950 | Erdos Problem #950 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-951 | Erdos Problem #951 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-952 | Erdos Problem #952 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-953 | Erdos Problem #953 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-953 | Erdos Problem #953 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-954 | Erdos Problem #954 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-955 | Erdos Problem #955 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-955 | Erdos Problem #955 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-956 | Erdos Problem #956 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-959 | Erdos Problem #959 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-960 | Erdos Problem #960 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-959 | Erdos Problem #959 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-960 | Erdos Problem #960 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-961 | Erdos Problem #961 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-962 | Erdos Problem #962 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-963 | Erdos Problem #963 | to-check |  |  | open | no_progress | Computations: 0 |
@@ -604,7 +606,7 @@ node generate_readme_progress.mjs
 | EP-1014 | Erdos Problem #1014 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-1016 | Erdos Problem #1016 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-1017 | Erdos Problem #1017 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-1021 | Erdos Problem #1021 | to-check |  |  | resolved | no_progress | Computations: 0 |
+| EP-1021 | Erdos Problem #1021 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-1022 | Erdos Problem #1022 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-1029 | Erdos Problem #1029 | to-check |  |  | open | no_progress | Computations: 0 |
 | EP-1030 | Erdos Problem #1030 | to-check |  |  | open | no_progress | Computations: 0 |

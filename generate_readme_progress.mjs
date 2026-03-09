@@ -102,7 +102,9 @@ function buildReadme(rows) {
 
   return `# Agentic Erdős
 
-Tracking repository for experimental progress on Erdős problems from the local canonical per-problem files.
+This repository runs a parallel, agentic research loop over the full open Erdős problem set: each problem is tracked as its own computational and proof object, and the system iterates across all of them rather than solving one problem in isolation.
+
+In practice, work is done one problem at a time but at portfolio scale: each EP entry gets standalone script runs, structured data snapshots, literature checks, and proof-attempt notes, then is revisited with deeper computations or stronger arguments as new signals appear.
 
 ## Scope
 
