@@ -2273,6 +2273,1811 @@
         "generated_utc": "2026-03-05T14:18:37.296Z"
       },
       "runtime_seconds": 10.637
+    },
+    {
+      "source_file": "ep325.mjs",
+      "kind": "standalone_deep_run_v2_summary",
+      "generated_utc": "2026-03-09T15:26:25.218Z",
+      "data": {
+        "method": "standalone_exact_profile_f_k_3_up_to_large_x",
+        "params": {
+          "K_LIST": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "K_XMAX": {
+            "3": 220000000,
+            "4": 140000000,
+            "5": 120000000,
+            "6": 100000000
+          },
+          "K_XMAX_LIST": {
+            "3": [
+              600000000,
+              800000000,
+              1000000000
+            ],
+            "4": [
+              350000000,
+              500000000
+            ],
+            "5": [
+              300000000,
+              450000000
+            ],
+            "6": [
+              220000000,
+              320000000
+            ]
+          },
+          "FRACTIONS": [
+            0.1,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ]
+        },
+        "runtime_seconds": 19.2,
+        "endpoint_ratio_summary": [
+          {
+            "k": 3,
+            "start": {
+              "X": 60000000,
+              "ratio_over_X_pow_3_over_k": 0.10205868,
+              "density": 0.10205868
+            },
+            "end": {
+              "X": 1000000000,
+              "ratio_over_X_pow_3_over_k": 0.10073517,
+              "density": 0.10073517
+            },
+            "ratio_drop": 0.00132351
+          },
+          {
+            "k": 4,
+            "start": {
+              "X": 35000000,
+              "ratio_over_X_pow_3_over_k": 0.14114096,
+              "density": 0.001835
+            },
+            "end": {
+              "X": 500000000,
+              "ratio_over_X_pow_3_over_k": 0.13789359,
+              "density": 0.00092215
+            },
+            "ratio_drop": 0.00324737
+          },
+          {
+            "k": 5,
+            "start": {
+              "X": 30000000,
+              "ratio_over_X_pow_3_over_k": 0.16691216,
+              "density": 0.00017047
+            },
+            "end": {
+              "X": 450000000,
+              "ratio_over_X_pow_3_over_k": 0.15652701,
+              "density": 0.00005411
+            },
+            "ratio_drop": 0.01038515
+          },
+          {
+            "k": 6,
+            "start": {
+              "X": 22000000,
+              "ratio_over_X_pow_3_over_k": 0.19081464,
+              "density": 0.00004068
+            },
+            "end": {
+              "X": 320000000,
+              "ratio_over_X_pow_3_over_k": 0.17860593,
+              "density": 0.00000998
+            },
+            "ratio_drop": 0.01220871
+          }
+        ],
+        "missing_gap_diagnostics": [
+          {
+            "k": 3,
+            "x_max_used": 1000000000,
+            "max_missing_gap_len": 158,
+            "max_missing_gap_interval": [
+              179851114,
+              179851271
+            ],
+            "first_missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              11,
+              12,
+              13,
+              14,
+              15,
+              18,
+              19,
+              20
+            ]
+          },
+          {
+            "k": 4,
+            "x_max_used": 500000000,
+            "max_missing_gap_len": 18653,
+            "max_missing_gap_interval": [
+              358963684,
+              358982336
+            ],
+            "first_missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "k": 5,
+            "x_max_used": 450000000,
+            "max_missing_gap_len": 443144,
+            "max_missing_gap_interval": [
+              277256531,
+              277699674
+            ],
+            "first_missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "k": 6,
+            "x_max_used": 320000000,
+            "max_missing_gap_len": 2702726,
+            "max_missing_gap_interval": [
+              220067355,
+              222770080
+            ],
+            "first_missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep325.mjs",
+      "kind": "local_residue_obstruction_scan_summary",
+      "generated_utc": "2026-03-09T15:35:17.110Z",
+      "data": {
+        "description": "Residue classes modulo m representable as sum of three nonnegative k-th powers; report missing classes.",
+        "ks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "mods": [
+          7,
+          8,
+          9,
+          11,
+          13,
+          16,
+          19,
+          27,
+          31,
+          37,
+          41,
+          64,
+          81,
+          125
+        ],
+        "rows": [
+          {
+            "k": 3,
+            "modulus": 9,
+            "missing_count": 2,
+            "missing_samples": [
+              4,
+              5
+            ]
+          },
+          {
+            "k": 3,
+            "modulus": 27,
+            "missing_count": 6,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23
+            ]
+          },
+          {
+            "k": 3,
+            "modulus": 81,
+            "missing_count": 18,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77
+            ]
+          },
+          {
+            "k": 4,
+            "modulus": 8,
+            "missing_count": 4,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "k": 4,
+            "modulus": 16,
+            "missing_count": 12,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "k": 4,
+            "modulus": 64,
+            "missing_count": 48,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ]
+          },
+          {
+            "k": 4,
+            "modulus": 125,
+            "missing_count": 49,
+            "missing_samples": [
+              4,
+              5,
+              9,
+              10,
+              14,
+              15,
+              19,
+              20,
+              24,
+              25,
+              29,
+              30,
+              34,
+              35,
+              39,
+              40,
+              44,
+              45,
+              49,
+              50
+            ]
+          },
+          {
+            "k": 5,
+            "modulus": 11,
+            "missing_count": 4,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 7,
+            "missing_count": 3,
+            "missing_samples": [
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 8,
+            "missing_count": 4,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 9,
+            "missing_count": 5,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 13,
+            "missing_count": 6,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 16,
+            "missing_count": 9,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 19,
+            "missing_count": 3,
+            "missing_samples": [
+              5,
+              16,
+              17
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 27,
+            "missing_count": 17,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              22,
+              23,
+              24,
+              25,
+              26
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 31,
+            "missing_count": 5,
+            "missing_samples": [
+              15,
+              23,
+              27,
+              29,
+              30
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 64,
+            "missing_count": 39,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              12,
+              13,
+              14,
+              15,
+              16,
+              20,
+              21,
+              22,
+              23,
+              24,
+              28,
+              29,
+              30,
+              31,
+              32
+            ]
+          },
+          {
+            "k": 6,
+            "modulus": 81,
+            "missing_count": 53,
+            "missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              31,
+              32
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep325.mjs",
+      "kind": "standalone_push_harder_k3_1p2b",
+      "generated_utc": "2026-03-09T15:39:01.410Z",
+      "data": {
+        "method": "standalone_exact_profile_f_k_3_up_to_large_x",
+        "params": {
+          "K_LIST": [
+            3
+          ],
+          "K_XMAX": {
+            "3": 220000000,
+            "4": 140000000,
+            "5": 120000000,
+            "6": 100000000
+          },
+          "K_XMAX_LIST": {
+            "3": [
+              1200000000
+            ]
+          },
+          "FRACTIONS": [
+            0.1,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ]
+        },
+        "runtime_seconds": 6.073,
+        "rows": [
+          {
+            "k": 3,
+            "X": 120000000,
+            "x_max_used": 1200000000,
+            "basis_size": 1063,
+            "f_k3_X": 12194454,
+            "ratio_over_X_pow_3_over_k": 0.10162045,
+            "density": 0.10162045,
+            "run_runtime_ms_for_k": 6073
+          },
+          {
+            "k": 3,
+            "X": 240000000,
+            "x_max_used": 1200000000,
+            "basis_size": 1063,
+            "f_k3_X": 24303070,
+            "ratio_over_X_pow_3_over_k": 0.10126279,
+            "density": 0.10126279,
+            "run_runtime_ms_for_k": 6073
+          },
+          {
+            "k": 3,
+            "X": 480000000,
+            "x_max_used": 1200000000,
+            "basis_size": 1063,
+            "f_k3_X": 48467687,
+            "ratio_over_X_pow_3_over_k": 0.10097435,
+            "density": 0.10097435,
+            "run_runtime_ms_for_k": 6073
+          },
+          {
+            "k": 3,
+            "X": 720000000,
+            "x_max_used": 1200000000,
+            "basis_size": 1063,
+            "f_k3_X": 72602883,
+            "ratio_over_X_pow_3_over_k": 0.10083734,
+            "density": 0.10083734,
+            "run_runtime_ms_for_k": 6073
+          },
+          {
+            "k": 3,
+            "X": 960000000,
+            "x_max_used": 1200000000,
+            "basis_size": 1063,
+            "f_k3_X": 96720409,
+            "ratio_over_X_pow_3_over_k": 0.10075043,
+            "density": 0.10075043,
+            "run_runtime_ms_for_k": 6073
+          },
+          {
+            "k": 3,
+            "X": 1200000000,
+            "x_max_used": 1200000000,
+            "basis_size": 1063,
+            "f_k3_X": 120819285,
+            "ratio_over_X_pow_3_over_k": 0.10068274,
+            "density": 0.10068274,
+            "run_runtime_ms_for_k": 6073
+          }
+        ],
+        "diagnostics": [
+          {
+            "k": 3,
+            "x_max_used": 1200000000,
+            "max_missing_gap_len": 158,
+            "max_missing_gap_start": 179851114,
+            "max_missing_gap_end": 179851271,
+            "first_missing_samples": [
+              4,
+              5,
+              6,
+              7,
+              11,
+              12,
+              13,
+              14,
+              15,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              25,
+              26,
+              30,
+              31,
+              32,
+              33,
+              34,
+              37,
+              38,
+              39
+            ],
+            "run_runtime_ms_for_k": 6073
+          }
+        ]
+      }
+    },
+    {
+      "source_file": "ep325.mjs",
+      "kind": "k3_local_density_mod_scan_up_to_400",
+      "generated_utc": "2026-03-09T15:42:09.448Z",
+      "data": {
+        "k": 3,
+        "modulus_max": 400,
+        "worst_moduli": [
+          {
+            "m": 9,
+            "covered": 7,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5
+            ]
+          },
+          {
+            "m": 18,
+            "covered": 14,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14
+            ]
+          },
+          {
+            "m": 27,
+            "covered": 21,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23
+            ]
+          },
+          {
+            "m": 36,
+            "covered": 28,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32
+            ]
+          },
+          {
+            "m": 45,
+            "covered": 35,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41
+            ]
+          },
+          {
+            "m": 54,
+            "covered": 42,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50
+            ]
+          },
+          {
+            "m": 63,
+            "covered": 49,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59
+            ]
+          },
+          {
+            "m": 72,
+            "covered": 56,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68
+            ]
+          },
+          {
+            "m": 81,
+            "covered": 63,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77
+            ]
+          },
+          {
+            "m": 90,
+            "covered": 70,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 99,
+            "covered": 77,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 108,
+            "covered": 84,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 117,
+            "covered": 91,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 126,
+            "covered": 98,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 135,
+            "covered": 105,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 144,
+            "covered": 112,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 153,
+            "covered": 119,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 162,
+            "covered": 126,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 171,
+            "covered": 133,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 180,
+            "covered": 140,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 189,
+            "covered": 147,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 198,
+            "covered": 154,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 207,
+            "covered": 161,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 216,
+            "covered": 168,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 225,
+            "covered": 175,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 234,
+            "covered": 182,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 243,
+            "covered": 189,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 252,
+            "covered": 196,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 261,
+            "covered": 203,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          },
+          {
+            "m": 270,
+            "covered": 210,
+            "ratio": 0.777778,
+            "missing_samples": [
+              4,
+              5,
+              13,
+              14,
+              22,
+              23,
+              31,
+              32,
+              40,
+              41,
+              49,
+              50,
+              58,
+              59,
+              67,
+              68,
+              76,
+              77,
+              85,
+              86
+            ]
+          }
+        ],
+        "global_min_ratio": 0.777778
+      }
+    },
+    {
+      "source_file": "ep325_k4_sparse_scan.mjs",
+      "kind": "k4_sparse_exact_scan_to_1e10",
+      "generated_utc": "2026-03-09T15:48:22.291Z",
+      "data": {
+        "problem": "EP-325",
+        "script": "ep325_k4_sparse_scan.mjs",
+        "method": "exact_sparse_unordered_triples_of_fourth_powers",
+        "params": {
+          "X_LIST": [
+            1000000,
+            3000000,
+            10000000,
+            30000000,
+            100000000,
+            300000000,
+            1000000000,
+            3000000000,
+            10000000000
+          ]
+        },
+        "basis_size": 317,
+        "generated_triples_unordered": 4333324,
+        "represented_distinct_up_to_xmax": 4304868,
+        "rows": [
+          {
+            "k": 4,
+            "X": 1000000,
+            "f_k3_X": 4845,
+            "ratio_over_X_pow_3_over_k": 0.15321235,
+            "gamma_hat_log_ratio": 0.61421563,
+            "density_over_integers": 0.004845
+          },
+          {
+            "k": 4,
+            "X": 3000000,
+            "f_k3_X": 10667,
+            "ratio_over_X_pow_3_over_k": 0.14797943,
+            "gamma_hat_log_ratio": 0.62188774,
+            "density_over_integers": 0.0035556667
+          },
+          {
+            "k": 4,
+            "X": 10000000,
+            "f_k3_X": 25697,
+            "ratio_over_X_pow_3_over_k": 0.14450485,
+            "gamma_hat_log_ratio": 0.6299832,
+            "density_over_integers": 0.0025697
+          },
+          {
+            "k": 4,
+            "X": 30000000,
+            "f_k3_X": 57372,
+            "ratio_over_X_pow_3_over_k": 0.14153344,
+            "gamma_hat_log_ratio": 0.63643478,
+            "density_over_integers": 0.0019124
+          },
+          {
+            "k": 4,
+            "X": 100000000,
+            "f_k3_X": 139393,
+            "ratio_over_X_pow_3_over_k": 0.139393,
+            "gamma_hat_log_ratio": 0.64303012,
+            "density_over_integers": 0.00139393
+          },
+          {
+            "k": 4,
+            "X": 300000000,
+            "f_k3_X": 315392,
+            "ratio_over_X_pow_3_over_k": 0.13835974,
+            "gamma_hat_log_ratio": 0.64866958,
+            "density_over_integers": 0.0010513067
+          },
+          {
+            "k": 4,
+            "X": 1000000000,
+            "f_k3_X": 771754,
+            "ratio_over_X_pow_3_over_k": 0.13723942,
+            "gamma_hat_log_ratio": 0.65416432,
+            "density_over_integers": 0.000771754
+          },
+          {
+            "k": 4,
+            "X": 3000000000,
+            "f_k3_X": 1751388,
+            "ratio_over_X_pow_3_over_k": 0.13662854,
+            "gamma_hat_log_ratio": 0.65878469,
+            "density_over_integers": 0.000583796
+          },
+          {
+            "k": 4,
+            "X": 10000000000,
+            "f_k3_X": 4304868,
+            "ratio_over_X_pow_3_over_k": 0.13613188,
+            "gamma_hat_log_ratio": 0.66339598,
+            "density_over_integers": 0.0004304868
+          }
+        ],
+        "diagnostics": {
+          "max_missing_gap_len": 48685,
+          "max_missing_gap_start": 9098352132,
+          "max_missing_gap_end": 9098400816,
+          "first_missing_samples": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        "runtime_seconds": 0.928,
+        "generated_utc": "2026-03-09T15:48:22.291Z"
+      }
+    },
+    {
+      "source_file": "ep325_sparse_scan.mjs",
+      "kind": "k5_sparse_exact_scan_to_1e13",
+      "generated_utc": "2026-03-09T15:54:11.007Z",
+      "data": {
+        "problem": "EP-325",
+        "script": "ep325_sparse_scan.mjs",
+        "method": "exact_sparse_unordered_triples_kth_powers",
+        "params": {
+          "K": 5,
+          "X_LIST": [
+            1000000,
+            10000000,
+            100000000,
+            1000000000,
+            10000000000,
+            100000000000,
+            1000000000000,
+            10000000000000
+          ]
+        },
+        "basis_size": 399,
+        "generated_triples_unordered": 9214478,
+        "represented_distinct_up_to_xmax": 9214400,
+        "rows": [
+          {
+            "k": 5,
+            "X": 1000000,
+            "f_k3_X": 735,
+            "ratio_over_X_pow_3_over_k": 0.18462365,
+            "gamma_hat_log_ratio": 0.47771456,
+            "density_over_integers": 0.000735
+          },
+          {
+            "k": 5,
+            "X": 10000000,
+            "f_k3_X": 2735,
+            "ratio_over_X_pow_3_over_k": 0.17256683,
+            "gamma_hat_log_ratio": 0.4909939,
+            "density_over_integers": 0.0002735
+          },
+          {
+            "k": 5,
+            "X": 100000000,
+            "f_k3_X": 10148,
+            "ratio_over_X_pow_3_over_k": 0.16083496,
+            "gamma_hat_log_ratio": 0.50079756,
+            "density_over_integers": 0.00010148
+          },
+          {
+            "k": 5,
+            "X": 1000000000,
+            "f_k3_X": 38945,
+            "ratio_over_X_pow_3_over_k": 0.15504284,
+            "gamma_hat_log_ratio": 0.51005019,
+            "density_over_integers": 0.000038945
+          },
+          {
+            "k": 5,
+            "X": 10000000000,
+            "f_k3_X": 150601,
+            "ratio_over_X_pow_3_over_k": 0.150601,
+            "gamma_hat_log_ratio": 0.51778279,
+            "density_over_integers": 0.0000150601
+          },
+          {
+            "k": 5,
+            "X": 100000000000,
+            "f_k3_X": 591419,
+            "ratio_over_X_pow_3_over_k": 0.14855774,
+            "gamma_hat_log_ratio": 0.52471775,
+            "density_over_integers": 0.00000591419
+          },
+          {
+            "k": 5,
+            "X": 1000000000000,
+            "f_k3_X": 2330306,
+            "ratio_over_X_pow_3_over_k": 0.14703237,
+            "gamma_hat_log_ratio": 0.53061775,
+            "density_over_integers": 0.000002330306
+          },
+          {
+            "k": 5,
+            "X": 10000000000000,
+            "f_k3_X": 9214400,
+            "ratio_over_X_pow_3_over_k": 0.1460384,
+            "gamma_hat_log_ratio": 0.53572824,
+            "density_over_integers": 9.2144e-7
+          }
+        ],
+        "diagnostics": {
+          "max_missing_gap_len": 30061480,
+          "max_missing_gap_start": 7089267446945,
+          "max_missing_gap_end": 7089297508424,
+          "first_missing_samples": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ]
+        },
+        "runtime_seconds": 2.273,
+        "generated_utc": "2026-03-09T15:54:11.007Z"
+      }
+    },
+    {
+      "source_file": "ep325_sparse_scan.mjs",
+      "kind": "k6_sparse_exact_scan_to_1e15",
+      "generated_utc": "2026-03-09T15:54:09.890Z",
+      "data": {
+        "problem": "EP-325",
+        "script": "ep325_sparse_scan.mjs",
+        "method": "exact_sparse_unordered_triples_kth_powers",
+        "params": {
+          "K": 6,
+          "X_LIST": [
+            1000000,
+            10000000,
+            100000000,
+            1000000000,
+            10000000000,
+            100000000000,
+            1000000000000,
+            10000000000000,
+            100000000000000,
+            1000000000000000
+          ]
+        },
+        "basis_size": 317,
+        "generated_triples_unordered": 4817466,
+        "represented_distinct_up_to_xmax": 4817423,
+        "rows": [
+          {
+            "k": 6,
+            "X": 1000000,
+            "f_k3_X": 210,
+            "ratio_over_X_pow_3_over_k": 0.21,
+            "gamma_hat_log_ratio": 0.38703655,
+            "density_over_integers": 0.00021
+          },
+          {
+            "k": 6,
+            "X": 10000000,
+            "f_k3_X": 630,
+            "ratio_over_X_pow_3_over_k": 0.19922349,
+            "gamma_hat_log_ratio": 0.39990579,
+            "density_over_integers": 0.000063
+          },
+          {
+            "k": 6,
+            "X": 100000000,
+            "f_k3_X": 1843,
+            "ratio_over_X_pow_3_over_k": 0.1843,
+            "gamma_hat_log_ratio": 0.40819067,
+            "density_over_integers": 0.00001843
+          },
+          {
+            "k": 6,
+            "X": 1000000000,
+            "f_k3_X": 5447,
+            "ratio_over_X_pow_3_over_k": 0.17224926,
+            "gamma_hat_log_ratio": 0.4151286,
+            "density_over_integers": 0.000005447
+          },
+          {
+            "k": 6,
+            "X": 10000000000,
+            "f_k3_X": 16563,
+            "ratio_over_X_pow_3_over_k": 0.16563,
+            "gamma_hat_log_ratio": 0.4219139,
+            "density_over_integers": 0.0000016563
+          },
+          {
+            "k": 6,
+            "X": 100000000000,
+            "f_k3_X": 50781,
+            "ratio_over_X_pow_3_over_k": 0.16058362,
+            "gamma_hat_log_ratio": 0.42779102,
+            "density_over_integers": 5.0781e-7
+          },
+          {
+            "k": 6,
+            "X": 1000000000000,
+            "f_k3_X": 156451,
+            "ratio_over_X_pow_3_over_k": 0.156451,
+            "gamma_hat_log_ratio": 0.43286486,
+            "density_over_integers": 1.56451e-7
+          },
+          {
+            "k": 6,
+            "X": 10000000000000,
+            "f_k3_X": 489068,
+            "ratio_over_X_pow_3_over_k": 0.15465688,
+            "gamma_hat_log_ratio": 0.43764379,
+            "density_over_integers": 4.8907e-8
+          },
+          {
+            "k": 6,
+            "X": 100000000000000,
+            "f_k3_X": 1533409,
+            "ratio_over_X_pow_3_over_k": 0.1533409,
+            "gamma_hat_log_ratio": 0.44183271,
+            "density_over_integers": 1.5334e-8
+          },
+          {
+            "k": 6,
+            "X": 1000000000000000,
+            "f_k3_X": 4817423,
+            "ratio_over_X_pow_3_over_k": 0.15234029,
+            "gamma_hat_log_ratio": 0.44552099,
+            "density_over_integers": 4.817e-9
+          }
+        ],
+        "diagnostics": {
+          "max_missing_gap_len": 8302900049,
+          "max_missing_gap_start": 989985855969345,
+          "max_missing_gap_end": 989994158869393,
+          "first_missing_samples": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ]
+        },
+        "runtime_seconds": 1.096,
+        "generated_utc": "2026-03-09T15:54:09.890Z"
+      }
     }
   ],
   "batch_split_integrations_from_head": {

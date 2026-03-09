@@ -63,6 +63,42 @@ function kthPowers(k, xMax) {
   return vals;
 }
 
+function summarizeMissing(mark, xMax, sampleCap = 25) {
+  let maxGapLen = 0;
+  let maxGapStart = -1;
+  let maxGapEnd = -1;
+  let curStart = -1;
+  const firstMissing = [];
+  for (let x = 1; x <= xMax; x += 1) {
+    if (mark[x] === 0) {
+      if (curStart < 0) curStart = x;
+      if (firstMissing.length < sampleCap) firstMissing.push(x);
+    } else if (curStart >= 0) {
+      const len = x - curStart;
+      if (len > maxGapLen) {
+        maxGapLen = len;
+        maxGapStart = curStart;
+        maxGapEnd = x - 1;
+      }
+      curStart = -1;
+    }
+  }
+  if (curStart >= 0) {
+    const len = xMax + 1 - curStart;
+    if (len > maxGapLen) {
+      maxGapLen = len;
+      maxGapStart = curStart;
+      maxGapEnd = xMax;
+    }
+  }
+  return {
+    max_missing_gap_len: maxGapLen,
+    max_missing_gap_start: maxGapStart,
+    max_missing_gap_end: maxGapEnd,
+    first_missing_samples: firstMissing,
+  };
+}
+
 function profileFk3(k, xMax, fracMilestones) {
   const vals = kthPowers(k, xMax);
   const m = vals.length;
@@ -102,7 +138,15 @@ function profileFk3(k, xMax, fracMilestones) {
       ptr += 1;
     }
   }
-  return rows;
+  const miss = summarizeMissing(mark, xMax);
+  return {
+    rows,
+    diagnostics: {
+      k,
+      x_max_used: xMax,
+      ...miss,
+    },
+  };
 }
 
 const K_LIST = parseIntList(process.env.K_LIST, [3, 4, 5, 6]);
@@ -116,17 +160,22 @@ const OUT = process.env.OUT || '';
 
 const t0 = Date.now();
 const rows = [];
+const diagnostics = [];
 for (const k of K_LIST) {
   const list = K_XMAX_LIST.get(k) || (K_XMAX.get(k) ? [K_XMAX.get(k)] : []);
   for (const xMax of list) {
     const t1 = Date.now();
     const sub = profileFk3(k, xMax, FRACTIONS);
     rows.push(
-      ...sub.map((r) => ({
+      ...sub.rows.map((r) => ({
         ...r,
         run_runtime_ms_for_k: Date.now() - t1,
       })),
     );
+    diagnostics.push({
+      ...sub.diagnostics,
+      run_runtime_ms_for_k: Date.now() - t1,
+    });
   }
 }
 const runtime_seconds = Number(((Date.now() - t0) / 1000).toFixed(3));
@@ -142,6 +191,7 @@ const out = {
     FRACTIONS,
   },
   rows,
+  diagnostics,
   runtime_seconds,
   generated_utc: new Date().toISOString(),
 };
