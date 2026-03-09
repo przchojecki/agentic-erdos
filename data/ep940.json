@@ -1,5 +1,337 @@
 {
   "problem": "EP-940",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-07T09:18:07Z",
+  "computations": [
+    {
+      "source_file": "ep940.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
+      "data": {
+        "problem": "EP-940",
+        "method": "standalone_finite_additive_basis_coverage_for_r_powerful_numbers",
+        "params": {
+          "maxN": 5000000,
+          "r_range": [
+            3,
+            5
+          ]
+        },
+        "results": [
+          {
+            "r": 3,
+            "count_r_powerful_terms": 553,
+            "first_terms": [
+              8,
+              16,
+              27,
+              32,
+              64,
+              81,
+              125,
+              128,
+              216,
+              243,
+              256,
+              343,
+              432,
+              512,
+              625,
+              648,
+              729,
+              864,
+              1000,
+              1024,
+              1296,
+              1331,
+              1728,
+              1944,
+              2000,
+              2048,
+              2187,
+              2197,
+              2401,
+              2592
+            ],
+            "coverage": {
+              "represented_up_to_maxN": 4371713,
+              "density": 0.8743426,
+              "exact_counts": [
+                {
+                  "terms_used": 1,
+                  "represented_count": 553,
+                  "density": 0.0001106
+                },
+                {
+                  "terms_used": 2,
+                  "represented_count": 121743,
+                  "density": 0.0243486
+                },
+                {
+                  "terms_used": 3,
+                  "represented_count": 4370576,
+                  "density": 0.8741152
+                }
+              ],
+              "first_missing_values": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                25,
+                26,
+                28,
+                29,
+                30,
+                31,
+                33,
+                34,
+                36,
+                37,
+                38,
+                39,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                49
+              ]
+            }
+          },
+          {
+            "r": 4,
+            "count_r_powerful_terms": 191,
+            "first_terms": [
+              16,
+              32,
+              64,
+              81,
+              128,
+              243,
+              256,
+              512,
+              625,
+              729,
+              1024,
+              1296,
+              2048,
+              2187,
+              2401,
+              2592,
+              3125,
+              3888,
+              4096,
+              5184,
+              6561,
+              7776,
+              8192,
+              10000,
+              10368,
+              11664,
+              14641,
+              15552,
+              15625,
+              16384
+            ],
+            "coverage": {
+              "represented_up_to_maxN": 4618651,
+              "density": 0.9237302,
+              "exact_counts": [
+                {
+                  "terms_used": 1,
+                  "represented_count": 191,
+                  "density": 0.0000382
+                },
+                {
+                  "terms_used": 2,
+                  "represented_count": 15400,
+                  "density": 0.00308
+                },
+                {
+                  "terms_used": 3,
+                  "represented_count": 609614,
+                  "density": 0.1219228
+                },
+                {
+                  "terms_used": 4,
+                  "represented_count": 4616818,
+                  "density": 0.9233636
+                }
+              ],
+              "first_missing_values": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42
+              ]
+            }
+          },
+          {
+            "r": 5,
+            "count_r_powerful_terms": 98,
+            "first_terms": [
+              32,
+              64,
+              128,
+              243,
+              256,
+              512,
+              729,
+              1024,
+              2048,
+              2187,
+              3125,
+              4096,
+              6561,
+              7776,
+              8192,
+              15552,
+              15625,
+              16384,
+              16807,
+              19683,
+              23328,
+              31104,
+              32768,
+              46656,
+              59049,
+              62208,
+              65536,
+              69984,
+              78125,
+              93312
+            ],
+            "coverage": {
+              "represented_up_to_maxN": 4683905,
+              "density": 0.936781,
+              "exact_counts": [
+                {
+                  "terms_used": 1,
+                  "represented_count": 98,
+                  "density": 0.0000196
+                },
+                {
+                  "terms_used": 2,
+                  "represented_count": 4044,
+                  "density": 0.0008088
+                },
+                {
+                  "terms_used": 3,
+                  "represented_count": 95872,
+                  "density": 0.0191744
+                },
+                {
+                  "terms_used": 4,
+                  "represented_count": 1260473,
+                  "density": 0.2520946
+                },
+                {
+                  "terms_used": 5,
+                  "represented_count": 4681851,
+                  "density": 0.9363702
+                }
+              ],
+              "first_missing_values": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41
+              ]
+            }
+          }
+        ],
+        "generated_utc": "2026-03-07T09:17:22.268Z"
+      }
+    }
+  ]
 }

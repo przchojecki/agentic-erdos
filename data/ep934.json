@@ -1,7 +1,846 @@
 {
   "problem": "EP-934",
   "normalized_utc": "2026-03-05T08:54:16.971Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep934.mjs",
+      "kind": "standalone_deep_run",
+      "generated_utc": "2026-03-07T09:07:32.963Z",
+      "data": {
+        "problem": "EP-934",
+        "script": "ep934.mjs",
+        "method": "standalone_deep_exact_line-graph_diameter_scan_for_odd-cycle_blowups",
+        "params": {
+          "T_LIST": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "D_LIST": [
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46
+          ]
+        },
+        "rows": [
+          {
+            "t": 2,
+            "d": 4,
+            "n_vertices": 10,
+            "edge_count": 20,
+            "formula_cycle_blowup_even_d": 20,
+            "max_degree": 4,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 6,
+            "n_vertices": 15,
+            "edge_count": 45,
+            "formula_cycle_blowup_even_d": 45,
+            "max_degree": 6,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 8,
+            "n_vertices": 20,
+            "edge_count": 80,
+            "formula_cycle_blowup_even_d": 80,
+            "max_degree": 8,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 10,
+            "n_vertices": 25,
+            "edge_count": 125,
+            "formula_cycle_blowup_even_d": 125,
+            "max_degree": 10,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 12,
+            "n_vertices": 30,
+            "edge_count": 180,
+            "formula_cycle_blowup_even_d": 180,
+            "max_degree": 12,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 14,
+            "n_vertices": 35,
+            "edge_count": 245,
+            "formula_cycle_blowup_even_d": 245,
+            "max_degree": 14,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 16,
+            "n_vertices": 40,
+            "edge_count": 320,
+            "formula_cycle_blowup_even_d": 320,
+            "max_degree": 16,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 18,
+            "n_vertices": 45,
+            "edge_count": 405,
+            "formula_cycle_blowup_even_d": 405,
+            "max_degree": 18,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 20,
+            "n_vertices": 50,
+            "edge_count": 500,
+            "formula_cycle_blowup_even_d": 500,
+            "max_degree": 20,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 22,
+            "n_vertices": 55,
+            "edge_count": 605,
+            "formula_cycle_blowup_even_d": 605,
+            "max_degree": 22,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 24,
+            "n_vertices": 60,
+            "edge_count": 720,
+            "formula_cycle_blowup_even_d": 720,
+            "max_degree": 24,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 26,
+            "n_vertices": 65,
+            "edge_count": 845,
+            "formula_cycle_blowup_even_d": 845,
+            "max_degree": 26,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 28,
+            "n_vertices": 70,
+            "edge_count": 980,
+            "formula_cycle_blowup_even_d": 980,
+            "max_degree": 28,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 30,
+            "n_vertices": 75,
+            "edge_count": 1125,
+            "formula_cycle_blowup_even_d": 1125,
+            "max_degree": 30,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 32,
+            "n_vertices": 80,
+            "edge_count": 1280,
+            "formula_cycle_blowup_even_d": 1280,
+            "max_degree": 32,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 34,
+            "n_vertices": 85,
+            "edge_count": 1445,
+            "formula_cycle_blowup_even_d": 1445,
+            "max_degree": 34,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 36,
+            "n_vertices": 90,
+            "edge_count": 1620,
+            "formula_cycle_blowup_even_d": 1620,
+            "max_degree": 36,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 38,
+            "n_vertices": 95,
+            "edge_count": 1805,
+            "formula_cycle_blowup_even_d": 1805,
+            "max_degree": 38,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 40,
+            "n_vertices": 100,
+            "edge_count": 2000,
+            "formula_cycle_blowup_even_d": 2000,
+            "max_degree": 40,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 42,
+            "n_vertices": 105,
+            "edge_count": 2205,
+            "formula_cycle_blowup_even_d": 2205,
+            "max_degree": 42,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 44,
+            "n_vertices": 110,
+            "edge_count": 2420,
+            "formula_cycle_blowup_even_d": 2420,
+            "max_degree": 44,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 2,
+            "d": 46,
+            "n_vertices": 115,
+            "edge_count": 2645,
+            "formula_cycle_blowup_even_d": 2645,
+            "max_degree": 46,
+            "line_graph_diameter": 2
+          },
+          {
+            "t": 3,
+            "d": 4,
+            "n_vertices": 14,
+            "edge_count": 28,
+            "formula_cycle_blowup_even_d": 28,
+            "max_degree": 4,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 6,
+            "n_vertices": 21,
+            "edge_count": 63,
+            "formula_cycle_blowup_even_d": 63,
+            "max_degree": 6,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 8,
+            "n_vertices": 28,
+            "edge_count": 112,
+            "formula_cycle_blowup_even_d": 112,
+            "max_degree": 8,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 10,
+            "n_vertices": 35,
+            "edge_count": 175,
+            "formula_cycle_blowup_even_d": 175,
+            "max_degree": 10,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 12,
+            "n_vertices": 42,
+            "edge_count": 252,
+            "formula_cycle_blowup_even_d": 252,
+            "max_degree": 12,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 14,
+            "n_vertices": 49,
+            "edge_count": 343,
+            "formula_cycle_blowup_even_d": 343,
+            "max_degree": 14,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 16,
+            "n_vertices": 56,
+            "edge_count": 448,
+            "formula_cycle_blowup_even_d": 448,
+            "max_degree": 16,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 18,
+            "n_vertices": 63,
+            "edge_count": 567,
+            "formula_cycle_blowup_even_d": 567,
+            "max_degree": 18,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 20,
+            "n_vertices": 70,
+            "edge_count": 700,
+            "formula_cycle_blowup_even_d": 700,
+            "max_degree": 20,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 22,
+            "n_vertices": 77,
+            "edge_count": 847,
+            "formula_cycle_blowup_even_d": 847,
+            "max_degree": 22,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 24,
+            "n_vertices": 84,
+            "edge_count": 1008,
+            "formula_cycle_blowup_even_d": 1008,
+            "max_degree": 24,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 26,
+            "n_vertices": 91,
+            "edge_count": 1183,
+            "formula_cycle_blowup_even_d": 1183,
+            "max_degree": 26,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 28,
+            "n_vertices": 98,
+            "edge_count": 1372,
+            "formula_cycle_blowup_even_d": 1372,
+            "max_degree": 28,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 30,
+            "n_vertices": 105,
+            "edge_count": 1575,
+            "formula_cycle_blowup_even_d": 1575,
+            "max_degree": 30,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 32,
+            "n_vertices": 112,
+            "edge_count": 1792,
+            "formula_cycle_blowup_even_d": 1792,
+            "max_degree": 32,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 34,
+            "n_vertices": 119,
+            "edge_count": 2023,
+            "formula_cycle_blowup_even_d": 2023,
+            "max_degree": 34,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 36,
+            "n_vertices": 126,
+            "edge_count": 2268,
+            "formula_cycle_blowup_even_d": 2268,
+            "max_degree": 36,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 38,
+            "n_vertices": 133,
+            "edge_count": 2527,
+            "formula_cycle_blowup_even_d": 2527,
+            "max_degree": 38,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 40,
+            "n_vertices": 140,
+            "edge_count": 2800,
+            "formula_cycle_blowup_even_d": 2800,
+            "max_degree": 40,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 42,
+            "n_vertices": 147,
+            "edge_count": 3087,
+            "formula_cycle_blowup_even_d": 3087,
+            "max_degree": 42,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 44,
+            "n_vertices": 154,
+            "edge_count": 3388,
+            "formula_cycle_blowup_even_d": 3388,
+            "max_degree": 44,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 3,
+            "d": 46,
+            "n_vertices": 161,
+            "edge_count": 3703,
+            "formula_cycle_blowup_even_d": 3703,
+            "max_degree": 46,
+            "line_graph_diameter": 3
+          },
+          {
+            "t": 4,
+            "d": 4,
+            "n_vertices": 18,
+            "edge_count": 36,
+            "formula_cycle_blowup_even_d": 36,
+            "max_degree": 4,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 6,
+            "n_vertices": 27,
+            "edge_count": 81,
+            "formula_cycle_blowup_even_d": 81,
+            "max_degree": 6,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 8,
+            "n_vertices": 36,
+            "edge_count": 144,
+            "formula_cycle_blowup_even_d": 144,
+            "max_degree": 8,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 10,
+            "n_vertices": 45,
+            "edge_count": 225,
+            "formula_cycle_blowup_even_d": 225,
+            "max_degree": 10,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 12,
+            "n_vertices": 54,
+            "edge_count": 324,
+            "formula_cycle_blowup_even_d": 324,
+            "max_degree": 12,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 14,
+            "n_vertices": 63,
+            "edge_count": 441,
+            "formula_cycle_blowup_even_d": 441,
+            "max_degree": 14,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 16,
+            "n_vertices": 72,
+            "edge_count": 576,
+            "formula_cycle_blowup_even_d": 576,
+            "max_degree": 16,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 18,
+            "n_vertices": 81,
+            "edge_count": 729,
+            "formula_cycle_blowup_even_d": 729,
+            "max_degree": 18,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 20,
+            "n_vertices": 90,
+            "edge_count": 900,
+            "formula_cycle_blowup_even_d": 900,
+            "max_degree": 20,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 22,
+            "n_vertices": 99,
+            "edge_count": 1089,
+            "formula_cycle_blowup_even_d": 1089,
+            "max_degree": 22,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 24,
+            "n_vertices": 108,
+            "edge_count": 1296,
+            "formula_cycle_blowup_even_d": 1296,
+            "max_degree": 24,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 26,
+            "n_vertices": 117,
+            "edge_count": 1521,
+            "formula_cycle_blowup_even_d": 1521,
+            "max_degree": 26,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 28,
+            "n_vertices": 126,
+            "edge_count": 1764,
+            "formula_cycle_blowup_even_d": 1764,
+            "max_degree": 28,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 30,
+            "n_vertices": 135,
+            "edge_count": 2025,
+            "formula_cycle_blowup_even_d": 2025,
+            "max_degree": 30,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 32,
+            "n_vertices": 144,
+            "edge_count": 2304,
+            "formula_cycle_blowup_even_d": 2304,
+            "max_degree": 32,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 34,
+            "n_vertices": 153,
+            "edge_count": 2601,
+            "formula_cycle_blowup_even_d": 2601,
+            "max_degree": 34,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 36,
+            "n_vertices": 162,
+            "edge_count": 2916,
+            "formula_cycle_blowup_even_d": 2916,
+            "max_degree": 36,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 38,
+            "n_vertices": 171,
+            "edge_count": 3249,
+            "formula_cycle_blowup_even_d": 3249,
+            "max_degree": 38,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 40,
+            "n_vertices": 180,
+            "edge_count": 3600,
+            "formula_cycle_blowup_even_d": 3600,
+            "max_degree": 40,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 42,
+            "n_vertices": 189,
+            "edge_count": 3969,
+            "formula_cycle_blowup_even_d": 3969,
+            "max_degree": 42,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 44,
+            "n_vertices": 198,
+            "edge_count": 4356,
+            "formula_cycle_blowup_even_d": 4356,
+            "max_degree": 44,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 4,
+            "d": 46,
+            "n_vertices": 207,
+            "edge_count": 4761,
+            "formula_cycle_blowup_even_d": 4761,
+            "max_degree": 46,
+            "line_graph_diameter": 4
+          },
+          {
+            "t": 5,
+            "d": 4,
+            "n_vertices": 22,
+            "edge_count": 44,
+            "formula_cycle_blowup_even_d": 44,
+            "max_degree": 4,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 6,
+            "n_vertices": 33,
+            "edge_count": 99,
+            "formula_cycle_blowup_even_d": 99,
+            "max_degree": 6,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 8,
+            "n_vertices": 44,
+            "edge_count": 176,
+            "formula_cycle_blowup_even_d": 176,
+            "max_degree": 8,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 10,
+            "n_vertices": 55,
+            "edge_count": 275,
+            "formula_cycle_blowup_even_d": 275,
+            "max_degree": 10,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 12,
+            "n_vertices": 66,
+            "edge_count": 396,
+            "formula_cycle_blowup_even_d": 396,
+            "max_degree": 12,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 14,
+            "n_vertices": 77,
+            "edge_count": 539,
+            "formula_cycle_blowup_even_d": 539,
+            "max_degree": 14,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 16,
+            "n_vertices": 88,
+            "edge_count": 704,
+            "formula_cycle_blowup_even_d": 704,
+            "max_degree": 16,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 18,
+            "n_vertices": 99,
+            "edge_count": 891,
+            "formula_cycle_blowup_even_d": 891,
+            "max_degree": 18,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 20,
+            "n_vertices": 110,
+            "edge_count": 1100,
+            "formula_cycle_blowup_even_d": 1100,
+            "max_degree": 20,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 22,
+            "n_vertices": 121,
+            "edge_count": 1331,
+            "formula_cycle_blowup_even_d": 1331,
+            "max_degree": 22,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 24,
+            "n_vertices": 132,
+            "edge_count": 1584,
+            "formula_cycle_blowup_even_d": 1584,
+            "max_degree": 24,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 26,
+            "n_vertices": 143,
+            "edge_count": 1859,
+            "formula_cycle_blowup_even_d": 1859,
+            "max_degree": 26,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 28,
+            "n_vertices": 154,
+            "edge_count": 2156,
+            "formula_cycle_blowup_even_d": 2156,
+            "max_degree": 28,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 30,
+            "n_vertices": 165,
+            "edge_count": 2475,
+            "formula_cycle_blowup_even_d": 2475,
+            "max_degree": 30,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 32,
+            "n_vertices": 176,
+            "edge_count": 2816,
+            "formula_cycle_blowup_even_d": 2816,
+            "max_degree": 32,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 34,
+            "n_vertices": 187,
+            "edge_count": 3179,
+            "formula_cycle_blowup_even_d": 3179,
+            "max_degree": 34,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 36,
+            "n_vertices": 198,
+            "edge_count": 3564,
+            "formula_cycle_blowup_even_d": 3564,
+            "max_degree": 36,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 38,
+            "n_vertices": 209,
+            "edge_count": 3971,
+            "formula_cycle_blowup_even_d": 3971,
+            "max_degree": 38,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 40,
+            "n_vertices": 220,
+            "edge_count": 4400,
+            "formula_cycle_blowup_even_d": 4400,
+            "max_degree": 40,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 42,
+            "n_vertices": 231,
+            "edge_count": 4851,
+            "formula_cycle_blowup_even_d": 4851,
+            "max_degree": 42,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 44,
+            "n_vertices": 242,
+            "edge_count": 5324,
+            "formula_cycle_blowup_even_d": 5324,
+            "max_degree": 44,
+            "line_graph_diameter": 5
+          },
+          {
+            "t": 5,
+            "d": 46,
+            "n_vertices": 253,
+            "edge_count": 5819,
+            "formula_cycle_blowup_even_d": 5819,
+            "max_degree": 46,
+            "line_graph_diameter": 5
+          }
+        ],
+        "runtime_seconds": 34.104,
+        "generated_utc": "2026-03-07T09:07:32.963Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [

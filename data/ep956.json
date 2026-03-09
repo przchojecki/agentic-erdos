@@ -1,46 +1,71 @@
 {
   "problem": "EP-956",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-07T11:10:36Z",
   "computations": [
     {
-      "source_file": "ep956_hex_lattice_translate_edges.json",
-      "extension": ".json",
-      "kind": "json",
+      "source_file": "ep956.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
       "data": {
-        "script": "ep956_hex_lattice_translate_edges.mjs",
+        "problem": "EP-956",
+        "method": "standalone_hex_lattice_translate_pair_count_distance_2",
+        "params": {
+          "n_list": [
+            2000,
+            4000,
+            8000,
+            16000,
+            32000,
+            64000,
+            128000
+          ],
+          "construction": "spiral_prefix_of_triangular_lattice"
+        },
         "rows": [
           {
-            "n": 100,
-            "pairs_distance_2": 223,
-            "ratio_over_n": 2.23,
+            "n": 2000,
+            "pairs_distance_2": 11381,
+            "ratio_over_n": 5.6905,
             "min_pair_distance": 1
           },
           {
-            "n": 200,
-            "pairs_distance_2": 490,
-            "ratio_over_n": 2.45,
+            "n": 4000,
+            "pairs_distance_2": 23122,
+            "ratio_over_n": 5.7805,
             "min_pair_distance": 1
           },
           {
-            "n": 400,
-            "pairs_distance_2": 1043,
-            "ratio_over_n": 2.6075,
+            "n": 8000,
+            "pairs_distance_2": 46762,
+            "ratio_over_n": 5.84525,
             "min_pair_distance": 1
           },
           {
-            "n": 800,
-            "pairs_distance_2": 2178,
-            "ratio_over_n": 2.7225,
+            "n": 16000,
+            "pairs_distance_2": 94245,
+            "ratio_over_n": 5.8903125,
             "min_pair_distance": 1
           },
           {
-            "n": 1600,
-            "pairs_distance_2": 4483,
-            "ratio_over_n": 2.801875,
+            "n": 32000,
+            "pairs_distance_2": 189525,
+            "ratio_over_n": 5.9226563,
+            "min_pair_distance": 1
+          },
+          {
+            "n": 64000,
+            "pairs_distance_2": 380493,
+            "ratio_over_n": 5.9452031,
+            "min_pair_distance": 1
+          },
+          {
+            "n": 128000,
+            "pairs_distance_2": 763042,
+            "ratio_over_n": 5.9612656,
             "min_pair_distance": 1
           }
         ],
-        "timestamp_utc": "2026-03-01T20:11:44.292Z"
+        "generated_utc": "2026-03-07T11:10:25.121Z"
       }
     }
   ]

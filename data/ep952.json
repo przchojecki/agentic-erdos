@@ -1,16 +1,16 @@
 {
   "problem": "EP-952",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-07T11:04:20Z",
   "computations": [
     {
-      "source_file": "ep952_gaussian_moat_scan.json",
-      "extension": ".json",
-      "kind": "json",
+      "source_file": "ep952.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
       "data": {
         "problem": "EP-952",
-        "method": "finite_window_connectivity_of_gaussian_primes_under_step_bound_D",
+        "method": "standalone_finite_window_connectivity_of_gaussian_primes_under_step_bound_D",
         "params": {
-          "R": 220,
+          "R": 1200,
           "d_list": [
             3,
             4,
@@ -18,9 +18,10 @@
             6,
             7,
             8,
-            10
+            10,
+            12
           ],
-          "point_count": 24816
+          "point_count": 549372
         },
         "rows": [
           {
@@ -39,8 +40,8 @@
               -1,
               -1
             ],
-            "visited_component_size": 24792,
-            "max_radius_reached": 307.59226258148954,
+            "visited_component_size": 530604,
+            "max_radius_reached": 1657.1750058457917,
             "reaches_box_boundary": true
           },
           {
@@ -49,8 +50,8 @@
               -1,
               -1
             ],
-            "visited_component_size": 24816,
-            "max_radius_reached": 307.59226258148954,
+            "visited_component_size": 548612,
+            "max_radius_reached": 1693.5220695343771,
             "reaches_box_boundary": true
           },
           {
@@ -59,8 +60,8 @@
               -1,
               -1
             ],
-            "visited_component_size": 24816,
-            "max_radius_reached": 307.59226258148954,
+            "visited_component_size": 549372,
+            "max_radius_reached": 1693.5220695343771,
             "reaches_box_boundary": true
           },
           {
@@ -69,8 +70,8 @@
               -1,
               -1
             ],
-            "visited_component_size": 24816,
-            "max_radius_reached": 307.59226258148954,
+            "visited_component_size": 549372,
+            "max_radius_reached": 1693.5220695343771,
             "reaches_box_boundary": true
           },
           {
@@ -79,8 +80,8 @@
               -1,
               -1
             ],
-            "visited_component_size": 24816,
-            "max_radius_reached": 307.59226258148954,
+            "visited_component_size": 549372,
+            "max_radius_reached": 1693.5220695343771,
             "reaches_box_boundary": true
           },
           {
@@ -89,12 +90,22 @@
               -1,
               -1
             ],
-            "visited_component_size": 24816,
-            "max_radius_reached": 307.59226258148954,
+            "visited_component_size": 549372,
+            "max_radius_reached": 1693.5220695343771,
+            "reaches_box_boundary": true
+          },
+          {
+            "D": 12,
+            "start_prime": [
+              -1,
+              -1
+            ],
+            "visited_component_size": 549372,
+            "max_radius_reached": 1693.5220695343771,
             "reaches_box_boundary": true
           }
         ],
-        "generated_utc": "2026-03-01T16:59:00.239Z"
+        "generated_utc": "2026-03-07T11:03:50.662Z"
       }
     }
   ]

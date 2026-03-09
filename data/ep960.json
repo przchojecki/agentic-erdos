@@ -1,5 +1,76 @@
 {
   "problem": "EP-960",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-07T11:13:52Z",
+  "computations": [
+    {
+      "source_file": "ep960.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
+      "data": {
+        "problem": "EP-960",
+        "method": "standalone_finite_sampling_of_ordinary_line_threshold_for_r_clique_in_ordinary_graph",
+        "params": {
+          "seed": 20260307,
+          "samples_per_n": 12000,
+          "r": 6,
+          "k": 4,
+          "n_list": [
+            12,
+            14,
+            16,
+            18,
+            20
+          ]
+        },
+        "rows": [
+          {
+            "n": 12,
+            "sampled_attempts": 12038,
+            "accepted_samples_no_k_collinear": 12000,
+            "empirical_forcing_threshold_ordinary_lines": 55,
+            "max_ordinary_lines_seen": 66,
+            "fraction_with_r_clique_in_ordinary_graph": 0.5,
+            "highest_ordinary_lines_seen_without_r_clique": 54
+          },
+          {
+            "n": 14,
+            "sampled_attempts": 12049,
+            "accepted_samples_no_k_collinear": 12000,
+            "empirical_forcing_threshold_ordinary_lines": 77,
+            "max_ordinary_lines_seen": 91,
+            "fraction_with_r_clique_in_ordinary_graph": 0.99666667,
+            "highest_ordinary_lines_seen_without_r_clique": 76
+          },
+          {
+            "n": 16,
+            "sampled_attempts": 12104,
+            "accepted_samples_no_k_collinear": 12000,
+            "empirical_forcing_threshold_ordinary_lines": 82,
+            "max_ordinary_lines_seen": 120,
+            "fraction_with_r_clique_in_ordinary_graph": 0.99966667,
+            "highest_ordinary_lines_seen_without_r_clique": 81
+          },
+          {
+            "n": 18,
+            "sampled_attempts": 12178,
+            "accepted_samples_no_k_collinear": 12000,
+            "empirical_forcing_threshold_ordinary_lines": 109,
+            "max_ordinary_lines_seen": 153,
+            "fraction_with_r_clique_in_ordinary_graph": 0.99991667,
+            "highest_ordinary_lines_seen_without_r_clique": 108
+          },
+          {
+            "n": 20,
+            "sampled_attempts": 12187,
+            "accepted_samples_no_k_collinear": 12000,
+            "empirical_forcing_threshold_ordinary_lines": 0,
+            "max_ordinary_lines_seen": 190,
+            "fraction_with_r_clique_in_ordinary_graph": 1,
+            "highest_ordinary_lines_seen_without_r_clique": null
+          }
+        ],
+        "generated_utc": "2026-03-07T11:13:30.005Z"
+      }
+    }
+  ]
 }

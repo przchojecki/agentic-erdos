@@ -1,43 +1,32 @@
 {
   "problem": "EP-939",
-  "normalized_utc": "2026-03-05T08:54:16.971Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch21_web_compute.md",
-        "content": "### EP-939\n- Quick literature check:\n  - Page includes 2024 updates on constructions for coprime 3-powerful triples; higher-`r` questions remain open.\n- Finite compute signal:\n  - Up to `2e6`, no coprime examples were found for tested `r=3,4,5` additive patterns under direct search.\n- Interpretation:\n  - Naive finite search misses known structured 3-powerful constructions and gives no decisive evidence for higher `r`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch21_quick_compute.mjs",
-        "heading": "finite search for r-powerful additive patterns.",
-        "content": "// EP-939: finite search for r-powerful additive patterns.\n{\n  const B = 2_000_000;\n  const spf = sieveSPF(B);\n\n  function isRPowerful(n, r) {\n    let x = n;\n    while (x > 1) {\n      const p = spf[x] || x;\n      let e = 0;\n      while (x % p === 0) {\n        x = Math.floor(x / p);\n        e += 1;\n      }\n      if (e < r) return false;\n    }\n    return n > 1;\n  }\n\n  function listRPowerful(r) {\n    const arr = [];\n    for (let n = 2; n <= B; n += 1) if (isRPowerful(n, r)) arr.push(n);\n    return arr;\n  }\n\n  const list3 = listRPowerful(3);\n  const list4 = listRPowerful(4);\n  const list5 = listRPowerful(5);\n\n  const set3 = new Set(list3);\n  const set4 = new Set(list4);\n  const set5 = new Set(list5);\n\n  const triples3 = [];\n  for (let i = 0; i < list3.length; i += 1) {\n    const a = list3[i];\n    for (let j = i + 1; j < list3.length; j += 1) {\n      const b = list3[j];\n      const c = a + b;\n      if (c > B) break;\n      if (!set3.has(c)) continue;\n      if (gcd(a, b) !== 1 || gcd(a, c) !== 1 || gcd(b, c) !== 1) continue;\n      triples3.push({ a, b, c });\n      if (triples3.length >= 12) break;\n    }\n    if (triples3.length >= 12) break;\n  }\n\n  const triples4 = [];\n  for (let i = 0; i < list4.length; i += 1) {\n    const a = list4[i];\n    for (let j = i + 1; j < list4.length; j += 1) {\n      const b = list4[j];\n      const c = a + b;\n      if (c > B) break;\n      if (!set4.has(c)) continue;\n      if (gcd(a, b) !== 1 || gcd(a, c) !== 1 || gcd(b, c) !== 1) continue;\n      triples4.push({ a, b, c });\n      if (triples4.length >= 12) break;\n    }\n    if (triples4.length >= 12) break;\n  }\n\n  const quads5 = [];\n  for (let i = 0; i < list5.length; i += 1) {\n    const a = list5[i];\n    for (let j = i + 1; j < list5.length; j += 1) {\n      const b = list5[j];\n      for (let k = j + 1; k < list5.length; k += 1) {\n        const c = list5[k];\n        const d = a + b + c;\n        if (d > B) break;\n        if (!set5.has(d)) continue;\n        if (gcd(a, b) !== 1 || gcd(a, c) !== 1 || gcd(b, c) !== 1) continue;\n        if (gcd(a, d) !== 1 || gcd(b, d) !== 1 || gcd(c, d) !== 1) continue;\n        quads5.push({ a, b, c, d });\n        if (quads5.length >= 8) break;\n      }\n      if (quads5.length >= 8) break;\n    }\n    if (quads5.length >= 8) break;\n  }\n\n  out.results.ep939 = {\n    description: 'Finite additive search for coprime r-powerful patterns at r=3,4,5.',\n    B,\n    counts_r_powerful_up_to_B: {\n      r3: list3.length,\n      r4: list4.length,\n      r5: list5.length,\n    },\n    sample_coprime_3powerful_triples_a_plus_b_eq_c: triples3,\n    sample_coprime_4powerful_pairs_a_plus_b_eq_c: triples4,\n    sample_coprime_5powerful_triples_a_plus_b_plus_c_eq_d: quads5,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch21_quick_compute.json",
-        "key": "ep939",
-        "container_meta": {
-          "script": "harder_batch21_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:09:50.566Z"
+  "normalized_utc": "2026-03-07T09:14:18Z",
+  "computations": [
+    {
+      "source_file": "ep939.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
+      "data": {
+        "problem": "EP-939",
+        "method": "standalone_exact_scan_r_powerful_additive_coprime_patterns",
+        "params": {
+          "B": 50000000
         },
-        "data": {
-          "description": "Finite additive search for coprime r-powerful patterns at r=3,4,5.",
-          "B": 2000000,
-          "counts_r_powerful_up_to_B": {
-            "r3": 394,
-            "r4": 146,
-            "r5": 76
-          },
-          "sample_coprime_3powerful_triples_a_plus_b_eq_c": [],
-          "sample_coprime_4powerful_pairs_a_plus_b_eq_c": [],
-          "sample_coprime_5powerful_triples_a_plus_b_plus_c_eq_d": []
-        }
+        "counts_r_powerful_up_to_B": {
+          "r3": 1281,
+          "r4": 380,
+          "r5": 177
+        },
+        "found_counts": {
+          "coprime_r3_a_plus_b_eq_c": 0,
+          "coprime_r4_a_plus_b_eq_c": 0,
+          "coprime_r5_a_plus_b_plus_c_eq_d": 0
+        },
+        "sample_r3": [],
+        "sample_r4": [],
+        "sample_r5": [],
+        "generated_utc": "2026-03-07T09:13:52.029Z"
       }
-    ]
-  }
+    }
+  ]
 }

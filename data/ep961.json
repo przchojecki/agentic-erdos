@@ -1,18 +1,45 @@
 {
   "problem": "EP-961",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-07T11:13:53Z",
   "computations": [
     {
-      "source_file": "ep961_smooth_run_scan.json",
-      "extension": ".json",
-      "kind": "json",
+      "source_file": "ep961.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
       "data": {
         "problem": "EP-961",
-        "method": "largest_observed_run_of_k_smooth_integers_up_to_X",
+        "method": "standalone_largest_observed_run_of_k_smooth_integers_up_to_X",
+        "params": {
+          "X": 30000000,
+          "k_list": [
+            10,
+            15,
+            20,
+            25,
+            30,
+            40,
+            50,
+            60,
+            80,
+            100,
+            120,
+            150,
+            200,
+            300,
+            500,
+            700,
+            1000,
+            1500,
+            2000,
+            3000,
+            4000,
+            5000
+          ]
+        },
         "rows": [
           {
             "k": 10,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 3,
             "witness_interval": [
               14,
@@ -21,11 +48,11 @@
             "lower_bound_on_f_k": 4,
             "known_upper_bound_f_k": 10,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.6907755278982137
+            "normalized_ratio_r_logk_over_k": 0.69077553
           },
           {
             "k": 15,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 5,
             "witness_interval": [
               24,
@@ -34,11 +61,11 @@
             "lower_bound_on_f_k": 6,
             "known_upper_bound_f_k": 15,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.9026834003674034
+            "normalized_ratio_r_logk_over_k": 0.9026834
           },
           {
             "k": 20,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 5,
             "witness_interval": [
               24,
@@ -47,11 +74,11 @@
             "lower_bound_on_f_k": 6,
             "known_upper_bound_f_k": 20,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.7489330683884977
+            "normalized_ratio_r_logk_over_k": 0.74893307
           },
           {
             "k": 25,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 5,
             "witness_interval": [
               32,
@@ -60,11 +87,11 @@
             "lower_bound_on_f_k": 6,
             "known_upper_bound_f_k": 25,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.6437751649736402
+            "normalized_ratio_r_logk_over_k": 0.64377516
           },
           {
             "k": 30,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 5,
             "witness_interval": [
               32,
@@ -73,11 +100,11 @@
             "lower_bound_on_f_k": 6,
             "known_upper_bound_f_k": 30,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.5668662302770259
+            "normalized_ratio_r_logk_over_k": 0.56686623
           },
           {
             "k": 40,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 5,
             "witness_interval": [
               48,
@@ -86,11 +113,11 @@
             "lower_bound_on_f_k": 6,
             "known_upper_bound_f_k": 40,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.46110993176424203
+            "normalized_ratio_r_logk_over_k": 0.46110993
           },
           {
             "k": 50,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 7,
             "witness_interval": [
               90,
@@ -99,11 +126,11 @@
             "lower_bound_on_f_k": 8,
             "known_upper_bound_f_k": 50,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.5476832207599405
+            "normalized_ratio_r_logk_over_k": 0.54768322
           },
           {
             "k": 60,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 8,
             "witness_interval": [
               114,
@@ -112,11 +139,11 @@
             "lower_bound_on_f_k": 9,
             "known_upper_bound_f_k": 60,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.5459126082962801
+            "normalized_ratio_r_logk_over_k": 0.54591261
           },
           {
             "k": 80,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 13,
             "witness_interval": [
               114,
@@ -125,11 +152,11 @@
             "lower_bound_on_f_k": 14,
             "known_upper_bound_f_k": 80,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.7120793281345057
+            "normalized_ratio_r_logk_over_k": 0.71207933
           },
           {
             "k": 100,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 13,
             "witness_interval": [
               114,
@@ -138,11 +165,11 @@
             "lower_bound_on_f_k": 14,
             "known_upper_bound_f_k": 100,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.598672124178452
+            "normalized_ratio_r_logk_over_k": 0.59867212
           },
           {
             "k": 120,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 11,
             "witness_interval": [
               200,
@@ -151,11 +178,11 @@
             "lower_bound_on_f_k": 12,
             "known_upper_bound_f_k": 120,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.43885340975502085
+            "normalized_ratio_r_logk_over_k": 0.43885341
           },
           {
             "k": 150,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 11,
             "witness_interval": [
               200,
@@ -164,11 +191,11 @@
             "lower_bound_on_f_k": 12,
             "known_upper_bound_f_k": 150,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.3674465882337254
+            "normalized_ratio_r_logk_over_k": 0.36744659
           },
           {
             "k": 200,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 13,
             "witness_interval": [
               294,
@@ -177,11 +204,11 @@
             "lower_bound_on_f_k": 14,
             "known_upper_bound_f_k": 200,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.3443906288256223
+            "normalized_ratio_r_logk_over_k": 0.34439063
           },
           {
             "k": 300,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 17,
             "witness_interval": [
               524,
@@ -190,11 +217,11 @@
             "lower_bound_on_f_k": 18,
             "known_upper_bound_f_k": 300,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.3232143402305181
+            "normalized_ratio_r_logk_over_k": 0.32321434
           },
           {
             "k": 500,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 19,
             "witness_interval": [
               888,
@@ -203,11 +230,11 @@
             "lower_bound_on_f_k": 20,
             "known_upper_bound_f_k": 500,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.23615510774004325
+            "normalized_ratio_r_logk_over_k": 0.23615511
           },
           {
             "k": 700,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 33,
             "witness_interval": [
               1328,
@@ -216,11 +243,11 @@
             "lower_bound_on_f_k": 34,
             "known_upper_bound_f_k": 700,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.3088366443663319
+            "normalized_ratio_r_logk_over_k": 0.30883664
           },
           {
             "k": 1000,
-            "scan_limit_X": 6000000,
+            "scan_limit_X": 30000000,
             "max_run_observed": 33,
             "witness_interval": [
               1328,
@@ -229,10 +256,75 @@
             "lower_bound_on_f_k": 34,
             "known_upper_bound_f_k": 1000,
             "exact_f_k_if_upper_bound_sharp": null,
-            "normalized_ratio_r_logk_over_k": 0.2279559242064105
+            "normalized_ratio_r_logk_over_k": 0.22795592
+          },
+          {
+            "k": 1500,
+            "scan_limit_X": 30000000,
+            "max_run_observed": 27,
+            "witness_interval": [
+              2972,
+              2998
+            ],
+            "lower_bound_on_f_k": 28,
+            "known_upper_bound_f_k": 1500,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.13163797
+          },
+          {
+            "k": 2000,
+            "scan_limit_X": 30000000,
+            "max_run_observed": 27,
+            "witness_interval": [
+              2972,
+              2998
+            ],
+            "lower_bound_on_f_k": 28,
+            "known_upper_bound_f_k": 2000,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.10261218
+          },
+          {
+            "k": 3000,
+            "scan_limit_X": 30000000,
+            "max_run_observed": 31,
+            "witness_interval": [
+              5592,
+              5622
+            ],
+            "lower_bound_on_f_k": 32,
+            "known_upper_bound_f_k": 3000,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.082732465
+          },
+          {
+            "k": 4000,
+            "scan_limit_X": 30000000,
+            "max_run_observed": 31,
+            "witness_interval": [
+              5592,
+              5622
+            ],
+            "lower_bound_on_f_k": 32,
+            "known_upper_bound_f_k": 4000,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.064278885
+          },
+          {
+            "k": 5000,
+            "scan_limit_X": 30000000,
+            "max_run_observed": 35,
+            "witness_interval": [
+              9552,
+              9586
+            ],
+            "lower_bound_on_f_k": 36,
+            "known_upper_bound_f_k": 5000,
+            "exact_f_k_if_upper_bound_sharp": null,
+            "normalized_ratio_r_logk_over_k": 0.059620352
           }
         ],
-        "generated_utc": "2026-03-01T15:39:06.565Z"
+        "generated_utc": "2026-03-07T11:13:36.500Z"
       }
     }
   ]

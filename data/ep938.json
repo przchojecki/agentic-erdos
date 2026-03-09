@@ -1,5 +1,109 @@
 {
   "problem": "EP-938",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-07T09:14:18Z",
+  "computations": [
+    {
+      "source_file": "ep938.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
+      "data": {
+        "problem": "EP-938",
+        "method": "exact_scan_powerful_numbers_and_consecutive_index_AP_test",
+        "params": {
+          "B": 40000000
+        },
+        "counts": {
+          "powerful_up_to_B": 13236,
+          "consecutive_three_term_AP_count": 6
+        },
+        "first_powerful_terms": [
+          4,
+          8,
+          9,
+          16,
+          25,
+          27,
+          32,
+          36,
+          49,
+          64,
+          72,
+          81,
+          100,
+          108,
+          121,
+          125,
+          128,
+          144,
+          169,
+          196,
+          200,
+          216,
+          225,
+          243,
+          256,
+          288,
+          289,
+          324,
+          343,
+          361,
+          392,
+          400,
+          432,
+          441,
+          484,
+          500,
+          512,
+          529,
+          576,
+          625
+        ],
+        "sample_ap_triples": [
+          {
+            "idx": 71,
+            "a": 1728,
+            "b": 1764,
+            "c": 1800,
+            "gap": 36
+          },
+          {
+            "idx": 152,
+            "a": 6912,
+            "b": 7056,
+            "c": 7200,
+            "gap": 144
+          },
+          {
+            "idx": 1722,
+            "a": 729000,
+            "b": 729316,
+            "c": 729632,
+            "gap": 316
+          },
+          {
+            "idx": 2456,
+            "a": 1458000,
+            "b": 1458632,
+            "c": 1459264,
+            "gap": 632
+          },
+          {
+            "idx": 3497,
+            "a": 2916000,
+            "b": 2917264,
+            "c": 2918528,
+            "gap": 1264
+          },
+          {
+            "idx": 7085,
+            "a": 11664000,
+            "b": 11669056,
+            "c": 11674112,
+            "gap": 5056
+          }
+        ],
+        "generated_utc": "2026-03-07T09:13:31.716Z"
+      }
+    }
+  ]
 }

@@ -1,129 +1,88 @@
 #!/usr/bin/env node
-// Canonical per-problem script for EP-933.
-// Auto-generated during repository normalization.
+import fs from 'node:fs';
+import path from 'node:path';
 
-const meta = {
-  problem: 'EP-933',
-  source_count: 1,
-  source_files: ["ep933_smoothpart_scan.mjs"],
-};
-
-if (process.argv.includes('--json')) {
-  console.log(JSON.stringify(meta, null, 2));
-} else {
-  console.log('EP-933 canonical script');
-  console.log(`Integrated sections: ${meta.source_count}`);
-  console.log('Use --json for machine-readable metadata.');
+function parseIntList(value, fallback) {
+  if (!value) return fallback;
+  const xs = value
+    .split(',')
+    .map((x) => Number(x.trim()))
+    .filter((x) => Number.isInteger(x) && x >= 2)
+    .sort((a, b) => a - b);
+  return xs.length ? xs : fallback;
 }
 
-// ==== Integrated Snippet 1/1 ====
-// Source: ep933_smoothpart_scan.mjs
-// Kind: current_script_file
-// Label: From ep933_smoothpart_scan.mjs
-// #!/usr/bin/env node
-// import fs from 'node:fs';
-// import path from 'node:path';
-// 
-// function v2(x) {
-//   let n = x;
-//   let c = 0;
-//   while ((n & 1) === 0) {
-//     n >>= 1;
-//     c += 1;
-//   }
-//   return c;
-// }
-// 
-// function v3(x) {
-//   let n = x;
-//   let c = 0;
-//   while (n % 3 === 0) {
-//     n = Math.floor(n / 3);
-//     c += 1;
-//   }
-//   return c;
-// }
-// 
-// const root = process.cwd();
-// const outPath = path.join(root, 'data', 'ep933_smoothpart_scan.json');
-// 
-// const Nmax = Number(process.argv[2] || 5000000);
-// const checkpoint = Number(process.argv[3] || 500000);
-// 
-// let bestRatio = -1;
-// let bestN = 2;
-// let bestRec = null;
-// const tailThresholds = [10, 100, 1000, 10000];
-// const tailBest = Object.fromEntries(tailThresholds.map((t) => [t, { n: null, ratio: -1 }]));
-// const checkpoints = [];
-// const top = [];
-// 
-// function pushTop(rec, keep = 40) {
-//   top.push(rec);
-//   top.sort((a, b) => b.ratio_over_nlogn - a.ratio_over_nlogn);
-//   if (top.length > keep) top.length = keep;
-// }
-// 
-// for (let n = 2; n <= Nmax; n += 1) {
-//   const k = v2(n) + v2(n + 1);
-//   const l = v3(n) + v3(n + 1);
-// 
-//   const logSmooth = k * Math.log(2) + l * Math.log(3);
-//   const ratio = Math.exp(logSmooth - Math.log(n) - Math.log(Math.log(n)));
-// 
-//   const rec = {
-//     n,
-//     k,
-//     l,
-//     ratio_over_nlogn: ratio,
-//     log_smoothpart: logSmooth,
-//   };
-// 
-//   if (ratio > bestRatio) {
-//     bestRatio = ratio;
-//     bestN = n;
-//     bestRec = rec;
-//   }
-//   for (const t of tailThresholds) {
-//     if (n >= t && ratio > tailBest[t].ratio) tailBest[t] = { n, ratio };
-//   }
-// 
-//   if (ratio > 6) pushTop(rec);
-// 
-//   if (n % checkpoint === 0) {
-//     checkpoints.push({
-//       n,
-//       best_n_up_to_here: bestN,
-//       best_ratio_up_to_here: bestRatio,
-//     });
-//     process.stderr.write(`n=${n}, best_n=${bestN}, best_ratio=${bestRatio.toFixed(4)}\n`);
-//   }
-// }
-// 
-// const family = [];
-// for (let r = 1; r <= 10; r += 1) {
-//   const n = 2 ** (3 ** r);
-//   if (!Number.isFinite(n) || n > Nmax) break;
-//   const k = 3 ** r;
-//   const l = r + 1;
-//   const ratio = (2 ** k * 3 ** l) / (n * Math.log(n));
-//   family.push({ r, n, k, l, ratio_over_nlogn: ratio });
-// }
-// 
-// const out = {
-//   problem: 'EP-933',
-//   method: 'direct_scan_of_6-smooth_part_2^k3^l_of_n(n+1)',
-//   params: { Nmax, checkpoint },
-//   best_record: bestRec,
-//   best_records_for_n_ge: tailBest,
-//   checkpoints,
-//   top_large_ratio_records: top,
-//   explicit_family_n_eq_2_pow_3_pow_r: family,
-//   generated_utc: new Date().toISOString(),
-// };
-// 
-// fs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\n`);
-// process.stderr.write(`Wrote ${outPath}\n`);
-// 
-// ==== End Snippet ====
+function buildValuationArray(limit, prime) {
+  const arr = new Int16Array(limit + 1);
+  for (let n = 1; n <= limit; n += 1) {
+    if (n % prime === 0) arr[n] = arr[Math.floor(n / prime)] + 1;
+  }
+  return arr;
+}
 
+const NMAX = Number(process.env.NMAX || 120000000);
+const MILESTONES = parseIntList(
+  process.env.MILESTONES,
+  [1000000, 5000000, 10000000, 20000000, 40000000, 80000000, 120000000],
+);
+const OUT = process.env.OUT || '';
+
+const t0 = Date.now();
+const v2 = buildValuationArray(NMAX + 1, 2);
+const v3 = buildValuationArray(NMAX + 1, 3);
+const mset = new Set(MILESTONES);
+
+let best = { n: 2, ratio_over_nlogn: -1, k: 0, l: 0 };
+const tailBest = {
+  10: { n: null, ratio: -1 },
+  100: { n: null, ratio: -1 },
+  1000: { n: null, ratio: -1 },
+  10000: { n: null, ratio: -1 },
+  100000: { n: null, ratio: -1 },
+};
+const milestoneRows = [];
+const topRows = [];
+
+function pushTop(row, keep = 30) {
+  topRows.push(row);
+  topRows.sort((a, b) => b.ratio_over_nlogn - a.ratio_over_nlogn);
+  if (topRows.length > keep) topRows.length = keep;
+}
+
+for (let n = 2; n <= NMAX; n += 1) {
+  const k = v2[n] + v2[n + 1];
+  const l = v3[n] + v3[n + 1];
+  const logSmooth = k * Math.log(2) + l * Math.log(3);
+  const ratio = Math.exp(logSmooth - Math.log(n) - Math.log(Math.log(n)));
+  if (ratio > best.ratio_over_nlogn) best = { n, k, l, ratio_over_nlogn: ratio };
+
+  for (const t of [10, 100, 1000, 10000, 100000]) {
+    if (n >= t && ratio > tailBest[t].ratio) tailBest[t] = { n, ratio };
+  }
+  if (ratio >= 3.5) pushTop({ n, k, l, ratio_over_nlogn: ratio });
+
+  if (mset.has(n)) {
+    milestoneRows.push({
+      n,
+      best_n_up_to_here: best.n,
+      best_ratio_up_to_here: Number(best.ratio_over_nlogn.toPrecision(10)),
+      best_ratio_for_n_ge_100000: Number(tailBest[100000].ratio.toPrecision(10)),
+    });
+  }
+}
+
+const out = {
+  problem: 'EP-933',
+  script: path.basename(process.argv[1]),
+  method: 'standalone_deep_scan_of_6-smooth_part_ratio_for_n_nplus1',
+  params: { NMAX, MILESTONES },
+  best_record: best,
+  best_records_for_n_ge: tailBest,
+  milestone_rows: milestoneRows,
+  top_ratio_rows: topRows,
+  runtime_seconds: Number(((Date.now() - t0) / 1000).toFixed(3)),
+  generated_utc: new Date().toISOString(),
+};
+
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

@@ -1,5 +1,91 @@
 {
   "problem": "EP-953",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-07T11:04:20Z",
+  "computations": [
+    {
+      "source_file": "ep953.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
+      "data": {
+        "problem": "EP-953",
+        "method": "standalone_lattice_discretization_greedy_lower_bound_search_for_integer_distance_avoiding_sets",
+        "params": {
+          "seed": 20260307,
+          "configs": [
+            {
+              "R": 4,
+              "q": 10,
+              "rounds": 80
+            },
+            {
+              "R": 6,
+              "q": 10,
+              "rounds": 80
+            },
+            {
+              "R": 8,
+              "q": 10,
+              "rounds": 80
+            },
+            {
+              "R": 10,
+              "q": 10,
+              "rounds": 80
+            }
+          ]
+        },
+        "rows": [
+          {
+            "R": 4,
+            "q": 10,
+            "rounds": 80,
+            "grid_radius": 40,
+            "point_count": 5013,
+            "forbidden_vector_count": 104,
+            "best_independent_set_size": 440,
+            "avg_independent_set_size": 425.5625,
+            "scaled_area_lower_bound_estimate": 4.4,
+            "selected_density_in_grid": 0.087771793
+          },
+          {
+            "R": 6,
+            "q": 10,
+            "rounds": 80,
+            "grid_radius": 60,
+            "point_count": 11277,
+            "forbidden_vector_count": 160,
+            "best_independent_set_size": 670,
+            "avg_independent_set_size": 652.6625,
+            "scaled_area_lower_bound_estimate": 6.7,
+            "selected_density_in_grid": 0.059412964
+          },
+          {
+            "R": 8,
+            "q": 10,
+            "rounds": 80,
+            "grid_radius": 80,
+            "point_count": 20069,
+            "forbidden_vector_count": 240,
+            "best_independent_set_size": 894,
+            "avg_independent_set_size": 872.2875,
+            "scaled_area_lower_bound_estimate": 8.94,
+            "selected_density_in_grid": 0.044546315
+          },
+          {
+            "R": 10,
+            "q": 10,
+            "rounds": 80,
+            "grid_radius": 100,
+            "point_count": 31397,
+            "forbidden_vector_count": 320,
+            "best_independent_set_size": 1111,
+            "avg_independent_set_size": 1090.6625,
+            "scaled_area_lower_bound_estimate": 11.11,
+            "selected_density_in_grid": 0.035385546
+          }
+        ],
+        "generated_utc": "2026-03-07T11:04:07.741Z"
+      }
+    }
+  ]
 }

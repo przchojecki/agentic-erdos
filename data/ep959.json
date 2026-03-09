@@ -1,72 +1,79 @@
 {
   "problem": "EP-959",
-  "normalized_utc": "2026-03-05T08:54:16.971Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch21_web_compute.md",
-        "content": "### EP-959\n- Quick literature check:\n  - 2025 paper establishes a lower bound of order `n log n` for the top multiplicity gap.\n- Finite compute signal:\n  - Sampled constructions (especially two-line configurations) produced gaps growing roughly linearly in tested `n` (`40..100`), with positive normalized `gap/(n log n)`.\n- Interpretation:\n  - Finite data is directionally consistent with a superlinear-in-`n` gap and with recent lower-bound progress."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch21_quick_compute.mjs",
-        "heading": "finite multiplicity-gap search over sampled point configurations.",
-        "content": "// EP-959: finite multiplicity-gap search over sampled point configurations.\n{\n  const rng = makeRng(20260304 ^ 959);\n\n  function distGap(points) {\n    const mp = new Map();\n    for (let i = 0; i < points.length; i += 1) {\n      for (let j = i + 1; j < points.length; j += 1) {\n        const dx = points[i][0] - points[j][0];\n        const dy = points[i][1] - points[j][1];\n        const d2 = dx * dx + dy * dy;\n        mp.set(d2, (mp.get(d2) || 0) + 1);\n      }\n    }\n    const vals = [...mp.values()].sort((a, b) => b - a);\n    const f1 = vals.length ? vals[0] : 0;\n    const f2 = vals.length > 1 ? vals[1] : 0;\n    return { f1, f2, gap: f1 - f2, distinct_distances: vals.length };\n  }\n\n  function gridPoints(n) {\n    const w = Math.floor(Math.sqrt(n));\n    const h = Math.ceil(n / w);\n    const pts = [];\n    for (let y = 0; y < h && pts.length < n; y += 1) {\n      for (let x = 0; x < w && pts.length < n; x += 1) pts.push([x, y]);\n    }\n    return pts;\n  }\n\n  function twoLines(n) {\n    const a = Math.floor(n / 2);\n    const b = n - a;\n    const pts = [];\n    for (let i = 0; i < a; i += 1) pts.push([i, 0]);\n    for (let j = 0; j < b; j += 1) pts.push([j, 1]);\n    return pts;\n  }\n\n  function randomPoints(n, side) {\n    const pts = [];\n    const seen = new Set();\n    while (pts.length < n) {\n      const x = Math.floor(rng() * side);\n      const y = Math.floor(rng() * side);\n      const key = `${x},${y}`;\n      if (seen.has(key)) continue;\n      seen.add(key);\n      pts.push([x, y]);\n    }\n    return pts;\n  }\n\n  const rows = [];\n  for (const n of [40, 60, 80, 100]) {\n    let best = { gap: -1, family: 'none', f1: 0, f2: 0, distinct_distances: 0 };\n\n    const g = distGap(gridPoints(n));\n    if (g.gap > best.gap) best = { ...g, family: 'grid' };\n\n    const t = distGap(twoLines(n));\n    if (t.gap > best.gap) best = { ...t, family: 'two_lines' };\n\n    for (let trial = 0; trial < 220; trial += 1) {\n      const pts = randomPoints(n, 6 * n);\n      const r = distGap(pts);\n      if (r.gap > best.gap) best = { ...r, family: 'random' };\n    }\n\n    rows.push({\n      n,\n      best_family_found: best.family,\n      best_gap_f1_minus_f2: best.gap,\n      f1: best.f1,\n      f2: best.f2,\n      best_gap_over_n_log_n: Number((best.gap / (n * Math.log(n))).toPrecision(7)),\n      distinct_distances_in_best: best.distinct_distances,\n    });\n  }\n\n  out.results.ep959 = {\n    description: 'Finite sampled search for large multiplicity gaps f(d1)-f(d2) in planar point sets.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch21_quick_compute.json",
-        "key": "ep959",
-        "container_meta": {
-          "script": "harder_batch21_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:09:50.566Z"
-        },
-        "data": {
-          "description": "Finite sampled search for large multiplicity gaps f(d1)-f(d2) in planar point sets.",
-          "rows": [
-            {
-              "n": 40,
-              "best_family_found": "grid",
-              "best_gap_f1_minus_f2": 22,
-              "f1": 93,
-              "f2": 71,
-              "best_gap_over_n_log_n": 0.1490968,
-              "distinct_distances_in_best": 25
-            },
-            {
-              "n": 60,
-              "best_family_found": "two_lines",
-              "best_gap_f1_minus_f2": 30,
-              "f1": 88,
-              "f2": 58,
-              "best_gap_over_n_log_n": 0.1221197,
-              "distinct_distances_in_best": 58
-            },
-            {
-              "n": 80,
-              "best_family_found": "two_lines",
-              "best_gap_f1_minus_f2": 40,
-              "f1": 118,
-              "f2": 78,
-              "best_gap_over_n_log_n": 0.1141025,
-              "distinct_distances_in_best": 78
-            },
-            {
-              "n": 100,
-              "best_family_found": "two_lines",
-              "best_gap_f1_minus_f2": 50,
-              "f1": 148,
-              "f2": 98,
-              "best_gap_over_n_log_n": 0.1085736,
-              "distinct_distances_in_best": 98
-            }
+  "normalized_utc": "2026-03-07T11:10:36Z",
+  "computations": [
+    {
+      "source_file": "ep959.mjs",
+      "extension": ".mjs",
+      "kind": "standalone_deep_run",
+      "data": {
+        "problem": "EP-959",
+        "method": "standalone_deep_search_for_large_distance_multiplicity_gap",
+        "params": {
+          "seed": 20260307,
+          "trials": 2500,
+          "n_list": [
+            120,
+            180,
+            240,
+            300,
+            360
           ]
-        }
+        },
+        "rows": [
+          {
+            "n": 120,
+            "trials_random": 2500,
+            "best_family_found": "two_lines",
+            "best_gap_f1_minus_f2": 60,
+            "f1": 178,
+            "f2": 118,
+            "best_gap_over_n_log_n": 0.10443882,
+            "distinct_distances_in_best": 118
+          },
+          {
+            "n": 180,
+            "trials_random": 2500,
+            "best_family_found": "two_lines",
+            "best_gap_f1_minus_f2": 90,
+            "f1": 268,
+            "f2": 178,
+            "best_gap_over_n_log_n": 0.096284259,
+            "distinct_distances_in_best": 178
+          },
+          {
+            "n": 240,
+            "trials_random": 2500,
+            "best_family_found": "two_lines",
+            "best_gap_f1_minus_f2": 120,
+            "f1": 358,
+            "f2": 238,
+            "best_gap_over_n_log_n": 0.091230239,
+            "distinct_distances_in_best": 238
+          },
+          {
+            "n": 300,
+            "trials_random": 2500,
+            "best_family_found": "two_lines",
+            "best_gap_f1_minus_f2": 150,
+            "f1": 448,
+            "f2": 298,
+            "best_gap_over_n_log_n": 0.087661127,
+            "distinct_distances_in_best": 298
+          },
+          {
+            "n": 360,
+            "trials_random": 2500,
+            "best_family_found": "two_lines",
+            "best_gap_f1_minus_f2": 180,
+            "f1": 538,
+            "f2": 358,
+            "best_gap_over_n_log_n": 0.084945831,
+            "distinct_distances_in_best": 358
+          }
+        ],
+        "generated_utc": "2026-03-07T11:09:36.631Z"
       }
-    ]
-  }
+    }
+  ]
 }
