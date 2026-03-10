@@ -1,5 +1,273 @@
 {
   "problem": "EP-312",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep312.mjs",
+      "kind": "standalone_deep_best_reciprocal_subset_below_one_on_initial_and_shifted_blocks",
+      "generated_utc": "2026-03-10T09:43:20.369Z",
+      "data": {
+        "problem": "EP-312",
+        "script": "ep312.mjs",
+        "method": "exact_meet_in_middle_best_reciprocal_subset_sum_below_one_on_selected_denominator_families",
+        "params": {
+          "INITIAL_N_LIST": [
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22
+          ],
+          "BLOCK_START_LIST": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            15,
+            20
+          ],
+          "BLOCK_LEN": 22
+        },
+        "initial_segment_rows": [
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 8,
+            "terms_count": 7,
+            "lcm_D_digits": 3,
+            "total_recip_sum": 1.7178571428571427,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 10,
+            "terms_count": 9,
+            "lcm_D_digits": 4,
+            "total_recip_sum": 1.928968253968254,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 12,
+            "terms_count": 11,
+            "lcm_D_digits": 5,
+            "total_recip_sum": 2.103210678210678,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 14,
+            "terms_count": 13,
+            "lcm_D_digits": 6,
+            "total_recip_sum": 2.2515623265623264,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 16,
+            "terms_count": 15,
+            "lcm_D_digits": 6,
+            "total_recip_sum": 2.3807289932289932,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 18,
+            "terms_count": 17,
+            "lcm_D_digits": 8,
+            "total_recip_sum": 2.4951080781963135,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 20,
+            "terms_count": 19,
+            "lcm_D_digits": 9,
+            "total_recip_sum": 2.597739657143682,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "initial_segment_from_2",
+            "denom_start": 2,
+            "denom_end": 22,
+            "terms_count": 21,
+            "lcm_D_digits": 9,
+            "total_recip_sum": 2.690813250217275,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          }
+        ],
+        "shifted_block_rows": [
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 3,
+            "denom_end": 24,
+            "terms_count": 22,
+            "lcm_D_digits": 10,
+            "total_recip_sum": 2.2759581777535067,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 4,
+            "denom_end": 25,
+            "terms_count": 22,
+            "lcm_D_digits": 11,
+            "total_recip_sum": 1.9826248444201735,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 5,
+            "denom_end": 26,
+            "terms_count": 22,
+            "lcm_D_digits": 11,
+            "total_recip_sum": 1.771086382881712,
+            "best_sum_le_1": 1,
+            "gap_to_1": 0,
+            "gap_times_start2": 0,
+            "gap_times_start3": 0
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 6,
+            "denom_end": 27,
+            "terms_count": 22,
+            "lcm_D_digits": 11,
+            "total_recip_sum": 1.608123419918749,
+            "best_sum_le_1": 0.9999976129771526,
+            "gap_to_1": 0.0000023870228473809037,
+            "gap_times_start2": 0.00008593282250571254,
+            "gap_times_start3": 0.0005155969350342752
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 7,
+            "denom_end": 28,
+            "terms_count": 22,
+            "lcm_D_digits": 11,
+            "total_recip_sum": 1.4771710389663681,
+            "best_sum_le_1": 0.99999740999741,
+            "gap_to_1": 0.00000259000259000259,
+            "gap_times_start2": 0.0001269101269101269,
+            "gap_times_start3": 0.0008883708883708883
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 8,
+            "denom_end": 29,
+            "terms_count": 22,
+            "lcm_D_digits": 13,
+            "total_recip_sum": 1.3687966547299149,
+            "best_sum_le_1": 0.9999995803446052,
+            "gap_to_1": 4.1965539479940175e-7,
+            "gap_times_start2": 0.000026857945267161712,
+            "gap_times_start3": 0.0002148635621372937
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 10,
+            "denom_end": 31,
+            "terms_count": 22,
+            "lcm_D_digits": 14,
+            "total_recip_sum": 1.1982769414682661,
+            "best_sum_le_1": 0.9999884992838284,
+            "gap_to_1": 0.000011500716171600544,
+            "gap_times_start2": 0.0011500716171600545,
+            "gap_times_start3": 0.011500716171600546
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 12,
+            "denom_end": 33,
+            "terms_count": 22,
+            "lcm_D_digits": 15,
+            "total_recip_sum": 1.0689208808622055,
+            "best_sum_le_1": 0.9998732618145865,
+            "gap_to_1": 0.00012673818541351917,
+            "gap_times_start2": 0.01825029869954676,
+            "gap_times_start3": 0.2190035843945611
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 15,
+            "denom_end": 36,
+            "terms_count": 22,
+            "lcm_D_digits": 15,
+            "total_recip_sum": 0.9229968702323126,
+            "best_sum_le_1": 0.9229968702323126,
+            "gap_to_1": 0.07700312976768746,
+            "gap_times_start2": 17.325704197729678,
+            "gap_times_start3": 259.88556296594516
+          },
+          {
+            "model": "shifted_consecutive_block",
+            "block_len": 22,
+            "denom_start": 20,
+            "denom_end": 41,
+            "terms_count": 22,
+            "lcm_D_digits": 18,
+            "total_recip_sum": 0.755193625695133,
+            "best_sum_le_1": 0.755193625695133,
+            "gap_to_1": 0.2448063743048669,
+            "gap_times_start2": 97.92254972194677,
+            "gap_times_start3": 1958.4509944389354
+          }
+        ],
+        "runtime_seconds": 0.005,
+        "generated_utc": "2026-03-10T09:43:20.369Z"
+      }
+    }
+  ]
 }

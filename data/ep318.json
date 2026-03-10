@@ -1,5 +1,130 @@
 {
   "problem": "EP-318",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep318.mjs",
+      "kind": "standalone_deep_prefix_signed_inverse_square_zero_subset_scan",
+      "generated_utc": "2026-03-10T09:40:31.148Z",
+      "data": {
+        "problem": "EP-318",
+        "script": "ep318.mjs",
+        "method": "exact_meet_in_middle_zero_subset_on_signed_inverse_squares_prefixes",
+        "params": {
+          "EXH_M_MAX": 12,
+          "RANDOM_M_LIST": [
+            18,
+            24,
+            30,
+            36,
+            40
+          ],
+          "RANDOM_SAMPLES": 120,
+          "RNG_SEED": 31820260310
+        },
+        "exhaustive": [
+          {
+            "m_terms": 2,
+            "nonconstant_signings": 2,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 3,
+            "nonconstant_signings": 6,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 4,
+            "nonconstant_signings": 14,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 5,
+            "nonconstant_signings": 30,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 6,
+            "nonconstant_signings": 62,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 7,
+            "nonconstant_signings": 126,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 8,
+            "nonconstant_signings": 254,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 9,
+            "nonconstant_signings": 510,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 10,
+            "nonconstant_signings": 1022,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 11,
+            "nonconstant_signings": 2046,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 12,
+            "nonconstant_signings": 4094,
+            "signings_with_zero_subset": 0,
+            "proportion_with_zero_subset": 0
+          }
+        ],
+        "random_profiles": [
+          {
+            "m_terms": 18,
+            "samples": 120,
+            "sampled_with_zero_subset": 0,
+            "sampled_proportion_with_zero_subset": 0
+          },
+          {
+            "m_terms": 24,
+            "samples": 120,
+            "sampled_with_zero_subset": 62,
+            "sampled_proportion_with_zero_subset": 0.51666667
+          },
+          {
+            "m_terms": 30,
+            "samples": 120,
+            "sampled_with_zero_subset": 72,
+            "sampled_proportion_with_zero_subset": 0.6
+          },
+          {
+            "m_terms": 36,
+            "samples": 120,
+            "sampled_with_zero_subset": 87,
+            "sampled_proportion_with_zero_subset": 0.725
+          },
+          {
+            "m_terms": 40,
+            "samples": 120,
+            "sampled_with_zero_subset": 99,
+            "sampled_proportion_with_zero_subset": 0.825
+          }
+        ],
+        "runtime_seconds": 82.923,
+        "generated_utc": "2026-03-10T09:40:31.148Z"
+      }
+    }
+  ]
 }
