@@ -69,14 +69,9 @@ function setText(id, value) {
 
 function sanitizeMathText(src) {
   let t = src || "";
-  // Protect literal dollars from MathJax by wrapping them in tex2jax_ignore spans.
-  // 1) Escaped dollars coming from source text, e.g. "\$250".
-  t = t.replace(/\\\$/g, '<span class="tex2jax_ignore">$</span>');
-  // 2) Unescaped currency-like forms, e.g. "$250".
-  t = t.replace(
-    /(^|[^\w\\])\$(\d+(?:[.,]\d+)?)/g,
-    '$1<span class="tex2jax_ignore">$</span>$2',
-  );
+  // Preserve literal currency/escaped dollars so MathJax does not treat them as math delimiters.
+  t = t.replace(/\\\$/g, "&#36;");
+  t = t.replace(/(^|[^\\w])\\$(\\d+)/g, "$1&#36;$2");
   return t;
 }
 
@@ -174,7 +169,8 @@ async function selectProblem(id) {
   const data = await dataRes.json();
   const noteRaw = await noteRes.text();
   const note = stripBatchSections(noteRaw);
-  const remote = state.remoteByProblem.get(`EP-${id}`);
+  const keyUpper = `EP-${id}`;
+  const remote = state.remoteByProblem.get(keyUpper);
 
   let statement =
     (remote?.statement || remote?.problem_statement || "").trim() ||
