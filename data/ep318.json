@@ -125,6 +125,156 @@
         "runtime_seconds": 82.923,
         "generated_utc": "2026-03-10T09:40:31.148Z"
       }
+    },
+    {
+      "source_file": "ep318.mjs",
+      "kind": "standalone_counterexample_seed_search_on_square_prefix_signings",
+      "generated_utc": "2026-03-10T11:41:09.986Z",
+      "data": {
+        "problem": "EP-318",
+        "script": "ep318.mjs",
+        "method": "exact_meet_in_middle_zero_subset_on_signed_inverse_squares_prefixes",
+        "params": {
+          "EXH_M_MAX": 0,
+          "RANDOM_M_LIST": [
+            24
+          ],
+          "RANDOM_SAMPLES": 20,
+          "SEARCH_M_LIST": [
+            36,
+            40,
+            42
+          ],
+          "SEARCH_TRIALS": 60,
+          "RNG_SEED": 31820260311
+        },
+        "exhaustive": [],
+        "random_profiles": [
+          {
+            "m_terms": 24,
+            "samples": 20,
+            "sampled_with_zero_subset": 12,
+            "sampled_proportion_with_zero_subset": 0.6
+          }
+        ],
+        "witness_search": [
+          {
+            "m_terms": 36,
+            "trials": 60,
+            "found_zero_free_signing": true,
+            "first_zero_detected_trial": 1,
+            "zero_free_signing_pm_string": "-+-----++-++-+-----+++-++-+++-+-+---"
+          },
+          {
+            "m_terms": 40,
+            "trials": 60,
+            "found_zero_free_signing": true,
+            "first_zero_detected_trial": 1,
+            "zero_free_signing_pm_string": "--+---+----++--+--+-+-+--++-+-++----++--"
+          },
+          {
+            "m_terms": 42,
+            "trials": 60,
+            "found_zero_free_signing": true,
+            "first_zero_detected_trial": 1,
+            "zero_free_signing_pm_string": "----++-++-+---+-+++++--+-++-----+----+---+"
+          }
+        ],
+        "runtime_seconds": 17.808,
+        "generated_utc": "2026-03-10T11:41:09.986Z"
+      }
+    },
+    {
+      "source_file": "ep318.mjs",
+      "kind": "standalone_counterexample_seed_search_on_square_prefix_signings_m44_m46",
+      "generated_utc": "2026-03-10T11:42:26.522Z",
+      "data": {
+        "problem": "EP-318",
+        "script": "ep318.mjs",
+        "method": "exact_meet_in_middle_zero_subset_on_signed_inverse_squares_prefixes",
+        "params": {
+          "EXH_M_MAX": 0,
+          "RANDOM_M_LIST": [
+            24
+          ],
+          "RANDOM_SAMPLES": 10,
+          "SEARCH_M_LIST": [
+            44,
+            46
+          ],
+          "SEARCH_TRIALS": 40,
+          "RNG_SEED": 31820260312
+        },
+        "exhaustive": [],
+        "random_profiles": [
+          {
+            "m_terms": 24,
+            "samples": 10,
+            "sampled_with_zero_subset": 4,
+            "sampled_proportion_with_zero_subset": 0.4
+          }
+        ],
+        "witness_search": [
+          {
+            "m_terms": 44,
+            "trials": 40,
+            "found_zero_free_signing": true,
+            "first_zero_detected_trial": 1,
+            "zero_free_signing_pm_string": "+++-+-+---+-++--+++-+++++++++-++-++-+-++++-+"
+          },
+          {
+            "m_terms": 46,
+            "trials": 40,
+            "found_zero_free_signing": true,
+            "first_zero_detected_trial": 1,
+            "zero_free_signing_pm_string": "++-++--+-++-+---+-+-----+-++++++++++--------++"
+          }
+        ],
+        "runtime_seconds": 54.373,
+        "generated_utc": "2026-03-10T11:42:26.522Z"
+      }
+    },
+    {
+      "source_file": "ep318.mjs",
+      "kind": "standalone_counterexample_seed_search_on_square_prefix_signings_m48",
+      "generated_utc": "2026-03-10T11:45:57.763Z",
+      "data": {
+        "problem": "EP-318",
+        "script": "ep318.mjs",
+        "method": "exact_meet_in_middle_zero_subset_on_signed_inverse_squares_prefixes",
+        "params": {
+          "EXH_M_MAX": 0,
+          "RANDOM_M_LIST": [
+            24
+          ],
+          "RANDOM_SAMPLES": 6,
+          "SEARCH_M_LIST": [
+            48
+          ],
+          "SEARCH_TRIALS": 12,
+          "RNG_SEED": 31820260313
+        },
+        "exhaustive": [],
+        "random_profiles": [
+          {
+            "m_terms": 24,
+            "samples": 6,
+            "sampled_with_zero_subset": 4,
+            "sampled_proportion_with_zero_subset": 0.66666667
+          }
+        ],
+        "witness_search": [
+          {
+            "m_terms": 48,
+            "trials": 12,
+            "found_zero_free_signing": false,
+            "first_zero_detected_trial": 1,
+            "zero_free_signing_pm_string": null
+          }
+        ],
+        "runtime_seconds": 125.977,
+        "generated_utc": "2026-03-10T11:45:57.763Z"
+      }
     }
   ]
 }

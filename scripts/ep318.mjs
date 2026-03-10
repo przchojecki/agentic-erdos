@@ -111,11 +111,13 @@ function parseIntEnv(name, fallback) {
 const EXH_M_MAX = parseIntEnv('EXH_M_MAX', 12);
 const RANDOM_M_LIST = parseListInt(process.env.RANDOM_M_LIST, [18, 24, 30, 36, 40]);
 const RANDOM_SAMPLES = parseIntEnv('RANDOM_SAMPLES', 100);
+const SEARCH_M_LIST = parseListInt(process.env.SEARCH_M_LIST, [24, 30, 36, 40]);
+const SEARCH_TRIALS = parseIntEnv('SEARCH_TRIALS', 120);
 const RNG_SEED = parseIntEnv('RNG_SEED', 31820260310);
 const OUT = process.env.OUT || '';
 
 const t0 = Date.now();
-const maxM = Math.max(EXH_M_MAX, ...RANDOM_M_LIST);
+const maxM = Math.max(EXH_M_MAX, ...RANDOM_M_LIST, ...SEARCH_M_LIST);
 const d2ByM = new Map();
 for (let m = 2; m <= maxM; m += 1) d2ByM.set(m, lcmRangeSquared(m + 1));
 
@@ -167,6 +169,32 @@ for (const m of RANDOM_M_LIST) {
   });
 }
 
+const witness_search = [];
+for (const m of SEARCH_M_LIST) {
+  const d2 = d2ByM.get(m);
+  let found = false;
+  let foundSigns = null;
+  let firstZeroAt = -1;
+  for (let t = 0; t < SEARCH_TRIALS; t += 1) {
+    const signs = randomSigns(m, rand);
+    const weights = toScaledWeights(signs, d2);
+    const hasZero = hasZeroSubset(weights);
+    if (!hasZero) {
+      found = true;
+      foundSigns = signs.map((x) => (x > 0 ? '+' : '-')).join('');
+      break;
+    }
+    if (firstZeroAt < 0) firstZeroAt = t + 1;
+  }
+  witness_search.push({
+    m_terms: m,
+    trials: SEARCH_TRIALS,
+    found_zero_free_signing: found,
+    first_zero_detected_trial: firstZeroAt,
+    zero_free_signing_pm_string: foundSigns,
+  });
+}
+
 const out = {
   problem: 'EP-318',
   script: path.basename(process.argv[1]),
@@ -175,10 +203,13 @@ const out = {
     EXH_M_MAX,
     RANDOM_M_LIST,
     RANDOM_SAMPLES,
+    SEARCH_M_LIST,
+    SEARCH_TRIALS,
     RNG_SEED,
   },
   exhaustive,
   random_profiles,
+  witness_search,
   runtime_seconds: Number(((Date.now() - t0) / 1000).toFixed(3)),
   generated_utc: new Date().toISOString(),
 };

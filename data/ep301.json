@@ -1,5 +1,132 @@
 {
   "problem": "EP-301",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep301.mjs",
+      "kind": "standalone_exact_k2_k3_reciprocal_configuration_avoidance_scan",
+      "generated_utc": "2026-03-10T11:01:11.161Z",
+      "data": {
+        "problem": "EP-301",
+        "script": "ep301.mjs",
+        "method": "exact_branch_and_bound_max_subset_avoiding_reciprocal_equation_configs",
+        "params": {
+          "N_LIST_K2": [
+            20,
+            25,
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          "N_LIST_K3": [
+            16,
+            20,
+            24,
+            28,
+            32,
+            36
+          ]
+        },
+        "rows_k2": [
+          {
+            "k": 2,
+            "N": 20,
+            "forbidden_configurations": 6,
+            "f_k_N_exact": 18,
+            "density": 0.9
+          },
+          {
+            "k": 2,
+            "N": 25,
+            "forbidden_configurations": 8,
+            "f_k_N_exact": 22,
+            "density": 0.88
+          },
+          {
+            "k": 2,
+            "N": 30,
+            "forbidden_configurations": 12,
+            "f_k_N_exact": 26,
+            "density": 0.86666667
+          },
+          {
+            "k": 2,
+            "N": 35,
+            "forbidden_configurations": 13,
+            "f_k_N_exact": 31,
+            "density": 0.88571429
+          },
+          {
+            "k": 2,
+            "N": 40,
+            "forbidden_configurations": 17,
+            "f_k_N_exact": 35,
+            "density": 0.875
+          },
+          {
+            "k": 2,
+            "N": 45,
+            "forbidden_configurations": 21,
+            "f_k_N_exact": 39,
+            "density": 0.86666667
+          },
+          {
+            "k": 2,
+            "N": 50,
+            "forbidden_configurations": 23,
+            "f_k_N_exact": 43,
+            "density": 0.86
+          }
+        ],
+        "rows_k3": [
+          {
+            "k": 3,
+            "N": 16,
+            "forbidden_configurations": 5,
+            "f_k_N_exact": 14,
+            "density": 0.875
+          },
+          {
+            "k": 3,
+            "N": 20,
+            "forbidden_configurations": 11,
+            "f_k_N_exact": 17,
+            "density": 0.85
+          },
+          {
+            "k": 3,
+            "N": 24,
+            "forbidden_configurations": 14,
+            "f_k_N_exact": 21,
+            "density": 0.875
+          },
+          {
+            "k": 3,
+            "N": 28,
+            "forbidden_configurations": 19,
+            "f_k_N_exact": 24,
+            "density": 0.85714286
+          },
+          {
+            "k": 3,
+            "N": 32,
+            "forbidden_configurations": 27,
+            "f_k_N_exact": 27,
+            "density": 0.84375
+          },
+          {
+            "k": 3,
+            "N": 36,
+            "forbidden_configurations": 37,
+            "f_k_N_exact": 30,
+            "density": 0.83333333
+          }
+        ],
+        "runtime_seconds": 0.009,
+        "generated_utc": "2026-03-10T11:01:11.161Z"
+      }
+    }
+  ]
 }
