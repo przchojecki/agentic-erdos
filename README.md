@@ -9,7 +9,7 @@ In practice, work is done one problem at a time but at portfolio scale: each EP 
 - Total problems tracked: **632**
 - Triaged as `to-check`: **632**
 - Triaged as `harder`: **0**
-- README last generated (UTC): **2026-03-09T16:00:25.934Z**
+- README last generated (UTC): **2026-03-10T12:40:06.277Z**
 
 ## Closure State Counts
 
@@ -20,14 +20,32 @@ In practice, work is done one problem at a time but at portfolio scale: each EP 
 
 ## Progress Status Counts
 
-- `no_progress`: 365
-- `has_computation`: 267
+- `no_progress`: 361
+- `has_computation`: 271
 
 ## Data and Notes
 
 - Canonical data directory: data/ (one epNNN.json per problem)
 - Canonical notes directory: notes/ (one epNNN.md per problem)
 - Canonical scripts directory: scripts/ (one epNNN.mjs per problem)
+
+## Web UI (Vercel-ready)
+
+- Static browser entry: `index.html`
+- Catalog generator: `node scripts/build_problem_catalog.mjs`
+- Regenerate README: `node generate_readme_progress.mjs`
+
+Local preview:
+```bash
+node scripts/build_problem_catalog.mjs
+python3 -m http.server 4173
+```
+Then open `http://localhost:4173`.
+
+Deploy on Vercel:
+```bash
+vercel --prod
+```
 
 ## Regenerate This README
 
@@ -200,22 +218,22 @@ node generate_readme_progress.mjs
 | EP-291 | Erdos Problem #291 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-293 | Erdos Problem #293 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-295 | Erdos Problem #295 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-301 | Erdos Problem #301 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-302 | Erdos Problem #302 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-301 | Erdos Problem #301 | to-check |  |  | open | has_computation | Computations: 1 |
+| EP-302 | Erdos Problem #302 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-304 | Erdos Problem #304 | to-check |  |  | open | has_computation | Computations: 4 |
 | EP-306 | Erdos Problem #306 | to-check |  |  | open | has_computation | Computations: 3 |
 | EP-311 | Erdos Problem #311 | to-check |  |  | open | has_computation | Computations: 1 |
-| EP-312 | Erdos Problem #312 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-312 | Erdos Problem #312 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-313 | Erdos Problem #313 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-317 | Erdos Problem #317 | to-check |  |  | open | has_computation | Computations: 4 |
-| EP-318 | Erdos Problem #318 | to-check |  |  | open | no_progress | Computations: 0 |
+| EP-318 | Erdos Problem #318 | to-check |  |  | open | has_computation | Computations: 4 |
 | EP-319 | Erdos Problem #319 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-320 | Erdos Problem #320 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-321 | Erdos Problem #321 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-322 | Erdos Problem #322 | to-check |  |  | open | has_computation | Computations: 2 |
 | EP-323 | Erdos Problem #323 | to-check |  |  | open | has_computation | Computations: 5 |
 | EP-324 | Erdos Problem #324 | to-check |  |  | open | no_progress | Computations: 0 |
-| EP-325 | Erdos Problem #325 | to-check |  |  | open | has_computation | Computations: 9 |
+| EP-325 | Erdos Problem #325 | to-check |  |  | open | has_computation | Computations: 12 |
 | EP-326 | Erdos Problem #326 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-327 | Erdos Problem #327 | to-check |  |  | open | has_computation | Computations: 1 |
 | EP-329 | Erdos Problem #329 | to-check |  |  | open | has_computation | Computations: 2 |

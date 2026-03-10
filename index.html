@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentic Erdős Browser</title>
+    <link rel="stylesheet" href="browser.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar panel">
+        <div class="sidebar-header">
+          <h1>Erdős Problems</h1>
+          <input id="search" type="search" placeholder="Search EP, status, keyword..." />
+        </div>
+        <div id="problemList" class="problem-list"></div>
+      </aside>
+
+      <main class="content">
+        <section class="panel overview">
+          <div class="overview-top">
+            <div>
+              <h2 id="problemTitle">Select a problem</h2>
+              <p id="problemMeta" class="muted"></p>
+            </div>
+          </div>
+
+          <div class="overview-grid">
+            <article>
+              <h3>Problem Statement</h3>
+              <div id="statement" class="text-block"></div>
+            </article>
+            <article>
+              <h3>Established Results</h3>
+              <div id="resolved" class="text-block"></div>
+            </article>
+            <article>
+              <h3>References / Literature</h3>
+              <div id="references" class="text-block"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel notes">
+          <div class="tabs">
+            <button class="tab active" data-tab="notesTab">Comments / Notes</button>
+            <button class="tab" data-tab="compTab">Computations</button>
+          </div>
+          <div id="notesTab" class="tab-panel active">
+            <pre id="noteRaw" class="note-raw"></pre>
+          </div>
+          <div id="compTab" class="tab-panel">
+            <div id="computations" class="computations"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="browser.js"></script>
+  </body>
+</html>

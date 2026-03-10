@@ -130,6 +130,24 @@ ${statusLines}
 - Canonical notes directory: notes/ (one epNNN.md per problem)
 - Canonical scripts directory: scripts/ (one epNNN.mjs per problem)
 
+## Web UI (Vercel-ready)
+
+- Static browser entry: \`index.html\`
+- Catalog generator: \`node scripts/build_problem_catalog.mjs\`
+- Regenerate README: \`node generate_readme_progress.mjs\`
+
+Local preview:
+\`\`\`bash
+node scripts/build_problem_catalog.mjs
+python3 -m http.server 4173
+\`\`\`
+Then open \`http://localhost:4173\`.
+
+Deploy on Vercel:
+\`\`\`bash
+vercel --prod
+\`\`\`
+
 ## Regenerate This README
 
 \`\`\`bash
