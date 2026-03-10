@@ -38,13 +38,6 @@ function stripBatchSections(md) {
   return out.join("\n").trim();
 }
 
-function pick(obj, fields) {
-  for (const f of fields) {
-    if (obj[f]) return obj[f];
-  }
-  return "";
-}
-
 function renderList() {
   const host = $("problemList");
   host.innerHTML = "";
@@ -105,7 +98,6 @@ async function selectProblem(id) {
 
   if (!dataRes.ok || !noteRes.ok) {
     setText("problemTitle", `EP-${id}`);
-    setText("problemMeta", "Failed to load problem files.");
     setText("statement", "");
     setText("literature", "");
     setText("approachProven", "");
@@ -118,24 +110,21 @@ async function selectProblem(id) {
   const noteRaw = await noteRes.text();
   const note = stripBatchSections(noteRaw);
 
-  let statement = extractAnySection(note, ["Statement", "Statement split"]);
-  if (!statement) {
-    const lines = note.split(/\r?\n/).filter((x) => x.trim());
-    statement = lines.slice(0, 8).join("\n");
-  }
+  let statement = extractAnySection(note, ["Statement", "Statement split", "Working statement"]);
+  if (!statement) statement = "Problem statement not yet normalized in this note.";
 
   const literature = [
     extractAnySection(note, [
       "Literature status (checked)",
       "References",
       "References (checked in this deep dive)",
-      "Source",
     ]),
   ]
     .filter(Boolean)
     .join("\n\n");
 
   const approachProven = [
+    extractAnySection(note, ["Route"]),
     extractAnySection(note, ["What is resolved"]),
     extractAnySection(note, ["Proof route sharpened"]),
     extractAnySection(note, ["Attempt in this batch"]),
@@ -146,16 +135,6 @@ async function selectProblem(id) {
     .join("\n\n");
 
   setText("problemTitle", data.problem || `EP-${id}`);
-  setText(
-    "problemMeta",
-    [
-      `closure: ${data.closure_state || "open"}`,
-      `progress: ${data.progress_status || (data.computations?.length ? "has_computation" : "no_progress")}`,
-      `computations: ${data.computations?.length || 0}`,
-    ].join(" · "),
-  );
-  $("problemFiles").innerHTML = `Files: <a href="data/${key}.json" target="_blank" rel="noreferrer">json</a> · <a href="scripts/${key}.mjs" target="_blank" rel="noreferrer">mjs</a> · <a href="notes/${key}.md" target="_blank" rel="noreferrer">md</a>`;
-
   setText("statement", statement || "No parsed statement section found.");
   setText("literature", literature || "No explicit literature section found.");
   setText("approachProven", approachProven || "No explicit approach/proven section found.");

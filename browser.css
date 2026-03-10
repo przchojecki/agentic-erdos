@@ -115,33 +115,32 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 #problemTitle {
   margin: 0;
+  font-size: 26px;
 }
 
 .muted {
   color: var(--muted);
 }
 
-.overview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+.overview-flow {
+  display: block;
+  border-top: 1px solid var(--line);
 }
 
-.overview-grid article {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px;
-  background: #fff;
+.section-line {
+  padding: 14px 2px 14px 2px;
+  border-bottom: 1px solid var(--line);
 }
 
-.overview-grid h3 {
+.section-line h3 {
   margin: 0 0 8px;
-  font-size: 14px;
+  font-size: 15px;
+  letter-spacing: 0.01em;
 }
 
 .text-block {
@@ -222,7 +221,7 @@ body {
     min-height: auto;
     grid-template-rows: auto auto;
   }
-  .overview-grid {
-    grid-template-columns: 1fr;
+  #problemTitle {
+    font-size: 22px;
   }
 }
