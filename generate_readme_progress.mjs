@@ -148,6 +148,38 @@ Deploy on Vercel:
 vercel --prod
 \`\`\`
 
+## Contributions / Submissions
+
+Use pull requests (PRs) only.
+
+Recommended workflow:
+1. Create a branch from \`main\`.
+2. Make per-problem changes in canonical files:
+   - data: \`data/epNNN.json\`
+   - notes: \`notes/epNNN.md\`
+   - script: \`scripts/epNNN.mjs\`
+3. If UI/catalog logic changes, also update:
+   - \`scripts/build_problem_catalog.mjs\`
+   - \`catalog.json\` (regenerate)
+   - browser files (\`index.html\`, \`browser.js\`, \`browser.css\`) as needed
+4. Regenerate derived files before opening PR:
+\`\`\`bash
+node scripts/build_problem_catalog.mjs
+node generate_readme_progress.mjs
+\`\`\`
+5. Open PR with:
+   - list of EP numbers changed
+   - summary of mathematical changes (statement/literature/proof attempt/computation)
+   - exact commands used for computations
+
+Formatting expectations:
+- Keep exactly one file per problem in each canonical folder:
+  - \`data/epNNN.json\`
+  - \`notes/epNNN.md\`
+  - \`scripts/epNNN.mjs\`
+- Put computational outputs under \`computations\` in the JSON file.
+- Keep notes explicit about what is proved, what is heuristic, and what remains open.
+
 ## Regenerate This README
 
 \`\`\`bash

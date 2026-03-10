@@ -50,8 +50,32 @@ body {
 }
 
 .sidebar-header h1 {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 18px;
+}
+
+.sidebar-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: #111827;
+  text-decoration: none;
+  background: #fff;
+}
+
+.github-link:hover {
+  background: #f3f4f6;
 }
 
 #search {
