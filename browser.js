@@ -2,6 +2,7 @@ const state = {
   catalog: [],
   filtered: [],
   selectedId: null,
+  remoteByProblem: new Map(),
 };
 
 function $(id) {
@@ -21,6 +22,14 @@ function extractAnySection(md, headings) {
     if (v) return v;
   }
   return "";
+}
+
+function stripMdDecorations(s) {
+  return (s || "")
+    .replace(/^#+\s+/gm, "")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .trim();
 }
 
 function stripBatchSections(md) {
@@ -56,6 +65,49 @@ function renderList() {
 
 function setText(id, value) {
   $(id).textContent = value || "No data.";
+}
+
+function setMarkdown(id, value, fallback = "No data.") {
+  const el = $(id);
+  const src = (value || "").trim() || fallback;
+  if (window.marked?.parse) {
+    el.innerHTML = window.marked.parse(src);
+  } else {
+    el.textContent = src;
+  }
+  if (window.MathJax?.typesetPromise) {
+    window.MathJax.typesetPromise([el]).catch(() => {});
+  }
+}
+
+async function loadRemoteStatements() {
+  const urls = [
+    "external/unsolvedmath/problems.json",
+    "https://huggingface.co/datasets/ulamai/UnsolvedMath/raw/main/problems.json",
+    "https://huggingface.co/datasets/ulamai/UnsolvedMath/resolve/main/problems.json",
+  ];
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, { cache: "force-cache" });
+      if (!res.ok) continue;
+      const arr = await res.json();
+      if (!Array.isArray(arr)) continue;
+      const by = new Map();
+      for (const item of arr) {
+        const key = String(item.problem_number || "").trim();
+        if (!/^EP-\d+$/i.test(key)) continue;
+        by.set(key.toUpperCase(), {
+          ...item,
+          statement: item.statement || item.problem_statement || "",
+          background: item.background || "",
+        });
+      }
+      if (by.size > 0) return by;
+    } catch (_) {
+      // try next endpoint
+    }
+  }
+  return new Map();
 }
 
 function renderComputations(data) {
@@ -109,19 +161,38 @@ async function selectProblem(id) {
   const data = await dataRes.json();
   const noteRaw = await noteRes.text();
   const note = stripBatchSections(noteRaw);
+  const remote = state.remoteByProblem.get(`EP-${id}`);
 
-  let statement = extractAnySection(note, ["Statement", "Statement split", "Working statement"]);
-  if (!statement) statement = "Problem statement not yet normalized in this note.";
+  let statement =
+    (remote?.statement || remote?.problem_statement || "").trim() ||
+    extractAnySection(note, ["Statement", "Statement split", "Working statement"]);
+  if (!statement) {
+    const route = extractAnySection(note, ["Route"]);
+    statement = route
+      ? `From local note context: ${stripMdDecorations(route)}`
+      : "Statement not yet extracted; see full note below.";
+  }
 
-  const literature = [
+  const literatureParts = [];
+  if ((remote?.background || "").trim()) literatureParts.push(remote.background.trim());
+  if ((remote?.proposed_by || "").trim()) {
+    literatureParts.push(
+      `Source metadata: proposed by ${remote.proposed_by}${remote.proposed_year ? ` (${remote.proposed_year})` : ""}.`,
+    );
+  }
+  if ((remote?.status || "").trim()) literatureParts.push(`Dataset status: ${remote.status}.`);
+  const fromBackground = extractAnySection(note, ["What is resolved from background"]);
+  if (fromBackground) {
+    literatureParts.push(`Background results cited in local note:\n${stripMdDecorations(fromBackground)}`);
+  }
+  literatureParts.push(
     extractAnySection(note, [
       "Literature status (checked)",
       "References",
       "References (checked in this deep dive)",
     ]),
-  ]
-    .filter(Boolean)
-    .join("\n\n");
+  );
+  const literature = literatureParts.filter(Boolean).join("\n\n");
 
   const approachProven = [
     extractAnySection(note, ["Route"]),
@@ -135,10 +206,10 @@ async function selectProblem(id) {
     .join("\n\n");
 
   setText("problemTitle", data.problem || `EP-${id}`);
-  setText("statement", statement || "No parsed statement section found.");
-  setText("literature", literature || "No explicit literature section found.");
-  setText("approachProven", approachProven || "No explicit approach/proven section found.");
-  setText("noteRaw", note);
+  setMarkdown("statement", statement, "Problem statement not yet normalized in this note.");
+  setMarkdown("literature", literature, "Literature not explicitly separated yet; see notes below.");
+  setMarkdown("approachProven", approachProven, "No explicit approach/proven section found.");
+  setMarkdown("noteRaw", note, "No notes available.");
   renderComputations(data);
 }
 
@@ -180,12 +251,13 @@ function initTabs() {
 }
 
 async function init() {
-  const res = await fetch("catalog.json");
-  if (!res.ok) {
+  const [catRes, remoteBy] = await Promise.all([fetch("catalog.json"), loadRemoteStatements()]);
+  state.remoteByProblem = remoteBy;
+  if (!catRes.ok) {
     setText("problemTitle", "Failed to load catalog.json");
     return;
   }
-  const cat = await res.json();
+  const cat = await catRes.json();
   state.catalog = cat.problems || [];
   state.filtered = state.catalog.slice();
   state.selectedId = state.catalog[0]?.id || null;

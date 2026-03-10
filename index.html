@@ -46,7 +46,7 @@
             <button class="tab" data-tab="compTab">Computations</button>
           </div>
           <div id="notesTab" class="tab-panel active">
-            <pre id="noteRaw" class="note-raw"></pre>
+            <div id="noteRaw" class="note-raw"></div>
           </div>
           <div id="compTab" class="tab-panel">
             <div id="computations" class="computations"></div>
@@ -55,6 +55,22 @@
       </main>
     </div>
 
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"]
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"]
+          ]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="module" src="browser.js"></script>
   </body>
 </html>
