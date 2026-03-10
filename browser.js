@@ -67,9 +67,17 @@ function setText(id, value) {
   $(id).textContent = value || "No data.";
 }
 
+function sanitizeMathText(src) {
+  let t = src || "";
+  // Preserve literal currency/escaped dollars so MathJax does not treat them as math delimiters.
+  t = t.replace(/\\\$/g, "&#36;");
+  t = t.replace(/(^|[^\\w])\\$(\\d+)/g, "$1&#36;$2");
+  return t;
+}
+
 function setMarkdown(id, value, fallback = "No data.") {
   const el = $(id);
-  const src = (value || "").trim() || fallback;
+  const src = sanitizeMathText((value || "").trim() || fallback);
   if (window.marked?.parse) {
     el.innerHTML = window.marked.parse(src);
   } else {
