@@ -15,6 +15,29 @@ function extractSection(md, heading) {
   return m ? m[1].trim() : "";
 }
 
+function extractAnySection(md, headings) {
+  for (const h of headings) {
+    const v = extractSection(md, h);
+    if (v) return v;
+  }
+  return "";
+}
+
+function stripBatchSections(md) {
+  const lines = md.split(/\r?\n/);
+  const out = [];
+  let skip = false;
+  for (const line of lines) {
+    if (/^##\s+/i.test(line)) {
+      skip = /^##\s+Batch /i.test(line);
+      if (!skip) out.push(line);
+      continue;
+    }
+    if (!skip) out.push(line);
+  }
+  return out.join("\n").trim();
+}
+
 function pick(obj, fields) {
   for (const f of fields) {
     if (obj[f]) return obj[f];
@@ -54,10 +77,17 @@ function renderComputations(data) {
   for (const c of comps.slice().reverse()) {
     const div = document.createElement("div");
     div.className = "comp-item";
+    const payload = c?.data ?? c;
+    const payloadText = JSON.stringify(payload, null, 2);
+    const shortText =
+      payloadText.length > 1200 ? `${payloadText.slice(0, 1200)}\n...` : payloadText;
     div.innerHTML = `
       <div><strong>${c.kind || "computation"}</strong></div>
-      <div class="comp-kind">source: ${c.source_file || "n/a"}</div>
       <div class="comp-kind">generated: ${c.generated_utc || "n/a"}</div>
+      <details>
+        <summary>View Computation Data</summary>
+        <pre class="note-raw">${shortText.replace(/[<>&]/g, (m) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[m]))}</pre>
+      </details>
     `;
     host.appendChild(div);
   }
@@ -77,26 +107,43 @@ async function selectProblem(id) {
     setText("problemTitle", `EP-${id}`);
     setText("problemMeta", "Failed to load problem files.");
     setText("statement", "");
-    setText("resolved", "");
-    setText("references", "");
+    setText("literature", "");
+    setText("approachProven", "");
     setText("noteRaw", "");
     $("computations").textContent = "";
     return;
   }
 
   const data = await dataRes.json();
-  const note = await noteRes.text();
+  const noteRaw = await noteRes.text();
+  const note = stripBatchSections(noteRaw);
 
-  const statement =
-    extractSection(note, "Statement") || extractSection(note, "Statement split") || "";
-  const resolved =
-    extractSection(note, "What is resolved") ||
-    extractSection(note, "Status") ||
-    "No explicit resolved-results section.";
-  const references =
-    extractSection(note, "References") ||
-    extractSection(note, "References (checked in this deep dive)") ||
-    "";
+  let statement = extractAnySection(note, ["Statement", "Statement split"]);
+  if (!statement) {
+    const lines = note.split(/\r?\n/).filter((x) => x.trim());
+    statement = lines.slice(0, 8).join("\n");
+  }
+
+  const literature = [
+    extractAnySection(note, [
+      "Literature status (checked)",
+      "References",
+      "References (checked in this deep dive)",
+      "Source",
+    ]),
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+
+  const approachProven = [
+    extractAnySection(note, ["What is resolved"]),
+    extractAnySection(note, ["Proof route sharpened"]),
+    extractAnySection(note, ["Attempt in this batch"]),
+    extractAnySection(note, ["Status"]),
+    extractAnySection(note, ["What remains open in this note"]),
+  ]
+    .filter(Boolean)
+    .join("\n\n");
 
   setText("problemTitle", data.problem || `EP-${id}`);
   setText(
@@ -107,10 +154,11 @@ async function selectProblem(id) {
       `computations: ${data.computations?.length || 0}`,
     ].join(" · "),
   );
+  $("problemFiles").innerHTML = `Files: <a href="data/${key}.json" target="_blank" rel="noreferrer">json</a> · <a href="scripts/${key}.mjs" target="_blank" rel="noreferrer">mjs</a> · <a href="notes/${key}.md" target="_blank" rel="noreferrer">md</a>`;
 
   setText("statement", statement || "No parsed statement section found.");
-  setText("resolved", resolved);
-  setText("references", references || "No explicit references section found.");
+  setText("literature", literature || "No explicit literature section found.");
+  setText("approachProven", approachProven || "No explicit approach/proven section found.");
   setText("noteRaw", note);
   renderComputations(data);
 }
