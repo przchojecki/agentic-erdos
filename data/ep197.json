@@ -1,5 +1,145 @@
 {
   "problem": "EP-197",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep197_standalone_deeper_20260311T122909Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:29:09.540Z",
+      "data": {
+        "problem": "EP-197",
+        "script": "ep197.mjs",
+        "method": "random_partition_plus_backtracking_permutation_avoidance_search",
+        "params": {
+          "N_LIST": [
+            12,
+            14,
+            16,
+            18
+          ],
+          "TRIALS": 2200,
+          "SEED": 19702026
+        },
+        "rows": [
+          {
+            "N": 12,
+            "trials": 2200,
+            "partition_found_with_both_permutable_3AP_avoiding": true,
+            "witness": {
+              "trial": 0,
+              "sizeA": 8,
+              "sizeB": 4,
+              "A_prefix": [
+                1,
+                3,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              "B_prefix": [
+                2,
+                4,
+                6,
+                12
+              ]
+            }
+          },
+          {
+            "N": 14,
+            "trials": 2200,
+            "partition_found_with_both_permutable_3AP_avoiding": true,
+            "witness": {
+              "trial": 0,
+              "sizeA": 6,
+              "sizeB": 8,
+              "A_prefix": [
+                2,
+                6,
+                8,
+                10,
+                12,
+                13
+              ],
+              "B_prefix": [
+                1,
+                3,
+                4,
+                5,
+                7,
+                9,
+                11,
+                14
+              ]
+            }
+          },
+          {
+            "N": 16,
+            "trials": 2200,
+            "partition_found_with_both_permutable_3AP_avoiding": true,
+            "witness": {
+              "trial": 0,
+              "sizeA": 11,
+              "sizeB": 5,
+              "A_prefix": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                12,
+                13
+              ],
+              "B_prefix": [
+                6,
+                10,
+                11,
+                14,
+                15
+              ]
+            }
+          },
+          {
+            "N": 18,
+            "trials": 2200,
+            "partition_found_with_both_permutable_3AP_avoiding": true,
+            "witness": {
+              "trial": 0,
+              "sizeA": 11,
+              "sizeB": 7,
+              "A_prefix": [
+                2,
+                4,
+                5,
+                7,
+                9,
+                10,
+                11,
+                13,
+                16,
+                17
+              ],
+              "B_prefix": [
+                1,
+                3,
+                6,
+                8,
+                12,
+                14,
+                15
+              ]
+            }
+          }
+        ],
+        "generated_utc": "2026-03-11T12:29:09.540Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

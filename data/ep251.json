@@ -1,5 +1,50 @@
 {
   "problem": "EP-251",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep251_standalone_deeper_20260311T125141Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:51:41.506Z",
+      "data": {
+        "problem": "EP-251",
+        "script": "ep251.mjs",
+        "method": "dyadic_partial_sum_rational_approximation_scan",
+        "params": {
+          "N_LIST": [
+            120,
+            180,
+            240
+          ],
+          "QMAX": 8000
+        },
+        "rows": [
+          {
+            "N": 120,
+            "qmax_scanned": 8000,
+            "best_rational_approx_error": 7.708583e-9,
+            "best_q": 6811,
+            "q2_times_error": 0.357599
+          },
+          {
+            "N": 180,
+            "qmax_scanned": 8000,
+            "best_rational_approx_error": 7.708583e-9,
+            "best_q": 6811,
+            "q2_times_error": 0.357599
+          },
+          {
+            "N": 240,
+            "qmax_scanned": 8000,
+            "best_rational_approx_error": 7.708583e-9,
+            "best_q": 6811,
+            "q2_times_error": 0.357599
+          }
+        ],
+        "generated_utc": "2026-03-11T12:51:41.506Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

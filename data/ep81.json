@@ -1,5 +1,125 @@
 {
   "problem": "EP-81",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep81_standalone_deeper_20260311T095147Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:51:47.283Z",
+      "data": {
+        "problem": "EP-81",
+        "script": "ep81.mjs",
+        "method": "exact_edge_clique_partition_on_split_graph_samples",
+        "params": {
+          "CASES": 16,
+          "N_LIST": [
+            10,
+            12,
+            14
+          ],
+          "P_LIST": [
+            0.25,
+            0.4,
+            0.55
+          ],
+          "SEED": 8102026
+        },
+        "rows": [
+          {
+            "n": 10,
+            "n_clique_part": 3,
+            "n_independent_part": 7,
+            "p_cross": 0.25,
+            "case_idx": 5,
+            "edge_clique_partition_number": 8,
+            "n2_over_6": 16.6667,
+            "gap_vs_n2_over_6": -8.6667
+          },
+          {
+            "n": 10,
+            "n_clique_part": 3,
+            "n_independent_part": 7,
+            "p_cross": 0.4,
+            "case_idx": 0,
+            "edge_clique_partition_number": 9,
+            "n2_over_6": 16.6667,
+            "gap_vs_n2_over_6": -7.6667
+          },
+          {
+            "n": 10,
+            "n_clique_part": 3,
+            "n_independent_part": 7,
+            "p_cross": 0.55,
+            "case_idx": 5,
+            "edge_clique_partition_number": 13,
+            "n2_over_6": 16.6667,
+            "gap_vs_n2_over_6": -3.6667
+          },
+          {
+            "n": 12,
+            "n_clique_part": 4,
+            "n_independent_part": 8,
+            "p_cross": 0.25,
+            "case_idx": 4,
+            "edge_clique_partition_number": 10,
+            "n2_over_6": 24,
+            "gap_vs_n2_over_6": -14
+          },
+          {
+            "n": 12,
+            "n_clique_part": 4,
+            "n_independent_part": 8,
+            "p_cross": 0.4,
+            "case_idx": 6,
+            "edge_clique_partition_number": 12,
+            "n2_over_6": 24,
+            "gap_vs_n2_over_6": -12
+          },
+          {
+            "n": 12,
+            "n_clique_part": 4,
+            "n_independent_part": 8,
+            "p_cross": 0.55,
+            "case_idx": 11,
+            "edge_clique_partition_number": 16,
+            "n2_over_6": 24,
+            "gap_vs_n2_over_6": -8
+          },
+          {
+            "n": 14,
+            "n_clique_part": 4,
+            "n_independent_part": 10,
+            "p_cross": 0.25,
+            "case_idx": 7,
+            "edge_clique_partition_number": 12,
+            "n2_over_6": 32.6667,
+            "gap_vs_n2_over_6": -20.6667
+          },
+          {
+            "n": 14,
+            "n_clique_part": 4,
+            "n_independent_part": 10,
+            "p_cross": 0.4,
+            "case_idx": 6,
+            "edge_clique_partition_number": 18,
+            "n2_over_6": 32.6667,
+            "gap_vs_n2_over_6": -14.6667
+          },
+          {
+            "n": 14,
+            "n_clique_part": 4,
+            "n_independent_part": 10,
+            "p_cross": 0.55,
+            "case_idx": 1,
+            "edge_clique_partition_number": 21,
+            "n2_over_6": 32.6667,
+            "gap_vs_n2_over_6": -11.6667
+          }
+        ],
+        "generated_utc": "2026-03-11T09:51:47.283Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

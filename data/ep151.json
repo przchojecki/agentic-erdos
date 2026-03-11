@@ -1,5 +1,76 @@
 {
   "problem": "EP-151",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep151_standalone_deeper_20260311T122642Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:26:42.281Z",
+      "data": {
+        "problem": "EP-151",
+        "script": "ep151.mjs",
+        "method": "exact_small_n_h_n_plus_random_tau_search",
+        "params": {
+          "N_LIST": [
+            5,
+            6,
+            7
+          ],
+          "SAMPLES": 3000,
+          "P_LIST": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ],
+          "SEED": 15102026
+        },
+        "rows": [
+          {
+            "n": 5,
+            "H_n_exact": 2,
+            "worst_gap_observed": 0,
+            "witness": {
+              "n": 5,
+              "p": 0.2,
+              "sample": 1597,
+              "tau": 3,
+              "n_minus_h_n": 3,
+              "gap_tau_minus_n_minus_h": 0
+            }
+          },
+          {
+            "n": 6,
+            "H_n_exact": 3,
+            "worst_gap_observed": 0,
+            "witness": {
+              "n": 6,
+              "p": 0.2,
+              "sample": 4,
+              "tau": 3,
+              "n_minus_h_n": 3,
+              "gap_tau_minus_n_minus_h": 0
+            }
+          },
+          {
+            "n": 7,
+            "H_n_exact": 3,
+            "worst_gap_observed": 0,
+            "witness": {
+              "n": 7,
+              "p": 0.2,
+              "sample": 403,
+              "tau": 4,
+              "n_minus_h_n": 4,
+              "gap_tau_minus_n_minus_h": 0
+            }
+          }
+        ],
+        "generated_utc": "2026-03-11T12:26:42.281Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

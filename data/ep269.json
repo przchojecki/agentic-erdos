@@ -1,5 +1,160 @@
 {
   "problem": "EP-269",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep269_standalone_deeper_20260311T130151Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T13:01:51.683Z",
+      "data": {
+        "problem": "EP-269",
+        "script": "ep269.mjs",
+        "method": "finite_P_smooth_lcm_series_rational_approx_scan",
+        "params": {
+          "P_CASES": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              3,
+              5
+            ],
+            [
+              2,
+              3,
+              7
+            ]
+          ],
+          "TERMS": 160,
+          "LIMIT_SMOOTH": 700000,
+          "QMAX": 35000
+        },
+        "rows": [
+          {
+            "primes_P": [
+              2,
+              3
+            ],
+            "terms_used": 135,
+            "max_a_n": 663552,
+            "best_q": 17912,
+            "best_err": 3.494196e-10,
+            "q2_err": 0.1121077,
+            "a_prefix": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              9,
+              12,
+              16,
+              18,
+              24,
+              27,
+              32,
+              36,
+              48
+            ]
+          },
+          {
+            "primes_P": [
+              2,
+              5
+            ],
+            "terms_used": 96,
+            "max_a_n": 655360,
+            "best_q": 15653,
+            "best_err": 8.278853e-10,
+            "q2_err": 0.2028455,
+            "a_prefix": [
+              1,
+              2,
+              4,
+              5,
+              8,
+              10,
+              16,
+              20,
+              25,
+              32,
+              40,
+              50,
+              64,
+              80,
+              100
+            ]
+          },
+          {
+            "primes_P": [
+              2,
+              3,
+              5
+            ],
+            "terms_used": 160,
+            "max_a_n": 7200,
+            "best_q": 22126,
+            "best_err": 6.837966e-10,
+            "q2_err": 0.3347594,
+            "a_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8,
+              9,
+              10,
+              12,
+              15,
+              16,
+              18,
+              20,
+              24
+            ]
+          },
+          {
+            "primes_P": [
+              2,
+              3,
+              7
+            ],
+            "terms_used": 160,
+            "max_a_n": 12288,
+            "best_q": 5102,
+            "best_err": 2.42102e-9,
+            "q2_err": 0.06302013,
+            "a_prefix": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9,
+              12,
+              14,
+              16,
+              18,
+              21,
+              24,
+              27
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T13:01:51.683Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

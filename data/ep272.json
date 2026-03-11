@@ -1,5 +1,46 @@
 {
   "problem": "EP-272",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep272_standalone_deeper_20260311T130305Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T13:03:05.313Z",
+      "data": {
+        "problem": "EP-272",
+        "script": "ep272.mjs",
+        "method": "exact_small_N_extremal_family_via_max_clique",
+        "params": {
+          "N_LIST": [
+            5,
+            6,
+            7
+          ]
+        },
+        "rows": [
+          {
+            "N": 5,
+            "exact_t_N_small": 12,
+            "lower_construction_size": 12,
+            "N2_over_2": 12.5
+          },
+          {
+            "N": 6,
+            "exact_t_N_small": 17,
+            "lower_construction_size": 17,
+            "N2_over_2": 18
+          },
+          {
+            "N": 7,
+            "exact_t_N_small": 23,
+            "lower_construction_size": 23,
+            "N2_over_2": 24.5
+          }
+        ],
+        "generated_utc": "2026-03-11T13:03:05.313Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

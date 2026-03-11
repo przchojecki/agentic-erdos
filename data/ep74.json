@@ -1,5 +1,125 @@
 {
   "problem": "EP-74",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep74_standalone_deeper_20260311T094828Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:48:28.596Z",
+      "data": {
+        "problem": "EP-74",
+        "script": "ep74.mjs",
+        "method": "finite_high_chromatic_near_bipartite_tradeoff_scan",
+        "params": {
+          "N_LIST": [
+            10,
+            12,
+            14
+          ],
+          "P_LIST": [
+            0.1,
+            0.14,
+            0.18,
+            0.22
+          ],
+          "SAMPLES": 140,
+          "TARGET_CHI": 4,
+          "SEED": 7402026
+        },
+        "rows": [
+          {
+            "n": 10,
+            "p": 0.1,
+            "note": "no sample with chromatic number >= 4"
+          },
+          {
+            "n": 10,
+            "p": 0.14,
+            "note": "no sample with chromatic number >= 4"
+          },
+          {
+            "n": 10,
+            "p": 0.18,
+            "sample": 69,
+            "edges": 14,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 2,
+            "deletion_per_vertex": 0.2
+          },
+          {
+            "n": 10,
+            "p": 0.22,
+            "sample": 125,
+            "edges": 11,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 2,
+            "deletion_per_vertex": 0.2
+          },
+          {
+            "n": 12,
+            "p": 0.1,
+            "note": "no sample with chromatic number >= 4"
+          },
+          {
+            "n": 12,
+            "p": 0.14,
+            "note": "no sample with chromatic number >= 4"
+          },
+          {
+            "n": 12,
+            "p": 0.18,
+            "sample": 97,
+            "edges": 13,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 2,
+            "deletion_per_vertex": 0.1667
+          },
+          {
+            "n": 12,
+            "p": 0.22,
+            "sample": 14,
+            "edges": 14,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 2,
+            "deletion_per_vertex": 0.1667
+          },
+          {
+            "n": 14,
+            "p": 0.1,
+            "note": "no sample with chromatic number >= 4"
+          },
+          {
+            "n": 14,
+            "p": 0.14,
+            "sample": 98,
+            "edges": 15,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 2,
+            "deletion_per_vertex": 0.1429
+          },
+          {
+            "n": 14,
+            "p": 0.18,
+            "sample": 115,
+            "edges": 21,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 2,
+            "deletion_per_vertex": 0.1429
+          },
+          {
+            "n": 14,
+            "p": 0.22,
+            "sample": 116,
+            "edges": 18,
+            "chi": 4,
+            "min_edges_to_delete_for_bipartite": 3,
+            "deletion_per_vertex": 0.2143
+          }
+        ],
+        "generated_utc": "2026-03-11T09:48:28.596Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,7 +1,53 @@
 {
   "problem": "EP-70",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep70_standalone_deeper_20260311T094928Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:49:28.535Z",
+      "data": {
+        "problem": "EP-70",
+        "script": "ep70.mjs",
+        "method": "finite_3uniform_2coloring_ramsey_proxy",
+        "params": {
+          "N_LIST": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "RESTARTS": 20,
+          "ITERS": 3500,
+          "SEED": 7002026
+        },
+        "rows": [
+          {
+            "n": 8,
+            "triples": 56,
+            "best_largest_homogeneous_subset": 3
+          },
+          {
+            "n": 9,
+            "triples": 84,
+            "best_largest_homogeneous_subset": 4
+          },
+          {
+            "n": 10,
+            "triples": 120,
+            "best_largest_homogeneous_subset": 4
+          },
+          {
+            "n": 11,
+            "triples": 165,
+            "best_largest_homogeneous_subset": 4
+          }
+        ],
+        "generated_utc": "2026-03-11T09:49:28.535Z"
+      }
+    }
+  ],
   "batch_script_integrations": {
     "integrated_utc": "2026-03-05T08:51:27.301Z",
     "source_files": [
@@ -14,5 +60,6 @@
         "extracted_section": "// EP-70: finite proxy hypergraph coloring (Ramsey-type) on 3-uniform edges.\n{\n  function largestHomogeneous(n, colors) {\n    // colors indexed by triple (i,j,k) with i<j<k, flattened by combinadic index.\n    function idx(i, j, k) {\n      let c = 0;\n      for (let a = 0; a < i; a += 1) c += (n - a - 1) * (n - a - 2) / 2;\n      for (let b = i + 1; b < j; b += 1) c += (n - b - 1);\n      c += k - j - 1;\n      return c | 0;\n    }\n\n    let best = 0;\n    const total = 1 << n;\n    for (let mask = 1; mask < total; mask += 1) {\n      const verts = [];\n      for (let i = 0; i < n; i += 1) if ((mask >> i) & 1) verts.push(i);\n      if (verts.length <= best) continue;\n      if (verts.length < 3) {\n        if (verts.length > best) best = verts.length;\n        continue;\n      }\n      let color = -1;\n      let ok = true;\n      for (let i = 0; i < verts.length && ok; i += 1) {\n        for (let j = i + 1; j < verts.length && ok; j += 1) {\n          for (let k = j + 1; k < verts.length; k += 1) {\n            const c = colors[idx(verts[i], verts[j], verts[k])];\n            if (color === -1) color = c;\n            else if (c !== color) {\n              ok = false;\n              break;\n            }\n          }\n        }\n      }\n      if (ok) best = verts.length;\n    }\n    return best;\n  }\n\n  function optimize(n, iters, seed) {\n    const rng = makeRng(seed);\n    const m = (n * (n - 1) * (n - 2)) / 6;\n    const colors = new Uint8Array(m);\n    for (let i = 0; i < m; i += 1) colors[i] = rng() < 0.5 ? 0 : 1;\n    let best = largestHomogeneous(n, colors);\n    for (let t = 0; t < iters; t += 1) {\n      const idx = Math.floor(rng() * m);\n      colors[idx] ^= 1;\n      const cur = largestHomogeneous(n, colors);\n      if (cur <= best || rng() < Math.exp((best - cur) / 2)) {\n        best = Math.min(best, cur);\n      } else {\n        colors[idx] ^= 1;\n      }\n    }\n    return best;\n  }\n\n  const rows = [];\n  for (const n of [8, 9, 10]) {\n    let best = Infinity;\n    for (let r = 0; r < 6; r += 1) {\n      const v = optimize(n, 400, 20260304 ^ (n * 31 + r));\n      if (v < best) best = v;\n    }\n    rows.push({ n, best_min_homogeneous_size: best });\n  }\n\n  out.results.ep70 = {\n    description: 'Finite 3-uniform hypergraph coloring proxy: minimize largest homogeneous subset size.',\n    rows,\n  };\n}"
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

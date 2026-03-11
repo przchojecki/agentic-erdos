@@ -1,5 +1,136 @@
 {
   "problem": "EP-254",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep254_standalone_deeper_20260311T125949Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:59:49.287Z",
+      "data": {
+        "problem": "EP-254",
+        "script": "ep254.mjs",
+        "method": "finite_distinct_subset_sum_tail_coverage_profiles",
+        "params": {
+          "MODES": [
+            "primes",
+            "nlogn",
+            "squares",
+            "near_linear"
+          ],
+          "COUNT": 140,
+          "PRIME_LIMIT": 70000,
+          "MAX_SUM_CAP": 180000
+        },
+        "rows": [
+          {
+            "mode": "primes",
+            "count": 140,
+            "first_terms": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29,
+              31,
+              37
+            ],
+            "max_term": 809,
+            "sum_A": 50887,
+            "coverage": {
+              "maxSum": 50887,
+              "covered_ratio": 0.999882,
+              "largestMissing": 50886,
+              "tailStart": 50887
+            }
+          },
+          {
+            "mode": "nlogn",
+            "count": 140,
+            "first_terms": [
+              3,
+              5,
+              8,
+              10,
+              13,
+              16,
+              19,
+              23,
+              26,
+              29,
+              33,
+              36
+            ],
+            "max_term": 703,
+            "sum_A": 45204,
+            "coverage": {
+              "maxSum": 45204,
+              "covered_ratio": 0.999513,
+              "largestMissing": 45203,
+              "tailStart": 45204
+            }
+          },
+          {
+            "mode": "squares",
+            "count": 140,
+            "first_terms": [
+              1,
+              4,
+              9,
+              16,
+              25,
+              36,
+              49,
+              64,
+              81,
+              100,
+              121,
+              144
+            ],
+            "max_term": 19600,
+            "sum_A": 924490,
+            "coverage": {
+              "maxSum": 180000,
+              "covered_ratio": 0.999828,
+              "largestMissing": 128,
+              "tailStart": 129
+            }
+          },
+          {
+            "mode": "near_linear",
+            "count": 140,
+            "first_terms": [
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              19,
+              22,
+              25,
+              28,
+              31
+            ],
+            "max_term": 621,
+            "sum_A": 39932,
+            "coverage": {
+              "maxSum": 39932,
+              "covered_ratio": 0.999449,
+              "largestMissing": 39931,
+              "tailStart": 39932
+            }
+          }
+        ],
+        "generated_utc": "2026-03-11T12:59:49.287Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,164 @@
 {
   "problem": "EP-126",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep126_standalone_deeper_20260311T100416Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T10:04:16.129Z",
+      "data": {
+        "problem": "EP-126",
+        "script": "ep126.mjs",
+        "method": "distinct_prime_factor_minimization_for_pair_sums",
+        "params": {
+          "EXACT_CASES": [
+            {
+              "k": 4,
+              "maxV": 16
+            },
+            {
+              "k": 5,
+              "maxV": 20
+            },
+            {
+              "k": 6,
+              "maxV": 24
+            }
+          ],
+          "HEUR_CASES": [
+            {
+              "k": 7,
+              "maxV": 32
+            },
+            {
+              "k": 8,
+              "maxV": 40
+            },
+            {
+              "k": 9,
+              "maxV": 48
+            },
+            {
+              "k": 10,
+              "maxV": 56
+            }
+          ],
+          "TRIALS": 12000,
+          "SEED": 12602026
+        },
+        "exact_rows": [
+          {
+            "k": 4,
+            "maxV": 16,
+            "subsets_checked": 1820,
+            "exact_min_distinct_prime_factors": 2,
+            "witness_set": [
+              1,
+              5,
+              7,
+              11
+            ]
+          },
+          {
+            "k": 5,
+            "maxV": 20,
+            "subsets_checked": 15504,
+            "exact_min_distinct_prime_factors": 3,
+            "witness_set": [
+              1,
+              3,
+              5,
+              11,
+              13
+            ]
+          },
+          {
+            "k": 6,
+            "maxV": 24,
+            "subsets_checked": 134596,
+            "exact_min_distinct_prime_factors": 4,
+            "witness_set": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              13
+            ]
+          }
+        ],
+        "heuristic_rows": [
+          {
+            "k": 7,
+            "maxV": 32,
+            "trials": 12000,
+            "heuristic_best_distinct_prime_factors": 6,
+            "witness_set": [
+              1,
+              3,
+              11,
+              13,
+              17,
+              19,
+              31
+            ]
+          },
+          {
+            "k": 8,
+            "maxV": 40,
+            "trials": 12000,
+            "heuristic_best_distinct_prime_factors": 7,
+            "witness_set": [
+              1,
+              3,
+              5,
+              9,
+              11,
+              17,
+              23,
+              31
+            ]
+          },
+          {
+            "k": 9,
+            "maxV": 48,
+            "trials": 12000,
+            "heuristic_best_distinct_prime_factors": 9,
+            "witness_set": [
+              3,
+              6,
+              9,
+              18,
+              24,
+              26,
+              39,
+              42,
+              46
+            ]
+          },
+          {
+            "k": 10,
+            "maxV": 56,
+            "trials": 12000,
+            "heuristic_best_distinct_prime_factors": 10,
+            "witness_set": [
+              8,
+              10,
+              14,
+              16,
+              18,
+              22,
+              26,
+              30,
+              34,
+              46
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T10:04:16.129Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

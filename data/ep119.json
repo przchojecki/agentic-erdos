@@ -1,5 +1,106 @@
 {
   "problem": "EP-119",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep119_standalone_deeper_20260311T100418Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T10:04:18.033Z",
+      "data": {
+        "problem": "EP-119",
+        "script": "ep119.mjs",
+        "method": "unit_circle_polynomial_max_modulus_growth_profiles",
+        "params": {
+          "N_LIST": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "GRID": 840,
+          "SEED": 11902026
+        },
+        "rows": [
+          {
+            "sequence": "random_uniform_angles",
+            "rows": [
+              {
+                "n": 10,
+                "M_n": 7.659329,
+                "sum_M_up_to_n": 65.93265
+              },
+              {
+                "n": 20,
+                "M_n": 39.214515,
+                "sum_M_up_to_n": 314.876976
+              },
+              {
+                "n": 30,
+                "M_n": 207.333006,
+                "sum_M_up_to_n": 1785.810053
+              },
+              {
+                "n": 40,
+                "M_n": 6698.379478,
+                "sum_M_up_to_n": 20482.267966
+              }
+            ]
+          },
+          {
+            "sequence": "equally_spaced_angles_fixed_final_n",
+            "rows": [
+              {
+                "n": 10,
+                "M_n": 790.810109,
+                "sum_M_up_to_n": 1678.625876
+              },
+              {
+                "n": 20,
+                "M_n": 116883.380967,
+                "sum_M_up_to_n": 340796.881195
+              },
+              {
+                "n": 30,
+                "M_n": 273003.537605,
+                "sum_M_up_to_n": 3523087.314711
+              },
+              {
+                "n": 40,
+                "M_n": 1.994408,
+                "sum_M_up_to_n": 3992352.961974
+              }
+            ]
+          },
+          {
+            "sequence": "greedy_minimize_current_M_n",
+            "rows": [
+              {
+                "n": 10,
+                "M_n": 31.999503,
+                "sum_M_up_to_n": 108.019711
+              },
+              {
+                "n": 20,
+                "M_n": 1023.968171,
+                "sum_M_up_to_n": 3515.646774
+              },
+              {
+                "n": 30,
+                "M_n": 32766.472222,
+                "sum_M_up_to_n": 112308.923233
+              },
+              {
+                "n": 40,
+                "M_n": 1048510.815323,
+                "sum_M_up_to_n": 3590055.145451
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T10:04:18.033Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

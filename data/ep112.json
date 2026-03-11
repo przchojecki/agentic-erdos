@@ -1,5 +1,68 @@
 {
   "problem": "EP-112",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep112_standalone_deeper_20260311T100046Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T10:00:46.571Z",
+      "data": {
+        "problem": "EP-112",
+        "script": "ep112.mjs",
+        "method": "empirical_extremal_digraph_search_for_k_n_m",
+        "params": {
+          "TASKS": [
+            {
+              "nTarget": 3,
+              "mTarget": 3
+            },
+            {
+              "nTarget": 4,
+              "mTarget": 3
+            },
+            {
+              "nTarget": 4,
+              "mTarget": 4
+            }
+          ],
+          "K_SCAN": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "SAMPLES": 1900,
+          "SEED": 11202026
+        },
+        "rows": [
+          {
+            "n_target": 3,
+            "m_target": 3,
+            "max_k_with_found_counterexample_in_samples": 6,
+            "empirical_lower_bound_for_k_n_m": 7,
+            "samples_per_k": 1900
+          },
+          {
+            "n_target": 4,
+            "m_target": 3,
+            "max_k_with_found_counterexample_in_samples": 7,
+            "empirical_lower_bound_for_k_n_m": 8,
+            "samples_per_k": 1900
+          },
+          {
+            "n_target": 4,
+            "m_target": 4,
+            "max_k_with_found_counterexample_in_samples": 9,
+            "empirical_lower_bound_for_k_n_m": 10,
+            "samples_per_k": 1900
+          }
+        ],
+        "generated_utc": "2026-03-11T10:00:46.571Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

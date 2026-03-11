@@ -1,5 +1,137 @@
 {
   "problem": "EP-267",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep267_standalone_deeper_20260311T125949Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:59:49.253Z",
+      "data": {
+        "problem": "EP-267",
+        "script": "ep267.mjs",
+        "method": "lacunary_fibonacci_reciprocal_series_rational_approx_scan",
+        "params": {
+          "C_LIST": [
+            1.2,
+            1.35,
+            1.5,
+            1.8,
+            2
+          ],
+          "K": 20,
+          "QMAX": 35000
+        },
+        "rows": [
+          {
+            "c": 1.2,
+            "K": 20,
+            "n1": 3,
+            "nK": 74,
+            "best_q": 23601,
+            "best_err": 6.726852e-10,
+            "q2_err": 0.3746905,
+            "seq_prefix": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "c": 1.35,
+            "K": 20,
+            "n1": 3,
+            "nK": 562,
+            "best_q": 20824,
+            "best_err": 2.77028e-10,
+            "q2_err": 0.1201301,
+            "seq_prefix": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              13,
+              17,
+              22,
+              29
+            ]
+          },
+          {
+            "c": 1.5,
+            "K": 20,
+            "n1": 3,
+            "nK": 5395,
+            "best_q": 18133,
+            "best_err": 1.180468e-9,
+            "q2_err": 0.3881446,
+            "seq_prefix": [
+              3,
+              4,
+              6,
+              9,
+              13,
+              19,
+              28,
+              42,
+              63,
+              94
+            ]
+          },
+          {
+            "c": 1.8,
+            "K": 20,
+            "n1": 3,
+            "nK": 186507,
+            "best_q": 32470,
+            "best_err": 4.929889e-9,
+            "q2_err": 5.197587,
+            "seq_prefix": [
+              3,
+              5,
+              9,
+              16,
+              28,
+              50,
+              90,
+              162,
+              291,
+              523
+            ]
+          },
+          {
+            "c": 2,
+            "K": 20,
+            "n1": 4,
+            "nK": 2097152,
+            "best_q": 28657,
+            "best_err": 5.445698e-10,
+            "q2_err": 0.4472136,
+            "seq_prefix": [
+              4,
+              8,
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024,
+              2048
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T12:59:49.253Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

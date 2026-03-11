@@ -1,5 +1,89 @@
 {
   "problem": "EP-159",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep159_standalone_deeper_20260311T122639Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:26:39.286Z",
+      "data": {
+        "problem": "EP-159",
+        "script": "ep159.mjs",
+        "method": "analytic_template_and_finite_bound_profile_for_R_C4_Kn",
+        "params": {
+          "N_LIST": [
+            20,
+            40,
+            80,
+            120,
+            180,
+            260,
+            400
+          ],
+          "MAXV": 120000
+        },
+        "rows": [
+          {
+            "n": 20,
+            "lower_template_n_3_2_over_log_3_2": 17.2501,
+            "upper_template_n2_over_log2": 44.5712,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 434,
+            "exponent_from_lb_loglog": 0.9506,
+            "exponent_from_ub_loglog": 1.2675
+          },
+          {
+            "n": 40,
+            "lower_template_n_3_2_over_log_3_2": 35.7066,
+            "upper_template_n2_over_log2": 117.5794,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 1674,
+            "exponent_from_lb_loglog": 0.9692,
+            "exponent_from_ub_loglog": 1.2923
+          },
+          {
+            "n": 80,
+            "lower_template_n_3_2_over_log_3_2": 78.005,
+            "upper_template_n2_over_log2": 333.2959,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 6554,
+            "exponent_from_lb_loglog": 0.9942,
+            "exponent_from_ub_loglog": 1.3256
+          },
+          {
+            "n": 120,
+            "lower_template_n_3_2_over_log_3_2": 125.4902,
+            "upper_template_n2_over_log2": 628.2701,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 14634,
+            "exponent_from_lb_loglog": 1.0093,
+            "exponent_from_ub_loglog": 1.3458
+          },
+          {
+            "n": 180,
+            "lower_template_n_3_2_over_log_3_2": 204.0735,
+            "upper_template_n2_over_log2": 1201.4773,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 32754,
+            "exponent_from_lb_loglog": 1.0242,
+            "exponent_from_ub_loglog": 1.3656
+          },
+          {
+            "n": 260,
+            "lower_template_n_3_2_over_log_3_2": 319.7187,
+            "upper_template_n2_over_log2": 2186.2037,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 68114,
+            "exponent_from_lb_loglog": 1.0372,
+            "exponent_from_ub_loglog": 1.3829
+          },
+          {
+            "n": 400,
+            "lower_template_n_3_2_over_log_3_2": 545.4947,
+            "upper_template_n2_over_log2": 4457.1166,
+            "coarse_finite_upper_bound_via_ex_C4_turan": 120001,
+            "exponent_from_lb_loglog": 1.0518,
+            "exponent_from_ub_loglog": 1.4024
+          }
+        ],
+        "generated_utc": "2026-03-11T12:26:39.286Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

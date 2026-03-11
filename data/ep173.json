@@ -1,5 +1,33 @@
 {
   "problem": "EP-173",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep173_standalone_deeper_20260311T122909Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:29:09.723Z",
+      "data": {
+        "problem": "EP-173",
+        "script": "ep173.mjs",
+        "method": "finite_grid_two_coloring_triangle_type_monochromatic_coverage",
+        "params": {
+          "L": 6,
+          "SAMPLES": 7000,
+          "SEED": 17302026
+        },
+        "points": 36,
+        "triangle_instances": 6768,
+        "triangle_congruence_types": 172,
+        "best_missing_type_count_found": 32,
+        "best_sample_stats": {
+          "sample": 1951,
+          "missing_triangle_types": 32,
+          "total_triangle_types": 172
+        },
+        "generated_utc": "2026-03-11T12:29:09.723Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

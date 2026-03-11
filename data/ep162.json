@@ -1,5 +1,132 @@
 {
   "problem": "EP-162",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep162_standalone_deeper_20260311T122701Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:27:01.135Z",
+      "data": {
+        "problem": "EP-162",
+        "script": "ep162.mjs",
+        "method": "random_coloring_exact_subset_check_for_F_n_alpha",
+        "params": {
+          "N_LIST": [
+            10,
+            12,
+            14,
+            16
+          ],
+          "ALPHAS": [
+            0.2,
+            0.25,
+            0.3
+          ],
+          "SAMPLES": 320,
+          "SEED": 16202026
+        },
+        "rows": [
+          {
+            "n": 10,
+            "alpha": 0.2,
+            "samples": 320,
+            "best_F_found": 10,
+            "avg_F": 10,
+            "best_over_log_n": 4.3429
+          },
+          {
+            "n": 10,
+            "alpha": 0.25,
+            "samples": 320,
+            "best_F_found": 10,
+            "avg_F": 9.9719,
+            "best_over_log_n": 4.3429
+          },
+          {
+            "n": 10,
+            "alpha": 0.3,
+            "samples": 320,
+            "best_F_found": 10,
+            "avg_F": 10,
+            "best_over_log_n": 4.3429
+          },
+          {
+            "n": 12,
+            "alpha": 0.2,
+            "samples": 320,
+            "best_F_found": 12,
+            "avg_F": 12,
+            "best_over_log_n": 4.8292
+          },
+          {
+            "n": 12,
+            "alpha": 0.25,
+            "samples": 320,
+            "best_F_found": 12,
+            "avg_F": 12,
+            "best_over_log_n": 4.8292
+          },
+          {
+            "n": 12,
+            "alpha": 0.3,
+            "samples": 320,
+            "best_F_found": 12,
+            "avg_F": 12,
+            "best_over_log_n": 4.8292
+          },
+          {
+            "n": 14,
+            "alpha": 0.2,
+            "samples": 320,
+            "best_F_found": 14,
+            "avg_F": 14,
+            "best_over_log_n": 5.3049
+          },
+          {
+            "n": 14,
+            "alpha": 0.25,
+            "samples": 320,
+            "best_F_found": 14,
+            "avg_F": 14,
+            "best_over_log_n": 5.3049
+          },
+          {
+            "n": 14,
+            "alpha": 0.3,
+            "samples": 320,
+            "best_F_found": 14,
+            "avg_F": 14,
+            "best_over_log_n": 5.3049
+          },
+          {
+            "n": 16,
+            "alpha": 0.2,
+            "samples": 320,
+            "best_F_found": 16,
+            "avg_F": 16,
+            "best_over_log_n": 5.7708
+          },
+          {
+            "n": 16,
+            "alpha": 0.25,
+            "samples": 320,
+            "best_F_found": 16,
+            "avg_F": 16,
+            "best_over_log_n": 5.7708
+          },
+          {
+            "n": 16,
+            "alpha": 0.3,
+            "samples": 320,
+            "best_F_found": 16,
+            "avg_F": 16,
+            "best_over_log_n": 5.7708
+          }
+        ],
+        "generated_utc": "2026-03-11T12:27:01.135Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

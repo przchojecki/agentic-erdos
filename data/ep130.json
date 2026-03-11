@@ -1,5 +1,73 @@
 {
   "problem": "EP-130",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep130_standalone_deeper_20260311T100613Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T10:06:13.618Z",
+      "data": {
+        "problem": "EP-130",
+        "script": "ep130.mjs",
+        "method": "finite_general_position_integer_distance_graph_search",
+        "params": {
+          "B": 5,
+          "N": 10,
+          "TRIALS": 4500,
+          "SEED": 13002026
+        },
+        "general_position_samples_found": 58,
+        "best_found": {
+          "clique_number": 3,
+          "chromatic_number": 3,
+          "edges": 10,
+          "points": [
+            [
+              -1,
+              0
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              0,
+              -5
+            ],
+            [
+              5,
+              -3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              -4,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              3,
+              -1
+            ]
+          ]
+        },
+        "generated_utc": "2026-03-11T10:06:13.618Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

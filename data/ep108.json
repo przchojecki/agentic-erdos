@@ -1,5 +1,116 @@
 {
   "problem": "EP-108",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep108_standalone_deeper_20260311T095843Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:58:43.206Z",
+      "data": {
+        "problem": "EP-108",
+        "script": "ep108.mjs",
+        "method": "finite_high_chi_to_high_girth_high_chi_subgraph_proxy",
+        "params": {
+          "N": 12,
+          "P_LIST": [
+            0.25,
+            0.35,
+            0.45
+          ],
+          "GRAPH_SAMPLES": 90,
+          "SUBSET_SAMPLES": 0,
+          "SUBSET_SIZE_MIN": 7,
+          "SUBSET_SIZE_MAX": 9,
+          "R_LIST": [
+            4,
+            5
+          ],
+          "SEED": 10802026
+        },
+        "rows": [
+          {
+            "p": 0.25,
+            "host_graph_idx": 0,
+            "host_chromatic": 4,
+            "target_girth_r": 4,
+            "best_found_subgraph_chromatic_with_girth_ge_r": 3,
+            "subsets_checked": 1507,
+            "girth_qualified_subsets": 646,
+            "subset_size_range": [
+              7,
+              9
+            ]
+          },
+          {
+            "p": 0.25,
+            "host_graph_idx": 0,
+            "host_chromatic": 4,
+            "target_girth_r": 5,
+            "best_found_subgraph_chromatic_with_girth_ge_r": 3,
+            "subsets_checked": 1507,
+            "girth_qualified_subsets": 523,
+            "subset_size_range": [
+              7,
+              9
+            ]
+          },
+          {
+            "p": 0.35,
+            "host_graph_idx": 51,
+            "host_chromatic": 5,
+            "target_girth_r": 4,
+            "best_found_subgraph_chromatic_with_girth_ge_r": 2,
+            "subsets_checked": 1507,
+            "girth_qualified_subsets": 85,
+            "subset_size_range": [
+              7,
+              9
+            ]
+          },
+          {
+            "p": 0.35,
+            "host_graph_idx": 51,
+            "host_chromatic": 5,
+            "target_girth_r": 5,
+            "best_found_subgraph_chromatic_with_girth_ge_r": 2,
+            "subsets_checked": 1507,
+            "girth_qualified_subsets": 42,
+            "subset_size_range": [
+              7,
+              9
+            ]
+          },
+          {
+            "p": 0.45,
+            "host_graph_idx": 7,
+            "host_chromatic": 5,
+            "target_girth_r": 4,
+            "best_found_subgraph_chromatic_with_girth_ge_r": 3,
+            "subsets_checked": 1507,
+            "girth_qualified_subsets": 31,
+            "subset_size_range": [
+              7,
+              9
+            ]
+          },
+          {
+            "p": 0.45,
+            "host_graph_idx": 7,
+            "host_chromatic": 5,
+            "target_girth_r": 5,
+            "best_found_subgraph_chromatic_with_girth_ge_r": 3,
+            "subsets_checked": 1507,
+            "girth_qualified_subsets": 9,
+            "subset_size_range": [
+              7,
+              9
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T09:58:43.206Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

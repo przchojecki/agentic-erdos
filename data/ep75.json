@@ -1,5 +1,60 @@
 {
   "problem": "EP-75",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep75_standalone_deeper_20260311T095138Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:51:38.985Z",
+      "data": {
+        "problem": "EP-75",
+        "script": "ep75.mjs",
+        "method": "mycielski_finite_proxy_independent_set_profile",
+        "params": {
+          "LEVELS": 3,
+          "M_LIST": [
+            8,
+            10,
+            12
+          ],
+          "SAMPLES": 90,
+          "SEED": 7502026
+        },
+        "graph": {
+          "vertices": 47,
+          "edges": 236,
+          "greedy_coloring_upper_bound": 6
+        },
+        "rows": [
+          {
+            "m": 8,
+            "samples": 90,
+            "min_independent_size": 4,
+            "avg_independent_size": 5.4778,
+            "max_independent_size": 7,
+            "min_ratio": 0.5
+          },
+          {
+            "m": 10,
+            "samples": 90,
+            "min_independent_size": 5,
+            "avg_independent_size": 6.4444,
+            "max_independent_size": 8,
+            "min_ratio": 0.5
+          },
+          {
+            "m": 12,
+            "samples": 90,
+            "min_independent_size": 5,
+            "avg_independent_size": 7.4556,
+            "max_independent_size": 10,
+            "min_ratio": 0.4167
+          }
+        ],
+        "generated_utc": "2026-03-11T09:51:38.985Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,153 @@
 {
   "problem": "EP-153",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep153_standalone_deeper_20260311T122643Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:26:43.277Z",
+      "data": {
+        "problem": "EP-153",
+        "script": "ep153.mjs",
+        "method": "adversarial_sidon_search_for_min_avg_squared_sumset_gap",
+        "params": {
+          "M_LIST": [
+            12,
+            16,
+            20,
+            24,
+            28,
+            32
+          ],
+          "TRIALS": 12000,
+          "SEED": 15302026
+        },
+        "rows": [
+          {
+            "m": 12,
+            "trials": 12000,
+            "best_avg_sq_gap_found": 33.794872,
+            "best_avg_sq_gap_over_m": 2.816239,
+            "witness_set_prefix": [
+              1,
+              5,
+              14,
+              33,
+              51,
+              72,
+              114,
+              137,
+              166,
+              173,
+              178,
+              188
+            ]
+          },
+          {
+            "m": 16,
+            "trials": 12000,
+            "best_avg_sq_gap_found": 51.823529,
+            "best_avg_sq_gap_over_m": 3.238971,
+            "witness_set_prefix": [
+              1,
+              18,
+              27,
+              45,
+              85,
+              98,
+              105,
+              155,
+              237,
+              248,
+              279,
+              313
+            ]
+          },
+          {
+            "m": 20,
+            "trials": 12000,
+            "best_avg_sq_gap_found": 66.666667,
+            "best_avg_sq_gap_over_m": 3.333333,
+            "witness_set_prefix": [
+              1,
+              6,
+              24,
+              52,
+              59,
+              85,
+              91,
+              190,
+              258,
+              306,
+              365,
+              406
+            ]
+          },
+          {
+            "m": 24,
+            "trials": 12000,
+            "best_avg_sq_gap_found": 81.686667,
+            "best_avg_sq_gap_over_m": 3.403611,
+            "witness_set_prefix": [
+              1,
+              36,
+              61,
+              90,
+              124,
+              220,
+              226,
+              269,
+              285,
+              293,
+              297,
+              337
+            ]
+          },
+          {
+            "m": 28,
+            "trials": 12000,
+            "best_avg_sq_gap_found": 87.059113,
+            "best_avg_sq_gap_over_m": 3.109254,
+            "witness_set_prefix": [
+              1,
+              25,
+              84,
+              113,
+              152,
+              182,
+              248,
+              274,
+              289,
+              418,
+              443,
+              504
+            ]
+          },
+          {
+            "m": 32,
+            "trials": 12000,
+            "best_avg_sq_gap_found": 97.094697,
+            "best_avg_sq_gap_over_m": 3.034209,
+            "witness_set_prefix": [
+              1,
+              24,
+              31,
+              58,
+              106,
+              167,
+              216,
+              263,
+              398,
+              402,
+              476,
+              518
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T12:26:43.277Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

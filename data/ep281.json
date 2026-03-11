@@ -1,5 +1,97 @@
 {
   "problem": "EP-281",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep281_standalone_deeper_20260311T130151Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T13:01:51.852Z",
+      "data": {
+        "problem": "EP-281",
+        "script": "ep281.mjs",
+        "method": "finite_truncation_uncovered_density_maximization_over_residues",
+        "params": {
+          "MOD_CASES": [
+            [
+              2,
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              3,
+              5,
+              7
+            ],
+            [
+              3,
+              4,
+              6,
+              8
+            ]
+          ]
+        },
+        "rows": [
+          {
+            "moduli": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "lcm_period": 60,
+            "tuples_checked": 120,
+            "max_uncovered_density": 0.266667,
+            "maximizing_residues_example": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "zero_residue_uncovered_density": 0.266667
+          },
+          {
+            "moduli": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "lcm_period": 210,
+            "tuples_checked": 210,
+            "max_uncovered_density": 0.228571,
+            "maximizing_residues_example": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "zero_residue_uncovered_density": 0.228571
+          },
+          {
+            "moduli": [
+              3,
+              4,
+              6,
+              8
+            ],
+            "lcm_period": 24,
+            "tuples_checked": 576,
+            "max_uncovered_density": 0.5,
+            "maximizing_residues_example": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "zero_residue_uncovered_density": 0.5
+          }
+        ],
+        "generated_utc": "2026-03-11T13:01:51.852Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

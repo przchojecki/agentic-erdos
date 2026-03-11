@@ -1,5 +1,131 @@
 {
   "problem": "EP-260",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep260_standalone_deeper_20260311T125843Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:58:43.883Z",
+      "data": {
+        "problem": "EP-260",
+        "script": "ep260.mjs",
+        "method": "dyadic_series_rational_approx_stress_for_superlinear_exponents",
+        "params": {
+          "MODES": [
+            "nlogn",
+            "n1p2",
+            "n_sqrtlog",
+            "piecewise_jumps"
+          ],
+          "N": 80,
+          "QMAX": 14000
+        },
+        "rows": [
+          {
+            "mode": "nlogn",
+            "N": 80,
+            "aN_over_N": 4.4375,
+            "best_q": 11344,
+            "best_err": 2.165072e-10,
+            "q2_err": 0.02786152,
+            "sequence_prefix": [
+              1,
+              3,
+              5,
+              8,
+              10,
+              13,
+              16,
+              19,
+              23,
+              26,
+              29,
+              33,
+              36,
+              40,
+              44
+            ]
+          },
+          {
+            "mode": "n1p2",
+            "N": 80,
+            "aN_over_N": 2.4,
+            "best_q": 3035,
+            "best_err": 8.349421e-9,
+            "q2_err": 0.07690839,
+            "sequence_prefix": [
+              1,
+              2,
+              3,
+              5,
+              6,
+              8,
+              10,
+              12,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25
+            ]
+          },
+          {
+            "mode": "n_sqrtlog",
+            "N": 80,
+            "aN_over_N": 2.15,
+            "best_q": 7207,
+            "best_err": 2.234728e-9,
+            "q2_err": 0.1160737,
+            "sequence_prefix": [
+              3,
+              4,
+              6,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28
+            ]
+          },
+          {
+            "mode": "piecewise_jumps",
+            "N": 80,
+            "aN_over_N": 4.525,
+            "best_q": 6187,
+            "best_err": 5.438844e-9,
+            "q2_err": 0.2081934,
+            "sequence_prefix": [
+              4,
+              6,
+              8,
+              10,
+              12,
+              15,
+              18,
+              21,
+              24,
+              27,
+              35,
+              38,
+              41,
+              44,
+              47
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T12:58:43.883Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

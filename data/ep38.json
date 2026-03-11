@@ -1,5 +1,624 @@
 {
   "problem": "EP-38",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep38_standalone_deeper_20260311T094829Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:48:29.966Z",
+      "data": {
+        "problem": "EP-38",
+        "script": "ep38.mjs",
+        "method": "finite_schnirelmann_increment_proxy_exhaustive",
+        "params": {
+          "N": 20,
+          "ALPHAS": [
+            0.05,
+            0.1,
+            0.15,
+            0.2
+          ]
+        },
+        "rows": [
+          {
+            "candidate": "all_shifts_1_to_n-1",
+            "shifts_count": 19,
+            "alpha_rows": [
+              {
+                "n": 20,
+                "alphaMin": 0.05,
+                "tested_sets": 524287,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.05,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.1,
+                "tested_sets": 523775,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.15,
+                "tested_sets": 515711,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.2,
+                "tested_sets": 504783,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": "even_shifts",
+            "shifts_count": 9,
+            "alpha_rows": [
+              {
+                "n": 20,
+                "alphaMin": 0.05,
+                "tested_sets": 524287,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  5,
+                  7,
+                  9,
+                  11,
+                  13,
+                  15,
+                  17,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.1,
+                "tested_sets": 523775,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  5,
+                  7,
+                  9,
+                  11,
+                  13,
+                  15,
+                  17,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.15,
+                "tested_sets": 515711,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  5,
+                  7,
+                  9,
+                  11,
+                  13,
+                  15,
+                  17,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.2,
+                "tested_sets": 504783,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  5,
+                  7,
+                  9,
+                  11,
+                  13,
+                  15,
+                  17,
+                  19
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": "odd_shifts",
+            "shifts_count": 10,
+            "alpha_rows": [
+              {
+                "n": 20,
+                "alphaMin": 0.05,
+                "tested_sets": 524287,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.05,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.1,
+                "tested_sets": 523775,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.15,
+                "tested_sets": 515711,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.2,
+                "tested_sets": 504783,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": "multiples_of_3",
+            "shifts_count": 6,
+            "alpha_rows": [
+              {
+                "n": 20,
+                "alphaMin": 0.05,
+                "tested_sets": 524287,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.333333,
+                "witness_best_shift": 3,
+                "witness_set": [
+                  1,
+                  4,
+                  7,
+                  10,
+                  13,
+                  16,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.1,
+                "tested_sets": 523775,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.333333,
+                "witness_best_shift": 3,
+                "witness_set": [
+                  1,
+                  4,
+                  7,
+                  10,
+                  13,
+                  16,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.15,
+                "tested_sets": 515711,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.333333,
+                "witness_best_shift": 3,
+                "witness_set": [
+                  1,
+                  4,
+                  7,
+                  10,
+                  13,
+                  16,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.2,
+                "tested_sets": 504783,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.333333,
+                "witness_best_shift": 3,
+                "witness_set": [
+                  1,
+                  4,
+                  7,
+                  10,
+                  13,
+                  16,
+                  19
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": "powers_of_2",
+            "shifts_count": 5,
+            "alpha_rows": [
+              {
+                "n": 20,
+                "alphaMin": 0.05,
+                "tested_sets": 524287,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.05,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.1,
+                "tested_sets": 523775,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.15,
+                "tested_sets": 515711,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.2,
+                "tested_sets": 504783,
+                "worst_best_gain": 0.05,
+                "witness_alpha": 0.95,
+                "witness_best_shift": 1,
+                "witness_set": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": "prime_shifts",
+            "shifts_count": 8,
+            "alpha_rows": [
+              {
+                "n": 20,
+                "alphaMin": 0.05,
+                "tested_sets": 524287,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.1,
+                "tested_sets": 523775,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.15,
+                "tested_sets": 515711,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              },
+              {
+                "n": 20,
+                "alphaMin": 0.2,
+                "tested_sets": 504783,
+                "worst_best_gain": 0,
+                "witness_alpha": 0.5,
+                "witness_best_shift": 2,
+                "witness_set": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T09:48:29.966Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

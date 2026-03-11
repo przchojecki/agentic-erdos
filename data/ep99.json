@@ -1,5 +1,63 @@
 {
   "problem": "EP-99",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep99_standalone_deeper_20260311T095804Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:58:04.882Z",
+      "data": {
+        "problem": "EP-99",
+        "script": "ep99.mjs",
+        "method": "minimum_diameter_packing_proxy_with_equilateral_detection",
+        "params": {
+          "N_LIST": [
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "RESTARTS": 36,
+          "ITERS": 2600,
+          "SEED": 9902026
+        },
+        "rows": [
+          {
+            "n": 8,
+            "est_min_distance": 1,
+            "est_diameter": 3.1234,
+            "unit_equilateral_count_tol_0p02": 0
+          },
+          {
+            "n": 10,
+            "est_min_distance": 1,
+            "est_diameter": 3.7518,
+            "unit_equilateral_count_tol_0p02": 0
+          },
+          {
+            "n": 12,
+            "est_min_distance": 1,
+            "est_diameter": 3.9043,
+            "unit_equilateral_count_tol_0p02": 0
+          },
+          {
+            "n": 14,
+            "est_min_distance": 1,
+            "est_diameter": 4.3937,
+            "unit_equilateral_count_tol_0p02": 0
+          },
+          {
+            "n": 16,
+            "est_min_distance": 1,
+            "est_diameter": 5.0127,
+            "unit_equilateral_count_tol_0p02": 0
+          }
+        ],
+        "generated_utc": "2026-03-11T09:58:04.882Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

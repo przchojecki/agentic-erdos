@@ -1,5 +1,127 @@
 {
   "problem": "EP-258",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep258_standalone_deeper_20260311T125843Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:58:43.815Z",
+      "data": {
+        "problem": "EP-258",
+        "script": "ep258.mjs",
+        "method": "irrationality_stress_via_rational_approx_for_tau_over_product_series",
+        "params": {
+          "MODES": [
+            "monotone_linear",
+            "monotone_slow",
+            "nonmonotone_blocks",
+            "oscillatory_growth"
+          ],
+          "N": 70,
+          "QMAX": 25000
+        },
+        "rows": [
+          {
+            "mode": "monotone_linear",
+            "N": 70,
+            "best_q": 6691,
+            "best_err": 2.821172e-9,
+            "q2_err": 0.1263024,
+            "sequence_prefix": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ]
+          },
+          {
+            "mode": "monotone_slow",
+            "N": 70,
+            "best_q": 14777,
+            "best_err": 9.713207e-10,
+            "q2_err": 0.2120973,
+            "sequence_prefix": [
+              3,
+              3,
+              4,
+              4,
+              4,
+              4,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              6
+            ]
+          },
+          {
+            "mode": "nonmonotone_blocks",
+            "N": 70,
+            "best_q": 23259,
+            "best_err": 3.087114e-10,
+            "q2_err": 0.167007,
+            "sequence_prefix": [
+              3,
+              3,
+              4,
+              4,
+              4,
+              4,
+              4,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              6
+            ]
+          },
+          {
+            "mode": "oscillatory_growth",
+            "N": 70,
+            "best_q": 5151,
+            "best_err": 3.71239e-9,
+            "q2_err": 0.09850009,
+            "sequence_prefix": [
+              4,
+              5,
+              6,
+              7,
+              3,
+              5,
+              6,
+              7,
+              8,
+              4,
+              5,
+              6,
+              7,
+              8,
+              4
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T12:58:43.815Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

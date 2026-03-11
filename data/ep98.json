@@ -1,5 +1,63 @@
 {
   "problem": "EP-98",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep98_standalone_deeper_20260311T095807Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:58:07.426Z",
+      "data": {
+        "problem": "EP-98",
+        "script": "ep98.mjs",
+        "method": "general_position_low_distinct_distance_annealing_proxy",
+        "params": {
+          "N_LIST": [
+            10,
+            12,
+            14,
+            16,
+            18
+          ],
+          "RESTARTS": 28,
+          "ITERS": 2200,
+          "SEED": 9802026
+        },
+        "rows": [
+          {
+            "n": 10,
+            "best_distinct_distances": 45,
+            "general_position_penalty": 0,
+            "ratio_h_over_n": 4.5
+          },
+          {
+            "n": 12,
+            "best_distinct_distances": 66,
+            "general_position_penalty": 0,
+            "ratio_h_over_n": 5.5
+          },
+          {
+            "n": 14,
+            "best_distinct_distances": 91,
+            "general_position_penalty": 0,
+            "ratio_h_over_n": 6.5
+          },
+          {
+            "n": 16,
+            "best_distinct_distances": 120,
+            "general_position_penalty": 0,
+            "ratio_h_over_n": 7.5
+          },
+          {
+            "n": 18,
+            "best_distinct_distances": 153,
+            "general_position_penalty": 0,
+            "ratio_h_over_n": 8.5
+          }
+        ],
+        "generated_utc": "2026-03-11T09:58:07.426Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

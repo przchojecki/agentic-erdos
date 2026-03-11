@@ -1,5 +1,395 @@
 {
   "problem": "EP-122",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep122_standalone_deeper_20260311T100415Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T10:04:15.871Z",
+      "data": {
+        "problem": "EP-122",
+        "script": "ep122.mjs",
+        "method": "local_repeat_shifted_value_overcrowding_scan",
+        "params": {
+          "X_LIST": [
+            6000,
+            12000,
+            24000,
+            48000
+          ],
+          "GAMMAS": [
+            0.7,
+            0.8,
+            0.9
+          ],
+          "LIMIT": 64339
+        },
+        "rows": [
+          {
+            "function_name": "d(n)",
+            "gamma_for_F": 0.7,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 441,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.00907
+              },
+              {
+                "x": 12000,
+                "F": 716,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.005587
+              },
+              {
+                "x": 24000,
+                "F": 1164,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.003436
+              },
+              {
+                "x": 48000,
+                "F": 1891,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.002115
+              }
+            ]
+          },
+          {
+            "function_name": "omega(n)",
+            "gamma_for_F": 0.7,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 441,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.00907
+              },
+              {
+                "x": 12000,
+                "F": 716,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.005587
+              },
+              {
+                "x": 24000,
+                "F": 1164,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.003436
+              },
+              {
+                "x": 48000,
+                "F": 1891,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.002115
+              }
+            ]
+          },
+          {
+            "function_name": "phi(n)",
+            "gamma_for_F": 0.7,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 441,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.011338
+              },
+              {
+                "x": 12000,
+                "F": 716,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.005587
+              },
+              {
+                "x": 24000,
+                "F": 1164,
+                "max_local_occupancy_in_shifted_window": 7,
+                "occupancy_over_F": 0.006014
+              },
+              {
+                "x": 48000,
+                "F": 1891,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.002115
+              }
+            ]
+          },
+          {
+            "function_name": "sigma(n)",
+            "gamma_for_F": 0.7,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 441,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.013605
+              },
+              {
+                "x": 12000,
+                "F": 716,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.006983
+              },
+              {
+                "x": 24000,
+                "F": 1164,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.004296
+              },
+              {
+                "x": 48000,
+                "F": 1891,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.003173
+              }
+            ]
+          },
+          {
+            "function_name": "d(n)",
+            "gamma_for_F": 0.8,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 1053,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.003799
+              },
+              {
+                "x": 12000,
+                "F": 1833,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.002182
+              },
+              {
+                "x": 24000,
+                "F": 3192,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.001253
+              },
+              {
+                "x": 48000,
+                "F": 5558,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.0009
+              }
+            ]
+          },
+          {
+            "function_name": "omega(n)",
+            "gamma_for_F": 0.8,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 1053,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.003799
+              },
+              {
+                "x": 12000,
+                "F": 1833,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.002182
+              },
+              {
+                "x": 24000,
+                "F": 3192,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.001253
+              },
+              {
+                "x": 48000,
+                "F": 5558,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.00072
+              }
+            ]
+          },
+          {
+            "function_name": "phi(n)",
+            "gamma_for_F": 0.8,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 1053,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.004748
+              },
+              {
+                "x": 12000,
+                "F": 1833,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.002728
+              },
+              {
+                "x": 24000,
+                "F": 3192,
+                "max_local_occupancy_in_shifted_window": 7,
+                "occupancy_over_F": 0.002193
+              },
+              {
+                "x": 48000,
+                "F": 5558,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.00108
+              }
+            ]
+          },
+          {
+            "function_name": "sigma(n)",
+            "gamma_for_F": 0.8,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 1053,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.005698
+              },
+              {
+                "x": 12000,
+                "F": 1833,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.002728
+              },
+              {
+                "x": 24000,
+                "F": 3192,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.001566
+              },
+              {
+                "x": 48000,
+                "F": 5558,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.00108
+              }
+            ]
+          },
+          {
+            "function_name": "d(n)",
+            "gamma_for_F": 0.9,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 2513,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.00199
+              },
+              {
+                "x": 12000,
+                "F": 4690,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.001066
+              },
+              {
+                "x": 24000,
+                "F": 8753,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.000571
+              },
+              {
+                "x": 48000,
+                "F": 16334,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.000306
+              }
+            ]
+          },
+          {
+            "function_name": "omega(n)",
+            "gamma_for_F": 0.9,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 2513,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.001592
+              },
+              {
+                "x": 12000,
+                "F": 4690,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.000853
+              },
+              {
+                "x": 24000,
+                "F": 8753,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.000457
+              },
+              {
+                "x": 48000,
+                "F": 16334,
+                "max_local_occupancy_in_shifted_window": 4,
+                "occupancy_over_F": 0.000245
+              }
+            ]
+          },
+          {
+            "function_name": "phi(n)",
+            "gamma_for_F": 0.9,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 2513,
+                "max_local_occupancy_in_shifted_window": 5,
+                "occupancy_over_F": 0.00199
+              },
+              {
+                "x": 12000,
+                "F": 4690,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.001279
+              },
+              {
+                "x": 24000,
+                "F": 8753,
+                "max_local_occupancy_in_shifted_window": 7,
+                "occupancy_over_F": 0.0008
+              },
+              {
+                "x": 48000,
+                "F": 16334,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.000367
+              }
+            ]
+          },
+          {
+            "function_name": "sigma(n)",
+            "gamma_for_F": 0.9,
+            "rows": [
+              {
+                "x": 6000,
+                "F": 2513,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.002388
+              },
+              {
+                "x": 12000,
+                "F": 4690,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.001279
+              },
+              {
+                "x": 24000,
+                "F": 8753,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.000685
+              },
+              {
+                "x": 48000,
+                "F": 16334,
+                "max_local_occupancy_in_shifted_window": 6,
+                "occupancy_over_F": 0.000367
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T10:04:15.871Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,59 @@
 {
   "problem": "EP-87",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep87_standalone_deeper_20260311T095313Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T09:53:13.750Z",
+      "data": {
+        "problem": "EP-87",
+        "script": "ep87.mjs",
+        "method": "first_moment_ramsey_lb_scan_over_k_chromatic_samples",
+        "params": {
+          "K_LIST": [
+            4,
+            5
+          ],
+          "N_LIST": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "P_LIST": [
+            0.35,
+            0.45,
+            0.55
+          ],
+          "SAMPLES": 260,
+          "MAX_N_SCAN": 300,
+          "SEED": 8702026
+        },
+        "rows": [
+          {
+            "k": 4,
+            "n": 11,
+            "p": 0.45,
+            "sample": 4,
+            "edges": 33,
+            "first_moment_lb_R_G": 13,
+            "ratio_to_known_Rk": 0.7222
+          },
+          {
+            "k": 5,
+            "n": 11,
+            "p": 0.55,
+            "sample": 5,
+            "edges": 37,
+            "first_moment_lb_R_G": 15,
+            "ratio_to_known_Rk": 0.3488
+          }
+        ],
+        "generated_utc": "2026-03-11T09:53:13.750Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

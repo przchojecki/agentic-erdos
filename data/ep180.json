@@ -1,5 +1,53 @@
 {
   "problem": "EP-180",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep180_standalone_deeper_20260311T122936Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:29:36.001Z",
+      "data": {
+        "problem": "EP-180",
+        "script": "ep180.mjs",
+        "method": "exact_bruteforce_counterexample_family_verification",
+        "params": {
+          "N_LIST": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "rows": [
+          {
+            "n": 4,
+            "ex_n_F_star_and_2K2": 1,
+            "ex_n_star_K1_2": 2,
+            "ex_n_2K2": 3
+          },
+          {
+            "n": 5,
+            "ex_n_F_star_and_2K2": 1,
+            "ex_n_star_K1_2": 2,
+            "ex_n_2K2": 4
+          },
+          {
+            "n": 6,
+            "ex_n_F_star_and_2K2": 1,
+            "ex_n_star_K1_2": 3,
+            "ex_n_2K2": 5
+          },
+          {
+            "n": 7,
+            "ex_n_F_star_and_2K2": 1,
+            "ex_n_star_K1_2": 3,
+            "ex_n_2K2": 6
+          }
+        ],
+        "generated_utc": "2026-03-11T12:29:36.001Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

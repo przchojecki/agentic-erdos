@@ -1,5 +1,80 @@
 {
   "problem": "EP-247",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep247_standalone_deeper_20260311T125141Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T12:51:41.805Z",
+      "data": {
+        "problem": "EP-247",
+        "script": "ep247.mjs",
+        "method": "binary_tail_periodicity_stress_for_sparse_exponent_series",
+        "params": {
+          "L": 120000,
+          "START": 2000,
+          "MAX_PERIOD": 600,
+          "MODES": [
+            "n2",
+            "n1p5",
+            "nlogn",
+            "nlog2n"
+          ]
+        },
+        "rows": [
+          {
+            "mode": "n2",
+            "L": 120000,
+            "start": 2000,
+            "ones_up_to_L": 346,
+            "best_periodicity_fit_up_to_max_period": {
+              "period": 525,
+              "mismatches": 591,
+              "pairs_checked": 117476,
+              "mismatch_ratio": 0.005031
+            }
+          },
+          {
+            "mode": "n1p5",
+            "L": 120000,
+            "start": 2000,
+            "ones_up_to_L": 2432,
+            "best_periodicity_fit_up_to_max_period": {
+              "period": 72,
+              "mismatches": 4357,
+              "pairs_checked": 117929,
+              "mismatch_ratio": 0.036946
+            }
+          },
+          {
+            "mode": "nlogn",
+            "L": 120000,
+            "start": 2000,
+            "ones_up_to_L": 12698,
+            "best_periodicity_fit_up_to_max_period": {
+              "period": 10,
+              "mismatches": 11779,
+              "pairs_checked": 117991,
+              "mismatch_ratio": 0.09983
+            }
+          },
+          {
+            "mode": "nlog2n",
+            "L": 120000,
+            "start": 2000,
+            "ones_up_to_L": 2058,
+            "best_periodicity_fit_up_to_max_period": {
+              "period": 72,
+              "mismatches": 3687,
+              "pairs_checked": 117929,
+              "mismatch_ratio": 0.031265
+            }
+          }
+        ],
+        "generated_utc": "2026-03-11T12:51:41.805Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

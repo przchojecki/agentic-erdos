@@ -1,5 +1,50 @@
 {
   "problem": "EP-111",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep111_standalone_deeper_20260311T100045Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T10:00:45.564Z",
+      "data": {
+        "problem": "EP-111",
+        "script": "ep111.mjs",
+        "method": "finite_proxy_hg_n_on_high_chromatic_mycielski_graph",
+        "params": {
+          "LEVELS": 3,
+          "M_LIST": [
+            8,
+            10,
+            12
+          ],
+          "SUBSET_SAMPLES": 280,
+          "SEED": 11102026
+        },
+        "host_graph_vertices": 47,
+        "rows": [
+          {
+            "m": 8,
+            "subset_samples": 280,
+            "max_deletions_observed_to_bipartite": 2,
+            "ratio_h_over_n_proxy": 0.25
+          },
+          {
+            "m": 10,
+            "subset_samples": 280,
+            "max_deletions_observed_to_bipartite": 3,
+            "ratio_h_over_n_proxy": 0.3
+          },
+          {
+            "m": 12,
+            "subset_samples": 280,
+            "max_deletions_observed_to_bipartite": 3,
+            "ratio_h_over_n_proxy": 0.25
+          }
+        ],
+        "generated_utc": "2026-03-11T10:00:45.564Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }
