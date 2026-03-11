@@ -3,6 +3,7 @@ const state = {
   filtered: [],
   selectedId: null,
   remoteByProblem: new Map(),
+  requestSeq: 0,
 };
 
 function $(id) {
@@ -54,10 +55,14 @@ function renderList() {
   for (const p of state.filtered) {
     const btn = document.createElement("button");
     btn.className = `problem-item${p.id === state.selectedId ? " active" : ""}`;
-    btn.innerHTML = `
-      <div class="problem-id">${p.problem}</div>
-      <div class="problem-sub">${p.closure_state} · ${p.progress_status} · comps: ${p.computations_count}</div>
-    `;
+    const top = document.createElement("div");
+    top.className = "problem-id";
+    top.textContent = p.problem;
+    const sub = document.createElement("div");
+    sub.className = "problem-sub";
+    sub.textContent = `${p.closure_state} · ${p.progress_status} · comps: ${p.computations_count}`;
+    btn.appendChild(top);
+    btn.appendChild(sub);
     btn.onclick = () => selectProblem(p.id);
     host.appendChild(btn);
   }
@@ -69,9 +74,18 @@ function setText(id, value) {
 
 function sanitizeMathText(src) {
   let t = src || "";
-  // Preserve literal currency/escaped dollars so MathJax does not treat them as math delimiters.
+  // 1) Preserve escaped dollars so markdown does not turn them into math delimiters.
   t = t.replace(/\\\$/g, "&#36;");
-  t = t.replace(/(^|[^\\w])\\$(\\d+)/g, "$1&#36;$2");
+  // 2) For lines with unbalanced '$', treat bare $<number> as currency.
+  t = t
+    .split(/\r?\n/)
+    .map((line) => {
+      const unescaped = [...line].filter((_, i, arr) => arr[i] === "$" && (i === 0 || arr[i - 1] !== "\\"))
+        .length;
+      if (unescaped % 2 === 0) return line;
+      return line.replace(/(^|[^\w\\])\$(\d+(?:[.,]\d+)?)/g, "$1USD $2");
+    })
+    .join("\n");
   return t;
 }
 
@@ -79,7 +93,12 @@ function setMarkdown(id, value, fallback = "No data.") {
   const el = $(id);
   const src = sanitizeMathText((value || "").trim() || fallback);
   if (window.marked?.parse) {
-    el.innerHTML = window.marked.parse(src);
+    const parsed = window.marked.parse(src);
+    if (window.DOMPurify?.sanitize) {
+      el.innerHTML = window.DOMPurify.sanitize(parsed);
+    } else {
+      el.textContent = src;
+    }
   } else {
     el.textContent = src;
   }
@@ -132,94 +151,128 @@ function renderComputations(data) {
     div.className = "comp-item";
     const payload = c?.data ?? c;
     const payloadText = JSON.stringify(payload, null, 2);
-    const shortText =
-      payloadText.length > 1200 ? `${payloadText.slice(0, 1200)}\n...` : payloadText;
-    div.innerHTML = `
-      <div><strong>${c.kind || "computation"}</strong></div>
-      <div class="comp-kind">generated: ${c.generated_utc || "n/a"}</div>
-      <details>
-        <summary>View Computation Data</summary>
-        <pre class="note-raw">${shortText.replace(/[<>&]/g, (m) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[m]))}</pre>
-      </details>
-    `;
+    const preview = payloadText.length > 240 ? `${payloadText.slice(0, 240)}...` : payloadText;
+
+    const title = document.createElement("div");
+    const strong = document.createElement("strong");
+    strong.textContent = c.kind || "computation";
+    title.appendChild(strong);
+    div.appendChild(title);
+
+    const generated = document.createElement("div");
+    generated.className = "comp-kind";
+    generated.textContent = `generated: ${c.generated_utc || "n/a"}`;
+    div.appendChild(generated);
+
+    const previewLine = document.createElement("div");
+    previewLine.className = "comp-kind";
+    previewLine.textContent = preview;
+    div.appendChild(previewLine);
+
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = "View Full Computation Data";
+    details.appendChild(summary);
+
+    const pre = document.createElement("pre");
+    pre.className = "note-raw";
+    pre.textContent = payloadText;
+    details.appendChild(pre);
+
+    div.appendChild(details);
     host.appendChild(div);
   }
 }
 
 async function selectProblem(id) {
+  const reqId = ++state.requestSeq;
   state.selectedId = id;
   renderList();
 
-  const key = `ep${id}`;
-  const [dataRes, noteRes] = await Promise.all([
-    fetch(`data/${key}.json`),
-    fetch(`notes/${key}.md`),
-  ]);
+  try {
+    const key = `ep${id}`;
+    const [dataRes, noteRes] = await Promise.all([
+      fetch(`data/${key}.json`),
+      fetch(`notes/${key}.md`),
+    ]);
 
-  if (!dataRes.ok || !noteRes.ok) {
+    if (!dataRes.ok || !noteRes.ok) {
+      if (reqId !== state.requestSeq) return;
+      setText("problemTitle", `EP-${id}`);
+      setText("statement", "");
+      setText("literature", "");
+      setText("approachProven", "");
+      setText("noteRaw", "");
+      $("computations").textContent = "";
+      return;
+    }
+
+    const data = await dataRes.json();
+    const noteRaw = await noteRes.text();
+    if (reqId !== state.requestSeq) return;
+    const note = stripBatchSections(noteRaw);
+    const keyUpper = `EP-${id}`;
+    const remote = state.remoteByProblem.get(keyUpper);
+
+    let statement =
+      (remote?.statement || remote?.problem_statement || "").trim() ||
+      extractAnySection(note, ["Problem Statement", "Statement", "Statement split", "Working statement"]);
+    if (!statement) {
+      const route = extractAnySection(note, ["Route"]);
+      statement = route
+        ? `From local note context: ${stripMdDecorations(route)}`
+        : "Statement not yet extracted; see full note below.";
+    }
+
+    const literatureParts = [];
+    if ((remote?.background || "").trim()) literatureParts.push(remote.background.trim());
+    if ((remote?.proposed_by || "").trim()) {
+      literatureParts.push(
+        `Source metadata: proposed by ${remote.proposed_by}${remote.proposed_year ? ` (${remote.proposed_year})` : ""}.`,
+      );
+    }
+    if ((remote?.status || "").trim()) literatureParts.push(`Dataset status: ${remote.status}.`);
+    const fromBackground = extractAnySection(note, ["What is resolved from background"]);
+    if (fromBackground) {
+      literatureParts.push(`Background results cited in local note:\n${stripMdDecorations(fromBackground)}`);
+    }
+    literatureParts.push(
+      extractAnySection(note, [
+        "Literature",
+        "Literature status (checked)",
+        "References",
+        "References / Literature",
+        "References (checked in this deep dive)",
+      ]),
+    );
+    const literature = literatureParts.filter(Boolean).join("\n\n");
+
+    const approachProven = [
+      extractAnySection(note, ["Route"]),
+      extractAnySection(note, ["What is resolved"]),
+      extractAnySection(note, ["Proof route sharpened"]),
+      extractAnySection(note, ["Attempt in this batch"]),
+      extractAnySection(note, ["Status"]),
+      extractAnySection(note, ["What remains open in this note"]),
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
+    setText("problemTitle", data.problem || `EP-${id}`);
+    setMarkdown("statement", statement, "Problem statement not yet normalized in this note.");
+    setMarkdown("literature", literature, "Literature not explicitly separated yet; see notes below.");
+    setMarkdown("approachProven", approachProven, "No explicit approach/proven section found.");
+    setMarkdown("noteRaw", note, "No notes available.");
+    renderComputations(data);
+  } catch (_) {
+    if (reqId !== state.requestSeq) return;
     setText("problemTitle", `EP-${id}`);
     setText("statement", "");
     setText("literature", "");
     setText("approachProven", "");
     setText("noteRaw", "");
-    $("computations").textContent = "";
-    return;
+    $("computations").textContent = "Failed to load data for this problem.";
   }
-
-  const data = await dataRes.json();
-  const noteRaw = await noteRes.text();
-  const note = stripBatchSections(noteRaw);
-  const keyUpper = `EP-${id}`;
-  const remote = state.remoteByProblem.get(keyUpper);
-
-  let statement =
-    (remote?.statement || remote?.problem_statement || "").trim() ||
-    extractAnySection(note, ["Statement", "Statement split", "Working statement"]);
-  if (!statement) {
-    const route = extractAnySection(note, ["Route"]);
-    statement = route
-      ? `From local note context: ${stripMdDecorations(route)}`
-      : "Statement not yet extracted; see full note below.";
-  }
-
-  const literatureParts = [];
-  if ((remote?.background || "").trim()) literatureParts.push(remote.background.trim());
-  if ((remote?.proposed_by || "").trim()) {
-    literatureParts.push(
-      `Source metadata: proposed by ${remote.proposed_by}${remote.proposed_year ? ` (${remote.proposed_year})` : ""}.`,
-    );
-  }
-  if ((remote?.status || "").trim()) literatureParts.push(`Dataset status: ${remote.status}.`);
-  const fromBackground = extractAnySection(note, ["What is resolved from background"]);
-  if (fromBackground) {
-    literatureParts.push(`Background results cited in local note:\n${stripMdDecorations(fromBackground)}`);
-  }
-  literatureParts.push(
-    extractAnySection(note, [
-      "Literature status (checked)",
-      "References",
-      "References (checked in this deep dive)",
-    ]),
-  );
-  const literature = literatureParts.filter(Boolean).join("\n\n");
-
-  const approachProven = [
-    extractAnySection(note, ["Route"]),
-    extractAnySection(note, ["What is resolved"]),
-    extractAnySection(note, ["Proof route sharpened"]),
-    extractAnySection(note, ["Attempt in this batch"]),
-    extractAnySection(note, ["Status"]),
-    extractAnySection(note, ["What remains open in this note"]),
-  ]
-    .filter(Boolean)
-    .join("\n\n");
-
-  setText("problemTitle", data.problem || `EP-${id}`);
-  setMarkdown("statement", statement, "Problem statement not yet normalized in this note.");
-  setMarkdown("literature", literature, "Literature not explicitly separated yet; see notes below.");
-  setMarkdown("approachProven", approachProven, "No explicit approach/proven section found.");
-  setMarkdown("noteRaw", note, "No notes available.");
-  renderComputations(data);
 }
 
 function applySearch() {
@@ -260,21 +313,25 @@ function initTabs() {
 }
 
 async function init() {
-  const [catRes, remoteBy] = await Promise.all([fetch("catalog.json"), loadRemoteStatements()]);
-  state.remoteByProblem = remoteBy;
-  if (!catRes.ok) {
-    setText("problemTitle", "Failed to load catalog.json");
-    return;
-  }
-  const cat = await catRes.json();
-  state.catalog = cat.problems || [];
-  state.filtered = state.catalog.slice();
-  state.selectedId = state.catalog[0]?.id || null;
-  renderList();
-  if (state.selectedId != null) await selectProblem(state.selectedId);
+  try {
+    const [catRes, remoteBy] = await Promise.all([fetch("catalog.json"), loadRemoteStatements()]);
+    state.remoteByProblem = remoteBy;
+    if (!catRes.ok) {
+      setText("problemTitle", "Failed to load catalog.json");
+      return;
+    }
+    const cat = await catRes.json();
+    state.catalog = cat.problems || [];
+    state.filtered = state.catalog.slice();
+    state.selectedId = state.catalog[0]?.id || null;
+    renderList();
+    if (state.selectedId != null) await selectProblem(state.selectedId);
 
-  $("search").addEventListener("input", applySearch);
-  initTabs();
+    $("search").addEventListener("input", applySearch);
+    initTabs();
+  } catch (_) {
+    setText("problemTitle", "Failed to initialize browser");
+  }
 }
 
 init();
