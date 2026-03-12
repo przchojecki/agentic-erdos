@@ -1,5 +1,82 @@
 {
   "problem": "EP-457",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep457_standalone_deeper_20260312T101935Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:19:35.230Z",
+      "data": {
+        "problem": "EP-457",
+        "script": "ep457.mjs",
+        "method": "deep_profile_for_least_missing_prime_q_n_logn",
+        "params": {
+          "N": 2000000,
+          "CBOUND": 6,
+          "pBound": 1464,
+          "MILESTONES": [
+            100000,
+            300000,
+            500000,
+            1000000,
+            1500000,
+            2000000
+          ]
+        },
+        "argmax_q_over_logn": {
+          "n": 113729,
+          "k": 11,
+          "q": 59,
+          "ratio": 5.0680433
+        },
+        "rows": [
+          {
+            "n": 100000,
+            "checked_up_to_n": 99998,
+            "max_q_over_logn_so_far": 4.9496081,
+            "density_ratio_ge_2": 0.26093522,
+            "density_ratio_ge_2_05": 0.21404428
+          },
+          {
+            "n": 300000,
+            "checked_up_to_n": 299998,
+            "max_q_over_logn_so_far": 5.0680433,
+            "density_ratio_ge_2": 0.21689478,
+            "density_ratio_ge_2_05": 0.20126468
+          },
+          {
+            "n": 500000,
+            "checked_up_to_n": 499998,
+            "max_q_over_logn_so_far": 5.0680433,
+            "density_ratio_ge_2": 0.2253489,
+            "density_ratio_ge_2_05": 0.21597086
+          },
+          {
+            "n": 1000000,
+            "checked_up_to_n": 999998,
+            "max_q_over_logn_so_far": 5.0680433,
+            "density_ratio_ge_2": 0.26054452,
+            "density_ratio_ge_2_05": 0.25585551
+          },
+          {
+            "n": 1500000,
+            "checked_up_to_n": 1499998,
+            "max_q_over_logn_so_far": 5.0680433,
+            "density_ratio_ge_2": 0.28687105,
+            "density_ratio_ge_2_05": 0.27000903
+          },
+          {
+            "n": 2000000,
+            "checked_up_to_n": 1999998,
+            "max_q_over_logn_so_far": 5.0680433,
+            "density_ratio_ge_2": 0.30584831,
+            "density_ratio_ge_2_05": 0.24707975
+          }
+        ],
+        "generated_utc": "2026-03-12T10:19:35.230Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

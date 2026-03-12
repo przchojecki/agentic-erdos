@@ -1,60 +1,68 @@
 {
   "problem": "EP-522",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch14_web_compute.md",
-        "content": "### EP-522\n- Quick literature check:\n  - Problem-page updates include almost-sure root-count asymptotics for broad i.i.d. models (including mean-zero, variance-one assumptions), while the strict Rademacher framing remains subtle in presentation.\n- Finite compute signal:\n  - Argument-principle Monte Carlo gives $\\mathbb{E}[R_n]/(n/2)$ near $1$ on tested sizes: about `1.0025` (`n=80`), `1.0043` (`n=160`), `0.9785` (`n=320`).\n- Interpretation:\n  - Numerics support the conjectured $n/2$ scale for roots in $|z|\\le 1$, but finite sampling is not a proof of almost-sure convergence."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch14_quick_compute.mjs",
-        "heading": "count roots in |z|<=1 via argument principle on unit circle.",
-        "content": "// EP-522: count roots in |z|<=1 via argument principle on unit circle.\n{\n  const rng = makeRng(20260303 ^ 1401);\n\n  function windingInside(coeff, M = 2048) {\n    let total = 0;\n    let prevArg = null;\n    let unstable = false;\n\n    for (let i = 0; i <= M; i += 1) {\n      const t = (2 * Math.PI * i) / M;\n      const ct = Math.cos(t);\n      const st = Math.sin(t);\n\n      // Evaluate f(e^{it}) by Horner in complex arithmetic.\n      let re = 0;\n      let im = 0;\n      for (let k = coeff.length - 1; k >= 0; k -= 1) {\n        const nre = re * ct - im * st + coeff[k];\n        const nim = re * st + im * ct;\n        re = nre;\n        im = nim;\n      }\n\n      const mag = Math.hypot(re, im);\n      if (mag < 1e-8) {\n        unstable = true;\n      }\n\n      const arg = Math.atan2(im, re);\n      if (prevArg !== null) {\n        let d = arg - prevArg;\n        while (d <= -Math.PI) d += 2 * Math.PI;\n        while (d > Math.PI) d -= 2 * Math.PI;\n        total += d;\n      }\n      prevArg = arg;\n    }\n\n    const w = Math.round(total / (2 * Math.PI));\n    return { rootsInside: w, unstable };\n  }\n\n  const rows = [];\n  for (const [n, trials] of [[80, 40], [160, 35], [320, 30]]) {\n    let used = 0;\n    let sum = 0;\n    let sumSq = 0;\n    let unstableCount = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const coeff = Array.from({ length: n + 1 }, () => (rng() < 0.5 ? -1 : 1));\n      const { rootsInside, unstable } = windingInside(coeff);\n      if (unstable) unstableCount += 1;\n      used += 1;\n      sum += rootsInside;\n      sumSq += rootsInside * rootsInside;\n    }\n\n    const mean = sum / used;\n    const varr = Math.max(0, sumSq / used - mean * mean);\n\n    rows.push({\n      n,\n      trials,\n      unstable_trials: unstableCount,\n      avg_roots_inside_disk: Number(mean.toPrecision(7)),\n      std_roots_inside_disk: Number(Math.sqrt(varr).toPrecision(7)),\n      ratio_avg_over_n_over_2: Number((mean / (n / 2)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep522 = {\n    description: 'Argument-principle Monte Carlo proxy for R_n roots inside the unit disk.',\n    rows,\n  };\n}\n\n// EP-528 + EP-529: exact small-n self-avoiding walk counts and displacement.\n{\n  function enumerateSAW(d, nMax) {\n    const dirs = [];\n    for (let i = 0; i < d; i += 1) {\n      const a = Array(d).fill(0);\n      a[i] = 1;\n      dirs.push(a);\n      const b = Array(d).fill(0);\n      b[i] = -1;\n      dirs.push(b);\n    }\n\n    const cnt = Array(nMax + 1).fill(0);\n    const distSum = Array(nMax + 1).fill(0);\n\n    const coord = Array(d).fill(0);\n    const visited = new Set(['0'.repeat(d)]);\n\n    function key(v) {\n      return v.join(',');\n    }\n\n    function dfs(step) {\n      if (step > 0) {\n        cnt[step] += 1;\n        let r2 = 0;\n        for (let i = 0; i < d; i += 1) r2 += coord[i] * coord[i];\n        distSum[step] += Math.sqrt(r2);\n      }\n      if (step === nMax) return;\n\n      for (const mv of dirs) {\n        for (let i = 0; i < d; i += 1) coord[i] += mv[i];\n        const k = key(coord);\n        if (!visited.has(k)) {\n          visited.add(k);\n          dfs(step + 1);\n          visited.delete(k);\n        }\n        for (let i = 0; i < d; i += 1) coord[i] -= mv[i];\n      }\n    }\n\n    dfs(0);\n    return { cnt, distSum };\n  }\n\n  const configs = [\n    { d: 2, nMax: 10 },\n    { d: 3, nMax: 8 },\n    { d: 4, nMax: 7 },\n  ];\n\n  const connectiveRows = [];\n  const displacementRows = [];\n\n  for (const cfg of configs) {\n    const { d, nMax } = cfg;\n    const { cnt, distSum } = enumerateSAW(d, nMax);\n\n    for (let n = 2; n <= nMax; n += 1) {\n      const c = cnt[n];\n      const prev = cnt[n - 1];\n      const muRoot = c ** (1 / n);\n      const muRatio = c / prev;\n      connectiveRows.push({\n        d,\n        n,\n        f_n_k: c,\n        root_estimate: Number(muRoot.toPrecision(7)),\n        ratio_estimate: Number(muRatio.toPrecision(7)),\n      });\n\n      const dn = distSum[n] / c;\n      displacementRows.push({\n        d,\n        n,\n        expected_distance: Number(dn.toPrecision(7)),\n        over_sqrt_n: Number((dn / Math.sqrt(n)).toPrecision(7)),\n        over_n_pow_0_75: Number((dn / (n ** 0.75)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep528 = {\n    description: 'Exact small-n connective-constant proxies from self-avoiding walk counts.',\n    rows: connectiveRows,\n  };\n\n  out.results.ep529 = {\n    description: 'Exact small-n displacement profile for self-avoiding walks.',\n    rows: displacementRows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch14_quick_compute.json",
-        "key": "ep522",
-        "container_meta": {
-          "script": "harder_batch14_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:54:10.902Z"
-        },
-        "data": {
-          "description": "Argument-principle Monte Carlo proxy for R_n roots inside the unit disk.",
-          "rows": [
+  "computations": [
+    {
+      "source_file": "ep522_standalone_deeper_20260312T105707Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:57:07.745Z",
+      "data": {
+        "problem": "EP-522",
+        "script": "ep522.mjs",
+        "method": "deep_argument_principle_monte_carlo_for_roots_inside_unit_disk",
+        "params": {
+          "tasks": [
             {
-              "n": 80,
+              "n": 100,
+              "trials": 120,
+              "M": 4096
+            },
+            {
+              "n": 200,
+              "trials": 100,
+              "M": 4096
+            },
+            {
+              "n": 400,
               "trials": 80,
-              "unstable_trials": 0,
-              "avg_roots_inside_disk": 39.775,
-              "std_roots_inside_disk": 3.940098,
-              "ratio_avg_over_n_over_2": 0.994375
-            },
-            {
-              "n": 160,
-              "trials": 70,
-              "unstable_trials": 0,
-              "avg_roots_inside_disk": 80.25714,
-              "std_roots_inside_disk": 5.442388,
-              "ratio_avg_over_n_over_2": 1.003214
-            },
-            {
-              "n": 320,
-              "trials": 60,
-              "unstable_trials": 0,
-              "avg_roots_inside_disk": 159.7333,
-              "std_roots_inside_disk": 6.303086,
-              "ratio_avg_over_n_over_2": 0.9983333
+              "M": 4096
             }
           ]
-        }
+        },
+        "rows": [
+          {
+            "n": 100,
+            "trials": 120,
+            "M": 4096,
+            "unstable_trials": 0,
+            "avg_roots_inside_disk": 49.483333,
+            "std_roots_inside_disk": 3.4180485,
+            "ratio_avg_over_n_over_2": 0.98966667
+          },
+          {
+            "n": 200,
+            "trials": 100,
+            "M": 4096,
+            "unstable_trials": 0,
+            "avg_roots_inside_disk": 99.71,
+            "std_roots_inside_disk": 5.3633851,
+            "ratio_avg_over_n_over_2": 0.9971
+          },
+          {
+            "n": 400,
+            "trials": 80,
+            "M": 4096,
+            "unstable_trials": 0,
+            "avg_roots_inside_disk": 198.725,
+            "std_roots_inside_disk": 7.7459263,
+            "ratio_avg_over_n_over_2": 0.993625
+          }
+        ],
+        "elapsed_ms": 632,
+        "generated_utc": "2026-03-12T10:57:07.745Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

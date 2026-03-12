@@ -1,5 +1,475 @@
 {
   "problem": "EP-477",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep477_standalone_deeper_20260312T102808Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:28:08.804Z",
+      "data": {
+        "problem": "EP-477",
+        "script": "ep477.mjs",
+        "method": "modular_fourier_obstruction_scan_for_unique_A_plus_fZ_decompositions",
+        "params": {
+          "M_LIST": [
+            24,
+            30,
+            36,
+            40,
+            45,
+            48,
+            60,
+            72,
+            84,
+            96,
+            108,
+            120
+          ],
+          "polys": [
+            "x2",
+            "x2_plus_x",
+            "x2_plus_1",
+            "x3_plus_x2"
+          ]
+        },
+        "rows": [
+          {
+            "m": 24,
+            "poly": "x2",
+            "B_size_mod_m": 6,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1,
+            "argmin_frequency": 23,
+            "obstruction_flag": true
+          },
+          {
+            "m": 24,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 2.7733391e-32,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 24,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 6,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1,
+            "argmin_frequency": 23,
+            "obstruction_flag": true
+          },
+          {
+            "m": 24,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 2.7733391e-32,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 30,
+            "poly": "x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 7.6095992e-32,
+            "argmin_frequency": 3,
+            "obstruction_flag": false
+          },
+          {
+            "m": 30,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 6,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 28,
+            "obstruction_flag": true
+          },
+          {
+            "m": 30,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 2.0830858e-30,
+            "argmin_frequency": 1,
+            "obstruction_flag": false
+          },
+          {
+            "m": 30,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 6,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 28,
+            "obstruction_flag": true
+          },
+          {
+            "m": 36,
+            "poly": "x2",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 6.4094949e-31,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 36,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 5.2385294e-32,
+            "argmin_frequency": 7,
+            "obstruction_flag": false
+          },
+          {
+            "m": 36,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 4.9303807e-31,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 36,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 0,
+            "argmin_frequency": 9,
+            "obstruction_flag": false
+          },
+          {
+            "m": 40,
+            "poly": "x2",
+            "B_size_mod_m": 9,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 36,
+            "obstruction_flag": false
+          },
+          {
+            "m": 40,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 4.9303807e-32,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 40,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 9,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 39,
+            "obstruction_flag": false
+          },
+          {
+            "m": 40,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 4.9303807e-32,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 45,
+            "poly": "x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 43,
+            "obstruction_flag": false
+          },
+          {
+            "m": 45,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 38,
+            "obstruction_flag": false
+          },
+          {
+            "m": 45,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 38,
+            "obstruction_flag": false
+          },
+          {
+            "m": 45,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 18,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 3.574526e-30,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 48,
+            "poly": "x2",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.2475127e-29,
+            "argmin_frequency": 8,
+            "obstruction_flag": false
+          },
+          {
+            "m": 48,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 16,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.5056972e-31,
+            "argmin_frequency": 6,
+            "obstruction_flag": false
+          },
+          {
+            "m": 48,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 8,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 2.0488813e-29,
+            "argmin_frequency": 8,
+            "obstruction_flag": false
+          },
+          {
+            "m": 48,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 16,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.5056972e-31,
+            "argmin_frequency": 6,
+            "obstruction_flag": false
+          },
+          {
+            "m": 60,
+            "poly": "x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 4.0059343e-30,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 60,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 6.1629758e-32,
+            "argmin_frequency": 5,
+            "obstruction_flag": false
+          },
+          {
+            "m": 60,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.825763e-30,
+            "argmin_frequency": 6,
+            "obstruction_flag": false
+          },
+          {
+            "m": 60,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 6.1629758e-32,
+            "argmin_frequency": 5,
+            "obstruction_flag": false
+          },
+          {
+            "m": 72,
+            "poly": "x2",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1,
+            "argmin_frequency": 52,
+            "obstruction_flag": true
+          },
+          {
+            "m": 72,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 16,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 5.596669e-31,
+            "argmin_frequency": 3,
+            "obstruction_flag": false
+          },
+          {
+            "m": 72,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 12,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1,
+            "argmin_frequency": 47,
+            "obstruction_flag": true
+          },
+          {
+            "m": 72,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 24,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 5.9472717e-31,
+            "argmin_frequency": 19,
+            "obstruction_flag": false
+          },
+          {
+            "m": 84,
+            "poly": "x2",
+            "B_size_mod_m": 16,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 1.540744e-32,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 84,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 16,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 1.4298104e-30,
+            "argmin_frequency": 3,
+            "obstruction_flag": false
+          },
+          {
+            "m": 84,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 16,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 6.6683398e-30,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 84,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 20,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 2.2464047e-30,
+            "argmin_frequency": 1,
+            "obstruction_flag": false
+          },
+          {
+            "m": 96,
+            "poly": "x2",
+            "B_size_mod_m": 14,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 1,
+            "argmin_frequency": 41,
+            "obstruction_flag": false
+          },
+          {
+            "m": 96,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 32,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 5.0074179e-30,
+            "argmin_frequency": 23,
+            "obstruction_flag": false
+          },
+          {
+            "m": 96,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 14,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 1,
+            "argmin_frequency": 91,
+            "obstruction_flag": false
+          },
+          {
+            "m": 96,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 32,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 5.0074179e-30,
+            "argmin_frequency": 23,
+            "obstruction_flag": false
+          },
+          {
+            "m": 108,
+            "poly": "x2",
+            "B_size_mod_m": 22,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 7.2230077e-30,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 108,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 22,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 1.8242408e-30,
+            "argmin_frequency": 3,
+            "obstruction_flag": false
+          },
+          {
+            "m": 108,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 22,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 8.7390997e-30,
+            "argmin_frequency": 2,
+            "obstruction_flag": false
+          },
+          {
+            "m": 108,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 36,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.5291884e-30,
+            "argmin_frequency": 1,
+            "obstruction_flag": false
+          },
+          {
+            "m": 120,
+            "poly": "x2",
+            "B_size_mod_m": 18,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 68,
+            "obstruction_flag": false
+          },
+          {
+            "m": 120,
+            "poly": "x2_plus_x",
+            "B_size_mod_m": 24,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.40824e-30,
+            "argmin_frequency": 14,
+            "obstruction_flag": false
+          },
+          {
+            "m": 120,
+            "poly": "x2_plus_1",
+            "B_size_mod_m": 18,
+            "m_divisible_by_B_size": false,
+            "min_abs2_fourier_nonzero": 0.38196601,
+            "argmin_frequency": 28,
+            "obstruction_flag": false
+          },
+          {
+            "m": 120,
+            "poly": "x3_plus_x2",
+            "B_size_mod_m": 24,
+            "m_divisible_by_B_size": true,
+            "min_abs2_fourier_nonzero": 1.40824e-30,
+            "argmin_frequency": 14,
+            "obstruction_flag": false
+          }
+        ],
+        "generated_utc": "2026-03-12T10:28:08.804Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

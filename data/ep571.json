@@ -1,80 +1,122 @@
 {
   "problem": "EP-571",
-  "normalized_utc": "2026-03-05T08:54:16.962Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch14_web_compute.md",
-        "content": "### EP-571\n- Quick literature check:\n  - Web scan confirms continued growth of realizable Turan-exponent families, but still not full coverage of all rational $\\alpha\\in[1,2)$ for single bipartite graphs.\n- Finite compute signal:\n  - Denominator-bounded map (`den<=60`) covers `558/1101` reduced rationals in $[1,2)$ from currently listed families.\n- Interpretation:\n  - Coverage is substantial yet incomplete, matching the problem's \"all rational exponents\" frontier.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/522\n  - https://www.erdosproblems.com/528\n  - https://www.erdosproblems.com/529\n  - https://www.erdosproblems.com/530\n  - https://www.erdosproblems.com/531\n  - https://www.erdosproblems.com/545\n  - https://www.erdosproblems.com/552\n  - https://www.erdosproblems.com/560\n  - https://www.erdosproblems.com/567\n  - https://www.erdosproblems.com/571\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2212.02514\n  - https://arxiv.org/abs/2412.00050"
+  "normalized_utc": "2026-03-12T12:55:54.390Z",
+  "computations": [
+    {
+      "source_file": "ep571_standalone_deeper_20260312T125554Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T12:55:54.390Z",
+      "data": {
+        "problem": "EP-571",
+        "script": "ep571.mjs",
+        "method": "deeper_coverage_map_for_known_turan_exponent_families_in_1_2",
+        "params": {},
+        "rows": [
+          {
+            "denominator_bound": 120,
+            "total_reduced_rationals_in_1_2": 4385,
+            "covered_count": 1598,
+            "covered_ratio": 0.36442417,
+            "sample_uncovered_first_25": [
+              "15/11",
+              "19/12",
+              "18/13",
+              "21/13",
+              "19/14",
+              "25/16",
+              "22/17",
+              "23/17",
+              "24/17",
+              "27/17",
+              "25/18",
+              "29/18",
+              "24/19",
+              "26/19",
+              "27/19",
+              "30/19",
+              "31/19",
+              "27/20",
+              "31/20",
+              "29/21",
+              "34/21",
+              "31/22",
+              "35/22",
+              "28/23",
+              "29/23"
+            ]
+          },
+          {
+            "denominator_bound": 180,
+            "total_reduced_rationals_in_1_2": 9879,
+            "covered_count": 2853,
+            "covered_ratio": 0.28879441,
+            "sample_uncovered_first_25": [
+              "15/11",
+              "19/12",
+              "18/13",
+              "21/13",
+              "19/14",
+              "25/16",
+              "22/17",
+              "23/17",
+              "24/17",
+              "27/17",
+              "25/18",
+              "29/18",
+              "24/19",
+              "26/19",
+              "27/19",
+              "30/19",
+              "31/19",
+              "27/20",
+              "31/20",
+              "29/21",
+              "34/21",
+              "31/22",
+              "35/22",
+              "28/23",
+              "29/23"
+            ]
+          },
+          {
+            "denominator_bound": 240,
+            "total_reduced_rationals_in_1_2": 17543,
+            "covered_count": 4285,
+            "covered_ratio": 0.24425697,
+            "sample_uncovered_first_25": [
+              "15/11",
+              "19/12",
+              "18/13",
+              "21/13",
+              "19/14",
+              "25/16",
+              "22/17",
+              "23/17",
+              "24/17",
+              "27/17",
+              "25/18",
+              "29/18",
+              "24/19",
+              "26/19",
+              "27/19",
+              "30/19",
+              "31/19",
+              "27/20",
+              "31/20",
+              "29/21",
+              "34/21",
+              "31/22",
+              "35/22",
+              "28/23",
+              "29/23"
+            ]
+          }
+        ],
+        "elapsed_ms": 12,
+        "generated_utc": "2026-03-12T12:55:54.390Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch14_quick_compute.mjs",
-        "heading": "finite coverage map of known Turan-exponent families.",
-        "content": "// EP-571: finite coverage map of known Turan-exponent families.\n{\n  const known = new Set();\n\n  function addRat(num, den) {\n    const g = gcd(num, den);\n    known.add(`${num / g}/${den / g}`);\n  }\n\n  // Families from background, parameter-limited map.\n  for (let s = 2; s <= 40; s += 1) {\n    addRat(3 * s - 1, 2 * s); // 3/2 - 1/(2s)\n    addRat(4 * s - 1, 3 * s); // 4/3 - 1/(3s)\n    addRat(5 * s - 1, 4 * s); // 5/4 - 1/(4s)\n  }\n  for (let b = 2; b <= 60; b += 1) addRat(2 * b, 2 * b + 1); // 2 - 2/(2b+1)\n\n  // 1 + a/b with b > a^2\n  for (let a = 1; a <= 12; a += 1) {\n    for (let b = a * a + 1; b <= 80; b += 1) addRat(a + b, b);\n  }\n\n  // 2 - a/b with b >= (a-1)^2\n  for (let a = 1; a <= 20; a += 1) {\n    for (let b = Math.max(a + 1, (a - 1) * (a - 1)); b <= 80; b += 1) addRat(2 * b - a, b);\n  }\n\n  // 2 - a/b with b ≡ ±1 mod a\n  for (let a = 1; a <= 20; a += 1) {\n    for (let b = a + 1; b <= 120; b += 1) {\n      if (b % a === 1 || b % a === a - 1) addRat(2 * b - a, b);\n    }\n  }\n\n  const all = [];\n  const hit = [];\n  const miss = [];\n\n  for (let den = 2; den <= 60; den += 1) {\n    for (let num = den; num < 2 * den; num += 1) {\n      if (gcd(num, den) !== 1) continue;\n      const key = `${num}/${den}`;\n      all.push(key);\n      if (known.has(key)) hit.push(key);\n      else miss.push(key);\n    }\n  }\n\n  out.results.ep571 = {\n    description: 'Finite denominator-bounded coverage map of known Turan-exponent families in [1,2).',\n    denominator_bound: 60,\n    total_reduced_rationals_in_1_2: all.length,\n    covered_count: hit.length,\n    covered_ratio: Number((hit.length / all.length).toPrecision(7)),\n    sample_uncovered_first_40: miss.slice(0, 40),\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch14_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch14_quick_compute.json",
-        "key": "ep571",
-        "container_meta": {
-          "script": "harder_batch14_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:54:10.902Z"
-        },
-        "data": {
-          "description": "Finite denominator-bounded coverage map of known Turan-exponent families in [1,2).",
-          "denominator_bound": 60,
-          "total_reduced_rationals_in_1_2": 1101,
-          "covered_count": 558,
-          "covered_ratio": 0.506812,
-          "sample_uncovered_first_40": [
-            "15/11",
-            "19/12",
-            "18/13",
-            "21/13",
-            "19/14",
-            "25/16",
-            "22/17",
-            "23/17",
-            "24/17",
-            "27/17",
-            "25/18",
-            "29/18",
-            "24/19",
-            "26/19",
-            "27/19",
-            "30/19",
-            "31/19",
-            "27/20",
-            "31/20",
-            "29/21",
-            "34/21",
-            "31/22",
-            "35/22",
-            "28/23",
-            "29/23",
-            "30/23",
-            "31/23",
-            "32/23",
-            "33/23",
-            "36/23",
-            "37/23",
-            "39/23",
-            "37/24",
-            "41/24",
-            "32/25",
-            "34/25",
-            "36/25",
-            "39/25",
-            "41/25",
-            "43/25"
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

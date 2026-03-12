@@ -1,31 +1,55 @@
 {
   "problem": "EP-592",
-  "normalized_utc": "2026-03-05T08:54:16.963Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-592\n- Quick literature check:\n  - Problem remains open; current summary still indicates a narrow remaining case (the three-indecomposable-summand regime in the Schipperus framework).\n- Finite compute signal:\n  - Same toy baseline as EP-591; no meaningful finite analogue of the full ordinal classification.\n- Interpretation:\n  - Classification program is near-complete structurally but not fully closed."
-      }
-    ],
-    "script_sources": [],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep592",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "General partition-ordinal classification has no faithful finite proxy; retained toy baseline from triangle-Ramsey core.",
-          "toy_reference": {
-            "R_3_3_exact": 6
+  "normalized_utc": "2026-03-12T13:42:06.738Z",
+  "computations": [
+    {
+      "source_file": "ep592_standalone_deeper_20260312T134201Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:42:06.738Z",
+      "data": {
+        "problem": "EP-592",
+        "script": "ep592.mjs",
+        "method": "deeper_three_color_triangle_ramsey_proxy_random_search",
+        "params": {},
+        "rows": [
+          {
+            "n": 12,
+            "attempts": 800,
+            "local_steps_per_attempt": 150,
+            "colorings_without_monochromatic_triangle_found": 1,
+            "found_probability": 0.00125,
+            "best_mono_triangle_count_seen": 0
+          },
+          {
+            "n": 14,
+            "attempts": 900,
+            "local_steps_per_attempt": 220,
+            "colorings_without_monochromatic_triangle_found": 0,
+            "found_probability": 0,
+            "best_mono_triangle_count_seen": 5
+          },
+          {
+            "n": 16,
+            "attempts": 1200,
+            "local_steps_per_attempt": 420,
+            "colorings_without_monochromatic_triangle_found": 0,
+            "found_probability": 0,
+            "best_mono_triangle_count_seen": 10
+          },
+          {
+            "n": 17,
+            "attempts": 1400,
+            "local_steps_per_attempt": 520,
+            "colorings_without_monochromatic_triangle_found": 0,
+            "found_probability": 0,
+            "best_mono_triangle_count_seen": 14
           }
-        }
+        ],
+        "elapsed_ms": 4953,
+        "generated_utc": "2026-03-12T13:42:06.738Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

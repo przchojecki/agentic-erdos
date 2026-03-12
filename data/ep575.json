@@ -1,5 +1,107 @@
 {
   "problem": "EP-575",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:20:46.968Z",
+  "computations": [
+    {
+      "source_file": "ep575_standalone_deeper_20260312T132029Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:20:46.968Z",
+      "data": {
+        "problem": "EP-575",
+        "script": "ep575.mjs",
+        "method": "finite_proxy_for_family_to_bip_member_extremal_comparison",
+        "params": {},
+        "rows": [
+          {
+            "k": 2,
+            "n": 38,
+            "trials": 28,
+            "family_forbidden": [
+              "C3",
+              "C4"
+            ],
+            "chosen_bipartite_member": "C4",
+            "best_edges_family": 94,
+            "best_edges_bip_member": 102,
+            "ratio_bip_over_family": 1.0851064,
+            "gap_bip_minus_family": 8
+          },
+          {
+            "k": 2,
+            "n": 50,
+            "trials": 28,
+            "family_forbidden": [
+              "C3",
+              "C4"
+            ],
+            "chosen_bipartite_member": "C4",
+            "best_edges_family": 137,
+            "best_edges_bip_member": 148,
+            "ratio_bip_over_family": 1.080292,
+            "gap_bip_minus_family": 11
+          },
+          {
+            "k": 2,
+            "n": 62,
+            "trials": 28,
+            "family_forbidden": [
+              "C3",
+              "C4"
+            ],
+            "chosen_bipartite_member": "C4",
+            "best_edges_family": 184,
+            "best_edges_bip_member": 198,
+            "ratio_bip_over_family": 1.076087,
+            "gap_bip_minus_family": 14
+          },
+          {
+            "k": 3,
+            "n": 44,
+            "trials": 14,
+            "family_forbidden": [
+              "C5",
+              "C6"
+            ],
+            "chosen_bipartite_member": "C6",
+            "best_edges_family": 93,
+            "best_edges_bip_member": 92,
+            "ratio_bip_over_family": 0.98924731,
+            "gap_bip_minus_family": -1
+          },
+          {
+            "k": 3,
+            "n": 56,
+            "trials": 14,
+            "family_forbidden": [
+              "C5",
+              "C6"
+            ],
+            "chosen_bipartite_member": "C6",
+            "best_edges_family": 119,
+            "best_edges_bip_member": 119,
+            "ratio_bip_over_family": 1,
+            "gap_bip_minus_family": 0
+          },
+          {
+            "k": 3,
+            "n": 68,
+            "trials": 14,
+            "family_forbidden": [
+              "C5",
+              "C6"
+            ],
+            "chosen_bipartite_member": "C6",
+            "best_edges_family": 150,
+            "best_edges_bip_member": 148,
+            "ratio_bip_over_family": 0.98666667,
+            "gap_bip_minus_family": -2
+          }
+        ],
+        "elapsed_ms": 17082,
+        "generated_utc": "2026-03-12T13:20:46.968Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

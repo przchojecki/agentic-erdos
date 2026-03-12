@@ -1,68 +1,83 @@
 {
   "problem": "EP-507",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch13_web_compute.md",
-        "content": "### EP-507\n- Quick literature check:\n  - 2023/2024 improvements lowered the best known upper exponent; lower bound remains logarithmic-over-`n^2` scale.\n- Finite compute signal:\n  - Best random found minimum triangle area decreases quickly with `n`; scaled quantity `n^2*area_min` decreases on tested range.\n- Interpretation:\n  - Finite random search supports severe shrinking of minimal area and does not challenge current asymptotic bounds."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch13_quick_compute.mjs",
-        "heading": "random upper-bound search for alpha(n) in unit disk.",
-        "content": "// EP-507: random upper-bound search for alpha(n) in unit disk.\n{\n  const rng = makeRng(20260303 ^ 1304);\n\n  function randomPointDisk() {\n    const r = Math.sqrt(rng());\n    const t = 2 * Math.PI * rng();\n    return [r * Math.cos(t), r * Math.sin(t)];\n  }\n\n  function minTriangleArea(points) {\n    const n = points.length;\n    let best = Number.POSITIVE_INFINITY;\n    for (let i = 0; i < n; i += 1) {\n      const [xi, yi] = points[i];\n      for (let j = i + 1; j < n; j += 1) {\n        const [xj, yj] = points[j];\n        for (let k = j + 1; k < n; k += 1) {\n          const [xk, yk] = points[k];\n          const area = 0.5 * Math.abs((xj - xi) * (yk - yi) - (xk - xi) * (yj - yi));\n          if (area < best) best = area;\n        }\n      }\n    }\n    return best;\n  }\n\n  const rows = [];\n  for (const [n, restarts] of [[20, 200], [40, 180], [70, 150], [100, 120]]) {\n    let best = 0;\n    let avg = 0;\n    for (let t = 0; t < restarts; t += 1) {\n      const pts = Array.from({ length: n }, () => randomPointDisk());\n      const v = minTriangleArea(pts);\n      avg += v;\n      if (v > best) best = v;\n    }\n    rows.push({\n      n,\n      restarts,\n      best_min_area_found: Number(best.toPrecision(7)),\n      avg_min_area: Number((avg / restarts).toPrecision(7)),\n      best_times_n_sq: Number((best * n * n).toPrecision(7)),\n      best_times_n_pow_7_over_6: Number((best * n ** (7 / 6)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep507 = {\n    description: 'Random finite upper-bound probes for Heilbronn triangle parameter alpha(n).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch13_quick_compute.json",
-        "key": "ep507",
-        "container_meta": {
-          "script": "harder_batch13_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:44:19.727Z"
-        },
-        "data": {
-          "description": "Random finite upper-bound probes for Heilbronn triangle parameter alpha(n).",
-          "rows": [
+  "computations": [
+    {
+      "source_file": "ep507_standalone_deeper_20260312T104255Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:44:01.628Z",
+      "data": {
+        "problem": "EP-507",
+        "script": "ep507.mjs",
+        "method": "deep_local_search_profile_for_heilbronn_triangle_parameter",
+        "params": {
+          "tasks": [
             {
-              "n": 20,
-              "restarts": 200,
-              "best_min_area_found": 0.001215673,
-              "avg_min_area": 0.0002740125,
-              "best_times_n_sq": 0.4862692,
-              "best_times_n_pow_7_over_6": 0.04005762
+              "n": 24,
+              "restarts": 70,
+              "iterations": 6000
             },
             {
               "n": 40,
-              "restarts": 180,
-              "best_min_area_found": 0.0001998167,
-              "avg_min_area": 0.00002996282,
-              "best_times_n_sq": 0.3197068,
-              "best_times_n_pow_7_over_6": 0.01478093
+              "restarts": 55,
+              "iterations": 5200
             },
             {
-              "n": 70,
-              "restarts": 150,
-              "best_min_area_found": 0.00002712856,
-              "avg_min_area": 0.000004219042,
-              "best_times_n_sq": 0.1329299,
-              "best_times_n_pow_7_over_6": 0.003855149
+              "n": 60,
+              "restarts": 42,
+              "iterations": 4400
             },
             {
-              "n": 100,
-              "restarts": 120,
-              "best_min_area_found": 0.00001033927,
-              "avg_min_area": 0.00000193026,
-              "best_times_n_sq": 0.1033927,
-              "best_times_n_pow_7_over_6": 0.002227529
+              "n": 80,
+              "restarts": 30,
+              "iterations": 3600
             }
-          ]
-        }
+          ],
+          "move_step": 0.03
+        },
+        "rows": [
+          {
+            "n": 24,
+            "restarts": 70,
+            "iterations": 6000,
+            "best_min_area_found": 0.0086066607,
+            "mean_restart_best_min_area": 0.0048793679,
+            "best_times_n_sq": 4.9574366,
+            "best_times_n_pow_7_over_6": 0.35081741
+          },
+          {
+            "n": 40,
+            "restarts": 55,
+            "iterations": 5200,
+            "best_min_area_found": 0.0019291463,
+            "mean_restart_best_min_area": 0.0012249504,
+            "best_times_n_sq": 3.0866341,
+            "best_times_n_pow_7_over_6": 0.14270367
+          },
+          {
+            "n": 60,
+            "restarts": 42,
+            "iterations": 4400,
+            "best_min_area_found": 0.00048715621,
+            "mean_restart_best_min_area": 0.00037070853,
+            "best_times_n_sq": 1.7537623,
+            "best_times_n_pow_7_over_6": 0.057833308
+          },
+          {
+            "n": 80,
+            "restarts": 30,
+            "iterations": 3600,
+            "best_min_area_found": 0.00020016543,
+            "mean_restart_best_min_area": 0.00015082356,
+            "best_times_n_sq": 1.2810588,
+            "best_times_n_pow_7_over_6": 0.033239978
+          }
+        ],
+        "elapsed_ms": 66270,
+        "generated_utc": "2026-03-12T10:44:01.628Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

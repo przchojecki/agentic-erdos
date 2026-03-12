@@ -1,81 +1,103 @@
 {
   "problem": "EP-510",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch13_web_compute.md",
-        "content": "### EP-510\n- Quick literature check:\n  - 2025 work gives polynomial negative bounds, but the conjectured `N^{1/2}` scale remains open.\n- Finite compute signal:\n  - Grid-minimization over `theta` for random sets gives minima of order multiple `sqrt(N)` (ratios around `3.5..5.1`).\n  - Structured Sidon-difference set gives much smaller ratio in this finite instance.\n- Interpretation:\n  - Finite evidence supports substantial cancellation, with set-structure dependence still strong."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch13_quick_compute.mjs",
-        "heading": "finite cosine-sum minima profiles.",
-        "content": "// EP-510: finite cosine-sum minima profiles.\n{\n  const rng = makeRng(20260303 ^ 1305);\n\n  function minCosGrid(A, M = 4096) {\n    let best = Infinity;\n    let bestTheta = 0;\n    for (let t = 0; t < M; t += 1) {\n      const theta = (2 * Math.PI * t) / M;\n      let s = 0;\n      for (const n of A) s += Math.cos(n * theta);\n      if (s < best) {\n        best = s;\n        bestTheta = theta;\n      }\n    }\n    return { minSum: best, theta: bestTheta };\n  }\n\n  function randomSet(size, maxVal) {\n    const S = new Set();\n    while (S.size < size) S.add(1 + Math.floor(rng() * maxVal));\n    return [...S];\n  }\n\n  function greedySidon(size, Nmax) {\n    const A = [];\n    const sums = new Set();\n    for (let x = 1; x <= Nmax && A.length < size; x += 1) {\n      let ok = true;\n      for (const a of A) {\n        const s = a + x;\n        if (sums.has(s)) {\n          ok = false;\n          break;\n        }\n      }\n      if (!ok) continue;\n      for (const a of A) sums.add(a + x);\n      sums.add(2 * x);\n      A.push(x);\n    }\n    return A;\n  }\n\n  const rows = [];\n  for (const [N, trials] of [[40, 120], [80, 100], [160, 80], [320, 60]]) {\n    let bestNeg = 0;\n    let avgNeg = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const A = randomSet(N, 10 * N);\n      const { minSum } = minCosGrid(A);\n      const neg = -minSum;\n      avgNeg += neg;\n      if (neg > bestNeg) bestNeg = neg;\n    }\n    rows.push({\n      family: 'random',\n      N,\n      trials,\n      best_negative_min: Number(bestNeg.toPrecision(7)),\n      avg_negative_min: Number((avgNeg / trials).toPrecision(7)),\n      best_over_sqrtN: Number((bestNeg / Math.sqrt(N)).toPrecision(7)),\n      best_over_N_pow_1_over_7: Number((bestNeg / (N ** (1 / 7))).toPrecision(7)),\n    });\n  }\n\n  const B = greedySidon(20, 1200);\n  const diff = new Set();\n  for (const x of B) for (const y of B) diff.add(x - y);\n  const Astruct = [...diff];\n  const { minSum: sMin } = minCosGrid(Astruct);\n  rows.push({\n    family: 'sidon_difference_B_minus_B',\n    N: Astruct.length,\n    trials: 1,\n    best_negative_min: Number((-sMin).toPrecision(7)),\n    avg_negative_min: Number((-sMin).toPrecision(7)),\n    best_over_sqrtN: Number(((-sMin) / Math.sqrt(Astruct.length)).toPrecision(7)),\n    best_over_N_pow_1_over_7: Number(((-sMin) / (Astruct.length ** (1 / 7))).toPrecision(7)),\n  });\n\n  out.results.ep510 = {\n    description: 'Grid-minimum cosine-sum profiles for random and structured sets A.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch13_quick_compute.json",
-        "key": "ep510",
-        "container_meta": {
-          "script": "harder_batch13_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:44:19.727Z"
-        },
-        "data": {
-          "description": "Grid-minimum cosine-sum profiles for random and structured sets A.",
-          "rows": [
+  "computations": [
+    {
+      "source_file": "ep510_standalone_deeper_20260312T104654Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:47:03.812Z",
+      "data": {
+        "problem": "EP-510",
+        "script": "ep510.mjs",
+        "method": "deep_grid_minimization_profiles_for_cosine_sum_problem",
+        "params": {
+          "GRID_M": 4096,
+          "TRIAL_SCALE": 2,
+          "tasks": [
             {
-              "family": "random",
-              "N": 40,
-              "trials": 120,
-              "best_negative_min": 22,
-              "avg_negative_min": 14.10124,
-              "best_over_sqrtN": 3.478505,
-              "best_over_N_pow_1_over_7": 12.98844
-            },
-            {
-              "family": "random",
               "N": 80,
-              "trials": 100,
-              "best_negative_min": 37.9712,
-              "avg_negative_min": 21.67362,
-              "best_over_sqrtN": 4.245309,
-              "best_over_N_pow_1_over_7": 20.30413
+              "trials": 360
             },
             {
-              "family": "random",
               "N": 160,
-              "trials": 80,
-              "best_negative_min": 60.36427,
-              "avg_negative_min": 34.86125,
-              "best_over_sqrtN": 4.772214,
-              "best_over_N_pow_1_over_7": 29.23517
+              "trials": 280
             },
             {
-              "family": "random",
               "N": 320,
-              "trials": 60,
-              "best_negative_min": 91.53431,
-              "avg_negative_min": 66.9375,
-              "best_over_sqrtN": 5.116923,
-              "best_over_N_pow_1_over_7": 40.15183
-            },
-            {
-              "family": "sidon_difference_B_minus_B",
-              "N": 381,
-              "trials": 1,
-              "best_negative_min": 18.98803,
-              "avg_negative_min": 18.98803,
-              "best_over_sqrtN": 0.972786,
-              "best_over_N_pow_1_over_7": 8.124118
+              "trials": 200
             }
           ]
-        }
+        },
+        "rows": [
+          {
+            "family": "random",
+            "N": 80,
+            "trials": 360,
+            "grid_M": 4096,
+            "best_negative_min": 34.156293,
+            "avg_negative_min": 21.862698,
+            "best_over_sqrtN": 3.8187897,
+            "best_over_N_pow_1_over_7": 18.264203
+          },
+          {
+            "family": "random",
+            "N": 160,
+            "trials": 280,
+            "grid_M": 4096,
+            "best_negative_min": 38.551421,
+            "avg_negative_min": 29.467307,
+            "best_over_sqrtN": 3.0477574,
+            "best_over_N_pow_1_over_7": 18.670937
+          },
+          {
+            "family": "random",
+            "N": 320,
+            "trials": 200,
+            "grid_M": 4096,
+            "best_negative_min": 60,
+            "avg_negative_min": 42.547697,
+            "best_over_sqrtN": 3.354102,
+            "best_over_N_pow_1_over_7": 26.3192
+          },
+          {
+            "family": "sidon_difference_B_minus_B",
+            "sidon_size_k": 18,
+            "N": 307,
+            "trials": 1,
+            "grid_M": 4096,
+            "best_negative_min": 17,
+            "avg_negative_min": 17,
+            "best_over_sqrtN": 0.97024125,
+            "best_over_N_pow_1_over_7": 7.5014193
+          },
+          {
+            "family": "sidon_difference_B_minus_B",
+            "sidon_size_k": 22,
+            "N": 463,
+            "trials": 1,
+            "grid_M": 4096,
+            "best_negative_min": 20.999133,
+            "avg_negative_min": 20.999133,
+            "best_over_sqrtN": 0.97591246,
+            "best_over_N_pow_1_over_7": 8.7378398
+          },
+          {
+            "family": "sidon_difference_B_minus_B",
+            "sidon_size_k": 26,
+            "N": 651,
+            "trials": 1,
+            "grid_M": 4096,
+            "best_negative_min": 24.994116,
+            "avg_negative_min": 24.994116,
+            "best_over_sqrtN": 0.97959666,
+            "best_over_N_pow_1_over_7": 9.9059846
+          }
+        ],
+        "elapsed_ms": 9415,
+        "generated_utc": "2026-03-12T10:47:03.812Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

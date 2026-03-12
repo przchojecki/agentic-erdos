@@ -1,60 +1,53 @@
 {
   "problem": "EP-508",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch13_web_compute.md",
-        "content": "### EP-508\n- Quick literature check:\n  - Current global bounds remain `5 <= chi(R^2) <= 7`.\n- Finite compute signal:\n  - Constructed a unit-distance 7-vertex Moser-spindle model and verified exact chromatic number `4`.\n  - Triangular-lattice patches tested remain exactly `3`-colorable.\n- Interpretation:\n  - Benchmarks match the classical lower-bound progression (`3`, `4`), still far from resolving the global `5..7` gap."
+  "computations": [
+    {
+      "source_file": "ep508_standalone_deeper_20260312T104410Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:44:10.375Z",
+      "data": {
+        "problem": "EP-508",
+        "script": "ep508.mjs",
+        "method": "deep_exact_coloring_on_benchmark_and_hex_patch_induced_unit_distance_graphs",
+        "params": {},
+        "rows": [
+          {
+            "graph": "moser_spindle_7v",
+            "vertices": 7,
+            "edges": 11,
+            "chromatic_number_exact": 4
+          },
+          {
+            "graph": "hex_patch_R3_random_induced_size_14",
+            "ambient_vertices": 37,
+            "ambient_edges": 90,
+            "random_samples": 180,
+            "best_chromatic_number_found": 3,
+            "edge_count_for_best_sample": 19
+          },
+          {
+            "graph": "hex_patch_R4_random_induced_size_20",
+            "ambient_vertices": 61,
+            "ambient_edges": 156,
+            "random_samples": 180,
+            "best_chromatic_number_found": 3,
+            "edge_count_for_best_sample": 25
+          },
+          {
+            "graph": "hex_patch_R5_random_induced_size_26",
+            "ambient_vertices": 91,
+            "ambient_edges": 240,
+            "random_samples": 120,
+            "best_chromatic_number_found": 3,
+            "edge_count_for_best_sample": 33
+          }
+        ],
+        "elapsed_ms": 8,
+        "generated_utc": "2026-03-12T10:44:10.375Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch13_quick_compute.mjs",
-        "heading": "finite unit-distance graph coloring checks.",
-        "content": "// EP-508: finite unit-distance graph coloring checks.\n{\n  function chromaticNumber(n, edges) {\n    const adj = Array.from({ length: n }, () => []);\n    for (const [u, v] of edges) {\n      adj[u].push(v);\n      adj[v].push(u);\n    }\n    const ord = Array.from({ length: n }, (_, i) => i).sort((a, b) => adj[b].length - adj[a].length);\n\n    function colorable(k) {\n      const col = new Int8Array(n);\n      col.fill(-1);\n      function dfs(t) {\n        if (t === n) return true;\n        const v = ord[t];\n        for (let c = 0; c < k; c += 1) {\n          let ok = true;\n          for (const u of adj[v]) {\n            if (col[u] === c) {\n              ok = false;\n              break;\n            }\n          }\n          if (!ok) continue;\n          col[v] = c;\n          if (dfs(t + 1)) return true;\n          col[v] = -1;\n        }\n        return false;\n      }\n      return dfs(0);\n    }\n\n    for (let k = 1; k <= n; k += 1) if (colorable(k)) return k;\n    return n;\n  }\n\n  function unitEdges(points, eps = 1e-9) {\n    const e = [];\n    for (let i = 0; i < points.length; i += 1) {\n      for (let j = i + 1; j < points.length; j += 1) {\n        const dx = points[i][0] - points[j][0];\n        const dy = points[i][1] - points[j][1];\n        const d = Math.hypot(dx, dy);\n        if (Math.abs(d - 1) < eps) e.push([i, j]);\n      }\n    }\n    return e;\n  }\n\n  // Moser spindle from two rhombi sharing one acute vertex.\n  const s = Math.sqrt(3) / 2;\n  const t = 0.5856855434571508;\n  const O = [0, 0];\n  const A = [1, 0];\n  const B = [0.5, s];\n  const C = [1.5, s];\n  const D = [Math.cos(t), Math.sin(t)];\n  const E = [Math.cos(t + Math.PI / 3), Math.sin(t + Math.PI / 3)];\n  const F = [D[0] + E[0], D[1] + E[1]];\n  const moserPts = [O, A, B, C, D, E, F];\n  const moserEdges = unitEdges(moserPts);\n\n  // Triangular-lattice patches (unit-distance induced graph).\n  function triPatch(m) {\n    const pts = [];\n    const s3 = Math.sqrt(3) / 2;\n    for (let y = 0; y <= m; y += 1) {\n      for (let x = 0; x <= m; x += 1) {\n        pts.push([x + 0.5 * y, s3 * y]);\n      }\n    }\n    return pts;\n  }\n\n  const rows = [];\n  rows.push({\n    graph: 'moser_spindle_7v',\n    vertices: moserPts.length,\n    edges: moserEdges.length,\n    chromatic_number_exact: chromaticNumber(moserPts.length, moserEdges),\n  });\n\n  for (const m of [2, 3, 4]) {\n    const pts = triPatch(m);\n    const e = unitEdges(pts);\n    rows.push({\n      graph: `triangular_patch_m_${m}`,\n      vertices: pts.length,\n      edges: e.length,\n      chromatic_number_exact: chromaticNumber(pts.length, e),\n    });\n  }\n\n  out.results.ep508 = {\n    description: 'Finite chromatic checks on benchmark unit-distance graphs in the plane.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch13_quick_compute.json",
-        "key": "ep508",
-        "container_meta": {
-          "script": "harder_batch13_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:44:19.727Z"
-        },
-        "data": {
-          "description": "Finite chromatic checks on benchmark unit-distance graphs in the plane.",
-          "rows": [
-            {
-              "graph": "moser_spindle_7v",
-              "vertices": 7,
-              "edges": 11,
-              "chromatic_number_exact": 4
-            },
-            {
-              "graph": "triangular_patch_m_2",
-              "vertices": 9,
-              "edges": 16,
-              "chromatic_number_exact": 3
-            },
-            {
-              "graph": "triangular_patch_m_3",
-              "vertices": 16,
-              "edges": 33,
-              "chromatic_number_exact": 3
-            },
-            {
-              "graph": "triangular_patch_m_4",
-              "vertices": 25,
-              "edges": 56,
-              "chromatic_number_exact": 3
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,156 @@
 {
   "problem": "EP-539",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep539_standalone_deeper_20260312T110755Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:07:55.801Z",
+      "data": {
+        "problem": "EP-539",
+        "script": "ep539.mjs",
+        "method": "random_structured_search_for_small_ratio_set_size_h_n_proxy",
+        "params": {
+          "configs": [
+            {
+              "n": 10,
+              "maxV": 120,
+              "trials": 4000
+            },
+            {
+              "n": 14,
+              "maxV": 200,
+              "trials": 3500
+            },
+            {
+              "n": 18,
+              "maxV": 300,
+              "trials": 3000
+            },
+            {
+              "n": 24,
+              "maxV": 500,
+              "trials": 2600
+            }
+          ]
+        },
+        "rows": [
+          {
+            "n": 10,
+            "maxV": 120,
+            "trials": 4000,
+            "best_ratio_set_size_found": 10,
+            "avg_ratio_set_size": 19.98825,
+            "best_over_sqrt_n": 3.16227766,
+            "best_over_n_pow_0_8": 1.584893192,
+            "best_set_example": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              12,
+              16,
+              24,
+              32
+            ]
+          },
+          {
+            "n": 14,
+            "maxV": 200,
+            "trials": 3500,
+            "best_ratio_set_size_found": 14,
+            "avg_ratio_set_size": 29.93085714,
+            "best_over_sqrt_n": 3.741657387,
+            "best_over_n_pow_0_8": 1.695218203,
+            "best_set_example": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              12,
+              16,
+              24,
+              32,
+              48,
+              64,
+              96,
+              128
+            ]
+          },
+          {
+            "n": 18,
+            "maxV": 300,
+            "trials": 3000,
+            "best_ratio_set_size_found": 19,
+            "avg_ratio_set_size": 41.331,
+            "best_over_sqrt_n": 4.478342948,
+            "best_over_n_pow_0_8": 1.881635928,
+            "best_set_example": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              12,
+              16,
+              24,
+              32,
+              48,
+              64,
+              96,
+              128,
+              192,
+              256,
+              17,
+              18
+            ]
+          },
+          {
+            "n": 24,
+            "maxV": 500,
+            "trials": 2600,
+            "best_ratio_set_size_found": 28,
+            "avg_ratio_set_size": 59.60923077,
+            "best_over_sqrt_n": 5.715476066,
+            "best_over_n_pow_0_8": 2.20287086,
+            "best_set_example": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              12,
+              16,
+              24,
+              32,
+              48,
+              64,
+              96,
+              128,
+              192,
+              256,
+              384,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ]
+          }
+        ],
+        "elapsed_ms": 102,
+        "generated_utc": "2026-03-12T11:07:55.801Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

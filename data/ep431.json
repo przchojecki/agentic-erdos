@@ -1,73 +1,113 @@
 {
   "problem": "EP-431",
   "normalized_utc": "2026-03-05T08:54:16.960Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch12_web_compute.md",
-        "content": "### EP-431\n- Quick literature check:\n  - Best known inverse-Goldbach obstructions (Elsholtz-Harper) remain the main quantitative evidence; 2023 Tao-Ziegler is related but weaker structurally.\n- Finite compute signal:\n  - Random bounded-size sets `A,B` in finite windows cover only a minority of primes (`<=~28%` best in tested random runs at size 50x50).\n- Interpretation:\n  - Finite heuristic strongly reflects the difficulty of covering almost all primes by a two-set sumset."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch12_quick_compute.mjs",
-        "heading": "finite random sumset coverage proxy for primes.",
-        "content": "// EP-431: finite random sumset coverage proxy for primes.\n{\n  const X = 5000;\n  const M = 800;\n  const primesX = primes.filter((p) => p <= X);\n\n  const rng = { x: 20260303 ^ 1201 };\n\n  function coverageForSizes(sa, sb, trials) {\n    let best = 0;\n    let avg = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const A = sampleWithoutReplacement(M, sa, rng);\n      const B = sampleWithoutReplacement(M, sb, rng);\n      const sums = new Uint8Array(X + 1);\n      for (const a of A) {\n        for (const b of B) {\n          const s = a + b;\n          if (s <= X) sums[s] = 1;\n        }\n      }\n      let c = 0;\n      for (const p of primesX) if (sums[p]) c += 1;\n      const ratio = c / primesX.length;\n      avg += ratio;\n      if (ratio > best) best = ratio;\n    }\n\n    return {\n      size_A: sa,\n      size_B: sb,\n      trials,\n      best_prime_coverage_ratio: Number(best.toPrecision(6)),\n      avg_prime_coverage_ratio: Number((avg / trials).toPrecision(6)),\n    };\n  }\n\n  out.results.ep431 = {\n    description: 'Random finite sumset coverage of primes up to X by A+B with bounded A,B.',\n    X,\n    prime_count_up_to_X: primesX.length,\n    rows: [\n      coverageForSizes(12, 12, 250),\n      coverageForSizes(20, 20, 250),\n      coverageForSizes(30, 30, 250),\n      coverageForSizes(40, 40, 250),\n      coverageForSizes(50, 50, 250),\n    ],\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch12_quick_compute.json",
-        "key": "ep431",
-        "container_meta": {
-          "script": "harder_batch12_quick_compute.mjs",
-          "generated_utc": "2026-03-03T19:42:39.714Z"
+  "computations": [
+    {
+      "source_file": "ep431_standalone_deeper_20260312T101536Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:15:36.058Z",
+      "data": {
+        "problem": "EP-431",
+        "script": "ep431.mjs",
+        "method": "random_plus_local_search_prime_sumset_coverage_proxy",
+        "params": {
+          "X": 10000,
+          "M": 1800,
+          "SIZE": 70,
+          "TRIALS": 700
         },
-        "data": {
-          "description": "Random finite sumset coverage of primes up to X by A+B with bounded A,B.",
-          "X": 5000,
-          "prime_count_up_to_X": 669,
-          "rows": [
-            {
-              "size_A": 12,
-              "size_B": 12,
-              "trials": 250,
-              "best_prime_coverage_ratio": 0.0478326,
-              "avg_prime_coverage_ratio": 0.0300867
-            },
-            {
-              "size_A": 20,
-              "size_B": 20,
-              "trials": 250,
-              "best_prime_coverage_ratio": 0.103139,
-              "avg_prime_coverage_ratio": 0.0766278
-            },
-            {
-              "size_A": 30,
-              "size_B": 30,
-              "trials": 250,
-              "best_prime_coverage_ratio": 0.174888,
-              "avg_prime_coverage_ratio": 0.144765
-            },
-            {
-              "size_A": 40,
-              "size_B": 40,
-              "trials": 250,
-              "best_prime_coverage_ratio": 0.237668,
-              "avg_prime_coverage_ratio": 0.206248
-            },
-            {
-              "size_A": 50,
-              "size_B": 50,
-              "trials": 250,
-              "best_prime_coverage_ratio": 0.278027,
-              "avg_prime_coverage_ratio": 0.251599
-            }
-          ]
-        }
+        "prime_count_up_to_X": 1229,
+        "avg_random_coverage_ratio": 0.26162385,
+        "best_coverage_count": 434,
+        "best_coverage_ratio": 0.35313263,
+        "best_A_first_40": [
+          1,
+          4,
+          10,
+          14,
+          15,
+          32,
+          51,
+          55,
+          104,
+          154,
+          165,
+          168,
+          174,
+          192,
+          194,
+          196,
+          220,
+          247,
+          261,
+          273,
+          296,
+          301,
+          320,
+          362,
+          386,
+          396,
+          409,
+          429,
+          453,
+          506,
+          524,
+          557,
+          585,
+          652,
+          713,
+          717,
+          719,
+          759,
+          807,
+          813
+        ],
+        "best_B_first_40": [
+          5,
+          16,
+          33,
+          51,
+          79,
+          87,
+          112,
+          119,
+          207,
+          225,
+          298,
+          327,
+          333,
+          339,
+          344,
+          360,
+          382,
+          424,
+          447,
+          449,
+          460,
+          465,
+          500,
+          508,
+          525,
+          530,
+          603,
+          617,
+          687,
+          700,
+          837,
+          874,
+          904,
+          926,
+          1047,
+          1139,
+          1143,
+          1189,
+          1212,
+          1248
+        ],
+        "generated_utc": "2026-03-12T10:15:36.058Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,311 @@
 {
   "problem": "EP-495",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep495_standalone_deeper_20260312T103748Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:37:50.368Z",
+      "data": {
+        "problem": "EP-495",
+        "script": "ep495.mjs",
+        "method": "deep_littlewood_quantity_scan_for_selected_real_pairs",
+        "params": {
+          "N": 120000000,
+          "pair_count": 5
+        },
+        "rows": [
+          {
+            "pair": "sqrt2_sqrt3",
+            "alpha": 1.414213562373095,
+            "beta": 1.732050807568877,
+            "search_limit_n": 120000000,
+            "minimum_n_times_dist_product": 0.00184805448913,
+            "witness_n": 4628523,
+            "witness_dist_alpha": 0.000355805462018,
+            "witness_dist_beta": 0.00000112217279336,
+            "profile": [
+              {
+                "N": 20000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 50000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 100000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 200000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 500000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 1000000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 2000000,
+                "min_n_times_dist_product": 0.004659684891,
+                "witness_n": 10864
+              },
+              {
+                "N": 5000000,
+                "min_n_times_dist_product": 0.001848054489,
+                "witness_n": 4628523
+              },
+              {
+                "N": 8000000,
+                "min_n_times_dist_product": 0.001848054489,
+                "witness_n": 4628523
+              }
+            ]
+          },
+          {
+            "pair": "pi_e",
+            "alpha": 3.141592653589793,
+            "beta": 2.718281828459045,
+            "search_limit_n": 120000000,
+            "minimum_n_times_dist_product": 0.000564925306477,
+            "witness_n": 113,
+            "witness_dist_alpha": 0.0000301443533779,
+            "witness_dist_beta": 0.165846615872,
+            "profile": [
+              {
+                "N": 20000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 50000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 100000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 200000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 500000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 1000000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 2000000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 5000000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              },
+              {
+                "N": 8000000,
+                "min_n_times_dist_product": 0.0005649253065,
+                "witness_n": 113
+              }
+            ]
+          },
+          {
+            "pair": "phi_sqrt2",
+            "alpha": 1.618033988749895,
+            "beta": 1.414213562373095,
+            "search_limit_n": 120000000,
+            "minimum_n_times_dist_product": 0.000226202321697,
+            "witness_n": 196418,
+            "witness_dist_alpha": 0.0000022768569643,
+            "witness_dist_beta": 0.000505801397716,
+            "profile": [
+              {
+                "N": 20000,
+                "min_n_times_dist_product": 0.003366231262,
+                "witness_n": 3194
+              },
+              {
+                "N": 50000,
+                "min_n_times_dist_product": 0.003366231262,
+                "witness_n": 3194
+              },
+              {
+                "N": 100000,
+                "min_n_times_dist_product": 0.003366231262,
+                "witness_n": 3194
+              },
+              {
+                "N": 200000,
+                "min_n_times_dist_product": 0.0002262023217,
+                "witness_n": 196418
+              },
+              {
+                "N": 500000,
+                "min_n_times_dist_product": 0.0002262023217,
+                "witness_n": 196418
+              },
+              {
+                "N": 1000000,
+                "min_n_times_dist_product": 0.0002262023217,
+                "witness_n": 196418
+              },
+              {
+                "N": 2000000,
+                "min_n_times_dist_product": 0.0002262023217,
+                "witness_n": 196418
+              },
+              {
+                "N": 5000000,
+                "min_n_times_dist_product": 0.0002262023217,
+                "witness_n": 196418
+              },
+              {
+                "N": 8000000,
+                "min_n_times_dist_product": 0.0002262023217,
+                "witness_n": 196418
+              }
+            ]
+          },
+          {
+            "pair": "cuberoot2_cuberoot3",
+            "alpha": 1.259921049894873,
+            "beta": 1.442249570307408,
+            "search_limit_n": 120000000,
+            "minimum_n_times_dist_product": 0.000966925378532,
+            "witness_n": 41235875,
+            "witness_dist_alpha": 0.0766662459688,
+            "witness_dist_beta": 3.05853564697E-10,
+            "profile": [
+              {
+                "N": 20000,
+                "min_n_times_dist_product": 0.004010106851,
+                "witness_n": 658
+              },
+              {
+                "N": 50000,
+                "min_n_times_dist_product": 0.004010106851,
+                "witness_n": 658
+              },
+              {
+                "N": 100000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              },
+              {
+                "N": 200000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              },
+              {
+                "N": 500000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              },
+              {
+                "N": 1000000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              },
+              {
+                "N": 2000000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              },
+              {
+                "N": 5000000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              },
+              {
+                "N": 8000000,
+                "min_n_times_dist_product": 0.0019671191,
+                "witness_n": 50623
+              }
+            ]
+          },
+          {
+            "pair": "sqrt2_2sqrt2",
+            "alpha": 1.414213562373095,
+            "beta": 2.82842712474619,
+            "search_limit_n": 120000000,
+            "minimum_n_times_dist_product": 5.07934170845E-9,
+            "witness_n": 93222358,
+            "witness_dist_alpha": 5.21949727883E-9,
+            "witness_dist_beta": 1.04389945577E-8,
+            "profile": [
+              {
+                "N": 20000,
+                "min_n_times_dist_product": 0.00001803751612,
+                "witness_n": 13860
+              },
+              {
+                "N": 50000,
+                "min_n_times_dist_product": 0.000007471389173,
+                "witness_n": 33461
+              },
+              {
+                "N": 100000,
+                "min_n_times_dist_product": 0.000003094737786,
+                "witness_n": 80782
+              },
+              {
+                "N": 200000,
+                "min_n_times_dist_product": 0.000001281913601,
+                "witness_n": 195025
+              },
+              {
+                "N": 500000,
+                "min_n_times_dist_product": 5.309105866E-7,
+                "witness_n": 470832
+              },
+              {
+                "N": 1000000,
+                "min_n_times_dist_product": 5.309105866E-7,
+                "witness_n": 470832
+              },
+              {
+                "N": 2000000,
+                "min_n_times_dist_product": 2.200924589E-7,
+                "witness_n": 1136689
+              },
+              {
+                "N": 5000000,
+                "min_n_times_dist_product": 9.072610809E-8,
+                "witness_n": 2744210
+              },
+              {
+                "N": 8000000,
+                "min_n_times_dist_product": 3.8646423E-8,
+                "witness_n": 6625109
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 1965,
+        "generated_utc": "2026-03-12T10:37:50.368Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

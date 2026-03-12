@@ -1,5 +1,188 @@
 {
   "problem": "EP-486",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep486_standalone_deeper_20260312T103129Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:31:29.160Z",
+      "data": {
+        "problem": "EP-486",
+        "script": "ep486.mjs",
+        "method": "finite_log_density_profiles_for_generalized_residue_avoidance_sets",
+        "params": {
+          "N": 2000000
+        },
+        "rows": [
+          {
+            "case": "davenport_erdos_singletons_small_A",
+            "A": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "profile": [
+              {
+                "X": 10000,
+                "harmonic_mass": 3.759781498,
+                "normalized_by_logX": 0.4082130895
+              },
+              {
+                "X": 50000,
+                "harmonic_mass": 4.094330366,
+                "normalized_by_logX": 0.3784116697
+              },
+              {
+                "X": 100000,
+                "harmonic_mass": 4.238330982,
+                "normalized_by_logX": 0.3681367516
+              },
+              {
+                "X": 300000,
+                "harmonic_mass": 4.466614058,
+                "normalized_by_logX": 0.3541688687
+              },
+              {
+                "X": 500000,
+                "harmonic_mass": 4.57276564,
+                "normalized_by_logX": 0.3484711945
+              },
+              {
+                "X": 1000000,
+                "harmonic_mass": 4.716792224,
+                "normalized_by_logX": 0.3414128059
+              },
+              {
+                "X": 1500000,
+                "harmonic_mass": 4.801044047,
+                "normalized_by_logX": 0.337603
+              },
+              {
+                "X": 2000000,
+                "harmonic_mass": 4.860823307,
+                "normalized_by_logX": 0.3350291526
+              }
+            ]
+          },
+          {
+            "case": "two_residue_each_mod",
+            "A": [
+              6,
+              8,
+              9,
+              10,
+              12,
+              14
+            ],
+            "profile": [
+              {
+                "X": 10000,
+                "harmonic_mass": 4.261616578,
+                "normalized_by_logX": 0.4626991409
+              },
+              {
+                "X": 50000,
+                "harmonic_mass": 4.629641875,
+                "normalized_by_logX": 0.4278869449
+              },
+              {
+                "X": 100000,
+                "harmonic_mass": 4.788064598,
+                "normalized_by_logX": 0.4158860068
+              },
+              {
+                "X": 300000,
+                "harmonic_mass": 5.03919875,
+                "normalized_by_logX": 0.3995705241
+              },
+              {
+                "X": 500000,
+                "harmonic_mass": 5.155955447,
+                "normalized_by_logX": 0.3929136314
+              },
+              {
+                "X": 1000000,
+                "harmonic_mass": 5.314392002,
+                "normalized_by_logX": 0.3846685202
+              },
+              {
+                "X": 1500000,
+                "harmonic_mass": 5.407068712,
+                "normalized_by_logX": 0.3802178444
+              },
+              {
+                "X": 2000000,
+                "harmonic_mass": 5.4728241,
+                "normalized_by_logX": 0.3772109177
+              }
+            ]
+          },
+          {
+            "case": "sparser_large_moduli",
+            "A": [
+              30,
+              42,
+              66,
+              70,
+              78,
+              102
+            ],
+            "profile": [
+              {
+                "X": 10000,
+                "harmonic_mass": 9.10359787,
+                "normalized_by_logX": 0.9884105801
+              },
+              {
+                "X": 50000,
+                "harmonic_mass": 10.50761481,
+                "normalized_by_logX": 0.9711488103
+              },
+              {
+                "X": 100000,
+                "harmonic_mass": 11.11227203,
+                "normalized_by_logX": 0.9651996851
+              },
+              {
+                "X": 300000,
+                "harmonic_mass": 12.07059656,
+                "normalized_by_logX": 0.9571074354
+              },
+              {
+                "X": 500000,
+                "harmonic_mass": 12.51620367,
+                "normalized_by_logX": 0.9538071239
+              },
+              {
+                "X": 1000000,
+                "harmonic_mass": 13.12086003,
+                "normalized_by_logX": 0.9497195181
+              },
+              {
+                "X": 1500000,
+                "harmonic_mass": 13.4745608,
+                "normalized_by_logX": 0.9475131043
+              },
+              {
+                "X": 2000000,
+                "harmonic_mass": 13.72551617,
+                "normalized_by_logX": 0.9460224658
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-12T10:31:29.160Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

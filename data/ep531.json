@@ -1,70 +1,51 @@
 {
   "problem": "EP-531",
   "normalized_utc": "2026-03-05T08:54:16.962Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch14_web_compute.md",
-        "content": "### EP-531\n- Quick literature check:\n  - Existing bounds for Folkman numbers stay very far apart (doubly exponential lower side versus large upper constructions).\n- Finite compute signal:\n  - Exact tiny model (distinct-summand finite-sums formulation used in script) gives `F_2=9`.\n  - Randomized $k=3$ colorings avoid target monochromatic finite-sums structures through long prefixes (best up to `39` for tested runs).\n- Interpretation:\n  - Computation confirms nontrivial growth and difficulty; no route to tight asymptotics yet."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch14_quick_compute.mjs",
-        "heading": "Folkman-number finite profiles.",
-        "content": "// EP-531: Folkman-number finite profiles.\n{\n  function tuplesK2(N) {\n    const t = [];\n    for (let a = 1; a <= N; a += 1) {\n      for (let b = a + 1; b <= N; b += 1) {\n        const s = a + b;\n        if (s <= N) t.push([a, b, s]);\n      }\n    }\n    return t;\n  }\n\n  function tuplesK3(N) {\n    const t = [];\n    for (let a = 1; a <= N; a += 1) {\n      for (let b = a + 1; b <= N; b += 1) {\n        for (let c = b + 1; c <= N; c += 1) {\n          const sums = [a, b, c, a + b, a + c, b + c, a + b + c];\n          if (Math.max(...sums) <= N) t.push(sums);\n        }\n      }\n    }\n    return t;\n  }\n\n  function hasMono(tupleList, col) {\n    for (const tp of tupleList) {\n      const c = col[tp[0]];\n      let ok = true;\n      for (let i = 1; i < tp.length; i += 1) {\n        if (col[tp[i]] !== c) {\n          ok = false;\n          break;\n        }\n      }\n      if (ok) return true;\n    }\n    return false;\n  }\n\n  // Exact F(2) via full search.\n  function avoidableK2(N) {\n    const tuples = tuplesK2(N);\n    const col = new Int8Array(N + 1);\n    col.fill(-1);\n\n    function dfs(x) {\n      if (x > N) return true;\n      for (let c = 0; c <= 1; c += 1) {\n        col[x] = c;\n        if (!hasMono(tuples.filter((tp) => tp.includes(x)), col)) {\n          if (dfs(x + 1)) return true;\n        }\n      }\n      col[x] = -1;\n      return false;\n    }\n\n    return dfs(1);\n  }\n\n  let maxAvoid2 = 0;\n  for (let N = 1; N <= 10; N += 1) {\n    if (avoidableK2(N)) maxAvoid2 = N;\n    else break;\n  }\n\n  // Heuristic lower bounds for k=3 by randomized greedy colorings.\n  const rng = makeRng(20260303 ^ 1404);\n\n  function greedyAvoidK3(N) {\n    const tuples = tuplesK3(N);\n    const touched = Array.from({ length: N + 1 }, () => []);\n    for (let i = 0; i < tuples.length; i += 1) {\n      for (const x of tuples[i]) touched[x].push(i);\n    }\n\n    const col = new Int8Array(N + 1);\n    col.fill(-1);\n\n    function monoTuple(i) {\n      const tp = tuples[i];\n      const c0 = col[tp[0]];\n      if (c0 < 0) return false;\n      for (let j = 1; j < tp.length; j += 1) if (col[tp[j]] !== c0) return false;\n      return true;\n    }\n\n    for (let x = 1; x <= N; x += 1) {\n      const options = [];\n      for (let c = 0; c <= 1; c += 1) {\n        col[x] = c;\n        let bad = false;\n        for (const ti of touched[x]) {\n          if (monoTuple(ti)) {\n            bad = true;\n            break;\n          }\n        }\n        if (!bad) options.push(c);\n      }\n      if (!options.length) return x - 1;\n      col[x] = options[Math.floor(rng() * options.length)];\n    }\n    return N;\n  }\n\n  const rows = [];\n  for (const [N, trials] of [[20, 80], [30, 80], [40, 70]]) {\n    let best = 0;\n    let avg = 0;\n    for (let t = 0; t < trials; t += 1) {\n      const len = greedyAvoidK3(N);\n      avg += len;\n      if (len > best) best = len;\n    }\n    rows.push({\n      N,\n      trials,\n      best_avoidable_prefix_length_for_k3: best,\n      avg_avoidable_prefix_length_for_k3: Number((avg / trials).toPrecision(7)),\n    });\n  }\n\n  out.results.ep531 = {\n    description: 'Exact small-k and randomized lower-bound profiles for Folkman-type finite-sums monochromatic sets.',\n    exact: {\n      F_2_exact: maxAvoid2 + 1,\n      max_2color_avoidable_prefix_for_k2: maxAvoid2,\n    },\n    heuristic_k3_rows: rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch14_quick_compute.json",
-        "key": "ep531",
-        "container_meta": {
-          "script": "harder_batch14_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:54:10.902Z"
+  "computations": [
+    {
+      "source_file": "ep531_standalone_deeper_20260312T105943Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:59:43.472Z",
+      "data": {
+        "problem": "EP-531",
+        "script": "ep531.mjs",
+        "method": "exact_small_k2_and_deeper_randomized_k3_finite_sums_coloring_profile",
+        "params": {},
+        "exact": {
+          "F_2_exact": 9,
+          "max_2color_avoidable_prefix_for_k2": 8
         },
-        "data": {
-          "description": "Exact small-k and randomized lower-bound profiles for Folkman-type finite-sums monochromatic sets.",
-          "exact": {
-            "F_2_exact": 9,
-            "max_2color_avoidable_prefix_for_k2": 8
+        "heuristic_k3_rows": [
+          {
+            "N": 30,
+            "trials": 180,
+            "best_avoidable_prefix_length_for_k3": 30,
+            "avg_avoidable_prefix_length_for_k3": 24.444444
           },
-          "heuristic_k3_rows": [
-            {
-              "N": 20,
-              "trials": 120,
-              "best_avoidable_prefix_length_for_k3": 20,
-              "avg_avoidable_prefix_length_for_k3": 19.49167
-            },
-            {
-              "N": 30,
-              "trials": 120,
-              "best_avoidable_prefix_length_for_k3": 30,
-              "avg_avoidable_prefix_length_for_k3": 24.275
-            },
-            {
-              "N": 40,
-              "trials": 120,
-              "best_avoidable_prefix_length_for_k3": 38,
-              "avg_avoidable_prefix_length_for_k3": 25.54167
-            },
-            {
-              "N": 50,
-              "trials": 100,
-              "best_avoidable_prefix_length_for_k3": 38,
-              "avg_avoidable_prefix_length_for_k3": 25.01
-            },
-            {
-              "N": 60,
-              "trials": 90,
-              "best_avoidable_prefix_length_for_k3": 33,
-              "avg_avoidable_prefix_length_for_k3": 24.65556
-            }
-          ]
-        }
+          {
+            "N": 40,
+            "trials": 160,
+            "best_avoidable_prefix_length_for_k3": 39,
+            "avg_avoidable_prefix_length_for_k3": 24.74375
+          },
+          {
+            "N": 50,
+            "trials": 140,
+            "best_avoidable_prefix_length_for_k3": 35,
+            "avg_avoidable_prefix_length_for_k3": 24.6
+          },
+          {
+            "N": 60,
+            "trials": 120,
+            "best_avoidable_prefix_length_for_k3": 37,
+            "avg_avoidable_prefix_length_for_k3": 24.858333
+          }
+        ],
+        "elapsed_ms": 156,
+        "generated_utc": "2026-03-12T10:59:43.472Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

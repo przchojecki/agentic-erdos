@@ -1,5 +1,74 @@
 {
   "problem": "EP-524",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep524_standalone_deeper_20260312T105707Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:57:09.282Z",
+      "data": {
+        "problem": "EP-524",
+        "script": "ep524.mjs",
+        "method": "deep_monte_carlo_profile_for_sup_norm_of_random_sign_polynomials_on_minus1_1",
+        "params": {
+          "tasks": [
+            {
+              "n": 200,
+              "trials": 240
+            },
+            {
+              "n": 400,
+              "trials": 180
+            },
+            {
+              "n": 800,
+              "trials": 130
+            },
+            {
+              "n": 1200,
+              "trials": 90
+            }
+          ]
+        },
+        "rows": [
+          {
+            "n": 200,
+            "trials": 240,
+            "avg_M_n": 15.845062,
+            "max_M_n_seen": 47,
+            "avg_over_sqrt_n": 1.1204151,
+            "avg_over_sqrt_n_over_loglog_n": 1.4467632
+          },
+          {
+            "n": 400,
+            "trials": 180,
+            "avg_M_n": 22.891021,
+            "max_M_n_seen": 69,
+            "avg_over_sqrt_n": 1.144551,
+            "avg_over_sqrt_n_over_loglog_n": 1.5314486
+          },
+          {
+            "n": 800,
+            "trials": 130,
+            "avg_M_n": 31.0654,
+            "max_M_n_seen": 71,
+            "avg_over_sqrt_n": 1.0983277,
+            "avg_over_sqrt_n_over_loglog_n": 1.5138639
+          },
+          {
+            "n": 1200,
+            "trials": 90,
+            "avg_M_n": 37.464007,
+            "max_M_n_seen": 99,
+            "avg_over_sqrt_n": 1.0814927,
+            "avg_over_sqrt_n_over_loglog_n": 1.5135861
+          }
+        ],
+        "elapsed_ms": 2164,
+        "generated_utc": "2026-03-12T10:57:09.282Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

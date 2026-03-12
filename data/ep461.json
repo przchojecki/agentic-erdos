@@ -1,5 +1,129 @@
 {
   "problem": "EP-461",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep461_standalone_deeper_20260312T102407Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:24:07.771Z",
+      "data": {
+        "problem": "EP-461",
+        "script": "ep461.mjs",
+        "method": "deep_scan_of_distinct_t_smooth_components_in_short_intervals",
+        "params": {
+          "T_LIST": [
+            100,
+            200,
+            400,
+            800,
+            1200,
+            1800
+          ],
+          "NMAX": 80000,
+          "STEP": 25
+        },
+        "rows": [
+          {
+            "t": 100,
+            "scanned_n_count": 3201,
+            "min_ratio_f_over_t": 0.58,
+            "min_witness": {
+              "n": 1900,
+              "f": 58
+            },
+            "mean_ratio_f_over_t": 0.71965323,
+            "max_ratio_f_over_t": 1,
+            "max_witness": {
+              "n": 0,
+              "f": 100
+            },
+            "baseline_t_over_logt_ratio": 21.714724
+          },
+          {
+            "t": 200,
+            "scanned_n_count": 3201,
+            "min_ratio_f_over_t": 0.565,
+            "min_witness": {
+              "n": 5900,
+              "f": 113
+            },
+            "mean_ratio_f_over_t": 0.66668385,
+            "max_ratio_f_over_t": 1,
+            "max_witness": {
+              "n": 0,
+              "f": 200
+            },
+            "baseline_t_over_logt_ratio": 37.747833
+          },
+          {
+            "t": 400,
+            "scanned_n_count": 3201,
+            "min_ratio_f_over_t": 0.55,
+            "min_witness": {
+              "n": 13875,
+              "f": 220
+            },
+            "mean_ratio_f_over_t": 0.59859653,
+            "max_ratio_f_over_t": 1,
+            "max_witness": {
+              "n": 0,
+              "f": 400
+            },
+            "baseline_t_over_logt_ratio": 66.76164
+          },
+          {
+            "t": 800,
+            "scanned_n_count": 3201,
+            "min_ratio_f_over_t": 0.52875,
+            "min_witness": {
+              "n": 69500,
+              "f": 423
+            },
+            "mean_ratio_f_over_t": 0.57922837,
+            "max_ratio_f_over_t": 1,
+            "max_witness": {
+              "n": 0,
+              "f": 800
+            },
+            "baseline_t_over_logt_ratio": 119.67786
+          },
+          {
+            "t": 1200,
+            "scanned_n_count": 3201,
+            "min_ratio_f_over_t": 0.53166667,
+            "min_witness": {
+              "n": 75875,
+              "f": 638
+            },
+            "mean_ratio_f_over_t": 0.60326487,
+            "max_ratio_f_over_t": 1,
+            "max_witness": {
+              "n": 0,
+              "f": 1200
+            },
+            "baseline_t_over_logt_ratio": 169.25063
+          },
+          {
+            "t": 1800,
+            "scanned_n_count": 3201,
+            "min_ratio_f_over_t": 0.56388889,
+            "min_witness": {
+              "n": 75850,
+              "f": 1015
+            },
+            "mean_ratio_f_over_t": 0.64154674,
+            "max_ratio_f_over_t": 1,
+            "max_witness": {
+              "n": 0,
+              "f": 1800
+            },
+            "baseline_t_over_logt_ratio": 240.14274
+          }
+        ],
+        "generated_utc": "2026-03-12T10:24:07.771Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

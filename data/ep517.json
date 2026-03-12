@@ -1,5 +1,184 @@
 {
   "problem": "EP-517",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep517_standalone_deeper_20260312T105435Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:54:35.960Z",
+      "data": {
+        "problem": "EP-517",
+        "script": "ep517.mjs",
+        "method": "lacunary_circle_image_coverage_proxy_for_multiple_target_values",
+        "params": {
+          "radii": [
+            0.8,
+            1,
+            1.2,
+            1.5,
+            2
+          ],
+          "ang": 1800,
+          "targets": [
+            0,
+            1,
+            -1
+          ]
+        },
+        "rows": [
+          {
+            "function_family": "square_gaps",
+            "exponent_list_prefix": [
+              1,
+              4,
+              9,
+              16,
+              25,
+              36,
+              49,
+              64,
+              81,
+              100,
+              121,
+              144
+            ],
+            "profile": [
+              {
+                "r": 0.8,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0.0083333333,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1,
+                "near_hit_fraction_w0": 0.0011111111,
+                "near_hit_fraction_w1": 0.0011111111,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1.2,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1.5,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 2,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              }
+            ]
+          },
+          {
+            "function_family": "doubling_gaps",
+            "exponent_list_prefix": [
+              2,
+              4,
+              8,
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024,
+              2048,
+              4096
+            ],
+            "profile": [
+              {
+                "r": 0.8,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1,
+                "near_hit_fraction_w0": 0.0066666667,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1.2,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1.5,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 2,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              }
+            ]
+          },
+          {
+            "function_family": "superlinear_gaps",
+            "exponent_list_prefix": [
+              1,
+              5,
+              11,
+              20,
+              32,
+              46,
+              63,
+              83,
+              105,
+              130,
+              157,
+              187
+            ],
+            "profile": [
+              {
+                "r": 0.8,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1,
+                "near_hit_fraction_w0": 0.0011111111,
+                "near_hit_fraction_w1": 0.0011111111,
+                "near_hit_fraction_wm1": 0.0022222222
+              },
+              {
+                "r": 1.2,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 1.5,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              },
+              {
+                "r": 2,
+                "near_hit_fraction_w0": 0,
+                "near_hit_fraction_w1": 0,
+                "near_hit_fraction_wm1": 0
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 632,
+        "generated_utc": "2026-03-12T10:54:35.960Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

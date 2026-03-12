@@ -1,5 +1,47 @@
 {
   "problem": "EP-595",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:44:30.483Z",
+  "computations": [
+    {
+      "source_file": "ep595_standalone_deeper_20260312T134430Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:44:30.483Z",
+      "data": {
+        "problem": "EP-595",
+        "script": "ep595.mjs",
+        "method": "finite_K4_free_decomposition_into_triangle_free_layers_exact_backtracking",
+        "params": {},
+        "rows": [
+          {
+            "n": 10,
+            "restarts": 120,
+            "edges_in_best_K4_free_sample": 33,
+            "triangles_in_sample": 36,
+            "min_triangle_free_layers_found": 2,
+            "min_layers_over_log_n": 0.86858896
+          },
+          {
+            "n": 11,
+            "restarts": 100,
+            "edges_in_best_K4_free_sample": 40,
+            "triangles_in_sample": 48,
+            "min_triangle_free_layers_found": 2,
+            "min_layers_over_log_n": 0.83406478
+          },
+          {
+            "n": 12,
+            "restarts": 85,
+            "edges_in_best_K4_free_sample": 48,
+            "triangles_in_sample": 64,
+            "min_triangle_free_layers_found": 2,
+            "min_layers_over_log_n": 0.80485921
+          }
+        ],
+        "elapsed_ms": 8,
+        "generated_utc": "2026-03-12T13:44:30.483Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

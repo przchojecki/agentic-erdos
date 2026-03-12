@@ -1,5 +1,50 @@
 {
   "problem": "EP-597",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:46:04.974Z",
+  "computations": [
+    {
+      "source_file": "ep597_standalone_deeper_20260312T134604Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:46:04.974Z",
+      "data": {
+        "problem": "EP-597",
+        "script": "ep597.mjs",
+        "method": "finite_ordered_partition_proxy_red_biclique_or_blue_C5",
+        "params": {},
+        "rows": [
+          {
+            "n": 18,
+            "trials": 260,
+            "red_target": "K_3,5",
+            "blue_target": "C5",
+            "red_hit_probability": 0.94615385,
+            "blue_hit_probability": 1,
+            "either_hit_probability": 1
+          },
+          {
+            "n": 22,
+            "trials": 220,
+            "red_target": "K_3,6",
+            "blue_target": "C5",
+            "red_hit_probability": 0.96818182,
+            "blue_hit_probability": 1,
+            "either_hit_probability": 1
+          },
+          {
+            "n": 26,
+            "trials": 180,
+            "red_target": "K_4,6",
+            "blue_target": "C5",
+            "red_hit_probability": 0.88333333,
+            "blue_hit_probability": 1,
+            "either_hit_probability": 1
+          }
+        ],
+        "elapsed_ms": 207,
+        "generated_utc": "2026-03-12T13:46:04.974Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

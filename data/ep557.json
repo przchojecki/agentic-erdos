@@ -1,5 +1,215 @@
 {
   "problem": "EP-557",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep557_standalone_deeper_20260312T111742Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:17:42.601Z",
+      "data": {
+        "problem": "EP-557",
+        "script": "ep557.mjs",
+        "method": "multicolor_random_avoidance_profile_for_tree_ramsey_linear_kn_reference",
+        "params": {
+          "tasks": [
+            {
+              "tree": "P6",
+              "nTree": 6,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "k": 3,
+              "Ns": [
+                14,
+                16,
+                18
+              ],
+              "trials": 120
+            },
+            {
+              "tree": "P6",
+              "nTree": 6,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "k": 4,
+              "Ns": [
+                18,
+                20,
+                22
+              ],
+              "trials": 90
+            },
+            {
+              "tree": "S6",
+              "nTree": 6,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  5
+                ]
+              ],
+              "k": 3,
+              "Ns": [
+                14,
+                16,
+                18
+              ],
+              "trials": 120
+            }
+          ]
+        },
+        "rows": [
+          {
+            "tree": "P6",
+            "n_tree": 6,
+            "k_colors": 3,
+            "N": 14,
+            "trials": 120,
+            "random_avoiding_hits": 0,
+            "kn_reference": 18,
+            "N_over_kn": 0.77777778
+          },
+          {
+            "tree": "P6",
+            "n_tree": 6,
+            "k_colors": 3,
+            "N": 16,
+            "trials": 120,
+            "random_avoiding_hits": 0,
+            "kn_reference": 18,
+            "N_over_kn": 0.88888889
+          },
+          {
+            "tree": "P6",
+            "n_tree": 6,
+            "k_colors": 3,
+            "N": 18,
+            "trials": 120,
+            "random_avoiding_hits": 0,
+            "kn_reference": 18,
+            "N_over_kn": 1
+          },
+          {
+            "tree": "P6",
+            "n_tree": 6,
+            "k_colors": 4,
+            "N": 18,
+            "trials": 90,
+            "random_avoiding_hits": 0,
+            "kn_reference": 24,
+            "N_over_kn": 0.75
+          },
+          {
+            "tree": "P6",
+            "n_tree": 6,
+            "k_colors": 4,
+            "N": 20,
+            "trials": 90,
+            "random_avoiding_hits": 0,
+            "kn_reference": 24,
+            "N_over_kn": 0.83333333
+          },
+          {
+            "tree": "P6",
+            "n_tree": 6,
+            "k_colors": 4,
+            "N": 22,
+            "trials": 90,
+            "random_avoiding_hits": 0,
+            "kn_reference": 24,
+            "N_over_kn": 0.91666667
+          },
+          {
+            "tree": "S6",
+            "n_tree": 6,
+            "k_colors": 3,
+            "N": 14,
+            "trials": 120,
+            "random_avoiding_hits": 0,
+            "kn_reference": 18,
+            "N_over_kn": 0.77777778
+          },
+          {
+            "tree": "S6",
+            "n_tree": 6,
+            "k_colors": 3,
+            "N": 16,
+            "trials": 120,
+            "random_avoiding_hits": 0,
+            "kn_reference": 18,
+            "N_over_kn": 0.88888889
+          },
+          {
+            "tree": "S6",
+            "n_tree": 6,
+            "k_colors": 3,
+            "N": 18,
+            "trials": 120,
+            "random_avoiding_hits": 0,
+            "kn_reference": 18,
+            "N_over_kn": 1
+          }
+        ],
+        "elapsed_ms": 458,
+        "generated_utc": "2026-03-12T11:17:42.601Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

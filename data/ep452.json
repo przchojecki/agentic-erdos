@@ -1,5 +1,73 @@
 {
   "problem": "EP-452",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep452_standalone_deeper_20260312T101856Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:18:56.102Z",
+      "data": {
+        "problem": "EP-452",
+        "script": "ep452.mjs",
+        "method": "deep_longest_run_profile_for_omega_above_loglog",
+        "params": {
+          "X_LIST": [
+            20000,
+            50000,
+            100000,
+            200000,
+            500000,
+            1000000
+          ]
+        },
+        "rows": [
+          {
+            "X": 20000,
+            "threshold_loglogX": 2.292887,
+            "longest_run_len": 9,
+            "run_start": 28608,
+            "run_over_baseline": 4.7777084
+          },
+          {
+            "X": 50000,
+            "threshold_loglogX": 2.3813758,
+            "longest_run_len": 11,
+            "run_start": 76580,
+            "run_over_baseline": 5.7654099
+          },
+          {
+            "X": 100000,
+            "threshold_loglogX": 2.4434704,
+            "longest_run_len": 12,
+            "run_start": 104660,
+            "run_over_baseline": 6.2231419
+          },
+          {
+            "X": 200000,
+            "threshold_loglogX": 2.5019336,
+            "longest_run_len": 13,
+            "run_start": 249570,
+            "run_over_baseline": 6.6668235
+          },
+          {
+            "X": 500000,
+            "threshold_loglogX": 2.5743179,
+            "longest_run_len": 21,
+            "run_start": 512822,
+            "run_over_baseline": 10.605511
+          },
+          {
+            "X": 1000000,
+            "threshold_loglogX": 2.6257919,
+            "longest_run_len": 23,
+            "run_start": 1039430,
+            "run_over_baseline": 11.478404
+          }
+        ],
+        "generated_utc": "2026-03-12T10:18:56.102Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

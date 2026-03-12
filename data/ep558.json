@@ -1,5 +1,188 @@
 {
   "problem": "EP-558",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep558_standalone_deeper_20260312T113244Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:32:44.349Z",
+      "data": {
+        "problem": "EP-558",
+        "script": "ep558.mjs",
+        "method": "multicolor_random_avoidance_profile_for_Kst_ramsey_instances",
+        "params": {
+          "tasks": [
+            {
+              "k": 2,
+              "s": 2,
+              "t": 3,
+              "ns": [
+                8,
+                9,
+                10,
+                11
+              ],
+              "trials": 800
+            },
+            {
+              "k": 2,
+              "s": 3,
+              "t": 3,
+              "ns": [
+                10,
+                11,
+                12,
+                13
+              ],
+              "trials": 700
+            },
+            {
+              "k": 3,
+              "s": 2,
+              "t": 2,
+              "ns": [
+                12,
+                13,
+                14,
+                15
+              ],
+              "trials": 700
+            }
+          ]
+        },
+        "rows": [
+          {
+            "k_colors": 2,
+            "s": 2,
+            "t": 3,
+            "n": 8,
+            "trials": 800,
+            "random_avoiding_hits": 1,
+            "avoiding_hit_rate": 0.00125
+          },
+          {
+            "k_colors": 2,
+            "s": 2,
+            "t": 3,
+            "n": 9,
+            "trials": 800,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 2,
+            "s": 2,
+            "t": 3,
+            "n": 10,
+            "trials": 800,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 2,
+            "s": 2,
+            "t": 3,
+            "n": 11,
+            "trials": 800,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 2,
+            "s": 2,
+            "t": 3,
+            "summary_best_n_with_avoiding_hits": 8
+          },
+          {
+            "k_colors": 2,
+            "s": 3,
+            "t": 3,
+            "n": 10,
+            "trials": 700,
+            "random_avoiding_hits": 13,
+            "avoiding_hit_rate": 0.018571429
+          },
+          {
+            "k_colors": 2,
+            "s": 3,
+            "t": 3,
+            "n": 11,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 2,
+            "s": 3,
+            "t": 3,
+            "n": 12,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 2,
+            "s": 3,
+            "t": 3,
+            "n": 13,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 2,
+            "s": 3,
+            "t": 3,
+            "summary_best_n_with_avoiding_hits": 10
+          },
+          {
+            "k_colors": 3,
+            "s": 2,
+            "t": 2,
+            "n": 12,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 3,
+            "s": 2,
+            "t": 2,
+            "n": 13,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 3,
+            "s": 2,
+            "t": 2,
+            "n": 14,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 3,
+            "s": 2,
+            "t": 2,
+            "n": 15,
+            "trials": 700,
+            "random_avoiding_hits": 0,
+            "avoiding_hit_rate": 0
+          },
+          {
+            "k_colors": 3,
+            "s": 2,
+            "t": 2,
+            "summary_best_n_with_avoiding_hits": 0
+          }
+        ],
+        "elapsed_ms": 261,
+        "generated_utc": "2026-03-12T11:32:44.349Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,205 +1,220 @@
 {
   "problem": "EP-528",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch14_web_compute.md",
-        "content": "### EP-528\n- Quick literature check:\n  - Connective-constant existence is classical; the page records modern structural progress (including irrationality results in fixed dimensions).\n- Finite compute signal:\n  - Exact small-$n$ SAW counts produce root-estimate trends toward stable constants:\n    - $d=2$: down to `3.029` by `n=10`\n    - $d=3$: down to `5.142` by `n=8`\n    - $d=4$: down to `7.214` by `n=7`\n- Interpretation:\n  - Finite data is consistent with convergence to dimension-dependent $C_k$, without identifying exact values."
-      }
-    ],
-    "script_sources": [],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch14_quick_compute.json",
-        "key": "ep528",
-        "container_meta": {
-          "script": "harder_batch14_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:54:10.902Z"
-        },
-        "data": {
-          "description": "Exact small-n connective-constant proxies from self-avoiding walk counts.",
-          "rows": [
+  "computations": [
+    {
+      "source_file": "ep528_standalone_deeper_20260312T105943Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:59:44.790Z",
+      "data": {
+        "problem": "EP-528",
+        "script": "ep528.mjs",
+        "method": "exact_small_n_saw_count_profile_for_connective_constant_proxies",
+        "params": {
+          "configs": [
             {
               "d": 2,
-              "n": 2,
-              "f_n_k": 16,
-              "root_estimate": 4,
-              "ratio_estimate": 4
-            },
-            {
-              "d": 2,
-              "n": 3,
-              "f_n_k": 48,
-              "root_estimate": 3.634241,
-              "ratio_estimate": 3
-            },
-            {
-              "d": 2,
-              "n": 4,
-              "f_n_k": 144,
-              "root_estimate": 3.464102,
-              "ratio_estimate": 3
-            },
-            {
-              "d": 2,
-              "n": 5,
-              "f_n_k": 400,
-              "root_estimate": 3.314454,
-              "ratio_estimate": 2.777778
-            },
-            {
-              "d": 2,
-              "n": 6,
-              "f_n_k": 1136,
-              "root_estimate": 3.230202,
-              "ratio_estimate": 2.84
-            },
-            {
-              "d": 2,
-              "n": 7,
-              "f_n_k": 3120,
-              "root_estimate": 3.156203,
-              "ratio_estimate": 2.746479
-            },
-            {
-              "d": 2,
-              "n": 8,
-              "f_n_k": 8688,
-              "root_estimate": 3.10717,
-              "ratio_estimate": 2.784615
-            },
-            {
-              "d": 2,
-              "n": 9,
-              "f_n_k": 23664,
-              "root_estimate": 3.062032,
-              "ratio_estimate": 2.723757
-            },
-            {
-              "d": 2,
-              "n": 10,
-              "f_n_k": 65072,
-              "root_estimate": 3.02928,
-              "ratio_estimate": 2.749831
-            },
-            {
-              "d": 2,
-              "n": 11,
-              "f_n_k": 176400,
-              "root_estimate": 2.998848,
-              "ratio_estimate": 2.710843
+              "nMax": 12
             },
             {
               "d": 3,
-              "n": 2,
-              "f_n_k": 36,
-              "root_estimate": 6,
-              "ratio_estimate": 6
-            },
-            {
-              "d": 3,
-              "n": 3,
-              "f_n_k": 180,
-              "root_estimate": 5.646216,
-              "ratio_estimate": 5
-            },
-            {
-              "d": 3,
-              "n": 4,
-              "f_n_k": 900,
-              "root_estimate": 5.477226,
-              "ratio_estimate": 5
-            },
-            {
-              "d": 3,
-              "n": 5,
-              "f_n_k": 4356,
-              "root_estimate": 5.343399,
-              "ratio_estimate": 4.84
-            },
-            {
-              "d": 3,
-              "n": 6,
-              "f_n_k": 21204,
-              "root_estimate": 5.261016,
-              "ratio_estimate": 4.867769
-            },
-            {
-              "d": 3,
-              "n": 7,
-              "f_n_k": 101556,
-              "root_estimate": 5.190912,
-              "ratio_estimate": 4.789474
-            },
-            {
-              "d": 3,
-              "n": 8,
-              "f_n_k": 488340,
-              "root_estimate": 5.141505,
-              "ratio_estimate": 4.808579
-            },
-            {
-              "d": 3,
-              "n": 9,
-              "f_n_k": 2327796,
-              "root_estimate": 5.098452,
-              "ratio_estimate": 4.766753
+              "nMax": 9
             },
             {
               "d": 4,
-              "n": 2,
-              "f_n_k": 64,
-              "root_estimate": 8,
-              "ratio_estimate": 8
-            },
-            {
-              "d": 4,
-              "n": 3,
-              "f_n_k": 448,
-              "root_estimate": 7.651725,
-              "ratio_estimate": 7
-            },
-            {
-              "d": 4,
-              "n": 4,
-              "f_n_k": 3136,
-              "root_estimate": 7.483315,
-              "ratio_estimate": 7
-            },
-            {
-              "d": 4,
-              "n": 5,
-              "f_n_k": 21568,
-              "root_estimate": 7.358037,
-              "ratio_estimate": 6.877551
-            },
-            {
-              "d": 4,
-              "n": 6,
-              "f_n_k": 148672,
-              "root_estimate": 7.278438,
-              "ratio_estimate": 6.893175
-            },
-            {
-              "d": 4,
-              "n": 7,
-              "f_n_k": 1017280,
-              "root_estimate": 7.214493,
-              "ratio_estimate": 6.842445
-            },
-            {
-              "d": 4,
-              "n": 8,
-              "f_n_k": 6970048,
-              "root_estimate": 7.168107,
-              "ratio_estimate": 6.851651
+              "nMax": 8
             }
           ]
-        }
+        },
+        "rows": [
+          {
+            "d": 2,
+            "n": 2,
+            "c_n": 12,
+            "root_estimate_c_n_pow_1_over_n": 3.4641016,
+            "ratio_c_n_over_c_n_minus_1": 3
+          },
+          {
+            "d": 2,
+            "n": 3,
+            "c_n": 36,
+            "root_estimate_c_n_pow_1_over_n": 3.3019272,
+            "ratio_c_n_over_c_n_minus_1": 3
+          },
+          {
+            "d": 2,
+            "n": 4,
+            "c_n": 100,
+            "root_estimate_c_n_pow_1_over_n": 3.1622777,
+            "ratio_c_n_over_c_n_minus_1": 2.7777778
+          },
+          {
+            "d": 2,
+            "n": 5,
+            "c_n": 284,
+            "root_estimate_c_n_pow_1_over_n": 3.0950215,
+            "ratio_c_n_over_c_n_minus_1": 2.84
+          },
+          {
+            "d": 2,
+            "n": 6,
+            "c_n": 780,
+            "root_estimate_c_n_pow_1_over_n": 3.0340013,
+            "ratio_c_n_over_c_n_minus_1": 2.7464789
+          },
+          {
+            "d": 2,
+            "n": 7,
+            "c_n": 2172,
+            "root_estimate_c_n_pow_1_over_n": 2.9970519,
+            "ratio_c_n_over_c_n_minus_1": 2.7846154
+          },
+          {
+            "d": 2,
+            "n": 8,
+            "c_n": 5916,
+            "root_estimate_c_n_pow_1_over_n": 2.961444,
+            "ratio_c_n_over_c_n_minus_1": 2.7237569
+          },
+          {
+            "d": 2,
+            "n": 9,
+            "c_n": 16268,
+            "root_estimate_c_n_pow_1_over_n": 2.9371493,
+            "ratio_c_n_over_c_n_minus_1": 2.749831
+          },
+          {
+            "d": 2,
+            "n": 10,
+            "c_n": 44100,
+            "root_estimate_c_n_pow_1_over_n": 2.9136935,
+            "ratio_c_n_over_c_n_minus_1": 2.7108434
+          },
+          {
+            "d": 2,
+            "n": 11,
+            "c_n": 120292,
+            "root_estimate_c_n_pow_1_over_n": 2.8962744,
+            "ratio_c_n_over_c_n_minus_1": 2.7277098
+          },
+          {
+            "d": 2,
+            "n": 12,
+            "c_n": 324932,
+            "root_estimate_c_n_pow_1_over_n": 2.8794931,
+            "ratio_c_n_over_c_n_minus_1": 2.7011938
+          },
+          {
+            "d": 3,
+            "n": 2,
+            "c_n": 30,
+            "root_estimate_c_n_pow_1_over_n": 5.4772256,
+            "ratio_c_n_over_c_n_minus_1": 5
+          },
+          {
+            "d": 3,
+            "n": 3,
+            "c_n": 150,
+            "root_estimate_c_n_pow_1_over_n": 5.3132928,
+            "ratio_c_n_over_c_n_minus_1": 5
+          },
+          {
+            "d": 3,
+            "n": 4,
+            "c_n": 726,
+            "root_estimate_c_n_pow_1_over_n": 5.1907983,
+            "ratio_c_n_over_c_n_minus_1": 4.84
+          },
+          {
+            "d": 3,
+            "n": 5,
+            "c_n": 3534,
+            "root_estimate_c_n_pow_1_over_n": 5.1245214,
+            "ratio_c_n_over_c_n_minus_1": 4.8677686
+          },
+          {
+            "d": 3,
+            "n": 6,
+            "c_n": 16926,
+            "root_estimate_c_n_pow_1_over_n": 5.0670951,
+            "ratio_c_n_over_c_n_minus_1": 4.7894737
+          },
+          {
+            "d": 3,
+            "n": 7,
+            "c_n": 81390,
+            "root_estimate_c_n_pow_1_over_n": 5.0293302,
+            "ratio_c_n_over_c_n_minus_1": 4.8085785
+          },
+          {
+            "d": 3,
+            "n": 8,
+            "c_n": 387966,
+            "root_estimate_c_n_pow_1_over_n": 4.9957329,
+            "ratio_c_n_over_c_n_minus_1": 4.7667527
+          },
+          {
+            "d": 3,
+            "n": 9,
+            "c_n": 1853886,
+            "root_estimate_c_n_pow_1_over_n": 4.9711134,
+            "ratio_c_n_over_c_n_minus_1": 4.7784754
+          },
+          {
+            "d": 4,
+            "n": 2,
+            "c_n": 56,
+            "root_estimate_c_n_pow_1_over_n": 7.4833148,
+            "ratio_c_n_over_c_n_minus_1": 7
+          },
+          {
+            "d": 4,
+            "n": 3,
+            "c_n": 392,
+            "root_estimate_c_n_pow_1_over_n": 7.3186114,
+            "ratio_c_n_over_c_n_minus_1": 7
+          },
+          {
+            "d": 4,
+            "n": 4,
+            "c_n": 2696,
+            "root_estimate_c_n_pow_1_over_n": 7.205763,
+            "ratio_c_n_over_c_n_minus_1": 6.877551
+          },
+          {
+            "d": 4,
+            "n": 5,
+            "c_n": 18584,
+            "root_estimate_c_n_pow_1_over_n": 7.1421315,
+            "ratio_c_n_over_c_n_minus_1": 6.8931751
+          },
+          {
+            "d": 4,
+            "n": 6,
+            "c_n": 127160,
+            "root_estimate_c_n_pow_1_over_n": 7.0912874,
+            "ratio_c_n_over_c_n_minus_1": 6.8424451
+          },
+          {
+            "d": 4,
+            "n": 7,
+            "c_n": 871256,
+            "root_estimate_c_n_pow_1_over_n": 7.0565473,
+            "ratio_c_n_over_c_n_minus_1": 6.8516515
+          },
+          {
+            "d": 4,
+            "n": 8,
+            "c_n": 5946200,
+            "root_estimate_c_n_pow_1_over_n": 7.0271616,
+            "ratio_c_n_over_c_n_minus_1": 6.8248597
+          }
+        ],
+        "elapsed_ms": 1474,
+        "generated_utc": "2026-03-12T10:59:44.790Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

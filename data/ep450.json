@@ -1,141 +1,190 @@
 {
   "problem": "EP-450",
   "normalized_utc": "2026-03-05T08:54:16.960Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch12_web_compute.md",
-        "content": "### EP-450\n- Quick literature check:\n  - Ford (2008) distribution results drive current understanding; quantifier interpretation in the original question remains delicate.\n- Finite compute signal:\n  - For tested `n` and `y`, interval densities of numbers having a divisor in `(n,2n)` remain bounded away from `0` uniformly over scanned `x` windows.\n- Interpretation:\n  - Empirics align with the idea that demanding very small density for all `x` is often impossible in broad parameter regimes."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch12_quick_compute.mjs",
-        "heading": "interval densities of integers having a divisor in (n,2n).",
-        "content": "// EP-450: interval densities of integers having a divisor in (n,2n).\n{\n  function buildHasDiv(N, n) {\n    const arr = new Uint8Array(N + 1);\n    for (let d = n + 1; d <= 2 * n - 1; d += 1) {\n      for (let m = d; m <= N; m += d) arr[m] = 1;\n    }\n    return arr;\n  }\n\n  function prefix(arr) {\n    const p = new Uint32Array(arr.length);\n    for (let i = 1; i < arr.length; i += 1) p[i] = p[i - 1] + arr[i];\n    return p;\n  }\n\n  const rows = [];\n  for (const n of [120, 300, 700]) {\n    const YMAX = 24 * n;\n    const XMAX = 200000;\n    const arr = buildHasDiv(XMAX + YMAX + 5, n);\n    const prefArr = prefix(arr);\n\n    for (const y of [2 * n, 4 * n, 8 * n, 16 * n, 24 * n]) {\n      let minD = 1;\n      let maxD = 0;\n      let avgD = 0;\n      let cnt = 0;\n      for (let x = 0; x <= XMAX; x += 1) {\n        const c = prefArr[x + y] - prefArr[x];\n        const d = c / y;\n        if (d < minD) minD = d;\n        if (d > maxD) maxD = d;\n        avgD += d;\n        cnt += 1;\n      }\n      rows.push({\n        n,\n        y,\n        min_density_over_x: Number(minD.toPrecision(6)),\n        max_density_over_x: Number(maxD.toPrecision(6)),\n        mean_density_over_x: Number((avgD / cnt).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep450 = {\n    description: 'Finite x-window density profile for having a divisor in (n,2n).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch12_quick_compute.json",
-        "key": "ep450",
-        "container_meta": {
-          "script": "harder_batch12_quick_compute.mjs",
-          "generated_utc": "2026-03-03T19:42:39.714Z"
+  "computations": [
+    {
+      "source_file": "ep450_standalone_deeper_20260312T101856Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:18:56.088Z",
+      "data": {
+        "problem": "EP-450",
+        "script": "ep450.mjs",
+        "method": "deep_x_window_density_profile_for_divisors_in_n_2n",
+        "params": {
+          "N_LIST": [
+            120,
+            300,
+            700,
+            1200
+          ],
+          "XMAX": 300000
         },
-        "data": {
-          "description": "Finite x-window density profile for having a divisor in (n,2n).",
-          "rows": [
-            {
-              "n": 120,
-              "y": 240,
-              "min_density_over_x": 0.245833,
-              "max_density_over_x": 0.745833,
-              "mean_density_over_x": 0.362071
-            },
-            {
-              "n": 120,
-              "y": 480,
-              "min_density_over_x": 0.258333,
-              "max_density_over_x": 0.664583,
-              "mean_density_over_x": 0.36191
-            },
-            {
-              "n": 120,
-              "y": 960,
-              "min_density_over_x": 0.265625,
-              "max_density_over_x": 0.594792,
-              "mean_density_over_x": 0.36167
-            },
-            {
-              "n": 120,
-              "y": 1920,
-              "min_density_over_x": 0.269792,
-              "max_density_over_x": 0.535937,
-              "mean_density_over_x": 0.361323
-            },
-            {
-              "n": 120,
-              "y": 2880,
-              "min_density_over_x": 0.272222,
-              "max_density_over_x": 0.511806,
-              "mean_density_over_x": 0.36105
-            },
-            {
-              "n": 300,
-              "y": 600,
-              "min_density_over_x": 0.238333,
-              "max_density_over_x": 0.748333,
-              "mean_density_over_x": 0.338499
-            },
-            {
-              "n": 300,
-              "y": 1200,
-              "min_density_over_x": 0.249167,
-              "max_density_over_x": 0.665833,
-              "mean_density_over_x": 0.33794
-            },
-            {
-              "n": 300,
-              "y": 2400,
-              "min_density_over_x": 0.252917,
-              "max_density_over_x": 0.594167,
-              "mean_density_over_x": 0.337013
-            },
-            {
-              "n": 300,
-              "y": 4800,
-              "min_density_over_x": 0.255417,
-              "max_density_over_x": 0.535417,
-              "mean_density_over_x": 0.335539
-            },
-            {
-              "n": 300,
-              "y": 7200,
-              "min_density_over_x": 0.257222,
-              "max_density_over_x": 0.509167,
-              "mean_density_over_x": 0.334286
-            },
-            {
-              "n": 700,
-              "y": 1400,
-              "min_density_over_x": 0.358571,
-              "max_density_over_x": 0.749286,
-              "mean_density_over_x": 0.402683
-            },
-            {
-              "n": 700,
-              "y": 2800,
-              "min_density_over_x": 0.363214,
-              "max_density_over_x": 0.666071,
-              "mean_density_over_x": 0.401711
-            },
-            {
-              "n": 700,
-              "y": 5600,
-              "min_density_over_x": 0.365179,
-              "max_density_over_x": 0.594821,
-              "mean_density_over_x": 0.400217
-            },
-            {
-              "n": 700,
-              "y": 11200,
-              "min_density_over_x": 0.365893,
-              "max_density_over_x": 0.534821,
-              "mean_density_over_x": 0.398075
-            },
-            {
-              "n": 700,
-              "y": 16800,
-              "min_density_over_x": 0.365476,
-              "max_density_over_x": 0.508155,
-              "mean_density_over_x": 0.396432
-            }
-          ]
-        }
+        "rows": [
+          {
+            "n": 120,
+            "y": 240,
+            "min_density_over_x": 0.24583333,
+            "argmin_x": 27951,
+            "max_density_over_x": 0.74583333,
+            "mean_density_over_x": 0.36779332
+          },
+          {
+            "n": 120,
+            "y": 480,
+            "min_density_over_x": 0.25833333,
+            "argmin_x": 28907,
+            "max_density_over_x": 0.66458333,
+            "mean_density_over_x": 0.36768681
+          },
+          {
+            "n": 120,
+            "y": 960,
+            "min_density_over_x": 0.265625,
+            "argmin_x": 28914,
+            "max_density_over_x": 0.59479167,
+            "mean_density_over_x": 0.36752549
+          },
+          {
+            "n": 120,
+            "y": 1920,
+            "min_density_over_x": 0.26979167,
+            "argmin_x": 28086,
+            "max_density_over_x": 0.5359375,
+            "mean_density_over_x": 0.36729605
+          },
+          {
+            "n": 120,
+            "y": 3840,
+            "min_density_over_x": 0.27291667,
+            "argmin_x": 27265,
+            "max_density_over_x": 0.49479167,
+            "mean_density_over_x": 0.36697758
+          },
+          {
+            "n": 300,
+            "y": 600,
+            "min_density_over_x": 0.23833333,
+            "argmin_x": 185373,
+            "max_density_over_x": 0.74833333,
+            "mean_density_over_x": 0.32598871
+          },
+          {
+            "n": 300,
+            "y": 1200,
+            "min_density_over_x": 0.24916667,
+            "argmin_x": 178367,
+            "max_density_over_x": 0.66583333,
+            "mean_density_over_x": 0.32566625
+          },
+          {
+            "n": 300,
+            "y": 2400,
+            "min_density_over_x": 0.25291667,
+            "argmin_x": 179424,
+            "max_density_over_x": 0.59416667,
+            "mean_density_over_x": 0.3251514
+          },
+          {
+            "n": 300,
+            "y": 4800,
+            "min_density_over_x": 0.25541667,
+            "argmin_x": 177025,
+            "max_density_over_x": 0.53541667,
+            "mean_density_over_x": 0.32436138
+          },
+          {
+            "n": 300,
+            "y": 9600,
+            "min_density_over_x": 0.25770833,
+            "argmin_x": 176416,
+            "max_density_over_x": 0.49364583,
+            "mean_density_over_x": 0.3231349
+          },
+          {
+            "n": 700,
+            "y": 1400,
+            "min_density_over_x": 0.34071429,
+            "argmin_x": 273312,
+            "max_density_over_x": 0.74928571,
+            "mean_density_over_x": 0.38838121
+          },
+          {
+            "n": 700,
+            "y": 2800,
+            "min_density_over_x": 0.34642857,
+            "argmin_x": 277915,
+            "max_density_over_x": 0.66607143,
+            "mean_density_over_x": 0.38769217
+          },
+          {
+            "n": 700,
+            "y": 5600,
+            "min_density_over_x": 0.34875,
+            "argmin_x": 298776,
+            "max_density_over_x": 0.59482143,
+            "mean_density_over_x": 0.38661692
+          },
+          {
+            "n": 700,
+            "y": 11200,
+            "min_density_over_x": 0.34785714,
+            "argmin_x": 299160,
+            "max_density_over_x": 0.53482143,
+            "mean_density_over_x": 0.38502012
+          },
+          {
+            "n": 700,
+            "y": 22400,
+            "min_density_over_x": 0.34830357,
+            "argmin_x": 299307,
+            "max_density_over_x": 0.49071429,
+            "mean_density_over_x": 0.38267252
+          },
+          {
+            "n": 1200,
+            "y": 2400,
+            "min_density_over_x": 0.3725,
+            "argmin_x": 293770,
+            "max_density_over_x": 0.74958333,
+            "mean_density_over_x": 0.41155006
+          },
+          {
+            "n": 1200,
+            "y": 4800,
+            "min_density_over_x": 0.37791667,
+            "argmin_x": 293608,
+            "max_density_over_x": 0.66645833,
+            "mean_density_over_x": 0.41049168
+          },
+          {
+            "n": 1200,
+            "y": 9600,
+            "min_density_over_x": 0.37947917,
+            "argmin_x": 293594,
+            "max_density_over_x": 0.59520833,
+            "mean_density_over_x": 0.40888733
+          },
+          {
+            "n": 1200,
+            "y": 19200,
+            "min_density_over_x": 0.3796875,
+            "argmin_x": 299936,
+            "max_density_over_x": 0.53546875,
+            "mean_density_over_x": 0.40664756
+          },
+          {
+            "n": 1200,
+            "y": 38400,
+            "min_density_over_x": 0.37924479,
+            "argmin_x": 299920,
+            "max_density_over_x": 0.49088542,
+            "mean_density_over_x": 0.4035946
+          }
+        ],
+        "generated_utc": "2026-03-12T10:18:56.088Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

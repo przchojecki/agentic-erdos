@@ -1,123 +1,133 @@
 {
   "problem": "EP-567",
   "normalized_utc": "2026-03-05T08:54:16.962Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch14_web_compute.md",
-        "content": "### EP-567\n- Quick literature check:\n  - Recent work on subdivisions of $K_4$ gives linear Ramsey-size behavior in broad cases and specifically strong partial progress for $H_5$.\n- Finite compute signal:\n  - Heuristic random-color checks found zero avoiding samples for $R(H_5,mK_2)$ proxies at tested points $(m,N)\\in\\{2,3,4\\}\\times\\{8,10,12\\}$.\n- Interpretation:\n  - Empirical signal is consistent with linear-in-$m$ behavior, but not a proof for all no-isolated $H$."
+  "computations": [
+    {
+      "source_file": "ep567_standalone_deeper_20260312T124512Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T12:45:12.775Z",
+      "data": {
+        "problem": "EP-567",
+        "script": "ep567.mjs",
+        "method": "deeper_random_coloring_profile_for_R_H5_mK2",
+        "params": {},
+        "rows": [
+          {
+            "m": 2,
+            "N": 8,
+            "trials": 220,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 2,
+            "N": 9,
+            "trials": 220,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 2,
+            "N": 10,
+            "trials": 220,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 2,
+            "N": 11,
+            "trials": 220,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 2,
+            "heuristic_zero_avoid_threshold_N": 8,
+            "threshold_over_m": 4
+          },
+          {
+            "m": 3,
+            "N": 10,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "N": 11,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "N": 12,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "N": 13,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "heuristic_zero_avoid_threshold_N": 10,
+            "threshold_over_m": 3.3333333
+          },
+          {
+            "m": 4,
+            "N": 12,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "N": 13,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "N": 14,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "N": 15,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "heuristic_zero_avoid_threshold_N": 12,
+            "threshold_over_m": 3
+          },
+          {
+            "m": 5,
+            "N": 14,
+            "trials": 120,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 5,
+            "N": 15,
+            "trials": 120,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 5,
+            "N": 16,
+            "trials": 120,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 5,
+            "heuristic_zero_avoid_threshold_N": 14,
+            "threshold_over_m": 2.8
+          }
+        ],
+        "elapsed_ms": 127,
+        "generated_utc": "2026-03-12T12:45:12.775Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch14_quick_compute.mjs",
-        "heading": "finite heuristic for H5 Ramsey-size linearity using H = mK2.",
-        "content": "// EP-567: finite heuristic for H5 Ramsey-size linearity using H = mK2.\n{\n  // H5 (K4 with one subdivided edge): 5 vertices, 7 edges.\n  const H5 = {\n    v: 5,\n    edges: [[0, 2], [0, 3], [1, 2], [1, 3], [2, 3], [0, 4], [1, 4]],\n  };\n\n  function edgeIndex(N) {\n    const idx = Array.from({ length: N }, () => Array(N).fill(-1));\n    let e = 0;\n    for (let i = 0; i < N; i += 1) {\n      for (let j = i + 1; j < N; j += 1) {\n        idx[i][j] = e;\n        idx[j][i] = e;\n        e += 1;\n      }\n    }\n    return idx;\n  }\n\n  function redContainsH5Sample(mask, N, idx, rng, samples = 800) {\n    const verts = Array.from({ length: N }, (_, i) => i);\n\n    for (let s = 0; s < samples; s += 1) {\n      // Partial Fisher-Yates sample of 5 distinct vertices.\n      for (let i = 0; i < 5; i += 1) {\n        const j = i + Math.floor(rng() * (N - i));\n        const tmp = verts[i];\n        verts[i] = verts[j];\n        verts[j] = tmp;\n      }\n      const map = verts;\n      let ok = true;\n      for (const [a, b] of H5.edges) {\n        const bit = ((mask >> BigInt(idx[map[a]][map[b]])) & 1n) === 1n;\n        if (!bit) {\n          ok = false;\n          break;\n        }\n      }\n      if (ok) return true;\n    }\n    return false;\n  }\n\n  function blueMatchingNumber(mask, N, idx) {\n    const memo = new Map();\n\n    function dfs(maskV) {\n      if (memo.has(maskV)) return memo.get(maskV);\n      if (maskV === 0) return 0;\n\n      let v = 0;\n      while (((maskV >> v) & 1) === 0) v += 1;\n      let best = dfs(maskV & ~(1 << v)); // leave v unmatched\n\n      for (let u = v + 1; u < N; u += 1) {\n        if (((maskV >> u) & 1) === 0) continue;\n        const isRed = ((mask >> BigInt(idx[v][u])) & 1n) === 1n;\n        if (!isRed) {\n          const cand = 1 + dfs(maskV & ~(1 << v) & ~(1 << u));\n          if (cand > best) best = cand;\n        }\n      }\n      memo.set(maskV, best);\n      return best;\n    }\n\n    return dfs((1 << N) - 1);\n  }\n\n  const rng = makeRng(20260303 ^ 1409);\n  const rows = [];\n\n  for (const m of [2, 3, 4]) {\n    let heuristicThreshold = null;\n\n    for (const N of [8, 10, 12]) {\n      const E = (N * (N - 1)) / 2;\n      const idx = edgeIndex(N);\n\n      let avoidFound = 0;\n      const trials = 60;\n      for (let t = 0; t < trials; t += 1) {\n        let mask = 0n;\n        for (let e = 0; e < E; e += 1) {\n          if (rng() < 0.5) mask |= 1n << BigInt(e);\n        }\n        const redH5 = redContainsH5Sample(mask, N, idx, rng, 1000);\n        if (redH5) continue;\n        const blueMatch = blueMatchingNumber(mask, N, idx);\n        if (blueMatch < m) avoidFound += 1;\n      }\n\n      rows.push({\n        target_H_matching_size_m: m,\n        N,\n        trials,\n        avoiding_coloring_hits: avoidFound,\n      });\n\n      if (heuristicThreshold === null && avoidFound === 0) heuristicThreshold = N;\n    }\n\n    rows.push({\n      target_H_matching_size_m: m,\n      heuristic_zero_avoid_threshold_N: heuristicThreshold,\n      ratio_threshold_over_m: heuristicThreshold === null ? null : Number((heuristicThreshold / m).toPrecision(6)),\n    });\n  }\n\n  out.results.ep567 = {\n    description: 'Finite heuristic on R(H5, mK2) via random-coloring avoidance search.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch14_quick_compute.json",
-        "key": "ep567",
-        "container_meta": {
-          "script": "harder_batch14_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:54:10.902Z"
-        },
-        "data": {
-          "description": "Finite heuristic on R(H5, mK2) via random-coloring avoidance search.",
-          "rows": [
-            {
-              "target_H_matching_size_m": 2,
-              "N": 8,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 2,
-              "N": 10,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 2,
-              "N": 12,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 2,
-              "N": 14,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 2,
-              "heuristic_zero_avoid_threshold_N": 8,
-              "ratio_threshold_over_m": 4
-            },
-            {
-              "target_H_matching_size_m": 3,
-              "N": 8,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 3,
-              "N": 10,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 3,
-              "N": 12,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 3,
-              "N": 14,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 3,
-              "heuristic_zero_avoid_threshold_N": 8,
-              "ratio_threshold_over_m": 2.66667
-            },
-            {
-              "target_H_matching_size_m": 4,
-              "N": 8,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 4,
-              "N": 10,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 4,
-              "N": 12,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 4,
-              "N": 14,
-              "trials": 120,
-              "avoiding_coloring_hits": 0
-            },
-            {
-              "target_H_matching_size_m": 4,
-              "heuristic_zero_avoid_threshold_N": 8,
-              "ratio_threshold_over_m": 2
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

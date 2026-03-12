@@ -1,5 +1,47 @@
 {
   "problem": "EP-593",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:41:22.303Z",
+  "computations": [
+    {
+      "source_file": "ep593_standalone_deeper_20260312T134122Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:41:22.303Z",
+      "data": {
+        "problem": "EP-593",
+        "script": "ep593.mjs",
+        "method": "finite_3_uniform_proxy_high_chromatic_vs_forced_small_pattern",
+        "params": {},
+        "rows": [
+          {
+            "n": 16,
+            "p": 0.12,
+            "trials": 120,
+            "avg_weak_chromatic_number_estimate": 3.325,
+            "fraction_with_weak_chromatic_at_least_4": 0.325,
+            "fraction_containing_K4_3": 0.35
+          },
+          {
+            "n": 18,
+            "p": 0.1,
+            "trials": 100,
+            "avg_weak_chromatic_number_estimate": 3.55,
+            "fraction_with_weak_chromatic_at_least_4": 0.54,
+            "fraction_containing_K4_3": 0.28
+          },
+          {
+            "n": 20,
+            "p": 0.09,
+            "trials": 90,
+            "avg_weak_chromatic_number_estimate": 3.7777778,
+            "fraction_with_weak_chromatic_at_least_4": 0.77777778,
+            "fraction_containing_K4_3": 0.26666667
+          }
+        ],
+        "elapsed_ms": 119,
+        "generated_utc": "2026-03-12T13:41:22.303Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

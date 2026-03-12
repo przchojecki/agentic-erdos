@@ -1,5 +1,195 @@
 {
   "problem": "EP-513",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep513_standalone_deeper_20260312T105435Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:54:35.100Z",
+      "data": {
+        "problem": "EP-513",
+        "script": "ep513.mjs",
+        "method": "finite_radius_proxy_for_max_term_over_maximum_modulus",
+        "params": {
+          "ANG": 2048,
+          "radii": [
+            0.5,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16,
+            20
+          ]
+        },
+        "rows": [
+          {
+            "function_family": "exp_z",
+            "radii": [
+              0.5,
+              1,
+              2,
+              3,
+              5,
+              8,
+              12,
+              16,
+              20
+            ],
+            "profile": [
+              {
+                "r": 0.5,
+                "max_term_over_M": 0.6065306597
+              },
+              {
+                "r": 1,
+                "max_term_over_M": 0.3678794412
+              },
+              {
+                "r": 2,
+                "max_term_over_M": 0.2706705665
+              },
+              {
+                "r": 3,
+                "max_term_over_M": 0.2240418077
+              },
+              {
+                "r": 5,
+                "max_term_over_M": 0.1754673698
+              },
+              {
+                "r": 8,
+                "max_term_over_M": 0.139586532
+              },
+              {
+                "r": 12,
+                "max_term_over_M": 0.1143679155
+              },
+              {
+                "r": 16,
+                "max_term_over_M": 0.09921753162
+              },
+              {
+                "r": 20,
+                "max_term_over_M": 0.08883531739
+              }
+            ],
+            "finite_liminf_proxy": 0.08883531739
+          },
+          {
+            "function_family": "sin_z",
+            "radii": [
+              0.5,
+              1,
+              2,
+              3,
+              5,
+              8,
+              12,
+              16,
+              20
+            ],
+            "profile": [
+              {
+                "r": 0.5,
+                "max_term_over_M": 0.9595173757
+              },
+              {
+                "r": 1,
+                "max_term_over_M": 0.8509181282
+              },
+              {
+                "r": 2,
+                "max_term_over_M": 0.5514411295
+              },
+              {
+                "r": 3,
+                "max_term_over_M": 0.4491970635
+              },
+              {
+                "r": 5,
+                "max_term_over_M": 0.3509506727
+              },
+              {
+                "r": 8,
+                "max_term_over_M": 0.2791730953
+              },
+              {
+                "r": 12,
+                "max_term_over_M": 0.228735831
+              },
+              {
+                "r": 16,
+                "max_term_over_M": 0.1984350632
+              },
+              {
+                "r": 20,
+                "max_term_over_M": 0.1776706348
+              }
+            ],
+            "finite_liminf_proxy": 0.1776706348
+          },
+          {
+            "function_family": "lacunary_square_exponents",
+            "radii": [
+              0.5,
+              1,
+              2,
+              3,
+              5,
+              8,
+              12,
+              16,
+              20
+            ],
+            "profile": [
+              {
+                "r": 0.5,
+                "max_term_over_M": 0.7865811327
+              },
+              {
+                "r": 1,
+                "max_term_over_M": 0.3534857624
+              },
+              {
+                "r": 2,
+                "max_term_over_M": 0.9999656641
+              },
+              {
+                "r": 3,
+                "max_term_over_M": 0.9999999216
+              },
+              {
+                "r": 5,
+                "max_term_over_M": 1
+              },
+              {
+                "r": 8,
+                "max_term_over_M": 1
+              },
+              {
+                "r": 12,
+                "max_term_over_M": 1
+              },
+              {
+                "r": 16,
+                "max_term_over_M": 1
+              },
+              {
+                "r": 20,
+                "max_term_over_M": 1
+              }
+            ],
+            "finite_liminf_proxy": 0.3534857624
+          }
+        ],
+        "elapsed_ms": 13,
+        "generated_utc": "2026-03-12T10:54:35.100Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

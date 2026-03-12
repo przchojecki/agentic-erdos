@@ -1,64 +1,78 @@
 {
   "problem": "EP-521",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch13_web_compute.md",
-        "content": "### EP-521\n- Quick literature check:\n  - Strong law in `[-1,1]` with `1/pi` constant now has recent progress; full real-root almost-sure law remains delicate.\n- Finite compute signal:\n  - Approximate root counts in `[-1,1]` give averages with ratio to `log n` around `0.32..0.35`, close to `1/pi`.\n- Interpretation:\n  - Numerics align with the `1/pi`-constant behavior for interval-restricted roots.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/478\n  - https://www.erdosproblems.com/483\n  - https://www.erdosproblems.com/488\n  - https://www.erdosproblems.com/500\n  - https://www.erdosproblems.com/503\n  - https://www.erdosproblems.com/507\n  - https://www.erdosproblems.com/508\n  - https://www.erdosproblems.com/510\n  - https://www.erdosproblems.com/520\n  - https://www.erdosproblems.com/521\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2409.07658\n  - https://arxiv.org/abs/2509.05260\n  - https://arxiv.org/abs/2509.03490\n  - https://arxiv.org/abs/2304.00943\n  - https://arxiv.org/abs/2403.06353\n  - https://arxiv.org/abs/2112.03175"
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch13_quick_compute.mjs",
-        "heading": "approximate real-root counts in [-1,1] for random +/-1 polynomials.",
-        "content": "// EP-521: approximate real-root counts in [-1,1] for random +/-1 polynomials.\n{\n  const rng = makeRng(20260303 ^ 1307);\n\n  function evalPoly(coeff, x) {\n    let v = 0;\n    for (let i = coeff.length - 1; i >= 0; i -= 1) v = v * x + coeff[i];\n    return v;\n  }\n\n  function approxRootsInInterval(coeff, L, R, grid = 700) {\n    const eps = 1e-10;\n    let roots = 0;\n    let prev = evalPoly(coeff, L);\n    if (Math.abs(prev) < eps) prev = 0;\n\n    for (let i = 1; i <= grid; i += 1) {\n      const x = L + ((R - L) * i) / grid;\n      let cur = evalPoly(coeff, x);\n      if (Math.abs(cur) < eps) cur = 0;\n\n      if (prev === 0 && cur === 0) {\n        // skip flat near-zero numerics\n      } else if (prev === 0 || cur === 0) {\n        roots += 1;\n      } else if (prev * cur < 0) {\n        roots += 1;\n      }\n\n      prev = cur;\n    }\n    return roots;\n  }\n\n  const rows = [];\n  for (const [n, trials] of [[150, 80], [300, 70], [600, 60], [900, 50]]) {\n    let sumRoots = 0;\n    let maxRoots = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const coeff = Array.from({ length: n + 1 }, () => (rng() < 0.5 ? -1 : 1));\n      const r = approxRootsInInterval(coeff, -1, 1, 700);\n      sumRoots += r;\n      if (r > maxRoots) maxRoots = r;\n    }\n\n    const avg = sumRoots / trials;\n    rows.push({\n      n,\n      trials,\n      approx_avg_roots_in_minus1_1: Number(avg.toPrecision(7)),\n      approx_avg_over_log_n: Number((avg / Math.log(n)).toPrecision(7)),\n      approx_max_roots_in_minus1_1: maxRoots,\n    });\n  }\n\n  out.results.ep521 = {\n    description: 'Approximate root-count profile in [-1,1] for random ±1-coefficient polynomials.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch13_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch13_quick_compute.json",
-        "key": "ep521",
-        "container_meta": {
-          "script": "harder_batch13_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:44:19.727Z"
-        },
-        "data": {
-          "description": "Approximate root-count profile in [-1,1] for random ±1-coefficient polynomials.",
-          "rows": [
+  "computations": [
+    {
+      "source_file": "ep521_standalone_deeper_20260312T105707Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:57:07.905Z",
+      "data": {
+        "problem": "EP-521",
+        "script": "ep521.mjs",
+        "method": "deep_grid_sign_change_proxy_for_real_roots_in_minus1_1",
+        "params": {
+          "tasks": [
             {
-              "n": 150,
-              "trials": 80,
-              "approx_avg_roots_in_minus1_1": 1.675,
-              "approx_avg_over_log_n": 0.3342889,
-              "approx_max_roots_in_minus1_1": 4
+              "n": 200,
+              "trials": 220,
+              "grid": 1800
             },
             {
-              "n": 300,
-              "trials": 70,
-              "approx_avg_roots_in_minus1_1": 1.928571,
-              "approx_avg_over_log_n": 0.3381215,
-              "approx_max_roots_in_minus1_1": 4
+              "n": 400,
+              "trials": 170,
+              "grid": 1800
             },
             {
-              "n": 600,
-              "trials": 60,
-              "approx_avg_roots_in_minus1_1": 2.25,
-              "approx_avg_over_log_n": 0.3517312,
-              "approx_max_roots_in_minus1_1": 5
+              "n": 800,
+              "trials": 120,
+              "grid": 1800
             },
             {
-              "n": 900,
-              "trials": 50,
-              "approx_avg_roots_in_minus1_1": 2.2,
-              "approx_avg_over_log_n": 0.3234155,
-              "approx_max_roots_in_minus1_1": 5
+              "n": 1200,
+              "trials": 90,
+              "grid": 1800
             }
           ]
-        }
+        },
+        "rows": [
+          {
+            "n": 200,
+            "trials": 220,
+            "grid": 1800,
+            "approx_avg_roots_in_minus1_1": 1.7272727,
+            "approx_avg_over_log_n": 0.32600401,
+            "approx_max_roots_in_minus1_1": 4
+          },
+          {
+            "n": 400,
+            "trials": 170,
+            "grid": 1800,
+            "approx_avg_roots_in_minus1_1": 1.9176471,
+            "approx_avg_over_log_n": 0.32006316,
+            "approx_max_roots_in_minus1_1": 5
+          },
+          {
+            "n": 800,
+            "trials": 120,
+            "grid": 1800,
+            "approx_avg_roots_in_minus1_1": 2.175,
+            "approx_avg_over_log_n": 0.32537417,
+            "approx_max_roots_in_minus1_1": 5
+          },
+          {
+            "n": 1200,
+            "trials": 90,
+            "grid": 1800,
+            "approx_avg_roots_in_minus1_1": 2.3555556,
+            "approx_avg_over_log_n": 0.33223273,
+            "approx_max_roots_in_minus1_1": 8
+          }
+        ],
+        "elapsed_ms": 792,
+        "generated_utc": "2026-03-12T10:57:07.905Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

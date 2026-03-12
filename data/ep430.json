@@ -1,5 +1,164 @@
 {
   "problem": "EP-430",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep430_standalone_deeper_20260312T101545Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:15:45.857Z",
+      "data": {
+        "problem": "EP-430",
+        "script": "ep430.mjs",
+        "method": "interval_cover_from_composite_witnesses_via_min_prime_factor",
+        "params": {
+          "N": 2000000,
+          "MILESTONES": [
+            10000,
+            50000,
+            100000,
+            300000,
+            500000,
+            1000000,
+            1500000,
+            2000000
+          ]
+        },
+        "rows": [
+          {
+            "n": 10000,
+            "covered_n_count_up_to_n": 9898,
+            "uncovered_count_up_to_n": 102,
+            "covered_density": 0.9898
+          },
+          {
+            "n": 50000,
+            "covered_n_count_up_to_n": 49898,
+            "uncovered_count_up_to_n": 102,
+            "covered_density": 0.99796
+          },
+          {
+            "n": 100000,
+            "covered_n_count_up_to_n": 99898,
+            "uncovered_count_up_to_n": 102,
+            "covered_density": 0.99898
+          },
+          {
+            "n": 300000,
+            "covered_n_count_up_to_n": 299896,
+            "uncovered_count_up_to_n": 104,
+            "covered_density": 0.99965333
+          },
+          {
+            "n": 500000,
+            "covered_n_count_up_to_n": 499896,
+            "uncovered_count_up_to_n": 104,
+            "covered_density": 0.999792
+          },
+          {
+            "n": 1000000,
+            "covered_n_count_up_to_n": 999896,
+            "uncovered_count_up_to_n": 104,
+            "covered_density": 0.999896
+          },
+          {
+            "n": 1500000,
+            "covered_n_count_up_to_n": 1499896,
+            "uncovered_count_up_to_n": 104,
+            "covered_density": 0.99993067
+          },
+          {
+            "n": 2000000,
+            "covered_n_count_up_to_n": 1999896,
+            "uncovered_count_up_to_n": 104,
+            "covered_density": 0.999948
+          }
+        ],
+        "first_80_uncovered_n": [
+          2,
+          3,
+          4,
+          6,
+          8,
+          12,
+          14,
+          18,
+          20,
+          24,
+          30,
+          32,
+          42,
+          44,
+          48,
+          60,
+          62,
+          72,
+          74,
+          84,
+          90,
+          102,
+          104,
+          108,
+          110,
+          114,
+          132,
+          140,
+          168,
+          182,
+          198,
+          200,
+          234,
+          240,
+          242,
+          270,
+          272,
+          282,
+          284,
+          312,
+          314,
+          318,
+          354,
+          360,
+          390,
+          420,
+          422,
+          434,
+          462,
+          464,
+          468,
+          510,
+          572,
+          648,
+          660,
+          662,
+          762,
+          840,
+          884,
+          888,
+          942,
+          1064,
+          1110,
+          1302,
+          1304,
+          1308,
+          1430,
+          1434,
+          1440,
+          1452,
+          1454,
+          1488,
+          1490,
+          1494,
+          1500,
+          1572,
+          2004,
+          2114,
+          2352,
+          2394
+        ],
+        "generated_utc": "2026-03-12T10:15:45.857Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

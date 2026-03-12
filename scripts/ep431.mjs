@@ -1,59 +1,105 @@
 #!/usr/bin/env node
-const meta={problem:'EP-431',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-431 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch12_quick_compute.mjs | finite random sumset coverage proxy for primes. ----
-// // EP-431: finite random sumset coverage proxy for primes.
-// {
-//   const X = 5000;
-//   const M = 800;
-//   const primesX = primes.filter((p) => p <= X);
-// 
-//   const rng = { x: 20260303 ^ 1201 };
-// 
-//   function coverageForSizes(sa, sb, trials) {
-//     let best = 0;
-//     let avg = 0;
-// 
-//     for (let t = 0; t < trials; t += 1) {
-//       const A = sampleWithoutReplacement(M, sa, rng);
-//       const B = sampleWithoutReplacement(M, sb, rng);
-//       const sums = new Uint8Array(X + 1);
-//       for (const a of A) {
-//         for (const b of B) {
-//           const s = a + b;
-//           if (s <= X) sums[s] = 1;
-//         }
-//       }
-//       let c = 0;
-//       for (const p of primesX) if (sums[p]) c += 1;
-//       const ratio = c / primesX.length;
-//       avg += ratio;
-//       if (ratio > best) best = ratio;
-//     }
-// 
-//     return {
-//       size_A: sa,
-//       size_B: sb,
-//       trials,
-//       best_prime_coverage_ratio: Number(best.toPrecision(6)),
-//       avg_prime_coverage_ratio: Number((avg / trials).toPrecision(6)),
-//     };
-//   }
-// 
-//   out.results.ep431 = {
-//     description: 'Random finite sumset coverage of primes up to X by A+B with bounded A,B.',
-//     X,
-//     prime_count_up_to_X: primesX.length,
-//     rows: [
-//       coverageForSizes(12, 12, 250),
-//       coverageForSizes(20, 20, 250),
-//       coverageForSizes(30, 30, 250),
-//       coverageForSizes(40, 40, 250),
-//       coverageForSizes(50, 50, 250),
-//     ],
-//   };
-// }
-// ==== End Batch Split Integrations ====
+import fs from 'node:fs';
+import path from 'node:path';
+
+function sievePrime(n) {
+  const isPrime = new Uint8Array(n + 1);
+  isPrime.fill(1, 2);
+  for (let i = 2; i * i <= n; i += 1) if (isPrime[i]) for (let j = i * i; j <= n; j += i) isPrime[j] = 0;
+  const primes = [];
+  for (let i = 2; i <= n; i += 1) if (isPrime[i]) primes.push(i);
+  return { isPrime, primes };
+}
+
+function rng(seed) {
+  let x = seed >>> 0;
+  return () => {
+    x ^= x << 13;
+    x ^= x >>> 17;
+    x ^= x << 5;
+    return (x >>> 0) / 0x100000000;
+  };
+}
+
+function sampleDistinct(M, k, rnd) {
+  const arr = Array.from({ length: M }, (_, i) => i + 1);
+  for (let i = 0; i < k; i += 1) {
+    const j = i + Math.floor(rnd() * (M - i));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr.slice(0, k).sort((a, b) => a - b);
+}
+
+const X = Number(process.env.X || 10000);
+const M = Number(process.env.M || 1800);
+const SIZE = Number(process.env.SIZE || 70);
+const TRIALS = Number(process.env.TRIALS || 700);
+const OUT = process.env.OUT || '';
+
+const { isPrime, primes } = sievePrime(X);
+const primeList = primes;
+const rnd = rng(20260312 ^ 431);
+
+function coverage(A, B) {
+  const sums = new Uint8Array(X + 1);
+  for (const a of A) {
+    for (const b of B) {
+      const s = a + b;
+      if (s <= X) sums[s] = 1;
+    }
+  }
+  let c = 0;
+  for (const p of primeList) if (sums[p]) c += 1;
+  return c;
+}
+
+let best = { c: -1, A: [], B: [] };
+let avg = 0;
+for (let t = 0; t < TRIALS; t += 1) {
+  const A = sampleDistinct(M, SIZE, rnd);
+  const B = sampleDistinct(M, SIZE, rnd);
+  const c = coverage(A, B);
+  avg += c;
+  if (c > best.c) best = { c, A, B };
+}
+
+// local improvement on best sample
+for (let it = 0; it < 140; it += 1) {
+  let improved = false;
+  for (let side = 0; side < 2; side += 1) {
+    const baseSet = side === 0 ? best.A.slice() : best.B.slice();
+    for (let rep = 0; rep < 20; rep += 1) {
+      const idx = Math.floor(rnd() * SIZE);
+      const cand = 1 + Math.floor(rnd() * M);
+      if (baseSet.includes(cand)) continue;
+      const trial = baseSet.slice();
+      trial[idx] = cand;
+      trial.sort((a, b) => a - b);
+      const A = side === 0 ? trial : best.A;
+      const B = side === 0 ? best.B : trial;
+      const c = coverage(A, B);
+      if (c > best.c) {
+        best = { c, A: A.slice(), B: B.slice() };
+        improved = true;
+      }
+    }
+  }
+  if (!improved) break;
+}
+
+const out = {
+  problem: 'EP-431',
+  script: path.basename(process.argv[1]),
+  method: 'random_plus_local_search_prime_sumset_coverage_proxy',
+  params: { X, M, SIZE, TRIALS },
+  prime_count_up_to_X: primeList.length,
+  avg_random_coverage_ratio: Number(((avg / TRIALS) / primeList.length).toPrecision(8)),
+  best_coverage_count: best.c,
+  best_coverage_ratio: Number((best.c / primeList.length).toPrecision(8)),
+  best_A_first_40: best.A.slice(0, 40),
+  best_B_first_40: best.B.slice(0, 40),
+  generated_utc: new Date().toISOString(),
+};
+
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

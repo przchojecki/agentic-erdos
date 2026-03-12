@@ -1,5 +1,68 @@
 {
   "problem": "EP-467",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep467_standalone_deeper_20260312T102407Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:24:07.427Z",
+      "data": {
+        "problem": "EP-467",
+        "script": "ep467.mjs",
+        "method": "finite_random_sat_search_for_quantified_congruence_partition_instance",
+        "params": {
+          "X_LIST": [
+            60,
+            80,
+            100,
+            120,
+            150,
+            180
+          ],
+          "ATTEMPTS": 120
+        },
+        "rows": [
+          {
+            "found": false,
+            "X": 60,
+            "prime_count": 17,
+            "attempts_used": 120
+          },
+          {
+            "found": false,
+            "X": 80,
+            "prime_count": 22,
+            "attempts_used": 120
+          },
+          {
+            "found": false,
+            "X": 100,
+            "prime_count": 25,
+            "attempts_used": 120
+          },
+          {
+            "found": false,
+            "X": 120,
+            "prime_count": 30,
+            "attempts_used": 120
+          },
+          {
+            "found": false,
+            "X": 150,
+            "prime_count": 35,
+            "attempts_used": 120
+          },
+          {
+            "found": false,
+            "X": 180,
+            "prime_count": 41,
+            "attempts_used": 120
+          }
+        ],
+        "generated_utc": "2026-03-12T10:24:07.427Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

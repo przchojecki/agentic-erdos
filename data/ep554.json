@@ -1,5 +1,105 @@
 {
   "problem": "EP-554",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep554_standalone_deeper_20260312T111905Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:19:06.032Z",
+      "data": {
+        "problem": "EP-554",
+        "script": "ep554.mjs",
+        "method": "greedy_multicolor_avoidance_profile_for_C5_vs_K3",
+        "params": {},
+        "rows": [
+          {
+            "k": 3,
+            "best_n_with_greedy_success_K3": 10,
+            "best_n_with_greedy_success_C5": 10,
+            "ratio_best_C5_over_best_K3": 1,
+            "detail": [
+              {
+                "n": 10,
+                "restarts": 220,
+                "greedy_successes_K3": 3,
+                "greedy_successes_C5": 3
+              },
+              {
+                "n": 12,
+                "restarts": 220,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 14,
+                "restarts": 220,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 16,
+                "restarts": 220,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 18,
+                "restarts": 220,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 20,
+                "restarts": 220,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              }
+            ]
+          },
+          {
+            "k": 4,
+            "best_n_with_greedy_success_K3": 16,
+            "best_n_with_greedy_success_C5": 0,
+            "ratio_best_C5_over_best_K3": null,
+            "detail": [
+              {
+                "n": 16,
+                "restarts": 180,
+                "greedy_successes_K3": 8,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 20,
+                "restarts": 180,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 24,
+                "restarts": 180,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 28,
+                "restarts": 180,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              },
+              {
+                "n": 32,
+                "restarts": 180,
+                "greedy_successes_K3": 0,
+                "greedy_successes_C5": 0
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 177,
+        "generated_utc": "2026-03-12T11:19:06.032Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

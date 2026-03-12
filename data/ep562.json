@@ -1,5 +1,192 @@
 {
   "problem": "EP-562",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep562_standalone_deeper_20260312T113326Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:33:27.020Z",
+      "data": {
+        "problem": "EP-562",
+        "script": "ep562.mjs",
+        "method": "random_K4_3_avoidance_plus_iterated_log_tower_scale_proxy",
+        "params": {},
+        "random_rows": [
+          {
+            "N": 10,
+            "trials": 700,
+            "avoiding_hits_no_mono_K4_3": 0
+          },
+          {
+            "N": 11,
+            "trials": 700,
+            "avoiding_hits_no_mono_K4_3": 0
+          },
+          {
+            "N": 12,
+            "trials": 600,
+            "avoiding_hits_no_mono_K4_3": 0
+          },
+          {
+            "N": 13,
+            "trials": 500,
+            "avoiding_hits_no_mono_K4_3": 0
+          }
+        ],
+        "tower_proxy_rows": [
+          {
+            "r": 3,
+            "n": 4,
+            "log_iter_r_minus_1_lower_proxy": 0.6,
+            "log_iter_r_minus_1_upper_proxy": 2,
+            "linear_n_reference": 4
+          },
+          {
+            "r": 3,
+            "n": 5,
+            "log_iter_r_minus_1_lower_proxy": 0.75,
+            "log_iter_r_minus_1_upper_proxy": 2.5,
+            "linear_n_reference": 5
+          },
+          {
+            "r": 3,
+            "n": 6,
+            "log_iter_r_minus_1_lower_proxy": 0.9,
+            "log_iter_r_minus_1_upper_proxy": 3,
+            "linear_n_reference": 6
+          },
+          {
+            "r": 3,
+            "n": 7,
+            "log_iter_r_minus_1_lower_proxy": 1.05,
+            "log_iter_r_minus_1_upper_proxy": 3.5,
+            "linear_n_reference": 7
+          },
+          {
+            "r": 3,
+            "n": 8,
+            "log_iter_r_minus_1_lower_proxy": 1.2,
+            "log_iter_r_minus_1_upper_proxy": 4,
+            "linear_n_reference": 8
+          },
+          {
+            "r": 3,
+            "n": 10,
+            "log_iter_r_minus_1_lower_proxy": 1.5,
+            "log_iter_r_minus_1_upper_proxy": 5,
+            "linear_n_reference": 10
+          },
+          {
+            "r": 3,
+            "n": 12,
+            "log_iter_r_minus_1_lower_proxy": 1.8,
+            "log_iter_r_minus_1_upper_proxy": 6,
+            "linear_n_reference": 12
+          },
+          {
+            "r": 4,
+            "n": 4,
+            "log_iter_r_minus_1_lower_proxy": 0.57,
+            "log_iter_r_minus_1_upper_proxy": 1.92,
+            "linear_n_reference": 4
+          },
+          {
+            "r": 4,
+            "n": 5,
+            "log_iter_r_minus_1_lower_proxy": 0.7125,
+            "log_iter_r_minus_1_upper_proxy": 2.4,
+            "linear_n_reference": 5
+          },
+          {
+            "r": 4,
+            "n": 6,
+            "log_iter_r_minus_1_lower_proxy": 0.855,
+            "log_iter_r_minus_1_upper_proxy": 2.88,
+            "linear_n_reference": 6
+          },
+          {
+            "r": 4,
+            "n": 7,
+            "log_iter_r_minus_1_lower_proxy": 0.9975,
+            "log_iter_r_minus_1_upper_proxy": 3.36,
+            "linear_n_reference": 7
+          },
+          {
+            "r": 4,
+            "n": 8,
+            "log_iter_r_minus_1_lower_proxy": 1.14,
+            "log_iter_r_minus_1_upper_proxy": 3.84,
+            "linear_n_reference": 8
+          },
+          {
+            "r": 4,
+            "n": 10,
+            "log_iter_r_minus_1_lower_proxy": 1.425,
+            "log_iter_r_minus_1_upper_proxy": 4.8,
+            "linear_n_reference": 10
+          },
+          {
+            "r": 4,
+            "n": 12,
+            "log_iter_r_minus_1_lower_proxy": 1.71,
+            "log_iter_r_minus_1_upper_proxy": 5.76,
+            "linear_n_reference": 12
+          },
+          {
+            "r": 5,
+            "n": 4,
+            "log_iter_r_minus_1_lower_proxy": 0.552,
+            "log_iter_r_minus_1_upper_proxy": 1.872,
+            "linear_n_reference": 4
+          },
+          {
+            "r": 5,
+            "n": 5,
+            "log_iter_r_minus_1_lower_proxy": 0.69,
+            "log_iter_r_minus_1_upper_proxy": 2.34,
+            "linear_n_reference": 5
+          },
+          {
+            "r": 5,
+            "n": 6,
+            "log_iter_r_minus_1_lower_proxy": 0.828,
+            "log_iter_r_minus_1_upper_proxy": 2.808,
+            "linear_n_reference": 6
+          },
+          {
+            "r": 5,
+            "n": 7,
+            "log_iter_r_minus_1_lower_proxy": 0.966,
+            "log_iter_r_minus_1_upper_proxy": 3.276,
+            "linear_n_reference": 7
+          },
+          {
+            "r": 5,
+            "n": 8,
+            "log_iter_r_minus_1_lower_proxy": 1.104,
+            "log_iter_r_minus_1_upper_proxy": 3.744,
+            "linear_n_reference": 8
+          },
+          {
+            "r": 5,
+            "n": 10,
+            "log_iter_r_minus_1_lower_proxy": 1.38,
+            "log_iter_r_minus_1_upper_proxy": 4.68,
+            "linear_n_reference": 10
+          },
+          {
+            "r": 5,
+            "n": 12,
+            "log_iter_r_minus_1_lower_proxy": 1.656,
+            "log_iter_r_minus_1_upper_proxy": 5.616,
+            "linear_n_reference": 12
+          }
+        ],
+        "elapsed_ms": 54,
+        "generated_utc": "2026-03-12T11:33:27.020Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,104 @@
 {
   "problem": "EP-572",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:04:30.477Z",
+  "computations": [
+    {
+      "source_file": "ep572_standalone_deeper_20260312T130252Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:04:30.477Z",
+      "data": {
+        "problem": "EP-572",
+        "script": "ep572.mjs",
+        "method": "greedy_extremal_profile_for_even_cycle_free_graphs",
+        "params": {},
+        "rows": [
+          {
+            "k": 3,
+            "cycle_length": 6,
+            "n": 34,
+            "trials": 32,
+            "best_edges_found_without_C_2k": 75,
+            "normalized_over_n_1_plus_1_over_k": 0.68090947,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 0.68090947
+          },
+          {
+            "k": 3,
+            "cycle_length": 6,
+            "n": 44,
+            "trials": 32,
+            "best_edges_found_without_C_2k": 96,
+            "normalized_over_n_1_plus_1_over_k": 0.61801782,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 0.61801782
+          },
+          {
+            "k": 3,
+            "cycle_length": 6,
+            "n": 54,
+            "trials": 32,
+            "best_edges_found_without_C_2k": 116,
+            "normalized_over_n_1_plus_1_over_k": 0.56832877,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 0.56832877
+          },
+          {
+            "k": 4,
+            "cycle_length": 8,
+            "n": 40,
+            "trials": 22,
+            "best_edges_found_without_C_2k": 102,
+            "normalized_over_n_1_plus_1_over_k": 1.0139702,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 1.1233804
+          },
+          {
+            "k": 4,
+            "cycle_length": 8,
+            "n": 50,
+            "trials": 22,
+            "best_edges_found_without_C_2k": 113,
+            "normalized_over_n_1_plus_1_over_k": 0.8498963,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 0.94745709
+          },
+          {
+            "k": 4,
+            "cycle_length": 8,
+            "n": 60,
+            "trials": 22,
+            "best_edges_found_without_C_2k": 119,
+            "normalized_over_n_1_plus_1_over_k": 0.71261982,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 0.798456
+          },
+          {
+            "k": 5,
+            "cycle_length": 10,
+            "n": 46,
+            "trials": 16,
+            "best_edges_found_without_C_2k": 123,
+            "normalized_over_n_1_plus_1_over_k": 1.2433566,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 1.4126058
+          },
+          {
+            "k": 5,
+            "cycle_length": 10,
+            "n": 56,
+            "trials": 16,
+            "best_edges_found_without_C_2k": 131,
+            "normalized_over_n_1_plus_1_over_k": 1.0457928,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 1.1959654
+          },
+          {
+            "k": 5,
+            "cycle_length": 10,
+            "n": 66,
+            "trials": 16,
+            "best_edges_found_without_C_2k": 149,
+            "normalized_over_n_1_plus_1_over_k": 0.97663784,
+            "normalized_over_n_1_plus_2_over_3k_minus_3": 1.1230136
+          }
+        ],
+        "elapsed_ms": 98020,
+        "generated_utc": "2026-03-12T13:04:30.477Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

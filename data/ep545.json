@@ -1,52 +1,50 @@
 {
   "problem": "EP-545",
   "normalized_utc": "2026-03-05T08:54:16.962Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch14_web_compute.md",
-        "content": "### EP-545\n- Quick literature check:\n  - Page notes small-$m$ failures of the \"as complete as possible\" maximizer heuristic.\n- Finite compute signal:\n  - Exact diagonal checks recover:\n    - $R(P_3)=3$\n    - $R(2K_2)=5$\n    - $R(K_3)=6$\n- Interpretation:\n  - Explicitly confirms the counterexample pattern at $m=2$: $R(2K_2)>R(P_3)$."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch14_quick_compute.mjs",
-        "heading": "small-m exact counterexample check for \"as complete as possible\" maximizer.",
-        "content": "// EP-545: small-m exact counterexample check for \"as complete as possible\" maximizer.\n{\n  function edgeListComplete(N) {\n    const e = [];\n    for (let i = 0; i < N; i += 1) {\n      for (let j = i + 1; j < N; j += 1) e.push([i, j]);\n    }\n    return e;\n  }\n\n  function graphBitHelpers(N) {\n    const edges = edgeListComplete(N);\n    const idx = Array.from({ length: N }, () => Array(N).fill(-1));\n    edges.forEach(([u, v], i) => {\n      idx[u][v] = i;\n      idx[v][u] = i;\n    });\n    return { edges, idx };\n  }\n\n  function embeddingEdgeMasks(G, N, idx) {\n    const out = [];\n    const used = Array(N).fill(false);\n    const map = Array(G.v).fill(-1);\n\n    function dfs(i) {\n      if (i === G.v) {\n        let m = 0n;\n        for (const [a, b] of G.edges) {\n          const e = idx[map[a]][map[b]];\n          m |= 1n << BigInt(e);\n        }\n        out.push(m);\n        return;\n      }\n      for (let x = 0; x < N; x += 1) {\n        if (used[x]) continue;\n        used[x] = true;\n        map[i] = x;\n        dfs(i + 1);\n        used[x] = false;\n      }\n    }\n\n    dfs(0);\n    return out;\n  }\n\n  function hasMonoFromMasks(mask, edgeMasks) {\n    for (const em of edgeMasks) {\n      if ((mask & em) === em) return true; // all red\n      if ((mask & em) === 0n) return true; // all blue\n    }\n    return false;\n  }\n\n  function ramseyDiagonalExact(G, capN = 6) {\n    for (let N = G.v; N <= capN; N += 1) {\n      const { edges, idx } = graphBitHelpers(N);\n      const E = edges.length;\n      const edgeMasks = embeddingEdgeMasks(G, N, idx);\n      const total = 1n << BigInt(E);\n      let foundAvoid = false;\n      for (let m = 0n; m < total; m += 1n) {\n        if (!hasMonoFromMasks(m, edgeMasks)) {\n          foundAvoid = true;\n          break;\n        }\n      }\n      if (!foundAvoid) return N;\n    }\n    return null;\n  }\n\n  const P3 = { v: 3, edges: [[0, 1], [1, 2]] };\n  const M2 = { v: 4, edges: [[0, 1], [2, 3]] };\n  const K3 = { v: 3, edges: [[0, 1], [0, 2], [1, 2]] };\n\n  const rows = [\n    { graph: 'P3', m_edges: 2, R_diag_exact_cap6: ramseyDiagonalExact(P3, 6) },\n    { graph: '2K2', m_edges: 2, R_diag_exact_cap6: ramseyDiagonalExact(M2, 6) },\n    { graph: 'K3', m_edges: 3, R_diag_exact_cap6: ramseyDiagonalExact(K3, 6) },\n  ];\n\n  out.results.ep545 = {\n    description: 'Exact tiny-m diagonal Ramsey checks showing small-edge counterexample behavior.',\n    rows,\n    explicit_m2_counterexample: 'R(2K2)=5 > R(P3)=3 where P3 is the as-complete-as-possible graph for m=2.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch14_quick_compute.json",
-        "key": "ep545",
-        "container_meta": {
-          "script": "harder_batch14_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:54:10.902Z"
+  "computations": [
+    {
+      "source_file": "ep545_standalone_deeper_20260312T110755Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:07:55.710Z",
+      "data": {
+        "problem": "EP-545",
+        "script": "ep545.mjs",
+        "method": "expanded_exact_small_graph_diagonal_ramsey_profile",
+        "params": {
+          "capN": 7
         },
-        "data": {
-          "description": "Exact tiny-m diagonal Ramsey checks showing small-edge counterexample behavior.",
-          "rows": [
-            {
-              "graph": "P3",
-              "m_edges": 2,
-              "R_diag_exact_cap7": 3
-            },
-            {
-              "graph": "2K2",
-              "m_edges": 2,
-              "R_diag_exact_cap7": 5
-            },
-            {
-              "graph": "K3",
-              "m_edges": 3,
-              "R_diag_exact_cap7": 6
-            }
-          ],
-          "explicit_m2_counterexample": "R(2K2)=5 > R(P3)=3 where P3 is the as-complete-as-possible graph for m=2."
-        }
+        "rows": [
+          {
+            "graph": "P3",
+            "m_edges": 2,
+            "R_diag_exact_cap7": 3
+          },
+          {
+            "graph": "2K2",
+            "m_edges": 2,
+            "R_diag_exact_cap7": 5
+          },
+          {
+            "graph": "K3",
+            "m_edges": 3,
+            "R_diag_exact_cap7": 6
+          },
+          {
+            "graph": "P4",
+            "m_edges": 3,
+            "R_diag_exact_cap7": 5
+          },
+          {
+            "graph": "K1,3",
+            "m_edges": 3,
+            "R_diag_exact_cap7": 6
+          }
+        ],
+        "elapsed_ms": 4,
+        "generated_utc": "2026-03-12T11:07:55.710Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

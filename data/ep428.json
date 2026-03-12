@@ -1,5 +1,80 @@
 {
   "problem": "EP-428",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep428_standalone_deeper_20260312T101541Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:15:41.266Z",
+      "data": {
+        "problem": "EP-428",
+        "script": "ep428.mjs",
+        "method": "finite_best_shift_profile_for_prime_difference_sets",
+        "params": {
+          "N": 300000,
+          "X_LIST": [
+            200,
+            500,
+            1000,
+            2000,
+            5000,
+            10000
+          ]
+        },
+        "rows": [
+          {
+            "X": 200,
+            "pi_X": 46,
+            "best_n_in_scan": 202,
+            "best_count_AcapX": 46,
+            "best_ratio_over_piX": 1,
+            "best_ratio_over_X": 0.23
+          },
+          {
+            "X": 500,
+            "pi_X": 95,
+            "best_n_in_scan": 502,
+            "best_count_AcapX": 95,
+            "best_ratio_over_piX": 1,
+            "best_ratio_over_X": 0.19
+          },
+          {
+            "X": 1000,
+            "pi_X": 168,
+            "best_n_in_scan": 1002,
+            "best_count_AcapX": 168,
+            "best_ratio_over_piX": 1,
+            "best_ratio_over_X": 0.168
+          },
+          {
+            "X": 2000,
+            "pi_X": 303,
+            "best_n_in_scan": 2002,
+            "best_count_AcapX": 303,
+            "best_ratio_over_piX": 1,
+            "best_ratio_over_X": 0.1515
+          },
+          {
+            "X": 5000,
+            "pi_X": 669,
+            "best_n_in_scan": 5002,
+            "best_count_AcapX": 669,
+            "best_ratio_over_piX": 1,
+            "best_ratio_over_X": 0.1338
+          },
+          {
+            "X": 10000,
+            "pi_X": 1229,
+            "best_n_in_scan": 10002,
+            "best_count_AcapX": 1229,
+            "best_ratio_over_piX": 1,
+            "best_ratio_over_X": 0.1229
+          }
+        ],
+        "generated_utc": "2026-03-12T10:15:41.266Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

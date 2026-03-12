@@ -1,5 +1,81 @@
 {
   "problem": "EP-509",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep509_standalone_deeper_20260312T104542Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:45:42.341Z",
+      "data": {
+        "problem": "EP-509",
+        "script": "ep509.mjs",
+        "method": "grid_component_cover_heuristic_for_random_monic_polynomial_lemniscates",
+        "params": {
+          "box": 2.2,
+          "step": 0.05,
+          "grid_points": 7921,
+          "tasks": [
+            {
+              "degree": 3,
+              "instances": 140
+            },
+            {
+              "degree": 5,
+              "instances": 120
+            },
+            {
+              "degree": 8,
+              "instances": 90
+            },
+            {
+              "degree": 12,
+              "instances": 60
+            }
+          ]
+        },
+        "rows": [
+          {
+            "degree": 3,
+            "instances": 140,
+            "nonempty_lemniscate_instances": 140,
+            "mean_component_circle_radius_sum": 1.308859,
+            "best_radius_sum_found": 0.8153939,
+            "worst_radius_sum_found": 1.56758,
+            "fraction_with_radius_sum_le_2": 1
+          },
+          {
+            "degree": 5,
+            "instances": 120,
+            "nonempty_lemniscate_instances": 120,
+            "mean_component_circle_radius_sum": 1.2261921,
+            "best_radius_sum_found": 0.34510228,
+            "worst_radius_sum_found": 1.639819,
+            "fraction_with_radius_sum_le_2": 1
+          },
+          {
+            "degree": 8,
+            "instances": 90,
+            "nonempty_lemniscate_instances": 90,
+            "mean_component_circle_radius_sum": 1.0471669,
+            "best_radius_sum_found": 0.25449619,
+            "worst_radius_sum_found": 1.6872924,
+            "fraction_with_radius_sum_le_2": 1
+          },
+          {
+            "degree": 12,
+            "instances": 60,
+            "nonempty_lemniscate_instances": 60,
+            "mean_component_circle_radius_sum": 1.0682385,
+            "best_radius_sum_found": 0.25436053,
+            "worst_radius_sum_found": 1.4654293,
+            "fraction_with_radius_sum_le_2": 1
+          }
+        ],
+        "elapsed_ms": 173,
+        "generated_utc": "2026-03-12T10:45:42.341Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,160 @@
 {
   "problem": "EP-514",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep514_standalone_deeper_20260312T105454Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:54:54.141Z",
+      "data": {
+        "problem": "EP-514",
+        "script": "ep514.mjs",
+        "method": "ray_search_proxy_for_growth_f_over_z_power_n",
+        "params": {
+          "rays": 2160,
+          "radii": [
+            10,
+            20,
+            40,
+            80,
+            120,
+            160,
+            220,
+            300
+          ],
+          "nList": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "rows": [
+          {
+            "function_family": "exp_z",
+            "best_ray_theta": 0,
+            "best_ray_min_margin_proxy": -1.512925465,
+            "path_profile": [
+              {
+                "r": 10,
+                "min_margin_over_n0_to_5": -1.512925465
+              },
+              {
+                "r": 20,
+                "min_margin_over_n0_to_5": 5.021338632
+              },
+              {
+                "r": 40,
+                "min_margin_over_n0_to_5": 21.55560273
+              },
+              {
+                "r": 80,
+                "min_margin_over_n0_to_5": 58.08986683
+              },
+              {
+                "r": 120,
+                "min_margin_over_n0_to_5": 96.06254129
+              },
+              {
+                "r": 160,
+                "min_margin_over_n0_to_5": 134.6241309
+              },
+              {
+                "r": 220,
+                "min_margin_over_n0_to_5": 193.0318623
+              },
+              {
+                "r": 300,
+                "min_margin_over_n0_to_5": 271.4810876
+              }
+            ]
+          },
+          {
+            "function_family": "exp_z2",
+            "best_ray_theta": 0,
+            "best_ray_min_margin_proxy": 88.48707454,
+            "path_profile": [
+              {
+                "r": 10,
+                "min_margin_over_n0_to_5": 88.48707454
+              },
+              {
+                "r": 20,
+                "min_margin_over_n0_to_5": 385.0213386
+              },
+              {
+                "r": 40,
+                "min_margin_over_n0_to_5": 721.5556027
+              },
+              {
+                "r": 80,
+                "min_margin_over_n0_to_5": 718.0898668
+              },
+              {
+                "r": 120,
+                "min_margin_over_n0_to_5": 716.0625413
+              },
+              {
+                "r": 160,
+                "min_margin_over_n0_to_5": 714.6241309
+              },
+              {
+                "r": 220,
+                "min_margin_over_n0_to_5": 713.0318623
+              },
+              {
+                "r": 300,
+                "min_margin_over_n0_to_5": 711.4810876
+              }
+            ]
+          },
+          {
+            "function_family": "exp_z_plus_exp_minus_z",
+            "best_ray_theta": 0,
+            "best_ray_min_margin_proxy": -1.512925463,
+            "path_profile": [
+              {
+                "r": 10,
+                "min_margin_over_n0_to_5": -1.512925463
+              },
+              {
+                "r": 20,
+                "min_margin_over_n0_to_5": 5.021338632
+              },
+              {
+                "r": 40,
+                "min_margin_over_n0_to_5": 21.55560273
+              },
+              {
+                "r": 80,
+                "min_margin_over_n0_to_5": 58.08986683
+              },
+              {
+                "r": 120,
+                "min_margin_over_n0_to_5": 96.06254129
+              },
+              {
+                "r": 160,
+                "min_margin_over_n0_to_5": 134.6241309
+              },
+              {
+                "r": 220,
+                "min_margin_over_n0_to_5": 193.0318623
+              },
+              {
+                "r": 300,
+                "min_margin_over_n0_to_5": 271.4810876
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 16,
+        "generated_utc": "2026-03-12T10:54:54.141Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

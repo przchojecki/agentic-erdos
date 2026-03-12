@@ -1,5 +1,71 @@
 {
   "problem": "EP-533",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep533_standalone_deeper_20260312T110430Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:04:31.060Z",
+      "data": {
+        "problem": "EP-533",
+        "script": "ep533.mjs",
+        "method": "dense_random_K5_free_generation_plus_induced_triangle_free_subset_search",
+        "params": {
+          "tasks": [
+            {
+              "n": 40,
+              "graph_trials": 20,
+              "subset_restarts": 900
+            },
+            {
+              "n": 50,
+              "graph_trials": 16,
+              "subset_restarts": 900
+            },
+            {
+              "n": 60,
+              "graph_trials": 12,
+              "subset_restarts": 900
+            }
+          ]
+        },
+        "rows": [
+          {
+            "n": 40,
+            "graph_trials": 20,
+            "subset_restarts": 900,
+            "avg_edge_density": 0.52544872,
+            "avg_triangle_count": 1234.9,
+            "avg_best_induced_triangle_free_subset_size_found": 14.9,
+            "best_induced_triangle_free_subset_size_found": 16,
+            "best_ratio_over_n": 0.4
+          },
+          {
+            "n": 50,
+            "graph_trials": 16,
+            "subset_restarts": 900,
+            "avg_edge_density": 0.48714286,
+            "avg_triangle_count": 1950.375,
+            "avg_best_induced_triangle_free_subset_size_found": 17.25,
+            "best_induced_triangle_free_subset_size_found": 18,
+            "best_ratio_over_n": 0.36
+          },
+          {
+            "n": 60,
+            "graph_trials": 12,
+            "subset_restarts": 900,
+            "avg_edge_density": 0.46200565,
+            "avg_triangle_count": 2888.8333,
+            "avg_best_induced_triangle_free_subset_size_found": 19.083333,
+            "best_induced_triangle_free_subset_size_found": 22,
+            "best_ratio_over_n": 0.36666667
+          }
+        ],
+        "elapsed_ms": 720,
+        "generated_utc": "2026-03-12T11:04:31.060Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

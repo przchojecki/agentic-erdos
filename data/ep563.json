@@ -1,5 +1,144 @@
 {
   "problem": "EP-563",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep563_standalone_deeper_20260312T113507Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:35:11.970Z",
+      "data": {
+        "problem": "EP-563",
+        "script": "ep563.mjs",
+        "method": "exact_subset_check_profile_for_F_n_alpha_at_higher_alpha",
+        "params": {
+          "N_LIST": [
+            10,
+            12,
+            14,
+            16
+          ],
+          "ALPHAS": [
+            0.35,
+            0.4,
+            0.45
+          ],
+          "SAMPLES": 140
+        },
+        "rows": [
+          {
+            "n": 10,
+            "alpha": 0.35,
+            "samples": 140,
+            "best_F_found": 10,
+            "avg_F": 9.6142857,
+            "best_over_log_n": 4.3429448,
+            "avg_over_log_n": 4.1754312
+          },
+          {
+            "n": 10,
+            "alpha": 0.4,
+            "samples": 140,
+            "best_F_found": 10,
+            "avg_F": 8.3285714,
+            "best_over_log_n": 4.3429448,
+            "avg_over_log_n": 3.6170526
+          },
+          {
+            "n": 10,
+            "alpha": 0.45,
+            "samples": 140,
+            "best_F_found": 10,
+            "avg_F": 4.5357143,
+            "best_over_log_n": 4.3429448,
+            "avg_over_log_n": 1.9698357
+          },
+          {
+            "n": 12,
+            "alpha": 0.35,
+            "samples": 140,
+            "best_F_found": 12,
+            "avg_F": 11.764286,
+            "best_over_log_n": 4.8291553,
+            "avg_over_log_n": 4.7342968
+          },
+          {
+            "n": 12,
+            "alpha": 0.4,
+            "samples": 140,
+            "best_F_found": 12,
+            "avg_F": 10.428571,
+            "best_over_log_n": 4.8291553,
+            "avg_over_log_n": 4.1967659
+          },
+          {
+            "n": 12,
+            "alpha": 0.45,
+            "samples": 140,
+            "best_F_found": 12,
+            "avg_F": 7.6,
+            "best_over_log_n": 4.8291553,
+            "avg_over_log_n": 3.058465
+          },
+          {
+            "n": 14,
+            "alpha": 0.35,
+            "samples": 140,
+            "best_F_found": 14,
+            "avg_F": 14,
+            "best_over_log_n": 5.3049245,
+            "avg_over_log_n": 5.3049245
+          },
+          {
+            "n": 14,
+            "alpha": 0.4,
+            "samples": 140,
+            "best_F_found": 14,
+            "avg_F": 13.257143,
+            "best_over_log_n": 5.3049245,
+            "avg_over_log_n": 5.0234388
+          },
+          {
+            "n": 14,
+            "alpha": 0.45,
+            "samples": 140,
+            "best_F_found": 14,
+            "avg_F": 10.657143,
+            "best_over_log_n": 5.3049245,
+            "avg_over_log_n": 4.0382385
+          },
+          {
+            "n": 16,
+            "alpha": 0.35,
+            "samples": 140,
+            "best_F_found": 16,
+            "avg_F": 15.892857,
+            "best_over_log_n": 5.7707802,
+            "avg_over_log_n": 5.7321365
+          },
+          {
+            "n": 16,
+            "alpha": 0.4,
+            "samples": 140,
+            "best_F_found": 16,
+            "avg_F": 15.571429,
+            "best_over_log_n": 5.7707802,
+            "avg_over_log_n": 5.6162057
+          },
+          {
+            "n": 16,
+            "alpha": 0.45,
+            "samples": 140,
+            "best_F_found": 16,
+            "avg_F": 10.107143,
+            "best_over_log_n": 5.7707802,
+            "avg_over_log_n": 3.6453812
+          }
+        ],
+        "elapsed_ms": 4871,
+        "generated_utc": "2026-03-12T11:35:11.970Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

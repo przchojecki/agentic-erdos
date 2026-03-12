@@ -1,5 +1,110 @@
 {
   "problem": "EP-566",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep566_standalone_deeper_20260312T124512Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T12:45:13.050Z",
+      "data": {
+        "problem": "EP-566",
+        "script": "ep566.mjs",
+        "method": "finite_ramsey_size_proxy_for_3_degenerate_red_graphs_vs_matchings",
+        "params": {},
+        "rows": [
+          {
+            "m": 3,
+            "N": 9,
+            "trials": 160,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "N": 10,
+            "trials": 160,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "N": 11,
+            "trials": 160,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 3,
+            "heuristic_zero_avoid_threshold_N": 9,
+            "threshold_over_m": 3
+          },
+          {
+            "m": 4,
+            "N": 10,
+            "trials": 140,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "N": 12,
+            "trials": 140,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "N": 14,
+            "trials": 140,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 4,
+            "heuristic_zero_avoid_threshold_N": 10,
+            "threshold_over_m": 2.5
+          },
+          {
+            "m": 5,
+            "N": 12,
+            "trials": 120,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 5,
+            "N": 14,
+            "trials": 120,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 5,
+            "N": 16,
+            "trials": 120,
+            "red_graph_vertices": 8,
+            "red_graph_edges": 13,
+            "avoiding_hits": 0
+          },
+          {
+            "m": 5,
+            "heuristic_zero_avoid_threshold_N": 12,
+            "threshold_over_m": 2.4
+          }
+        ],
+        "elapsed_ms": 403,
+        "generated_utc": "2026-03-12T12:45:13.050Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

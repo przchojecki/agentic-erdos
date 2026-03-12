@@ -1,82 +1,560 @@
 {
   "problem": "EP-520",
   "normalized_utc": "2026-03-05T08:54:16.961Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch13_web_compute.md",
-        "content": "### EP-520\n- Quick literature check:\n  - Best almost-sure upper bounds are near `N^{1/2}(log log N)^{3/4+o(1)}`; the LIL-type constant formulation remains open.\n- Finite compute signal:\n  - Monte Carlo limsup proxy for `S_N/sqrt(N log log N)` sits around `O(1)` across trials up to `N=3e5`.\n  - Alternative quarter-log normalization also remains bounded in tested range.\n- Interpretation:\n  - Finite runs are compatible with multiple conjectural normalizations; asymptotic discrimination is not possible at this scale."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch13_quick_compute.mjs",
-        "heading": "random multiplicative function partial-sum limsup proxies.",
-        "content": "// EP-520: random multiplicative function partial-sum limsup proxies.\n{\n  const N = 300000;\n  const trials = 24;\n  const primeList = primes.filter((p) => p <= N);\n  const rng = makeRng(20260303 ^ 1306);\n\n  const limsupRows = [];\n  const samplePathMilestones = [5000, 20000, 50000, 100000, 200000, 300000];\n  const samplePath = [];\n\n  for (let tr = 0; tr < trials; tr += 1) {\n    const sign = new Int8Array(N + 1);\n    for (const p of primeList) sign[p] = rng() < 0.5 ? -1 : 1;\n\n    const f = new Int8Array(N + 1);\n    f[1] = 1;\n    let S = 0;\n    let limsupLIL = -Infinity;\n    let limsupQuarter = -Infinity;\n\n    for (let n = 1; n <= N; n += 1) {\n      if (n > 1) {\n        const p = spf[n];\n        const m = Math.floor(n / p);\n        if (m % p === 0) f[n] = 0;\n        else f[n] = f[m] * sign[p];\n      }\n      S += f[n];\n\n      if (n >= 20) {\n        const ll = Math.log(Math.log(n));\n        const rL = S / Math.sqrt(n * ll);\n        const rQ = Math.abs(S) / (Math.sqrt(n) * (ll ** 0.25));\n        if (rL > limsupLIL) limsupLIL = rL;\n        if (rQ > limsupQuarter) limsupQuarter = rQ;\n      }\n\n      if (tr === 0 && samplePathMilestones.includes(n)) {\n        const ll = Math.log(Math.log(n));\n        samplePath.push({\n          n,\n          S_n: S,\n          S_over_sqrt_n_loglog_n: Number((S / Math.sqrt(n * ll)).toPrecision(7)),\n          absS_over_sqrt_n_loglog_quarter: Number((Math.abs(S) / (Math.sqrt(n) * (ll ** 0.25))).toPrecision(7)),\n        });\n      }\n    }\n\n    limsupRows.push({ trial: tr + 1, limsup_lil_norm: limsupLIL, limsup_quarter_norm: limsupQuarter });\n  }\n\n  const lilVals = limsupRows.map((r) => r.limsup_lil_norm).sort((a, b) => a - b);\n  const qVals = limsupRows.map((r) => r.limsup_quarter_norm).sort((a, b) => a - b);\n\n  function quant(arr, q) {\n    const i = Math.max(0, Math.min(arr.length - 1, Math.floor(q * (arr.length - 1))));\n    return arr[i];\n  }\n\n  out.results.ep520 = {\n    description: 'Monte-Carlo limsup proxies for partial sums of random Rademacher multiplicative functions.',\n    N,\n    trials,\n    summary: {\n      lil_norm_mean: Number((lilVals.reduce((a, b) => a + b, 0) / lilVals.length).toPrecision(7)),\n      lil_norm_median: Number(quant(lilVals, 0.5).toPrecision(7)),\n      lil_norm_q90: Number(quant(lilVals, 0.9).toPrecision(7)),\n      quarter_norm_mean: Number((qVals.reduce((a, b) => a + b, 0) / qVals.length).toPrecision(7)),\n      quarter_norm_median: Number(quant(qVals, 0.5).toPrecision(7)),\n      quarter_norm_q90: Number(quant(qVals, 0.9).toPrecision(7)),\n    },\n    sample_path_trial_1: samplePath,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch13_quick_compute.json",
-        "key": "ep520",
-        "container_meta": {
-          "script": "harder_batch13_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:44:19.727Z"
-        },
-        "data": {
-          "description": "Monte-Carlo limsup proxies for partial sums of random Rademacher multiplicative functions.",
-          "N": 300000,
-          "trials": 24,
-          "summary": {
-            "lil_norm_mean": 1.01796,
-            "lil_norm_median": 0.8870429,
-            "lil_norm_q90": 1.269136,
-            "quarter_norm_mean": 1.271113,
-            "quarter_norm_median": 1.078206,
-            "quarter_norm_q90": 1.86168
-          },
-          "sample_path_trial_1": [
-            {
-              "n": 5000,
-              "S_n": 30,
-              "S_over_sqrt_n_loglog_n": 0.2898796,
-              "absS_over_sqrt_n_loglog_quarter": 0.3506929
-            },
-            {
-              "n": 20000,
-              "S_n": 16,
-              "S_over_sqrt_n_loglog_n": 0.07471601,
-              "absS_over_sqrt_n_loglog_quarter": 0.09194102
-            },
-            {
-              "n": 50000,
-              "S_n": -149,
-              "S_over_sqrt_n_loglog_n": -0.4318046,
-              "absS_over_sqrt_n_loglog_quarter": 0.5364068
-            },
-            {
-              "n": 100000,
-              "S_n": 18,
-              "S_over_sqrt_n_loglog_n": 0.03641405,
-              "absS_over_sqrt_n_loglog_quarter": 0.04552718
-            },
-            {
-              "n": 200000,
-              "S_n": 65,
-              "S_over_sqrt_n_loglog_n": 0.09188835,
-              "absS_over_sqrt_n_loglog_quarter": 0.1155658
-            },
-            {
-              "n": 300000,
-              "S_n": -224,
-              "S_over_sqrt_n_loglog_n": -0.2568808,
-              "absS_over_sqrt_n_loglog_quarter": 0.3241228
-            }
+  "computations": [
+    {
+      "source_file": "ep520_standalone_deeper_20260312T105458Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:55:12.934Z",
+      "data": {
+        "problem": "EP-520",
+        "script": "ep520.mjs",
+        "method": "deep_monte_carlo_limsup_profile_for_random_multiplicative_partial_sums",
+        "params": {
+          "N": 4000000,
+          "TRIALS": 96,
+          "milestones": [
+            100000,
+            300000,
+            500000,
+            1000000,
+            1500000,
+            2000000
           ]
-        }
+        },
+        "summary": {
+          "lil_mean": 0.9774726,
+          "lil_median": 0.83100508,
+          "lil_q90": 1.3733634,
+          "quarter_mean": 1.2659311,
+          "quarter_median": 1.1344562,
+          "quarter_q90": 1.7622244
+        },
+        "trial_rows": [
+          {
+            "trial": 1,
+            "limsup_lil_norm": 0.6453546972159511,
+            "limsup_quarter_norm": 0.8718795457777865
+          },
+          {
+            "trial": 2,
+            "limsup_lil_norm": 0.5911622394264329,
+            "limsup_quarter_norm": 1.03297682502784
+          },
+          {
+            "trial": 3,
+            "limsup_lil_norm": 0.5645060764510352,
+            "limsup_quarter_norm": 1.1580440471469122
+          },
+          {
+            "trial": 4,
+            "limsup_lil_norm": 0.9573851838079025,
+            "limsup_quarter_norm": 1.1777780266650109
+          },
+          {
+            "trial": 5,
+            "limsup_lil_norm": 0.7017087840697025,
+            "limsup_quarter_norm": 0.924623454389152
+          },
+          {
+            "trial": 6,
+            "limsup_lil_norm": 0.778973891470539,
+            "limsup_quarter_norm": 1.0457940560385928
+          },
+          {
+            "trial": 7,
+            "limsup_lil_norm": 0.8577233483720129,
+            "limsup_quarter_norm": 0.9813560130763567
+          },
+          {
+            "trial": 8,
+            "limsup_lil_norm": 0.7658345733231087,
+            "limsup_quarter_norm": 0.9520583000885392
+          },
+          {
+            "trial": 9,
+            "limsup_lil_norm": 0.5190228755661169,
+            "limsup_quarter_norm": 1.2402996406095625
+          },
+          {
+            "trial": 10,
+            "limsup_lil_norm": 0.9341339352946979,
+            "limsup_quarter_norm": 1.101343298452344
+          },
+          {
+            "trial": 11,
+            "limsup_lil_norm": 0.8926616186743583,
+            "limsup_quarter_norm": 1.1602472026576964
+          },
+          {
+            "trial": 12,
+            "limsup_lil_norm": 1.485143940540978,
+            "limsup_quarter_norm": 1.6668137676172567
+          },
+          {
+            "trial": 13,
+            "limsup_lil_norm": 1.2592894085208197,
+            "limsup_quarter_norm": 1.5070035055361901
+          },
+          {
+            "trial": 14,
+            "limsup_lil_norm": 0.9099990513931653,
+            "limsup_quarter_norm": 1.2241519758818615
+          },
+          {
+            "trial": 15,
+            "limsup_lil_norm": 0.9140278070400578,
+            "limsup_quarter_norm": 1.1836803331103978
+          },
+          {
+            "trial": 16,
+            "limsup_lil_norm": 1.5691221103669564,
+            "limsup_quarter_norm": 2.212669638124241
+          },
+          {
+            "trial": 17,
+            "limsup_lil_norm": 0.6229559962441051,
+            "limsup_quarter_norm": 0.9490990727013899
+          },
+          {
+            "trial": 18,
+            "limsup_lil_norm": 0.6648767230620819,
+            "limsup_quarter_norm": 0.7949099245455782
+          },
+          {
+            "trial": 19,
+            "limsup_lil_norm": 0.8705110763916915,
+            "limsup_quarter_norm": 1.084894232762095
+          },
+          {
+            "trial": 20,
+            "limsup_lil_norm": 1.1489693707034683,
+            "limsup_quarter_norm": 1.9659665750999793
+          },
+          {
+            "trial": 21,
+            "limsup_lil_norm": 0.6873828414988434,
+            "limsup_quarter_norm": 0.7994962791164415
+          },
+          {
+            "trial": 22,
+            "limsup_lil_norm": 1.252395490891811,
+            "limsup_quarter_norm": 1.6203706075165225
+          },
+          {
+            "trial": 23,
+            "limsup_lil_norm": 1.0931383781961075,
+            "limsup_quarter_norm": 1.4540132327425714
+          },
+          {
+            "trial": 24,
+            "limsup_lil_norm": 1.309260841377499,
+            "limsup_quarter_norm": 1.5359441008300379
+          },
+          {
+            "trial": 25,
+            "limsup_lil_norm": 0.5367884910496654,
+            "limsup_quarter_norm": 0.8167801701299517
+          },
+          {
+            "trial": 26,
+            "limsup_lil_norm": 0.8630831483205246,
+            "limsup_quarter_norm": 1.0032840208342242
+          },
+          {
+            "trial": 27,
+            "limsup_lil_norm": 0.7938651988039465,
+            "limsup_quarter_norm": 1.4316386914896908
+          },
+          {
+            "trial": 28,
+            "limsup_lil_norm": 0.6970561286018637,
+            "limsup_quarter_norm": 1.0219799578251965
+          },
+          {
+            "trial": 29,
+            "limsup_lil_norm": 0.571815565581342,
+            "limsup_quarter_norm": 0.822872152690983
+          },
+          {
+            "trial": 30,
+            "limsup_lil_norm": 0.8659955913943128,
+            "limsup_quarter_norm": 0.9518558104877629
+          },
+          {
+            "trial": 31,
+            "limsup_lil_norm": 1.9510668318478281,
+            "limsup_quarter_norm": 2.2395526687821974
+          },
+          {
+            "trial": 32,
+            "limsup_lil_norm": 0.7180388878559268,
+            "limsup_quarter_norm": 0.77670672234336
+          },
+          {
+            "trial": 33,
+            "limsup_lil_norm": 0.6048400907054214,
+            "limsup_quarter_norm": 0.7045340098312216
+          },
+          {
+            "trial": 34,
+            "limsup_lil_norm": 1.337263068540762,
+            "limsup_quarter_norm": 1.6414710275631839
+          },
+          {
+            "trial": 35,
+            "limsup_lil_norm": 2.16898257588867,
+            "limsup_quarter_norm": 2.4904058137590193
+          },
+          {
+            "trial": 36,
+            "limsup_lil_norm": 0.7016151065691414,
+            "limsup_quarter_norm": 0.8385753406442791
+          },
+          {
+            "trial": 37,
+            "limsup_lil_norm": 1.2271131716399264,
+            "limsup_quarter_norm": 1.6007276242018948
+          },
+          {
+            "trial": 38,
+            "limsup_lil_norm": 0.8246180885794872,
+            "limsup_quarter_norm": 1.0465837384495713
+          },
+          {
+            "trial": 39,
+            "limsup_lil_norm": 0.8541876989553482,
+            "limsup_quarter_norm": 1.1297454963510039
+          },
+          {
+            "trial": 40,
+            "limsup_lil_norm": 0.9224665547430164,
+            "limsup_quarter_norm": 1.2348332262329507
+          },
+          {
+            "trial": 41,
+            "limsup_lil_norm": 0.5339049569363767,
+            "limsup_quarter_norm": 0.6885679142967275
+          },
+          {
+            "trial": 42,
+            "limsup_lil_norm": 0.8117317737300388,
+            "limsup_quarter_norm": 1.0082950160977016
+          },
+          {
+            "trial": 43,
+            "limsup_lil_norm": 0.691130796135922,
+            "limsup_quarter_norm": 0.8519708678707512
+          },
+          {
+            "trial": 44,
+            "limsup_lil_norm": 0.5068565570911088,
+            "limsup_quarter_norm": 0.7259810253993692
+          },
+          {
+            "trial": 45,
+            "limsup_lil_norm": 0.6323499236673289,
+            "limsup_quarter_norm": 0.7944996453749253
+          },
+          {
+            "trial": 46,
+            "limsup_lil_norm": 0.9264968399474882,
+            "limsup_quarter_norm": 1.2512566217575167
+          },
+          {
+            "trial": 47,
+            "limsup_lil_norm": 1.2922531155841088,
+            "limsup_quarter_norm": 1.4090680196624432
+          },
+          {
+            "trial": 48,
+            "limsup_lil_norm": 1.014902384122382,
+            "limsup_quarter_norm": 1.3022412881960541
+          },
+          {
+            "trial": 49,
+            "limsup_lil_norm": 0.6036239663982734,
+            "limsup_quarter_norm": 0.7736744503854989
+          },
+          {
+            "trial": 50,
+            "limsup_lil_norm": 0.9754500294801715,
+            "limsup_quarter_norm": 1.1667348814700371
+          },
+          {
+            "trial": 51,
+            "limsup_lil_norm": 0.7883896112807697,
+            "limsup_quarter_norm": 1.0093832294819802
+          },
+          {
+            "trial": 52,
+            "limsup_lil_norm": 0.5978531844757663,
+            "limsup_quarter_norm": 0.9147551476735712
+          },
+          {
+            "trial": 53,
+            "limsup_lil_norm": 1.3466804905753338,
+            "limsup_quarter_norm": 1.5315651777562935
+          },
+          {
+            "trial": 54,
+            "limsup_lil_norm": 0.7504103199414723,
+            "limsup_quarter_norm": 1.3452688486249977
+          },
+          {
+            "trial": 55,
+            "limsup_lil_norm": 0.6473834767180523,
+            "limsup_quarter_norm": 1.163379323929488
+          },
+          {
+            "trial": 56,
+            "limsup_lil_norm": 1.3612059841542732,
+            "limsup_quarter_norm": 1.9413070335397253
+          },
+          {
+            "trial": 57,
+            "limsup_lil_norm": 0.9999803280657644,
+            "limsup_quarter_norm": 1.200502825854065
+          },
+          {
+            "trial": 58,
+            "limsup_lil_norm": 0.5906693026056018,
+            "limsup_quarter_norm": 0.8252439413294881
+          },
+          {
+            "trial": 59,
+            "limsup_lil_norm": 0.5763850995894133,
+            "limsup_quarter_norm": 0.6955985056511866
+          },
+          {
+            "trial": 60,
+            "limsup_lil_norm": 0.8310050809245987,
+            "limsup_quarter_norm": 1.4317602889974637
+          },
+          {
+            "trial": 61,
+            "limsup_lil_norm": 1.031508447193118,
+            "limsup_quarter_norm": 1.2538844362845774
+          },
+          {
+            "trial": 62,
+            "limsup_lil_norm": 0.5686011935817984,
+            "limsup_quarter_norm": 0.897614920553083
+          },
+          {
+            "trial": 63,
+            "limsup_lil_norm": 1.2653422889838664,
+            "limsup_quarter_norm": 1.4639195424689944
+          },
+          {
+            "trial": 64,
+            "limsup_lil_norm": 0.5353082868992013,
+            "limsup_quarter_norm": 0.7608862041770856
+          },
+          {
+            "trial": 65,
+            "limsup_lil_norm": 0.5113410843689907,
+            "limsup_quarter_norm": 0.6551113656557269
+          },
+          {
+            "trial": 66,
+            "limsup_lil_norm": 0.82507996696721,
+            "limsup_quarter_norm": 0.869153383072254
+          },
+          {
+            "trial": 67,
+            "limsup_lil_norm": 0.80683258425805,
+            "limsup_quarter_norm": 1.2868940336059402
+          },
+          {
+            "trial": 68,
+            "limsup_lil_norm": 0.744153993385397,
+            "limsup_quarter_norm": 1.2150124985097712
+          },
+          {
+            "trial": 69,
+            "limsup_lil_norm": 0.5970842598761831,
+            "limsup_quarter_norm": 1.3418950958397022
+          },
+          {
+            "trial": 70,
+            "limsup_lil_norm": 0.5860191922913203,
+            "limsup_quarter_norm": 0.902345472791809
+          },
+          {
+            "trial": 71,
+            "limsup_lil_norm": 1.302976588638713,
+            "limsup_quarter_norm": 1.558231531637798
+          },
+          {
+            "trial": 72,
+            "limsup_lil_norm": 0.8619575692224694,
+            "limsup_quarter_norm": 0.992990551278263
+          },
+          {
+            "trial": 73,
+            "limsup_lil_norm": 0.8188478779545542,
+            "limsup_quarter_norm": 0.887322852251746
+          },
+          {
+            "trial": 74,
+            "limsup_lil_norm": 1.0505744479180614,
+            "limsup_quarter_norm": 1.2000549467916313
+          },
+          {
+            "trial": 75,
+            "limsup_lil_norm": 1.343821215974538,
+            "limsup_quarter_norm": 1.4399865116555886
+          },
+          {
+            "trial": 76,
+            "limsup_lil_norm": 0.9883303300775204,
+            "limsup_quarter_norm": 1.076116557004396
+          },
+          {
+            "trial": 77,
+            "limsup_lil_norm": 0.47570897752099733,
+            "limsup_quarter_norm": 0.6679332994718568
+          },
+          {
+            "trial": 78,
+            "limsup_lil_norm": 0.8999895963360115,
+            "limsup_quarter_norm": 1.2082462216588585
+          },
+          {
+            "trial": 79,
+            "limsup_lil_norm": 2.47523990090163,
+            "limsup_quarter_norm": 2.654535552922343
+          },
+          {
+            "trial": 80,
+            "limsup_lil_norm": 1.0376051841092013,
+            "limsup_quarter_norm": 1.1344561852243193
+          },
+          {
+            "trial": 81,
+            "limsup_lil_norm": 3.787690652499276,
+            "limsup_quarter_norm": 4.497175238122899
+          },
+          {
+            "trial": 82,
+            "limsup_lil_norm": 0.6655380951023694,
+            "limsup_quarter_norm": 0.918915081296217
+          },
+          {
+            "trial": 83,
+            "limsup_lil_norm": 0.6347481357616784,
+            "limsup_quarter_norm": 0.938687973509938
+          },
+          {
+            "trial": 84,
+            "limsup_lil_norm": 0.7739519752895755,
+            "limsup_quarter_norm": 0.9567262897762372
+          },
+          {
+            "trial": 85,
+            "limsup_lil_norm": 0.8813342297034871,
+            "limsup_quarter_norm": 1.2481424285969132
+          },
+          {
+            "trial": 86,
+            "limsup_lil_norm": 1.5425466440567441,
+            "limsup_quarter_norm": 2.2209968911381135
+          },
+          {
+            "trial": 87,
+            "limsup_lil_norm": 1.3733633712283184,
+            "limsup_quarter_norm": 1.4907083384706907
+          },
+          {
+            "trial": 88,
+            "limsup_lil_norm": 1.5342281537684526,
+            "limsup_quarter_norm": 1.7622243546965084
+          },
+          {
+            "trial": 89,
+            "limsup_lil_norm": 1.0401331779939733,
+            "limsup_quarter_norm": 1.2213176284191747
+          },
+          {
+            "trial": 90,
+            "limsup_lil_norm": 1.932059692378711,
+            "limsup_quarter_norm": 2.416474340853668
+          },
+          {
+            "trial": 91,
+            "limsup_lil_norm": 0.6533390215807219,
+            "limsup_quarter_norm": 1.3106195332358654
+          },
+          {
+            "trial": 92,
+            "limsup_lil_norm": 0.578143803108829,
+            "limsup_quarter_norm": 0.6741892161321619
+          },
+          {
+            "trial": 93,
+            "limsup_lil_norm": 0.7656061462198138,
+            "limsup_quarter_norm": 0.9075649481794555
+          },
+          {
+            "trial": 94,
+            "limsup_lil_norm": 0.8896503069107862,
+            "limsup_quarter_norm": 1.0469089054280614
+          },
+          {
+            "trial": 95,
+            "limsup_lil_norm": 0.6281424888305194,
+            "limsup_quarter_norm": 0.7834810598163676
+          },
+          {
+            "trial": 96,
+            "limsup_lil_norm": 3.317570789233921,
+            "limsup_quarter_norm": 4.240645868120701
+          }
+        ],
+        "sample_path_trial_1": [
+          {
+            "n": 100000,
+            "S_n": -176,
+            "S_over_sqrt_n_loglog_n": -0.35604848,
+            "absS_over_sqrt_n_loglog_quarter": 0.44515463
+          },
+          {
+            "n": 300000,
+            "S_n": 34,
+            "S_over_sqrt_n_loglog_n": 0.038990835,
+            "absS_over_sqrt_n_loglog_quarter": 0.049197203
+          },
+          {
+            "n": 500000,
+            "S_n": 242,
+            "S_over_sqrt_n_loglog_n": 0.21330414,
+            "absS_over_sqrt_n_loglog_quarter": 0.27018723
+          },
+          {
+            "n": 1000000,
+            "S_n": -168,
+            "S_over_sqrt_n_loglog_n": -0.10367621,
+            "absS_over_sqrt_n_loglog_quarter": 0.13197577
+          },
+          {
+            "n": 1500000,
+            "S_n": -381,
+            "S_over_sqrt_n_loglog_n": -0.19092823,
+            "absS_over_sqrt_n_loglog_quarter": 0.24371078
+          },
+          {
+            "n": 2000000,
+            "S_n": 859,
+            "S_over_sqrt_n_loglog_n": 0.37139575,
+            "absS_over_sqrt_n_loglog_quarter": 0.47496056
+          }
+        ],
+        "elapsed_ms": 13936,
+        "generated_utc": "2026-03-12T10:55:12.934Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

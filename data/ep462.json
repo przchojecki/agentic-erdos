@@ -1,5 +1,124 @@
 {
   "problem": "EP-462",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep462_standalone_deeper_20260312T102407Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:24:07.435Z",
+      "data": {
+        "problem": "EP-462",
+        "script": "ep462.mjs",
+        "method": "finite_short_window_mass_profile_for_least_prime_factor_sum",
+        "params": {
+          "N": 2000000,
+          "C_LIST": [
+            0.25,
+            0.5,
+            1,
+            2,
+            4
+          ],
+          "X_LIST": [
+            20000,
+            50000,
+            100000,
+            200000,
+            500000,
+            1000000
+          ]
+        },
+        "rows": [
+          {
+            "C": 0.25,
+            "min_mass_over_tested_x": 1.10592769,
+            "min_witness": {
+              "x": 1000000,
+              "L": 47717,
+              "R": 1047717,
+              "mass": 1.10592769
+            },
+            "max_mass_over_tested_x": 1.190034628,
+            "max_witness": {
+              "x": 20000,
+              "L": 3467,
+              "R": 23467,
+              "mass": 1.190034628
+            }
+          },
+          {
+            "C": 0.5,
+            "min_mass_over_tested_x": 2.190927822,
+            "min_witness": {
+              "x": 1000000,
+              "L": 95434,
+              "R": 1095434,
+              "mass": 2.190927822
+            },
+            "max_mass_over_tested_x": 2.275627973,
+            "max_witness": {
+              "x": 50000,
+              "L": 13088,
+              "R": 63088,
+              "mass": 2.275627973
+            }
+          },
+          {
+            "C": 1,
+            "min_mass_over_tested_x": 4.141273354,
+            "min_witness": {
+              "x": 20000,
+              "L": 13870,
+              "R": 33870,
+              "mass": 4.141273354
+            },
+            "max_mass_over_tested_x": 4.275288653,
+            "max_witness": {
+              "x": 200000,
+              "L": 66629,
+              "R": 266629,
+              "mass": 4.275288653
+            }
+          },
+          {
+            "C": 2,
+            "min_mass_over_tested_x": 7.215343103,
+            "min_witness": {
+              "x": 20000,
+              "L": 27740,
+              "R": 47740,
+              "mass": 7.215343103
+            },
+            "max_mass_over_tested_x": 8.099226905,
+            "max_witness": {
+              "x": 1000000,
+              "L": 381736,
+              "R": 1381736,
+              "mass": 8.099226905
+            }
+          },
+          {
+            "C": 4,
+            "min_mass_over_tested_x": 11.78977549,
+            "min_witness": {
+              "x": 20000,
+              "L": 55481,
+              "R": 75481,
+              "mass": 11.78977549
+            },
+            "max_mass_over_tested_x": 14.82699396,
+            "max_witness": {
+              "x": 1000000,
+              "L": 763473,
+              "R": 1763473,
+              "mass": 14.82699396
+            }
+          }
+        ],
+        "generated_utc": "2026-03-12T10:24:07.435Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

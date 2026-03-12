@@ -1,5 +1,80 @@
 {
   "problem": "EP-501",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep501_standalone_deeper_20260312T103918Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:39:24.511Z",
+      "data": {
+        "problem": "EP-501",
+        "script": "ep501.mjs",
+        "method": "finite_closed_case_proxy_random_interval_families_with_independence_search",
+        "params": {
+          "tasks": [
+            {
+              "m": 80,
+              "maxMeasure": 0.75,
+              "components": 3,
+              "instances": 120,
+              "restarts": 70
+            },
+            {
+              "m": 120,
+              "maxMeasure": 0.8,
+              "components": 3,
+              "instances": 90,
+              "restarts": 70
+            },
+            {
+              "m": 160,
+              "maxMeasure": 0.85,
+              "components": 4,
+              "instances": 70,
+              "restarts": 80
+            }
+          ]
+        },
+        "rows": [
+          {
+            "m": 80,
+            "max_measure_per_set": 0.75,
+            "components": 3,
+            "instances": 960,
+            "greedy_restarts": 560,
+            "min_independent_set_found": 5,
+            "mean_independent_set_found": 7.6854167,
+            "max_independent_set_found": 13,
+            "fraction_instances_with_independent_set_at_least_3": 1
+          },
+          {
+            "m": 120,
+            "max_measure_per_set": 0.8,
+            "components": 3,
+            "instances": 720,
+            "greedy_restarts": 560,
+            "min_independent_set_found": 6,
+            "mean_independent_set_found": 9.5555556,
+            "max_independent_set_found": 15,
+            "fraction_instances_with_independent_set_at_least_3": 1
+          },
+          {
+            "m": 160,
+            "max_measure_per_set": 0.85,
+            "components": 4,
+            "instances": 560,
+            "greedy_restarts": 640,
+            "min_independent_set_found": 7,
+            "mean_independent_set_found": 10.419643,
+            "max_independent_set_found": 15,
+            "fraction_instances_with_independent_set_at_least_3": 1
+          }
+        ],
+        "elapsed_ms": 6059,
+        "generated_utc": "2026-03-12T10:39:24.511Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

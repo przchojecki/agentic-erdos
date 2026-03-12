@@ -1,109 +1,121 @@
 {
   "problem": "EP-478",
   "normalized_utc": "2026-03-05T08:54:16.960Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch13_web_compute.md",
-        "content": "### EP-478\n- Quick literature check:\n  - Recent work continues to focus on lower bounds and product-set expansion for factorial residues mod `p`; asymptotic constant claims remain open.\n- Finite compute signal:\n  - Sampled primes show `|A_p|/p` very close to `1-1/e` (`~0.631..0.634` on tested primes up to `500009`).\n  - In exhaustive scan for primes `p<=20000`, exactly one prime has `|A_p|=p-2`.\n- Interpretation:\n  - Finite data strongly supports `(1-1/e)p` scale and rarity of maximal-size behavior."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch13_quick_compute.mjs",
-        "heading": "size of A_p = {k! mod p}.",
-        "content": "// EP-478: size of A_p = {k! mod p}.\n{\n  function aPSize(p) {\n    let f = 1;\n    const seen = new Uint8Array(p);\n    for (let k = 1; k < p; k += 1) {\n      f = (f * k) % p;\n      seen[f] = 1;\n    }\n    let c = 0;\n    for (let i = 0; i < p; i += 1) c += seen[i];\n    return c;\n  }\n\n  const samplePrimes = [101, 503, 1009, 5003, 10007, 20011, 50021, 100003, 200003, 500009];\n  const rows = [];\n  const target = 1 - 1 / Math.E;\n\n  for (const p of samplePrimes) {\n    // ensure primality for larger sample items\n    if (p >= spf.length || spf[p] !== p) continue;\n    const s = aPSize(p);\n    rows.push({\n      p,\n      size_A_p: s,\n      ratio_A_p_over_p: Number((s / p).toPrecision(8)),\n      ratio_over_target_1_minus_1_over_e: Number((s / (target * p)).toPrecision(8)),\n      deficit_from_p_minus_2: p - 2 - s,\n    });\n  }\n\n  let countEqualPminus2 = 0;\n  let countPrime = 0;\n  const smallLimit = 20000;\n  for (const p of primes) {\n    if (p > smallLimit) break;\n    countPrime += 1;\n    const s = aPSize(p);\n    if (s === p - 2) countEqualPminus2 += 1;\n  }\n\n  out.results.ep478 = {\n    description: 'Finite profile of |A_p| for factorial residues modulo p.',\n    sample_rows: rows,\n    exhaustive_small_prime_scan_limit: smallLimit,\n    primes_scanned: countPrime,\n    count_with_A_p_equal_p_minus_2: countEqualPminus2,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch13_quick_compute.json",
-        "key": "ep478",
-        "container_meta": {
-          "script": "harder_batch13_quick_compute.mjs",
-          "generated_utc": "2026-03-03T21:44:19.727Z"
-        },
-        "data": {
-          "description": "Finite profile of |A_p| for factorial residues modulo p.",
-          "sample_rows": [
-            {
-              "p": 101,
-              "size_A_p": 64,
-              "ratio_A_p_over_p": 0.63366337,
-              "ratio_over_target_1_minus_1_over_e": 1.0024407,
-              "deficit_from_p_minus_2": 35
-            },
-            {
-              "p": 503,
-              "size_A_p": 316,
-              "ratio_A_p_over_p": 0.62823062,
-              "ratio_over_target_1_minus_1_over_e": 0.9938462,
-              "deficit_from_p_minus_2": 185
-            },
-            {
-              "p": 1009,
-              "size_A_p": 615,
-              "ratio_A_p_over_p": 0.60951437,
-              "ratio_over_target_1_minus_1_over_e": 0.96423754,
-              "deficit_from_p_minus_2": 392
-            },
-            {
-              "p": 5003,
-              "size_A_p": 3165,
-              "ratio_A_p_over_p": 0.63262043,
-              "ratio_over_target_1_minus_1_over_e": 1.0007908,
-              "deficit_from_p_minus_2": 1836
-            },
-            {
-              "p": 10007,
-              "size_A_p": 6348,
-              "ratio_A_p_over_p": 0.63435595,
-              "ratio_over_target_1_minus_1_over_e": 1.0035363,
-              "deficit_from_p_minus_2": 3657
-            },
-            {
-              "p": 20011,
-              "size_A_p": 12643,
-              "ratio_A_p_over_p": 0.63180251,
-              "ratio_over_target_1_minus_1_over_e": 0.99949685,
-              "deficit_from_p_minus_2": 7366
-            },
-            {
-              "p": 50021,
-              "size_A_p": 31599,
-              "ratio_A_p_over_p": 0.63171468,
-              "ratio_over_target_1_minus_1_over_e": 0.99935791,
-              "deficit_from_p_minus_2": 18420
-            },
-            {
-              "p": 100003,
-              "size_A_p": 63243,
-              "ratio_A_p_over_p": 0.63241103,
-              "ratio_over_target_1_minus_1_over_e": 1.0004595,
-              "deficit_from_p_minus_2": 36758
-            },
-            {
-              "p": 200003,
-              "size_A_p": 126283,
-              "ratio_A_p_over_p": 0.63140553,
-              "ratio_over_target_1_minus_1_over_e": 0.99886884,
-              "deficit_from_p_minus_2": 73718
-            },
-            {
-              "p": 500009,
-              "size_A_p": 316352,
-              "ratio_A_p_over_p": 0.63269261,
-              "ratio_over_target_1_minus_1_over_e": 1.000905,
-              "deficit_from_p_minus_2": 183655
-            }
+  "computations": [
+    {
+      "source_file": "ep478_standalone_deeper_20260312T102819Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:28:19.256Z",
+      "data": {
+        "problem": "EP-478",
+        "script": "ep478.mjs",
+        "method": "deeper_factorial_residue_set_size_profile_mod_p",
+        "params": {
+          "SAMPLE": [
+            101,
+            503,
+            1009,
+            5003,
+            10007,
+            20011,
+            50021,
+            100003,
+            200003,
+            500009,
+            1000003
           ],
-          "exhaustive_small_prime_scan_limit": 20000,
-          "primes_scanned": 2262,
-          "count_with_A_p_equal_p_minus_2": 1
-        }
+          "SMALL_LIMIT": 50000
+        },
+        "sample_rows": [
+          {
+            "p": 101,
+            "size_A_p": 64,
+            "ratio_A_p_over_p": 0.63366337,
+            "ratio_over_target_1_minus_1_over_e": 1.0024407,
+            "deficit_from_p_minus_2": 35
+          },
+          {
+            "p": 503,
+            "size_A_p": 316,
+            "ratio_A_p_over_p": 0.62823062,
+            "ratio_over_target_1_minus_1_over_e": 0.9938462,
+            "deficit_from_p_minus_2": 185
+          },
+          {
+            "p": 1009,
+            "size_A_p": 615,
+            "ratio_A_p_over_p": 0.60951437,
+            "ratio_over_target_1_minus_1_over_e": 0.96423754,
+            "deficit_from_p_minus_2": 392
+          },
+          {
+            "p": 5003,
+            "size_A_p": 3165,
+            "ratio_A_p_over_p": 0.63262043,
+            "ratio_over_target_1_minus_1_over_e": 1.0007908,
+            "deficit_from_p_minus_2": 1836
+          },
+          {
+            "p": 10007,
+            "size_A_p": 6348,
+            "ratio_A_p_over_p": 0.63435595,
+            "ratio_over_target_1_minus_1_over_e": 1.0035363,
+            "deficit_from_p_minus_2": 3657
+          },
+          {
+            "p": 20011,
+            "size_A_p": 12643,
+            "ratio_A_p_over_p": 0.63180251,
+            "ratio_over_target_1_minus_1_over_e": 0.99949685,
+            "deficit_from_p_minus_2": 7366
+          },
+          {
+            "p": 50021,
+            "size_A_p": 31599,
+            "ratio_A_p_over_p": 0.63171468,
+            "ratio_over_target_1_minus_1_over_e": 0.99935791,
+            "deficit_from_p_minus_2": 18420
+          },
+          {
+            "p": 100003,
+            "size_A_p": 63243,
+            "ratio_A_p_over_p": 0.63241103,
+            "ratio_over_target_1_minus_1_over_e": 1.0004595,
+            "deficit_from_p_minus_2": 36758
+          },
+          {
+            "p": 200003,
+            "size_A_p": 126283,
+            "ratio_A_p_over_p": 0.63140553,
+            "ratio_over_target_1_minus_1_over_e": 0.99886884,
+            "deficit_from_p_minus_2": 73718
+          },
+          {
+            "p": 500009,
+            "size_A_p": 316352,
+            "ratio_A_p_over_p": 0.63269261,
+            "ratio_over_target_1_minus_1_over_e": 1.000905,
+            "deficit_from_p_minus_2": 183655
+          },
+          {
+            "p": 1000003,
+            "size_A_p": 632283,
+            "ratio_A_p_over_p": 0.6322811,
+            "ratio_over_target_1_minus_1_over_e": 1.000254,
+            "deficit_from_p_minus_2": 367718
+          }
+        ],
+        "primes_scanned_up_to_small_limit": 5133,
+        "count_with_A_p_equal_p_minus_2": 1,
+        "minimum_ratio_in_small_scan": {
+          "p": 11,
+          "s": 5,
+          "ratio": 0.45454545
+        },
+        "generated_utc": "2026-03-12T10:28:19.256Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,293 @@
 {
   "problem": "EP-568",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep568_standalone_deeper_20260312T124518Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T12:45:18.645Z",
+      "data": {
+        "problem": "EP-568",
+        "script": "ep568.mjs",
+        "method": "finite_linear_ramsey_size_proxy_for_representative_G_vs_mK2",
+        "params": {},
+        "rows": [
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 3,
+            "N": 10,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 3,
+            "N": 12,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 3,
+            "N": 14,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "m": 3,
+            "heuristic_zero_avoid_threshold_N": 10,
+            "threshold_over_m": 3.3333333
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 4,
+            "N": 12,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 4,
+            "N": 14,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 4,
+            "N": 16,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "m": 4,
+            "heuristic_zero_avoid_threshold_N": 12,
+            "threshold_over_m": 3
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 5,
+            "N": 14,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 5,
+            "N": 16,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "G_edges": 5,
+            "m": 5,
+            "N": 18,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "C5",
+            "m": 5,
+            "heuristic_zero_avoid_threshold_N": 14,
+            "threshold_over_m": 2.8
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 3,
+            "N": 10,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 3,
+            "N": 12,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 3,
+            "N": 14,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "m": 3,
+            "heuristic_zero_avoid_threshold_N": 10,
+            "threshold_over_m": 3.3333333
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 4,
+            "N": 12,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 4,
+            "N": 14,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 4,
+            "N": 16,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "m": 4,
+            "heuristic_zero_avoid_threshold_N": 12,
+            "threshold_over_m": 3
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 5,
+            "N": 14,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 5,
+            "N": 16,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "G_edges": 6,
+            "m": 5,
+            "N": 18,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "K2,3",
+            "m": 5,
+            "heuristic_zero_avoid_threshold_N": 14,
+            "threshold_over_m": 2.8
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 3,
+            "N": 10,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 3,
+            "N": 12,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 3,
+            "N": 14,
+            "trials": 180,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "m": 3,
+            "heuristic_zero_avoid_threshold_N": 10,
+            "threshold_over_m": 3.3333333
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 4,
+            "N": 12,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 4,
+            "N": 14,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 4,
+            "N": 16,
+            "trials": 160,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "m": 4,
+            "heuristic_zero_avoid_threshold_N": 12,
+            "threshold_over_m": 3
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 5,
+            "N": 14,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 5,
+            "N": 16,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "G_edges": 7,
+            "m": 5,
+            "N": 18,
+            "trials": 140,
+            "avoiding_hits": 0
+          },
+          {
+            "G": "H5_subdiv_K4_edge",
+            "m": 5,
+            "heuristic_zero_avoid_threshold_N": 14,
+            "threshold_over_m": 2.8
+          }
+        ],
+        "elapsed_ms": 90,
+        "generated_utc": "2026-03-12T12:45:18.645Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

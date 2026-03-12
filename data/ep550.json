@@ -1,5 +1,206 @@
 {
   "problem": "EP-550",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep550_standalone_deeper_20260312T111741Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:17:42.576Z",
+      "data": {
+        "problem": "EP-550",
+        "script": "ep550.mjs",
+        "method": "random_2color_avoidance_profile_for_tree_vs_complete_multipartite_instances",
+        "params": {
+          "tasks": [
+            {
+              "tree": "P5",
+              "treeEdges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "nTree": 5,
+              "parts": [
+                2,
+                2,
+                2
+              ],
+              "Ns": [
+                8,
+                9,
+                10
+              ],
+              "trials": 240
+            },
+            {
+              "tree": "P5",
+              "treeEdges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "nTree": 5,
+              "parts": [
+                2,
+                3,
+                3
+              ],
+              "Ns": [
+                10,
+                11,
+                12
+              ],
+              "trials": 200
+            },
+            {
+              "tree": "S5",
+              "treeEdges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  4
+                ]
+              ],
+              "nTree": 5,
+              "parts": [
+                2,
+                2,
+                3
+              ],
+              "Ns": [
+                9,
+                10,
+                11
+              ],
+              "trials": 220
+            }
+          ]
+        },
+        "rows": [
+          {
+            "tree": "P5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+2+2",
+            "N": 8,
+            "trials": 240,
+            "random_avoiding_hits": 68,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "P5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+2+2",
+            "N": 9,
+            "trials": 240,
+            "random_avoiding_hits": 35,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "P5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+2+2",
+            "N": 10,
+            "trials": 240,
+            "random_avoiding_hits": 19,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "P5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+3+3",
+            "N": 10,
+            "trials": 200,
+            "random_avoiding_hits": 11,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "P5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+3+3",
+            "N": 11,
+            "trials": 200,
+            "random_avoiding_hits": 2,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "P5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+3+3",
+            "N": 12,
+            "trials": 200,
+            "random_avoiding_hits": 0,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "S5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+2+3",
+            "N": 9,
+            "trials": 220,
+            "random_avoiding_hits": 17,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "S5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+2+3",
+            "N": 10,
+            "trials": 220,
+            "random_avoiding_hits": 3,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          },
+          {
+            "tree": "S5",
+            "tree_order_n": 5,
+            "multipartite_parts": "2+2+3",
+            "N": 11,
+            "trials": 220,
+            "random_avoiding_hits": 0,
+            "rhs_shape_reference_for_k_part": "(k-1)*(R(T,K_{m1,m2})-1)+m1 with k=3, m1=2"
+          }
+        ],
+        "elapsed_ms": 656,
+        "generated_utc": "2026-03-12T11:17:42.576Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

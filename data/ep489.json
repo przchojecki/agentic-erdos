@@ -1,5 +1,109 @@
 {
   "problem": "EP-489",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep489_standalone_deeper_20260312T103932Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:39:35.343Z",
+      "data": {
+        "problem": "EP-489",
+        "script": "ep489.mjs",
+        "method": "squarefree_gap_second_moment_profile_for_model_A_eq_{p^2}",
+        "params": {
+          "X": 180000000,
+          "checkpoints": [
+            1000000,
+            5000000,
+            10000000,
+            20000000,
+            50000000,
+            100000000,
+            150000000,
+            180000000
+          ],
+          "reference_density_6_over_pi2": 0.6079271018540267,
+          "reference_mean_gap_pi2_over_6": 1.6449340668482264
+        },
+        "rows": [
+          {
+            "X": 1000000,
+            "squarefree_count": 607926,
+            "density": 0.607926,
+            "mean_gap": 1.6449332,
+            "second_moment_gap": 3.356845,
+            "max_gap": 8,
+            "max_gap_start": 217069
+          },
+          {
+            "X": 5000000,
+            "squarefree_count": 3039633,
+            "density": 0.6079266,
+            "mean_gap": 1.6449353,
+            "second_moment_gap": 3.356784,
+            "max_gap": 9,
+            "max_gap_start": 1092746
+          },
+          {
+            "X": 10000000,
+            "squarefree_count": 6079291,
+            "density": 0.6079291,
+            "mean_gap": 1.6449284,
+            "second_moment_gap": 3.3568178,
+            "max_gap": 10,
+            "max_gap_start": 8870023
+          },
+          {
+            "X": 20000000,
+            "squarefree_count": 12158575,
+            "density": 0.60792875,
+            "mean_gap": 1.6449296,
+            "second_moment_gap": 3.3567935,
+            "max_gap": 10,
+            "max_gap_start": 8870023
+          },
+          {
+            "X": 50000000,
+            "squarefree_count": 30396344,
+            "density": 0.60792688,
+            "mean_gap": 1.6449347,
+            "second_moment_gap": 3.3568351,
+            "max_gap": 10,
+            "max_gap_start": 8870023
+          },
+          {
+            "X": 100000000,
+            "squarefree_count": 60792694,
+            "density": 0.60792694,
+            "mean_gap": 1.6449345,
+            "second_moment_gap": 3.3568359,
+            "max_gap": 10,
+            "max_gap_start": 8870023
+          },
+          {
+            "X": 150000000,
+            "squarefree_count": 91189087,
+            "density": 0.60792725,
+            "mean_gap": 1.6449337,
+            "second_moment_gap": 3.356832,
+            "max_gap": 10,
+            "max_gap_start": 8870023
+          },
+          {
+            "X": 180000000,
+            "squarefree_count": 109426850,
+            "density": 0.60792694,
+            "mean_gap": 1.6449345,
+            "second_moment_gap": 3.3568299,
+            "max_gap": 10,
+            "max_gap_start": 8870023
+          }
+        ],
+        "elapsed_ms": 2869,
+        "generated_utc": "2026-03-12T10:39:35.343Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

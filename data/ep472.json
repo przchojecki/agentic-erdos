@@ -1,5 +1,219 @@
 {
   "problem": "EP-472",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep472_standalone_deeper_20260312T102830Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:28:30.132Z",
+      "data": {
+        "problem": "EP-472",
+        "script": "ep472.mjs",
+        "method": "multi_seed_growth_and_termination_profile_for_ulam_prime_recurrence",
+        "params": {
+          "LIMIT_TERMS": 1500,
+          "MAXP": 2000000,
+          "seed_count": 10
+        },
+        "rows": [
+          {
+            "seed": [
+              3,
+              5
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 20261,
+            "last_12": [
+              20147,
+              20149,
+              20161,
+              20173,
+              20177,
+              20183,
+              20201,
+              20219,
+              20231,
+              20233,
+              20249,
+              20261
+            ]
+          },
+          {
+            "seed": [
+              3,
+              7
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 34033,
+            "last_12": [
+              33751,
+              33757,
+              33769,
+              33811,
+              33829,
+              33871,
+              33889,
+              33931,
+              33937,
+              33967,
+              33997,
+              34033
+            ]
+          },
+          {
+            "seed": [
+              3,
+              5,
+              7
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 20261,
+            "last_12": [
+              20147,
+              20149,
+              20161,
+              20173,
+              20177,
+              20183,
+              20201,
+              20219,
+              20231,
+              20233,
+              20249,
+              20261
+            ]
+          },
+          {
+            "seed": [
+              5,
+              7
+            ],
+            "terminated": true,
+            "terms": 6,
+            "last": 29
+          },
+          {
+            "seed": [
+              3,
+              11
+            ],
+            "terminated": true,
+            "terms": 4,
+            "last": 23
+          },
+          {
+            "seed": [
+              5,
+              11
+            ],
+            "terminated": true,
+            "terms": 2,
+            "last": 11
+          },
+          {
+            "seed": [
+              3,
+              5,
+              11
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 63439,
+            "last_12": [
+              63149,
+              63299,
+              63311,
+              63313,
+              63317,
+              63377,
+              63389,
+              63391,
+              63409,
+              63419,
+              63421,
+              63439
+            ]
+          },
+          {
+            "seed": [
+              3,
+              5,
+              13
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 61283,
+            "last_12": [
+              60611,
+              60623,
+              60773,
+              60923,
+              61031,
+              61043,
+              61151,
+              61153,
+              61169,
+              61211,
+              61223,
+              61283
+            ]
+          },
+          {
+            "seed": [
+              3,
+              5,
+              17
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 241919,
+            "last_12": [
+              238729,
+              238747,
+              238789,
+              238829,
+              239711,
+              239713,
+              239731,
+              239753,
+              240173,
+              241793,
+              241811,
+              241919
+            ]
+          },
+          {
+            "seed": [
+              3,
+              7,
+              11
+            ],
+            "terminated": false,
+            "terms": 1500,
+            "last": 22859,
+            "last_12": [
+              22699,
+              22709,
+              22721,
+              22727,
+              22739,
+              22741,
+              22751,
+              22769,
+              22787,
+              22817,
+              22853,
+              22859
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-12T10:28:30.132Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

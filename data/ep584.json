@@ -1,69 +1,56 @@
 {
   "problem": "EP-584",
-  "normalized_utc": "2026-03-05T08:54:16.963Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-584\n- Quick literature check:\n  - Problem-page status remains open; key context still distinguishes fixed-density results from the harder sparse regime `delta=n^{-c}`.\n- Finite compute signal:\n  - In random dense graphs at tested `delta`, sampled edge-pairs were overwhelmingly connected by short cycles (proxy for `<=6`/`<=8`), and adjacent-edge pairs frequently lay on `C_4`.\n- Interpretation:\n  - Constant-density behavior appears strongly favorable; sparse-density transfer remains the hard step."
+  "normalized_utc": "2026-03-12T13:31:46.823Z",
+  "computations": [
+    {
+      "source_file": "ep584_standalone_deeper_20260312T133146Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:31:46.823Z",
+      "data": {
+        "problem": "EP-584",
+        "script": "ep584.mjs",
+        "method": "deeper_short_cycle_pair_connectivity_sampling_in_dense_graphs",
+        "params": {},
+        "rows": [
+          {
+            "n": 88,
+            "delta": 0.08,
+            "trials": 20,
+            "avg_edges": 606.3,
+            "delta_sq_n_sq": 49.5616,
+            "delta_cu_n_sq": 3.964928,
+            "sampled_pair_fraction_cycle_len_le_6_approx": 0.9670783,
+            "sampled_pair_fraction_cycle_len_le_8_approx": 1,
+            "sampled_adjacent_pair_fraction_on_C4": 0.88674128
+          },
+          {
+            "n": 88,
+            "delta": 0.12,
+            "trials": 18,
+            "avg_edges": 919.05556,
+            "delta_sq_n_sq": 111.5136,
+            "delta_cu_n_sq": 13.381632,
+            "sampled_pair_fraction_cycle_len_le_6_approx": 0.99987923,
+            "sampled_pair_fraction_cycle_len_le_8_approx": 1,
+            "sampled_adjacent_pair_fraction_on_C4": 0.99449918
+          },
+          {
+            "n": 88,
+            "delta": 0.16,
+            "trials": 16,
+            "avg_edges": 1222.25,
+            "delta_sq_n_sq": 198.2464,
+            "delta_cu_n_sq": 31.719424,
+            "sampled_pair_fraction_cycle_len_le_6_approx": 1,
+            "sampled_pair_fraction_cycle_len_le_8_approx": 1,
+            "sampled_adjacent_pair_fraction_on_C4": 0.99992824
+          }
+        ],
+        "elapsed_ms": 590,
+        "generated_utc": "2026-03-12T13:31:46.823Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch15_quick_compute.mjs",
-        "heading": "short-cycle pair connectivity sampling in dense graphs.",
-        "content": "// EP-584: short-cycle pair connectivity sampling in dense graphs.\n{\n  function bfsDistAvoidEdge(G, src, banU, banV) {\n    const { n, neigh } = G;\n    const dist = Array(n).fill(-1);\n    const q = [src];\n    dist[src] = 0;\n    let qi = 0;\n    while (qi < q.length) {\n      const u = q[qi++];\n      const du = dist[u];\n      for (const v of neigh[u]) {\n        if ((u === banU && v === banV) || (u === banV && v === banU)) continue;\n        if (dist[v] >= 0) continue;\n        dist[v] = du + 1;\n        q.push(v);\n      }\n    }\n    return dist;\n  }\n\n  function approxPairOnCycleAtMostL(G, e1, e2, L) {\n    const [a, b] = e1;\n    const [c, d] = e2;\n    if ((a === c && b === d) || (a === d && b === c)) return true;\n\n    const da = bfsDistAvoidEdge(G, a, a, b);\n    const db = bfsDistAvoidEdge(G, b, a, b);\n\n    const cand1 = da[c] >= 0 && db[d] >= 0 ? da[c] + 1 + db[d] : 1e9;\n    const cand2 = da[d] >= 0 && db[c] >= 0 ? da[d] + 1 + db[c] : 1e9;\n    const bestPath = Math.min(cand1, cand2);\n\n    return bestPath <= L - 1;\n  }\n\n  function adjacentPairInC4(G, e1, e2) {\n    const [a, b] = e1;\n    const [c, d] = e2;\n\n    let u = -1;\n    let v = -1;\n    let w = -1;\n\n    if (a === c) {\n      u = a;\n      v = b;\n      w = d;\n    } else if (a === d) {\n      u = a;\n      v = b;\n      w = c;\n    } else if (b === c) {\n      u = b;\n      v = a;\n      w = d;\n    } else if (b === d) {\n      u = b;\n      v = a;\n      w = c;\n    } else {\n      return false;\n    }\n\n    for (const x of G.neigh[v]) {\n      if (x === u || x === w) continue;\n      if (G.adj[w][x]) return true;\n    }\n    return false;\n  }\n\n  const rng = makeRng(20260303 ^ 1502);\n  const rows = [];\n\n  for (const [delta, trials] of [[0.08, 4], [0.12, 4], [0.16, 4]]) {\n    const n = 72;\n    const p = Math.min(0.95, 2 * delta);\n\n    let avgM = 0;\n    let frac6 = 0;\n    let frac8 = 0;\n    let fracAdjC4 = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const G = randomGraph(n, p, rng);\n      avgM += G.m;\n\n      const edges = [];\n      for (let u = 0; u < n; u += 1) {\n        for (const v of G.neigh[u]) {\n          if (u < v) edges.push([u, v]);\n        }\n      }\n\n      let hit6 = 0;\n      let hit8 = 0;\n      const pairSamples = Math.min(120, Math.floor(edges.length / 2));\n      for (let s = 0; s < pairSamples; s += 1) {\n        const e1 = edges[Math.floor(rng() * edges.length)];\n        const e2 = edges[Math.floor(rng() * edges.length)];\n        if (approxPairOnCycleAtMostL(G, e1, e2, 6)) hit6 += 1;\n        if (approxPairOnCycleAtMostL(G, e1, e2, 8)) hit8 += 1;\n      }\n\n      let adjHit = 0;\n      let adjCnt = 0;\n      for (let s = 0; s < 160; s += 1) {\n        const u = Math.floor(rng() * n);\n        if (G.neigh[u].length < 2) continue;\n        const a = G.neigh[u][Math.floor(rng() * G.neigh[u].length)];\n        const b = G.neigh[u][Math.floor(rng() * G.neigh[u].length)];\n        if (a === b) continue;\n        adjCnt += 1;\n        if (adjacentPairInC4(G, [u, a], [u, b])) adjHit += 1;\n      }\n\n      frac6 += pairSamples ? hit6 / pairSamples : 0;\n      frac8 += pairSamples ? hit8 / pairSamples : 0;\n      fracAdjC4 += adjCnt ? adjHit / adjCnt : 0;\n    }\n\n    avgM /= trials;\n    frac6 /= trials;\n    frac8 /= trials;\n    fracAdjC4 /= trials;\n\n    rows.push({\n      n,\n      delta,\n      trials,\n      avg_edges: Number(avgM.toPrecision(7)),\n      delta_sq_n_sq: Number((delta * delta * n * n).toPrecision(7)),\n      delta_cu_n_sq: Number((delta * delta * delta * n * n).toPrecision(7)),\n      sampled_pair_fraction_cycle_len_le_6_approx: Number(frac6.toPrecision(6)),\n      sampled_pair_fraction_cycle_len_le_8_approx: Number(frac8.toPrecision(6)),\n      sampled_adjacent_pair_fraction_on_C4: Number(fracAdjC4.toPrecision(6)),\n    });\n  }\n\n  out.results.ep584 = {\n    description: 'Short-cycle connectivity proxy on dense random graphs at edge-density delta.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep584",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "Short-cycle connectivity proxy on dense random graphs at edge-density delta.",
-          "rows": [
-            {
-              "n": 72,
-              "delta": 0.08,
-              "trials": 4,
-              "avg_edges": 415.5,
-              "delta_sq_n_sq": 33.1776,
-              "delta_cu_n_sq": 2.654208,
-              "sampled_pair_fraction_cycle_len_le_6_approx": 0.95625,
-              "sampled_pair_fraction_cycle_len_le_8_approx": 1,
-              "sampled_adjacent_pair_fraction_on_C4": 0.829614
-            },
-            {
-              "n": 72,
-              "delta": 0.12,
-              "trials": 4,
-              "avg_edges": 612.75,
-              "delta_sq_n_sq": 74.6496,
-              "delta_cu_n_sq": 8.957952,
-              "sampled_pair_fraction_cycle_len_le_6_approx": 1,
-              "sampled_pair_fraction_cycle_len_le_8_approx": 1,
-              "sampled_adjacent_pair_fraction_on_C4": 0.981403
-            },
-            {
-              "n": 72,
-              "delta": 0.16,
-              "trials": 4,
-              "avg_edges": 833,
-              "delta_sq_n_sq": 132.7104,
-              "delta_cu_n_sq": 21.23366,
-              "sampled_pair_fraction_cycle_len_le_6_approx": 1,
-              "sampled_pair_fraction_cycle_len_le_8_approx": 1,
-              "sampled_adjacent_pair_fraction_on_C4": 1
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

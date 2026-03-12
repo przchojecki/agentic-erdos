@@ -1,5 +1,122 @@
 {
   "problem": "EP-579",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:31:46.667Z",
+  "computations": [
+    {
+      "source_file": "ep579_standalone_deeper_20260312T133146Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:31:46.667Z",
+      "data": {
+        "problem": "EP-579",
+        "script": "ep579.mjs",
+        "method": "greedy_dense_K222_free_profile_with_independence_estimates",
+        "params": {},
+        "rows": [
+          {
+            "n": 12,
+            "delta_target": 0.18,
+            "restarts": 36,
+            "best_k222_free_edges_found": 45,
+            "achieved_density_m_over_n2": 0.3125,
+            "approx_alpha_best_graph": 3,
+            "alpha_over_n": 0.25,
+            "target_edges_delta_n2": 25,
+            "target_met": true
+          },
+          {
+            "n": 12,
+            "delta_target": 0.22,
+            "restarts": 36,
+            "best_k222_free_edges_found": 45,
+            "achieved_density_m_over_n2": 0.3125,
+            "approx_alpha_best_graph": 3,
+            "alpha_over_n": 0.25,
+            "target_edges_delta_n2": 31,
+            "target_met": true
+          },
+          {
+            "n": 12,
+            "delta_target": 0.26,
+            "restarts": 36,
+            "best_k222_free_edges_found": 45,
+            "achieved_density_m_over_n2": 0.3125,
+            "approx_alpha_best_graph": 3,
+            "alpha_over_n": 0.25,
+            "target_edges_delta_n2": 37,
+            "target_met": true
+          },
+          {
+            "n": 14,
+            "delta_target": 0.16,
+            "restarts": 28,
+            "best_k222_free_edges_found": 56,
+            "achieved_density_m_over_n2": 0.28571429,
+            "approx_alpha_best_graph": 3,
+            "alpha_over_n": 0.21428571,
+            "target_edges_delta_n2": 31,
+            "target_met": true
+          },
+          {
+            "n": 14,
+            "delta_target": 0.2,
+            "restarts": 28,
+            "best_k222_free_edges_found": 56,
+            "achieved_density_m_over_n2": 0.28571429,
+            "approx_alpha_best_graph": 3,
+            "alpha_over_n": 0.21428571,
+            "target_edges_delta_n2": 39,
+            "target_met": true
+          },
+          {
+            "n": 14,
+            "delta_target": 0.24,
+            "restarts": 28,
+            "best_k222_free_edges_found": 56,
+            "achieved_density_m_over_n2": 0.28571429,
+            "approx_alpha_best_graph": 3,
+            "alpha_over_n": 0.21428571,
+            "target_edges_delta_n2": 47,
+            "target_met": true
+          },
+          {
+            "n": 16,
+            "delta_target": 0.14,
+            "restarts": 20,
+            "best_k222_free_edges_found": 70,
+            "achieved_density_m_over_n2": 0.2734375,
+            "approx_alpha_best_graph": 5,
+            "alpha_over_n": 0.3125,
+            "target_edges_delta_n2": 35,
+            "target_met": true
+          },
+          {
+            "n": 16,
+            "delta_target": 0.18,
+            "restarts": 20,
+            "best_k222_free_edges_found": 70,
+            "achieved_density_m_over_n2": 0.2734375,
+            "approx_alpha_best_graph": 5,
+            "alpha_over_n": 0.3125,
+            "target_edges_delta_n2": 46,
+            "target_met": true
+          },
+          {
+            "n": 16,
+            "delta_target": 0.22,
+            "restarts": 20,
+            "best_k222_free_edges_found": 70,
+            "achieved_density_m_over_n2": 0.2734375,
+            "approx_alpha_best_graph": 5,
+            "alpha_over_n": 0.3125,
+            "target_edges_delta_n2": 56,
+            "target_met": true
+          }
+        ],
+        "elapsed_ms": 434,
+        "generated_utc": "2026-03-12T13:31:46.667Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

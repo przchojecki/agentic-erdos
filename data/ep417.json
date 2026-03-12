@@ -1,5 +1,90 @@
 {
   "problem": "EP-417",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep417_standalone_deeper_20260312T101259Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:12:59.845Z",
+      "data": {
+        "problem": "EP-417",
+        "script": "ep417.mjs",
+        "method": "deep_finite_comparison_of_V_and_Vprime_for_totient_values",
+        "params": {
+          "M": 3000000,
+          "X_LIST": [
+            20000,
+            50000,
+            100000,
+            200000,
+            500000,
+            1000000,
+            1500000,
+            2000000
+          ]
+        },
+        "rows": [
+          {
+            "X": 20000,
+            "Vprime_X": 4085,
+            "V_X": 4486,
+            "ratio_V_over_Vprime": 1.098164,
+            "gap_V_minus_Vprime": 401
+          },
+          {
+            "X": 50000,
+            "Vprime_X": 9621,
+            "V_X": 10562,
+            "ratio_V_over_Vprime": 1.0978069,
+            "gap_V_minus_Vprime": 941
+          },
+          {
+            "X": 100000,
+            "Vprime_X": 18412,
+            "V_X": 20254,
+            "ratio_V_over_Vprime": 1.1000434,
+            "gap_V_minus_Vprime": 1842
+          },
+          {
+            "X": 200000,
+            "Vprime_X": 35444,
+            "V_X": 38992,
+            "ratio_V_over_Vprime": 1.1001016,
+            "gap_V_minus_Vprime": 3548
+          },
+          {
+            "X": 500000,
+            "Vprime_X": 84610,
+            "V_X": 93080,
+            "ratio_V_over_Vprime": 1.1001064,
+            "gap_V_minus_Vprime": 8470
+          },
+          {
+            "X": 1000000,
+            "Vprime_X": 163861,
+            "V_X": 180184,
+            "ratio_V_over_Vprime": 1.0996149,
+            "gap_V_minus_Vprime": 16323
+          },
+          {
+            "X": 1500000,
+            "Vprime_X": 241298,
+            "V_X": 265311,
+            "ratio_V_over_Vprime": 1.099516,
+            "gap_V_minus_Vprime": 24013
+          },
+          {
+            "X": 2000000,
+            "Vprime_X": 317589,
+            "V_X": 347728,
+            "ratio_V_over_Vprime": 1.0948994,
+            "gap_V_minus_Vprime": 30139
+          }
+        ],
+        "generated_utc": "2026-03-12T10:12:59.845Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

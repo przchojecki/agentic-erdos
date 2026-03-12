@@ -1,5 +1,134 @@
 {
   "problem": "EP-544",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep544_standalone_deeper_20260312T110827Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T11:08:28.671Z",
+      "data": {
+        "problem": "EP-544",
+        "script": "ep544.mjs",
+        "method": "triangle_free_random_search_proxy_for_adjacent_ramsey_lower_bounds",
+        "params": {
+          "tasks": [
+            {
+              "k": 8,
+              "nTry": [
+                24,
+                26,
+                28
+              ],
+              "graphTrials": 240,
+              "restarts": 240
+            },
+            {
+              "k": 9,
+              "nTry": [
+                30,
+                32,
+                34
+              ],
+              "graphTrials": 220,
+              "restarts": 220
+            },
+            {
+              "k": 10,
+              "nTry": [
+                36,
+                38,
+                40
+              ],
+              "graphTrials": 200,
+              "restarts": 200
+            }
+          ]
+        },
+        "rows": [
+          {
+            "k": 8,
+            "details": [
+              {
+                "n": 24,
+                "graph_trials": 240,
+                "min_independent_set_size_found_by_greedy_search": 9,
+                "mean_independent_set_size_found_by_greedy_search": 13.204167,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              },
+              {
+                "n": 26,
+                "graph_trials": 240,
+                "min_independent_set_size_found_by_greedy_search": 11,
+                "mean_independent_set_size_found_by_greedy_search": 14.158333,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              },
+              {
+                "n": 28,
+                "graph_trials": 240,
+                "min_independent_set_size_found_by_greedy_search": 11,
+                "mean_independent_set_size_found_by_greedy_search": 14.670833,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              }
+            ]
+          },
+          {
+            "k": 9,
+            "details": [
+              {
+                "n": 30,
+                "graph_trials": 220,
+                "min_independent_set_size_found_by_greedy_search": 11,
+                "mean_independent_set_size_found_by_greedy_search": 15.413636,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              },
+              {
+                "n": 32,
+                "graph_trials": 220,
+                "min_independent_set_size_found_by_greedy_search": 12,
+                "mean_independent_set_size_found_by_greedy_search": 15.677273,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              },
+              {
+                "n": 34,
+                "graph_trials": 220,
+                "min_independent_set_size_found_by_greedy_search": 13,
+                "mean_independent_set_size_found_by_greedy_search": 16.422727,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              }
+            ]
+          },
+          {
+            "k": 10,
+            "details": [
+              {
+                "n": 36,
+                "graph_trials": 200,
+                "min_independent_set_size_found_by_greedy_search": 14,
+                "mean_independent_set_size_found_by_greedy_search": 17.095,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              },
+              {
+                "n": 38,
+                "graph_trials": 200,
+                "min_independent_set_size_found_by_greedy_search": 14,
+                "mean_independent_set_size_found_by_greedy_search": 17.58,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              },
+              {
+                "n": 40,
+                "graph_trials": 200,
+                "min_independent_set_size_found_by_greedy_search": 14,
+                "mean_independent_set_size_found_by_greedy_search": 18.37,
+                "certification_note": "Greedy values are lower bounds for alpha(G), not certificates of alpha(G)<k."
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 719,
+        "generated_utc": "2026-03-12T11:08:28.671Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

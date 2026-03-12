@@ -1,68 +1,55 @@
 {
   "problem": "EP-589",
-  "normalized_utc": "2026-03-05T08:54:16.963Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-589\n- Quick literature check:\n  - Current page summary still gives `n^{1/2} log n` lower and sublinear upper bounds (e.g. `n^{5/6+o(1)}`), so the true order stays open.\n- Finite compute signal:\n  - From sampled no-4-collinear instances, extracted no-3-collinear subsets are large in finite range (`~0.73n` to `~0.89n` in best runs).\n- Interpretation:\n  - Finite geometry remains too small to reflect asymptotic sublinear constraints."
+  "normalized_utc": "2026-03-12T13:34:22.349Z",
+  "computations": [
+    {
+      "source_file": "ep589_standalone_deeper_20260312T133422Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:34:22.349Z",
+      "data": {
+        "problem": "EP-589",
+        "script": "ep589.mjs",
+        "method": "deeper_no4_collinear_construction_and_no3_subset_extraction_heuristic",
+        "params": {},
+        "rows": [
+          {
+            "n": 30,
+            "best_no3_subset_size_from_no4_instance": 28,
+            "ratio_over_sqrt_n": 5.1120772,
+            "ratio_over_n": 0.93333333,
+            "triples_in_source_instance": 3,
+            "source_max_collinear": 3
+          },
+          {
+            "n": 40,
+            "best_no3_subset_size_from_no4_instance": 35,
+            "ratio_over_sqrt_n": 5.5339859,
+            "ratio_over_n": 0.875,
+            "triples_in_source_instance": 9,
+            "source_max_collinear": 3
+          },
+          {
+            "n": 50,
+            "best_no3_subset_size_from_no4_instance": 41,
+            "ratio_over_sqrt_n": 5.7982756,
+            "ratio_over_n": 0.82,
+            "triples_in_source_instance": 20,
+            "source_max_collinear": 3
+          },
+          {
+            "n": 60,
+            "best_no3_subset_size_from_no4_instance": 46,
+            "ratio_over_sqrt_n": 5.9385745,
+            "ratio_over_n": 0.76666667,
+            "triples_in_source_instance": 43,
+            "source_max_collinear": 3
+          }
+        ],
+        "elapsed_ms": 211,
+        "generated_utc": "2026-03-12T13:34:22.349Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch15_quick_compute.mjs",
-        "heading": "no-4-collinear sets and large no-3-collinear subset heuristic.",
-        "content": "// EP-589: no-4-collinear sets and large no-3-collinear subset heuristic.\n{\n  const rng = makeRng(20260303 ^ 1505);\n\n  function buildNo4Set(n, grid) {\n    let pts = randomDistinctPoints(n, grid, rng);\n\n    for (let it = 0; it < 1600; it += 1) {\n      const st = lineStats(pts);\n      if (st.maxCollinear <= 3) return pts;\n\n      let badLine = null;\n      let badPts = null;\n      for (const [key, S] of st.lineMap.entries()) {\n        if (S.size >= 4) {\n          badLine = key;\n          badPts = [...S];\n          break;\n        }\n      }\n      if (!badLine) return pts;\n\n      const idx = badPts[Math.floor(rng() * badPts.length)];\n      const used = new Set(pts.map((p) => `${p[0]},${p[1]}`));\n      used.delete(`${pts[idx][0]},${pts[idx][1]}`);\n\n      for (let tr = 0; tr < 40; tr += 1) {\n        const x = Math.floor(rng() * grid);\n        const y = Math.floor(rng() * grid);\n        const key = `${x},${y}`;\n        if (used.has(key)) continue;\n        pts[idx] = [x, y];\n        break;\n      }\n    }\n\n    return pts;\n  }\n\n  function maxNo3SubsetHeuristic(points) {\n    const n = points.length;\n    const st = lineStats(points);\n\n    const triples = [];\n    for (const S of st.lineMap.values()) {\n      const arr = [...S];\n      if (arr.length === 3) triples.push(arr);\n      if (arr.length > 3) {\n        for (let i = 0; i < arr.length; i += 1) {\n          for (let j = i + 1; j < arr.length; j += 1) {\n            for (let k = j + 1; k < arr.length; k += 1) {\n              triples.push([arr[i], arr[j], arr[k]]);\n            }\n          }\n        }\n      }\n    }\n\n    const alive = Array(n).fill(true);\n    const deg = Array(n).fill(0);\n\n    function recomputeDeg() {\n      deg.fill(0);\n      for (const [a, b, c] of triples) {\n        if (alive[a] && alive[b] && alive[c]) {\n          deg[a] += 1;\n          deg[b] += 1;\n          deg[c] += 1;\n        }\n      }\n    }\n\n    recomputeDeg();\n    while (true) {\n      let anyBad = false;\n      for (const [a, b, c] of triples) {\n        if (alive[a] && alive[b] && alive[c]) {\n          anyBad = true;\n          break;\n        }\n      }\n      if (!anyBad) break;\n\n      let vBest = -1;\n      let dBest = -1;\n      for (let v = 0; v < n; v += 1) {\n        if (!alive[v]) continue;\n        if (deg[v] > dBest) {\n          dBest = deg[v];\n          vBest = v;\n        }\n      }\n      if (vBest < 0) break;\n      alive[vBest] = false;\n      recomputeDeg();\n    }\n\n    const removed = [];\n    for (let v = 0; v < n; v += 1) if (!alive[v]) removed.push(v);\n\n    function canAdd(v) {\n      for (const [a, b, c] of triples) {\n        if (a !== v && b !== v && c !== v) continue;\n        const aa = a === v ? true : alive[a];\n        const bb = b === v ? true : alive[b];\n        const cc = c === v ? true : alive[c];\n        if (aa && bb && cc) return false;\n      }\n      return true;\n    }\n\n    let improved = true;\n    while (improved) {\n      improved = false;\n      for (const v of removed) {\n        if (alive[v]) continue;\n        if (canAdd(v)) {\n          alive[v] = true;\n          improved = true;\n        }\n      }\n    }\n\n    let sz = 0;\n    for (let v = 0; v < n; v += 1) if (alive[v]) sz += 1;\n    return { size: sz, num_triples: triples.length, max_collinear_original: st.maxCollinear };\n  }\n\n  const rows = [];\n  for (const n of [28, 36, 44, 52]) {\n    let best = { size: 0, num_triples: 0, max_collinear_original: 0 };\n    for (let r = 0; r < 16; r += 1) {\n      const pts = buildNo4Set(n, 41);\n      const cur = maxNo3SubsetHeuristic(pts);\n      if (cur.size > best.size) best = cur;\n    }\n\n    rows.push({\n      n,\n      best_no3_subset_size_from_no4_instance: best.size,\n      ratio_over_sqrt_n: Number((best.size / Math.sqrt(n)).toPrecision(7)),\n      ratio_over_n: Number((best.size / n).toPrecision(7)),\n      triples_in_source_instance: best.num_triples,\n      source_max_collinear: best.max_collinear_original,\n    });\n  }\n\n  out.results.ep589 = {\n    description: 'Heuristic lower bounds for g(n) via no-4-collinear instances and extracted no-3-collinear subsets.',\n    rows,\n  };\n}\n\n// EP-591 and EP-592: toy finite Ramsey analogue (R(3,3)=6) and status marker.\n{\n  function hasMonoTriangle(mask, N) {\n    let e = 0;\n    const idx = Array.from({ length: N }, () => Array(N).fill(-1));\n    for (let i = 0; i < N; i += 1) {\n      for (let j = i + 1; j < N; j += 1) {\n        idx[i][j] = e;\n        idx[j][i] = e;\n        e += 1;\n      }\n    }\n\n    for (let a = 0; a < N; a += 1) {\n      for (let b = a + 1; b < N; b += 1) {\n        for (let c = b + 1; c < N; c += 1) {\n          const ab = ((mask >> BigInt(idx[a][b])) & 1n) === 1n;\n          const ac = ((mask >> BigInt(idx[a][c])) & 1n) === 1n;\n          const bc = ((mask >> BigInt(idx[b][c])) & 1n) === 1n;\n          if ((ab && ac && bc) || (!ab && !ac && !bc)) return true;\n        }\n      }\n    }\n    return false;\n  }\n\n  function ramsey33Exact() {\n    for (let N = 3; N <= 7; N += 1) {\n      const E = choose2(N);\n      const total = 1n << BigInt(E);\n      let allForced = true;\n      for (let m = 0n; m < total; m += 1n) {\n        if (!hasMonoTriangle(m, N)) {\n          allForced = false;\n          break;\n        }\n      }\n      if (allForced) return N;\n    }\n    return null;\n  }\n\n  const r33 = ramsey33Exact();\n\n  out.results.ep591 = {\n    description: 'Ordinal statement itself is theorem-level; finite toy analogue confirms R(3,3)=6.',\n    toy_finite_ramsey_result: {\n      R_3_3_exact: r33,\n    },\n  };\n\n  out.results.ep592 = {\n    description: 'General partition-ordinal classification has no faithful finite proxy; retained toy baseline from triangle-Ramsey core.',\n    toy_reference: {\n      R_3_3_exact: r33,\n    },\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep589",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "Heuristic lower bounds for g(n) via no-4-collinear instances and extracted no-3-collinear subsets.",
-          "rows": [
-            {
-              "n": 28,
-              "best_no3_subset_size_from_no4_instance": 25,
-              "ratio_over_sqrt_n": 4.724556,
-              "ratio_over_n": 0.8928571,
-              "triples_in_source_instance": 5,
-              "source_max_collinear": 3
-            },
-            {
-              "n": 36,
-              "best_no3_subset_size_from_no4_instance": 30,
-              "ratio_over_sqrt_n": 5,
-              "ratio_over_n": 0.8333333,
-              "triples_in_source_instance": 10,
-              "source_max_collinear": 3
-            },
-            {
-              "n": 44,
-              "best_no3_subset_size_from_no4_instance": 34,
-              "ratio_over_sqrt_n": 5.125693,
-              "ratio_over_n": 0.7727273,
-              "triples_in_source_instance": 22,
-              "source_max_collinear": 3
-            },
-            {
-              "n": 52,
-              "best_no3_subset_size_from_no4_instance": 38,
-              "ratio_over_sqrt_n": 5.269652,
-              "ratio_over_n": 0.7307692,
-              "triples_in_source_instance": 38,
-              "source_max_collinear": 3
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

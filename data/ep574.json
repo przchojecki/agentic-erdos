@@ -1,5 +1,95 @@
 {
   "problem": "EP-574",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:18:45.509Z",
+  "computations": [
+    {
+      "source_file": "ep574_standalone_deeper_20260312T131823Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:18:45.509Z",
+      "data": {
+        "problem": "EP-574",
+        "script": "ep574.mjs",
+        "method": "greedy_extremal_profile_for_C_2k_minus_1_and_C_2k_free_graphs",
+        "params": {},
+        "rows": [
+          {
+            "k": 2,
+            "forbidden": [
+              "C3",
+              "C4"
+            ],
+            "n": 40,
+            "trials": 40,
+            "best_edges_found": 101,
+            "ratio_over_n_over_2_pow_1_plus_1_over_k": 1.1292143,
+            "ratio_over_n_pow_1_plus_1_over_k": 0.39923755
+          },
+          {
+            "k": 2,
+            "forbidden": [
+              "C3",
+              "C4"
+            ],
+            "n": 56,
+            "trials": 40,
+            "best_edges_found": 163,
+            "ratio_over_n_over_2_pow_1_plus_1_over_k": 1.1001466,
+            "ratio_over_n_pow_1_plus_1_over_k": 0.38896056
+          },
+          {
+            "k": 2,
+            "forbidden": [
+              "C3",
+              "C4"
+            ],
+            "n": 72,
+            "trials": 40,
+            "best_edges_found": 229,
+            "ratio_over_n_over_2_pow_1_plus_1_over_k": 1.0601852,
+            "ratio_over_n_pow_1_plus_1_over_k": 0.37483207
+          },
+          {
+            "k": 3,
+            "forbidden": [
+              "C5",
+              "C6"
+            ],
+            "n": 46,
+            "trials": 16,
+            "best_edges_found": 97,
+            "ratio_over_n_over_2_pow_1_plus_1_over_k": 1.4829777,
+            "ratio_over_n_pow_1_plus_1_over_k": 0.58852009
+          },
+          {
+            "k": 3,
+            "forbidden": [
+              "C5",
+              "C6"
+            ],
+            "n": 62,
+            "trials": 16,
+            "best_edges_found": 137,
+            "ratio_over_n_over_2_pow_1_plus_1_over_k": 1.4068193,
+            "ratio_over_n_pow_1_plus_1_over_k": 0.5582966
+          },
+          {
+            "k": 3,
+            "forbidden": [
+              "C5",
+              "C6"
+            ],
+            "n": 78,
+            "trials": 16,
+            "best_edges_found": 181,
+            "ratio_over_n_over_2_pow_1_plus_1_over_k": 1.3685451,
+            "ratio_over_n_pow_1_plus_1_over_k": 0.54310746
+          }
+        ],
+        "elapsed_ms": 21776,
+        "generated_utc": "2026-03-12T13:18:45.509Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

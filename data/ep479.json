@@ -1,5 +1,230 @@
 {
   "problem": "EP-479",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep479_standalone_deeper_20260312T103136Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T10:31:36.306Z",
+      "data": {
+        "problem": "EP-479",
+        "script": "ep479.mjs",
+        "method": "deep_modular_witness_scan_for_2pow_n_congruence",
+        "params": {
+          "N": 2000000,
+          "K_LIST": [
+            -1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13
+          ]
+        },
+        "rows": [
+          {
+            "k": -1,
+            "search_limit_n": 2000000,
+            "witness_count": 46,
+            "first_witness": 3,
+            "first_20_witnesses": [
+              3,
+              9,
+              27,
+              81,
+              171,
+              243,
+              513,
+              729,
+              1539,
+              2187,
+              3249,
+              4617,
+              6561,
+              9747,
+              13203,
+              13851,
+              19683,
+              29241,
+              39609,
+              41553
+            ]
+          },
+          {
+            "k": 2,
+            "search_limit_n": 2000000,
+            "witness_count": 149289,
+            "first_witness": 2,
+            "first_20_witnesses": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29,
+              31,
+              37,
+              41,
+              43,
+              47,
+              53,
+              59,
+              61,
+              67,
+              71
+            ]
+          },
+          {
+            "k": 3,
+            "search_limit_n": 2000000,
+            "witness_count": 0,
+            "first_witness": null,
+            "first_20_witnesses": []
+          },
+          {
+            "k": 4,
+            "search_limit_n": 2000000,
+            "witness_count": 78999,
+            "first_witness": 2,
+            "first_20_witnesses": [
+              2,
+              4,
+              6,
+              10,
+              12,
+              14,
+              22,
+              26,
+              30,
+              34,
+              38,
+              46,
+              58,
+              62,
+              74,
+              82,
+              86,
+              94,
+              106,
+              118
+            ]
+          },
+          {
+            "k": 5,
+            "search_limit_n": 2000000,
+            "witness_count": 2,
+            "first_witness": 3,
+            "first_20_witnesses": [
+              3,
+              19147
+            ]
+          },
+          {
+            "k": 6,
+            "search_limit_n": 2000000,
+            "witness_count": 2,
+            "first_witness": 2,
+            "first_20_witnesses": [
+              2,
+              10669
+            ]
+          },
+          {
+            "k": 7,
+            "search_limit_n": 2000000,
+            "witness_count": 3,
+            "first_witness": 5,
+            "first_20_witnesses": [
+              5,
+              25,
+              1727
+            ]
+          },
+          {
+            "k": 8,
+            "search_limit_n": 2000000,
+            "witness_count": 54621,
+            "first_witness": 2,
+            "first_20_witnesses": [
+              2,
+              3,
+              4,
+              8,
+              9,
+              15,
+              21,
+              33,
+              39,
+              51,
+              57,
+              63,
+              69,
+              87,
+              93,
+              111,
+              123,
+              129,
+              141,
+              159
+            ]
+          },
+          {
+            "k": 9,
+            "search_limit_n": 2000000,
+            "witness_count": 1,
+            "first_witness": 7,
+            "first_20_witnesses": [
+              7
+            ]
+          },
+          {
+            "k": 10,
+            "search_limit_n": 2000000,
+            "witness_count": 5,
+            "first_witness": 2,
+            "first_20_witnesses": [
+              2,
+              6,
+              18,
+              16666,
+              262134
+            ]
+          },
+          {
+            "k": 11,
+            "search_limit_n": 2000000,
+            "witness_count": 2,
+            "first_witness": 3,
+            "first_20_witnesses": [
+              3,
+              262279
+            ]
+          },
+          {
+            "k": 13,
+            "search_limit_n": 2000000,
+            "witness_count": 2,
+            "first_witness": 11,
+            "first_20_witnesses": [
+              11,
+              95
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-12T10:31:36.306Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,31 +1,40 @@
 {
   "problem": "EP-591",
-  "normalized_utc": "2026-03-05T08:54:16.963Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-591\n- Quick literature check:\n  - The problem page is now marked `PROVED` (affirmative), citing Schipperus (2010) and independent Darby work.\n- Finite compute signal:\n  - Only toy finite analogue included (`R(3,3)=6`), as no faithful finite model captures the ordinal statement.\n- Interpretation:\n  - Original statement is resolved in the affirmative."
-      }
-    ],
-    "script_sources": [],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep591",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "Ordinal statement itself is theorem-level; finite toy analogue confirms R(3,3)=6.",
-          "toy_finite_ramsey_result": {
-            "R_3_3_exact": 6
+  "normalized_utc": "2026-03-12T13:41:22.185Z",
+  "computations": [
+    {
+      "source_file": "ep591_standalone_deeper_20260312T134122Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:41:22.185Z",
+      "data": {
+        "problem": "EP-591",
+        "script": "ep591.mjs",
+        "method": "exact_exhaustive_toy_partition_relation_proxy_via_ramsey_33",
+        "params": {},
+        "rows": [
+          {
+            "n": 3,
+            "colorings_without_monochromatic_triangle": 6
+          },
+          {
+            "n": 4,
+            "colorings_without_monochromatic_triangle": 18
+          },
+          {
+            "n": 5,
+            "colorings_without_monochromatic_triangle": 12
+          },
+          {
+            "n": 6,
+            "colorings_without_monochromatic_triangle": 0
           }
-        }
+        ],
+        "inferred_R_3_3": 6,
+        "elapsed_ms": 1,
+        "generated_utc": "2026-03-12T13:41:22.185Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

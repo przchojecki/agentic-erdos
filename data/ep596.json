@@ -1,5 +1,53 @@
 {
   "problem": "EP-596",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:44:30.593Z",
+  "computations": [
+    {
+      "source_file": "ep596_standalone_deeper_20260312T134430Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:44:30.593Z",
+      "data": {
+        "problem": "EP-596",
+        "script": "ep596.mjs",
+        "method": "finite_C4_free_vs_monochromatic_C6_two_color_proxy",
+        "params": {},
+        "rows": [
+          {
+            "n": 14,
+            "restarts": 80,
+            "attempts": 140,
+            "local_steps_per_attempt": 150,
+            "edges_in_best_C4_free_sample": 26,
+            "two_colorings_with_no_monochromatic_C6_found": 140,
+            "found_probability": 1,
+            "best_mono_C6_count_seen": 0
+          },
+          {
+            "n": 16,
+            "restarts": 65,
+            "attempts": 120,
+            "local_steps_per_attempt": 170,
+            "edges_in_best_C4_free_sample": 31,
+            "two_colorings_with_no_monochromatic_C6_found": 120,
+            "found_probability": 1,
+            "best_mono_C6_count_seen": 0
+          },
+          {
+            "n": 18,
+            "restarts": 50,
+            "attempts": 100,
+            "local_steps_per_attempt": 190,
+            "edges_in_best_C4_free_sample": 36,
+            "two_colorings_with_no_monochromatic_C6_found": 100,
+            "found_probability": 1,
+            "best_mono_C6_count_seen": 0
+          }
+        ],
+        "elapsed_ms": 122,
+        "generated_utc": "2026-03-12T13:44:30.593Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }
