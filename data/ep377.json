@@ -1,7 +1,76 @@
 {
   "problem": "EP-377",
   "normalized_utc": "2026-03-05T08:54:16.958Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep377_standalone_deeper_20260312T085751Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T08:57:51.700Z",
+      "data": {
+        "problem": "EP-377",
+        "script": "ep377.mjs",
+        "method": "extended_profile_of_harmonic_prime_sum_nondividing_central_binomial",
+        "params": {
+          "N": 50000,
+          "MILESTONES": [
+            1000,
+            5000,
+            10000,
+            20000,
+            30000,
+            40000,
+            50000
+          ]
+        },
+        "rows": [
+          {
+            "X": 1000,
+            "avg_f_up_to_X": 0.45149635,
+            "max_f_up_to_X": 1.0769774,
+            "argmax_n_up_to_X": 756
+          },
+          {
+            "X": 5000,
+            "avg_f_up_to_X": 0.45640246,
+            "max_f_up_to_X": 1.1792429,
+            "argmax_n_up_to_X": 3250
+          },
+          {
+            "X": 10000,
+            "avg_f_up_to_X": 0.46570439,
+            "max_f_up_to_X": 1.1792429,
+            "argmax_n_up_to_X": 3250
+          },
+          {
+            "X": 20000,
+            "avg_f_up_to_X": 0.45994023,
+            "max_f_up_to_X": 1.1792429,
+            "argmax_n_up_to_X": 3250
+          },
+          {
+            "X": 30000,
+            "avg_f_up_to_X": 0.46656148,
+            "max_f_up_to_X": 1.1792429,
+            "argmax_n_up_to_X": 3250
+          },
+          {
+            "X": 40000,
+            "avg_f_up_to_X": 0.47319622,
+            "max_f_up_to_X": 1.1792429,
+            "argmax_n_up_to_X": 3250
+          },
+          {
+            "X": 50000,
+            "avg_f_up_to_X": 0.4674137,
+            "max_f_up_to_X": 1.1792429,
+            "argmax_n_up_to_X": 3250
+          }
+        ],
+        "generated_utc": "2026-03-12T08:57:51.700Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [
@@ -62,5 +131,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

@@ -1,7 +1,67 @@
 {
   "problem": "EP-374",
   "normalized_utc": "2026-03-05T08:54:16.958Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep374_standalone_deeper_20260311T212503Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T21:25:03.590Z",
+      "data": {
+        "problem": "EP-374",
+        "script": "ep374.mjs",
+        "method": "extended_exact_D2_D3_profile_via_factorial_parity_signatures",
+        "params": {
+          "M": 1200
+        },
+        "rows": [
+          {
+            "X": 200,
+            "D2_count": 13,
+            "D3_count": 32,
+            "unresolved_or_ge4_count": 154,
+            "prime_count_in_D2_or_D3": 0
+          },
+          {
+            "X": 400,
+            "D2_count": 19,
+            "D3_count": 52,
+            "unresolved_or_ge4_count": 328,
+            "prime_count_in_D2_or_D3": 0
+          },
+          {
+            "X": 600,
+            "D2_count": 23,
+            "D3_count": 64,
+            "unresolved_or_ge4_count": 512,
+            "prime_count_in_D2_or_D3": 0
+          },
+          {
+            "X": 800,
+            "D2_count": 27,
+            "D3_count": 74,
+            "unresolved_or_ge4_count": 698,
+            "prime_count_in_D2_or_D3": 0
+          },
+          {
+            "X": 1000,
+            "D2_count": 30,
+            "D3_count": 84,
+            "unresolved_or_ge4_count": 885,
+            "prime_count_in_D2_or_D3": 0
+          },
+          {
+            "X": 1200,
+            "D2_count": 33,
+            "D3_count": 93,
+            "unresolved_or_ge4_count": 1073,
+            "prime_count_in_D2_or_D3": 0
+          }
+        ],
+        "generated_utc": "2026-03-11T21:25:03.590Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [
@@ -74,5 +134,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

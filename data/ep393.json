@@ -1,66 +1,66 @@
 {
   "problem": "EP-393",
   "normalized_utc": "2026-03-05T08:54:16.959Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch11_web_compute.md",
-        "content": "### EP-393\n- Quick literature check:\n  - Recent quantitative counting bounds improve known sparsity, while exact behavior of minimal gap function remains open.\n- Finite compute signal:\n  - Proxy searches found:\n    - `n!=x(x+1)` only at `n=2,3` (up to `n=1000`)\n    - `n!=x(x+1)(x+2)` at `n=3,4,5,6` (up to `n=200`).\n- Interpretation:\n  - Very short-gap consecutive-product realizations appear exceptionally rare."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch11_quick_compute.mjs",
-        "heading": "finite search for f(n)=1 proxy via n!=x(x+1); and 3-consecutive-product proxy.",
-        "content": "// EP-393: finite search for f(n)=1 proxy via n!=x(x+1); and 3-consecutive-product proxy.\n{\n  const N1 = 1000;\n  const N3 = 200;\n\n  const twoConsecutive = [];\n  for (let n = 2; n <= N1; n += 1) {\n    const fn = fact[n];\n    const D = 1n + 4n * fn;\n    if (!isSquareBigInt(D)) continue;\n    const r = isqrtBigInt(D);\n    if ((r - 1n) % 2n !== 0n) continue;\n    const x = (r - 1n) / 2n;\n    if (x * (x + 1n) === fn) twoConsecutive.push({ n, x: x.toString() });\n  }\n\n  const threeConsecutive = [];\n  for (let n = 3; n <= N3; n += 1) {\n    const fn = fact[n];\n    const x = exactConsecutiveTripleRoot(fn);\n    if (x !== null) threeConsecutive.push({ n, x: x.toString() });\n  }\n\n  out.results.ep393 = {\n    description: 'Finite proxies for small-width interval factorizations of n! using exact consecutive products.',\n    search_limits: { N1, N3 },\n    two_consecutive_solutions: twoConsecutive,\n    three_consecutive_solutions: threeConsecutive,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch11_quick_compute.json",
-        "key": "ep393",
-        "container_meta": {
-          "script": "harder_batch11_quick_compute.mjs",
-          "generated_utc": "2026-03-03T19:36:15.711Z"
+  "computations": [
+    {
+      "source_file": "ep393_standalone_deeper_20260312T094133Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:41:33.087Z",
+      "data": {
+        "problem": "EP-393",
+        "script": "ep393.mjs",
+        "method": "extended_exact_search_for_factorial_equal_consecutive_products",
+        "params": {
+          "N2": 2000,
+          "N3": 600,
+          "N4": 260
         },
-        "data": {
-          "description": "Finite proxies for small-width interval factorizations of n! using exact consecutive products.",
-          "search_limits": {
-            "N1": 1000,
-            "N3": 200
+        "two_consecutive_solutions": [
+          {
+            "n": 2,
+            "x": "1"
           },
-          "two_consecutive_solutions": [
-            {
-              "n": 2,
-              "x": "1"
-            },
-            {
-              "n": 3,
-              "x": "2"
-            }
-          ],
-          "three_consecutive_solutions": [
-            {
-              "n": 3,
-              "x": "1"
-            },
-            {
-              "n": 4,
-              "x": "2"
-            },
-            {
-              "n": 5,
-              "x": "4"
-            },
-            {
-              "n": 6,
-              "x": "8"
-            }
-          ]
-        }
+          {
+            "n": 3,
+            "x": "2"
+          }
+        ],
+        "three_consecutive_solutions": [
+          {
+            "n": 3,
+            "x": "1"
+          },
+          {
+            "n": 4,
+            "x": "2"
+          },
+          {
+            "n": 5,
+            "x": "4"
+          },
+          {
+            "n": 6,
+            "x": "8"
+          }
+        ],
+        "four_consecutive_solutions": [
+          {
+            "n": 4,
+            "x": "1"
+          },
+          {
+            "n": 5,
+            "x": "2"
+          },
+          {
+            "n": 7,
+            "x": "7"
+          }
+        ],
+        "generated_utc": "2026-03-12T09:41:33.087Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

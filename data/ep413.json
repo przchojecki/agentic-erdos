@@ -1,222 +1,496 @@
 {
   "problem": "EP-413",
   "normalized_utc": "2026-03-05T08:54:16.959Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch12_web_compute.md",
-        "content": "### EP-413\n- Quick literature check:\n  - Barrier questions for additive arithmetic functions remain open in the strongest forms.\n- Finite compute signal:\n  - For `eps=1`, barriers are sparse (`~0.7%` density up to `5e5`).\n  - For reduced coefficients (`eps=0.5, 0.25`), barrier density increases sharply in finite range.\n- Interpretation:\n  - Data supports the plausibility of many weakened-barrier variants while full `eps=1` remains subtle."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch12_quick_compute.mjs",
-        "heading": "barriers for omega and epsilon-variants.",
-        "content": "// EP-413: barriers for omega and epsilon-variants.\n{\n  const N = 500000;\n  const omega = omegaSieve(N + 5);\n\n  function barrierProfile(eps) {\n    let mx = 1; // max over m<n of m+eps*omega(m)\n    const barriers = [];\n    const milestones = [10000, 50000, 100000, 200000, 500000];\n    const mset = new Set(milestones);\n    const rows = [];\n\n    for (let n = 1; n <= N; n += 1) {\n      if (n >= mx) {\n        barriers.push(n);\n      }\n      const val = n + eps * omega[n];\n      if (val > mx) mx = val;\n\n      if (mset.has(n)) {\n        rows.push({\n          X: n,\n          barrier_count_up_to_X: barriers.length,\n          density: Number((barriers.length / n).toPrecision(6)),\n        });\n      }\n    }\n\n    return {\n      eps,\n      first_30_barriers: barriers.slice(0, 30),\n      rows,\n    };\n  }\n\n  out.results.ep413 = {\n    description: 'Finite barrier profiles for m + eps*omega(m) <= n variants.',\n    profiles: [barrierProfile(1), barrierProfile(0.5), barrierProfile(0.25)],\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch12_quick_compute.json",
-        "key": "ep413",
-        "container_meta": {
-          "script": "harder_batch12_quick_compute.mjs",
-          "generated_utc": "2026-03-03T19:42:39.714Z"
-        },
-        "data": {
-          "description": "Finite barrier profiles for m + eps*omega(m) <= n variants.",
-          "profiles": [
-            {
-              "eps": 1,
-              "first_30_barriers": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                8,
-                9,
-                10,
-                12,
-                14,
-                17,
-                18,
-                20,
-                24,
-                26,
-                28,
-                30,
-                33,
-                38,
-                42,
-                48,
-                50,
-                54,
-                60,
-                65,
-                74,
-                82,
-                84,
-                90
-              ],
-              "rows": [
-                {
-                  "X": 10000,
-                  "barrier_count_up_to_X": 284,
-                  "density": 0.0284
-                },
-                {
-                  "X": 50000,
-                  "barrier_count_up_to_X": 765,
-                  "density": 0.0153
-                },
-                {
-                  "X": 100000,
-                  "barrier_count_up_to_X": 1189,
-                  "density": 0.01189
-                },
-                {
-                  "X": 200000,
-                  "barrier_count_up_to_X": 1904,
-                  "density": 0.00952
-                },
-                {
-                  "X": 500000,
-                  "barrier_count_up_to_X": 3629,
-                  "density": 0.007258
-                }
-              ]
-            },
-            {
-              "eps": 0.5,
-              "first_30_barriers": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26,
-                27,
-                28,
-                29,
-                30
-              ],
-              "rows": [
-                {
-                  "X": 10000,
-                  "barrier_count_up_to_X": 5345,
-                  "density": 0.5345
-                },
-                {
-                  "X": 50000,
-                  "barrier_count_up_to_X": 22517,
-                  "density": 0.45034
-                },
-                {
-                  "X": 100000,
-                  "barrier_count_up_to_X": 41959,
-                  "density": 0.41959
-                },
-                {
-                  "X": 200000,
-                  "barrier_count_up_to_X": 78362,
-                  "density": 0.39181
-                },
-                {
-                  "X": 500000,
-                  "barrier_count_up_to_X": 179529,
-                  "density": 0.359058
-                }
-              ]
-            },
-            {
-              "eps": 0.25,
-              "first_30_barriers": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26,
-                27,
-                28,
-                29,
-                30
-              ],
-              "rows": [
-                {
-                  "X": 10000,
-                  "barrier_count_up_to_X": 9967,
-                  "density": 0.9967
-                },
-                {
-                  "X": 50000,
-                  "barrier_count_up_to_X": 49378,
-                  "density": 0.98756
-                },
-                {
-                  "X": 100000,
-                  "barrier_count_up_to_X": 98159,
-                  "density": 0.98159
-                },
-                {
-                  "X": 200000,
-                  "barrier_count_up_to_X": 194917,
-                  "density": 0.974585
-                },
-                {
-                  "X": 500000,
-                  "barrier_count_up_to_X": 481996,
-                  "density": 0.963992
-                }
-              ]
-            }
+  "computations": [
+    {
+      "source_file": "ep413_standalone_deeper_20260312T095538Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:55:38.259Z",
+      "data": {
+        "problem": "EP-413",
+        "script": "ep413.mjs",
+        "method": "deep_barrier_profiles_for_omega_and_Omega_variants",
+        "params": {
+          "N": 1000000,
+          "MILESTONES": [
+            10000,
+            50000,
+            100000,
+            300000,
+            600000,
+            1000000
           ]
-        }
+        },
+        "profiles_omega": [
+          {
+            "eps": 1,
+            "first_40_barriers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8,
+              9,
+              10,
+              12,
+              14,
+              17,
+              18,
+              20,
+              24,
+              26,
+              28,
+              30,
+              33,
+              38,
+              42,
+              48,
+              50,
+              54,
+              60,
+              65,
+              74,
+              82,
+              84,
+              90,
+              98,
+              102,
+              108,
+              110,
+              114,
+              126,
+              129,
+              138,
+              150,
+              164
+            ],
+            "rows": [
+              {
+                "X": 10000,
+                "barrier_count_up_to_X": 284,
+                "density": 0.0284
+              },
+              {
+                "X": 50000,
+                "barrier_count_up_to_X": 765,
+                "density": 0.0153
+              },
+              {
+                "X": 100000,
+                "barrier_count_up_to_X": 1189,
+                "density": 0.01189
+              },
+              {
+                "X": 300000,
+                "barrier_count_up_to_X": 2529,
+                "density": 0.00843
+              },
+              {
+                "X": 600000,
+                "barrier_count_up_to_X": 4125,
+                "density": 0.006875
+              },
+              {
+                "X": 1000000,
+                "barrier_count_up_to_X": 5944,
+                "density": 0.005944
+              }
+            ]
+          },
+          {
+            "eps": 0.5,
+            "first_40_barriers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41
+            ],
+            "rows": [
+              {
+                "X": 10000,
+                "barrier_count_up_to_X": 5345,
+                "density": 0.5345
+              },
+              {
+                "X": 50000,
+                "barrier_count_up_to_X": 22517,
+                "density": 0.45034
+              },
+              {
+                "X": 100000,
+                "barrier_count_up_to_X": 41959,
+                "density": 0.41959
+              },
+              {
+                "X": 300000,
+                "barrier_count_up_to_X": 113088,
+                "density": 0.37696
+              },
+              {
+                "X": 600000,
+                "barrier_count_up_to_X": 211778,
+                "density": 0.3529633
+              },
+              {
+                "X": 1000000,
+                "barrier_count_up_to_X": 336975,
+                "density": 0.336975
+              }
+            ]
+          },
+          {
+            "eps": 0.25,
+            "first_40_barriers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40
+            ],
+            "rows": [
+              {
+                "X": 10000,
+                "barrier_count_up_to_X": 9967,
+                "density": 0.9967
+              },
+              {
+                "X": 50000,
+                "barrier_count_up_to_X": 49378,
+                "density": 0.98756
+              },
+              {
+                "X": 100000,
+                "barrier_count_up_to_X": 98159,
+                "density": 0.98159
+              },
+              {
+                "X": 300000,
+                "barrier_count_up_to_X": 291028,
+                "density": 0.9700933
+              },
+              {
+                "X": 600000,
+                "barrier_count_up_to_X": 577017,
+                "density": 0.961695
+              },
+              {
+                "X": 1000000,
+                "barrier_count_up_to_X": 955215,
+                "density": 0.955215
+              }
+            ]
+          }
+        ],
+        "profiles_Omega": [
+          {
+            "eps": 1,
+            "first_40_barriers": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              12,
+              24,
+              48,
+              60,
+              108,
+              168,
+              264,
+              348,
+              360,
+              384,
+              480,
+              720,
+              864,
+              888,
+              1020,
+              1320,
+              1440,
+              2040,
+              2064,
+              2448,
+              2880,
+              3024,
+              3120,
+              3168,
+              3624,
+              4680,
+              4920,
+              5388,
+              5400,
+              5880,
+              6600,
+              6720,
+              6984,
+              7080
+            ],
+            "rows": [
+              {
+                "X": 10000,
+                "barrier_count_up_to_X": 47,
+                "density": 0.0047
+              },
+              {
+                "X": 50000,
+                "barrier_count_up_to_X": 91,
+                "density": 0.00182
+              },
+              {
+                "X": 100000,
+                "barrier_count_up_to_X": 138,
+                "density": 0.00138
+              },
+              {
+                "X": 300000,
+                "barrier_count_up_to_X": 253,
+                "density": 0.0008433333
+              },
+              {
+                "X": 600000,
+                "barrier_count_up_to_X": 391,
+                "density": 0.0006516667
+              },
+              {
+                "X": 1000000,
+                "barrier_count_up_to_X": 541,
+                "density": 0.000541
+              }
+            ]
+          },
+          {
+            "eps": 0.5,
+            "first_40_barriers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              10,
+              11,
+              12,
+              14,
+              15,
+              16,
+              18,
+              20,
+              22,
+              23,
+              24,
+              26,
+              27,
+              30,
+              32,
+              35,
+              36,
+              38,
+              39,
+              40,
+              42,
+              44,
+              47,
+              48,
+              52,
+              54,
+              56,
+              58,
+              59,
+              60,
+              62,
+              63
+            ],
+            "rows": [
+              {
+                "X": 10000,
+                "barrier_count_up_to_X": 2462,
+                "density": 0.2462
+              },
+              {
+                "X": 50000,
+                "barrier_count_up_to_X": 9932,
+                "density": 0.19864
+              },
+              {
+                "X": 100000,
+                "barrier_count_up_to_X": 18239,
+                "density": 0.18239
+              },
+              {
+                "X": 300000,
+                "barrier_count_up_to_X": 48224,
+                "density": 0.1607467
+              },
+              {
+                "X": 600000,
+                "barrier_count_up_to_X": 89396,
+                "density": 0.1489933
+              },
+              {
+                "X": 1000000,
+                "barrier_count_up_to_X": 141290,
+                "density": 0.14129
+              }
+            ]
+          },
+          {
+            "eps": 0.25,
+            "first_40_barriers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41
+            ],
+            "rows": [
+              {
+                "X": 10000,
+                "barrier_count_up_to_X": 8057,
+                "density": 0.8057
+              },
+              {
+                "X": 50000,
+                "barrier_count_up_to_X": 38688,
+                "density": 0.77376
+              },
+              {
+                "X": 100000,
+                "barrier_count_up_to_X": 76057,
+                "density": 0.76057
+              },
+              {
+                "X": 300000,
+                "barrier_count_up_to_X": 222420,
+                "density": 0.7414
+              },
+              {
+                "X": 600000,
+                "barrier_count_up_to_X": 437858,
+                "density": 0.7297633
+              },
+              {
+                "X": 1000000,
+                "barrier_count_up_to_X": 721604,
+                "density": 0.721604
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-12T09:55:38.259Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

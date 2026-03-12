@@ -1,5 +1,178 @@
 {
   "problem": "EP-324",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep324_standalone_deeper_20260311T212511Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T21:25:11.250Z",
+      "data": {
+        "problem": "EP-324",
+        "script": "ep324.mjs",
+        "method": "pair_sum_collision_search_for_integer_polynomials",
+        "params": {
+          "B_LIST": [
+            800,
+            1200,
+            1600,
+            2200
+          ]
+        },
+        "rows": [
+          {
+            "polynomial": "x^5",
+            "coeffs": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": [
+              {
+                "B": 800,
+                "pair_count": 320400,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1200,
+                "pair_count": 720600,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1600,
+                "pair_count": 1280800,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 2200,
+                "pair_count": 2421100,
+                "collisions": 0,
+                "first_collision": null
+              }
+            ]
+          },
+          {
+            "polynomial": "x^6",
+            "coeffs": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": [
+              {
+                "B": 800,
+                "pair_count": 320400,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1200,
+                "pair_count": 720600,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1600,
+                "pair_count": 1280800,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 2200,
+                "pair_count": 2421100,
+                "collisions": 0,
+                "first_collision": null
+              }
+            ]
+          },
+          {
+            "polynomial": "x^5+x",
+            "coeffs": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": [
+              {
+                "B": 800,
+                "pair_count": 320400,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1200,
+                "pair_count": 720600,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1600,
+                "pair_count": 1280800,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 2200,
+                "pair_count": 2421100,
+                "collisions": 0,
+                "first_collision": null
+              }
+            ]
+          },
+          {
+            "polynomial": "x^5+x^2",
+            "coeffs": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "checks": [
+              {
+                "B": 800,
+                "pair_count": 320400,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1200,
+                "pair_count": 720600,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 1600,
+                "pair_count": 1280800,
+                "collisions": 0,
+                "first_collision": null
+              },
+              {
+                "B": 2200,
+                "pair_count": 2421100,
+                "collisions": 0,
+                "first_collision": null
+              }
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-11T21:25:11.250Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

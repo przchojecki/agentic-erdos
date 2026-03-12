@@ -1,5 +1,117 @@
 {
   "problem": "EP-389",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep389_standalone_deeper_20260312T094034Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:40:34.311Z",
+      "data": {
+        "problem": "EP-389",
+        "script": "ep389.mjs",
+        "method": "incremental_prime_valuation_search_for_minimal_k",
+        "params": {
+          "NMAX": 120,
+          "KMAX": 12000,
+          "MILESTONES": [
+            20,
+            40,
+            60,
+            80,
+            100,
+            120
+          ]
+        },
+        "found_count": 9,
+        "unresolved_count_within_cap": 111,
+        "first_witnesses": [
+          {
+            "n": 1,
+            "minimal_k_up_to_cap": 1
+          },
+          {
+            "n": 2,
+            "minimal_k_up_to_cap": 5
+          },
+          {
+            "n": 3,
+            "minimal_k_up_to_cap": 4
+          },
+          {
+            "n": 4,
+            "minimal_k_up_to_cap": 207
+          },
+          {
+            "n": 5,
+            "minimal_k_up_to_cap": 206
+          },
+          {
+            "n": 6,
+            "minimal_k_up_to_cap": 2475
+          },
+          {
+            "n": 7,
+            "minimal_k_up_to_cap": 984
+          },
+          {
+            "n": 8,
+            "minimal_k_up_to_cap": 8171
+          },
+          {
+            "n": 9,
+            "minimal_k_up_to_cap": 8170
+          }
+        ],
+        "max_witness_k": 8171,
+        "argmax_n": 8,
+        "rows": [
+          {
+            "n": 20,
+            "solved_up_to_n_within_cap": 9,
+            "unresolved_up_to_n": 11,
+            "current_max_witness_k": 8171,
+            "current_argmax_n": 8
+          },
+          {
+            "n": 40,
+            "solved_up_to_n_within_cap": 9,
+            "unresolved_up_to_n": 31,
+            "current_max_witness_k": 8171,
+            "current_argmax_n": 8
+          },
+          {
+            "n": 60,
+            "solved_up_to_n_within_cap": 9,
+            "unresolved_up_to_n": 51,
+            "current_max_witness_k": 8171,
+            "current_argmax_n": 8
+          },
+          {
+            "n": 80,
+            "solved_up_to_n_within_cap": 9,
+            "unresolved_up_to_n": 71,
+            "current_max_witness_k": 8171,
+            "current_argmax_n": 8
+          },
+          {
+            "n": 100,
+            "solved_up_to_n_within_cap": 9,
+            "unresolved_up_to_n": 91,
+            "current_max_witness_k": 8171,
+            "current_argmax_n": 8
+          },
+          {
+            "n": 120,
+            "solved_up_to_n_within_cap": 9,
+            "unresolved_up_to_n": 111,
+            "current_max_witness_k": 8171,
+            "current_argmax_n": 8
+          }
+        ],
+        "generated_utc": "2026-03-12T09:40:34.311Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,71 +1,80 @@
 {
   "problem": "EP-408",
   "normalized_utc": "2026-03-05T08:54:16.959Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch12_web_compute.md",
-        "content": "### EP-408\n- Quick literature check:\n  - Core distribution-function/normal-order questions remain tied to deep distribution hypotheses.\n- Finite compute signal:\n  - For `n<=3e5`, `f(n)/log n` stabilizes around mean `~1.258` with shrinking variance.\n  - Coarse check on largest prime factor of `phi_k(n)` at `k~log log n` shows substantial compression relative to `n` in tested scale.\n- Interpretation:\n  - Numerics support a concentrated normal-order regime for iterated-totient depth."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch12_quick_compute.mjs",
-        "heading": "iterated phi depth and coarse largest-prime-factor profile.",
-        "content": "// EP-408: iterated phi depth and coarse largest-prime-factor profile.\n{\n  const N = 300000;\n  const f = new Uint16Array(N + 1);\n  f[1] = 0;\n  for (let n = 2; n <= N; n += 1) f[n] = f[phi[n]] + 1;\n\n  const milestones = [10000, 50000, 100000, 200000, 300000];\n  const mset = new Set(milestones);\n\n  const rows = [];\n  let sumRatio = 0;\n  let sumSqRatio = 0;\n  let cnt = 0;\n  let fracLpfLeN01 = 0;\n  let fracLpfLeN005 = 0;\n\n  for (let n = 3; n <= N; n += 1) {\n    const r = f[n] / Math.log(n);\n    sumRatio += r;\n    sumSqRatio += r * r;\n    cnt += 1;\n\n    const k = Math.max(1, Math.floor(Math.log(Math.log(n))));\n    let x = n;\n    for (let t = 0; t < k; t += 1) x = phi[x];\n\n    const lp = lpf[x];\n    if (lp <= n ** 0.1) fracLpfLeN01 += 1;\n    if (lp <= n ** 0.05) fracLpfLeN005 += 1;\n\n    if (mset.has(n)) {\n      const mean = sumRatio / cnt;\n      const varr = Math.max(0, sumSqRatio / cnt - mean * mean);\n      rows.push({\n        X: n,\n        mean_f_over_log: Number(mean.toPrecision(7)),\n        std_f_over_log: Number(Math.sqrt(varr).toPrecision(7)),\n        fraction_lpf_phi_loglog_le_n_pow_0_1: Number((fracLpfLeN01 / cnt).toPrecision(6)),\n        fraction_lpf_phi_loglog_le_n_pow_0_05: Number((fracLpfLeN005 / cnt).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep408 = {\n    description: 'Finite distribution proxies for f(n)=min{k:phi_k(n)=1} and lpf(phi_{loglog n}(n)).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch12_quick_compute.json",
-        "key": "ep408",
-        "container_meta": {
-          "script": "harder_batch12_quick_compute.mjs",
-          "generated_utc": "2026-03-03T19:42:39.714Z"
-        },
-        "data": {
-          "description": "Finite distribution proxies for f(n)=min{k:phi_k(n)=1} and lpf(phi_{loglog n}(n)).",
-          "rows": [
-            {
-              "X": 10000,
-              "mean_f_over_log": 1.273735,
-              "std_f_over_log": 0.09143868,
-              "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.0484097,
-              "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
-            },
-            {
-              "X": 50000,
-              "mean_f_over_log": 1.264757,
-              "std_f_over_log": 0.08102095,
-              "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.024941,
-              "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
-            },
-            {
-              "X": 100000,
-              "mean_f_over_log": 1.261696,
-              "std_f_over_log": 0.07751201,
-              "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.0969819,
-              "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
-            },
-            {
-              "X": 200000,
-              "mean_f_over_log": 1.259083,
-              "std_f_over_log": 0.07446091,
-              "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.133866,
-              "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
-            },
-            {
-              "X": 300000,
-              "mean_f_over_log": 1.257701,
-              "std_f_over_log": 0.07281652,
-              "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.138188,
-              "fraction_lpf_phi_loglog_le_n_pow_0_05": 0
-            }
+  "computations": [
+    {
+      "source_file": "ep408_standalone_deeper_20260312T094951Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:49:51.657Z",
+      "data": {
+        "problem": "EP-408",
+        "script": "ep408.mjs",
+        "method": "deep_iterated_totient_depth_and_lpf_profile",
+        "params": {
+          "N": 1000000,
+          "MILESTONES": [
+            10000,
+            50000,
+            100000,
+            300000,
+            600000,
+            1000000
           ]
-        }
+        },
+        "rows": [
+          {
+            "X": 10000,
+            "mean_f_over_log": 1.2737346,
+            "std_f_over_log": 0.091438678,
+            "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.04840968,
+            "fraction_lpf_phi_loglog_le_n_pow_0_05": 0,
+            "fraction_lpf_phi_loglog_le_n_pow_0_02": 0
+          },
+          {
+            "X": 50000,
+            "mean_f_over_log": 1.2647568,
+            "std_f_over_log": 0.081020947,
+            "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.024941,
+            "fraction_lpf_phi_loglog_le_n_pow_0_05": 0,
+            "fraction_lpf_phi_loglog_le_n_pow_0_02": 0
+          },
+          {
+            "X": 100000,
+            "mean_f_over_log": 1.2616956,
+            "std_f_over_log": 0.077512006,
+            "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.09698194,
+            "fraction_lpf_phi_loglog_le_n_pow_0_05": 0,
+            "fraction_lpf_phi_loglog_le_n_pow_0_02": 0
+          },
+          {
+            "X": 300000,
+            "mean_f_over_log": 1.2577014,
+            "std_f_over_log": 0.072816515,
+            "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.1381876,
+            "fraction_lpf_phi_loglog_le_n_pow_0_05": 0,
+            "fraction_lpf_phi_loglog_le_n_pow_0_02": 0
+          },
+          {
+            "X": 600000,
+            "mean_f_over_log": 1.2555597,
+            "std_f_over_log": 0.070250533,
+            "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.1309821,
+            "fraction_lpf_phi_loglog_le_n_pow_0_05": 0,
+            "fraction_lpf_phi_loglog_le_n_pow_0_02": 0
+          },
+          {
+            "X": 1000000,
+            "mean_f_over_log": 1.2541287,
+            "std_f_over_log": 0.068515487,
+            "fraction_lpf_phi_loglog_le_n_pow_0_1": 0.1199682,
+            "fraction_lpf_phi_loglog_le_n_pow_0_05": 0,
+            "fraction_lpf_phi_loglog_le_n_pow_0_02": 0
+          }
+        ],
+        "generated_utc": "2026-03-12T09:49:51.657Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

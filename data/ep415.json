@@ -1,5 +1,73 @@
 {
   "problem": "EP-415",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep415_standalone_deeper_20260312T095544Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:55:44.290Z",
+      "data": {
+        "problem": "EP-415",
+        "script": "ep415.mjs",
+        "method": "finite_coverage_of_totient_ordering_patterns",
+        "params": {
+          "N": 1000000,
+          "KMAX": 7
+        },
+        "rows": [
+          {
+            "k": 2,
+            "total_patterns": 2,
+            "realized_patterns": 2,
+            "missing_patterns": 0,
+            "first_missing_lex": null,
+            "full_coverage": true
+          },
+          {
+            "k": 3,
+            "total_patterns": 6,
+            "realized_patterns": 6,
+            "missing_patterns": 0,
+            "first_missing_lex": null,
+            "full_coverage": true
+          },
+          {
+            "k": 4,
+            "total_patterns": 24,
+            "realized_patterns": 18,
+            "missing_patterns": 6,
+            "first_missing_lex": "0,1,3,2",
+            "full_coverage": false
+          },
+          {
+            "k": 5,
+            "total_patterns": 120,
+            "realized_patterns": 45,
+            "missing_patterns": 75,
+            "first_missing_lex": "0,1,2,3,4",
+            "full_coverage": false
+          },
+          {
+            "k": 6,
+            "total_patterns": 720,
+            "realized_patterns": 116,
+            "missing_patterns": 604,
+            "first_missing_lex": "0,1,2,3,4,5",
+            "full_coverage": false
+          },
+          {
+            "k": 7,
+            "total_patterns": 5040,
+            "realized_patterns": 375,
+            "missing_patterns": 4665,
+            "first_missing_lex": "0,1,2,3,4,5,6",
+            "full_coverage": false
+          }
+        ],
+        "generated_utc": "2026-03-12T09:55:44.290Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

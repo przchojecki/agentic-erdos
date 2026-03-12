@@ -1,5 +1,27 @@
 {
   "problem": "EP-380",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep380_standalone_deeper_20260312T085751Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T08:57:51.318Z",
+      "data": {
+        "problem": "EP-380",
+        "script": "ep380.mjs",
+        "method": "finite_bad_interval_membership_vs_Pn_square_divisibility_model",
+        "params": {
+          "X": 2500,
+          "WINDOW_MAX": 180
+        },
+        "bad_interval_count_scanned": 190,
+        "B_of_X_scanned": 176,
+        "model_count_Pn2_divides_n": 160,
+        "ratio_B_over_model": 1.1,
+        "generated_utc": "2026-03-12T08:57:51.318Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,7 +1,90 @@
 {
   "problem": "EP-376",
   "normalized_utc": "2026-03-05T08:54:16.958Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep376_standalone_deeper_20260312T085751Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T08:57:51.328Z",
+      "data": {
+        "problem": "EP-376",
+        "script": "ep376.mjs",
+        "method": "extended_no_carry_digit_criterion_scan_for_coprime_binomial_105",
+        "params": {
+          "N": 5000000,
+          "MILESTONES": [
+            10000,
+            50000,
+            100000,
+            500000,
+            1000000,
+            2000000,
+            5000000
+          ]
+        },
+        "first_terms": [
+          1,
+          10,
+          756,
+          757,
+          3160,
+          3186,
+          3187,
+          3250,
+          7560,
+          7561,
+          7651,
+          20007
+        ],
+        "rows": [
+          {
+            "X": 10000,
+            "count_up_to_X": 11,
+            "density": 0.0011,
+            "max_gap_so_far": 4310
+          },
+          {
+            "X": 50000,
+            "count_up_to_X": 12,
+            "density": 0.00024,
+            "max_gap_so_far": 12356
+          },
+          {
+            "X": 100000,
+            "count_up_to_X": 12,
+            "density": 0.00012,
+            "max_gap_so_far": 12356
+          },
+          {
+            "X": 500000,
+            "count_up_to_X": 12,
+            "density": 0.000024,
+            "max_gap_so_far": 12356
+          },
+          {
+            "X": 1000000,
+            "count_up_to_X": 12,
+            "density": 0.000012,
+            "max_gap_so_far": 12356
+          },
+          {
+            "X": 2000000,
+            "count_up_to_X": 12,
+            "density": 0.000006,
+            "max_gap_so_far": 12356
+          },
+          {
+            "X": 5000000,
+            "count_up_to_X": 12,
+            "density": 0.0000024,
+            "max_gap_so_far": 12356
+          }
+        ],
+        "generated_utc": "2026-03-12T08:57:51.328Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [
@@ -82,5 +165,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

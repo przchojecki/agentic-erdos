@@ -1,47 +1,48 @@
 #!/usr/bin/env node
-const meta={problem:'EP-376',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-376 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch11_quick_compute.mjs | n such that C(2n,n) is coprime to 105. ----
-// // EP-376: n such that C(2n,n) is coprime to 105.
-// {
-//   const N = 2_000_000;
-//   const milestones = [10_000, 50_000, 100_000, 500_000, 1_000_000, 2_000_000];
-//   const mset = new Set(milestones);
-// 
-//   let cnt = 0;
-//   let lastHit = 0;
-//   let maxGap = 0;
-//   const first = [];
-//   const rows = [];
-// 
-//   for (let n = 1; n <= N; n += 1) {
-//     const ok = noCarryDoubleInBase(n, 3) && noCarryDoubleInBase(n, 5) && noCarryDoubleInBase(n, 7);
-//     if (ok) {
-//       cnt += 1;
-//       if (first.length < 30) first.push(n);
-//       if (lastHit !== 0) {
-//         const gap = n - lastHit;
-//         if (gap > maxGap) maxGap = gap;
-//       }
-//       lastHit = n;
-//     }
-//     if (mset.has(n)) {
-//       rows.push({
-//         X: n,
-//         count_up_to_X: cnt,
-//         density: Number((cnt / n).toPrecision(8)),
-//         max_gap_so_far: maxGap,
-//       });
-//     }
-//   }
-// 
-//   out.results.ep376 = {
-//     description: 'Finite count of n with C(2n,n) coprime to 3*5*7 (digit/no-carry criterion).',
-//     first_terms: first,
-//     rows,
-//   };
-// }
-// ==== End Batch Split Integrations ====
+import fs from 'node:fs';
+import path from 'node:path';
+
+function noCarryDoubleInBase(n, b) {
+  let x = n;
+  while (x > 0) {
+    if ((x % b) * 2 >= b) return false;
+    x = Math.floor(x / b);
+  }
+  return true;
+}
+
+const N = Number(process.env.N || 5000000);
+const MILESTONES = (process.env.MILESTONES || '10000,50000,100000,500000,1000000,2000000,5000000').split(',').map((x) => Number(x.trim())).filter(Number.isFinite);
+const OUT = process.env.OUT || '';
+const mset = new Set(MILESTONES);
+
+let cnt = 0;
+let last = 0;
+let maxGap = 0;
+const first = [];
+const rows = [];
+
+for (let n = 1; n <= N; n += 1) {
+  const ok = noCarryDoubleInBase(n, 3) && noCarryDoubleInBase(n, 5) && noCarryDoubleInBase(n, 7);
+  if (ok) {
+    cnt += 1;
+    if (first.length < 50) first.push(n);
+    if (last) maxGap = Math.max(maxGap, n - last);
+    last = n;
+  }
+  if (mset.has(n)) {
+    rows.push({ X: n, count_up_to_X: cnt, density: Number((cnt / n).toExponential(6)), max_gap_so_far: maxGap });
+  }
+}
+
+const out = {
+  problem: 'EP-376',
+  script: path.basename(process.argv[1]),
+  method: 'extended_no_carry_digit_criterion_scan_for_coprime_binomial_105',
+  params: { N, MILESTONES },
+  first_terms: first,
+  rows,
+  generated_utc: new Date().toISOString(),
+};
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

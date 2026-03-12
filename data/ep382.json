@@ -1,5 +1,74 @@
 {
   "problem": "EP-382",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep382_standalone_deeper_20260312T085751Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T08:57:51.413Z",
+      "data": {
+        "problem": "EP-382",
+        "script": "ep382.mjs",
+        "method": "finite_bad_interval_max_gap_profile",
+        "params": {
+          "X_LIST": [
+            500,
+            1000,
+            1500,
+            2000
+          ],
+          "WINDOW_MAX": 300
+        },
+        "rows": [
+          {
+            "X": 500,
+            "window_scanned": 300,
+            "bad_interval_count": 65,
+            "max_gap_found": 2,
+            "witness": {
+              "u": 48,
+              "v": 50,
+              "gap": 2
+            }
+          },
+          {
+            "X": 1000,
+            "window_scanned": 300,
+            "bad_interval_count": 101,
+            "max_gap_found": 2,
+            "witness": {
+              "u": 48,
+              "v": 50,
+              "gap": 2
+            }
+          },
+          {
+            "X": 1500,
+            "window_scanned": 300,
+            "bad_interval_count": 132,
+            "max_gap_found": 2,
+            "witness": {
+              "u": 48,
+              "v": 50,
+              "gap": 2
+            }
+          },
+          {
+            "X": 2000,
+            "window_scanned": 300,
+            "bad_interval_count": 164,
+            "max_gap_found": 3,
+            "witness": {
+              "u": 1680,
+              "v": 1683,
+              "gap": 3
+            }
+          }
+        ],
+        "generated_utc": "2026-03-12T08:57:51.413Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

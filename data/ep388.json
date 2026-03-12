@@ -1,5 +1,34 @@
 {
   "problem": "EP-388",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep388_standalone_deeper_20260312T093328Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:33:28.952Z",
+      "data": {
+        "problem": "EP-388",
+        "script": "ep388.mjs",
+        "method": "finite_disjoint_consecutive_product_equality_search",
+        "params": {
+          "MMAX": 160,
+          "KMAX": 10
+        },
+        "candidate_block_count": 1071,
+        "solution_count": 1,
+        "solutions_first_50": [
+          {
+            "m1": 7,
+            "k1": 7,
+            "m2": 62,
+            "k2": 4,
+            "value": "17297280"
+          }
+        ],
+        "generated_utc": "2026-03-12T09:33:28.952Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

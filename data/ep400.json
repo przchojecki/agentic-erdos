@@ -1,5 +1,184 @@
 {
   "problem": "EP-400",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep400_standalone_deeper_20260312T094535Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:45:35.793Z",
+      "data": {
+        "problem": "EP-400",
+        "script": "ep400.mjs",
+        "method": "exact_small_n_profiles_for_g2_and_g3",
+        "params": {
+          "N2": 220,
+          "N3": 90
+        },
+        "rows_g2": [
+          {
+            "n": 20,
+            "g2": 2,
+            "witness": {
+              "a1": 5,
+              "a2": 17
+            },
+            "avg_g2_up_to_n": 1.57895,
+            "ratio_g2_over_log_n": 0.667616
+          },
+          {
+            "n": 40,
+            "g2": 4,
+            "witness": {
+              "a1": 19,
+              "a2": 25
+            },
+            "avg_g2_up_to_n": 2.12821,
+            "ratio_g2_over_log_n": 1.08434
+          },
+          {
+            "n": 60,
+            "g2": 2,
+            "witness": {
+              "a1": 3,
+              "a2": 59
+            },
+            "avg_g2_up_to_n": 2.42373,
+            "ratio_g2_over_log_n": 0.488479
+          },
+          {
+            "n": 80,
+            "g2": 2,
+            "witness": {
+              "a1": 5,
+              "a2": 77
+            },
+            "avg_g2_up_to_n": 2.58228,
+            "ratio_g2_over_log_n": 0.45641
+          },
+          {
+            "n": 100,
+            "g2": 6,
+            "witness": {
+              "a1": 47,
+              "a2": 59
+            },
+            "avg_g2_up_to_n": 2.84848,
+            "ratio_g2_over_log_n": 1.30288
+          },
+          {
+            "n": 140,
+            "g2": 5,
+            "witness": {
+              "a1": 38,
+              "a2": 107
+            },
+            "avg_g2_up_to_n": 3.2518,
+            "ratio_g2_over_log_n": 1.01181
+          },
+          {
+            "n": 180,
+            "g2": 5,
+            "witness": {
+              "a1": 26,
+              "a2": 159
+            },
+            "avg_g2_up_to_n": 3.58659,
+            "ratio_g2_over_log_n": 0.962843
+          },
+          {
+            "n": 220,
+            "g2": 5,
+            "witness": {
+              "a1": 107,
+              "a2": 118
+            },
+            "avg_g2_up_to_n": 3.74886,
+            "ratio_g2_over_log_n": 0.92702
+          }
+        ],
+        "rows_g3": [
+          {
+            "n": 20,
+            "g3": 5,
+            "witness": {
+              "a1": 5,
+              "a2": 6,
+              "a3": 14
+            },
+            "avg_g3_up_to_n": 3.57895,
+            "ratio_g3_over_log_n": 1.66904
+          },
+          {
+            "n": 30,
+            "g3": 6,
+            "witness": {
+              "a1": 6,
+              "a2": 15,
+              "a3": 15
+            },
+            "avg_g3_up_to_n": 4.17241,
+            "ratio_g3_over_log_n": 1.76408
+          },
+          {
+            "n": 40,
+            "g3": 7,
+            "witness": {
+              "a1": 5,
+              "a2": 19,
+              "a3": 23
+            },
+            "avg_g3_up_to_n": 4.76923,
+            "ratio_g3_over_log_n": 1.8976
+          },
+          {
+            "n": 50,
+            "g3": 6,
+            "witness": {
+              "a1": 7,
+              "a2": 14,
+              "a3": 35
+            },
+            "avg_g3_up_to_n": 5.06122,
+            "ratio_g3_over_log_n": 1.53373
+          },
+          {
+            "n": 60,
+            "g3": 8,
+            "witness": {
+              "a1": 14,
+              "a2": 23,
+              "a3": 31
+            },
+            "avg_g3_up_to_n": 5.33898,
+            "ratio_g3_over_log_n": 1.95391
+          },
+          {
+            "n": 75,
+            "g3": 7,
+            "witness": {
+              "a1": 5,
+              "a2": 15,
+              "a3": 62
+            },
+            "avg_g3_up_to_n": 5.7973,
+            "ratio_g3_over_log_n": 1.62131
+          },
+          {
+            "n": 90,
+            "g3": 9,
+            "witness": {
+              "a1": 21,
+              "a2": 31,
+              "a3": 47
+            },
+            "avg_g3_up_to_n": 6.1573,
+            "ratio_g3_over_log_n": 2.00008
+          }
+        ],
+        "generated_utc": "2026-03-12T09:45:35.793Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

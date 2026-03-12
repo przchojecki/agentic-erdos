@@ -1,5 +1,89 @@
 {
   "problem": "EP-385",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep385_standalone_deeper_20260312T093329Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:33:29.000Z",
+      "data": {
+        "problem": "EP-385",
+        "script": "ep385.mjs",
+        "method": "large_scale_profile_of_F_n_from_least_prime_factor_function",
+        "params": {
+          "N": 3000000,
+          "MILESTONES": [
+            10000,
+            50000,
+            100000,
+            500000,
+            1000000,
+            2000000,
+            3000000
+          ]
+        },
+        "rows": [
+          {
+            "n": 10000,
+            "F_n_est": 10088,
+            "F_minus_n": 88,
+            "count_indices_le_n_with_F_le_n": 100,
+            "max_F_minus_n_so_far": 96,
+            "argmax_n_so_far": 9410
+          },
+          {
+            "n": 50000,
+            "F_n_est": 50148,
+            "F_minus_n": 148,
+            "count_indices_le_n_with_F_le_n": 100,
+            "max_F_minus_n_so_far": 222,
+            "argmax_n_so_far": 49730
+          },
+          {
+            "n": 100000,
+            "F_n_est": 100230,
+            "F_minus_n": 230,
+            "count_indices_le_n_with_F_le_n": 100,
+            "max_F_minus_n_so_far": 312,
+            "argmax_n_so_far": 97970
+          },
+          {
+            "n": 500000,
+            "F_n_est": 500286,
+            "F_minus_n": 286,
+            "count_indices_le_n_with_F_le_n": 102,
+            "max_F_minus_n_so_far": 700,
+            "argmax_n_so_far": 491402
+          },
+          {
+            "n": 1000000,
+            "F_n_est": 1000910,
+            "F_minus_n": 910,
+            "count_indices_le_n_with_F_le_n": 102,
+            "max_F_minus_n_so_far": 996,
+            "argmax_n_so_far": 994010
+          },
+          {
+            "n": 2000000,
+            "F_n_est": 2001050,
+            "F_minus_n": 1050,
+            "count_indices_le_n_with_F_le_n": 102,
+            "max_F_minus_n_so_far": 1408,
+            "argmax_n_so_far": 1985282
+          },
+          {
+            "n": 3000000,
+            "F_n_est": 3001466,
+            "F_minus_n": 1466,
+            "count_indices_le_n_with_F_le_n": 102,
+            "max_F_minus_n_so_far": 1722,
+            "argmax_n_so_far": 2968730
+          }
+        ],
+        "generated_utc": "2026-03-12T09:33:29.000Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

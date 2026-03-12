@@ -1,5 +1,121 @@
 {
   "problem": "EP-404",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep404_standalone_deeper_20260312T094607Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:46:07.074Z",
+      "data": {
+        "problem": "EP-404",
+        "script": "ep404.mjs",
+        "method": "subset_residue_dp_for_p_adic_divisibility_of_factorial_sums",
+        "params": {
+          "AMAX": 26,
+          "KMAX": 20,
+          "CASES": [
+            {
+              "a": 2,
+              "p": 2
+            },
+            {
+              "a": 2,
+              "p": 3
+            },
+            {
+              "a": 3,
+              "p": 2
+            },
+            {
+              "a": 3,
+              "p": 3
+            },
+            {
+              "a": 4,
+              "p": 2
+            }
+          ]
+        },
+        "rows": [
+          {
+            "a": 2,
+            "p": 2,
+            "search_amax": 26,
+            "search_kmax": 20,
+            "best_k_found": 20,
+            "first_hit_levels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ]
+          },
+          {
+            "a": 2,
+            "p": 3,
+            "search_amax": 26,
+            "search_kmax": 20,
+            "best_k_found": 0,
+            "first_hit_levels": []
+          },
+          {
+            "a": 3,
+            "p": 2,
+            "search_amax": 26,
+            "search_kmax": 20,
+            "best_k_found": 1,
+            "first_hit_levels": [
+              1
+            ]
+          },
+          {
+            "a": 3,
+            "p": 3,
+            "search_amax": 26,
+            "search_kmax": 20,
+            "best_k_found": 3,
+            "first_hit_levels": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "a": 4,
+            "p": 2,
+            "search_amax": 26,
+            "search_kmax": 20,
+            "best_k_found": 6,
+            "first_hit_levels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-12T09:46:07.074Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

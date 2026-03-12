@@ -1,5 +1,147 @@
 {
   "problem": "EP-412",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep412_standalone_deeper_20260312T095538Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:55:38.201Z",
+      "data": {
+        "problem": "EP-412",
+        "script": "ep412.mjs",
+        "method": "finite_collision_component_profile_for_sigma_iterates",
+        "params": {
+          "N": 800,
+          "STEPS": 20,
+          "CAP": 1000000000000000,
+          "SPFLIM": 3000000
+        },
+        "seeds_considered": 799,
+        "pairs_checked": 318801,
+        "colliding_pairs_within_window": 13760,
+        "disjoint_pairs_within_window": 305041,
+        "disjoint_examples_first_25": [
+          {
+            "m": 2,
+            "n": 5
+          },
+          {
+            "m": 2,
+            "n": 6
+          },
+          {
+            "m": 2,
+            "n": 10
+          },
+          {
+            "m": 2,
+            "n": 11
+          },
+          {
+            "m": 2,
+            "n": 12
+          },
+          {
+            "m": 2,
+            "n": 16
+          },
+          {
+            "m": 2,
+            "n": 17
+          },
+          {
+            "m": 2,
+            "n": 18
+          },
+          {
+            "m": 2,
+            "n": 19
+          },
+          {
+            "m": 2,
+            "n": 20
+          },
+          {
+            "m": 2,
+            "n": 21
+          },
+          {
+            "m": 2,
+            "n": 25
+          },
+          {
+            "m": 2,
+            "n": 26
+          },
+          {
+            "m": 2,
+            "n": 27
+          },
+          {
+            "m": 2,
+            "n": 28
+          },
+          {
+            "m": 2,
+            "n": 29
+          },
+          {
+            "m": 2,
+            "n": 30
+          },
+          {
+            "m": 2,
+            "n": 31
+          },
+          {
+            "m": 2,
+            "n": 32
+          },
+          {
+            "m": 2,
+            "n": 33
+          },
+          {
+            "m": 2,
+            "n": 34
+          },
+          {
+            "m": 2,
+            "n": 35
+          },
+          {
+            "m": 2,
+            "n": 39
+          },
+          {
+            "m": 2,
+            "n": 40
+          },
+          {
+            "m": 2,
+            "n": 41
+          }
+        ],
+        "connected_component_count": 47,
+        "largest_components": [
+          69,
+          56,
+          53,
+          52,
+          49,
+          45,
+          39,
+          39,
+          35,
+          31,
+          30,
+          30
+        ],
+        "stopped_early_count": 0,
+        "generated_utc": "2026-03-12T09:55:38.201Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

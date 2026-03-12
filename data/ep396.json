@@ -1,82 +1,298 @@
 {
   "problem": "EP-396",
   "normalized_utc": "2026-03-05T08:54:16.959Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch11_web_compute.md",
-        "content": "### EP-396\n- Quick literature check:\n  - Pomerance (2014) gives strong one-shift divisibility results; full descending-product divisibility for each fixed `k` remains open.\n- Finite compute signal:\n  - Search up to `n=8000` found first hits:\n    - `k=0`: `n=2`\n    - `k=1`: `n=2`\n    - `k=2`: `n=2480`\n    - no hit for `k=3..8` in range.\n- Interpretation:\n  - Numerical evidence suggests rapidly increasing difficulty as `k` grows.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/365\n  - https://www.erdosproblems.com/368\n  - https://www.erdosproblems.com/371\n  - https://www.erdosproblems.com/373\n  - https://www.erdosproblems.com/374\n  - https://www.erdosproblems.com/376\n  - https://www.erdosproblems.com/377\n  - https://www.erdosproblems.com/387\n  - https://www.erdosproblems.com/393\n  - https://www.erdosproblems.com/396\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2405.06079\n  - https://arxiv.org/abs/2508.05282\n  - https://arxiv.org/abs/2508.05283"
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch11_quick_compute.mjs",
-        "heading": "search smallest n for each k with prod_{i=0..k}(n-i) | C(2n,n), finite range.",
-        "content": "// EP-396: search smallest n for each k with prod_{i=0..k}(n-i) | C(2n,n), finite range.\n{\n  const N = 8000;\n  const KMAX = 8;\n  const primes = primesAll.filter((p) => p <= N);\n\n  const firstN = Array(KMAX + 1).fill(null);\n  const hitCounts = Array(KMAX + 1).fill(0);\n\n  for (let n = 2; n <= N; n += 1) {\n    const vp = new Map();\n    for (const p of primes) {\n      if (p > n) break;\n      const e = vpCentralBinom(n, p);\n      if (e > 0) vp.set(p, e);\n    }\n\n    const acc = new Map();\n    const kLim = Math.min(KMAX, n - 1);\n\n    for (let k = 0; k <= kLim; k += 1) {\n      const factors = factorizeInt(n - k, spf);\n      for (const [p, e] of factors) acc.set(p, (acc.get(p) || 0) + e);\n\n      let ok = true;\n      for (const [p, e] of acc.entries()) {\n        if ((vp.get(p) || 0) < e) {\n          ok = false;\n          break;\n        }\n      }\n\n      if (ok) {\n        hitCounts[k] += 1;\n        if (firstN[k] === null) firstN[k] = n;\n      }\n    }\n\n    let done = true;\n    for (let k = 0; k <= KMAX; k += 1) {\n      if (firstN[k] === null) {\n        done = false;\n        break;\n      }\n    }\n    if (done && n > 1000) break;\n  }\n\n  out.results.ep396 = {\n    description: 'Finite search for divisibility of descending products by C(2n,n), k<=8.',\n    search_limit_n: N,\n    rows: Array.from({ length: KMAX + 1 }, (_, k) => ({\n      k,\n      first_n_found: firstN[k],\n      hit_count_in_range: hitCounts[k],\n    })),\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch11_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch11_quick_compute.json",
-        "key": "ep396",
-        "container_meta": {
-          "script": "harder_batch11_quick_compute.mjs",
-          "generated_utc": "2026-03-03T19:36:15.711Z"
-        },
-        "data": {
-          "description": "Finite search for divisibility of descending products by C(2n,n), k<=8.",
-          "search_limit_n": 8000,
-          "rows": [
-            {
-              "k": 0,
-              "first_n_found": 2,
-              "hit_count_in_range": 836
-            },
-            {
-              "k": 1,
-              "first_n_found": 2,
-              "hit_count_in_range": 56
-            },
-            {
-              "k": 2,
-              "first_n_found": 2480,
-              "hit_count_in_range": 2
-            },
-            {
-              "k": 3,
-              "first_n_found": null,
-              "hit_count_in_range": 0
-            },
-            {
-              "k": 4,
-              "first_n_found": null,
-              "hit_count_in_range": 0
-            },
-            {
-              "k": 5,
-              "first_n_found": null,
-              "hit_count_in_range": 0
-            },
-            {
-              "k": 6,
-              "first_n_found": null,
-              "hit_count_in_range": 0
-            },
-            {
-              "k": 7,
-              "first_n_found": null,
-              "hit_count_in_range": 0
-            },
-            {
-              "k": 8,
-              "first_n_found": null,
-              "hit_count_in_range": 0
-            }
+  "computations": [
+    {
+      "source_file": "ep396_standalone_deeper_20260312T094536Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:45:36.275Z",
+      "data": {
+        "problem": "EP-396",
+        "script": "ep396.mjs",
+        "method": "extended_search_descending_product_divides_central_binomial",
+        "params": {
+          "N": 30000,
+          "KMAX": 12,
+          "MILESTONES": [
+            5000,
+            10000,
+            15000,
+            20000,
+            25000,
+            30000
           ]
-        }
+        },
+        "rows_by_k": [
+          {
+            "k": 0,
+            "first_n_found": 2,
+            "hit_count_in_range": 3294
+          },
+          {
+            "k": 1,
+            "first_n_found": 2,
+            "hit_count_in_range": 259
+          },
+          {
+            "k": 2,
+            "first_n_found": 2480,
+            "hit_count_in_range": 18
+          },
+          {
+            "k": 3,
+            "first_n_found": 8178,
+            "hit_count_in_range": 1
+          },
+          {
+            "k": 4,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 5,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 6,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 7,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 8,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 9,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 10,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 11,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          },
+          {
+            "k": 12,
+            "first_n_found": null,
+            "hit_count_in_range": 0
+          }
+        ],
+        "milestone_rows": [
+          {
+            "n": 5000,
+            "first_n_found_up_to_kmax": [
+              2,
+              2,
+              2480,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "hit_counts_up_to_kmax": [
+              525,
+              36,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "n": 10000,
+            "first_n_found_up_to_kmax": [
+              2,
+              2,
+              2480,
+              8178,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "hit_counts_up_to_kmax": [
+              1068,
+              73,
+              4,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "n": 15000,
+            "first_n_found_up_to_kmax": [
+              2,
+              2,
+              2480,
+              8178,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "hit_counts_up_to_kmax": [
+              1674,
+              129,
+              7,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "n": 20000,
+            "first_n_found_up_to_kmax": [
+              2,
+              2,
+              2480,
+              8178,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "hit_counts_up_to_kmax": [
+              2255,
+              187,
+              13,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "n": 25000,
+            "first_n_found_up_to_kmax": [
+              2,
+              2,
+              2480,
+              8178,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "hit_counts_up_to_kmax": [
+              2761,
+              220,
+              14,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "n": 30000,
+            "first_n_found_up_to_kmax": [
+              2,
+              2,
+              2480,
+              8178,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "hit_counts_up_to_kmax": [
+              3294,
+              259,
+              18,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "generated_utc": "2026-03-12T09:45:36.275Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,89 @@
 {
   "problem": "EP-394",
   "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "computations": [
+    {
+      "source_file": "ep394_standalone_deeper_20260312T094044Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T09:40:44.139Z",
+      "data": {
+        "problem": "EP-394",
+        "script": "ep394.mjs",
+        "method": "exact_prefix_sums_for_t2_and_finite_prefix_for_t3_t4",
+        "params": {
+          "N2": 200000,
+          "N34": 10000,
+          "MILESTONES": [
+            1000,
+            5000,
+            10000,
+            50000,
+            100000,
+            200000
+          ]
+        },
+        "sum_t2_up_to_N2": 4928201517,
+        "sum_t3_up_to_N34": 12086327,
+        "sum_t4_up_to_N34": 11119355,
+        "rows_t2": [
+          {
+            "n": 1000,
+            "sum_t2_up_to_n": 186465,
+            "avg_t2": 186.465
+          },
+          {
+            "n": 5000,
+            "sum_t2_up_to_n": 3976453,
+            "avg_t2": 795.2906
+          },
+          {
+            "n": 10000,
+            "sum_t2_up_to_n": 15023430,
+            "avg_t2": 1502.343
+          },
+          {
+            "n": 50000,
+            "sum_t2_up_to_n": 334401691,
+            "avg_t2": 6688.0338
+          },
+          {
+            "n": 100000,
+            "sum_t2_up_to_n": 1282197484,
+            "avg_t2": 12821.975
+          },
+          {
+            "n": 200000,
+            "sum_t2_up_to_n": 4928201517,
+            "avg_t2": 24641.008
+          }
+        ],
+        "rows_t3_t4": [
+          {
+            "n": 1000,
+            "sum_t3_up_to_n": 156910,
+            "sum_t4_up_to_n": 147201,
+            "ratio_sum_t4_over_t3": 0.93812377,
+            "ratio_sum_t3_over_t2_prefix": 0.8414984
+          },
+          {
+            "n": 5000,
+            "sum_t3_up_to_n": 3241920,
+            "sum_t4_up_to_n": 3003612,
+            "ratio_sum_t4_over_t3": 0.92649171,
+            "ratio_sum_t3_over_t2_prefix": 0.81527935
+          },
+          {
+            "n": 10000,
+            "sum_t3_up_to_n": 12086327,
+            "sum_t4_up_to_n": 11119355,
+            "ratio_sum_t4_over_t3": 0.91999455,
+            "ratio_sum_t3_over_t2_prefix": 0.80449851
+          }
+        ],
+        "generated_utc": "2026-03-12T09:40:44.139Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

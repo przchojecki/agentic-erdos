@@ -1,7 +1,58 @@
 {
   "problem": "EP-373",
   "normalized_utc": "2026-03-05T08:54:16.958Z",
-  "computations": [],
+  "computations": [
+    {
+      "source_file": "ep373_standalone_deeper_20260311T212509Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-11T21:25:09.626Z",
+      "data": {
+        "problem": "EP-373",
+        "script": "ep373.mjs",
+        "method": "extended_factorial_product_identity_search",
+        "params": {
+          "N2": 700,
+          "N3": 260,
+          "N4": 120
+        },
+        "k2_solution_count": 1,
+        "k2_solutions": [
+          {
+            "n": 10,
+            "a": 7,
+            "b": 6
+          }
+        ],
+        "k3_solution_count": 2,
+        "k3_solutions": [
+          {
+            "n": 10,
+            "a": 7,
+            "b": 5,
+            "c": 3
+          },
+          {
+            "n": 16,
+            "a": 14,
+            "b": 5,
+            "c": 2
+          }
+        ],
+        "k4_solution_count": 1,
+        "k4_solutions_first_50": [
+          {
+            "n": 9,
+            "a": 7,
+            "b": 3,
+            "c": 3,
+            "d": 2
+          }
+        ],
+        "generated_utc": "2026-03-11T21:25:09.626Z"
+      }
+    }
+  ],
   "batch_split_integrations_from_head": {
     "integrated_utc": "2026-03-05T08:56:18.891Z",
     "note_sources": [
@@ -57,5 +108,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }
