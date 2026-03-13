@@ -1,5 +1,310 @@
 {
   "problem": "EP-770",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:11:46.141Z",
+  "computations": [
+    {
+      "source_file": "ep770_standalone_deeper_20260313T101101Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:11:01.285Z",
+      "data": {
+        "problem": "EP-770",
+        "script": "ep770.mjs",
+        "method": "direct_bigint_pairwise_coprimality_scan_for_h_n",
+        "params": {
+          "N_MAX": 160,
+          "H_MAX": 220
+        },
+        "rows": [
+          {
+            "n": 1,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 2,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 3,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 4,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 5,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 6,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 7,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 8,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 9,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 10,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 11,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 12,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 13,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 14,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 15,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 16,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 17,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 18,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 19,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 20,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 21,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 22,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 23,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 24,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 25,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 26,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 27,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 28,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 29,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 30,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 35,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 40,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 45,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 50,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 55,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 60,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 65,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 70,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 75,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 80,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 85,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 90,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 95,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 100,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 105,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 110,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 115,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 120,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 125,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 130,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 135,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 140,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 145,
+            "h_n_within_scan": 3,
+            "unresolved_with_H_max": false
+          },
+          {
+            "n": 150,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 155,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          },
+          {
+            "n": 160,
+            "h_n_within_scan": null,
+            "unresolved_with_H_max": true
+          }
+        ],
+        "frequency_h_values_sampled_rows": {
+          "3": 22
+        },
+        "unresolved_count_due_to_H_MAX": 87,
+        "elapsed_ms": 160,
+        "generated_utc": "2026-03-13T10:11:01.285Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

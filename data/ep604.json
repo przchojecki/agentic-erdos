@@ -1,90 +1,77 @@
 {
   "problem": "EP-604",
-  "normalized_utc": "2026-03-05T08:54:16.963Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-604\n- Quick literature check:\n  - Pinned-distance formulation remains open; grid benchmark remains the obstruction scale around `n/sqrt(log n)`.\n- Finite compute signal:\n  - Grid families show much smaller pinned maxima than random sets (random near `n`, grids around `0.44n..0.50n` on tested sizes), matching expected structure gap.\n- Interpretation:\n  - Data reflects the known extremal contrast but does not move asymptotic lower-bound theory."
+  "normalized_utc": "2026-03-12T15:39:47.857Z",
+  "computations": [
+    {
+      "source_file": "ep604_standalone_deeper_20260312T153947Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:39:47.857Z",
+      "data": {
+        "problem": "EP-604",
+        "script": "ep604.mjs",
+        "method": "deeper_pinned_distance_profile_grid_vs_random",
+        "params": {},
+        "rows": [
+          {
+            "n": 144,
+            "family": "grid_m_by_m",
+            "m": 12,
+            "max_pinned_distinct_distances": 70,
+            "avg_pinned_distinct_distances": 51.444444,
+            "max_over_n_over_sqrt_log_n": 1.0836913,
+            "max_over_n": 0.48611111
+          },
+          {
+            "n": 144,
+            "family": "random_integer_points",
+            "grid_side": 3000,
+            "max_pinned_distinct_distances": 143,
+            "avg_pinned_distinct_distances": 142.99306,
+            "max_over_n_over_sqrt_log_n": 2.2138265,
+            "max_over_n": 0.99305556
+          },
+          {
+            "n": 256,
+            "family": "grid_m_by_m",
+            "m": 16,
+            "max_pinned_distinct_distances": 119,
+            "avg_pinned_distinct_distances": 85.8125,
+            "max_over_n_over_sqrt_log_n": 1.0946234,
+            "max_over_n": 0.46484375
+          },
+          {
+            "n": 256,
+            "family": "random_integer_points",
+            "grid_side": 3000,
+            "max_pinned_distinct_distances": 255,
+            "avg_pinned_distinct_distances": 254.97656,
+            "max_over_n_over_sqrt_log_n": 2.3456215,
+            "max_over_n": 0.99609375
+          },
+          {
+            "n": 400,
+            "family": "grid_m_by_m",
+            "m": 20,
+            "max_pinned_distinct_distances": 179,
+            "avg_pinned_distinct_distances": 127.87,
+            "max_over_n_over_sqrt_log_n": 1.0953667,
+            "max_over_n": 0.4475
+          },
+          {
+            "n": 400,
+            "family": "random_integer_points",
+            "grid_side": 3000,
+            "max_pinned_distinct_distances": 399,
+            "avg_pinned_distinct_distances": 398.9275,
+            "max_over_n_over_sqrt_log_n": 2.4416275,
+            "max_over_n": 0.9975
+          }
+        ],
+        "elapsed_ms": 15,
+        "generated_utc": "2026-03-12T15:39:47.857Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch15_quick_compute.mjs",
-        "heading": "pinned-distance profile on grid and random sets.",
-        "content": "// EP-604: pinned-distance profile on grid and random sets.\n{\n  function pinnedStats(points) {\n    const n = points.length;\n    let maxPinned = 0;\n    let sumPinned = 0;\n\n    for (let i = 0; i < n; i += 1) {\n      const D = new Set();\n      const [x1, y1] = points[i];\n      for (let j = 0; j < n; j += 1) {\n        if (i === j) continue;\n        const [x2, y2] = points[j];\n        const dx = x1 - x2;\n        const dy = y1 - y2;\n        D.add(dx * dx + dy * dy);\n      }\n      const c = D.size;\n      sumPinned += c;\n      if (c > maxPinned) maxPinned = c;\n    }\n\n    return {\n      maxPinned,\n      avgPinned: sumPinned / n,\n    };\n  }\n\n  const rng = makeRng(20260303 ^ 1506);\n  const rows = [];\n\n  for (const m of [10, 16, 22]) {\n    const gridPts = [];\n    for (let x = 0; x < m; x += 1) {\n      for (let y = 0; y < m; y += 1) gridPts.push([x, y]);\n    }\n    const n = gridPts.length;\n    const gs = pinnedStats(gridPts);\n\n    const randPts = randomDistinctPoints(n, 1500, rng);\n    const rs = pinnedStats(randPts);\n\n    const scale = n / Math.sqrt(Math.log(Math.max(3, n)));\n\n    rows.push({\n      n,\n      family: 'grid_m_by_m',\n      m,\n      max_pinned_distinct_distances: gs.maxPinned,\n      avg_pinned_distinct_distances: Number(gs.avgPinned.toPrecision(7)),\n      max_over_n_over_sqrt_log_n: Number((gs.maxPinned / scale).toPrecision(7)),\n      max_over_n: Number((gs.maxPinned / n).toPrecision(7)),\n    });\n\n    rows.push({\n      n,\n      family: 'random_integer_points',\n      grid_side: 1500,\n      max_pinned_distinct_distances: rs.maxPinned,\n      avg_pinned_distinct_distances: Number(rs.avgPinned.toPrecision(7)),\n      max_over_n_over_sqrt_log_n: Number((rs.maxPinned / scale).toPrecision(7)),\n      max_over_n: Number((rs.maxPinned / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep604 = {\n    description: 'Pinned-distance maxima and averages on structured (grid) vs random point sets.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep604",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "Pinned-distance maxima and averages on structured (grid) vs random point sets.",
-          "rows": [
-            {
-              "n": 100,
-              "family": "grid_m_by_m",
-              "m": 10,
-              "max_pinned_distinct_distances": 50,
-              "avg_pinned_distinct_distances": 37.24,
-              "max_over_n_over_sqrt_log_n": 1.072983,
-              "max_over_n": 0.5
-            },
-            {
-              "n": 100,
-              "family": "random_integer_points",
-              "grid_side": 1500,
-              "max_pinned_distinct_distances": 99,
-              "avg_pinned_distinct_distances": 98.96,
-              "max_over_n_over_sqrt_log_n": 2.124506,
-              "max_over_n": 0.99
-            },
-            {
-              "n": 256,
-              "family": "grid_m_by_m",
-              "m": 16,
-              "max_pinned_distinct_distances": 119,
-              "avg_pinned_distinct_distances": 85.8125,
-              "max_over_n_over_sqrt_log_n": 1.094623,
-              "max_over_n": 0.4648438
-            },
-            {
-              "n": 256,
-              "family": "random_integer_points",
-              "grid_side": 1500,
-              "max_pinned_distinct_distances": 255,
-              "avg_pinned_distinct_distances": 254.9297,
-              "max_over_n_over_sqrt_log_n": 2.345622,
-              "max_over_n": 0.9960938
-            },
-            {
-              "n": 484,
-              "family": "grid_m_by_m",
-              "m": 22,
-              "max_pinned_distinct_distances": 215,
-              "avg_pinned_distinct_distances": 151.9421,
-              "max_over_n_over_sqrt_log_n": 1.104487,
-              "max_over_n": 0.4442149
-            },
-            {
-              "n": 484,
-              "family": "random_integer_points",
-              "grid_side": 1500,
-              "max_pinned_distinct_distances": 483,
-              "avg_pinned_distinct_distances": 482.5888,
-              "max_over_n_over_sqrt_log_n": 2.481243,
-              "max_over_n": 0.9979339
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

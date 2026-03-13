@@ -1,196 +1,320 @@
 {
   "problem": "EP-778",
-  "normalized_utc": "2026-03-05T08:54:16.967Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch18_web_compute.md",
-        "content": "### EP-778\n- Quick literature check:\n  - Problem remains open; 2024 progress shows Bob-winning `n` have density at least `3/4`.\n- Finite compute signal:\n  - Random-vs-random play is near balanced with high tie rates.\n  - With the same greedy triangle-building heuristic on both sides, first-player (Alice) keeps a small advantage; with asymmetric heuristics, the stronger heuristic side dominates.\n- Interpretation:\n  - Finite simulations show strong strategy sensitivity and do not settle Bob’s universal winning-strategy question."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch18_quick_compute.mjs",
-        "heading": "simulated play for clique-building game.",
-        "content": "// EP-778: simulated play for clique-building game.\n{\n  const rng = makeRng(20260304 ^ 1801);\n\n  function allEdges(n) {\n    const e = [];\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) e.push([i, j]);\n    }\n    return e;\n  }\n\n  function cliquePotentialScore(adj, u, v) {\n    let common = 0;\n    for (let w = 0; w < adj.length; w += 1) {\n      if (adj[u][w] && adj[v][w]) common += 1;\n    }\n    return common;\n  }\n\n  function play(n, strategyA, strategyB) {\n    const edges = allEdges(n);\n    const rem = new Set(edges.map(([u, v]) => `${u},${v}`));\n    const red = Array.from({ length: n }, () => Array(n).fill(0));\n    const blue = Array.from({ length: n }, () => Array(n).fill(0));\n\n    function chooseEdge(strategy, colorAdj) {\n      const list = [...rem];\n      if (strategy === 'random') {\n        const k = list[Math.floor(rng() * list.length)];\n        const [u, v] = k.split(',').map(Number);\n        return [u, v];\n      }\n\n      // greedy_triangle: maximize current common-neighbor gain.\n      let best = null;\n      let bestScore = -1;\n      const inspect = list.length > 110 ? 110 : list.length;\n      for (let t = 0; t < inspect; t += 1) {\n        const k = list[Math.floor(rng() * list.length)];\n        const [u, v] = k.split(',').map(Number);\n        const s = cliquePotentialScore(colorAdj, u, v);\n        if (s > bestScore) {\n          bestScore = s;\n          best = [u, v];\n        }\n      }\n      return best;\n    }\n\n    let aliceTurn = true;\n    while (rem.size) {\n      if (aliceTurn) {\n        const [u, v] = chooseEdge(strategyA, red);\n        red[u][v] = red[v][u] = 1;\n        rem.delete(`${Math.min(u, v)},${Math.max(u, v)}`);\n      } else {\n        const [u, v] = chooseEdge(strategyB, blue);\n        blue[u][v] = blue[v][u] = 1;\n        rem.delete(`${Math.min(u, v)},${Math.max(u, v)}`);\n      }\n      aliceTurn = !aliceTurn;\n    }\n\n    function masksFromAdj(adj) {\n      const masks = Array(n).fill(0n);\n      for (let i = 0; i < n; i += 1) {\n        let m = 0n;\n        for (let j = 0; j < n; j += 1) if (adj[i][j]) m |= 1n << BigInt(j);\n        masks[i] = m;\n      }\n      return masks;\n    }\n\n    const redClique = maxCliqueSizeFromAdjMasks(masksFromAdj(red), n);\n    const blueClique = maxCliqueSizeFromAdjMasks(masksFromAdj(blue), n);\n    return { redClique, blueClique };\n  }\n\n  const rows = [];\n  for (const n of [8, 10, 12, 14]) {\n    for (const [sa, sb, trials] of [\n      ['random', 'random', 180],\n      ['greedy_triangle', 'greedy_triangle', 160],\n      ['greedy_triangle', 'random', 160],\n      ['random', 'greedy_triangle', 160],\n    ]) {\n      let aliceWins = 0;\n      let bobWins = 0;\n      let ties = 0;\n      let sumGap = 0;\n      for (let t = 0; t < trials; t += 1) {\n        const { redClique, blueClique } = play(n, sa, sb);\n        const gap = redClique - blueClique;\n        sumGap += gap;\n        if (redClique > blueClique) aliceWins += 1;\n        else if (blueClique > redClique) bobWins += 1;\n        else ties += 1;\n      }\n      rows.push({\n        n,\n        alice_strategy: sa,\n        bob_strategy: sb,\n        trials,\n        alice_win_rate: Number((aliceWins / trials).toPrecision(6)),\n        bob_win_rate: Number((bobWins / trials).toPrecision(6)),\n        tie_rate: Number((ties / trials).toPrecision(6)),\n        avg_red_minus_blue_clique: Number((sumGap / trials).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep778 = {\n    description: 'Finite simulated outcomes for clique-building game under random/greedy policies.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch18_quick_compute.json",
-        "key": "ep778",
-        "container_meta": {
-          "script": "harder_batch18_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:20:32.592Z"
-        },
-        "data": {
-          "description": "Finite simulated outcomes for clique-building game under random/greedy policies.",
-          "rows": [
-            {
-              "n": 8,
-              "alice_strategy": "random",
-              "bob_strategy": "random",
-              "trials": 180,
-              "alice_win_rate": 0.244444,
-              "bob_win_rate": 0.227778,
-              "tie_rate": 0.527778,
-              "avg_red_minus_blue_clique": 0.0222222
-            },
-            {
-              "n": 8,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.325,
-              "bob_win_rate": 0.15625,
-              "tie_rate": 0.51875,
-              "avg_red_minus_blue_clique": 0.18125
-            },
-            {
-              "n": 8,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "random",
-              "trials": 160,
-              "alice_win_rate": 0.54375,
-              "bob_win_rate": 0.0625,
-              "tie_rate": 0.39375,
-              "avg_red_minus_blue_clique": 0.53125
-            },
-            {
-              "n": 8,
-              "alice_strategy": "random",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.08125,
-              "bob_win_rate": 0.525,
-              "tie_rate": 0.39375,
-              "avg_red_minus_blue_clique": -0.475
-            },
-            {
-              "n": 10,
-              "alice_strategy": "random",
-              "bob_strategy": "random",
-              "trials": 180,
-              "alice_win_rate": 0.255556,
-              "bob_win_rate": 0.105556,
-              "tie_rate": 0.638889,
-              "avg_red_minus_blue_clique": 0.166667
-            },
-            {
-              "n": 10,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.3125,
-              "bob_win_rate": 0.23125,
-              "tie_rate": 0.45625,
-              "avg_red_minus_blue_clique": 0.125
-            },
-            {
-              "n": 10,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "random",
-              "trials": 160,
-              "alice_win_rate": 0.6,
-              "bob_win_rate": 0.05,
-              "tie_rate": 0.35,
-              "avg_red_minus_blue_clique": 0.7125
-            },
-            {
-              "n": 10,
-              "alice_strategy": "random",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.08125,
-              "bob_win_rate": 0.45625,
-              "tie_rate": 0.4625,
-              "avg_red_minus_blue_clique": -0.4625
-            },
-            {
-              "n": 12,
-              "alice_strategy": "random",
-              "bob_strategy": "random",
-              "trials": 180,
-              "alice_win_rate": 0.172222,
-              "bob_win_rate": 0.166667,
-              "tie_rate": 0.661111,
-              "avg_red_minus_blue_clique": 0
-            },
-            {
-              "n": 12,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.3,
-              "bob_win_rate": 0.24375,
-              "tie_rate": 0.45625,
-              "avg_red_minus_blue_clique": 0.13125
-            },
-            {
-              "n": 12,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "random",
-              "trials": 160,
-              "alice_win_rate": 0.55625,
-              "bob_win_rate": 0.03125,
-              "tie_rate": 0.4125,
-              "avg_red_minus_blue_clique": 0.6875
-            },
-            {
-              "n": 12,
-              "alice_strategy": "random",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.025,
-              "bob_win_rate": 0.68125,
-              "tie_rate": 0.29375,
-              "avg_red_minus_blue_clique": -0.81875
-            },
-            {
-              "n": 14,
-              "alice_strategy": "random",
-              "bob_strategy": "random",
-              "trials": 180,
-              "alice_win_rate": 0.244444,
-              "bob_win_rate": 0.255556,
-              "tie_rate": 0.5,
-              "avg_red_minus_blue_clique": -0.0111111
-            },
-            {
-              "n": 14,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.3875,
-              "bob_win_rate": 0.30625,
-              "tie_rate": 0.30625,
-              "avg_red_minus_blue_clique": 0.1375
-            },
-            {
-              "n": 14,
-              "alice_strategy": "greedy_triangle",
-              "bob_strategy": "random",
-              "trials": 160,
-              "alice_win_rate": 0.7125,
-              "bob_win_rate": 0.01875,
-              "tie_rate": 0.26875,
-              "avg_red_minus_blue_clique": 0.9625
-            },
-            {
-              "n": 14,
-              "alice_strategy": "random",
-              "bob_strategy": "greedy_triangle",
-              "trials": 160,
-              "alice_win_rate": 0.06875,
-              "bob_win_rate": 0.6375,
-              "tie_rate": 0.29375,
-              "avg_red_minus_blue_clique": -0.76875
-            }
+  "normalized_utc": "2026-03-13T10:22:52.306Z",
+  "computations": [
+    {
+      "source_file": "ep778_standalone_deeper_20260313T102051Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:20:53.258Z",
+      "data": {
+        "problem": "EP-778",
+        "script": "ep778.mjs",
+        "method": "deeper_simulation_of_clique_game_with_multiple_strategy_profiles",
+        "params": {
+          "N_LIST": [
+            10,
+            12,
+            14,
+            16
+          ],
+          "TRIALS": 180,
+          "configs": [
+            "random_vs_random",
+            "greedy_triangle_vs_greedy_triangle",
+            "greedy_degree_vs_greedy_degree",
+            "greedy_triangle_vs_random",
+            "random_vs_greedy_triangle",
+            "greedy_degree_vs_random",
+            "random_vs_greedy_degree"
           ]
-        }
+        },
+        "rows": [
+          {
+            "n": 10,
+            "alice_strategy": "random",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.2222222,
+            "bob_win_rate": 0.1,
+            "tie_rate": 0.6777778,
+            "avg_red_minus_blue_clique": 0.1444444
+          },
+          {
+            "n": 10,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.3166667,
+            "bob_win_rate": 0.2444444,
+            "tie_rate": 0.4388889,
+            "avg_red_minus_blue_clique": 0.1166667
+          },
+          {
+            "n": 10,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.5388889,
+            "bob_win_rate": 0.3444444,
+            "tie_rate": 0.1166667,
+            "avg_red_minus_blue_clique": 0.2555556
+          },
+          {
+            "n": 10,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.5888889,
+            "bob_win_rate": 0.02777778,
+            "tie_rate": 0.3833333,
+            "avg_red_minus_blue_clique": 0.6888889
+          },
+          {
+            "n": 10,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.06111111,
+            "bob_win_rate": 0.4666667,
+            "tie_rate": 0.4722222,
+            "avg_red_minus_blue_clique": -0.5277778
+          },
+          {
+            "n": 10,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.2833333,
+            "bob_win_rate": 0.2444444,
+            "tie_rate": 0.4722222,
+            "avg_red_minus_blue_clique": 0.02777778
+          },
+          {
+            "n": 10,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.3666667,
+            "bob_win_rate": 0.1388889,
+            "tie_rate": 0.4944444,
+            "avg_red_minus_blue_clique": 0.2722222
+          },
+          {
+            "n": 12,
+            "alice_strategy": "random",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.2055556,
+            "bob_win_rate": 0.1666667,
+            "tie_rate": 0.6277778,
+            "avg_red_minus_blue_clique": 0.04444444
+          },
+          {
+            "n": 12,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.3222222,
+            "bob_win_rate": 0.2722222,
+            "tie_rate": 0.4055556,
+            "avg_red_minus_blue_clique": 0.03888889
+          },
+          {
+            "n": 12,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.45,
+            "bob_win_rate": 0.4833333,
+            "tie_rate": 0.06666667,
+            "avg_red_minus_blue_clique": -0.03333333
+          },
+          {
+            "n": 12,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.6388889,
+            "bob_win_rate": 0.02222222,
+            "tie_rate": 0.3388889,
+            "avg_red_minus_blue_clique": 0.7944444
+          },
+          {
+            "n": 12,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.03888889,
+            "bob_win_rate": 0.55,
+            "tie_rate": 0.4111111,
+            "avg_red_minus_blue_clique": -0.6444444
+          },
+          {
+            "n": 12,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.1666667,
+            "bob_win_rate": 0.3888889,
+            "tie_rate": 0.4444444,
+            "avg_red_minus_blue_clique": -0.2833333
+          },
+          {
+            "n": 12,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.2666667,
+            "bob_win_rate": 0.1555556,
+            "tie_rate": 0.5777778,
+            "avg_red_minus_blue_clique": 0.1166667
+          },
+          {
+            "n": 14,
+            "alice_strategy": "random",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.2944444,
+            "bob_win_rate": 0.2277778,
+            "tie_rate": 0.4777778,
+            "avg_red_minus_blue_clique": 0.07777778
+          },
+          {
+            "n": 14,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.3444444,
+            "bob_win_rate": 0.2555556,
+            "tie_rate": 0.4,
+            "avg_red_minus_blue_clique": 0.1055556
+          },
+          {
+            "n": 14,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.5277778,
+            "bob_win_rate": 0.3944444,
+            "tie_rate": 0.07777778,
+            "avg_red_minus_blue_clique": 0.1333333
+          },
+          {
+            "n": 14,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.6888889,
+            "bob_win_rate": 0.02777778,
+            "tie_rate": 0.2833333,
+            "avg_red_minus_blue_clique": 0.9166667
+          },
+          {
+            "n": 14,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.05555556,
+            "bob_win_rate": 0.6222222,
+            "tie_rate": 0.3222222,
+            "avg_red_minus_blue_clique": -0.7833333
+          },
+          {
+            "n": 14,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.2277778,
+            "bob_win_rate": 0.2888889,
+            "tie_rate": 0.4833333,
+            "avg_red_minus_blue_clique": -0.05
+          },
+          {
+            "n": 14,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.4111111,
+            "bob_win_rate": 0.1277778,
+            "tie_rate": 0.4611111,
+            "avg_red_minus_blue_clique": 0.3777778
+          },
+          {
+            "n": 16,
+            "alice_strategy": "random",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.2,
+            "bob_win_rate": 0.2611111,
+            "tie_rate": 0.5388889,
+            "avg_red_minus_blue_clique": -0.08333333
+          },
+          {
+            "n": 16,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.35,
+            "bob_win_rate": 0.2611111,
+            "tie_rate": 0.3888889,
+            "avg_red_minus_blue_clique": 0.06666667
+          },
+          {
+            "n": 16,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.4944444,
+            "bob_win_rate": 0.4444444,
+            "tie_rate": 0.06111111,
+            "avg_red_minus_blue_clique": 0.03888889
+          },
+          {
+            "n": 16,
+            "alice_strategy": "greedy_triangle",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.7,
+            "bob_win_rate": 0.03888889,
+            "tie_rate": 0.2611111,
+            "avg_red_minus_blue_clique": 1.022222
+          },
+          {
+            "n": 16,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_triangle",
+            "trials": 180,
+            "alice_win_rate": 0.01666667,
+            "bob_win_rate": 0.7388889,
+            "tie_rate": 0.2444444,
+            "avg_red_minus_blue_clique": -1.066667
+          },
+          {
+            "n": 16,
+            "alice_strategy": "greedy_degree",
+            "bob_strategy": "random",
+            "trials": 180,
+            "alice_win_rate": 0.1055556,
+            "bob_win_rate": 0.5111111,
+            "tie_rate": 0.3833333,
+            "avg_red_minus_blue_clique": -0.4777778
+          },
+          {
+            "n": 16,
+            "alice_strategy": "random",
+            "bob_strategy": "greedy_degree",
+            "trials": 180,
+            "alice_win_rate": 0.4,
+            "bob_win_rate": 0.1611111,
+            "tie_rate": 0.4388889,
+            "avg_red_minus_blue_clique": 0.3
+          }
+        ],
+        "elapsed_ms": 1937,
+        "generated_utc": "2026-03-13T10:20:53.258Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

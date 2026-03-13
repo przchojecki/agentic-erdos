@@ -1,5 +1,1033 @@
 {
   "problem": "EP-685",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:35:31.913Z",
+  "computations": [
+    {
+      "source_file": "ep685_standalone_deeper_20260312T203531Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:35:31.913Z",
+      "data": {
+        "problem": "EP-685",
+        "script": "ep685.mjs",
+        "method": "prime_exponent_count_scan_for_distinct_prime_divisors_of_binomial_coefficients",
+        "params": {
+          "NMAX": 8000
+        },
+        "rows": [
+          {
+            "n": 1200,
+            "k": 6,
+            "omega_binom_n_k": 11,
+            "heuristic_k_sum_1_over_primes_k_to_n": 7.1425796,
+            "ratio_omega_over_heuristic": 1.5400598,
+            "baseline_log_binom_over_log_n_proxy": 4.4837179
+          },
+          {
+            "n": 1200,
+            "k": 8,
+            "omega_binom_n_k": 12,
+            "heuristic_k_sum_1_over_primes_k_to_n": 8.3805823,
+            "ratio_omega_over_heuristic": 1.4318814,
+            "baseline_log_binom_over_log_n_proxy": 5.653688
+          },
+          {
+            "n": 1200,
+            "k": 10,
+            "omega_binom_n_k": 14,
+            "heuristic_k_sum_1_over_primes_k_to_n": 10.475728,
+            "ratio_omega_over_heuristic": 1.3364227,
+            "baseline_log_binom_over_log_n_proxy": 6.7523834
+          },
+          {
+            "n": 1200,
+            "k": 13,
+            "omega_binom_n_k": 17,
+            "heuristic_k_sum_1_over_primes_k_to_n": 11.436628,
+            "ratio_omega_over_heuristic": 1.4864521,
+            "baseline_log_binom_over_log_n_proxy": 8.2970409
+          },
+          {
+            "n": 1200,
+            "k": 16,
+            "omega_binom_n_k": 18,
+            "heuristic_k_sum_1_over_primes_k_to_n": 14.07585,
+            "ratio_omega_over_heuristic": 1.278786,
+            "baseline_log_binom_over_log_n_proxy": 9.743168
+          },
+          {
+            "n": 1200,
+            "k": 20,
+            "omega_binom_n_k": 22,
+            "heuristic_k_sum_1_over_primes_k_to_n": 15.36571,
+            "ratio_omega_over_heuristic": 1.4317594,
+            "baseline_log_binom_over_log_n_proxy": 11.549507
+          },
+          {
+            "n": 1200,
+            "k": 25,
+            "omega_binom_n_k": 25,
+            "heuristic_k_sum_1_over_primes_k_to_n": 18.120181,
+            "ratio_omega_over_heuristic": 1.3796772,
+            "baseline_log_binom_over_log_n_proxy": 13.650067
+          },
+          {
+            "n": 1200,
+            "k": 31,
+            "omega_binom_n_k": 30,
+            "heuristic_k_sum_1_over_primes_k_to_n": 20.400059,
+            "ratio_omega_over_heuristic": 1.470584,
+            "baseline_log_binom_over_log_n_proxy": 15.98555
+          },
+          {
+            "n": 1200,
+            "k": 38,
+            "omega_binom_n_k": 34,
+            "heuristic_k_sum_1_over_primes_k_to_n": 23.979497,
+            "ratio_omega_over_heuristic": 1.4178779,
+            "baseline_log_binom_over_log_n_proxy": 18.503981
+          },
+          {
+            "n": 1200,
+            "k": 47,
+            "omega_binom_n_k": 39,
+            "heuristic_k_sum_1_over_primes_k_to_n": 26.419487,
+            "ratio_omega_over_heuristic": 1.4761831,
+            "baseline_log_binom_over_log_n_proxy": 21.477436
+          },
+          {
+            "n": 1200,
+            "k": 58,
+            "omega_binom_n_k": 45,
+            "heuristic_k_sum_1_over_primes_k_to_n": 31.508432,
+            "ratio_omega_over_heuristic": 1.4281891,
+            "baseline_log_binom_over_log_n_proxy": 24.78376
+          },
+          {
+            "n": 1200,
+            "k": 71,
+            "omega_binom_n_k": 51,
+            "heuristic_k_sum_1_over_primes_k_to_n": 34.143641,
+            "ratio_omega_over_heuristic": 1.4936896,
+            "baseline_log_binom_over_log_n_proxy": 28.313541
+          },
+          {
+            "n": 1200,
+            "k": 87,
+            "omega_binom_n_k": 58,
+            "heuristic_k_sum_1_over_primes_k_to_n": 38.496743,
+            "ratio_omega_over_heuristic": 1.506621,
+            "baseline_log_binom_over_log_n_proxy": 32.200311
+          },
+          {
+            "n": 1200,
+            "k": 107,
+            "omega_binom_n_k": 66,
+            "heuristic_k_sum_1_over_primes_k_to_n": 41.942988,
+            "ratio_omega_over_heuristic": 1.5735646,
+            "baseline_log_binom_over_log_n_proxy": 36.479934
+          },
+          {
+            "n": 1200,
+            "k": 131,
+            "omega_binom_n_k": 74,
+            "heuristic_k_sum_1_over_primes_k_to_n": 46.958138,
+            "ratio_omega_over_heuristic": 1.5758717,
+            "baseline_log_binom_over_log_n_proxy": 40.923282
+          },
+          {
+            "n": 1200,
+            "k": 160,
+            "omega_binom_n_k": 82,
+            "heuristic_k_sum_1_over_primes_k_to_n": 51.881952,
+            "ratio_omega_over_heuristic": 1.5805111,
+            "baseline_log_binom_over_log_n_proxy": 45.469815
+          },
+          {
+            "n": 1200,
+            "k": 196,
+            "omega_binom_n_k": 92,
+            "heuristic_k_sum_1_over_primes_k_to_n": 55.826769,
+            "ratio_omega_over_heuristic": 1.6479549,
+            "baseline_log_binom_over_log_n_proxy": 50.090372
+          },
+          {
+            "n": 1200,
+            "k": 240,
+            "omega_binom_n_k": 100,
+            "heuristic_k_sum_1_over_primes_k_to_n": 59.5818,
+            "ratio_omega_over_heuristic": 1.6783649,
+            "baseline_log_binom_over_log_n_proxy": 54.479677
+          },
+          {
+            "n": 1800,
+            "k": 7,
+            "omega_binom_n_k": 11,
+            "heuristic_k_sum_1_over_primes_k_to_n": 7.7218863,
+            "ratio_omega_over_heuristic": 1.4245224,
+            "baseline_log_binom_over_log_n_proxy": 5.182737
+          },
+          {
+            "n": 1800,
+            "k": 9,
+            "omega_binom_n_k": 13,
+            "heuristic_k_sum_1_over_primes_k_to_n": 9.9281395,
+            "ratio_omega_over_heuristic": 1.3094095,
+            "baseline_log_binom_over_log_n_proxy": 6.3617623
+          },
+          {
+            "n": 1800,
+            "k": 11,
+            "omega_binom_n_k": 15,
+            "heuristic_k_sum_1_over_primes_k_to_n": 11.134393,
+            "ratio_omega_over_heuristic": 1.3471772,
+            "baseline_log_binom_over_log_n_proxy": 7.4809952
+          },
+          {
+            "n": 1800,
+            "k": 14,
+            "omega_binom_n_k": 16,
+            "heuristic_k_sum_1_over_primes_k_to_n": 13.094122,
+            "ratio_omega_over_heuristic": 1.2219223,
+            "baseline_log_binom_over_log_n_proxy": 9.0708297
+          },
+          {
+            "n": 1800,
+            "k": 18,
+            "omega_binom_n_k": 20,
+            "heuristic_k_sum_1_over_primes_k_to_n": 15.776476,
+            "ratio_omega_over_heuristic": 1.2677102,
+            "baseline_log_binom_over_log_n_proxy": 11.058982
+          },
+          {
+            "n": 1800,
+            "k": 22,
+            "omega_binom_n_k": 23,
+            "heuristic_k_sum_1_over_primes_k_to_n": 18.124465,
+            "ratio_omega_over_heuristic": 1.2690029,
+            "baseline_log_binom_over_log_n_proxy": 12.927549
+          },
+          {
+            "n": 1800,
+            "k": 27,
+            "omega_binom_n_k": 27,
+            "heuristic_k_sum_1_over_primes_k_to_n": 21.069749,
+            "ratio_omega_over_heuristic": 1.2814581,
+            "baseline_log_binom_over_log_n_proxy": 15.12793
+          },
+          {
+            "n": 1800,
+            "k": 33,
+            "omega_binom_n_k": 33,
+            "heuristic_k_sum_1_over_primes_k_to_n": 23.549468,
+            "ratio_omega_over_heuristic": 1.4013055,
+            "baseline_log_binom_over_log_n_proxy": 17.606217
+          },
+          {
+            "n": 1800,
+            "k": 41,
+            "omega_binom_n_k": 37,
+            "heuristic_k_sum_1_over_primes_k_to_n": 27.150322,
+            "ratio_omega_over_heuristic": 1.3627831,
+            "baseline_log_binom_over_log_n_proxy": 20.687065
+          },
+          {
+            "n": 1800,
+            "k": 51,
+            "omega_binom_n_k": 42,
+            "heuristic_k_sum_1_over_primes_k_to_n": 31.501199,
+            "ratio_omega_over_heuristic": 1.3332826,
+            "baseline_log_binom_over_log_n_proxy": 24.247684
+          },
+          {
+            "n": 1800,
+            "k": 63,
+            "omega_binom_n_k": 50,
+            "heuristic_k_sum_1_over_primes_k_to_n": 35.623983,
+            "ratio_omega_over_heuristic": 1.4035488,
+            "baseline_log_binom_over_log_n_proxy": 28.176969
+          },
+          {
+            "n": 1800,
+            "k": 77,
+            "omega_binom_n_k": 56,
+            "heuristic_k_sum_1_over_primes_k_to_n": 40.251869,
+            "ratio_omega_over_heuristic": 1.3912398,
+            "baseline_log_binom_over_log_n_proxy": 32.377073
+          },
+          {
+            "n": 1800,
+            "k": 94,
+            "omega_binom_n_k": 63,
+            "heuristic_k_sum_1_over_primes_k_to_n": 45.760062,
+            "ratio_omega_over_heuristic": 1.3767464,
+            "baseline_log_binom_over_log_n_proxy": 37.023505
+          },
+          {
+            "n": 1800,
+            "k": 115,
+            "omega_binom_n_k": 73,
+            "heuristic_k_sum_1_over_primes_k_to_n": 49.394857,
+            "ratio_omega_over_heuristic": 1.4778867,
+            "baseline_log_binom_over_log_n_proxy": 42.201102
+          },
+          {
+            "n": 1800,
+            "k": 141,
+            "omega_binom_n_k": 83,
+            "heuristic_k_sum_1_over_primes_k_to_n": 56.332232,
+            "ratio_omega_over_heuristic": 1.4734016,
+            "baseline_log_binom_over_log_n_proxy": 47.907979
+          },
+          {
+            "n": 1800,
+            "k": 173,
+            "omega_binom_n_k": 96,
+            "heuristic_k_sum_1_over_primes_k_to_n": 62.610894,
+            "ratio_omega_over_heuristic": 1.5332795,
+            "baseline_log_binom_over_log_n_proxy": 54.060042
+          },
+          {
+            "n": 1800,
+            "k": 212,
+            "omega_binom_n_k": 106,
+            "heuristic_k_sum_1_over_primes_k_to_n": 69.015259,
+            "ratio_omega_over_heuristic": 1.5358922,
+            "baseline_log_binom_over_log_n_proxy": 60.497107
+          },
+          {
+            "n": 1800,
+            "k": 259,
+            "omega_binom_n_k": 120,
+            "heuristic_k_sum_1_over_primes_k_to_n": 75.57279,
+            "ratio_omega_over_heuristic": 1.5878731,
+            "baseline_log_binom_over_log_n_proxy": 66.990072
+          },
+          {
+            "n": 1800,
+            "k": 316,
+            "omega_binom_n_k": 132,
+            "heuristic_k_sum_1_over_primes_k_to_n": 81.146913,
+            "ratio_omega_over_heuristic": 1.6266793,
+            "baseline_log_binom_over_log_n_proxy": 73.34716
+          },
+          {
+            "n": 1800,
+            "k": 386,
+            "omega_binom_n_k": 146,
+            "heuristic_k_sum_1_over_primes_k_to_n": 87.093237,
+            "ratio_omega_over_heuristic": 1.6763644,
+            "baseline_log_binom_over_log_n_proxy": 79.290593
+          },
+          {
+            "n": 2500,
+            "k": 8,
+            "omega_binom_n_k": 13,
+            "heuristic_k_sum_1_over_primes_k_to_n": 9.1589018,
+            "ratio_omega_over_heuristic": 1.4193841,
+            "baseline_log_binom_over_log_n_proxy": 5.8737942
+          },
+          {
+            "n": 2500,
+            "k": 10,
+            "omega_binom_n_k": 15,
+            "heuristic_k_sum_1_over_primes_k_to_n": 11.448627,
+            "ratio_omega_over_heuristic": 1.3102008,
+            "baseline_log_binom_over_log_n_proxy": 7.0570404
+          },
+          {
+            "n": 2500,
+            "k": 13,
+            "omega_binom_n_k": 17,
+            "heuristic_k_sum_1_over_primes_k_to_n": 12.701397,
+            "ratio_omega_over_heuristic": 1.3384354,
+            "baseline_log_binom_over_log_n_proxy": 8.7382227
+          },
+          {
+            "n": 2500,
+            "k": 16,
+            "omega_binom_n_k": 21,
+            "heuristic_k_sum_1_over_primes_k_to_n": 15.632489,
+            "ratio_omega_over_heuristic": 1.3433561,
+            "baseline_log_binom_over_log_n_proxy": 10.330118
+          },
+          {
+            "n": 2500,
+            "k": 20,
+            "omega_binom_n_k": 26,
+            "heuristic_k_sum_1_over_primes_k_to_n": 17.311509,
+            "ratio_omega_over_heuristic": 1.501891,
+            "baseline_log_binom_over_log_n_proxy": 12.342243
+          },
+          {
+            "n": 2500,
+            "k": 25,
+            "omega_binom_n_k": 30,
+            "heuristic_k_sum_1_over_primes_k_to_n": 20.55243,
+            "ratio_omega_over_heuristic": 1.4596814,
+            "baseline_log_binom_over_log_n_proxy": 14.714798
+          },
+          {
+            "n": 2500,
+            "k": 31,
+            "omega_binom_n_k": 33,
+            "heuristic_k_sum_1_over_primes_k_to_n": 23.416047,
+            "ratio_omega_over_heuristic": 1.4092899,
+            "baseline_log_binom_over_log_n_proxy": 17.394047
+          },
+          {
+            "n": 2500,
+            "k": 38,
+            "omega_binom_n_k": 38,
+            "heuristic_k_sum_1_over_primes_k_to_n": 27.676515,
+            "ratio_omega_over_heuristic": 1.3730052,
+            "baseline_log_binom_over_log_n_proxy": 20.332891
+          },
+          {
+            "n": 2500,
+            "k": 47,
+            "omega_binom_n_k": 42,
+            "heuristic_k_sum_1_over_primes_k_to_n": 30.992114,
+            "ratio_omega_over_heuristic": 1.3551834,
+            "baseline_log_binom_over_log_n_proxy": 23.871693
+          },
+          {
+            "n": 2500,
+            "k": 58,
+            "omega_binom_n_k": 49,
+            "heuristic_k_sum_1_over_primes_k_to_n": 37.151248,
+            "ratio_omega_over_heuristic": 1.3189328,
+            "baseline_log_binom_over_log_n_proxy": 27.899756
+          },
+          {
+            "n": 2500,
+            "k": 71,
+            "omega_binom_n_k": 57,
+            "heuristic_k_sum_1_over_primes_k_to_n": 41.051226,
+            "ratio_omega_over_heuristic": 1.3885091,
+            "baseline_log_binom_over_log_n_proxy": 32.317933
+          },
+          {
+            "n": 2500,
+            "k": 87,
+            "omega_binom_n_k": 65,
+            "heuristic_k_sum_1_over_primes_k_to_n": 46.960967,
+            "ratio_omega_over_heuristic": 1.3841282,
+            "baseline_log_binom_over_log_n_proxy": 37.341038
+          },
+          {
+            "n": 2500,
+            "k": 107,
+            "omega_binom_n_k": 74,
+            "heuristic_k_sum_1_over_primes_k_to_n": 52.353011,
+            "ratio_omega_over_heuristic": 1.4134813,
+            "baseline_log_binom_over_log_n_proxy": 43.09538
+          },
+          {
+            "n": 2500,
+            "k": 131,
+            "omega_binom_n_k": 84,
+            "heuristic_k_sum_1_over_primes_k_to_n": 59.703119,
+            "ratio_omega_over_heuristic": 1.4069617,
+            "baseline_log_binom_over_log_n_proxy": 49.373326
+          },
+          {
+            "n": 2500,
+            "k": 160,
+            "omega_binom_n_k": 97,
+            "heuristic_k_sum_1_over_primes_k_to_n": 67.448342,
+            "ratio_omega_over_heuristic": 1.4381377,
+            "baseline_log_binom_over_log_n_proxy": 56.213825
+          },
+          {
+            "n": 2500,
+            "k": 196,
+            "omega_binom_n_k": 109,
+            "heuristic_k_sum_1_over_primes_k_to_n": 74.895597,
+            "ratio_omega_over_heuristic": 1.4553593,
+            "baseline_log_binom_over_log_n_proxy": 63.778069
+          },
+          {
+            "n": 2500,
+            "k": 240,
+            "omega_binom_n_k": 124,
+            "heuristic_k_sum_1_over_primes_k_to_n": 82.931385,
+            "ratio_omega_over_heuristic": 1.495212,
+            "baseline_log_binom_over_log_n_proxy": 71.88323
+          },
+          {
+            "n": 2500,
+            "k": 293,
+            "omega_binom_n_k": 140,
+            "heuristic_k_sum_1_over_primes_k_to_n": 90.301953,
+            "ratio_omega_over_heuristic": 1.5503541,
+            "baseline_log_binom_over_log_n_proxy": 80.285175
+          },
+          {
+            "n": 2500,
+            "k": 358,
+            "omega_binom_n_k": 156,
+            "heuristic_k_sum_1_over_primes_k_to_n": 100.52891,
+            "ratio_omega_over_heuristic": 1.5517923,
+            "baseline_log_binom_over_log_n_proxy": 88.928115
+          },
+          {
+            "n": 2500,
+            "k": 437,
+            "omega_binom_n_k": 174,
+            "heuristic_k_sum_1_over_primes_k_to_n": 108.35255,
+            "ratio_omega_over_heuristic": 1.605869,
+            "baseline_log_binom_over_log_n_proxy": 97.414726
+          },
+          {
+            "n": 3200,
+            "k": 8,
+            "omega_binom_n_k": 14,
+            "heuristic_k_sum_1_over_primes_k_to_n": 9.3997472,
+            "ratio_omega_over_heuristic": 1.4894018,
+            "baseline_log_binom_over_log_n_proxy": 5.9388272
+          },
+          {
+            "n": 3200,
+            "k": 10,
+            "omega_binom_n_k": 16,
+            "heuristic_k_sum_1_over_primes_k_to_n": 11.749684,
+            "ratio_omega_over_heuristic": 1.3617387,
+            "baseline_log_binom_over_log_n_proxy": 7.147055
+          },
+          {
+            "n": 3200,
+            "k": 13,
+            "omega_binom_n_k": 18,
+            "heuristic_k_sum_1_over_primes_k_to_n": 13.092771,
+            "ratio_omega_over_heuristic": 1.3748045,
+            "baseline_log_binom_over_log_n_proxy": 8.8685752
+          },
+          {
+            "n": 3200,
+            "k": 16,
+            "omega_binom_n_k": 22,
+            "heuristic_k_sum_1_over_primes_k_to_n": 16.11418,
+            "ratio_omega_over_heuristic": 1.3652572,
+            "baseline_log_binom_over_log_n_proxy": 10.503539
+          },
+          {
+            "n": 3200,
+            "k": 20,
+            "omega_binom_n_k": 25,
+            "heuristic_k_sum_1_over_primes_k_to_n": 17.913623,
+            "ratio_omega_over_heuristic": 1.395586,
+            "baseline_log_binom_over_log_n_proxy": 12.576466
+          },
+          {
+            "n": 3200,
+            "k": 25,
+            "omega_binom_n_k": 28,
+            "heuristic_k_sum_1_over_primes_k_to_n": 21.305072,
+            "ratio_omega_over_heuristic": 1.3142411,
+            "baseline_log_binom_over_log_n_proxy": 15.029385
+          },
+          {
+            "n": 3200,
+            "k": 31,
+            "omega_binom_n_k": 33,
+            "heuristic_k_sum_1_over_primes_k_to_n": 24.349323,
+            "ratio_omega_over_heuristic": 1.3552738,
+            "baseline_log_binom_over_log_n_proxy": 17.810204
+          },
+          {
+            "n": 3200,
+            "k": 38,
+            "omega_binom_n_k": 37,
+            "heuristic_k_sum_1_over_primes_k_to_n": 28.820531,
+            "ratio_omega_over_heuristic": 1.283807,
+            "baseline_log_binom_over_log_n_proxy": 20.873264
+          },
+          {
+            "n": 3200,
+            "k": 47,
+            "omega_binom_n_k": 45,
+            "heuristic_k_sum_1_over_primes_k_to_n": 32.407081,
+            "ratio_omega_over_heuristic": 1.3885854,
+            "baseline_log_binom_over_log_n_proxy": 24.579105
+          },
+          {
+            "n": 3200,
+            "k": 58,
+            "omega_binom_n_k": 53,
+            "heuristic_k_sum_1_over_primes_k_to_n": 38.897378,
+            "ratio_omega_over_heuristic": 1.3625597,
+            "baseline_log_binom_over_log_n_proxy": 28.820414
+          },
+          {
+            "n": 3200,
+            "k": 71,
+            "omega_binom_n_k": 62,
+            "heuristic_k_sum_1_over_primes_k_to_n": 43.188729,
+            "ratio_omega_over_heuristic": 1.4355597,
+            "baseline_log_binom_over_log_n_proxy": 33.501079
+          },
+          {
+            "n": 3200,
+            "k": 87,
+            "omega_binom_n_k": 69,
+            "heuristic_k_sum_1_over_primes_k_to_n": 49.580162,
+            "ratio_omega_over_heuristic": 1.3916857,
+            "baseline_log_binom_over_log_n_proxy": 38.859927
+          },
+          {
+            "n": 3200,
+            "k": 107,
+            "omega_binom_n_k": 80,
+            "heuristic_k_sum_1_over_primes_k_to_n": 55.574319,
+            "ratio_omega_over_heuristic": 1.4395138,
+            "baseline_log_binom_over_log_n_proxy": 45.049993
+          },
+          {
+            "n": 3200,
+            "k": 131,
+            "omega_binom_n_k": 89,
+            "heuristic_k_sum_1_over_primes_k_to_n": 63.646964,
+            "ratio_omega_over_heuristic": 1.3983385,
+            "baseline_log_binom_over_log_n_proxy": 51.869994
+          },
+          {
+            "n": 3200,
+            "k": 160,
+            "omega_binom_n_k": 102,
+            "heuristic_k_sum_1_over_primes_k_to_n": 72.265251,
+            "ratio_omega_over_heuristic": 1.4114668,
+            "baseline_log_binom_over_log_n_proxy": 59.388272
+          },
+          {
+            "n": 3200,
+            "k": 196,
+            "omega_binom_n_k": 118,
+            "heuristic_k_sum_1_over_primes_k_to_n": 80.796311,
+            "ratio_omega_over_heuristic": 1.4604627,
+            "baseline_log_binom_over_log_n_proxy": 67.822264
+          },
+          {
+            "n": 3200,
+            "k": 240,
+            "omega_binom_n_k": 133,
+            "heuristic_k_sum_1_over_primes_k_to_n": 90.156749,
+            "ratio_omega_over_heuristic": 1.4752085,
+            "baseline_log_binom_over_log_n_proxy": 77.025319
+          },
+          {
+            "n": 3200,
+            "k": 293,
+            "omega_binom_n_k": 150,
+            "heuristic_k_sum_1_over_primes_k_to_n": 99.122918,
+            "ratio_omega_over_heuristic": 1.5132726,
+            "baseline_log_binom_over_log_n_proxy": 86.791359
+          },
+          {
+            "n": 3200,
+            "k": 358,
+            "omega_binom_n_k": 168,
+            "heuristic_k_sum_1_over_primes_k_to_n": 111.30675,
+            "ratio_omega_over_heuristic": 1.5093424,
+            "baseline_log_binom_over_log_n_proxy": 97.158059
+          },
+          {
+            "n": 3200,
+            "k": 437,
+            "omega_binom_n_k": 191,
+            "heuristic_k_sum_1_over_primes_k_to_n": 121.50873,
+            "ratio_omega_over_heuristic": 1.5719035,
+            "baseline_log_binom_over_log_n_proxy": 107.80142
+          },
+          {
+            "n": 3200,
+            "k": 534,
+            "omega_binom_n_k": 212,
+            "heuristic_k_sum_1_over_primes_k_to_n": 131.71921,
+            "ratio_omega_over_heuristic": 1.6094843,
+            "baseline_log_binom_over_log_n_proxy": 118.46656
+          },
+          {
+            "n": 5000,
+            "k": 9,
+            "omega_binom_n_k": 14,
+            "heuristic_k_sum_1_over_primes_k_to_n": 11.060984,
+            "ratio_omega_over_heuristic": 1.2657102,
+            "baseline_log_binom_over_log_n_proxy": 6.6782232
+          },
+          {
+            "n": 5000,
+            "k": 11,
+            "omega_binom_n_k": 16,
+            "heuristic_k_sum_1_over_primes_k_to_n": 12.51898,
+            "ratio_omega_over_heuristic": 1.2780594,
+            "baseline_log_binom_over_log_n_proxy": 7.9031056
+          },
+          {
+            "n": 5000,
+            "k": 14,
+            "omega_binom_n_k": 19,
+            "heuristic_k_sum_1_over_primes_k_to_n": 14.856324,
+            "ratio_omega_over_heuristic": 1.2789166,
+            "baseline_log_binom_over_log_n_proxy": 9.6620917
+          },
+          {
+            "n": 5000,
+            "k": 18,
+            "omega_binom_n_k": 23,
+            "heuristic_k_sum_1_over_primes_k_to_n": 18.042165,
+            "ratio_omega_over_heuristic": 1.2747916,
+            "baseline_log_binom_over_log_n_proxy": 11.891568
+          },
+          {
+            "n": 5000,
+            "k": 22,
+            "omega_binom_n_k": 28,
+            "heuristic_k_sum_1_over_primes_k_to_n": 20.89364,
+            "ratio_omega_over_heuristic": 1.3401207,
+            "baseline_log_binom_over_log_n_proxy": 14.015805
+          },
+          {
+            "n": 5000,
+            "k": 27,
+            "omega_binom_n_k": 31,
+            "heuristic_k_sum_1_over_primes_k_to_n": 24.468281,
+            "ratio_omega_over_heuristic": 1.2669464,
+            "baseline_log_binom_over_log_n_proxy": 16.552005
+          },
+          {
+            "n": 5000,
+            "k": 33,
+            "omega_binom_n_k": 36,
+            "heuristic_k_sum_1_over_primes_k_to_n": 27.70323,
+            "ratio_omega_over_heuristic": 1.2994875,
+            "baseline_log_binom_over_log_n_proxy": 19.452726
+          },
+          {
+            "n": 5000,
+            "k": 41,
+            "omega_binom_n_k": 42,
+            "heuristic_k_sum_1_over_primes_k_to_n": 32.311057,
+            "ratio_omega_over_heuristic": 1.2998646,
+            "baseline_log_binom_over_log_n_proxy": 23.123635
+          },
+          {
+            "n": 5000,
+            "k": 51,
+            "omega_binom_n_k": 49,
+            "heuristic_k_sum_1_over_primes_k_to_n": 37.920649,
+            "ratio_omega_over_heuristic": 1.292172,
+            "baseline_log_binom_over_log_n_proxy": 27.456668
+          },
+          {
+            "n": 5000,
+            "k": 63,
+            "omega_binom_n_k": 58,
+            "heuristic_k_sum_1_over_primes_k_to_n": 43.553892,
+            "ratio_omega_over_heuristic": 1.3316835,
+            "baseline_log_binom_over_log_n_proxy": 32.354049
+          },
+          {
+            "n": 5000,
+            "k": 77,
+            "omega_binom_n_k": 66,
+            "heuristic_k_sum_1_over_primes_k_to_n": 49.94398,
+            "ratio_omega_over_heuristic": 1.3214806,
+            "baseline_log_binom_over_log_n_proxy": 37.729666
+          },
+          {
+            "n": 5000,
+            "k": 94,
+            "omega_binom_n_k": 73,
+            "heuristic_k_sum_1_over_primes_k_to_n": 57.591989,
+            "ratio_omega_over_heuristic": 1.2675374,
+            "baseline_log_binom_over_log_n_proxy": 43.857929
+          },
+          {
+            "n": 5000,
+            "k": 115,
+            "omega_binom_n_k": 87,
+            "heuristic_k_sum_1_over_primes_k_to_n": 63.870087,
+            "ratio_omega_over_heuristic": 1.36214,
+            "baseline_log_binom_over_log_n_proxy": 50.933449
+          },
+          {
+            "n": 5000,
+            "k": 141,
+            "omega_binom_n_k": 99,
+            "heuristic_k_sum_1_over_primes_k_to_n": 74.080123,
+            "ratio_omega_over_heuristic": 1.3363909,
+            "baseline_log_binom_over_log_n_proxy": 59.07452
+          },
+          {
+            "n": 5000,
+            "k": 173,
+            "omega_binom_n_k": 115,
+            "heuristic_k_sum_1_over_primes_k_to_n": 84.386676,
+            "ratio_omega_over_heuristic": 1.3627744,
+            "baseline_log_binom_over_log_n_proxy": 68.327084
+          },
+          {
+            "n": 5000,
+            "k": 212,
+            "omega_binom_n_k": 131,
+            "heuristic_k_sum_1_over_primes_k_to_n": 95.700032,
+            "ratio_omega_over_heuristic": 1.3688606,
+            "baseline_log_binom_over_log_n_proxy": 78.670127
+          },
+          {
+            "n": 5000,
+            "k": 259,
+            "omega_binom_n_k": 151,
+            "heuristic_k_sum_1_over_primes_k_to_n": 108.17353,
+            "ratio_omega_over_heuristic": 1.3959053,
+            "baseline_log_binom_over_log_n_proxy": 90.021977
+          },
+          {
+            "n": 5000,
+            "k": 316,
+            "omega_binom_n_k": 173,
+            "heuristic_k_sum_1_over_primes_k_to_n": 120.92233,
+            "ratio_omega_over_heuristic": 1.4306704,
+            "baseline_log_binom_over_log_n_proxy": 102.45376
+          },
+          {
+            "n": 5000,
+            "k": 386,
+            "omega_binom_n_k": 195,
+            "heuristic_k_sum_1_over_primes_k_to_n": 135.67966,
+            "ratio_omega_over_heuristic": 1.4372088,
+            "baseline_log_binom_over_log_n_proxy": 116.08089
+          },
+          {
+            "n": 5000,
+            "k": 471,
+            "omega_binom_n_k": 222,
+            "heuristic_k_sum_1_over_primes_k_to_n": 149.14726,
+            "ratio_omega_over_heuristic": 1.4884618,
+            "baseline_log_binom_over_log_n_proxy": 130.63691
+          },
+          {
+            "n": 5000,
+            "k": 575,
+            "omega_binom_n_k": 250,
+            "heuristic_k_sum_1_over_primes_k_to_n": 166.71439,
+            "ratio_omega_over_heuristic": 1.4995706,
+            "baseline_log_binom_over_log_n_proxy": 146.01328
+          },
+          {
+            "n": 5000,
+            "k": 702,
+            "omega_binom_n_k": 282,
+            "heuristic_k_sum_1_over_primes_k_to_n": 180.31467,
+            "ratio_omega_over_heuristic": 1.5639327,
+            "baseline_log_binom_over_log_n_proxy": 161.81485
+          },
+          {
+            "n": 5000,
+            "k": 857,
+            "omega_binom_n_k": 313,
+            "heuristic_k_sum_1_over_primes_k_to_n": 195.98183,
+            "ratio_omega_over_heuristic": 1.5970868,
+            "baseline_log_binom_over_log_n_proxy": 177.46906
+          },
+          {
+            "n": 8000,
+            "k": 10,
+            "omega_binom_n_k": 17,
+            "heuristic_k_sum_1_over_primes_k_to_n": 12.821013,
+            "ratio_omega_over_heuristic": 1.3259483,
+            "baseline_log_binom_over_log_n_proxy": 7.4379274
+          },
+          {
+            "n": 8000,
+            "k": 13,
+            "omega_binom_n_k": 19,
+            "heuristic_k_sum_1_over_primes_k_to_n": 14.485498,
+            "ratio_omega_over_heuristic": 1.3116566,
+            "baseline_log_binom_over_log_n_proxy": 9.2897951
+          },
+          {
+            "n": 8000,
+            "k": 16,
+            "omega_binom_n_k": 23,
+            "heuristic_k_sum_1_over_primes_k_to_n": 17.828306,
+            "ratio_omega_over_heuristic": 1.2900833,
+            "baseline_log_binom_over_log_n_proxy": 11.063931
+          },
+          {
+            "n": 8000,
+            "k": 20,
+            "omega_binom_n_k": 27,
+            "heuristic_k_sum_1_over_primes_k_to_n": 20.05628,
+            "ratio_omega_over_heuristic": 1.3462118,
+            "baseline_log_binom_over_log_n_proxy": 13.333333
+          },
+          {
+            "n": 8000,
+            "k": 25,
+            "omega_binom_n_k": 32,
+            "heuristic_k_sum_1_over_primes_k_to_n": 23.983393,
+            "ratio_omega_over_heuristic": 1.3342566,
+            "baseline_log_binom_over_log_n_proxy": 16.04594
+          },
+          {
+            "n": 8000,
+            "k": 31,
+            "omega_binom_n_k": 35,
+            "heuristic_k_sum_1_over_primes_k_to_n": 27.670442,
+            "ratio_omega_over_heuristic": 1.2648876,
+            "baseline_log_binom_over_log_n_proxy": 19.154971
+          },
+          {
+            "n": 8000,
+            "k": 38,
+            "omega_binom_n_k": 42,
+            "heuristic_k_sum_1_over_primes_k_to_n": 32.891579,
+            "ratio_omega_over_heuristic": 1.2769226,
+            "baseline_log_binom_over_log_n_proxy": 22.619423
+          },
+          {
+            "n": 8000,
+            "k": 47,
+            "omega_binom_n_k": 52,
+            "heuristic_k_sum_1_over_primes_k_to_n": 37.442325,
+            "ratio_omega_over_heuristic": 1.3888026,
+            "baseline_log_binom_over_log_n_proxy": 26.86503
+          },
+          {
+            "n": 8000,
+            "k": 58,
+            "omega_binom_n_k": 58,
+            "heuristic_k_sum_1_over_primes_k_to_n": 45.111083,
+            "ratio_omega_over_heuristic": 1.2857151,
+            "baseline_log_binom_over_log_n_proxy": 31.795423
+          },
+          {
+            "n": 8000,
+            "k": 71,
+            "omega_binom_n_k": 67,
+            "heuristic_k_sum_1_over_primes_k_to_n": 50.795162,
+            "ratio_omega_over_heuristic": 1.3190232,
+            "baseline_log_binom_over_log_n_proxy": 37.324286
+          },
+          {
+            "n": 8000,
+            "k": 87,
+            "omega_binom_n_k": 75,
+            "heuristic_k_sum_1_over_primes_k_to_n": 58.90072,
+            "ratio_omega_over_heuristic": 1.2733291,
+            "baseline_log_binom_over_log_n_proxy": 43.768054
+          },
+          {
+            "n": 8000,
+            "k": 107,
+            "omega_binom_n_k": 90,
+            "heuristic_k_sum_1_over_primes_k_to_n": 67.037535,
+            "ratio_omega_over_heuristic": 1.3425315,
+            "baseline_log_binom_over_log_n_proxy": 51.366114
+          },
+          {
+            "n": 8000,
+            "k": 131,
+            "omega_binom_n_k": 105,
+            "heuristic_k_sum_1_over_primes_k_to_n": 77.681368,
+            "ratio_omega_over_heuristic": 1.3516755,
+            "baseline_log_binom_over_log_n_proxy": 59.937703
+          },
+          {
+            "n": 8000,
+            "k": 160,
+            "omega_binom_n_k": 120,
+            "heuristic_k_sum_1_over_primes_k_to_n": 89.406508,
+            "ratio_omega_over_heuristic": 1.3421842,
+            "baseline_log_binom_over_log_n_proxy": 69.646153
+          },
+          {
+            "n": 8000,
+            "k": 196,
+            "omega_binom_n_k": 137,
+            "heuristic_k_sum_1_over_primes_k_to_n": 101.79435,
+            "ratio_omega_over_heuristic": 1.3458507,
+            "baseline_log_binom_over_log_n_proxy": 80.89064
+          },
+          {
+            "n": 8000,
+            "k": 240,
+            "omega_binom_n_k": 159,
+            "heuristic_k_sum_1_over_primes_k_to_n": 115.86863,
+            "ratio_omega_over_heuristic": 1.3722437,
+            "baseline_log_binom_over_log_n_proxy": 93.641423
+          },
+          {
+            "n": 8000,
+            "k": 293,
+            "omega_binom_n_k": 182,
+            "heuristic_k_sum_1_over_primes_k_to_n": 130.51284,
+            "ratio_omega_over_heuristic": 1.3944988,
+            "baseline_log_binom_over_log_n_proxy": 107.81539
+          },
+          {
+            "n": 8000,
+            "k": 358,
+            "omega_binom_n_k": 206,
+            "heuristic_k_sum_1_over_primes_k_to_n": 149.66031,
+            "ratio_omega_over_heuristic": 1.3764504,
+            "baseline_log_binom_over_log_n_proxy": 123.75223
+          },
+          {
+            "n": 8000,
+            "k": 437,
+            "omega_binom_n_k": 237,
+            "heuristic_k_sum_1_over_primes_k_to_n": 168.32579,
+            "ratio_omega_over_heuristic": 1.4079839,
+            "baseline_log_binom_over_log_n_proxy": 141.3649
+          },
+          {
+            "n": 8000,
+            "k": 534,
+            "omega_binom_n_k": 269,
+            "heuristic_k_sum_1_over_primes_k_to_n": 188.92816,
+            "ratio_omega_over_heuristic": 1.4238217,
+            "baseline_log_binom_over_log_n_proxy": 160.83232
+          },
+          {
+            "n": 8000,
+            "k": 652,
+            "omega_binom_n_k": 306,
+            "heuristic_k_sum_1_over_primes_k_to_n": 209.82932,
+            "ratio_omega_over_heuristic": 1.4583281,
+            "baseline_log_binom_over_log_n_proxy": 181.888
+          },
+          {
+            "n": 8000,
+            "k": 796,
+            "omega_binom_n_k": 345,
+            "heuristic_k_sum_1_over_primes_k_to_n": 233.93656,
+            "ratio_omega_over_heuristic": 1.4747588,
+            "baseline_log_binom_over_log_n_proxy": 204.38494
+          },
+          {
+            "n": 8000,
+            "k": 972,
+            "omega_binom_n_k": 388,
+            "heuristic_k_sum_1_over_primes_k_to_n": 256.86513,
+            "ratio_omega_over_heuristic": 1.5105203,
+            "baseline_log_binom_over_log_n_proxy": 227.97114
+          },
+          {
+            "n": 8000,
+            "k": 1186,
+            "omega_binom_n_k": 436,
+            "heuristic_k_sum_1_over_primes_k_to_n": 280.14406,
+            "ratio_omega_over_heuristic": 1.5563421,
+            "baseline_log_binom_over_log_n_proxy": 251.90305
+          }
+        ],
+        "elapsed_ms": 6,
+        "generated_utc": "2026-03-12T20:35:31.913Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

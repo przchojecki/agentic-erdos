@@ -1,5 +1,133 @@
 {
   "problem": "EP-670",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:30:33.254Z",
+  "computations": [
+    {
+      "source_file": "ep670_standalone_deeper_20260312T203033Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:30:33.254Z",
+      "data": {
+        "problem": "EP-670",
+        "script": "ep670.mjs",
+        "method": "exact_small_n_golomb_ruler_table_plus_larger_n_heuristic_extension",
+        "params": {},
+        "rows": [
+          {
+            "n": 4,
+            "exact_min_diameter_1D": 6,
+            "n_choose_2": 6,
+            "ratio_over_n2": 0.375,
+            "ratio_over_n_choose_2": 1,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 5,
+            "exact_min_diameter_1D": 11,
+            "n_choose_2": 10,
+            "ratio_over_n2": 0.44,
+            "ratio_over_n_choose_2": 1.1,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 6,
+            "exact_min_diameter_1D": 17,
+            "n_choose_2": 15,
+            "ratio_over_n2": 0.47222222,
+            "ratio_over_n_choose_2": 1.1333333,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 7,
+            "exact_min_diameter_1D": 25,
+            "n_choose_2": 21,
+            "ratio_over_n2": 0.51020408,
+            "ratio_over_n_choose_2": 1.1904762,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 8,
+            "exact_min_diameter_1D": 34,
+            "n_choose_2": 28,
+            "ratio_over_n2": 0.53125,
+            "ratio_over_n_choose_2": 1.2142857,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 9,
+            "exact_min_diameter_1D": 44,
+            "n_choose_2": 36,
+            "ratio_over_n2": 0.54320988,
+            "ratio_over_n_choose_2": 1.2222222,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 10,
+            "exact_min_diameter_1D": 55,
+            "n_choose_2": 45,
+            "ratio_over_n2": 0.55,
+            "ratio_over_n_choose_2": 1.2222222,
+            "source": "known optimal Golomb-ruler lengths for n<=10"
+          },
+          {
+            "n": 12,
+            "heuristic_1D_diameter_scale_proxy": 74,
+            "proxy_over_n2": 0.51388889,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 14,
+            "heuristic_1D_diameter_scale_proxy": 102,
+            "proxy_over_n2": 0.52040816,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 16,
+            "heuristic_1D_diameter_scale_proxy": 134,
+            "proxy_over_n2": 0.5234375,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 18,
+            "heuristic_1D_diameter_scale_proxy": 171,
+            "proxy_over_n2": 0.52777778,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 20,
+            "heuristic_1D_diameter_scale_proxy": 212,
+            "proxy_over_n2": 0.53,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 24,
+            "heuristic_1D_diameter_scale_proxy": 308,
+            "proxy_over_n2": 0.53472222,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 30,
+            "heuristic_1D_diameter_scale_proxy": 485,
+            "proxy_over_n2": 0.53888889,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 40,
+            "heuristic_1D_diameter_scale_proxy": 868,
+            "proxy_over_n2": 0.5425,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          },
+          {
+            "n": 50,
+            "heuristic_1D_diameter_scale_proxy": 1363,
+            "proxy_over_n2": 0.5452,
+            "note": "heuristic extension beyond tabulated exact n<=10 values"
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-12T20:30:33.254Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

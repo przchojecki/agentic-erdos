@@ -1,5 +1,337 @@
 {
   "problem": "EP-700",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T21:17:54.432Z",
+  "computations": [
+    {
+      "source_file": "ep700_standalone_deeper_20260312T211742Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:17:46.272Z",
+      "data": {
+        "problem": "EP-700",
+        "script": "ep700.mjs",
+        "method": "exact_gcd_scan_of_binomial_coefficients_for_composite_n",
+        "params": {
+          "N": 12000
+        },
+        "stats": [
+          {
+            "upto_n": 200,
+            "composite_count": 153,
+            "fraction_f_eq_n_over_P": 0.62745098,
+            "fraction_f_gt_sqrt_n": 0.065359477,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 500,
+            "composite_count": 404,
+            "fraction_f_eq_n_over_P": 0.61881188,
+            "fraction_f_gt_sqrt_n": 0.056930693,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 1000,
+            "composite_count": 831,
+            "fraction_f_eq_n_over_P": 0.62093863,
+            "fraction_f_gt_sqrt_n": 0.057761733,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 2000,
+            "composite_count": 1696,
+            "fraction_f_eq_n_over_P": 0.60495283,
+            "fraction_f_gt_sqrt_n": 0.052476415,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 3000,
+            "composite_count": 2569,
+            "fraction_f_eq_n_over_P": 0.60568315,
+            "fraction_f_gt_sqrt_n": 0.053328143,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 5000,
+            "composite_count": 4330,
+            "fraction_f_eq_n_over_P": 0.59538106,
+            "fraction_f_gt_sqrt_n": 0.049422633,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 8000,
+            "composite_count": 6992,
+            "fraction_f_eq_n_over_P": 0.58953089,
+            "fraction_f_gt_sqrt_n": 0.04805492,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 10000,
+            "composite_count": 8770,
+            "fraction_f_eq_n_over_P": 0.58597491,
+            "fraction_f_gt_sqrt_n": 0.047890536,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          },
+          {
+            "upto_n": 12000,
+            "composite_count": 10561,
+            "fraction_f_eq_n_over_P": 0.57986933,
+            "fraction_f_gt_sqrt_n": 0.047059938,
+            "max_ratio_f_over_n_over_P": {
+              "n": 4,
+              "ratio": 1,
+              "f": 2,
+              "n_over_P": 2
+            }
+          }
+        ],
+        "first_examples_f_eq_n_over_P": [
+          {
+            "n": 4,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 6,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 9,
+            "f": 3,
+            "n_over_P": 3
+          },
+          {
+            "n": 10,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 14,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 15,
+            "f": 3,
+            "n_over_P": 3
+          },
+          {
+            "n": 20,
+            "f": 4,
+            "n_over_P": 4
+          },
+          {
+            "n": 21,
+            "f": 3,
+            "n_over_P": 3
+          },
+          {
+            "n": 22,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 25,
+            "f": 5,
+            "n_over_P": 5
+          },
+          {
+            "n": 26,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 28,
+            "f": 4,
+            "n_over_P": 4
+          },
+          {
+            "n": 30,
+            "f": 6,
+            "n_over_P": 6
+          },
+          {
+            "n": 33,
+            "f": 3,
+            "n_over_P": 3
+          },
+          {
+            "n": 34,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 35,
+            "f": 5,
+            "n_over_P": 5
+          },
+          {
+            "n": 38,
+            "f": 2,
+            "n_over_P": 2
+          },
+          {
+            "n": 39,
+            "f": 3,
+            "n_over_P": 3
+          },
+          {
+            "n": 42,
+            "f": 6,
+            "n_over_P": 6
+          },
+          {
+            "n": 44,
+            "f": 4,
+            "n_over_P": 4
+          }
+        ],
+        "first_examples_f_gt_sqrt_n": [
+          {
+            "n": 30,
+            "f": 6,
+            "sqrt_n": 5.4772256
+          },
+          {
+            "n": 70,
+            "f": 10,
+            "sqrt_n": 8.3666003
+          },
+          {
+            "n": 84,
+            "f": 12,
+            "sqrt_n": 9.1651514
+          },
+          {
+            "n": 105,
+            "f": 15,
+            "sqrt_n": 10.246951
+          },
+          {
+            "n": 132,
+            "f": 12,
+            "sqrt_n": 11.489125
+          },
+          {
+            "n": 140,
+            "f": 14,
+            "sqrt_n": 11.83216
+          },
+          {
+            "n": 154,
+            "f": 14,
+            "sqrt_n": 12.409674
+          },
+          {
+            "n": 165,
+            "f": 15,
+            "sqrt_n": 12.845233
+          },
+          {
+            "n": 168,
+            "f": 21,
+            "sqrt_n": 12.961481
+          },
+          {
+            "n": 182,
+            "f": 14,
+            "sqrt_n": 13.490738
+          },
+          {
+            "n": 260,
+            "f": 20,
+            "sqrt_n": 16.124515
+          },
+          {
+            "n": 273,
+            "f": 21,
+            "sqrt_n": 16.522712
+          },
+          {
+            "n": 280,
+            "f": 35,
+            "sqrt_n": 16.733201
+          },
+          {
+            "n": 306,
+            "f": 18,
+            "sqrt_n": 17.492856
+          },
+          {
+            "n": 357,
+            "f": 21,
+            "sqrt_n": 18.894444
+          },
+          {
+            "n": 364,
+            "f": 28,
+            "sqrt_n": 19.078784
+          },
+          {
+            "n": 380,
+            "f": 20,
+            "sqrt_n": 19.493589
+          },
+          {
+            "n": 385,
+            "f": 35,
+            "sqrt_n": 19.621417
+          },
+          {
+            "n": 399,
+            "f": 21,
+            "sqrt_n": 19.974984
+          },
+          {
+            "n": 418,
+            "f": 22,
+            "sqrt_n": 20.445048
+          }
+        ],
+        "elapsed_ms": 4098,
+        "generated_utc": "2026-03-12T21:17:46.272Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

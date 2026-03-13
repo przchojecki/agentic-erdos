@@ -1,5 +1,359 @@
 {
   "problem": "EP-667",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:18:00.660Z",
+  "computations": [
+    {
+      "source_file": "ep667_standalone_deeper_20260312T201758Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:18:00.660Z",
+      "data": {
+        "problem": "EP-667",
+        "script": "ep667.mjs",
+        "method": "sampled_graph_search_for_forced_clique_under_local_p_q_density_constraints",
+        "params": {},
+        "rows": [
+          {
+            "p": 5,
+            "q": 1,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 205,
+            "sampled_H_proxy_min_forced_clique": 2,
+            "log_ratio_proxy": 0.30103
+          },
+          {
+            "p": 5,
+            "q": 1,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 143,
+            "sampled_H_proxy_min_forced_clique": 3,
+            "log_ratio_proxy": 0.44211411
+          },
+          {
+            "p": 5,
+            "q": 1,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 115,
+            "sampled_H_proxy_min_forced_clique": 3,
+            "log_ratio_proxy": 0.41628966
+          },
+          {
+            "p": 5,
+            "q": 1,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 109,
+            "sampled_H_proxy_min_forced_clique": 4,
+            "log_ratio_proxy": 0.5
+          },
+          {
+            "p": 5,
+            "q": 1,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 106,
+            "sampled_H_proxy_min_forced_clique": 5,
+            "log_ratio_proxy": 0.5568273
+          },
+          {
+            "p": 5,
+            "q": 1,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 10,
+            "log_ratio_proxy": 0.76862179
+          },
+          {
+            "p": 5,
+            "q": 2,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 162,
+            "sampled_H_proxy_min_forced_clique": 3,
+            "log_ratio_proxy": 0.47712125
+          },
+          {
+            "p": 5,
+            "q": 2,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 116,
+            "sampled_H_proxy_min_forced_clique": 4,
+            "log_ratio_proxy": 0.55788589
+          },
+          {
+            "p": 5,
+            "q": 2,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 110,
+            "sampled_H_proxy_min_forced_clique": 4,
+            "log_ratio_proxy": 0.52529907
+          },
+          {
+            "p": 5,
+            "q": 2,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 8,
+            "log_ratio_proxy": 0.75
+          },
+          {
+            "p": 5,
+            "q": 2,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 8,
+            "log_ratio_proxy": 0.7194374
+          },
+          {
+            "p": 5,
+            "q": 2,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 10,
+            "log_ratio_proxy": 0.76862179
+          },
+          {
+            "p": 5,
+            "q": 3,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 142,
+            "sampled_H_proxy_min_forced_clique": 3,
+            "log_ratio_proxy": 0.47712125
+          },
+          {
+            "p": 5,
+            "q": 3,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 112,
+            "sampled_H_proxy_min_forced_clique": 4,
+            "log_ratio_proxy": 0.55788589
+          },
+          {
+            "p": 5,
+            "q": 3,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 106,
+            "sampled_H_proxy_min_forced_clique": 6,
+            "log_ratio_proxy": 0.6789392
+          },
+          {
+            "p": 5,
+            "q": 3,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 8,
+            "log_ratio_proxy": 0.75
+          },
+          {
+            "p": 5,
+            "q": 3,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 9,
+            "log_ratio_proxy": 0.76018753
+          },
+          {
+            "p": 5,
+            "q": 3,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 10,
+            "log_ratio_proxy": 0.76862179
+          },
+          {
+            "p": 5,
+            "q": 4,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 137,
+            "sampled_H_proxy_min_forced_clique": 4,
+            "log_ratio_proxy": 0.60205999
+          },
+          {
+            "p": 5,
+            "q": 4,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 107,
+            "sampled_H_proxy_min_forced_clique": 6,
+            "log_ratio_proxy": 0.72105705
+          },
+          {
+            "p": 5,
+            "q": 4,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 104,
+            "sampled_H_proxy_min_forced_clique": 7,
+            "log_ratio_proxy": 0.73735046
+          },
+          {
+            "p": 5,
+            "q": 4,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 104,
+            "sampled_H_proxy_min_forced_clique": 8,
+            "log_ratio_proxy": 0.75
+          },
+          {
+            "p": 5,
+            "q": 4,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 9,
+            "log_ratio_proxy": 0.76018753
+          },
+          {
+            "p": 5,
+            "q": 4,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 104,
+            "sampled_H_proxy_min_forced_clique": 10,
+            "log_ratio_proxy": 0.76862179
+          },
+          {
+            "p": 5,
+            "q": 5,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 119,
+            "sampled_H_proxy_min_forced_clique": 4,
+            "log_ratio_proxy": 0.60205999
+          },
+          {
+            "p": 5,
+            "q": 5,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 105,
+            "sampled_H_proxy_min_forced_clique": 6,
+            "log_ratio_proxy": 0.72105705
+          },
+          {
+            "p": 5,
+            "q": 5,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 95,
+            "sampled_H_proxy_min_forced_clique": 7,
+            "log_ratio_proxy": 0.73735046
+          },
+          {
+            "p": 5,
+            "q": 5,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 95,
+            "sampled_H_proxy_min_forced_clique": 8,
+            "log_ratio_proxy": 0.75
+          },
+          {
+            "p": 5,
+            "q": 5,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 96,
+            "sampled_H_proxy_min_forced_clique": 9,
+            "log_ratio_proxy": 0.76018753
+          },
+          {
+            "p": 5,
+            "q": 5,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 86,
+            "sampled_H_proxy_min_forced_clique": 11,
+            "log_ratio_proxy": 0.80043711
+          },
+          {
+            "p": 5,
+            "q": 6,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 123,
+            "sampled_H_proxy_min_forced_clique": 5,
+            "log_ratio_proxy": 0.69897
+          },
+          {
+            "p": 5,
+            "q": 6,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 100,
+            "sampled_H_proxy_min_forced_clique": 7,
+            "log_ratio_proxy": 0.78309185
+          },
+          {
+            "p": 5,
+            "q": 6,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 85,
+            "sampled_H_proxy_min_forced_clique": 8,
+            "log_ratio_proxy": 0.78794861
+          },
+          {
+            "p": 5,
+            "q": 6,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 69,
+            "sampled_H_proxy_min_forced_clique": 9,
+            "log_ratio_proxy": 0.79248125
+          },
+          {
+            "p": 5,
+            "q": 6,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 59,
+            "sampled_H_proxy_min_forced_clique": 10,
+            "log_ratio_proxy": 0.79663977
+          },
+          {
+            "p": 5,
+            "q": 6,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 38,
+            "sampled_H_proxy_min_forced_clique": 10,
+            "log_ratio_proxy": 0.76862179
+          },
+          {
+            "p": 5,
+            "q": 7,
+            "n": 10,
+            "feasible_graphs_found_in_trials": 89,
+            "sampled_H_proxy_min_forced_clique": 6,
+            "log_ratio_proxy": 0.77815125
+          },
+          {
+            "p": 5,
+            "q": 7,
+            "n": 12,
+            "feasible_graphs_found_in_trials": 57,
+            "sampled_H_proxy_min_forced_clique": 7,
+            "log_ratio_proxy": 0.78309185
+          },
+          {
+            "p": 5,
+            "q": 7,
+            "n": 14,
+            "feasible_graphs_found_in_trials": 39,
+            "sampled_H_proxy_min_forced_clique": 9,
+            "log_ratio_proxy": 0.83257933
+          },
+          {
+            "p": 5,
+            "q": 7,
+            "n": 16,
+            "feasible_graphs_found_in_trials": 12,
+            "sampled_H_proxy_min_forced_clique": 9,
+            "log_ratio_proxy": 0.79248125
+          },
+          {
+            "p": 5,
+            "q": 7,
+            "n": 18,
+            "feasible_graphs_found_in_trials": 6,
+            "sampled_H_proxy_min_forced_clique": 11,
+            "log_ratio_proxy": 0.82961483
+          },
+          {
+            "p": 5,
+            "q": 7,
+            "n": 20,
+            "feasible_graphs_found_in_trials": 1,
+            "sampled_H_proxy_min_forced_clique": 15,
+            "log_ratio_proxy": 0.90396937
+          }
+        ],
+        "elapsed_ms": 1903,
+        "generated_utc": "2026-03-12T20:18:00.660Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

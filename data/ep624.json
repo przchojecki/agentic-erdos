@@ -1,6 +1,6 @@
 {
   "problem": "EP-624",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-12T16:02:19.350Z",
   "computations": [
     {
       "source_file": "ep624_local_search_small_n.json",
@@ -570,6 +570,47 @@
           ]
         ]
       }
+    },
+    {
+      "source_file": "ep624_standalone_deeper_20260312T160202Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T16:02:19.350Z",
+      "data": {
+        "problem": "EP-624",
+        "script": "ep624.mjs",
+        "method": "deeper_local_search_for_small_n_H_n_threshold_witness_mappings",
+        "params": {},
+        "rows": [
+          {
+            "n": 8,
+            "h": 3,
+            "restarts": 20,
+            "steps": 18000,
+            "found_full_cover_mapping": false,
+            "best_bad_Y_count": 46
+          },
+          {
+            "n": 8,
+            "h": 4,
+            "restarts": 28,
+            "steps": 26000,
+            "found_full_cover_mapping": false,
+            "best_bad_Y_count": 1
+          },
+          {
+            "n": 9,
+            "h": 4,
+            "restarts": 12,
+            "steps": 18000,
+            "found_full_cover_mapping": false,
+            "best_bad_Y_count": 28
+          }
+        ],
+        "elapsed_ms": 17061,
+        "generated_utc": "2026-03-12T16:02:19.350Z"
+      }
     }
-  ]
+  ],
+  "progress_status": "has_computation"
 }

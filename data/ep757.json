@@ -1,5 +1,56 @@
 {
   "problem": "EP-757",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:09:32.481Z",
+  "computations": [
+    {
+      "source_file": "ep757_standalone_deeper_20260313T100855Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:08:55.578Z",
+      "data": {
+        "problem": "EP-757",
+        "script": "ep757.mjs",
+        "method": "exact_small_n_sidon_extraction_under_local_difference_richness_constraint",
+        "warning": "Finite random sampling + exact subset search; not asymptotic constant determination.",
+        "params": {
+          "N_LIST": [
+            10,
+            12,
+            14
+          ],
+          "SAMPLES": 180,
+          "RANGE": 3000
+        },
+        "rows": [
+          {
+            "n": 10,
+            "accepted_samples": 180,
+            "attempted_samples": 211,
+            "best_sidon_ratio_sampled": 1,
+            "worst_sidon_ratio_sampled": 0.9,
+            "avg_sidon_ratio_sampled": 0.99555556
+          },
+          {
+            "n": 12,
+            "accepted_samples": 180,
+            "attempted_samples": 243,
+            "best_sidon_ratio_sampled": 1,
+            "worst_sidon_ratio_sampled": 0.91666667,
+            "avg_sidon_ratio_sampled": 0.98842593
+          },
+          {
+            "n": 14,
+            "accepted_samples": 180,
+            "attempted_samples": 333,
+            "best_sidon_ratio_sampled": 1,
+            "worst_sidon_ratio_sampled": 0.85714286,
+            "avg_sidon_ratio_sampled": 0.98769841
+          }
+        ],
+        "elapsed_ms": 130,
+        "generated_utc": "2026-03-13T10:08:55.578Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

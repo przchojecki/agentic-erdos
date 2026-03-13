@@ -1,57 +1,73 @@
 {
   "problem": "EP-701",
-  "normalized_utc": "2026-03-05T08:54:16.966Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch17_web_compute.md",
-        "content": "### EP-701\n- Quick literature check:\n  - Still open globally; best recent progress includes positive cases such as covering number `2`.\n- Finite compute signal:\n  - In sampled small downsets (with exact intersecting-subfamily optimization), no counterexample to the star bound appeared.\n- Interpretation:\n  - Finite checks are supportive but not close to a general proof."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch17_quick_compute.mjs",
-        "heading": "random finite downset checks against the star-max intersecting property.",
-        "content": "// EP-701: random finite downset checks against the star-max intersecting property.\n{\n  const rng = makeRng(20260304 ^ 1704);\n\n  function randomDownset(n, maxSets = 24) {\n    const universe = 1 << n;\n\n    for (let attempt = 0; attempt < 200; attempt += 1) {\n      const tops = [];\n      const topCount = 1 + Math.floor(rng() * (n + 2));\n\n      for (let t = 0; t < topCount; t += 1) {\n        // Prefer small-support maxima so closure stays tractable.\n        let m = 0;\n        for (let b = 0; b < n; b += 1) {\n          if (rng() < 0.35) m |= 1 << b;\n        }\n        if (m >= universe) m = universe - 1;\n        tops.push(m);\n      }\n\n      const F = new Set([0]);\n      for (const m of tops) {\n        let s = m;\n        while (true) {\n          F.add(s);\n          if (s === 0) break;\n          s = (s - 1) & m;\n        }\n      }\n\n      if (F.size <= maxSets) return [...F];\n    }\n\n    // Guaranteed downset fallback.\n    return [0];\n  }\n\n  function maxIntersectingExact(family) {\n    const fam = family.filter((s) => s !== 0); // standard intersecting-family convention excludes the empty set\n    const m = fam.length;\n    let best = 0;\n\n    function dfs(i, chosen) {\n      if (chosen + (m - i) <= best) return;\n      if (i === m) {\n        if (chosen > best) best = chosen;\n        return;\n      }\n\n      // skip\n      dfs(i + 1, chosen);\n\n      // take if intersecting with all currently selected\n      const x = fam[i];\n      let ok = true;\n      for (let j = 0; j < i; j += 1) {\n        if (!((maskChosen >> BigInt(j)) & 1n)) continue;\n        if ((x & fam[j]) === 0) {\n          ok = false;\n          break;\n        }\n      }\n      if (ok) {\n        maskChosen |= 1n << BigInt(i);\n        dfs(i + 1, chosen + 1);\n        maskChosen &= ~(1n << BigInt(i));\n      }\n    }\n\n    let maskChosen = 0n;\n    dfs(0, 0);\n    return best;\n  }\n\n  function bestStar(family, n) {\n    let best = 0;\n    for (let x = 0; x < n; x += 1) {\n      const b = 1 << x;\n      let c = 0;\n      for (const s of family) if (s & b) c += 1;\n      if (c > best) best = c;\n    }\n    return best;\n  }\n\n  const rows = [];\n  for (const [n, samples] of [[5, 60], [6, 60], [7, 50]]) {\n    let violations = 0;\n    let avgGap = 0;\n\n    for (let t = 0; t < samples; t += 1) {\n      const F = randomDownset(n, 24);\n      const mInt = maxIntersectingExact(F);\n      const star = bestStar(F, n);\n      const gap = star - mInt;\n      avgGap += gap;\n      if (gap < 0) violations += 1;\n    }\n\n    rows.push({\n      n,\n      samples,\n      max_family_size_sampled: 24,\n      violations_of_star_bound: violations,\n      avg_star_minus_max_intersecting: Number((avgGap / samples).toPrecision(7)),\n    });\n  }\n\n  out.results.ep701 = {\n    description: 'Finite random-downset checks for Chvatal-type star dominance.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch17_quick_compute.json",
-        "key": "ep701",
-        "container_meta": {
-          "script": "harder_batch17_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:13:20.362Z"
+  "normalized_utc": "2026-03-12T21:20:39.574Z",
+  "computations": [
+    {
+      "source_file": "ep701_standalone_deeper_20260312T212007Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:20:08.045Z",
+      "data": {
+        "problem": "EP-701",
+        "script": "ep701.mjs",
+        "method": "exact_max_intersecting_vs_best_star_on_random_downsets",
+        "params": {
+          "SAMPLES": 900,
+          "MAX_N": 9,
+          "MAX_FAMILY_SIZE": 36
         },
-        "data": {
-          "description": "Finite random-downset checks for Chvatal-type star dominance.",
-          "rows": [
-            {
-              "n": 5,
-              "samples": 60,
-              "max_family_size_sampled": 24,
-              "violations_of_star_bound": 0,
-              "avg_star_minus_max_intersecting": 0
-            },
-            {
-              "n": 6,
-              "samples": 60,
-              "max_family_size_sampled": 24,
-              "violations_of_star_bound": 0,
-              "avg_star_minus_max_intersecting": 0
-            },
-            {
-              "n": 7,
-              "samples": 50,
-              "max_family_size_sampled": 24,
-              "violations_of_star_bound": 0,
-              "avg_star_minus_max_intersecting": 0
-            }
-          ]
-        }
+        "rows": [
+          {
+            "n": 5,
+            "samples": 900,
+            "max_family_size": 36,
+            "violations_of_star_bound": 0,
+            "violation_rate": 0,
+            "avg_star_minus_max_intersecting": 0,
+            "worst_violation_for_n": null
+          },
+          {
+            "n": 6,
+            "samples": 900,
+            "max_family_size": 36,
+            "violations_of_star_bound": 0,
+            "violation_rate": 0,
+            "avg_star_minus_max_intersecting": 0,
+            "worst_violation_for_n": null
+          },
+          {
+            "n": 7,
+            "samples": 900,
+            "max_family_size": 36,
+            "violations_of_star_bound": 0,
+            "violation_rate": 0,
+            "avg_star_minus_max_intersecting": 0,
+            "worst_violation_for_n": null
+          },
+          {
+            "n": 8,
+            "samples": 900,
+            "max_family_size": 36,
+            "violations_of_star_bound": 0,
+            "violation_rate": 0,
+            "avg_star_minus_max_intersecting": 0,
+            "worst_violation_for_n": null
+          },
+          {
+            "n": 9,
+            "samples": 900,
+            "max_family_size": 36,
+            "violations_of_star_bound": 0,
+            "violation_rate": 0,
+            "avg_star_minus_max_intersecting": 0,
+            "worst_violation_for_n": null
+          }
+        ],
+        "worst_overall_violation": null,
+        "elapsed_ms": 35,
+        "generated_utc": "2026-03-12T21:20:08.045Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

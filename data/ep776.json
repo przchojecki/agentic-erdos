@@ -1,5 +1,185 @@
 {
   "problem": "EP-776",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:22:52.306Z",
+  "computations": [
+    {
+      "source_file": "ep776_standalone_deeper_20260313T102223Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:22:24.198Z",
+      "data": {
+        "problem": "EP-776",
+        "script": "ep776.mjs",
+        "method": "finite_antichain_size_spectrum_search_under_multiplicity_constraint",
+        "warning": "Heuristic local search on small n only; not threshold n(r) proof.",
+        "params": {
+          "N_LIST": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "R_LIST": [
+            2,
+            3
+          ],
+          "STEPS": 50000
+        },
+        "rows": [
+          {
+            "n": 8,
+            "r": 2,
+            "steps": 50000,
+            "best_realized_sizes_found": 3,
+            "family_size": 0,
+            "multiplicities": {
+              "3": 2,
+              "4": 4,
+              "6": 2
+            },
+            "target_n_minus_3": 5,
+            "gap_to_n_minus_3": 2
+          },
+          {
+            "n": 9,
+            "r": 2,
+            "steps": 50000,
+            "best_realized_sizes_found": 4,
+            "family_size": 3,
+            "multiplicities": {
+              "3": 2,
+              "4": 2,
+              "5": 3,
+              "6": 2,
+              "7": 1
+            },
+            "target_n_minus_3": 6,
+            "gap_to_n_minus_3": 2
+          },
+          {
+            "n": 10,
+            "r": 2,
+            "steps": 50000,
+            "best_realized_sizes_found": 4,
+            "family_size": 4,
+            "multiplicities": {
+              "3": 3,
+              "5": 2,
+              "6": 2,
+              "7": 2
+            },
+            "target_n_minus_3": 7,
+            "gap_to_n_minus_3": 3
+          },
+          {
+            "n": 11,
+            "r": 2,
+            "steps": 50000,
+            "best_realized_sizes_found": 4,
+            "family_size": 4,
+            "multiplicities": {
+              "4": 2,
+              "5": 2,
+              "6": 2,
+              "7": 2
+            },
+            "target_n_minus_3": 8,
+            "gap_to_n_minus_3": 4
+          },
+          {
+            "n": 12,
+            "r": 2,
+            "steps": 50000,
+            "best_realized_sizes_found": 5,
+            "family_size": 1,
+            "multiplicities": {
+              "4": 2,
+              "5": 3,
+              "6": 2,
+              "7": 2,
+              "8": 2,
+              "9": 1
+            },
+            "target_n_minus_3": 9,
+            "gap_to_n_minus_3": 4
+          },
+          {
+            "n": 8,
+            "r": 3,
+            "steps": 50000,
+            "best_realized_sizes_found": 3,
+            "family_size": 2,
+            "multiplicities": {
+              "3": 3,
+              "4": 3,
+              "5": 3
+            },
+            "target_n_minus_3": 5,
+            "gap_to_n_minus_3": 2
+          },
+          {
+            "n": 9,
+            "r": 3,
+            "steps": 50000,
+            "best_realized_sizes_found": 2,
+            "family_size": 2,
+            "multiplicities": {
+              "4": 3,
+              "5": 3
+            },
+            "target_n_minus_3": 6,
+            "gap_to_n_minus_3": 4
+          },
+          {
+            "n": 10,
+            "r": 3,
+            "steps": 50000,
+            "best_realized_sizes_found": 3,
+            "family_size": 0,
+            "multiplicities": {
+              "3": 3,
+              "4": 3,
+              "5": 3
+            },
+            "target_n_minus_3": 7,
+            "gap_to_n_minus_3": 4
+          },
+          {
+            "n": 11,
+            "r": 3,
+            "steps": 50000,
+            "best_realized_sizes_found": 2,
+            "family_size": 1,
+            "multiplicities": {
+              "4": 3,
+              "5": 1,
+              "6": 2,
+              "7": 3
+            },
+            "target_n_minus_3": 8,
+            "gap_to_n_minus_3": 6
+          },
+          {
+            "n": 12,
+            "r": 3,
+            "steps": 50000,
+            "best_realized_sizes_found": 3,
+            "family_size": 6,
+            "multiplicities": {
+              "5": 1,
+              "6": 4,
+              "7": 3,
+              "8": 3
+            },
+            "target_n_minus_3": 9,
+            "gap_to_n_minus_3": 6
+          }
+        ],
+        "elapsed_ms": 190,
+        "generated_utc": "2026-03-13T10:22:24.198Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

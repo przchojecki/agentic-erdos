@@ -1,5 +1,137 @@
 {
   "problem": "EP-768",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:11:46.141Z",
+  "computations": [
+    {
+      "source_file": "ep768_standalone_deeper_20260313T101034Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:10:34.473Z",
+      "data": {
+        "problem": "EP-768",
+        "script": "ep768.mjs",
+        "method": "density_bound_gap_profile_from_reported_two_sided_asymptotic_scales",
+        "warning": "This quantifies separation between known model bounds; it does not compute the target set directly.",
+        "params": {
+          "N_LIST": [
+            1000,
+            10000,
+            100000,
+            1000000,
+            100000000,
+            10000000000,
+            1000000000000,
+            10000000000000000
+          ],
+          "C_LIST": [
+            0.5,
+            1,
+            2,
+            3
+          ]
+        },
+        "rows": [
+          {
+            "N": 1000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.0258926122,
+            "lower_model_c_0p5": 0.0788863335,
+            "ratio_upper_over_lower_c_0p5": 0.328226843,
+            "lower_model_c_1": 0.00622305361,
+            "ratio_upper_over_lower_c_1": 4.16075673,
+            "lower_model_c_2": 0.0000387263962,
+            "ratio_upper_over_lower_c_2": 668.60371,
+            "lower_model_c_3": 2.4099644e-7,
+            "ratio_upper_over_lower_c_3": 107439.812
+          },
+          {
+            "N": 10000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.0108654872,
+            "lower_model_c_0p5": 0.0344177062,
+            "ratio_upper_over_lower_c_0p5": 0.315694695,
+            "lower_model_c_1": 0.0011845785,
+            "ratio_upper_over_lower_c_1": 9.17245016,
+            "lower_model_c_2": 0.00000140322622,
+            "ratio_upper_over_lower_c_2": 7743.2185,
+            "lower_model_c_3": 1.66223161e-9,
+            "ratio_upper_over_lower_c_3": 6536686.68
+          },
+          {
+            "N": 100000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.00497210044,
+            "lower_model_c_0p5": 0.0158365734,
+            "ratio_upper_over_lower_c_0p5": 0.313963148,
+            "lower_model_c_1": 0.000250797057,
+            "ratio_upper_over_lower_c_1": 19.8251945,
+            "lower_model_c_2": 6.28991636e-8,
+            "ratio_upper_over_lower_c_2": 79048.7528,
+            "lower_model_c_3": 1.57749251e-11,
+            "ratio_upper_over_lower_c_3": 315190114
+          },
+          {
+            "N": 1000000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.00242236599,
+            "lower_model_c_0p5": 0.00759752977,
+            "ratio_upper_over_lower_c_0p5": 0.318835998,
+            "lower_model_c_1": 0.0000577224586,
+            "ratio_upper_over_lower_c_1": 41.9657452,
+            "lower_model_c_2": 3.33188222e-9,
+            "ratio_upper_over_lower_c_2": 727026.295,
+            "lower_model_c_3": 1.92324434e-13,
+            "ratio_upper_over_lower_c_3": 12595206700
+          },
+          {
+            "N": 100000000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.00065829556,
+            "lower_model_c_0p5": 0.00192618061,
+            "ratio_upper_over_lower_c_0p5": 0.341762115,
+            "lower_model_c_1": 0.00000371017175,
+            "ratio_upper_over_lower_c_1": 177.429942,
+            "lower_model_c_2": 1.37653744e-11,
+            "ratio_upper_over_lower_c_2": 47822568.4,
+            "lower_model_c_3": 5.10719032e-17,
+            "ratio_upper_over_lower_c_3": 12889583500000
+          },
+          {
+            "N": 10000000000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.00020378836,
+            "lower_model_c_0p5": 0.000539121138,
+            "ratio_upper_over_lower_c_0p5": 0.378001058,
+            "lower_model_c_1": 2.90651601e-7,
+            "ratio_upper_over_lower_c_1": 701.143085,
+            "lower_model_c_2": 8.44783533e-14,
+            "ratio_upper_over_lower_c_2": 2412314540,
+            "lower_model_c_3": 2.45537686e-20,
+            "ratio_upper_over_lower_c_3": 8299677460000000
+          },
+          {
+            "N": 1000000000000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.0000693525204,
+            "lower_model_c_0p5": 0.000162791909,
+            "ratio_upper_over_lower_c_0p5": 0.426019455,
+            "lower_model_c_1": 2.65012057e-8,
+            "ratio_upper_over_lower_c_1": 2616.95717,
+            "lower_model_c_2": 7.02313905e-16,
+            "ratio_upper_over_lower_c_2": 98748607800,
+            "lower_model_c_3": 1.86121653e-23,
+            "ratio_upper_over_lower_c_3": 3726193020000000000
+          },
+          {
+            "N": 10000000000000000,
+            "upper_model_exp_neg_sqrt_logN_loglogN": 0.00000985976781,
+            "lower_model_c_0p5": 0.0000176359767,
+            "ratio_upper_over_lower_c_0p5": 0.559071264,
+            "lower_model_c_1": 3.11027675e-10,
+            "ratio_upper_over_lower_c_1": 31700.6125,
+            "lower_model_c_2": 9.67382148e-20,
+            "ratio_upper_over_lower_c_2": 101922160000000,
+            "lower_model_c_3": 3.0088262e-29,
+            "ratio_upper_over_lower_c_3": 3.27694826e+23
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-13T10:10:34.473Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

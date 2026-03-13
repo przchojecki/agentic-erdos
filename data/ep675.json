@@ -1,5 +1,124 @@
 {
   "problem": "EP-675",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:32:56.369Z",
+  "computations": [
+    {
+      "source_file": "ep675_standalone_deeper_20260312T203256Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:32:56.369Z",
+      "data": {
+        "problem": "EP-675",
+        "script": "ep675.mjs",
+        "method": "direct_search_for_minimal_translation_shifts_in_squarefree_indicator_prefixes",
+        "params": {
+          "NMAX": 120,
+          "TMAX": 120000
+        },
+        "rows": [
+          {
+            "n": 10,
+            "minimal_shift_t_n_found_up_to_bound": 36,
+            "found_within_bound": true,
+            "log_t_over_n": 0.35835189,
+            "t_over_exp_sqrt_n": 1.5238519
+          },
+          {
+            "n": 15,
+            "minimal_shift_t_n_found_up_to_bound": 180,
+            "found_within_bound": true,
+            "log_t_over_n": 0.34619712,
+            "t_over_exp_sqrt_n": 3.7433222
+          },
+          {
+            "n": 20,
+            "minimal_shift_t_n_found_up_to_bound": 180,
+            "found_within_bound": true,
+            "log_t_over_n": 0.25964784,
+            "t_over_exp_sqrt_n": 2.0561204
+          },
+          {
+            "n": 25,
+            "minimal_shift_t_n_found_up_to_bound": 900,
+            "found_within_bound": true,
+            "log_t_over_n": 0.27209579,
+            "t_over_exp_sqrt_n": 6.0641523
+          },
+          {
+            "n": 30,
+            "minimal_shift_t_n_found_up_to_bound": 900,
+            "found_within_bound": true,
+            "log_t_over_n": 0.22674649,
+            "t_over_exp_sqrt_n": 3.7628219
+          },
+          {
+            "n": 36,
+            "minimal_shift_t_n_found_up_to_bound": 2376,
+            "found_within_bound": true,
+            "log_t_over_n": 0.21592149,
+            "t_over_exp_sqrt_n": 5.8895152
+          },
+          {
+            "n": 42,
+            "minimal_shift_t_n_found_up_to_bound": 2376,
+            "found_within_bound": true,
+            "log_t_over_n": 0.18507556,
+            "t_over_exp_sqrt_n": 3.6416358
+          },
+          {
+            "n": 50,
+            "minimal_shift_t_n_found_up_to_bound": 44100,
+            "found_within_bound": true,
+            "log_t_over_n": 0.2138843,
+            "t_over_exp_sqrt_n": 37.455264
+          },
+          {
+            "n": 60,
+            "minimal_shift_t_n_found_up_to_bound": 44100,
+            "found_within_bound": true,
+            "log_t_over_n": 0.17823692,
+            "t_over_exp_sqrt_n": 19.072516
+          },
+          {
+            "n": 72,
+            "minimal_shift_t_n_found_up_to_bound": 88200,
+            "found_within_bound": true,
+            "log_t_over_n": 0.15815781,
+            "t_over_exp_sqrt_n": 18.212003
+          },
+          {
+            "n": 84,
+            "minimal_shift_t_n_found_up_to_bound": 88200,
+            "found_within_bound": true,
+            "log_t_over_n": 0.13556384,
+            "t_over_exp_sqrt_n": 9.2277094
+          },
+          {
+            "n": 96,
+            "minimal_shift_t_n_found_up_to_bound": 88200,
+            "found_within_bound": true,
+            "log_t_over_n": 0.11861836,
+            "t_over_exp_sqrt_n": 4.9008236
+          },
+          {
+            "n": 108,
+            "minimal_shift_t_n_found_up_to_bound": -1,
+            "found_within_bound": false,
+            "log_t_over_n": null,
+            "t_over_exp_sqrt_n": null
+          },
+          {
+            "n": 120,
+            "minimal_shift_t_n_found_up_to_bound": -1,
+            "found_within_bound": false,
+            "log_t_over_n": null,
+            "t_over_exp_sqrt_n": null
+          }
+        ],
+        "elapsed_ms": 4,
+        "generated_utc": "2026-03-12T20:32:56.369Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

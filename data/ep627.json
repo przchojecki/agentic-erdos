@@ -1,5 +1,103 @@
 {
   "problem": "EP-627",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T19:22:53.019Z",
+  "computations": [
+    {
+      "source_file": "ep627_standalone_deeper_20260312T192252Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:22:53.019Z",
+      "data": {
+        "problem": "EP-627",
+        "script": "ep627.mjs",
+        "method": "mycielski_exact_lower_bound_family_plus_deep_random_graph_ratio_proxies",
+        "params": {},
+        "mycielski_rows": [
+          {
+            "construction": "C5",
+            "n": 5,
+            "exact_chi": 3,
+            "exact_omega": 2,
+            "exact_ratio_chi_over_omega": 1.5,
+            "normalized_ratio_over_n_div_log2": 0.77708712
+          },
+          {
+            "construction": "M^1(C5)",
+            "n": 11,
+            "exact_chi": 4,
+            "exact_omega": 2,
+            "exact_ratio_chi_over_omega": 2,
+            "normalized_ratio_over_n_div_log2": 1.0454367
+          },
+          {
+            "construction": "M^2(C5)",
+            "n": 23,
+            "exact_chi": 5,
+            "exact_omega": 2,
+            "exact_ratio_chi_over_omega": 2.5,
+            "normalized_ratio_over_n_div_log2": 1.0686222
+          },
+          {
+            "construction": "M^3(C5)",
+            "n": 47,
+            "exact_chi": 6,
+            "exact_omega": 2,
+            "exact_ratio_chi_over_omega": 3,
+            "normalized_ratio_over_n_div_log2": 0.94618957
+          },
+          {
+            "construction": "M^4(C5)",
+            "n": 95,
+            "exact_chi": 7,
+            "exact_omega": 2,
+            "exact_ratio_chi_over_omega": 3.5,
+            "normalized_ratio_over_n_div_log2": 0.76402402
+          },
+          {
+            "construction": "M^5(C5)",
+            "n": 191,
+            "exact_chi": 8,
+            "exact_omega": 2,
+            "exact_ratio_chi_over_omega": 4,
+            "normalized_ratio_over_n_div_log2": 0.57772516
+          }
+        ],
+        "random_rows": [
+          {
+            "n": 120,
+            "p": 0.5,
+            "trials": 20,
+            "avg_chi_upper": 22.55,
+            "avg_clique_lower": 7.65,
+            "avg_ratio_proxy_chi_upper_over_clique_lower": 2.9477124,
+            "avg_proxy_over_n_div_log2": 0.56301497,
+            "best_ratio_proxy_seen": 3.8333333
+          },
+          {
+            "n": 180,
+            "p": 0.5,
+            "trials": 14,
+            "avg_chi_upper": 30.857143,
+            "avg_clique_lower": 8.4285714,
+            "avg_ratio_proxy_chi_upper_over_clique_lower": 3.6610169,
+            "avg_proxy_over_n_div_log2": 0.54847731,
+            "best_ratio_proxy_seen": 4.2857143
+          },
+          {
+            "n": 240,
+            "p": 0.5,
+            "trials": 10,
+            "avg_chi_upper": 38.4,
+            "avg_clique_lower": 8.4,
+            "avg_ratio_proxy_chi_upper_over_clique_lower": 4.5714286,
+            "avg_proxy_over_n_div_log2": 0.57214101,
+            "best_ratio_proxy_seen": 4.875
+          }
+        ],
+        "elapsed_ms": 275,
+        "generated_utc": "2026-03-12T19:22:53.019Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

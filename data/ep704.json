@@ -1,78 +1,124 @@
 {
   "problem": "EP-704",
-  "normalized_utc": "2026-03-05T08:54:16.966Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch17_web_compute.md",
-        "content": "### EP-704\n- Quick literature check:\n  - Status remains open; exponential lower/upper bases are still far apart.\n- Finite compute signal:\n  - Bound-window table shows the multiplicative uncertainty grows rapidly with `n` despite fixed exponential bases.\n- Interpretation:\n  - The main task is narrowing exponential bases and understanding limit existence."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch17_quick_compute.mjs",
-        "heading": "quantitative window table for known exponential bounds.",
-        "content": "// EP-704: quantitative window table for known exponential bounds.\n{\n  const rows = [];\n  for (const n of [5, 10, 20, 30, 40, 60]) {\n    const lower = 1.2 ** n;\n    const upper = 3 ** n;\n    rows.push({\n      n,\n      lower_1p2_pow_n: Number(lower.toPrecision(7)),\n      upper_3_pow_n: Number(upper.toPrecision(7)),\n      multiplicative_window_upper_over_lower: Number((upper / lower).toPrecision(7)),\n      geometric_mean_base: Number(((lower * upper) ** (1 / (2 * n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep704 = {\n    description: 'Finite scaling window from the classical exponential lower/upper bounds for χ(G_n).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch17_quick_compute.json",
-        "key": "ep704",
-        "container_meta": {
-          "script": "harder_batch17_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:13:20.362Z"
+  "normalized_utc": "2026-03-12T21:20:39.574Z",
+  "computations": [
+    {
+      "source_file": "ep704_standalone_deeper_20260312T212007Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:20:08.012Z",
+      "data": {
+        "problem": "EP-704",
+        "script": "ep704.mjs",
+        "method": "random_geometric_unit_distance_slice_bounds",
+        "warning": "Finite random model only; these are heuristic slice bounds, not bounds for the full infinite graph G_n.",
+        "params": {
+          "POINTS": 260,
+          "EPS": 0.02,
+          "MAX_DIM": 9
         },
-        "data": {
-          "description": "Finite scaling window from the classical exponential lower/upper bounds for χ(G_n).",
-          "rows": [
-            {
-              "n": 5,
-              "lower_1p2_pow_n": 2.48832,
-              "upper_3_pow_n": 243,
-              "multiplicative_window_upper_over_lower": 97.65625,
-              "geometric_mean_base": 1.897367
-            },
-            {
-              "n": 10,
-              "lower_1p2_pow_n": 6.191736,
-              "upper_3_pow_n": 59049,
-              "multiplicative_window_upper_over_lower": 9536.743,
-              "geometric_mean_base": 1.897367
-            },
-            {
-              "n": 20,
-              "lower_1p2_pow_n": 38.3376,
-              "upper_3_pow_n": 3486784000,
-              "multiplicative_window_upper_over_lower": 90949470,
-              "geometric_mean_base": 1.897367
-            },
-            {
-              "n": 30,
-              "lower_1p2_pow_n": 237.3763,
-              "upper_3_pow_n": 205891100000000,
-              "multiplicative_window_upper_over_lower": 867361700000,
-              "geometric_mean_base": 1.897367
-            },
-            {
-              "n": 40,
-              "lower_1p2_pow_n": 1469.772,
-              "upper_3_pow_n": 12157670000000000000,
-              "multiplicative_window_upper_over_lower": 8271806000000000,
-              "geometric_mean_base": 1.897367
-            },
-            {
-              "n": 60,
-              "lower_1p2_pow_n": 56347.51,
-              "upper_3_pow_n": 4.239116e+28,
-              "multiplicative_window_upper_over_lower": 7.523164e+23,
-              "geometric_mean_base": 1.897367
-            }
-          ]
-        }
+        "rows": [
+          {
+            "dim": 2,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 484,
+            "avg_degree": 3.7230769,
+            "clique_lower_bound": 2,
+            "greedy_upper_bound": 3,
+            "gap_upper_minus_lower": 1,
+            "lower_base_proxy": 0.34657359,
+            "upper_base_proxy": 0.54930614
+          },
+          {
+            "dim": 3,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 681,
+            "avg_degree": 5.2384615,
+            "clique_lower_bound": 3,
+            "greedy_upper_bound": 5,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.3662041,
+            "upper_base_proxy": 0.5364793
+          },
+          {
+            "dim": 4,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 745,
+            "avg_degree": 5.7307692,
+            "clique_lower_bound": 3,
+            "greedy_upper_bound": 5,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.27465307,
+            "upper_base_proxy": 0.40235948
+          },
+          {
+            "dim": 5,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 770,
+            "avg_degree": 5.9230769,
+            "clique_lower_bound": 4,
+            "greedy_upper_bound": 6,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.27725887,
+            "upper_base_proxy": 0.35835189
+          },
+          {
+            "dim": 6,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 768,
+            "avg_degree": 5.9076923,
+            "clique_lower_bound": 3,
+            "greedy_upper_bound": 5,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.18310205,
+            "upper_base_proxy": 0.26823965
+          },
+          {
+            "dim": 7,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 690,
+            "avg_degree": 5.3076923,
+            "clique_lower_bound": 3,
+            "greedy_upper_bound": 5,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.15694461,
+            "upper_base_proxy": 0.2299197
+          },
+          {
+            "dim": 8,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 667,
+            "avg_degree": 5.1307692,
+            "clique_lower_bound": 3,
+            "greedy_upper_bound": 5,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.13732654,
+            "upper_base_proxy": 0.20117974
+          },
+          {
+            "dim": 9,
+            "points": 260,
+            "eps": 0.02,
+            "edges": 650,
+            "avg_degree": 5,
+            "clique_lower_bound": 3,
+            "greedy_upper_bound": 5,
+            "gap_upper_minus_lower": 2,
+            "lower_base_proxy": 0.12206803,
+            "upper_base_proxy": 0.17882643
+          }
+        ],
+        "elapsed_ms": 12,
+        "generated_utc": "2026-03-12T21:20:08.012Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

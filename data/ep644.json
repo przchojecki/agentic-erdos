@@ -1,5 +1,56 @@
 {
   "problem": "EP-644",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T19:42:12.975Z",
+  "computations": [
+    {
+      "source_file": "ep644_standalone_deeper_20260312T194212Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:42:12.975Z",
+      "data": {
+        "problem": "EP-644",
+        "script": "ep644.mjs",
+        "method": "local_search_for_large_transversal_families_under_r_tuple_pair_hitting_constraint",
+        "params": {},
+        "rows": [
+          {
+            "universe_v": 10,
+            "k": 4,
+            "r": 7,
+            "target_family_size": 9,
+            "restarts": 24,
+            "steps_per_restart": 450,
+            "best_transversal_number_found": 3,
+            "best_tau_over_k": 0.75,
+            "witness_family_size": 9
+          },
+          {
+            "universe_v": 11,
+            "k": 4,
+            "r": 7,
+            "target_family_size": 10,
+            "restarts": 20,
+            "steps_per_restart": 380,
+            "best_transversal_number_found": 3,
+            "best_tau_over_k": 0.75,
+            "witness_family_size": 10
+          },
+          {
+            "universe_v": 12,
+            "k": 5,
+            "r": 7,
+            "target_family_size": 10,
+            "restarts": 14,
+            "steps_per_restart": 260,
+            "best_transversal_number_found": 3,
+            "best_tau_over_k": 0.6,
+            "witness_family_size": 10
+          }
+        ],
+        "elapsed_ms": 184,
+        "generated_utc": "2026-03-12T19:42:12.975Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

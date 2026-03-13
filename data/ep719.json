@@ -1,5 +1,61 @@
 {
   "problem": "EP-719",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:53:23.735Z",
+  "computations": [
+    {
+      "source_file": "ep719_standalone_deeper_20260313T095234Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:52:34.386Z",
+      "data": {
+        "problem": "EP-719",
+        "script": "ep719.mjs",
+        "method": "exact_small_n_r_eq_2_decomposition_into_edges_and_triangles",
+        "interpretation": "This tests the r=2 analogue suggested by the parsed statement fragment.",
+        "params": {
+          "N_LIST": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "GRAPHS_PER_N": 90
+        },
+        "rows": [
+          {
+            "n": 5,
+            "sampled_graphs": 90,
+            "exact_max_pieces_sampled": 6,
+            "turan_bound_floor_n2_over_4": 6,
+            "violations_over_sampled": 0
+          },
+          {
+            "n": 6,
+            "sampled_graphs": 90,
+            "exact_max_pieces_sampled": 9,
+            "turan_bound_floor_n2_over_4": 9,
+            "violations_over_sampled": 0
+          },
+          {
+            "n": 7,
+            "sampled_graphs": 90,
+            "exact_max_pieces_sampled": 9,
+            "turan_bound_floor_n2_over_4": 12,
+            "violations_over_sampled": 0
+          },
+          {
+            "n": 8,
+            "sampled_graphs": 90,
+            "exact_max_pieces_sampled": 12,
+            "turan_bound_floor_n2_over_4": 16,
+            "violations_over_sampled": 0
+          }
+        ],
+        "worst_sampled_violation": null,
+        "elapsed_ms": 9,
+        "generated_utc": "2026-03-13T09:52:34.386Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

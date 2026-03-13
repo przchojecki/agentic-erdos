@@ -1,5 +1,191 @@
 {
   "problem": "EP-661",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:14:04.422Z",
+  "computations": [
+    {
+      "source_file": "ep661_standalone_deeper_20260312T201404Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:14:04.422Z",
+      "data": {
+        "problem": "EP-661",
+        "script": "ep661.mjs",
+        "method": "explicit_bipartite_planar_construction_scan_for_cross_distance_count",
+        "params": {},
+        "rows": [
+          {
+            "family": "two_parallel_lines",
+            "n": 40,
+            "distinct_bipartite_distances": 40,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 1.9206456
+          },
+          {
+            "family": "line_vs_parabola",
+            "n": 40,
+            "distinct_bipartite_distances": 1161,
+            "D_over_n": 29.025,
+            "D_times_sqrt_log_over_n": 55.746738
+          },
+          {
+            "family": "two_circles_r1_1_r2_2",
+            "n": 40,
+            "distinct_bipartite_distances": 40,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 1.9206456
+          },
+          {
+            "family": "grid_split",
+            "n": 40,
+            "distinct_bipartite_distances": 26,
+            "D_over_n": 0.65,
+            "D_times_sqrt_log_over_n": 1.2484196
+          },
+          {
+            "family": "two_parallel_lines",
+            "n": 80,
+            "distinct_bipartite_distances": 80,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.0933291
+          },
+          {
+            "family": "line_vs_parabola",
+            "n": 80,
+            "distinct_bipartite_distances": 4721,
+            "D_over_n": 59.0125,
+            "D_times_sqrt_log_over_n": 123.53258
+          },
+          {
+            "family": "two_circles_r1_1_r2_2",
+            "n": 80,
+            "distinct_bipartite_distances": 80,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.0933291
+          },
+          {
+            "family": "grid_split",
+            "n": 80,
+            "distinct_bipartite_distances": 41,
+            "D_over_n": 0.5125,
+            "D_times_sqrt_log_over_n": 1.0728312
+          },
+          {
+            "family": "two_parallel_lines",
+            "n": 120,
+            "distinct_bipartite_distances": 120,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.1880338
+          },
+          {
+            "family": "line_vs_parabola",
+            "n": 120,
+            "distinct_bipartite_distances": 10681,
+            "D_over_n": 89.008333,
+            "D_times_sqrt_log_over_n": 194.75324
+          },
+          {
+            "family": "two_circles_r1_1_r2_2",
+            "n": 120,
+            "distinct_bipartite_distances": 120,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.1880338
+          },
+          {
+            "family": "grid_split",
+            "n": 120,
+            "distinct_bipartite_distances": 60,
+            "D_over_n": 0.5,
+            "D_times_sqrt_log_over_n": 1.0940169
+          },
+          {
+            "family": "two_parallel_lines",
+            "n": 180,
+            "distinct_bipartite_distances": 180,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.278806
+          },
+          {
+            "family": "line_vs_parabola",
+            "n": 180,
+            "distinct_bipartite_distances": 24121,
+            "D_over_n": 134.00556,
+            "D_times_sqrt_log_over_n": 305.37267
+          },
+          {
+            "family": "two_circles_r1_1_r2_2",
+            "n": 180,
+            "distinct_bipartite_distances": 180,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.278806
+          },
+          {
+            "family": "grid_split",
+            "n": 180,
+            "distinct_bipartite_distances": 93,
+            "D_over_n": 0.51666667,
+            "D_times_sqrt_log_over_n": 1.1773831
+          },
+          {
+            "family": "two_parallel_lines",
+            "n": 260,
+            "distinct_bipartite_distances": 260,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.3581098
+          },
+          {
+            "family": "line_vs_parabola",
+            "n": 260,
+            "distinct_bipartite_distances": 50441,
+            "D_over_n": 194.00385,
+            "D_times_sqrt_log_over_n": 457.48236
+          },
+          {
+            "family": "two_circles_r1_1_r2_2",
+            "n": 260,
+            "distinct_bipartite_distances": 260,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.3581098
+          },
+          {
+            "family": "grid_split",
+            "n": 260,
+            "distinct_bipartite_distances": 134,
+            "D_over_n": 0.51538462,
+            "D_times_sqrt_log_over_n": 1.2153335
+          },
+          {
+            "family": "two_parallel_lines",
+            "n": 360,
+            "distinct_bipartite_distances": 360,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.4261294
+          },
+          {
+            "family": "line_vs_parabola",
+            "n": 360,
+            "distinct_bipartite_distances": 96841,
+            "D_over_n": 269.00278,
+            "D_times_sqrt_log_over_n": 652.63556
+          },
+          {
+            "family": "two_circles_r1_1_r2_2",
+            "n": 360,
+            "distinct_bipartite_distances": 360,
+            "D_over_n": 1,
+            "D_times_sqrt_log_over_n": 2.4261294
+          },
+          {
+            "family": "grid_split",
+            "n": 360,
+            "distinct_bipartite_distances": 164,
+            "D_over_n": 0.45555556,
+            "D_times_sqrt_log_over_n": 1.1052367
+          }
+        ],
+        "elapsed_ms": 109,
+        "generated_utc": "2026-03-12T20:14:04.422Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

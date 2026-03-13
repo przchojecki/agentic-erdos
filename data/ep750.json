@@ -1,5 +1,83 @@
 {
   "problem": "EP-750",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:04:49.829Z",
+  "computations": [
+    {
+      "source_file": "ep750_standalone_deeper_20260313T100415Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:04:15.243Z",
+      "data": {
+        "problem": "EP-750",
+        "script": "ep750.mjs",
+        "method": "finite_proxy_independence_deficit_scan_in_high_chromatic_family",
+        "warning": "Finite sampled induced-subgraph proxy only; original statement is infinite-chromatic and universal over all m-vertex subgraphs.",
+        "params": {
+          "MS": [
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "SAMPLES_PER_M": 180
+        },
+        "rows": [
+          {
+            "family": "mycielski_3",
+            "n": 23,
+            "m": 8,
+            "samples": 180,
+            "worst_deficit_m_over_2_minus_alpha": 0,
+            "avg_deficit_m_over_2_minus_alpha": -0.88333333,
+            "worst_over_sqrt_m": 0,
+            "worst_over_log_m": 0
+          },
+          {
+            "family": "mycielski_3",
+            "n": 23,
+            "m": 10,
+            "samples": 180,
+            "worst_deficit_m_over_2_minus_alpha": 1,
+            "avg_deficit_m_over_2_minus_alpha": -0.75555556,
+            "worst_over_sqrt_m": 0.31622777,
+            "worst_over_log_m": 0.43429448
+          },
+          {
+            "family": "mycielski_3",
+            "n": 23,
+            "m": 12,
+            "samples": 180,
+            "worst_deficit_m_over_2_minus_alpha": 1,
+            "avg_deficit_m_over_2_minus_alpha": -0.52777778,
+            "worst_over_sqrt_m": 0.28867513,
+            "worst_over_log_m": 0.4024296
+          },
+          {
+            "family": "mycielski_3",
+            "n": 23,
+            "m": 14,
+            "samples": 180,
+            "worst_deficit_m_over_2_minus_alpha": 1,
+            "avg_deficit_m_over_2_minus_alpha": -0.39444444,
+            "worst_over_sqrt_m": 0.26726124,
+            "worst_over_log_m": 0.37892318
+          },
+          {
+            "family": "mycielski_3",
+            "n": 23,
+            "m": 16,
+            "samples": 180,
+            "worst_deficit_m_over_2_minus_alpha": 2,
+            "avg_deficit_m_over_2_minus_alpha": -0.027777778,
+            "worst_over_sqrt_m": 0.5,
+            "worst_over_log_m": 0.72134752
+          }
+        ],
+        "elapsed_ms": 12,
+        "generated_utc": "2026-03-13T10:04:15.243Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

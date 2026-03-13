@@ -1,5 +1,5526 @@
 {
   "problem": "EP-724",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:53:23.735Z",
+  "computations": [
+    {
+      "source_file": "ep724_standalone_deeper_20260313T095255Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:52:55.526Z",
+      "data": {
+        "problem": "EP-724",
+        "script": "ep724.mjs",
+        "method": "macneish_type_lower_bound_profile_for_MOLS",
+        "warning": "These are guaranteed lower bounds, not exact f(n) values.",
+        "params": {
+          "N_MAX": 500,
+          "STEP": 1
+        },
+        "rows": [
+          {
+            "n": 2,
+            "prime_power_factors": [
+              2
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 1.4142136,
+            "ratio_lb_over_sqrt_n": 0.70710678,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.95424553
+          },
+          {
+            "n": 3,
+            "prime_power_factors": [
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 1.7320508,
+            "ratio_lb_over_sqrt_n": 1.1547005,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.8569152
+          },
+          {
+            "n": 4,
+            "prime_power_factors": [
+              4
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 2,
+            "ratio_lb_over_sqrt_n": 1.5,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7317536
+          },
+          {
+            "n": 5,
+            "prime_power_factors": [
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 2.236068,
+            "ratio_lb_over_sqrt_n": 1.7888544,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.5878336
+          },
+          {
+            "n": 6,
+            "prime_power_factors": [
+              2,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 2.4494897,
+            "ratio_lb_over_sqrt_n": 0.40824829,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.88597652
+          },
+          {
+            "n": 7,
+            "prime_power_factors": [
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 2.6457513,
+            "ratio_lb_over_sqrt_n": 2.2677868,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.2607787
+          },
+          {
+            "n": 8,
+            "prime_power_factors": [
+              8
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 2.8284271,
+            "ratio_lb_over_sqrt_n": 2.4748737,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.0824486
+          },
+          {
+            "n": 9,
+            "prime_power_factors": [
+              9
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 3,
+            "ratio_lb_over_sqrt_n": 2.6666667,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.8962682
+          },
+          {
+            "n": 10,
+            "prime_power_factors": [
+              2,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 3.1622777,
+            "ratio_lb_over_sqrt_n": 0.31622777,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.85591854
+          },
+          {
+            "n": 11,
+            "prime_power_factors": [
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 3.3166248,
+            "ratio_lb_over_sqrt_n": 3.0151134,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.5042424
+          },
+          {
+            "n": 12,
+            "prime_power_factors": [
+              4,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 3.4641016,
+            "ratio_lb_over_sqrt_n": 0.57735027,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.6908783
+          },
+          {
+            "n": 13,
+            "prime_power_factors": [
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 3.6055513,
+            "ratio_lb_over_sqrt_n": 3.3282012,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.090549
+          },
+          {
+            "n": 14,
+            "prime_power_factors": [
+              2,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 3.7416574,
+            "ratio_lb_over_sqrt_n": 0.26726124,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.83667909
+          },
+          {
+            "n": 15,
+            "prime_power_factors": [
+              3,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 3.8729833,
+            "ratio_lb_over_sqrt_n": 0.51639778,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.6655757
+          },
+          {
+            "n": 16,
+            "prime_power_factors": [
+              16
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 4,
+            "ratio_lb_over_sqrt_n": 3.75,
+            "ratio_lb_over_n_pow_1_over_14p8": 12.437463
+          },
+          {
+            "n": 17,
+            "prime_power_factors": [
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 16,
+            "sqrt_n": 4.1231056,
+            "ratio_lb_over_sqrt_n": 3.88057,
+            "ratio_lb_over_n_pow_1_over_14p8": 13.212395
+          },
+          {
+            "n": 18,
+            "prime_power_factors": [
+              2,
+              9
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 4.2426407,
+            "ratio_lb_over_sqrt_n": 0.23570226,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.82259164
+          },
+          {
+            "n": 19,
+            "prime_power_factors": [
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 18,
+            "sqrt_n": 4.3588989,
+            "ratio_lb_over_sqrt_n": 4.1294832,
+            "ratio_lb_over_n_pow_1_over_14p8": 14.752657
+          },
+          {
+            "n": 20,
+            "prime_power_factors": [
+              4,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 4.472136,
+            "ratio_lb_over_sqrt_n": 0.67082039,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.4502693
+          },
+          {
+            "n": 21,
+            "prime_power_factors": [
+              3,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 4.5825757,
+            "ratio_lb_over_sqrt_n": 0.43643578,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.6281367
+          },
+          {
+            "n": 22,
+            "prime_power_factors": [
+              2,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 4.6904158,
+            "ratio_lb_over_sqrt_n": 0.21320072,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.81151353
+          },
+          {
+            "n": 23,
+            "prime_power_factors": [
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 22,
+            "sqrt_n": 4.7958315,
+            "ratio_lb_over_sqrt_n": 4.5873171,
+            "ratio_lb_over_n_pow_1_over_14p8": 17.799756
+          },
+          {
+            "n": 24,
+            "prime_power_factors": [
+              8,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 4.8989795,
+            "ratio_lb_over_sqrt_n": 0.40824829,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.613513
+          },
+          {
+            "n": 25,
+            "prime_power_factors": [
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 24,
+            "sqrt_n": 5,
+            "ratio_lb_over_sqrt_n": 4.8,
+            "ratio_lb_over_n_pow_1_over_14p8": 19.308825
+          },
+          {
+            "n": 26,
+            "prime_power_factors": [
+              2,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 5.0990195,
+            "ratio_lb_over_sqrt_n": 0.19611614,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.80240512
+          },
+          {
+            "n": 27,
+            "prime_power_factors": [
+              27
+            ],
+            "macneish_lower_bound_MOLS_count": 26,
+            "sqrt_n": 5.1961524,
+            "ratio_lb_over_sqrt_n": 5.0037023,
+            "ratio_lb_over_n_pow_1_over_14p8": 20.809401
+          },
+          {
+            "n": 28,
+            "prime_power_factors": [
+              4,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 5.2915026,
+            "ratio_lb_over_sqrt_n": 0.56694671,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.3951919
+          },
+          {
+            "n": 29,
+            "prime_power_factors": [
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 28,
+            "sqrt_n": 5.3851648,
+            "ratio_lb_over_sqrt_n": 5.1994695,
+            "ratio_lb_over_n_pow_1_over_14p8": 22.302182
+          },
+          {
+            "n": 30,
+            "prime_power_factors": [
+              2,
+              3,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 5.4772256,
+            "ratio_lb_over_sqrt_n": 0.18257419,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.79468407
+          },
+          {
+            "n": 31,
+            "prime_power_factors": [
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 30,
+            "sqrt_n": 5.5677644,
+            "ratio_lb_over_sqrt_n": 5.3881591,
+            "ratio_lb_over_n_pow_1_over_14p8": 23.787761
+          },
+          {
+            "n": 32,
+            "prime_power_factors": [
+              32
+            ],
+            "macneish_lower_bound_MOLS_count": 31,
+            "sqrt_n": 5.6568542,
+            "ratio_lb_over_sqrt_n": 5.4800776,
+            "ratio_lb_over_n_pow_1_over_14p8": 24.528013
+          },
+          {
+            "n": 33,
+            "prime_power_factors": [
+              3,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 5.7445626,
+            "ratio_lb_over_sqrt_n": 0.34815531,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5791657
+          },
+          {
+            "n": 34,
+            "prime_power_factors": [
+              2,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 5.8309519,
+            "ratio_lb_over_sqrt_n": 0.17149859,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.78799179
+          },
+          {
+            "n": 35,
+            "prime_power_factors": [
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 5.9160798,
+            "ratio_lb_over_sqrt_n": 0.6761234,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.1457997
+          },
+          {
+            "n": 36,
+            "prime_power_factors": [
+              4,
+              9
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 6,
+            "ratio_lb_over_sqrt_n": 0.5,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.3548632
+          },
+          {
+            "n": 37,
+            "prime_power_factors": [
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 36,
+            "sqrt_n": 6.0827625,
+            "ratio_lb_over_sqrt_n": 5.9183635,
+            "ratio_lb_over_n_pow_1_over_14p8": 28.206092
+          },
+          {
+            "n": 38,
+            "prime_power_factors": [
+              2,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 6.164414,
+            "ratio_lb_over_sqrt_n": 0.16222142,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.78209204
+          },
+          {
+            "n": 39,
+            "prime_power_factors": [
+              3,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 6.244998,
+            "ratio_lb_over_sqrt_n": 0.32025631,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5614412
+          },
+          {
+            "n": 40,
+            "prime_power_factors": [
+              8,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 6.3245553,
+            "ratio_lb_over_sqrt_n": 0.63245553,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.1175447
+          },
+          {
+            "n": 41,
+            "prime_power_factors": [
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 40,
+            "sqrt_n": 6.4031242,
+            "ratio_lb_over_sqrt_n": 6.2469505,
+            "ratio_lb_over_n_pow_1_over_14p8": 31.123477
+          },
+          {
+            "n": 42,
+            "prime_power_factors": [
+              2,
+              3,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 6.4807407,
+            "ratio_lb_over_sqrt_n": 0.15430335,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.77682107
+          },
+          {
+            "n": 43,
+            "prime_power_factors": [
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 42,
+            "sqrt_n": 6.5574385,
+            "ratio_lb_over_sqrt_n": 6.40494,
+            "ratio_lb_over_n_pow_1_over_14p8": 32.574653
+          },
+          {
+            "n": 44,
+            "prime_power_factors": [
+              4,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 6.6332496,
+            "ratio_lb_over_sqrt_n": 0.45226702,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.3231495
+          },
+          {
+            "n": 45,
+            "prime_power_factors": [
+              9,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 6.7082039,
+            "ratio_lb_over_sqrt_n": 0.59628479,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.0928328
+          },
+          {
+            "n": 46,
+            "prime_power_factors": [
+              2,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 6.78233,
+            "ratio_lb_over_sqrt_n": 0.14744196,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.77206079
+          },
+          {
+            "n": 47,
+            "prime_power_factors": [
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 46,
+            "sqrt_n": 6.8556546,
+            "ratio_lb_over_sqrt_n": 6.7097896,
+            "ratio_lb_over_n_pow_1_over_14p8": 35.463227
+          },
+          {
+            "n": 48,
+            "prime_power_factors": [
+              16,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 6.9282032,
+            "ratio_lb_over_sqrt_n": 0.28867513,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5396876
+          },
+          {
+            "n": 49,
+            "prime_power_factors": [
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 48,
+            "sqrt_n": 7,
+            "ratio_lb_over_sqrt_n": 6.8571429,
+            "ratio_lb_over_n_pow_1_over_14p8": 36.901056
+          },
+          {
+            "n": 50,
+            "prime_power_factors": [
+              2,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 7.0710678,
+            "ratio_lb_over_sqrt_n": 0.14142136,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.76772331
+          },
+          {
+            "n": 51,
+            "prime_power_factors": [
+              3,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 7.1414284,
+            "ratio_lb_over_sqrt_n": 0.28005602,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5333936
+          },
+          {
+            "n": 52,
+            "prime_power_factors": [
+              4,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 7.2111026,
+            "ratio_lb_over_sqrt_n": 0.41602515,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.2970745
+          },
+          {
+            "n": 53,
+            "prime_power_factors": [
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 52,
+            "sqrt_n": 7.2801099,
+            "ratio_lb_over_sqrt_n": 7.1427493,
+            "ratio_lb_over_n_pow_1_over_14p8": 39.764746
+          },
+          {
+            "n": 54,
+            "prime_power_factors": [
+              2,
+              27
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 7.3484692,
+            "ratio_lb_over_sqrt_n": 0.13608276,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.76374146
+          },
+          {
+            "n": 55,
+            "prime_power_factors": [
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 7.4161985,
+            "ratio_lb_over_sqrt_n": 0.53935989,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.0511806
+          },
+          {
+            "n": 56,
+            "prime_power_factors": [
+              8,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 7.4833148,
+            "ratio_lb_over_sqrt_n": 0.80178373,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.5712023
+          },
+          {
+            "n": 57,
+            "prime_power_factors": [
+              3,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 7.5498344,
+            "ratio_lb_over_sqrt_n": 0.26490647,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5219129
+          },
+          {
+            "n": 58,
+            "prime_power_factors": [
+              2,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 7.6157731,
+            "ratio_lb_over_sqrt_n": 0.13130643,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.76006277
+          },
+          {
+            "n": 59,
+            "prime_power_factors": [
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 58,
+            "sqrt_n": 7.6811457,
+            "ratio_lb_over_sqrt_n": 7.5509568,
+            "ratio_lb_over_n_pow_1_over_14p8": 44.032752
+          },
+          {
+            "n": 60,
+            "prime_power_factors": [
+              4,
+              3,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 7.7459667,
+            "ratio_lb_over_sqrt_n": 0.25819889,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5166475
+          },
+          {
+            "n": 61,
+            "prime_power_factors": [
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 60,
+            "sqrt_n": 7.8102497,
+            "ratio_lb_over_sqrt_n": 7.6822128,
+            "ratio_lb_over_n_pow_1_over_14p8": 45.448636
+          },
+          {
+            "n": 62,
+            "prime_power_factors": [
+              2,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 7.8740079,
+            "ratio_lb_over_sqrt_n": 0.12700013,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.7566455
+          },
+          {
+            "n": 63,
+            "prime_power_factors": [
+              9,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 7.9372539,
+            "ratio_lb_over_sqrt_n": 0.75592895,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.5349676
+          },
+          {
+            "n": 64,
+            "prime_power_factors": [
+              64
+            ],
+            "macneish_lower_bound_MOLS_count": 63,
+            "sqrt_n": 8,
+            "ratio_lb_over_sqrt_n": 7.875,
+            "ratio_lb_over_n_pow_1_over_14p8": 47.566518
+          },
+          {
+            "n": 65,
+            "prime_power_factors": [
+              5,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 8.0622577,
+            "ratio_lb_over_sqrt_n": 0.49613894,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.0169343
+          },
+          {
+            "n": 66,
+            "prime_power_factors": [
+              2,
+              3,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 8.1240384,
+            "ratio_lb_over_sqrt_n": 0.12309149,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.75345591
+          },
+          {
+            "n": 67,
+            "prime_power_factors": [
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 66,
+            "sqrt_n": 8.1853528,
+            "ratio_lb_over_sqrt_n": 8.0631833,
+            "ratio_lb_over_n_pow_1_over_14p8": 49.677588
+          },
+          {
+            "n": 68,
+            "prime_power_factors": [
+              4,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 8.2462113,
+            "ratio_lb_over_sqrt_n": 0.36380344,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.2558129
+          },
+          {
+            "n": 69,
+            "prime_power_factors": [
+              3,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 8.3066239,
+            "ratio_lb_over_sqrt_n": 0.24077171,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.5023926
+          },
+          {
+            "n": 70,
+            "prime_power_factors": [
+              2,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 8.3666003,
+            "ratio_lb_over_sqrt_n": 0.11952286,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.75046633
+          },
+          {
+            "n": 71,
+            "prime_power_factors": [
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 70,
+            "sqrt_n": 8.4261498,
+            "ratio_lb_over_sqrt_n": 8.3074716,
+            "ratio_lb_over_n_pow_1_over_14p8": 52.482319
+          },
+          {
+            "n": 72,
+            "prime_power_factors": [
+              8,
+              9
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 8.4852814,
+            "ratio_lb_over_sqrt_n": 0.82495791,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.2432746
+          },
+          {
+            "n": 73,
+            "prime_power_factors": [
+              73
+            ],
+            "macneish_lower_bound_MOLS_count": 72,
+            "sqrt_n": 8.5440037,
+            "ratio_lb_over_sqrt_n": 8.4269626,
+            "ratio_lb_over_n_pow_1_over_14p8": 53.880585
+          },
+          {
+            "n": 74,
+            "prime_power_factors": [
+              2,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 8.6023253,
+            "ratio_lb_over_sqrt_n": 0.11624764,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.74765382
+          },
+          {
+            "n": 75,
+            "prime_power_factors": [
+              3,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 8.660254,
+            "ratio_lb_over_sqrt_n": 0.23094011,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4939521
+          },
+          {
+            "n": 76,
+            "prime_power_factors": [
+              4,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 8.7177979,
+            "ratio_lb_over_sqrt_n": 0.3441236,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.2389235
+          },
+          {
+            "n": 77,
+            "prime_power_factors": [
+              7,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 8.7749644,
+            "ratio_lb_over_sqrt_n": 0.68376346,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.4738937
+          },
+          {
+            "n": 78,
+            "prime_power_factors": [
+              2,
+              3,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 8.8317609,
+            "ratio_lb_over_sqrt_n": 0.1132277,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.74499914
+          },
+          {
+            "n": 79,
+            "prime_power_factors": [
+              79
+            ],
+            "macneish_lower_bound_MOLS_count": 78,
+            "sqrt_n": 8.8881944,
+            "ratio_lb_over_sqrt_n": 8.7756856,
+            "ratio_lb_over_n_pow_1_over_14p8": 58.059936
+          },
+          {
+            "n": 80,
+            "prime_power_factors": [
+              16,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 8.9442719,
+            "ratio_lb_over_sqrt_n": 0.4472136,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.9749031
+          },
+          {
+            "n": 81,
+            "prime_power_factors": [
+              81
+            ],
+            "macneish_lower_bound_MOLS_count": 80,
+            "sqrt_n": 9,
+            "ratio_lb_over_sqrt_n": 8.8888889,
+            "ratio_lb_over_n_pow_1_over_14p8": 59.448143
+          },
+          {
+            "n": 82,
+            "prime_power_factors": [
+              2,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 9.0553851,
+            "ratio_lb_over_sqrt_n": 0.11043153,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.74248597
+          },
+          {
+            "n": 83,
+            "prime_power_factors": [
+              83
+            ],
+            "macneish_lower_bound_MOLS_count": 82,
+            "sqrt_n": 9.1104336,
+            "ratio_lb_over_sqrt_n": 9.0006693,
+            "ratio_lb_over_n_pow_1_over_14p8": 60.834006
+          },
+          {
+            "n": 84,
+            "prime_power_factors": [
+              4,
+              3,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 9.1651514,
+            "ratio_lb_over_sqrt_n": 0.21821789,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4825561
+          },
+          {
+            "n": 85,
+            "prime_power_factors": [
+              5,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 9.2195445,
+            "ratio_lb_over_sqrt_n": 0.43386092,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.9627421
+          },
+          {
+            "n": 86,
+            "prime_power_factors": [
+              2,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 9.2736185,
+            "ratio_lb_over_sqrt_n": 0.10783277,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.74010041
+          },
+          {
+            "n": 87,
+            "prime_power_factors": [
+              3,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 9.3273791,
+            "ratio_lb_over_sqrt_n": 0.21442251,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.479045
+          },
+          {
+            "n": 88,
+            "prime_power_factors": [
+              8,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 9.3808315,
+            "ratio_lb_over_sqrt_n": 0.74620251,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.1726617
+          },
+          {
+            "n": 89,
+            "prime_power_factors": [
+              89
+            ],
+            "macneish_lower_bound_MOLS_count": 88,
+            "sqrt_n": 9.4339811,
+            "ratio_lb_over_sqrt_n": 9.3279813,
+            "ratio_lb_over_n_pow_1_over_14p8": 64.978118
+          },
+          {
+            "n": 90,
+            "prime_power_factors": [
+              2,
+              9,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 9.486833,
+            "ratio_lb_over_sqrt_n": 0.10540926,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.73783047
+          },
+          {
+            "n": 91,
+            "prime_power_factors": [
+              7,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 9.539392,
+            "ratio_lb_over_sqrt_n": 0.6289709,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.4236788
+          },
+          {
+            "n": 92,
+            "prime_power_factors": [
+              4,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 9.591663,
+            "ratio_lb_over_sqrt_n": 0.31277162,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.2102067
+          },
+          {
+            "n": 93,
+            "prime_power_factors": [
+              3,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 9.6436508,
+            "ratio_lb_over_sqrt_n": 0.20739034,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4723952
+          },
+          {
+            "n": 94,
+            "prime_power_factors": [
+              2,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 9.6953597,
+            "ratio_lb_over_sqrt_n": 0.10314212,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.73566577
+          },
+          {
+            "n": 95,
+            "prime_power_factors": [
+              5,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 9.7467943,
+            "ratio_lb_over_sqrt_n": 0.41039134,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.9405598
+          },
+          {
+            "n": 96,
+            "prime_power_factors": [
+              32,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 9.797959,
+            "ratio_lb_over_sqrt_n": 0.20412415,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.46924
+          },
+          {
+            "n": 97,
+            "prime_power_factors": [
+              97
+            ],
+            "macneish_lower_bound_MOLS_count": 96,
+            "sqrt_n": 9.8488578,
+            "ratio_lb_over_sqrt_n": 9.7473232,
+            "ratio_lb_over_n_pow_1_over_14p8": 70.474159
+          },
+          {
+            "n": 98,
+            "prime_power_factors": [
+              2,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 9.8994949,
+            "ratio_lb_over_sqrt_n": 0.10101525,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.73359725
+          },
+          {
+            "n": 99,
+            "prime_power_factors": [
+              9,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 9.9498744,
+            "ratio_lb_over_sqrt_n": 0.80403025,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.8647536
+          },
+          {
+            "n": 100,
+            "prime_power_factors": [
+              4,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 10,
+            "ratio_lb_over_sqrt_n": 0.3,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1977896
+          },
+          {
+            "n": 101,
+            "prime_power_factors": [
+              101
+            ],
+            "macneish_lower_bound_MOLS_count": 100,
+            "sqrt_n": 10.049876,
+            "ratio_lb_over_sqrt_n": 9.9503719,
+            "ratio_lb_over_n_pow_1_over_14p8": 73.210417
+          },
+          {
+            "n": 102,
+            "prime_power_factors": [
+              2,
+              3,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 10.099505,
+            "ratio_lb_over_sqrt_n": 0.099014754,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.73161697
+          },
+          {
+            "n": 103,
+            "prime_power_factors": [
+              103
+            ],
+            "macneish_lower_bound_MOLS_count": 102,
+            "sqrt_n": 10.148892,
+            "ratio_lb_over_sqrt_n": 10.050359,
+            "ratio_lb_over_n_pow_1_over_14p8": 74.575755
+          },
+          {
+            "n": 104,
+            "prime_power_factors": [
+              8,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 10.198039,
+            "ratio_lb_over_sqrt_n": 0.68640647,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.1146039
+          },
+          {
+            "n": 105,
+            "prime_power_factors": [
+              3,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 10.246951,
+            "ratio_lb_over_sqrt_n": 0.19518001,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4603708
+          },
+          {
+            "n": 106,
+            "prime_power_factors": [
+              2,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 10.29563,
+            "ratio_lb_over_sqrt_n": 0.097128586,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.72971792
+          },
+          {
+            "n": 107,
+            "prime_power_factors": [
+              107
+            ],
+            "macneish_lower_bound_MOLS_count": 106,
+            "sqrt_n": 10.34408,
+            "ratio_lb_over_sqrt_n": 10.247407,
+            "ratio_lb_over_n_pow_1_over_14p8": 77.301041
+          },
+          {
+            "n": 108,
+            "prime_power_factors": [
+              4,
+              27
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 10.392305,
+            "ratio_lb_over_sqrt_n": 0.28867513,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1863906
+          },
+          {
+            "n": 109,
+            "prime_power_factors": [
+              109
+            ],
+            "macneish_lower_bound_MOLS_count": 108,
+            "sqrt_n": 10.440307,
+            "ratio_lb_over_sqrt_n": 10.344524,
+            "ratio_lb_over_n_pow_1_over_14p8": 78.661062
+          },
+          {
+            "n": 110,
+            "prime_power_factors": [
+              2,
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 10.488088,
+            "ratio_lb_over_sqrt_n": 0.095346259,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.72789387
+          },
+          {
+            "n": 111,
+            "prime_power_factors": [
+              3,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 10.535654,
+            "ratio_lb_over_sqrt_n": 0.1898316,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4548978
+          },
+          {
+            "n": 112,
+            "prime_power_factors": [
+              16,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 10.583005,
+            "ratio_lb_over_sqrt_n": 0.56694671,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.3620493
+          },
+          {
+            "n": 113,
+            "prime_power_factors": [
+              113
+            ],
+            "macneish_lower_bound_MOLS_count": 112,
+            "sqrt_n": 10.630146,
+            "ratio_lb_over_sqrt_n": 10.536074,
+            "ratio_lb_over_n_pow_1_over_14p8": 81.376031
+          },
+          {
+            "n": 114,
+            "prime_power_factors": [
+              2,
+              3,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 10.677078,
+            "ratio_lb_over_sqrt_n": 0.093658581,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.7261393
+          },
+          {
+            "n": 115,
+            "prime_power_factors": [
+              5,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 10.723805,
+            "ratio_lb_over_sqrt_n": 0.37300192,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.9028437
+          },
+          {
+            "n": 116,
+            "prime_power_factors": [
+              4,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 10.77033,
+            "ratio_lb_over_sqrt_n": 0.27854301,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1758595
+          },
+          {
+            "n": 117,
+            "prime_power_factors": [
+              9,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 10.816654,
+            "ratio_lb_over_sqrt_n": 0.73960026,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.7989278
+          },
+          {
+            "n": 118,
+            "prime_power_factors": [
+              2,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 10.86278,
+            "ratio_lb_over_sqrt_n": 0.092057462,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.72444926
+          },
+          {
+            "n": 119,
+            "prime_power_factors": [
+              7,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 10.908712,
+            "ratio_lb_over_sqrt_n": 0.5500191,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.3442178
+          },
+          {
+            "n": 120,
+            "prime_power_factors": [
+              8,
+              3,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 10.954451,
+            "ratio_lb_over_sqrt_n": 0.18257419,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4472541
+          },
+          {
+            "n": 121,
+            "prime_power_factors": [
+              121
+            ],
+            "macneish_lower_bound_MOLS_count": 120,
+            "sqrt_n": 11,
+            "ratio_lb_over_sqrt_n": 10.909091,
+            "ratio_lb_over_n_pow_1_over_14p8": 86.786566
+          },
+          {
+            "n": 122,
+            "prime_power_factors": [
+              2,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 11.045361,
+            "ratio_lb_over_sqrt_n": 0.090535746,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.7228193
+          },
+          {
+            "n": 123,
+            "prime_power_factors": [
+              3,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 11.090537,
+            "ratio_lb_over_sqrt_n": 0.18033393,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4448414
+          },
+          {
+            "n": 124,
+            "prime_power_factors": [
+              4,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 11.135529,
+            "ratio_lb_over_sqrt_n": 0.26940795,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1660768
+          },
+          {
+            "n": 125,
+            "prime_power_factors": [
+              125
+            ],
+            "macneish_lower_bound_MOLS_count": 124,
+            "sqrt_n": 11.18034,
+            "ratio_lb_over_sqrt_n": 11.090897,
+            "ratio_lb_over_n_pow_1_over_14p8": 89.482596
+          },
+          {
+            "n": 126,
+            "prime_power_factors": [
+              2,
+              9,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 11.224972,
+            "ratio_lb_over_sqrt_n": 0.089087081,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.72124542
+          },
+          {
+            "n": 127,
+            "prime_power_factors": [
+              127
+            ],
+            "macneish_lower_bound_MOLS_count": 126,
+            "sqrt_n": 11.269428,
+            "ratio_lb_over_sqrt_n": 11.180692,
+            "ratio_lb_over_n_pow_1_over_14p8": 90.828396
+          },
+          {
+            "n": 128,
+            "prime_power_factors": [
+              128
+            ],
+            "macneish_lower_bound_MOLS_count": 127,
+            "sqrt_n": 11.313708,
+            "ratio_lb_over_sqrt_n": 11.22532,
+            "ratio_lb_over_n_pow_1_over_14p8": 91.500753
+          },
+          {
+            "n": 129,
+            "prime_power_factors": [
+              3,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 11.357817,
+            "ratio_lb_over_sqrt_n": 0.17609018,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4401993
+          },
+          {
+            "n": 130,
+            "prime_power_factors": [
+              2,
+              5,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 11.401754,
+            "ratio_lb_over_sqrt_n": 0.087705802,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71972401
+          },
+          {
+            "n": 131,
+            "prime_power_factors": [
+              131
+            ],
+            "macneish_lower_bound_MOLS_count": 130,
+            "sqrt_n": 11.445523,
+            "ratio_lb_over_sqrt_n": 11.358153,
+            "ratio_lb_over_n_pow_1_over_14p8": 93.51569
+          },
+          {
+            "n": 132,
+            "prime_power_factors": [
+              4,
+              3,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 11.489125,
+            "ratio_lb_over_sqrt_n": 0.17407766,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4379639
+          },
+          {
+            "n": 133,
+            "prime_power_factors": [
+              7,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 11.532563,
+            "ratio_lb_over_sqrt_n": 0.52026598,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.3116923
+          },
+          {
+            "n": 134,
+            "prime_power_factors": [
+              2,
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 11.575837,
+            "ratio_lb_over_sqrt_n": 0.086386843,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71825177
+          },
+          {
+            "n": 135,
+            "prime_power_factors": [
+              27,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 11.61895,
+            "ratio_lb_over_sqrt_n": 0.34426519,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.8715641
+          },
+          {
+            "n": 136,
+            "prime_power_factors": [
+              8,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 11.661904,
+            "ratio_lb_over_sqrt_n": 0.60024505,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.022732
+          },
+          {
+            "n": 137,
+            "prime_power_factors": [
+              137
+            ],
+            "macneish_lower_bound_MOLS_count": 136,
+            "sqrt_n": 11.7047,
+            "ratio_lb_over_sqrt_n": 11.619264,
+            "ratio_lb_over_n_pow_1_over_14p8": 97.536215
+          },
+          {
+            "n": 138,
+            "prime_power_factors": [
+              2,
+              3,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 11.74734,
+            "ratio_lb_over_sqrt_n": 0.085125653,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71682571
+          },
+          {
+            "n": 139,
+            "prime_power_factors": [
+              139
+            ],
+            "macneish_lower_bound_MOLS_count": 138,
+            "sqrt_n": 11.789826,
+            "ratio_lb_over_sqrt_n": 11.705007,
+            "ratio_lb_over_n_pow_1_over_14p8": 98.873701
+          },
+          {
+            "n": 140,
+            "prime_power_factors": [
+              4,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 11.83216,
+            "ratio_lb_over_sqrt_n": 0.25354628,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1483874
+          },
+          {
+            "n": 141,
+            "prime_power_factors": [
+              3,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 11.874342,
+            "ratio_lb_over_sqrt_n": 0.16843038,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4315697
+          },
+          {
+            "n": 142,
+            "prime_power_factors": [
+              2,
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 11.916375,
+            "ratio_lb_over_sqrt_n": 0.083918136,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71544312
+          },
+          {
+            "n": 143,
+            "prime_power_factors": [
+              11,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 11.958261,
+            "ratio_lb_over_sqrt_n": 0.83624201,
+            "ratio_lb_over_n_pow_1_over_14p8": 7.1510397
+          },
+          {
+            "n": 144,
+            "prime_power_factors": [
+              16,
+              9
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 12,
+            "ratio_lb_over_sqrt_n": 0.66666667,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.7181387
+          },
+          {
+            "n": 145,
+            "prime_power_factors": [
+              5,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 12.041595,
+            "ratio_lb_over_sqrt_n": 0.33218192,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.8577328
+          },
+          {
+            "n": 146,
+            "prime_power_factors": [
+              2,
+              73
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 12.083046,
+            "ratio_lb_over_sqrt_n": 0.082760589,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71410149
+          },
+          {
+            "n": 147,
+            "prime_power_factors": [
+              3,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 12.124356,
+            "ratio_lb_over_sqrt_n": 0.16495722,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4275444
+          },
+          {
+            "n": 148,
+            "prime_power_factors": [
+              4,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 12.165525,
+            "ratio_lb_over_sqrt_n": 0.24659848,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.140336
+          },
+          {
+            "n": 149,
+            "prime_power_factors": [
+              149
+            ],
+            "macneish_lower_bound_MOLS_count": 148,
+            "sqrt_n": 12.206556,
+            "ratio_lb_over_sqrt_n": 12.124632,
+            "ratio_lb_over_n_pow_1_over_14p8": 105.54188
+          },
+          {
+            "n": 150,
+            "prime_power_factors": [
+              2,
+              3,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 12.247449,
+            "ratio_lb_over_sqrt_n": 0.081649658,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71279855
+          },
+          {
+            "n": 151,
+            "prime_power_factors": [
+              151
+            ],
+            "macneish_lower_bound_MOLS_count": 150,
+            "sqrt_n": 12.288206,
+            "ratio_lb_over_sqrt_n": 12.206827,
+            "ratio_lb_over_n_pow_1_over_14p8": 106.87179
+          },
+          {
+            "n": 152,
+            "prime_power_factors": [
+              8,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 12.328828,
+            "ratio_lb_over_sqrt_n": 0.56777497,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.9851264
+          },
+          {
+            "n": 153,
+            "prime_power_factors": [
+              9,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 12.369317,
+            "ratio_lb_over_sqrt_n": 0.64676167,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.6947636
+          },
+          {
+            "n": 154,
+            "prime_power_factors": [
+              2,
+              7,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 12.409674,
+            "ratio_lb_over_sqrt_n": 0.080582296,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71153218
+          },
+          {
+            "n": 155,
+            "prime_power_factors": [
+              5,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 12.4499,
+            "ratio_lb_over_sqrt_n": 0.32128773,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.8448843
+          },
+          {
+            "n": 156,
+            "prime_power_factors": [
+              4,
+              3,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 12.489996,
+            "ratio_lb_over_sqrt_n": 0.16012815,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4218242
+          },
+          {
+            "n": 157,
+            "prime_power_factors": [
+              157
+            ],
+            "macneish_lower_bound_MOLS_count": 156,
+            "sqrt_n": 12.529964,
+            "ratio_lb_over_sqrt_n": 12.450155,
+            "ratio_lb_over_n_pow_1_over_14p8": 110.85442
+          },
+          {
+            "n": 158,
+            "prime_power_factors": [
+              2,
+              79
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 12.569805,
+            "ratio_lb_over_sqrt_n": 0.079555728,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.71030045
+          },
+          {
+            "n": 159,
+            "prime_power_factors": [
+              3,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 12.60952,
+            "ratio_lb_over_sqrt_n": 0.15861032,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4199954
+          },
+          {
+            "n": 160,
+            "prime_power_factors": [
+              32,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 12.649111,
+            "ratio_lb_over_sqrt_n": 0.31622777,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.838788
+          },
+          {
+            "n": 161,
+            "prime_power_factors": [
+              7,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 12.688578,
+            "ratio_lb_over_sqrt_n": 0.47286624,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.2563898
+          },
+          {
+            "n": 162,
+            "prime_power_factors": [
+              2,
+              81
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 12.727922,
+            "ratio_lb_over_sqrt_n": 0.07856742,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70910157
+          },
+          {
+            "n": 163,
+            "prime_power_factors": [
+              163
+            ],
+            "macneish_lower_bound_MOLS_count": 162,
+            "sqrt_n": 12.767145,
+            "ratio_lb_over_sqrt_n": 12.688819,
+            "ratio_lb_over_n_pow_1_over_14p8": 114.8267
+          },
+          {
+            "n": 164,
+            "prime_power_factors": [
+              4,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 12.806248,
+            "ratio_lb_over_sqrt_n": 0.23426064,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1255418
+          },
+          {
+            "n": 165,
+            "prime_power_factors": [
+              3,
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 12.845233,
+            "ratio_lb_over_sqrt_n": 0.15569979,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4164459
+          },
+          {
+            "n": 166,
+            "prime_power_factors": [
+              2,
+              83
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 12.884099,
+            "ratio_lb_over_sqrt_n": 0.077615053,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70793388
+          },
+          {
+            "n": 167,
+            "prime_power_factors": [
+              167
+            ],
+            "macneish_lower_bound_MOLS_count": 166,
+            "sqrt_n": 12.922848,
+            "ratio_lb_over_sqrt_n": 12.845466,
+            "ratio_lb_over_n_pow_1_over_14p8": 117.46934
+          },
+          {
+            "n": 168,
+            "prime_power_factors": [
+              8,
+              3,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 12.961481,
+            "ratio_lb_over_sqrt_n": 0.15430335,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4147225
+          },
+          {
+            "n": 169,
+            "prime_power_factors": [
+              169
+            ],
+            "macneish_lower_bound_MOLS_count": 168,
+            "sqrt_n": 13,
+            "ratio_lb_over_sqrt_n": 12.923077,
+            "ratio_lb_over_n_pow_1_over_14p8": 118.78905
+          },
+          {
+            "n": 170,
+            "prime_power_factors": [
+              2,
+              5,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.038405,
+            "ratio_lb_over_sqrt_n": 0.076696499,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70679585
+          },
+          {
+            "n": 171,
+            "prime_power_factors": [
+              9,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 13.076697,
+            "ratio_lb_over_sqrt_n": 0.61177529,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.6521265
+          },
+          {
+            "n": 172,
+            "prime_power_factors": [
+              4,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 13.114877,
+            "ratio_lb_over_sqrt_n": 0.22874786,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1187125
+          },
+          {
+            "n": 173,
+            "prime_power_factors": [
+              173
+            ],
+            "macneish_lower_bound_MOLS_count": 172,
+            "sqrt_n": 13.152946,
+            "ratio_lb_over_sqrt_n": 13.076918,
+            "ratio_lb_over_n_pow_1_over_14p8": 121.42528
+          },
+          {
+            "n": 174,
+            "prime_power_factors": [
+              2,
+              3,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.190906,
+            "ratio_lb_over_sqrt_n": 0.075809804,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70568606
+          },
+          {
+            "n": 175,
+            "prime_power_factors": [
+              25,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 13.228757,
+            "ratio_lb_over_sqrt_n": 0.45355737,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.2324772
+          },
+          {
+            "n": 176,
+            "prime_power_factors": [
+              16,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 13.266499,
+            "ratio_lb_over_sqrt_n": 0.75377836,
+            "ratio_lb_over_n_pow_1_over_14p8": 7.0514133
+          },
+          {
+            "n": 177,
+            "prime_power_factors": [
+              3,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 13.304135,
+            "ratio_lb_over_sqrt_n": 0.15032921,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4097429
+          },
+          {
+            "n": 178,
+            "prime_power_factors": [
+              2,
+              89
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.341664,
+            "ratio_lb_over_sqrt_n": 0.074953169,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70460317
+          },
+          {
+            "n": 179,
+            "prime_power_factors": [
+              179
+            ],
+            "macneish_lower_bound_MOLS_count": 178,
+            "sqrt_n": 13.379088,
+            "ratio_lb_over_sqrt_n": 13.304345,
+            "ratio_lb_over_n_pow_1_over_14p8": 125.3719
+          },
+          {
+            "n": 180,
+            "prime_power_factors": [
+              4,
+              9,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 13.416408,
+            "ratio_lb_over_sqrt_n": 0.2236068,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1122143
+          },
+          {
+            "n": 181,
+            "prime_power_factors": [
+              181
+            ],
+            "macneish_lower_bound_MOLS_count": 180,
+            "sqrt_n": 13.453624,
+            "ratio_lb_over_sqrt_n": 13.379295,
+            "ratio_lb_over_n_pow_1_over_14p8": 126.68543
+          },
+          {
+            "n": 182,
+            "prime_power_factors": [
+              2,
+              7,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.490738,
+            "ratio_lb_over_sqrt_n": 0.074124932,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70354596
+          },
+          {
+            "n": 183,
+            "prime_power_factors": [
+              3,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 13.527749,
+            "ratio_lb_over_sqrt_n": 0.14784425,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4065711
+          },
+          {
+            "n": 184,
+            "prime_power_factors": [
+              8,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 13.56466,
+            "ratio_lb_over_sqrt_n": 0.51604685,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.9211863
+          },
+          {
+            "n": 185,
+            "prime_power_factors": [
+              5,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 13.601471,
+            "ratio_lb_over_sqrt_n": 0.29408585,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.8110768
+          },
+          {
+            "n": 186,
+            "prime_power_factors": [
+              2,
+              3,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.638182,
+            "ratio_lb_over_sqrt_n": 0.073323558,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70251327
+          },
+          {
+            "n": 187,
+            "prime_power_factors": [
+              11,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 13.674794,
+            "ratio_lb_over_sqrt_n": 0.73127242,
+            "ratio_lb_over_n_pow_1_over_14p8": 7.022588
+          },
+          {
+            "n": 188,
+            "prime_power_factors": [
+              4,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 13.711309,
+            "ratio_lb_over_sqrt_n": 0.21879749,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1060173
+          },
+          {
+            "n": 189,
+            "prime_power_factors": [
+              27,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 13.747727,
+            "ratio_lb_over_sqrt_n": 0.43643578,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.2105251
+          },
+          {
+            "n": 190,
+            "prime_power_factors": [
+              2,
+              5,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.784049,
+            "ratio_lb_over_sqrt_n": 0.072547625,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.70150402
+          },
+          {
+            "n": 191,
+            "prime_power_factors": [
+              191
+            ],
+            "macneish_lower_bound_MOLS_count": 190,
+            "sqrt_n": 13.820275,
+            "ratio_lb_over_sqrt_n": 13.747918,
+            "ratio_lb_over_n_pow_1_over_14p8": 133.2385
+          },
+          {
+            "n": 192,
+            "prime_power_factors": [
+              64,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 13.856406,
+            "ratio_lb_over_sqrt_n": 0.14433757,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4020157
+          },
+          {
+            "n": 193,
+            "prime_power_factors": [
+              193
+            ],
+            "macneish_lower_bound_MOLS_count": 192,
+            "sqrt_n": 13.892444,
+            "ratio_lb_over_sqrt_n": 13.820462,
+            "ratio_lb_over_n_pow_1_over_14p8": 134.54628
+          },
+          {
+            "n": 194,
+            "prime_power_factors": [
+              2,
+              97
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 13.928388,
+            "ratio_lb_over_sqrt_n": 0.071795816,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.7005172
+          },
+          {
+            "n": 195,
+            "prime_power_factors": [
+              3,
+              5,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 13.96424,
+            "ratio_lb_over_sqrt_n": 0.14322297,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.4005478
+          },
+          {
+            "n": 196,
+            "prime_power_factors": [
+              4,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 14,
+            "ratio_lb_over_sqrt_n": 0.21428571,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.1000957
+          },
+          {
+            "n": 197,
+            "prime_power_factors": [
+              197
+            ],
+            "macneish_lower_bound_MOLS_count": 196,
+            "sqrt_n": 14.035669,
+            "ratio_lb_over_sqrt_n": 13.964422,
+            "ratio_lb_over_n_pow_1_over_14p8": 137.15908
+          },
+          {
+            "n": 198,
+            "prime_power_factors": [
+              2,
+              9,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.071247,
+            "ratio_lb_over_sqrt_n": 0.071066905,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69955187
+          },
+          {
+            "n": 199,
+            "prime_power_factors": [
+              199
+            ],
+            "macneish_lower_bound_MOLS_count": 198,
+            "sqrt_n": 14.106736,
+            "ratio_lb_over_sqrt_n": 14.035848,
+            "ratio_lb_over_n_pow_1_over_14p8": 138.46413
+          },
+          {
+            "n": 200,
+            "prime_power_factors": [
+              8,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 14.142136,
+            "ratio_lb_over_sqrt_n": 0.49497475,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.8935388
+          },
+          {
+            "n": 201,
+            "prime_power_factors": [
+              3,
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 14.177447,
+            "ratio_lb_over_sqrt_n": 0.14106912,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3976829
+          },
+          {
+            "n": 202,
+            "prime_power_factors": [
+              2,
+              101
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.21267,
+            "ratio_lb_over_sqrt_n": 0.070359754,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69860713
+          },
+          {
+            "n": 203,
+            "prime_power_factors": [
+              7,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 14.247807,
+            "ratio_lb_over_sqrt_n": 0.42111744,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.1902444
+          },
+          {
+            "n": 204,
+            "prime_power_factors": [
+              4,
+              3,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 14.282857,
+            "ratio_lb_over_sqrt_n": 0.14002801,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3962845
+          },
+          {
+            "n": 205,
+            "prime_power_factors": [
+              5,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 14.317821,
+            "ratio_lb_over_sqrt_n": 0.27937212,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7916464
+          },
+          {
+            "n": 206,
+            "prime_power_factors": [
+              2,
+              103
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.3527,
+            "ratio_lb_over_sqrt_n": 0.069673301,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69768216
+          },
+          {
+            "n": 207,
+            "prime_power_factors": [
+              9,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 14.387495,
+            "ratio_lb_over_sqrt_n": 0.55603844,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.5796313
+          },
+          {
+            "n": 208,
+            "prime_power_factors": [
+              16,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 14.422205,
+            "ratio_lb_over_sqrt_n": 0.83205029,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.3667221
+          },
+          {
+            "n": 209,
+            "prime_power_factors": [
+              11,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 14.456832,
+            "ratio_lb_over_sqrt_n": 0.69171446,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.9700093
+          },
+          {
+            "n": 210,
+            "prime_power_factors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.491377,
+            "ratio_lb_over_sqrt_n": 0.069006556,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69677617
+          },
+          {
+            "n": 211,
+            "prime_power_factors": [
+              211
+            ],
+            "macneish_lower_bound_MOLS_count": 210,
+            "sqrt_n": 14.525839,
+            "ratio_lb_over_sqrt_n": 14.456996,
+            "ratio_lb_over_n_pow_1_over_14p8": 146.27604
+          },
+          {
+            "n": 212,
+            "prime_power_factors": [
+              4,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 14.56022,
+            "ratio_lb_over_sqrt_n": 0.20604085,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0889902
+          },
+          {
+            "n": 213,
+            "prime_power_factors": [
+              3,
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 14.59452,
+            "ratio_lb_over_sqrt_n": 0.13703774,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3922174
+          },
+          {
+            "n": 214,
+            "prime_power_factors": [
+              2,
+              107
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.628739,
+            "ratio_lb_over_sqrt_n": 0.068358593,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69588842
+          },
+          {
+            "n": 215,
+            "prime_power_factors": [
+              5,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 14.662878,
+            "ratio_lb_over_sqrt_n": 0.27279774,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.782677
+          },
+          {
+            "n": 216,
+            "prime_power_factors": [
+              8,
+              27
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 14.696938,
+            "ratio_lb_over_sqrt_n": 0.47628967,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.8681581
+          },
+          {
+            "n": 217,
+            "prime_power_factors": [
+              7,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 14.73092,
+            "ratio_lb_over_sqrt_n": 0.40730654,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.1714049
+          },
+          {
+            "n": 218,
+            "prime_power_factors": [
+              2,
+              109
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.764823,
+            "ratio_lb_over_sqrt_n": 0.067728546,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69501821
+          },
+          {
+            "n": 219,
+            "prime_power_factors": [
+              3,
+              73
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 14.798649,
+            "ratio_lb_over_sqrt_n": 0.13514748,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3896066
+          },
+          {
+            "n": 220,
+            "prime_power_factors": [
+              4,
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 14.832397,
+            "ratio_lb_over_sqrt_n": 0.20225996,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0837684
+          },
+          {
+            "n": 221,
+            "prime_power_factors": [
+              13,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 14.866069,
+            "ratio_lb_over_sqrt_n": 0.80720735,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.33252
+          },
+          {
+            "n": 222,
+            "prime_power_factors": [
+              2,
+              3,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 14.899664,
+            "ratio_lb_over_sqrt_n": 0.067115606,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69416488
+          },
+          {
+            "n": 223,
+            "prime_power_factors": [
+              223
+            ],
+            "macneish_lower_bound_MOLS_count": 222,
+            "sqrt_n": 14.933185,
+            "ratio_lb_over_sqrt_n": 14.86622,
+            "ratio_lb_over_n_pow_1_over_14p8": 154.05781
+          },
+          {
+            "n": 224,
+            "prime_power_factors": [
+              32,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 14.96663,
+            "ratio_lb_over_sqrt_n": 0.40089186,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.1624661
+          },
+          {
+            "n": 225,
+            "prime_power_factors": [
+              9,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 15,
+            "ratio_lb_over_sqrt_n": 0.53333333,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.5482847
+          },
+          {
+            "n": 226,
+            "prime_power_factors": [
+              2,
+              113
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.033296,
+            "ratio_lb_over_sqrt_n": 0.066519011,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69332781
+          },
+          {
+            "n": 227,
+            "prime_power_factors": [
+              227
+            ],
+            "macneish_lower_bound_MOLS_count": 226,
+            "sqrt_n": 15.066519,
+            "ratio_lb_over_sqrt_n": 15.000147,
+            "ratio_lb_over_n_pow_1_over_14p8": 156.64535
+          },
+          {
+            "n": 228,
+            "prime_power_factors": [
+              4,
+              3,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 15.099669,
+            "ratio_lb_over_sqrt_n": 0.13245324,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3858304
+          },
+          {
+            "n": 229,
+            "prime_power_factors": [
+              229
+            ],
+            "macneish_lower_bound_MOLS_count": 228,
+            "sqrt_n": 15.132746,
+            "ratio_lb_over_sqrt_n": 15.066664,
+            "ratio_lb_over_n_pow_1_over_14p8": 157.93795
+          },
+          {
+            "n": 230,
+            "prime_power_factors": [
+              2,
+              5,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.165751,
+            "ratio_lb_over_sqrt_n": 0.065938047,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69250641
+          },
+          {
+            "n": 231,
+            "prime_power_factors": [
+              3,
+              7,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 15.198684,
+            "ratio_lb_over_sqrt_n": 0.13159034,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3846069
+          },
+          {
+            "n": 232,
+            "prime_power_factors": [
+              8,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 15.231546,
+            "ratio_lb_over_sqrt_n": 0.45957252,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.8447098
+          },
+          {
+            "n": 233,
+            "prime_power_factors": [
+              233
+            ],
+            "macneish_lower_bound_MOLS_count": 232,
+            "sqrt_n": 15.264338,
+            "ratio_lb_over_sqrt_n": 15.198825,
+            "ratio_lb_over_n_pow_1_over_14p8": 160.52087
+          },
+          {
+            "n": 234,
+            "prime_power_factors": [
+              2,
+              9,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.297059,
+            "ratio_lb_over_sqrt_n": 0.065372045,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69170011
+          },
+          {
+            "n": 235,
+            "prime_power_factors": [
+              5,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 15.32971,
+            "ratio_lb_over_sqrt_n": 0.26093123,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7660034
+          },
+          {
+            "n": 236,
+            "prime_power_factors": [
+              4,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 15.362291,
+            "ratio_lb_over_sqrt_n": 0.19528337,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0739074
+          },
+          {
+            "n": 237,
+            "prime_power_factors": [
+              3,
+              79
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 15.394804,
+            "ratio_lb_over_sqrt_n": 0.12991396,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.38221
+          },
+          {
+            "n": 238,
+            "prime_power_factors": [
+              2,
+              7,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.427249,
+            "ratio_lb_over_sqrt_n": 0.064820372,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.6909084
+          },
+          {
+            "n": 239,
+            "prime_power_factors": [
+              239
+            ],
+            "macneish_lower_bound_MOLS_count": 238,
+            "sqrt_n": 15.459625,
+            "ratio_lb_over_sqrt_n": 15.39494,
+            "ratio_lb_over_n_pow_1_over_14p8": 164.38962
+          },
+          {
+            "n": 240,
+            "prime_power_factors": [
+              16,
+              3,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 15.491933,
+            "ratio_lb_over_sqrt_n": 0.12909944,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3810357
+          },
+          {
+            "n": 241,
+            "prime_power_factors": [
+              241
+            ],
+            "macneish_lower_bound_MOLS_count": 240,
+            "sqrt_n": 15.524175,
+            "ratio_lb_over_sqrt_n": 15.459759,
+            "ratio_lb_over_n_pow_1_over_14p8": 165.67773
+          },
+          {
+            "n": 242,
+            "prime_power_factors": [
+              2,
+              121
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.556349,
+            "ratio_lb_over_sqrt_n": 0.064282435,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.69013077
+          },
+          {
+            "n": 243,
+            "prime_power_factors": [
+              243
+            ],
+            "macneish_lower_bound_MOLS_count": 242,
+            "sqrt_n": 15.588457,
+            "ratio_lb_over_sqrt_n": 15.524307,
+            "ratio_lb_over_n_pow_1_over_14p8": 166.96512
+          },
+          {
+            "n": 244,
+            "prime_power_factors": [
+              4,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 15.620499,
+            "ratio_lb_over_sqrt_n": 0.19205532,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0692413
+          },
+          {
+            "n": 245,
+            "prime_power_factors": [
+              5,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 15.652476,
+            "ratio_lb_over_sqrt_n": 0.25555063,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.758226
+          },
+          {
+            "n": 246,
+            "prime_power_factors": [
+              2,
+              3,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.684387,
+            "ratio_lb_over_sqrt_n": 0.063757671,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68936675
+          },
+          {
+            "n": 247,
+            "prime_power_factors": [
+              13,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 15.716234,
+            "ratio_lb_over_sqrt_n": 0.76354172,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.2701337
+          },
+          {
+            "n": 248,
+            "prime_power_factors": [
+              8,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 15.748016,
+            "ratio_lb_over_sqrt_n": 0.44450044,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.8229278
+          },
+          {
+            "n": 249,
+            "prime_power_factors": [
+              3,
+              83
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 15.779734,
+            "ratio_lb_over_sqrt_n": 0.12674485,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3776048
+          },
+          {
+            "n": 250,
+            "prime_power_factors": [
+              2,
+              125
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.811388,
+            "ratio_lb_over_sqrt_n": 0.063245553,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68861587
+          },
+          {
+            "n": 251,
+            "prime_power_factors": [
+              251
+            ],
+            "macneish_lower_bound_MOLS_count": 250,
+            "sqrt_n": 15.84298,
+            "ratio_lb_over_sqrt_n": 15.77986,
+            "ratio_lb_over_n_pow_1_over_14p8": 172.10754
+          },
+          {
+            "n": 252,
+            "prime_power_factors": [
+              4,
+              9,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 15.874508,
+            "ratio_lb_over_sqrt_n": 0.18898224,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0647357
+          },
+          {
+            "n": 253,
+            "prime_power_factors": [
+              11,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 15.905974,
+            "ratio_lb_over_sqrt_n": 0.62869461,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.8806108
+          },
+          {
+            "n": 254,
+            "prime_power_factors": [
+              2,
+              127
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 15.937377,
+            "ratio_lb_over_sqrt_n": 0.062745581,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68787771
+          },
+          {
+            "n": 255,
+            "prime_power_factors": [
+              3,
+              5,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 15.968719,
+            "ratio_lb_over_sqrt_n": 0.12524486,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3753902
+          },
+          {
+            "n": 256,
+            "prime_power_factors": [
+              256
+            ],
+            "macneish_lower_bound_MOLS_count": 255,
+            "sqrt_n": 16,
+            "ratio_lb_over_sqrt_n": 15.9375,
+            "ratio_lb_over_n_pow_1_over_14p8": 175.31588
+          },
+          {
+            "n": 257,
+            "prime_power_factors": [
+              257
+            ],
+            "macneish_lower_bound_MOLS_count": 256,
+            "sqrt_n": 16.03122,
+            "ratio_lb_over_sqrt_n": 15.968841,
+            "ratio_lb_over_n_pow_1_over_14p8": 175.95704
+          },
+          {
+            "n": 258,
+            "prime_power_factors": [
+              2,
+              3,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.062378,
+            "ratio_lb_over_sqrt_n": 0.062257281,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68715185
+          },
+          {
+            "n": 259,
+            "prime_power_factors": [
+              7,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 16.093477,
+            "ratio_lb_over_sqrt_n": 0.37282186,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.1218336
+          },
+          {
+            "n": 260,
+            "prime_power_factors": [
+              4,
+              5,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 16.124515,
+            "ratio_lb_over_sqrt_n": 0.1860521,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0603803
+          },
+          {
+            "n": 261,
+            "prime_power_factors": [
+              9,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 16.155494,
+            "ratio_lb_over_sqrt_n": 0.49518757,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.4929224
+          },
+          {
+            "n": 262,
+            "prime_power_factors": [
+              2,
+              131
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.186414,
+            "ratio_lb_over_sqrt_n": 0.061780206,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68643792
+          },
+          {
+            "n": 263,
+            "prime_power_factors": [
+              263
+            ],
+            "macneish_lower_bound_MOLS_count": 262,
+            "sqrt_n": 16.217275,
+            "ratio_lb_over_sqrt_n": 16.155612,
+            "ratio_lb_over_n_pow_1_over_14p8": 179.80045
+          },
+          {
+            "n": 264,
+            "prime_power_factors": [
+              8,
+              3,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 16.248077,
+            "ratio_lb_over_sqrt_n": 0.12309149,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3721706
+          },
+          {
+            "n": 265,
+            "prime_power_factors": [
+              5,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 16.278821,
+            "ratio_lb_over_sqrt_n": 0.24571805,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7436402
+          },
+          {
+            "n": 266,
+            "prime_power_factors": [
+              2,
+              7,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.309506,
+            "ratio_lb_over_sqrt_n": 0.061313934,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68573552
+          },
+          {
+            "n": 267,
+            "prime_power_factors": [
+              3,
+              89
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 16.340135,
+            "ratio_lb_over_sqrt_n": 0.12239801,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3711234
+          },
+          {
+            "n": 268,
+            "prime_power_factors": [
+              4,
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 16.370706,
+            "ratio_lb_over_sqrt_n": 0.18325417,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0561656
+          },
+          {
+            "n": 269,
+            "prime_power_factors": [
+              269
+            ],
+            "macneish_lower_bound_MOLS_count": 268,
+            "sqrt_n": 16.401219,
+            "ratio_lb_over_sqrt_n": 16.340248,
+            "ratio_lb_over_n_pow_1_over_14p8": 183.63791
+          },
+          {
+            "n": 270,
+            "prime_power_factors": [
+              2,
+              27,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.431677,
+            "ratio_lb_over_sqrt_n": 0.060858062,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68504431
+          },
+          {
+            "n": 271,
+            "prime_power_factors": [
+              271
+            ],
+            "macneish_lower_bound_MOLS_count": 270,
+            "sqrt_n": 16.462078,
+            "ratio_lb_over_sqrt_n": 16.401332,
+            "ratio_lb_over_n_pow_1_over_14p8": 184.91577
+          },
+          {
+            "n": 272,
+            "prime_power_factors": [
+              16,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 16.492423,
+            "ratio_lb_over_sqrt_n": 0.90950859,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.270542
+          },
+          {
+            "n": 273,
+            "prime_power_factors": [
+              3,
+              7,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 16.522712,
+            "ratio_lb_over_sqrt_n": 0.12104551,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3690661
+          },
+          {
+            "n": 274,
+            "prime_power_factors": [
+              2,
+              137
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.552945,
+            "ratio_lb_over_sqrt_n": 0.060412209,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68436395
+          },
+          {
+            "n": 275,
+            "prime_power_factors": [
+              25,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 16.583124,
+            "ratio_lb_over_sqrt_n": 0.60302269,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.8419552
+          },
+          {
+            "n": 276,
+            "prime_power_factors": [
+              4,
+              3,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 16.613248,
+            "ratio_lb_over_sqrt_n": 0.12038585,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3680555
+          },
+          {
+            "n": 277,
+            "prime_power_factors": [
+              277
+            ],
+            "macneish_lower_bound_MOLS_count": 276,
+            "sqrt_n": 16.643317,
+            "ratio_lb_over_sqrt_n": 16.583233,
+            "ratio_lb_over_n_pow_1_over_14p8": 188.74553
+          },
+          {
+            "n": 278,
+            "prime_power_factors": [
+              2,
+              139
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.673332,
+            "ratio_lb_over_sqrt_n": 0.059976014,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68369411
+          },
+          {
+            "n": 279,
+            "prime_power_factors": [
+              9,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 16.703293,
+            "ratio_lb_over_sqrt_n": 0.47894747,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.4682261
+          },
+          {
+            "n": 280,
+            "prime_power_factors": [
+              8,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 16.733201,
+            "ratio_lb_over_sqrt_n": 0.23904572,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7334521
+          },
+          {
+            "n": 281,
+            "prime_power_factors": [
+              281
+            ],
+            "macneish_lower_bound_MOLS_count": 280,
+            "sqrt_n": 16.763055,
+            "ratio_lb_over_sqrt_n": 16.7034,
+            "ratio_lb_over_n_pow_1_over_14p8": 191.29557
+          },
+          {
+            "n": 282,
+            "prime_power_factors": [
+              2,
+              3,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.792856,
+            "ratio_lb_over_sqrt_n": 0.059549133,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68303448
+          },
+          {
+            "n": 283,
+            "prime_power_factors": [
+              283
+            ],
+            "macneish_lower_bound_MOLS_count": 282,
+            "sqrt_n": 16.822604,
+            "ratio_lb_over_sqrt_n": 16.76316,
+            "ratio_lb_over_n_pow_1_over_14p8": 192.56966
+          },
+          {
+            "n": 284,
+            "prime_power_factors": [
+              4,
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 16.8523,
+            "ratio_lb_over_sqrt_n": 0.17801725,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0481252
+          },
+          {
+            "n": 285,
+            "prime_power_factors": [
+              3,
+              5,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 16.881943,
+            "ratio_lb_over_sqrt_n": 0.11846978,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3650926
+          },
+          {
+            "n": 286,
+            "prime_power_factors": [
+              2,
+              11,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 16.911535,
+            "ratio_lb_over_sqrt_n": 0.05913124,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68238476
+          },
+          {
+            "n": 287,
+            "prime_power_factors": [
+              7,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 16.941074,
+            "ratio_lb_over_sqrt_n": 0.3541688,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.0933431
+          },
+          {
+            "n": 288,
+            "prime_power_factors": [
+              32,
+              9
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 16.970563,
+            "ratio_lb_over_sqrt_n": 0.47140452,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.4565083
+          },
+          {
+            "n": 289,
+            "prime_power_factors": [
+              289
+            ],
+            "macneish_lower_bound_MOLS_count": 288,
+            "sqrt_n": 17,
+            "ratio_lb_over_sqrt_n": 16.941176,
+            "ratio_lb_over_n_pow_1_over_14p8": 196.3883
+          },
+          {
+            "n": 290,
+            "prime_power_factors": [
+              2,
+              5,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.029386,
+            "ratio_lb_over_sqrt_n": 0.058722022,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68174468
+          },
+          {
+            "n": 291,
+            "prime_power_factors": [
+              3,
+              97
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 17.058722,
+            "ratio_lb_over_sqrt_n": 0.11724208,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3631723
+          },
+          {
+            "n": 292,
+            "prime_power_factors": [
+              4,
+              73
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 17.088007,
+            "ratio_lb_over_sqrt_n": 0.17556172,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0442845
+          },
+          {
+            "n": 293,
+            "prime_power_factors": [
+              293
+            ],
+            "macneish_lower_bound_MOLS_count": 292,
+            "sqrt_n": 17.117243,
+            "ratio_lb_over_sqrt_n": 17.058822,
+            "ratio_lb_over_n_pow_1_over_14p8": 198.93106
+          },
+          {
+            "n": 294,
+            "prime_power_factors": [
+              2,
+              3,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.146428,
+            "ratio_lb_over_sqrt_n": 0.058321184,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68111395
+          },
+          {
+            "n": 295,
+            "prime_power_factors": [
+              5,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 17.175564,
+            "ratio_lb_over_sqrt_n": 0.232889,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7238308
+          },
+          {
+            "n": 296,
+            "prime_power_factors": [
+              8,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 17.204651,
+            "ratio_lb_over_sqrt_n": 0.40686674,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.7656141
+          },
+          {
+            "n": 297,
+            "prime_power_factors": [
+              27,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 17.233688,
+            "ratio_lb_over_sqrt_n": 0.58025885,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.8064689
+          },
+          {
+            "n": 298,
+            "prime_power_factors": [
+              2,
+              149
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.262677,
+            "ratio_lb_over_sqrt_n": 0.057928445,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.68049232
+          },
+          {
+            "n": 299,
+            "prime_power_factors": [
+              13,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 17.291616,
+            "ratio_lb_over_sqrt_n": 0.69397792,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.1640596
+          },
+          {
+            "n": 300,
+            "prime_power_factors": [
+              4,
+              3,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 17.320508,
+            "ratio_lb_over_sqrt_n": 0.11547005,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3603697
+          },
+          {
+            "n": 301,
+            "prime_power_factors": [
+              7,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 17.349352,
+            "ratio_lb_over_sqrt_n": 0.34583425,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.0801914
+          },
+          {
+            "n": 302,
+            "prime_power_factors": [
+              2,
+              151
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.378147,
+            "ratio_lb_over_sqrt_n": 0.057543534,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67987953
+          },
+          {
+            "n": 303,
+            "prime_power_factors": [
+              3,
+              101
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 17.406895,
+            "ratio_lb_over_sqrt_n": 0.114897,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3594554
+          },
+          {
+            "n": 304,
+            "prime_power_factors": [
+              16,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 17.435596,
+            "ratio_lb_over_sqrt_n": 0.860309,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.193646
+          },
+          {
+            "n": 305,
+            "prime_power_factors": [
+              5,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 17.464249,
+            "ratio_lb_over_sqrt_n": 0.22903933,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7177024
+          },
+          {
+            "n": 306,
+            "prime_power_factors": [
+              2,
+              9,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.492856,
+            "ratio_lb_over_sqrt_n": 0.057166195,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67927534
+          },
+          {
+            "n": 307,
+            "prime_power_factors": [
+              307
+            ],
+            "macneish_lower_bound_MOLS_count": 306,
+            "sqrt_n": 17.521415,
+            "ratio_lb_over_sqrt_n": 17.464342,
+            "ratio_lb_over_n_pow_1_over_14p8": 207.81244
+          },
+          {
+            "n": 308,
+            "prime_power_factors": [
+              4,
+              7,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 17.549929,
+            "ratio_lb_over_sqrt_n": 0.17094086,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0369292
+          },
+          {
+            "n": 309,
+            "prime_power_factors": [
+              3,
+              103
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 17.578396,
+            "ratio_lb_over_sqrt_n": 0.11377602,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3576554
+          },
+          {
+            "n": 310,
+            "prime_power_factors": [
+              2,
+              5,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.606817,
+            "ratio_lb_over_sqrt_n": 0.056796183,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67867953
+          },
+          {
+            "n": 311,
+            "prime_power_factors": [
+              311
+            ],
+            "macneish_lower_bound_MOLS_count": 310,
+            "sqrt_n": 17.635192,
+            "ratio_lb_over_sqrt_n": 17.578487,
+            "ratio_lb_over_n_pow_1_over_14p8": 210.34488
+          },
+          {
+            "n": 312,
+            "prime_power_factors": [
+              8,
+              3,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 17.663522,
+            "ratio_lb_over_sqrt_n": 0.1132277,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3567694
+          },
+          {
+            "n": 313,
+            "prime_power_factors": [
+              313
+            ],
+            "macneish_lower_bound_MOLS_count": 312,
+            "sqrt_n": 17.691806,
+            "ratio_lb_over_sqrt_n": 17.635283,
+            "ratio_lb_over_n_pow_1_over_14p8": 211.61027
+          },
+          {
+            "n": 314,
+            "prime_power_factors": [
+              2,
+              157
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.720045,
+            "ratio_lb_over_sqrt_n": 0.056433265,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67809187
+          },
+          {
+            "n": 315,
+            "prime_power_factors": [
+              9,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 17.748239,
+            "ratio_lb_over_sqrt_n": 0.22537447,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7117848
+          },
+          {
+            "n": 316,
+            "prime_power_factors": [
+              4,
+              79
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 17.776389,
+            "ratio_lb_over_sqrt_n": 0.16876319,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0334031
+          },
+          {
+            "n": 317,
+            "prime_power_factors": [
+              317
+            ],
+            "macneish_lower_bound_MOLS_count": 316,
+            "sqrt_n": 17.804494,
+            "ratio_lb_over_sqrt_n": 17.748328,
+            "ratio_lb_over_n_pow_1_over_14p8": 214.13941
+          },
+          {
+            "n": 318,
+            "prime_power_factors": [
+              2,
+              3,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.832555,
+            "ratio_lb_over_sqrt_n": 0.056077215,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67751215
+          },
+          {
+            "n": 319,
+            "prime_power_factors": [
+              11,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 17.860571,
+            "ratio_lb_over_sqrt_n": 0.55989251,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.7736843
+          },
+          {
+            "n": 320,
+            "prime_power_factors": [
+              64,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 17.888544,
+            "ratio_lb_over_sqrt_n": 0.2236068,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7089008
+          },
+          {
+            "n": 321,
+            "prime_power_factors": [
+              3,
+              107
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 17.916473,
+            "ratio_lb_over_sqrt_n": 0.11162911,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3541649
+          },
+          {
+            "n": 322,
+            "prime_power_factors": [
+              2,
+              7,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 17.944358,
+            "ratio_lb_over_sqrt_n": 0.055727821,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67694016
+          },
+          {
+            "n": 323,
+            "prime_power_factors": [
+              17,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 16,
+            "sqrt_n": 17.972201,
+            "ratio_lb_over_sqrt_n": 0.89026381,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.828774
+          },
+          {
+            "n": 324,
+            "prime_power_factors": [
+              4,
+              81
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 18,
+            "ratio_lb_over_sqrt_n": 0.16666667,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.029971
+          },
+          {
+            "n": 325,
+            "prime_power_factors": [
+              25,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 18.027756,
+            "ratio_lb_over_sqrt_n": 0.66564024,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.1181935
+          },
+          {
+            "n": 326,
+            "prime_power_factors": [
+              2,
+              163
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.05547,
+            "ratio_lb_over_sqrt_n": 0.055384878,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67637571
+          },
+          {
+            "n": 327,
+            "prime_power_factors": [
+              3,
+              109
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 18.083141,
+            "ratio_lb_over_sqrt_n": 0.11060025,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3524715
+          },
+          {
+            "n": 328,
+            "prime_power_factors": [
+              8,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 18.11077,
+            "ratio_lb_over_sqrt_n": 0.38651034,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.7326737
+          },
+          {
+            "n": 329,
+            "prime_power_factors": [
+              7,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 18.138357,
+            "ratio_lb_over_sqrt_n": 0.33079071,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.0557432
+          },
+          {
+            "n": 330,
+            "prime_power_factors": [
+              2,
+              3,
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.165902,
+            "ratio_lb_over_sqrt_n": 0.055048188,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.6758186
+          },
+          {
+            "n": 331,
+            "prime_power_factors": [
+              331
+            ],
+            "macneish_lower_bound_MOLS_count": 330,
+            "sqrt_n": 18.193405,
+            "ratio_lb_over_sqrt_n": 18.13844,
+            "ratio_lb_over_n_pow_1_over_14p8": 222.97455
+          },
+          {
+            "n": 332,
+            "prime_power_factors": [
+              4,
+              83
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 18.220867,
+            "ratio_lb_over_sqrt_n": 0.16464639,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0266282
+          },
+          {
+            "n": 333,
+            "prime_power_factors": [
+              9,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 18.248288,
+            "ratio_lb_over_sqrt_n": 0.4383973,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.4032438
+          },
+          {
+            "n": 334,
+            "prime_power_factors": [
+              2,
+              167
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.275667,
+            "ratio_lb_over_sqrt_n": 0.054717566,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67526865
+          },
+          {
+            "n": 335,
+            "prime_power_factors": [
+              5,
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 18.303005,
+            "ratio_lb_over_sqrt_n": 0.21854335,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.7005291
+          },
+          {
+            "n": 336,
+            "prime_power_factors": [
+              16,
+              3,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 18.330303,
+            "ratio_lb_over_sqrt_n": 0.10910895,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3499926
+          },
+          {
+            "n": 337,
+            "prime_power_factors": [
+              337
+            ],
+            "macneish_lower_bound_MOLS_count": 336,
+            "sqrt_n": 18.35756,
+            "ratio_lb_over_sqrt_n": 18.303086,
+            "ratio_lb_over_n_pow_1_over_14p8": 226.75323
+          },
+          {
+            "n": 338,
+            "prime_power_factors": [
+              2,
+              169
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.384776,
+            "ratio_lb_over_sqrt_n": 0.054392829,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.6747257
+          },
+          {
+            "n": 339,
+            "prime_power_factors": [
+              3,
+              113
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 18.411953,
+            "ratio_lb_over_sqrt_n": 0.10862509,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3491821
+          },
+          {
+            "n": 340,
+            "prime_power_factors": [
+              4,
+              5,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 18.439089,
+            "ratio_lb_over_sqrt_n": 0.16269784,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0233704
+          },
+          {
+            "n": 341,
+            "prime_power_factors": [
+              11,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 18.466185,
+            "ratio_lb_over_sqrt_n": 0.54153036,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.7432296
+          },
+          {
+            "n": 342,
+            "prime_power_factors": [
+              2,
+              9,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.493242,
+            "ratio_lb_over_sqrt_n": 0.054073807,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67418956
+          },
+          {
+            "n": 343,
+            "prime_power_factors": [
+              343
+            ],
+            "macneish_lower_bound_MOLS_count": 342,
+            "sqrt_n": 18.520259,
+            "ratio_lb_over_sqrt_n": 18.466264,
+            "ratio_lb_over_n_pow_1_over_14p8": 230.52735
+          },
+          {
+            "n": 344,
+            "prime_power_factors": [
+              8,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 18.547237,
+            "ratio_lb_over_sqrt_n": 0.37741471,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.7174679
+          },
+          {
+            "n": 345,
+            "prime_power_factors": [
+              3,
+              5,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 18.574176,
+            "ratio_lb_over_sqrt_n": 0.10767638,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3475836
+          },
+          {
+            "n": 346,
+            "prime_power_factors": [
+              2,
+              173
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.601075,
+            "ratio_lb_over_sqrt_n": 0.053760333,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67366007
+          },
+          {
+            "n": 347,
+            "prime_power_factors": [
+              347
+            ],
+            "macneish_lower_bound_MOLS_count": 346,
+            "sqrt_n": 18.627936,
+            "ratio_lb_over_sqrt_n": 18.574253,
+            "ratio_lb_over_n_pow_1_over_14p8": 233.04094
+          },
+          {
+            "n": 348,
+            "prime_power_factors": [
+              4,
+              3,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 18.654758,
+            "ratio_lb_over_sqrt_n": 0.10721125,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3467955
+          },
+          {
+            "n": 349,
+            "prime_power_factors": [
+              349
+            ],
+            "macneish_lower_bound_MOLS_count": 348,
+            "sqrt_n": 18.681542,
+            "ratio_lb_over_sqrt_n": 18.628013,
+            "ratio_lb_over_n_pow_1_over_14p8": 234.29699
+          },
+          {
+            "n": 350,
+            "prime_power_factors": [
+              2,
+              25,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.708287,
+            "ratio_lb_over_sqrt_n": 0.053452248,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67313707
+          },
+          {
+            "n": 351,
+            "prime_power_factors": [
+              27,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 18.734994,
+            "ratio_lb_over_sqrt_n": 0.64051262,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.0760879
+          },
+          {
+            "n": 352,
+            "prime_power_factors": [
+              32,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 18.761663,
+            "ratio_lb_over_sqrt_n": 0.53300179,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.7287796
+          },
+          {
+            "n": 353,
+            "prime_power_factors": [
+              353
+            ],
+            "macneish_lower_bound_MOLS_count": 352,
+            "sqrt_n": 18.788294,
+            "ratio_lb_over_sqrt_n": 18.73507,
+            "ratio_lb_over_n_pow_1_over_14p8": 236.80765
+          },
+          {
+            "n": 354,
+            "prime_power_factors": [
+              2,
+              3,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.814888,
+            "ratio_lb_over_sqrt_n": 0.0531494,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67262042
+          },
+          {
+            "n": 355,
+            "prime_power_factors": [
+              5,
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 18.841444,
+            "ratio_lb_over_sqrt_n": 0.21229796,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6899689
+          },
+          {
+            "n": 356,
+            "prime_power_factors": [
+              4,
+              89
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 18.867962,
+            "ratio_lb_over_sqrt_n": 0.15899968,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0170933
+          },
+          {
+            "n": 357,
+            "prime_power_factors": [
+              3,
+              7,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 18.894444,
+            "ratio_lb_over_sqrt_n": 0.10585122,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.344474
+          },
+          {
+            "n": 358,
+            "prime_power_factors": [
+              2,
+              179
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 18.920888,
+            "ratio_lb_over_sqrt_n": 0.052851642,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67210997
+          },
+          {
+            "n": 359,
+            "prime_power_factors": [
+              359
+            ],
+            "macneish_lower_bound_MOLS_count": 358,
+            "sqrt_n": 18.947295,
+            "ratio_lb_over_sqrt_n": 18.894517,
+            "ratio_lb_over_n_pow_1_over_14p8": 240.57002
+          },
+          {
+            "n": 360,
+            "prime_power_factors": [
+              8,
+              9,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 18.973666,
+            "ratio_lb_over_sqrt_n": 0.21081851,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6874281
+          },
+          {
+            "n": 361,
+            "prime_power_factors": [
+              361
+            ],
+            "macneish_lower_bound_MOLS_count": 360,
+            "sqrt_n": 19,
+            "ratio_lb_over_sqrt_n": 18.947368,
+            "ratio_lb_over_n_pow_1_over_14p8": 241.8232
+          },
+          {
+            "n": 362,
+            "prime_power_factors": [
+              2,
+              181
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.026298,
+            "ratio_lb_over_sqrt_n": 0.052558833,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67160556
+          },
+          {
+            "n": 363,
+            "prime_power_factors": [
+              3,
+              121
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.052559,
+            "ratio_lb_over_sqrt_n": 0.10497278,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3429608
+          },
+          {
+            "n": 364,
+            "prime_power_factors": [
+              4,
+              7,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 19.078784,
+            "ratio_lb_over_sqrt_n": 0.15724273,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0140668
+          },
+          {
+            "n": 365,
+            "prime_power_factors": [
+              5,
+              73
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 19.104973,
+            "ratio_lb_over_sqrt_n": 0.20936957,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6849246
+          },
+          {
+            "n": 366,
+            "prime_power_factors": [
+              2,
+              3,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.131126,
+            "ratio_lb_over_sqrt_n": 0.052270837,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67110708
+          },
+          {
+            "n": 367,
+            "prime_power_factors": [
+              367
+            ],
+            "macneish_lower_bound_MOLS_count": 366,
+            "sqrt_n": 19.157244,
+            "ratio_lb_over_sqrt_n": 19.105044,
+            "ratio_lb_over_n_pow_1_over_14p8": 245.57991
+          },
+          {
+            "n": 368,
+            "prime_power_factors": [
+              16,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 19.183326,
+            "ratio_lb_over_sqrt_n": 0.78192905,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.0629
+          },
+          {
+            "n": 369,
+            "prime_power_factors": [
+              9,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 19.209373,
+            "ratio_lb_over_sqrt_n": 0.41646337,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.3658961
+          },
+          {
+            "n": 370,
+            "prime_power_factors": [
+              2,
+              5,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.235384,
+            "ratio_lb_over_sqrt_n": 0.051987524,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67061437
+          },
+          {
+            "n": 371,
+            "prime_power_factors": [
+              7,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 19.26136,
+            "ratio_lb_over_sqrt_n": 0.31150448,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.0229525
+          },
+          {
+            "n": 372,
+            "prime_power_factors": [
+              4,
+              3,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.287302,
+            "ratio_lb_over_sqrt_n": 0.10369517,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3407403
+          },
+          {
+            "n": 373,
+            "prime_power_factors": [
+              373
+            ],
+            "macneish_lower_bound_MOLS_count": 372,
+            "sqrt_n": 19.313208,
+            "ratio_lb_over_sqrt_n": 19.26143,
+            "ratio_lb_over_n_pow_1_over_14p8": 249.33246
+          },
+          {
+            "n": 374,
+            "prime_power_factors": [
+              2,
+              11,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.33908,
+            "ratio_lb_over_sqrt_n": 0.051708769,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.67012732
+          },
+          {
+            "n": 375,
+            "prime_power_factors": [
+              3,
+              125
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.364917,
+            "ratio_lb_over_sqrt_n": 0.10327956,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3400129
+          },
+          {
+            "n": 376,
+            "prime_power_factors": [
+              8,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 19.390719,
+            "ratio_lb_over_sqrt_n": 0.36099744,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.6892011
+          },
+          {
+            "n": 377,
+            "prime_power_factors": [
+              13,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 19.416488,
+            "ratio_lb_over_sqrt_n": 0.61803144,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.037188
+          },
+          {
+            "n": 378,
+            "prime_power_factors": [
+              2,
+              27,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.442222,
+            "ratio_lb_over_sqrt_n": 0.05143445,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.6696458
+          },
+          {
+            "n": 379,
+            "prime_power_factors": [
+              379
+            ],
+            "macneish_lower_bound_MOLS_count": 378,
+            "sqrt_n": 19.467922,
+            "ratio_lb_over_sqrt_n": 19.416556,
+            "ratio_lb_over_n_pow_1_over_14p8": 253.08093
+          },
+          {
+            "n": 380,
+            "prime_power_factors": [
+              4,
+              5,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 19.493589,
+            "ratio_lb_over_sqrt_n": 0.15389675,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0082212
+          },
+          {
+            "n": 381,
+            "prime_power_factors": [
+              3,
+              127
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.519221,
+            "ratio_lb_over_sqrt_n": 0.1024631,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3385764
+          },
+          {
+            "n": 382,
+            "prime_power_factors": [
+              2,
+              191
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.54482,
+            "ratio_lb_over_sqrt_n": 0.051164451,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66916969
+          },
+          {
+            "n": 383,
+            "prime_power_factors": [
+              383
+            ],
+            "macneish_lower_bound_MOLS_count": 382,
+            "sqrt_n": 19.570386,
+            "ratio_lb_over_sqrt_n": 19.519288,
+            "ratio_lb_over_n_pow_1_over_14p8": 255.57767
+          },
+          {
+            "n": 384,
+            "prime_power_factors": [
+              128,
+              3
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.595918,
+            "ratio_lb_over_sqrt_n": 0.10206207,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3378672
+          },
+          {
+            "n": 385,
+            "prime_power_factors": [
+              5,
+              7,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 19.621417,
+            "ratio_lb_over_sqrt_n": 0.20385888,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6752643
+          },
+          {
+            "n": 386,
+            "prime_power_factors": [
+              2,
+              193
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.646883,
+            "ratio_lb_over_sqrt_n": 0.05089866,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66869887
+          },
+          {
+            "n": 387,
+            "prime_power_factors": [
+              9,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 19.672316,
+            "ratio_lb_over_sqrt_n": 0.40666285,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.3486558
+          },
+          {
+            "n": 388,
+            "prime_power_factors": [
+              4,
+              97
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 19.697716,
+            "ratio_lb_over_sqrt_n": 0.15230192,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0053962
+          },
+          {
+            "n": 389,
+            "prime_power_factors": [
+              389
+            ],
+            "macneish_lower_bound_MOLS_count": 388,
+            "sqrt_n": 19.723083,
+            "ratio_lb_over_sqrt_n": 19.672381,
+            "ratio_lb_over_n_pow_1_over_14p8": 259.31947
+          },
+          {
+            "n": 390,
+            "prime_power_factors": [
+              2,
+              3,
+              5,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.748418,
+            "ratio_lb_over_sqrt_n": 0.050636968,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66823323
+          },
+          {
+            "n": 391,
+            "prime_power_factors": [
+              17,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 16,
+            "sqrt_n": 19.77372,
+            "ratio_lb_over_sqrt_n": 0.80915478,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.689882
+          },
+          {
+            "n": 392,
+            "prime_power_factors": [
+              8,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 19.79899,
+            "ratio_lb_over_sqrt_n": 0.35355339,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.6760162
+          },
+          {
+            "n": 393,
+            "prime_power_factors": [
+              3,
+              131
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.824228,
+            "ratio_lb_over_sqrt_n": 0.10088665,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3357747
+          },
+          {
+            "n": 394,
+            "prime_power_factors": [
+              2,
+              197
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.849433,
+            "ratio_lb_over_sqrt_n": 0.050379272,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66777266
+          },
+          {
+            "n": 395,
+            "prime_power_factors": [
+              5,
+              79
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 19.874607,
+            "ratio_lb_over_sqrt_n": 0.20126184,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6706332
+          },
+          {
+            "n": 396,
+            "prime_power_factors": [
+              4,
+              9,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 19.899749,
+            "ratio_lb_over_sqrt_n": 0.15075567,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.0026327
+          },
+          {
+            "n": 397,
+            "prime_power_factors": [
+              397
+            ],
+            "macneish_lower_bound_MOLS_count": 396,
+            "sqrt_n": 19.924859,
+            "ratio_lb_over_sqrt_n": 19.87467,
+            "ratio_lb_over_n_pow_1_over_14p8": 264.30248
+          },
+          {
+            "n": 398,
+            "prime_power_factors": [
+              2,
+              199
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 19.949937,
+            "ratio_lb_over_sqrt_n": 0.050125471,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66731706
+          },
+          {
+            "n": 399,
+            "prime_power_factors": [
+              3,
+              7,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 19.974984,
+            "ratio_lb_over_sqrt_n": 0.10012523,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3344078
+          },
+          {
+            "n": 400,
+            "prime_power_factors": [
+              16,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 20,
+            "ratio_lb_over_sqrt_n": 0.75,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.006366
+          },
+          {
+            "n": 401,
+            "prime_power_factors": [
+              401
+            ],
+            "macneish_lower_bound_MOLS_count": 400,
+            "sqrt_n": 20.024984,
+            "ratio_lb_over_sqrt_n": 19.975047,
+            "ratio_lb_over_n_pow_1_over_14p8": 266.79142
+          },
+          {
+            "n": 402,
+            "prime_power_factors": [
+              2,
+              3,
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.049938,
+            "ratio_lb_over_sqrt_n": 0.049875467,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66686631
+          },
+          {
+            "n": 403,
+            "prime_power_factors": [
+              13,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 20.07486,
+            "ratio_lb_over_sqrt_n": 0.59776258,
+            "ratio_lb_over_n_pow_1_over_14p8": 8.0010525
+          },
+          {
+            "n": 404,
+            "prime_power_factors": [
+              4,
+              101
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 20.099751,
+            "ratio_lb_over_sqrt_n": 0.14925558,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9999282
+          },
+          {
+            "n": 405,
+            "prime_power_factors": [
+              81,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 20.124612,
+            "ratio_lb_over_sqrt_n": 0.1987616,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6661256
+          },
+          {
+            "n": 406,
+            "prime_power_factors": [
+              2,
+              7,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.149442,
+            "ratio_lb_over_sqrt_n": 0.049629167,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66642034
+          },
+          {
+            "n": 407,
+            "prime_power_factors": [
+              11,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 20.174241,
+            "ratio_lb_over_sqrt_n": 0.4956816,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.6630957
+          },
+          {
+            "n": 408,
+            "prime_power_factors": [
+              8,
+              3,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 20.19901,
+            "ratio_lb_over_sqrt_n": 0.099014754,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3323982
+          },
+          {
+            "n": 409,
+            "prime_power_factors": [
+              409
+            ],
+            "macneish_lower_bound_MOLS_count": 408,
+            "sqrt_n": 20.223748,
+            "ratio_lb_over_sqrt_n": 20.174302,
+            "ratio_lb_over_n_pow_1_over_14p8": 271.76428
+          },
+          {
+            "n": 410,
+            "prime_power_factors": [
+              2,
+              5,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.248457,
+            "ratio_lb_over_sqrt_n": 0.04938648,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66597902
+          },
+          {
+            "n": 411,
+            "prime_power_factors": [
+              3,
+              137
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 20.273135,
+            "ratio_lb_over_sqrt_n": 0.098652725,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3317388
+          },
+          {
+            "n": 412,
+            "prime_power_factors": [
+              4,
+              103
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 20.297783,
+            "ratio_lb_over_sqrt_n": 0.14779939,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9972803
+          },
+          {
+            "n": 413,
+            "prime_power_factors": [
+              7,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 20.322401,
+            "ratio_lb_over_sqrt_n": 0.2952407,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.9939063
+          },
+          {
+            "n": 414,
+            "prime_power_factors": [
+              2,
+              9,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.34699,
+            "ratio_lb_over_sqrt_n": 0.049147319,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66554228
+          },
+          {
+            "n": 415,
+            "prime_power_factors": [
+              5,
+              83
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 20.371549,
+            "ratio_lb_over_sqrt_n": 0.19635228,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6617352
+          },
+          {
+            "n": 416,
+            "prime_power_factors": [
+              32,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 20.396078,
+            "ratio_lb_over_sqrt_n": 0.58834841,
+            "ratio_lb_over_n_pow_1_over_14p8": 7.9839072
+          },
+          {
+            "n": 417,
+            "prime_power_factors": [
+              3,
+              139
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 20.420578,
+            "ratio_lb_over_sqrt_n": 0.097940421,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3304354
+          },
+          {
+            "n": 418,
+            "prime_power_factors": [
+              2,
+              11,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.445048,
+            "ratio_lb_over_sqrt_n": 0.048911599,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66511003
+          },
+          {
+            "n": 419,
+            "prime_power_factors": [
+              419
+            ],
+            "macneish_lower_bound_MOLS_count": 418,
+            "sqrt_n": 20.469489,
+            "ratio_lb_over_sqrt_n": 20.420636,
+            "ratio_lb_over_n_pow_1_over_14p8": 277.97111
+          },
+          {
+            "n": 420,
+            "prime_power_factors": [
+              4,
+              3,
+              5,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 20.493902,
+            "ratio_lb_over_sqrt_n": 0.097590007,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3297911
+          },
+          {
+            "n": 421,
+            "prime_power_factors": [
+              421
+            ],
+            "macneish_lower_bound_MOLS_count": 420,
+            "sqrt_n": 20.518285,
+            "ratio_lb_over_sqrt_n": 20.469548,
+            "ratio_lb_over_n_pow_1_over_14p8": 279.21126
+          },
+          {
+            "n": 422,
+            "prime_power_factors": [
+              2,
+              211
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.542639,
+            "ratio_lb_over_sqrt_n": 0.048679238,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66468216
+          },
+          {
+            "n": 423,
+            "prime_power_factors": [
+              9,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 20.566964,
+            "ratio_lb_over_sqrt_n": 0.38897331,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.316607
+          },
+          {
+            "n": 424,
+            "prime_power_factors": [
+              8,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 20.59126,
+            "ratio_lb_over_sqrt_n": 0.33995005,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.651289
+          },
+          {
+            "n": 425,
+            "prime_power_factors": [
+              25,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 16,
+            "sqrt_n": 20.615528,
+            "ratio_lb_over_sqrt_n": 0.776114,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.629826
+          },
+          {
+            "n": 426,
+            "prime_power_factors": [
+              2,
+              3,
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.639767,
+            "ratio_lb_over_sqrt_n": 0.048450158,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66425861
+          },
+          {
+            "n": 427,
+            "prime_power_factors": [
+              7,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 20.663978,
+            "ratio_lb_over_sqrt_n": 0.29036035,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.9849203
+          },
+          {
+            "n": 428,
+            "prime_power_factors": [
+              4,
+              107
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 20.688161,
+            "ratio_lb_over_sqrt_n": 0.14501047,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9921452
+          },
+          {
+            "n": 429,
+            "prime_power_factors": [
+              3,
+              11,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 20.712315,
+            "ratio_lb_over_sqrt_n": 0.09656091,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3278874
+          },
+          {
+            "n": 430,
+            "prime_power_factors": [
+              2,
+              5,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.736441,
+            "ratio_lb_over_sqrt_n": 0.048224282,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66383927
+          },
+          {
+            "n": 431,
+            "prime_power_factors": [
+              431
+            ],
+            "macneish_lower_bound_MOLS_count": 430,
+            "sqrt_n": 20.760539,
+            "ratio_lb_over_sqrt_n": 20.712371,
+            "ratio_lb_over_n_pow_1_over_14p8": 285.40609
+          },
+          {
+            "n": 432,
+            "prime_power_factors": [
+              16,
+              27
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 20.78461,
+            "ratio_lb_over_sqrt_n": 0.72168784,
+            "ratio_lb_over_n_pow_1_over_14p8": 9.9544675
+          },
+          {
+            "n": 433,
+            "prime_power_factors": [
+              433
+            ],
+            "macneish_lower_bound_MOLS_count": 432,
+            "sqrt_n": 20.808652,
+            "ratio_lb_over_sqrt_n": 20.760595,
+            "ratio_lb_over_n_pow_1_over_14p8": 286.64388
+          },
+          {
+            "n": 434,
+            "prime_power_factors": [
+              2,
+              7,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.832667,
+            "ratio_lb_over_sqrt_n": 0.048001536,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66342409
+          },
+          {
+            "n": 435,
+            "prime_power_factors": [
+              3,
+              5,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 20.856654,
+            "ratio_lb_over_sqrt_n": 0.09589266,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3266419
+          },
+          {
+            "n": 436,
+            "prime_power_factors": [
+              4,
+              109
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 20.880613,
+            "ratio_lb_over_sqrt_n": 0.14367394,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9896541
+          },
+          {
+            "n": 437,
+            "prime_power_factors": [
+              19,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 18,
+            "sqrt_n": 20.904545,
+            "ratio_lb_over_sqrt_n": 0.86105677,
+            "ratio_lb_over_n_pow_1_over_14p8": 11.936077
+          },
+          {
+            "n": 438,
+            "prime_power_factors": [
+              2,
+              3,
+              73
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 20.92845,
+            "ratio_lb_over_sqrt_n": 0.047781848,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66301296
+          },
+          {
+            "n": 439,
+            "prime_power_factors": [
+              439
+            ],
+            "macneish_lower_bound_MOLS_count": 438,
+            "sqrt_n": 20.952327,
+            "ratio_lb_over_sqrt_n": 20.904599,
+            "ratio_lb_over_n_pow_1_over_14p8": 290.35493
+          },
+          {
+            "n": 440,
+            "prime_power_factors": [
+              8,
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 20.976177,
+            "ratio_lb_over_sqrt_n": 0.19069252,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6512356
+          },
+          {
+            "n": 441,
+            "prime_power_factors": [
+              9,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 21,
+            "ratio_lb_over_sqrt_n": 0.38095238,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.3016579
+          },
+          {
+            "n": 442,
+            "prime_power_factors": [
+              2,
+              13,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.023796,
+            "ratio_lb_over_sqrt_n": 0.047565149,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66260583
+          },
+          {
+            "n": 443,
+            "prime_power_factors": [
+              443
+            ],
+            "macneish_lower_bound_MOLS_count": 442,
+            "sqrt_n": 21.047565,
+            "ratio_lb_over_sqrt_n": 21.000054,
+            "ratio_lb_over_n_pow_1_over_14p8": 292.82706
+          },
+          {
+            "n": 444,
+            "prime_power_factors": [
+              4,
+              3,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.071308,
+            "ratio_lb_over_sqrt_n": 0.0949158,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3248075
+          },
+          {
+            "n": 445,
+            "prime_power_factors": [
+              5,
+              89
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 21.095023,
+            "ratio_lb_over_sqrt_n": 0.18961819,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6492122
+          },
+          {
+            "n": 446,
+            "prime_power_factors": [
+              2,
+              223
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.118712,
+            "ratio_lb_over_sqrt_n": 0.047351372,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66220261
+          },
+          {
+            "n": 447,
+            "prime_power_factors": [
+              3,
+              149
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.142375,
+            "ratio_lb_over_sqrt_n": 0.094596754,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3242048
+          },
+          {
+            "n": 448,
+            "prime_power_factors": [
+              64,
+              7
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 21.16601,
+            "ratio_lb_over_sqrt_n": 0.28347335,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.9720147
+          },
+          {
+            "n": 449,
+            "prime_power_factors": [
+              449
+            ],
+            "macneish_lower_bound_MOLS_count": 448,
+            "sqrt_n": 21.18962,
+            "ratio_lb_over_sqrt_n": 21.142427,
+            "ratio_lb_over_n_pow_1_over_14p8": 296.53242
+          },
+          {
+            "n": 450,
+            "prime_power_factors": [
+              2,
+              9,
+              25
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.213203,
+            "ratio_lb_over_sqrt_n": 0.047140452,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66180323
+          },
+          {
+            "n": 451,
+            "prime_power_factors": [
+              11,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 21.236761,
+            "ratio_lb_over_sqrt_n": 0.47088161,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.6170398
+          },
+          {
+            "n": 452,
+            "prime_power_factors": [
+              4,
+              113
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 21.260292,
+            "ratio_lb_over_sqrt_n": 0.14110813,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9848149
+          },
+          {
+            "n": 453,
+            "prime_power_factors": [
+              3,
+              151
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.283797,
+            "ratio_lb_over_sqrt_n": 0.093968197,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3230124
+          },
+          {
+            "n": 454,
+            "prime_power_factors": [
+              2,
+              227
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.307276,
+            "ratio_lb_over_sqrt_n": 0.046932325,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66140763
+          },
+          {
+            "n": 455,
+            "prime_power_factors": [
+              5,
+              7,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 21.330729,
+            "ratio_lb_over_sqrt_n": 0.18752289,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6452372
+          },
+          {
+            "n": 456,
+            "prime_power_factors": [
+              8,
+              3,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.354157,
+            "ratio_lb_over_sqrt_n": 0.093658581,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3224224
+          },
+          {
+            "n": 457,
+            "prime_power_factors": [
+              457
+            ],
+            "macneish_lower_bound_MOLS_count": 456,
+            "sqrt_n": 21.377558,
+            "ratio_lb_over_sqrt_n": 21.33078,
+            "ratio_lb_over_n_pow_1_over_14p8": 301.46769
+          },
+          {
+            "n": 458,
+            "prime_power_factors": [
+              2,
+              229
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.400935,
+            "ratio_lb_over_sqrt_n": 0.046726931,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66101573
+          },
+          {
+            "n": 459,
+            "prime_power_factors": [
+              27,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 16,
+            "sqrt_n": 21.424285,
+            "ratio_lb_over_sqrt_n": 0.74681604,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.574693
+          },
+          {
+            "n": 460,
+            "prime_power_factors": [
+              4,
+              5,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 21.447611,
+            "ratio_lb_over_sqrt_n": 0.13987572,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9824634
+          },
+          {
+            "n": 461,
+            "prime_power_factors": [
+              461
+            ],
+            "macneish_lower_bound_MOLS_count": 460,
+            "sqrt_n": 21.470911,
+            "ratio_lb_over_sqrt_n": 21.424336,
+            "ratio_lb_over_n_pow_1_over_14p8": 303.93313
+          },
+          {
+            "n": 462,
+            "prime_power_factors": [
+              2,
+              3,
+              7,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.494185,
+            "ratio_lb_over_sqrt_n": 0.046524211,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66062746
+          },
+          {
+            "n": 463,
+            "prime_power_factors": [
+              463
+            ],
+            "macneish_lower_bound_MOLS_count": 462,
+            "sqrt_n": 21.517435,
+            "ratio_lb_over_sqrt_n": 21.470961,
+            "ratio_lb_over_n_pow_1_over_14p8": 305.1653
+          },
+          {
+            "n": 464,
+            "prime_power_factors": [
+              16,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 21.540659,
+            "ratio_lb_over_sqrt_n": 0.69635752,
+            "ratio_lb_over_n_pow_1_over_14p8": 9.9065201
+          },
+          {
+            "n": 465,
+            "prime_power_factors": [
+              3,
+              5,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.563859,
+            "ratio_lb_over_sqrt_n": 0.092747779,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3206772
+          },
+          {
+            "n": 466,
+            "prime_power_factors": [
+              2,
+              233
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.587033,
+            "ratio_lb_over_sqrt_n": 0.046324105,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.66024277
+          },
+          {
+            "n": 467,
+            "prime_power_factors": [
+              467
+            ],
+            "macneish_lower_bound_MOLS_count": 466,
+            "sqrt_n": 21.610183,
+            "ratio_lb_over_sqrt_n": 21.563908,
+            "ratio_lb_over_n_pow_1_over_14p8": 307.62857
+          },
+          {
+            "n": 468,
+            "prime_power_factors": [
+              4,
+              9,
+              13
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 21.633308,
+            "ratio_lb_over_sqrt_n": 0.13867505,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9801552
+          },
+          {
+            "n": 469,
+            "prime_power_factors": [
+              7,
+              67
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 21.656408,
+            "ratio_lb_over_sqrt_n": 0.27705426,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.9597393
+          },
+          {
+            "n": 470,
+            "prime_power_factors": [
+              2,
+              5,
+              47
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.679483,
+            "ratio_lb_over_sqrt_n": 0.04612656,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65986159
+          },
+          {
+            "n": 471,
+            "prime_power_factors": [
+              3,
+              157
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.702534,
+            "ratio_lb_over_sqrt_n": 0.092155136,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3195337
+          },
+          {
+            "n": 472,
+            "prime_power_factors": [
+              8,
+              59
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 21.725561,
+            "ratio_lb_over_sqrt_n": 0.32220112,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.617706
+          },
+          {
+            "n": 473,
+            "prime_power_factors": [
+              11,
+              43
+            ],
+            "macneish_lower_bound_MOLS_count": 10,
+            "sqrt_n": 21.748563,
+            "ratio_lb_over_sqrt_n": 0.45980049,
+            "ratio_lb_over_n_pow_1_over_14p8": 6.5957797
+          },
+          {
+            "n": 474,
+            "prime_power_factors": [
+              2,
+              3,
+              79
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.771541,
+            "ratio_lb_over_sqrt_n": 0.045931521,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65948385
+          },
+          {
+            "n": 475,
+            "prime_power_factors": [
+              25,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 18,
+            "sqrt_n": 21.794495,
+            "ratio_lb_over_sqrt_n": 0.82589664,
+            "ratio_lb_over_n_pow_1_over_14p8": 11.869019
+          },
+          {
+            "n": 476,
+            "prime_power_factors": [
+              4,
+              7,
+              17
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 21.817424,
+            "ratio_lb_over_sqrt_n": 0.13750477,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9778888
+          },
+          {
+            "n": 477,
+            "prime_power_factors": [
+              9,
+              53
+            ],
+            "macneish_lower_bound_MOLS_count": 8,
+            "sqrt_n": 21.84033,
+            "ratio_lb_over_sqrt_n": 0.36629484,
+            "ratio_lb_over_n_pow_1_over_14p8": 5.2736222
+          },
+          {
+            "n": 478,
+            "prime_power_factors": [
+              2,
+              239
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.863211,
+            "ratio_lb_over_sqrt_n": 0.045738935,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.6591095
+          },
+          {
+            "n": 479,
+            "prime_power_factors": [
+              479
+            ],
+            "macneish_lower_bound_MOLS_count": 478,
+            "sqrt_n": 21.886069,
+            "ratio_lb_over_sqrt_n": 21.840377,
+            "ratio_lb_over_n_pow_1_over_14p8": 315.00986
+          },
+          {
+            "n": 480,
+            "prime_power_factors": [
+              32,
+              3,
+              5
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.908902,
+            "ratio_lb_over_sqrt_n": 0.091287093,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3178472
+          },
+          {
+            "n": 481,
+            "prime_power_factors": [
+              13,
+              37
+            ],
+            "macneish_lower_bound_MOLS_count": 12,
+            "sqrt_n": 21.931712,
+            "ratio_lb_over_sqrt_n": 0.5471529,
+            "ratio_lb_over_n_pow_1_over_14p8": 7.9059712
+          },
+          {
+            "n": 482,
+            "prime_power_factors": [
+              2,
+              241
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 21.954498,
+            "ratio_lb_over_sqrt_n": 0.045548752,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65873849
+          },
+          {
+            "n": 483,
+            "prime_power_factors": [
+              3,
+              7,
+              23
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 21.977261,
+            "ratio_lb_over_sqrt_n": 0.091003151,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3172925
+          },
+          {
+            "n": 484,
+            "prime_power_factors": [
+              4,
+              121
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 22,
+            "ratio_lb_over_sqrt_n": 0.13636364,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9756626
+          },
+          {
+            "n": 485,
+            "prime_power_factors": [
+              5,
+              97
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 22.022716,
+            "ratio_lb_over_sqrt_n": 0.18163064,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.6338495
+          },
+          {
+            "n": 486,
+            "prime_power_factors": [
+              2,
+              243
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 22.045408,
+            "ratio_lb_over_sqrt_n": 0.045360921,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65837074
+          },
+          {
+            "n": 487,
+            "prime_power_factors": [
+              487
+            ],
+            "macneish_lower_bound_MOLS_count": 486,
+            "sqrt_n": 22.068076,
+            "ratio_lb_over_sqrt_n": 22.022762,
+            "ratio_lb_over_n_pow_1_over_14p8": 319.92374
+          },
+          {
+            "n": 488,
+            "prime_power_factors": [
+              8,
+              61
+            ],
+            "macneish_lower_bound_MOLS_count": 7,
+            "sqrt_n": 22.090722,
+            "ratio_lb_over_sqrt_n": 0.31687511,
+            "ratio_lb_over_n_pow_1_over_14p8": 4.6073166
+          },
+          {
+            "n": 489,
+            "prime_power_factors": [
+              3,
+              163
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 22.113344,
+            "ratio_lb_over_sqrt_n": 0.090443126,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3161941
+          },
+          {
+            "n": 490,
+            "prime_power_factors": [
+              2,
+              5,
+              49
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 22.135944,
+            "ratio_lb_over_sqrt_n": 0.045175395,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65800621
+          },
+          {
+            "n": 491,
+            "prime_power_factors": [
+              491
+            ],
+            "macneish_lower_bound_MOLS_count": 490,
+            "sqrt_n": 22.15852,
+            "ratio_lb_over_sqrt_n": 22.11339,
+            "ratio_lb_over_n_pow_1_over_14p8": 322.37863
+          },
+          {
+            "n": 492,
+            "prime_power_factors": [
+              4,
+              3,
+              41
+            ],
+            "macneish_lower_bound_MOLS_count": 2,
+            "sqrt_n": 22.181073,
+            "ratio_lb_over_sqrt_n": 0.090166963,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.3156503
+          },
+          {
+            "n": 493,
+            "prime_power_factors": [
+              17,
+              29
+            ],
+            "macneish_lower_bound_MOLS_count": 16,
+            "sqrt_n": 22.203603,
+            "ratio_lb_over_sqrt_n": 0.72060376,
+            "ratio_lb_over_n_pow_1_over_14p8": 10.523758
+          },
+          {
+            "n": 494,
+            "prime_power_factors": [
+              2,
+              13,
+              19
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 22.226111,
+            "ratio_lb_over_sqrt_n": 0.044992127,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65764485
+          },
+          {
+            "n": 495,
+            "prime_power_factors": [
+              9,
+              5,
+              11
+            ],
+            "macneish_lower_bound_MOLS_count": 4,
+            "sqrt_n": 22.248595,
+            "ratio_lb_over_sqrt_n": 0.17978663,
+            "ratio_lb_over_n_pow_1_over_14p8": 2.63022
+          },
+          {
+            "n": 496,
+            "prime_power_factors": [
+              16,
+              31
+            ],
+            "macneish_lower_bound_MOLS_count": 15,
+            "sqrt_n": 22.271057,
+            "ratio_lb_over_sqrt_n": 0.67351988,
+            "ratio_lb_over_n_pow_1_over_14p8": 9.86198
+          },
+          {
+            "n": 497,
+            "prime_power_factors": [
+              7,
+              71
+            ],
+            "macneish_lower_bound_MOLS_count": 6,
+            "sqrt_n": 22.293497,
+            "ratio_lb_over_sqrt_n": 0.26913678,
+            "ratio_lb_over_n_pow_1_over_14p8": 3.9442552
+          },
+          {
+            "n": 498,
+            "prime_power_factors": [
+              2,
+              3,
+              83
+            ],
+            "macneish_lower_bound_MOLS_count": 1,
+            "sqrt_n": 22.315914,
+            "ratio_lb_over_sqrt_n": 0.044811071,
+            "ratio_lb_over_n_pow_1_over_14p8": 0.65728659
+          },
+          {
+            "n": 499,
+            "prime_power_factors": [
+              499
+            ],
+            "macneish_lower_bound_MOLS_count": 498,
+            "sqrt_n": 22.338308,
+            "ratio_lb_over_sqrt_n": 22.293542,
+            "ratio_lb_over_n_pow_1_over_14p8": 327.28436
+          },
+          {
+            "n": 500,
+            "prime_power_factors": [
+              4,
+              125
+            ],
+            "macneish_lower_bound_MOLS_count": 3,
+            "sqrt_n": 22.36068,
+            "ratio_lb_over_sqrt_n": 0.13416408,
+            "ratio_lb_over_n_pow_1_over_14p8": 1.9713258
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-13T09:52:55.526Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -11,7 +11,7 @@ const UNSOLVEDMATH_PATH = path.join(ROOT, 'external', 'unsolvedmath', 'problems.
 
 function extractSection(md, heading) {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`^##\\s+${escaped}\\s*$([\\s\\S]*?)(?=^##\\s+|\\Z)`, 'im');
+  const re = new RegExp(`^##\\s+${escaped}\\s*\\n([\\s\\S]*?)(?=\\n##\\s+|\\s*$)`, 'm');
   const m = md.match(re);
   return m ? m[1].trim() : '';
 }

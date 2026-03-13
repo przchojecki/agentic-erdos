@@ -1,63 +1,71 @@
 {
   "problem": "EP-625",
-  "normalized_utc": "2026-03-05T08:54:16.964Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch16_web_compute.md",
-        "content": "### EP-625\n- Quick literature check:\n  - Page remains open with 2024 progress (Heckel/Steiner) showing the gap is not bounded whp and giving strong lower behavior along large sets of `n`.\n- Finite compute signal:\n  - Greedy estimates on `G(n,1/2)` gave small positive `chi-zeta` gaps (typically `0` or `1`) for `n<=120`.\n- Interpretation:\n  - Small-size heuristic coloring is too crude to reflect asymptotic gap growth; no contradiction with modern results."
+  "normalized_utc": "2026-03-12T19:22:54.190Z",
+  "computations": [
+    {
+      "source_file": "ep625_standalone_deeper_20260312T192252Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:22:54.190Z",
+      "data": {
+        "problem": "EP-625",
+        "script": "ep625.mjs",
+        "method": "deeper_random_graph_profile_for_chi_minus_cochromatic_gap",
+        "params": {},
+        "rows": [
+          {
+            "n": 120,
+            "trials": 28,
+            "p": 0.5,
+            "avg_edges": 3580.6786,
+            "avg_chi_upper": 22.607143,
+            "avg_zeta_upper": 21.821429,
+            "avg_gap_chi_minus_zeta": 0.78571429,
+            "min_gap_observed": 0,
+            "max_gap_observed": 2,
+            "positive_gap_frequency": 0.60714286
+          },
+          {
+            "n": 180,
+            "trials": 20,
+            "p": 0.5,
+            "avg_edges": 8056.35,
+            "avg_chi_upper": 30.95,
+            "avg_zeta_upper": 30.2,
+            "avg_gap_chi_minus_zeta": 0.75,
+            "min_gap_observed": -1,
+            "max_gap_observed": 2,
+            "positive_gap_frequency": 0.75
+          },
+          {
+            "n": 240,
+            "trials": 14,
+            "p": 0.5,
+            "avg_edges": 14341.429,
+            "avg_chi_upper": 38.928571,
+            "avg_zeta_upper": 37.928571,
+            "avg_gap_chi_minus_zeta": 1,
+            "min_gap_observed": 0,
+            "max_gap_observed": 2,
+            "positive_gap_frequency": 0.85714286
+          },
+          {
+            "n": 320,
+            "trials": 10,
+            "p": 0.5,
+            "avg_edges": 25540.9,
+            "avg_chi_upper": 48.8,
+            "avg_zeta_upper": 48,
+            "avg_gap_chi_minus_zeta": 0.8,
+            "min_gap_observed": 0,
+            "max_gap_observed": 2,
+            "positive_gap_frequency": 0.6
+          }
+        ],
+        "elapsed_ms": 1446,
+        "generated_utc": "2026-03-12T19:22:54.190Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch16_quick_compute.mjs",
-        "heading": "random graph estimates for chi(G)-zeta(G).",
-        "content": "// EP-625: random graph estimates for chi(G)-zeta(G).\n{\n  const rng = makeRng(20260304 ^ 1602);\n\n  function randomGraph(n, p = 0.5) {\n    const G = makeGraph(n);\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) {\n        if (rng() < p) addEdge(G, i, j);\n      }\n    }\n    return G;\n  }\n\n  function greedyChiUpper(G, restarts = 12) {\n    const n = G.n;\n    let best = n;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const order = Array.from({ length: n }, (_, i) => i);\n      shuffle(order, rng);\n      const col = Array(n).fill(-1);\n      let maxC = -1;\n\n      for (const v of order) {\n        const used = new Set();\n        for (const u of G.neigh[v]) {\n          if (col[u] >= 0) used.add(col[u]);\n        }\n        let c = 0;\n        while (used.has(c)) c += 1;\n        col[v] = c;\n        if (c > maxC) maxC = c;\n      }\n\n      const num = maxC + 1;\n      if (num < best) best = num;\n    }\n    return best;\n  }\n\n  function greedyZetaUpper(G, restarts = 16) {\n    const n = G.n;\n    let best = n;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const order = Array.from({ length: n }, (_, i) => i);\n      shuffle(order, rng);\n\n      const classes = []; // {type:0 unknown,1 clique,2 indep, verts:number[]}\n\n      for (const v of order) {\n        let placed = false;\n\n        // best-fit heuristic: prefer class with largest size.\n        const idx = Array.from({ length: classes.length }, (_, i) => i);\n        idx.sort((a, b) => classes[b].verts.length - classes[a].verts.length);\n\n        for (const ci of idx) {\n          const C = classes[ci];\n          if (C.type === 1) {\n            let ok = true;\n            for (const u of C.verts) {\n              if (!G.adj[u][v]) {\n                ok = false;\n                break;\n              }\n            }\n            if (!ok) continue;\n            C.verts.push(v);\n            placed = true;\n            break;\n          } else if (C.type === 2) {\n            let ok = true;\n            for (const u of C.verts) {\n              if (G.adj[u][v]) {\n                ok = false;\n                break;\n              }\n            }\n            if (!ok) continue;\n            C.verts.push(v);\n            placed = true;\n            break;\n          } else {\n            const u = C.verts[0];\n            C.verts.push(v);\n            C.type = G.adj[u][v] ? 1 : 2;\n            placed = true;\n            break;\n          }\n        }\n\n        if (!placed) {\n          classes.push({ type: 0, verts: [v] });\n        }\n      }\n\n      if (classes.length < best) best = classes.length;\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const [n, trials] of [[60, 8], [90, 6], [120, 5]]) {\n    let sumChi = 0;\n    let sumZeta = 0;\n    let minDiff = Infinity;\n    let maxDiff = -Infinity;\n\n    for (let t = 0; t < trials; t += 1) {\n      const G = randomGraph(n, 0.5);\n      const chi = greedyChiUpper(G, 14);\n      const zeta = greedyZetaUpper(G, 18);\n      const diff = chi - zeta;\n\n      sumChi += chi;\n      sumZeta += zeta;\n      if (diff < minDiff) minDiff = diff;\n      if (diff > maxDiff) maxDiff = diff;\n    }\n\n    rows.push({\n      n,\n      trials,\n      avg_greedy_chi_upper: Number((sumChi / trials).toPrecision(7)),\n      avg_greedy_zeta_upper: Number((sumZeta / trials).toPrecision(7)),\n      avg_gap_chi_minus_zeta: Number(((sumChi - sumZeta) / trials).toPrecision(7)),\n      min_gap_observed: minDiff,\n      max_gap_observed: maxDiff,\n    });\n  }\n\n  out.results.ep625 = {\n    description: 'Heuristic random-graph profile for chromatic minus cochromatic number.',\n    rows,\n  };\n}\n\n// EP-633 + EP-634: arithmetic coverage map from known constructive families.\n{\n  const NMAX = 260;\n  const represented = new Set();\n\n  // Universal square construction.\n  for (let n = 1; n * n <= NMAX; n += 1) represented.add(n * n);\n\n  // Soifer families.\n  for (let n = 1; n * n <= NMAX; n += 1) {\n    for (const c of [2, 3, 6]) {\n      const v = c * n * n;\n      if (v <= NMAX) represented.add(v);\n    }\n  }\n\n  for (let a = 1; a * a <= NMAX; a += 1) {\n    for (let b = 1; b * b <= NMAX; b += 1) {\n      const v = a * a + b * b;\n      if (v <= NMAX) represented.add(v);\n    }\n  }\n\n  // Zhang 2025 family: n^2 * a * b for n >= 3*ceil((a^2+b^2+ab-a-b)/(ab)), a>=b.\n  for (let a = 1; a <= 10; a += 1) {\n    for (let b = 1; b <= a; b += 1) {\n      const thresh = 3 * Math.ceil((a * a + b * b + a * b - a - b) / (a * b));\n      for (let n = Math.max(1, thresh); n <= 20; n += 1) {\n        const v = n * n * a * b;\n        if (v <= NMAX) represented.add(v);\n      }\n    }\n  }\n\n  const missing = [];\n  const nonSquareRepresented = [];\n  for (let x = 1; x <= NMAX; x += 1) {\n    if (!represented.has(x)) missing.push(x);\n    const rt = Math.floor(Math.sqrt(x));\n    if (represented.has(x) && rt * rt !== x) nonSquareRepresented.push(x);\n  }\n\n  out.results.ep633 = {\n    description: 'Finite arithmetic map illustrating abundance of non-square congruent-tiling counts from known families.',\n    NMAX,\n    represented_non_square_count_up_to_NMAX: nonSquareRepresented.length,\n    first_40_represented_non_squares: nonSquareRepresented.slice(0, 40),\n  };\n\n  out.results.ep634 = {\n    description: 'Coverage of n-values reachable by currently recorded constructive families.',\n    NMAX,\n    represented_count_up_to_NMAX: represented.size,\n    missing_count_up_to_NMAX: missing.length,\n    first_50_missing_values: missing.slice(0, 50),\n    checks: {\n      contains_7: represented.has(7),\n      contains_11: represented.has(11),\n      contains_19: represented.has(19),\n    },\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch16_quick_compute.json",
-        "key": "ep625",
-        "container_meta": {
-          "script": "harder_batch16_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:01:32.236Z"
-        },
-        "data": {
-          "description": "Heuristic random-graph profile for chromatic minus cochromatic number.",
-          "rows": [
-            {
-              "n": 60,
-              "trials": 8,
-              "avg_greedy_chi_upper": 13.125,
-              "avg_greedy_zeta_upper": 12.875,
-              "avg_gap_chi_minus_zeta": 0.25,
-              "min_gap_observed": 0,
-              "max_gap_observed": 1
-            },
-            {
-              "n": 90,
-              "trials": 6,
-              "avg_greedy_chi_upper": 18.33333,
-              "avg_greedy_zeta_upper": 17.83333,
-              "avg_gap_chi_minus_zeta": 0.5,
-              "min_gap_observed": 0,
-              "max_gap_observed": 1
-            },
-            {
-              "n": 120,
-              "trials": 5,
-              "avg_greedy_chi_upper": 22.6,
-              "avg_greedy_zeta_upper": 22.2,
-              "avg_gap_chi_minus_zeta": 0.4,
-              "min_gap_observed": 0,
-              "max_gap_observed": 1
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

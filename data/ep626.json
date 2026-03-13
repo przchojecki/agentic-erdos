@@ -1,5 +1,115 @@
 {
   "problem": "EP-626",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T19:22:53.204Z",
+  "computations": [
+    {
+      "source_file": "ep626_standalone_deeper_20260312T192252Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:22:53.204Z",
+      "data": {
+        "problem": "EP-626",
+        "script": "ep626.mjs",
+        "method": "deep_random_maximal_short_cycle_free_graphs_with_partial_exact_coloring_checks",
+        "params": {},
+        "rows": [
+          {
+            "m_forbidden_cycle_threshold": 4,
+            "n": 42,
+            "trials": 18,
+            "avg_edges": 103.83333,
+            "avg_girth": 5,
+            "best_chromatic_lower_bound_found": 4,
+            "strongest_chromatic_upper_bound_found": 4,
+            "exact_chi_eq_4_instances": 16,
+            "best_girth_among_exact_chi_eq_4_instances": 5
+          },
+          {
+            "m_forbidden_cycle_threshold": 4,
+            "n": 54,
+            "trials": 14,
+            "avg_edges": 149.21429,
+            "avg_girth": 5,
+            "best_chromatic_lower_bound_found": 4,
+            "strongest_chromatic_upper_bound_found": 4,
+            "exact_chi_eq_4_instances": 13,
+            "best_girth_among_exact_chi_eq_4_instances": 5
+          },
+          {
+            "m_forbidden_cycle_threshold": 5,
+            "n": 50,
+            "trials": 16,
+            "avg_edges": 98.1875,
+            "avg_girth": 6,
+            "best_chromatic_lower_bound_found": 3,
+            "strongest_chromatic_upper_bound_found": 3,
+            "exact_chi_eq_4_instances": 0,
+            "best_girth_among_exact_chi_eq_4_instances": 0
+          },
+          {
+            "m_forbidden_cycle_threshold": 5,
+            "n": 62,
+            "trials": 12,
+            "avg_edges": 130.83333,
+            "avg_girth": 6,
+            "best_chromatic_lower_bound_found": 3,
+            "strongest_chromatic_upper_bound_found": 3,
+            "exact_chi_eq_4_instances": 0,
+            "best_girth_among_exact_chi_eq_4_instances": 0
+          },
+          {
+            "m_forbidden_cycle_threshold": 6,
+            "n": 60,
+            "trials": 10,
+            "avg_edges": 97.6,
+            "avg_girth": 7,
+            "best_chromatic_lower_bound_found": 3,
+            "strongest_chromatic_upper_bound_found": 3,
+            "exact_chi_eq_4_instances": 0,
+            "best_girth_among_exact_chi_eq_4_instances": 0
+          }
+        ],
+        "g4_lower_bound_proxy_rows": [
+          {
+            "n": 42,
+            "m_source": 4,
+            "exact_chi_eq_4_instances": 16,
+            "g4_n_lower_bound_from_samples": 4,
+            "g4_over_log_n_lower_proxy": 1.0701855
+          },
+          {
+            "n": 54,
+            "m_source": 4,
+            "exact_chi_eq_4_instances": 13,
+            "g4_n_lower_bound_from_samples": 4,
+            "g4_over_log_n_lower_proxy": 1.0027616
+          },
+          {
+            "n": 50,
+            "m_source": 5,
+            "exact_chi_eq_4_instances": 0,
+            "g4_n_lower_bound_from_samples": 0,
+            "g4_over_log_n_lower_proxy": 0
+          },
+          {
+            "n": 62,
+            "m_source": 5,
+            "exact_chi_eq_4_instances": 0,
+            "g4_n_lower_bound_from_samples": 0,
+            "g4_over_log_n_lower_proxy": 0
+          },
+          {
+            "n": 60,
+            "m_source": 6,
+            "exact_chi_eq_4_instances": 0,
+            "g4_n_lower_bound_from_samples": 0,
+            "g4_over_log_n_lower_proxy": 0
+          }
+        ],
+        "elapsed_ms": 460,
+        "generated_utc": "2026-03-12T19:22:53.204Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

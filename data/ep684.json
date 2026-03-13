@@ -1,5 +1,109 @@
 {
   "problem": "EP-684",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:35:31.830Z",
+  "computations": [
+    {
+      "source_file": "ep684_standalone_deeper_20260312T203531Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:35:31.830Z",
+      "data": {
+        "problem": "EP-684",
+        "script": "ep684.mjs",
+        "method": "prime_exponent_scan_for_first_k_where_small_prime_part_of_binomial_exceeds_n2",
+        "params": {
+          "NMAX": 2400
+        },
+        "rows": [
+          {
+            "n": 120,
+            "f_n_first_k_with_u_gt_n2": 13,
+            "found": true,
+            "f_over_log_n": 2.7154094,
+            "max_log_u_over_2logn_in_scanned_k": 1.0050956
+          },
+          {
+            "n": 180,
+            "f_n_first_k_with_u_gt_n2": 13,
+            "found": true,
+            "f_over_log_n": 2.5033907,
+            "max_log_u_over_2logn_in_scanned_k": 1.2227666
+          },
+          {
+            "n": 240,
+            "f_n_first_k_with_u_gt_n2": 20,
+            "found": true,
+            "f_over_log_n": 3.6492096,
+            "max_log_u_over_2logn_in_scanned_k": 1.1067655
+          },
+          {
+            "n": 320,
+            "f_n_first_k_with_u_gt_n2": 24,
+            "found": true,
+            "f_over_log_n": 4.1606561,
+            "max_log_u_over_2logn_in_scanned_k": 1.0798971
+          },
+          {
+            "n": 420,
+            "f_n_first_k_with_u_gt_n2": 17,
+            "found": true,
+            "f_over_log_n": 2.8144508,
+            "max_log_u_over_2logn_in_scanned_k": 1.0286929
+          },
+          {
+            "n": 560,
+            "f_n_first_k_with_u_gt_n2": 22,
+            "found": true,
+            "f_over_log_n": 3.4766466,
+            "max_log_u_over_2logn_in_scanned_k": 1.1572065
+          },
+          {
+            "n": 720,
+            "f_n_first_k_with_u_gt_n2": 19,
+            "found": true,
+            "f_over_log_n": 2.8878666,
+            "max_log_u_over_2logn_in_scanned_k": 1.066003
+          },
+          {
+            "n": 900,
+            "f_n_first_k_with_u_gt_n2": 13,
+            "found": true,
+            "f_over_log_n": 1.9110917,
+            "max_log_u_over_2logn_in_scanned_k": 1.0592788
+          },
+          {
+            "n": 1200,
+            "f_n_first_k_with_u_gt_n2": 18,
+            "found": true,
+            "f_over_log_n": 2.5387595,
+            "max_log_u_over_2logn_in_scanned_k": 1.168096
+          },
+          {
+            "n": 1600,
+            "f_n_first_k_with_u_gt_n2": 17,
+            "found": true,
+            "f_over_log_n": 2.3042228,
+            "max_log_u_over_2logn_in_scanned_k": 1.0597012
+          },
+          {
+            "n": 2000,
+            "f_n_first_k_with_u_gt_n2": 31,
+            "found": true,
+            "f_over_log_n": 4.0784631,
+            "max_log_u_over_2logn_in_scanned_k": 1.1157934
+          },
+          {
+            "n": 2400,
+            "f_n_first_k_with_u_gt_n2": 26,
+            "found": true,
+            "f_over_log_n": 3.340518,
+            "max_log_u_over_2logn_in_scanned_k": 1.2252177
+          }
+        ],
+        "elapsed_ms": 1,
+        "generated_utc": "2026-03-12T20:35:31.830Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

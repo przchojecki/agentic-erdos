@@ -1,5 +1,89 @@
 {
   "problem": "EP-679",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:33:23.570Z",
+  "computations": [
+    {
+      "source_file": "ep679_standalone_deeper_20260312T203323Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:33:23.570Z",
+      "data": {
+        "problem": "EP-679",
+        "script": "ep679.mjs",
+        "method": "large_scale_numerical_stress_test_of_stronger_omega_bound_for_large_k",
+        "params": {
+          "NMAX": 1200000,
+          "KMIN": 100
+        },
+        "rows": [
+          {
+            "n": 20000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 19900,
+            "best_k_found": 110,
+            "max_gap_omega_minus_log_over_loglog": 1.9628561,
+            "corresponding_omega_n_minus_k": 5,
+            "threshold_at_best_k": 3.0371439
+          },
+          {
+            "n": 50000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 24935,
+            "best_k_found": 3590,
+            "max_gap_omega_minus_log_over_loglog": 2.1064247,
+            "corresponding_omega_n_minus_k": 6,
+            "threshold_at_best_k": 3.8935753
+          },
+          {
+            "n": 100000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 24970,
+            "best_k_found": 670,
+            "max_gap_omega_minus_log_over_loglog": 2.5255998,
+            "corresponding_omega_n_minus_k": 6,
+            "threshold_at_best_k": 3.4744002
+          },
+          {
+            "n": 200000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 25005,
+            "best_k_found": 710,
+            "max_gap_omega_minus_log_over_loglog": 2.5111649,
+            "corresponding_omega_n_minus_k": 6,
+            "threshold_at_best_k": 3.4888351
+          },
+          {
+            "n": 400000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 25040,
+            "best_k_found": 370,
+            "max_gap_omega_minus_log_over_loglog": 2.672645,
+            "corresponding_omega_n_minus_k": 6,
+            "threshold_at_best_k": 3.327355
+          },
+          {
+            "n": 800000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 25075,
+            "best_k_found": 110,
+            "max_gap_omega_minus_log_over_loglog": 2.9628561,
+            "corresponding_omega_n_minus_k": 6,
+            "threshold_at_best_k": 3.0371439
+          },
+          {
+            "n": 1200000,
+            "k_min_in_scan": 100,
+            "scanned_k_count": 25095,
+            "best_k_found": 6990,
+            "max_gap_omega_minus_log_over_loglog": 2.9405891,
+            "corresponding_omega_n_minus_k": 7,
+            "threshold_at_best_k": 4.0594109
+          }
+        ],
+        "elapsed_ms": 21,
+        "generated_utc": "2026-03-12T20:33:23.570Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

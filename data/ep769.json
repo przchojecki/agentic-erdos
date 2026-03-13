@@ -1,153 +1,255 @@
 {
   "problem": "EP-769",
-  "normalized_utc": "2026-03-05T08:54:16.966Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch17_web_compute.md",
-        "content": "### EP-769\n- Quick literature check:\n  - Still open; lower and upper bounds remain far apart in high dimensions.\n- Finite compute signal:\n  - Numeric table of known bounds shows the ratio gap widens dramatically with `n`.\n- Interpretation:\n  - Current theory leaves a large asymptotic uncertainty for `c(n)`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch17_quick_compute.mjs",
-        "heading": "numeric bound landscape for c(n).",
-        "content": "// EP-769: numeric bound landscape for c(n).\n{\n  const rows = [];\n  for (let n = 2; n <= 14; n += 1) {\n    const lowerClassic = 2 ** n + 2 ** (n - 1);\n    const lower2018 = n >= 3 ? 2 ** (n + 1) - 1 : null;\n    const upperGeneral = n >= 3 ? (2 * n) ** (n - 1) : null;\n    const upperPrimeCase = 1.8 * (n ** (n + 1));\n    const upperOther = Math.E ** 2 * (n ** n);\n\n    rows.push({\n      n,\n      lower_hadwiger: lowerClassic,\n      lower_2018_if_n_ge_3: lower2018,\n      upper_general_2n_pow_n_minus_1: upperGeneral === null ? null : Number(upperGeneral.toPrecision(7)),\n      upper_if_n_plus_1_prime: Number(upperPrimeCase.toPrecision(7)),\n      upper_otherwise: Number(upperOther.toPrecision(7)),\n      lower_over_n_pow_n: Number((lowerClassic / (n ** n)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep769 = {\n    description: 'Finite numeric comparison of known lower/upper bounds for c(n).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch17_quick_compute.json",
-        "key": "ep769",
-        "container_meta": {
-          "script": "harder_batch17_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:13:20.362Z"
+  "normalized_utc": "2026-03-13T10:11:46.141Z",
+  "computations": [
+    {
+      "source_file": "ep769_standalone_deeper_20260313T101034Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:10:34.481Z",
+      "data": {
+        "problem": "EP-769",
+        "script": "ep769.mjs",
+        "method": "extended_numeric_landscape_for_cube_tiling_threshold_c_n_bounds",
+        "params": {
+          "N_MAX": 24
         },
-        "data": {
-          "description": "Finite numeric comparison of known lower/upper bounds for c(n).",
-          "rows": [
-            {
-              "n": 2,
-              "lower_hadwiger": 6,
-              "lower_2018_if_n_ge_3": null,
-              "upper_general_2n_pow_n_minus_1": null,
-              "upper_if_n_plus_1_prime": 14.4,
-              "upper_otherwise": 29.55622,
-              "lower_over_n_pow_n": 1.5
-            },
-            {
-              "n": 3,
-              "lower_hadwiger": 12,
-              "lower_2018_if_n_ge_3": 15,
-              "upper_general_2n_pow_n_minus_1": 36,
-              "upper_if_n_plus_1_prime": 145.8,
-              "upper_otherwise": 199.5045,
-              "lower_over_n_pow_n": 0.4444444
-            },
-            {
-              "n": 4,
-              "lower_hadwiger": 24,
-              "lower_2018_if_n_ge_3": 31,
-              "upper_general_2n_pow_n_minus_1": 512,
-              "upper_if_n_plus_1_prime": 1843.2,
-              "upper_otherwise": 1891.598,
-              "lower_over_n_pow_n": 0.09375
-            },
-            {
-              "n": 5,
-              "lower_hadwiger": 48,
-              "lower_2018_if_n_ge_3": 63,
-              "upper_general_2n_pow_n_minus_1": 10000,
-              "upper_if_n_plus_1_prime": 28125,
-              "upper_otherwise": 23090.8,
-              "lower_over_n_pow_n": 0.01536
-            },
-            {
-              "n": 6,
-              "lower_hadwiger": 96,
-              "lower_2018_if_n_ge_3": 127,
-              "upper_general_2n_pow_n_minus_1": 248832,
-              "upper_if_n_plus_1_prime": 503884.8,
-              "upper_otherwise": 344743.8,
-              "lower_over_n_pow_n": 0.002057613
-            },
-            {
-              "n": 7,
-              "lower_hadwiger": 192,
-              "lower_2018_if_n_ge_3": 255,
-              "upper_general_2n_pow_n_minus_1": 7529536,
-              "upper_if_n_plus_1_prime": 10376640,
-              "upper_otherwise": 6085205,
-              "lower_over_n_pow_n": 0.000233139
-            },
-            {
-              "n": 8,
-              "lower_hadwiger": 384,
-              "lower_2018_if_n_ge_3": 511,
-              "upper_general_2n_pow_n_minus_1": 268435500,
-              "upper_if_n_plus_1_prime": 241591900,
-              "upper_otherwise": 123967800,
-              "lower_over_n_pow_n": 0.00002288818
-            },
-            {
-              "n": 9,
-              "lower_hadwiger": 768,
-              "lower_2018_if_n_ge_3": 1023,
-              "upper_general_2n_pow_n_minus_1": 11019960000,
-              "upper_if_n_plus_1_prime": 6276212000,
-              "upper_otherwise": 2862672000,
-              "lower_over_n_pow_n": 0.000001982342
-            },
-            {
-              "n": 10,
-              "lower_hadwiger": 1536,
-              "lower_2018_if_n_ge_3": 2047,
-              "upper_general_2n_pow_n_minus_1": 512000000000,
-              "upper_if_n_plus_1_prime": 180000000000,
-              "upper_otherwise": 73890560000,
-              "lower_over_n_pow_n": 1.536e-7
-            },
-            {
-              "n": 11,
-              "lower_hadwiger": 3072,
-              "lower_2018_if_n_ge_3": 4095,
-              "upper_general_2n_pow_n_minus_1": 26559920000000,
-              "upper_if_n_plus_1_prime": 5649171000000,
-              "upper_otherwise": 2108184000000,
-              "lower_over_n_pow_n": 1.076717e-8
-            },
-            {
-              "n": 12,
-              "lower_hadwiger": 6144,
-              "lower_2018_if_n_ge_3": 8191,
-              "upper_general_2n_pow_n_minus_1": 1521681000000000,
-              "upper_if_n_plus_1_prime": 192587800000000,
-              "upper_otherwise": 65881570000000,
-              "lower_over_n_pow_n": 6.890905e-10
-            },
-            {
-              "n": 13,
-              "lower_hadwiger": 12288,
-              "lower_2018_if_n_ge_3": 16383,
-              "upper_general_2n_pow_n_minus_1": 95428960000000000,
-              "upper_if_n_plus_1_prime": 7087277000000000,
-              "upper_otherwise": 2237961000000000,
-              "lower_over_n_pow_n": 4.057118e-11
-            },
-            {
-              "n": 14,
-              "lower_hadwiger": 24576,
-              "lower_2018_if_n_ge_3": 32767,
-              "upper_general_2n_pow_n_minus_1": 6502111000000000000,
-              "upper_if_n_plus_1_prime": 280022600000000000,
-              "upper_otherwise": 82107240000000000,
-              "lower_over_n_pow_n": 2.211662e-12
-            }
-          ]
-        }
+        "rows": [
+          {
+            "n": 2,
+            "lower_hadwiger": "6",
+            "lower_2018_if_n_ge_3": null,
+            "n_pow_n": "4",
+            "best_upper_numeric": 14.4,
+            "lower_had_over_n_pow_n": 1.5,
+            "best_upper_over_n_pow_n": 3.6,
+            "best_upper_over_lower_had": 2.4
+          },
+          {
+            "n": 3,
+            "lower_hadwiger": "12",
+            "lower_2018_if_n_ge_3": "15",
+            "n_pow_n": "27",
+            "best_upper_numeric": 36,
+            "lower_had_over_n_pow_n": 0.444444444,
+            "best_upper_over_n_pow_n": 1.33333333,
+            "best_upper_over_lower_had": 3
+          },
+          {
+            "n": 4,
+            "lower_hadwiger": "24",
+            "lower_2018_if_n_ge_3": "31",
+            "n_pow_n": "256",
+            "best_upper_numeric": 512,
+            "lower_had_over_n_pow_n": 0.09375,
+            "best_upper_over_n_pow_n": 2,
+            "best_upper_over_lower_had": 21.3333333
+          },
+          {
+            "n": 5,
+            "lower_hadwiger": "48",
+            "lower_2018_if_n_ge_3": "63",
+            "n_pow_n": "3125",
+            "best_upper_numeric": 10000,
+            "lower_had_over_n_pow_n": 0.01536,
+            "best_upper_over_n_pow_n": 3.2,
+            "best_upper_over_lower_had": 208.333333
+          },
+          {
+            "n": 6,
+            "lower_hadwiger": "96",
+            "lower_2018_if_n_ge_3": "127",
+            "n_pow_n": "46656",
+            "best_upper_numeric": 248832,
+            "lower_had_over_n_pow_n": 0.00205761317,
+            "best_upper_over_n_pow_n": 5.33333333,
+            "best_upper_over_lower_had": 2592
+          },
+          {
+            "n": 7,
+            "lower_hadwiger": "192",
+            "lower_2018_if_n_ge_3": "255",
+            "n_pow_n": "823543",
+            "best_upper_numeric": 6085205.43,
+            "lower_had_over_n_pow_n": 0.00023313901,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 31693.7783
+          },
+          {
+            "n": 8,
+            "lower_hadwiger": "384",
+            "lower_2018_if_n_ge_3": "511",
+            "n_pow_n": "16777216",
+            "best_upper_numeric": 123967790,
+            "lower_had_over_n_pow_n": 0.0000228881836,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 322832.787
+          },
+          {
+            "n": 9,
+            "lower_hadwiger": "768",
+            "lower_2018_if_n_ge_3": "1023",
+            "n_pow_n": "387420489",
+            "best_upper_numeric": 2862671730,
+            "lower_had_over_n_pow_n": 0.00000198234224,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 3727437.14
+          },
+          {
+            "n": 10,
+            "lower_hadwiger": "1536",
+            "lower_2018_if_n_ge_3": "2047",
+            "n_pow_n": "10000000000",
+            "best_upper_numeric": 73890561000,
+            "lower_had_over_n_pow_n": 1.536e-7,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 48105834
+          },
+          {
+            "n": 11,
+            "lower_hadwiger": "3072",
+            "lower_2018_if_n_ge_3": "4095",
+            "n_pow_n": "285311670611",
+            "best_upper_numeric": 2108183940000,
+            "lower_had_over_n_pow_n": 1.07671726e-8,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 686257793
+          },
+          {
+            "n": 12,
+            "lower_hadwiger": "6144",
+            "lower_2018_if_n_ge_3": "8191",
+            "n_pow_n": "8916100448256",
+            "best_upper_numeric": 65881566400000,
+            "lower_had_over_n_pow_n": 6.89090487e-10,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 10722911200
+          },
+          {
+            "n": 13,
+            "lower_hadwiger": "12288",
+            "lower_2018_if_n_ge_3": "16383",
+            "n_pow_n": "302875106592253",
+            "best_upper_numeric": 2237961150000000,
+            "lower_had_over_n_pow_n": 4.05711785e-11,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 182125745000
+          },
+          {
+            "n": 14,
+            "lower_hadwiger": "24576",
+            "lower_2018_if_n_ge_3": "32767",
+            "n_pow_n": "11112006825558016",
+            "best_upper_numeric": 82107241800000000,
+            "lower_had_over_n_pow_n": 2.21166171e-12,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 3340952220000
+          },
+          {
+            "n": 15,
+            "lower_hadwiger": "49152",
+            "lower_2018_if_n_ge_3": "65535",
+            "n_pow_n": "437893890380859375",
+            "best_upper_numeric": 3235622520000000000,
+            "lower_had_over_n_pow_n": 1.12246371e-13,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 65828908700000
+          },
+          {
+            "n": 16,
+            "lower_hadwiger": "98304",
+            "lower_2018_if_n_ge_3": "131071",
+            "n_pow_n": "18446744073709551616",
+            "best_upper_numeric": 136304027000000000000,
+            "lower_had_over_n_pow_n": 5.32907052e-15,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 1386556260000000
+          },
+          {
+            "n": 17,
+            "lower_hadwiger": "196608",
+            "lower_2018_if_n_ge_3": "262143",
+            "n_pow_n": "827240261886336764177",
+            "best_upper_numeric": 6.1125247e+21,
+            "lower_had_over_n_pow_n": 2.37667349e-16,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 31089908400000000
+          },
+          {
+            "n": 18,
+            "lower_hadwiger": "393216",
+            "lower_2018_if_n_ge_3": "524287",
+            "n_pow_n": "39346408075296537575424",
+            "best_upper_numeric": 2.90732817e+23,
+            "lower_had_over_n_pow_n": 9.99369496e-18,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 739371787000000000
+          },
+          {
+            "n": 19,
+            "lower_hadwiger": "786432",
+            "lower_2018_if_n_ge_3": "1048575",
+            "n_pow_n": "1978419655660313589123979",
+            "best_upper_numeric": 1.46186538e+25,
+            "lower_had_over_n_pow_n": 3.97505149e-19,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 18588579600000000000
+          },
+          {
+            "n": 20,
+            "lower_hadwiger": "1572864",
+            "lower_2018_if_n_ge_3": "2097151",
+            "n_pow_n": "104857600000000000000000000",
+            "best_upper_numeric": 7.74798689e+26,
+            "lower_had_over_n_pow_n": 1.5e-20,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 492603740000000000000
+          },
+          {
+            "n": 21,
+            "lower_hadwiger": "3145728",
+            "lower_2018_if_n_ge_3": "4194303",
+            "n_pow_n": "5842587018385982521381124421",
+            "best_upper_numeric": 4.31712032e+28,
+            "lower_had_over_n_pow_n": 5.38413547e-22,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 1.37237559e+22
+          },
+          {
+            "n": 22,
+            "lower_hadwiger": "6291456",
+            "lower_2018_if_n_ge_3": "8388607",
+            "n_pow_n": "341427877364219557396646723584",
+            "best_upper_numeric": 2.52282974e+30,
+            "lower_had_over_n_pow_n": 1.8426896e-23,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 4.00992988e+23
+          },
+          {
+            "n": 23,
+            "lower_hadwiger": "12582912",
+            "lower_2018_if_n_ge_3": "16777215",
+            "n_pow_n": "20880467999847912034355032910567",
+            "best_upper_numeric": 1.54286949e+32,
+            "lower_had_over_n_pow_n": 6.02616378e-25,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 1.22616251e+25
+          },
+          {
+            "n": 24,
+            "lower_hadwiger": "25165824",
+            "lower_2018_if_n_ge_3": "33554431",
+            "n_pow_n": "1333735776850284124449081472843776",
+            "best_upper_numeric": 9.85504848e+33,
+            "lower_had_over_n_pow_n": 1.88686728e-26,
+            "best_upper_over_n_pow_n": 7.3890561,
+            "best_upper_over_lower_had": 3.91604442e+26
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-13T10:10:34.481Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

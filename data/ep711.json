@@ -1,60 +1,67 @@
 {
   "problem": "EP-711",
-  "normalized_utc": "2026-03-05T08:54:16.966Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch17_web_compute.md",
-        "content": "### EP-711\n- Quick literature check:\n  - Latest 2026 update: second statement (`max_m (f(n,m)-f(n,n)) -> infinity`) is proved affirmative; first near-linear upper question remains open.\n- Finite compute signal:\n  - Exact sampled `f(n,m)` computations (`n=20,30,40`, sampled `m`) show positive gaps (`10,11,15`) versus `f(n,n)`.\n- Interpretation:\n  - Finite experiments are consistent with the now-proved divergence of the gap."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch17_quick_compute.mjs",
-        "heading": "finite matching computation for f(n,m).",
-        "content": "// EP-711: finite matching computation for f(n,m).\n{\n  function hopcroftKarp(adj) {\n    const nL = adj.length;\n    const nR = Math.max(...adj.flat(), -1) + 1;\n    const pairU = Array(nL).fill(-1);\n    const pairV = Array(nR).fill(-1);\n    const dist = Array(nL).fill(0);\n\n    function bfs() {\n      const q = [];\n      for (let u = 0; u < nL; u += 1) {\n        if (pairU[u] === -1) {\n          dist[u] = 0;\n          q.push(u);\n        } else {\n          dist[u] = -1;\n        }\n      }\n\n      let found = false;\n      for (let qi = 0; qi < q.length; qi += 1) {\n        const u = q[qi];\n        for (const v of adj[u]) {\n          const u2 = pairV[v];\n          if (u2 >= 0 && dist[u2] < 0) {\n            dist[u2] = dist[u] + 1;\n            q.push(u2);\n          }\n          if (u2 === -1) found = true;\n        }\n      }\n      return found;\n    }\n\n    function dfs(u) {\n      for (const v of adj[u]) {\n        const u2 = pairV[v];\n        if (u2 === -1 || (dist[u2] === dist[u] + 1 && dfs(u2))) {\n          pairU[u] = v;\n          pairV[v] = u;\n          return true;\n        }\n      }\n      dist[u] = -1;\n      return false;\n    }\n\n    let matching = 0;\n    while (bfs()) {\n      for (let u = 0; u < nL; u += 1) {\n        if (pairU[u] === -1 && dfs(u)) matching += 1;\n      }\n    }\n\n    return matching;\n  }\n\n  function hasFeasible(n, m, L) {\n    const left = n;\n    const rightSize = L;\n    const adj = Array.from({ length: left }, () => []);\n\n    for (let k = 1; k <= n; k += 1) {\n      for (let t = m + 1; t <= m + L; t += 1) {\n        if (t % k === 0) adj[k - 1].push(t - (m + 1));\n      }\n      if (!adj[k - 1].length) return false;\n    }\n\n    const mat = hopcroftKarp(adj);\n    return mat === n;\n  }\n\n  function fnm(n, m) {\n    let lo = n;\n    let hi = 4 * n;\n    while (!hasFeasible(n, m, hi)) hi *= 2;\n    while (lo < hi) {\n      const mid = Math.floor((lo + hi) / 2);\n      if (hasFeasible(n, m, mid)) hi = mid;\n      else lo = mid + 1;\n    }\n    return lo;\n  }\n\n  const rows = [];\n  for (const n of [20, 30, 40]) {\n    const base = fnm(n, n);\n    let best = base;\n    let bestM = n;\n    for (let m = n; m <= n + 350; m += 1) {\n      const v = fnm(n, m);\n      if (v > best) {\n        best = v;\n        bestM = m;\n      }\n    }\n\n    rows.push({\n      n,\n      f_n_n: base,\n      max_f_n_m_sampled_m_in_n_to_n_plus_350: best,\n      argmax_m_sampled: bestM,\n      sampled_gap_max_minus_f_n_n: best - base,\n      max_over_n: Number((best / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep711 = {\n    description: 'Exact finite matching computation for f(n,m) over sampled m-ranges.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch17_quick_compute.json",
-        "key": "ep711",
-        "container_meta": {
-          "script": "harder_batch17_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:13:20.362Z"
+  "normalized_utc": "2026-03-13T09:46:52.971Z",
+  "computations": [
+    {
+      "source_file": "ep711_standalone_deeper_20260313T094546Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:45:47.752Z",
+      "data": {
+        "problem": "EP-711",
+        "script": "ep711.mjs",
+        "method": "exact_matching_scan_for_f_n_m_over_wider_m_ranges",
+        "params": {
+          "N_LIST": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "M_SPAN": 1000
         },
-        "data": {
-          "description": "Exact finite matching computation for f(n,m) over sampled m-ranges.",
-          "rows": [
-            {
-              "n": 20,
-              "f_n_n": 28,
-              "max_f_n_m_sampled_m_in_n_to_n_plus_350": 38,
-              "argmax_m_sampled": 361,
-              "sampled_gap_max_minus_f_n_n": 10,
-              "max_over_n": 1.9
-            },
-            {
-              "n": 30,
-              "f_n_n": 45,
-              "max_f_n_m_sampled_m_in_n_to_n_plus_350": 56,
-              "argmax_m_sampled": 378,
-              "sampled_gap_max_minus_f_n_n": 11,
-              "max_over_n": 1.866667
-            },
-            {
-              "n": 40,
-              "f_n_n": 59,
-              "max_f_n_m_sampled_m_in_n_to_n_plus_350": 74,
-              "argmax_m_sampled": 374,
-              "sampled_gap_max_minus_f_n_n": 15,
-              "max_over_n": 1.85
-            }
-          ]
-        }
+        "rows": [
+          {
+            "n": 20,
+            "m_span": 1000,
+            "f_n_n": 28,
+            "sampled_max_f_n_m": 38,
+            "argmax_m_sampled": 361,
+            "sampled_gap_max_minus_f_n_n": 10,
+            "sampled_ratio_max_over_n": 1.9
+          },
+          {
+            "n": 30,
+            "m_span": 1000,
+            "f_n_n": 45,
+            "sampled_max_f_n_m": 58,
+            "argmax_m_sampled": 841,
+            "sampled_gap_max_minus_f_n_n": 13,
+            "sampled_ratio_max_over_n": 1.9333333
+          },
+          {
+            "n": 40,
+            "m_span": 1000,
+            "f_n_n": 59,
+            "sampled_max_f_n_m": 76,
+            "argmax_m_sampled": 532,
+            "sampled_gap_max_minus_f_n_n": 17,
+            "sampled_ratio_max_over_n": 1.9
+          },
+          {
+            "n": 50,
+            "m_span": 1000,
+            "f_n_n": 76,
+            "sampled_max_f_n_m": 97,
+            "argmax_m_sampled": 777,
+            "sampled_gap_max_minus_f_n_n": 21,
+            "sampled_ratio_max_over_n": 1.94
+          }
+        ],
+        "elapsed_ms": 743,
+        "generated_utc": "2026-03-13T09:45:47.752Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

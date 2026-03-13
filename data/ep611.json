@@ -1,5 +1,95 @@
 {
   "problem": "EP-611",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T15:43:13.434Z",
+  "computations": [
+    {
+      "source_file": "ep611_standalone_deeper_20260312T154313Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:43:13.434Z",
+      "data": {
+        "problem": "EP-611",
+        "script": "ep611.mjs",
+        "method": "finite_exact_tau_profile_under_linear_minimal_maximal_clique_constraint",
+        "params": {},
+        "rows": [
+          {
+            "mode": "deterministic_family",
+            "family": "complete_graph",
+            "n": 14,
+            "min_maximal_clique_size": 14,
+            "min_maximal_clique_over_n": 1,
+            "tau_exact": 1,
+            "tau_over_n": 0.071428571
+          },
+          {
+            "mode": "deterministic_family",
+            "family": "complete_graph",
+            "n": 18,
+            "min_maximal_clique_size": 18,
+            "min_maximal_clique_over_n": 1,
+            "tau_exact": 1,
+            "tau_over_n": 0.055555556
+          },
+          {
+            "mode": "deterministic_family",
+            "family": "complete_minus_perfect_matching",
+            "n": 14,
+            "min_maximal_clique_size": 7,
+            "min_maximal_clique_over_n": 0.5,
+            "tau_exact": 2,
+            "tau_over_n": 0.14285714
+          },
+          {
+            "mode": "deterministic_family",
+            "family": "complete_minus_perfect_matching",
+            "n": 18,
+            "min_maximal_clique_size": 9,
+            "min_maximal_clique_over_n": 0.5,
+            "tau_exact": 2,
+            "tau_over_n": 0.11111111
+          },
+          {
+            "mode": "random_filtered",
+            "n": 14,
+            "c": 0.15,
+            "p": 0.46,
+            "trials": 80,
+            "accepted_with_min_maximal_clique_at_least_cn": 16,
+            "avg_min_maximal_clique_size": 3,
+            "avg_tau_exact": 3.5625,
+            "max_tau_exact": 4,
+            "avg_tau_over_n": 0.25446429
+          },
+          {
+            "mode": "random_filtered",
+            "n": 16,
+            "c": 0.18,
+            "p": 0.44,
+            "trials": 70,
+            "accepted_with_min_maximal_clique_at_least_cn": 9,
+            "avg_min_maximal_clique_size": 3,
+            "avg_tau_exact": 3.7777778,
+            "max_tau_exact": 5,
+            "avg_tau_over_n": 0.23611111
+          },
+          {
+            "mode": "random_filtered",
+            "n": 18,
+            "c": 0.2,
+            "p": 0.42,
+            "trials": 60,
+            "accepted_with_min_maximal_clique_at_least_cn": 0,
+            "avg_min_maximal_clique_size": null,
+            "avg_tau_exact": null,
+            "max_tau_exact": null,
+            "avg_tau_over_n": null
+          }
+        ],
+        "elapsed_ms": 9,
+        "generated_utc": "2026-03-12T15:43:13.434Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

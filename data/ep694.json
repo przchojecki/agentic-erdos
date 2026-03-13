@@ -1,5 +1,81 @@
 {
   "problem": "EP-694",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T21:13:06.831Z",
+  "computations": [
+    {
+      "source_file": "ep694_standalone_deeper_20260312T211306Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:13:06.831Z",
+      "data": {
+        "problem": "EP-694",
+        "script": "ep694.mjs",
+        "method": "totient_preimage_sweep_for_extremal_max_over_min_ratio",
+        "params": {
+          "MMAX": 300000
+        },
+        "rows": [
+          {
+            "x": 500,
+            "best_ratio_maxM_over_minM_up_to_x": 4.383301708,
+            "n_achieving_best_ratio": 480,
+            "minM_at_best": 527,
+            "maxM_at_best": 2310
+          },
+          {
+            "x": 1000,
+            "best_ratio_maxM_over_minM_up_to_x": 4.731369151,
+            "n_achieving_best_ratio": 576,
+            "minM_at_best": 577,
+            "maxM_at_best": 2730
+          },
+          {
+            "x": 2000,
+            "best_ratio_maxM_over_minM_up_to_x": 4.73547268,
+            "n_achieving_best_ratio": 1152,
+            "minM_at_best": 1153,
+            "maxM_at_best": 5460
+          },
+          {
+            "x": 5000,
+            "best_ratio_maxM_over_minM_up_to_x": 4.811497605,
+            "n_achieving_best_ratio": 4800,
+            "minM_at_best": 4801,
+            "maxM_at_best": 23100
+          },
+          {
+            "x": 10000,
+            "best_ratio_maxM_over_minM_up_to_x": 5.112615545,
+            "n_achieving_best_ratio": 7680,
+            "minM_at_best": 7681,
+            "maxM_at_best": 39270
+          },
+          {
+            "x": 20000,
+            "best_ratio_maxM_over_minM_up_to_x": 5.131286666,
+            "n_achieving_best_ratio": 17280,
+            "minM_at_best": 17557,
+            "maxM_at_best": 90090
+          },
+          {
+            "x": 50000,
+            "best_ratio_maxM_over_minM_up_to_x": 5.213315394,
+            "n_achieving_best_ratio": 23040,
+            "minM_at_best": 23041,
+            "maxM_at_best": 120120
+          },
+          {
+            "x": 100000,
+            "best_ratio_maxM_over_minM_up_to_x": 5.213315394,
+            "n_achieving_best_ratio": 23040,
+            "minM_at_best": 23041,
+            "maxM_at_best": 120120
+          }
+        ],
+        "elapsed_ms": 25,
+        "generated_utc": "2026-03-12T21:13:06.831Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

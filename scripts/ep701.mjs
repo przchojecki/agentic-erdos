@@ -1,122 +1,154 @@
 #!/usr/bin/env node
-const meta={problem:'EP-701',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-701 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch17_quick_compute.mjs | random finite downset checks against the star-max intersecting property. ----
-// // EP-701: random finite downset checks against the star-max intersecting property.
-// {
-//   const rng = makeRng(20260304 ^ 1704);
-// 
-//   function randomDownset(n, maxSets = 24) {
-//     const universe = 1 << n;
-// 
-//     for (let attempt = 0; attempt < 200; attempt += 1) {
-//       const tops = [];
-//       const topCount = 1 + Math.floor(rng() * (n + 2));
-// 
-//       for (let t = 0; t < topCount; t += 1) {
-//         // Prefer small-support maxima so closure stays tractable.
-//         let m = 0;
-//         for (let b = 0; b < n; b += 1) {
-//           if (rng() < 0.35) m |= 1 << b;
-//         }
-//         if (m >= universe) m = universe - 1;
-//         tops.push(m);
-//       }
-// 
-//       const F = new Set([0]);
-//       for (const m of tops) {
-//         let s = m;
-//         while (true) {
-//           F.add(s);
-//           if (s === 0) break;
-//           s = (s - 1) & m;
-//         }
-//       }
-// 
-//       if (F.size <= maxSets) return [...F];
-//     }
-// 
-//     // Guaranteed downset fallback.
-//     return [0];
-//   }
-// 
-//   function maxIntersectingExact(family) {
-//     const fam = family.filter((s) => s !== 0); // standard intersecting-family convention excludes the empty set
-//     const m = fam.length;
-//     let best = 0;
-// 
-//     function dfs(i, chosen) {
-//       if (chosen + (m - i) <= best) return;
-//       if (i === m) {
-//         if (chosen > best) best = chosen;
-//         return;
-//       }
-// 
-//       // skip
-//       dfs(i + 1, chosen);
-// 
-//       // take if intersecting with all currently selected
-//       const x = fam[i];
-//       let ok = true;
-//       for (let j = 0; j < i; j += 1) {
-//         if (!((maskChosen >> BigInt(j)) & 1n)) continue;
-//         if ((x & fam[j]) === 0) {
-//           ok = false;
-//           break;
-//         }
-//       }
-//       if (ok) {
-//         maskChosen |= 1n << BigInt(i);
-//         dfs(i + 1, chosen + 1);
-//         maskChosen &= ~(1n << BigInt(i));
-//       }
-//     }
-// 
-//     let maskChosen = 0n;
-//     dfs(0, 0);
-//     return best;
-//   }
-// 
-//   function bestStar(family, n) {
-//     let best = 0;
-//     for (let x = 0; x < n; x += 1) {
-//       const b = 1 << x;
-//       let c = 0;
-//       for (const s of family) if (s & b) c += 1;
-//       if (c > best) best = c;
-//     }
-//     return best;
-//   }
-// 
-//   const rows = [];
-//   for (const [n, samples] of [[5, 60], [6, 60], [7, 50]]) {
-//     let violations = 0;
-//     let avgGap = 0;
-// 
-//     for (let t = 0; t < samples; t += 1) {
-//       const F = randomDownset(n, 24);
-//       const mInt = maxIntersectingExact(F);
-//       const star = bestStar(F, n);
-//       const gap = star - mInt;
-//       avgGap += gap;
-//       if (gap < 0) violations += 1;
-//     }
-// 
-//     rows.push({
-//       n,
-//       samples,
-//       max_family_size_sampled: 24,
-//       violations_of_star_bound: violations,
-//       avg_star_minus_max_intersecting: Number((avgGap / samples).toPrecision(7)),
-//     });
-//   }
-// 
-//   out.results.ep701 = {
-//     description: 'Finite random-downset checks for Chvatal-type star dominance.',
-//     rows,
-//   };
-// }
-// ==== End Batch Split Integrations ====
+import fs from 'node:fs';
+import path from 'node:path';
+
+const OUT = process.env.OUT || '';
+const SAMPLES = Number(process.env.SAMPLES || 400);
+const MAX_N = Number(process.env.MAX_N || 9);
+const MAX_FAMILY_SIZE = Number(process.env.MAX_FAMILY_SIZE || 30);
+
+function makeRng(seed) {
+  let x = seed >>> 0;
+  return () => {
+    x ^= x << 13;
+    x ^= x >>> 17;
+    x ^= x << 5;
+    return ((x >>> 0) / 0x100000000);
+  };
+}
+
+const rng = makeRng(20260312 ^ 701);
+
+function randomDownset(n, maxFamilySize) {
+  const tops = [];
+  const topCount = 1 + Math.floor(rng() * (n + 3));
+  for (let t = 0; t < topCount; t += 1) {
+    let m = 0;
+    for (let b = 0; b < n; b += 1) if (rng() < 0.33) m |= (1 << b);
+    tops.push(m);
+  }
+
+  const F = new Set([0]);
+  for (const m of tops) {
+    let s = m;
+    while (true) {
+      F.add(s);
+      if (s === 0) break;
+      s = (s - 1) & m;
+      if (F.size > maxFamilySize * 3) break;
+    }
+    if (F.size > maxFamilySize * 3) break;
+  }
+
+  const arr = [...F];
+  if (arr.length <= maxFamilySize) return arr;
+
+  // fallback: keep random top and close below it
+  const keep = tops.length ? tops[Math.floor(rng() * tops.length)] : 0;
+  const G = [0];
+  let s = keep;
+  while (true) {
+    G.push(s);
+    if (s === 0) break;
+    s = (s - 1) & keep;
+    if (G.length > maxFamilySize) break;
+  }
+  return [...new Set(G)];
+}
+
+function maxIntersectingExact(family) {
+  const verts = family.filter((x) => x !== 0);
+  const m = verts.length;
+  if (m === 0) return 0;
+
+  // Build compatibility matrix for intersection graph.
+  const comp = Array.from({ length: m }, () => Array(m).fill(false));
+  for (let i = 0; i < m; i += 1) {
+    comp[i][i] = true;
+    for (let j = i + 1; j < m; j += 1) {
+      const ok = (verts[i] & verts[j]) !== 0;
+      comp[i][j] = ok;
+      comp[j][i] = ok;
+    }
+  }
+
+  let best = 0;
+  function dfs(cands, size) {
+    if (size + cands.length <= best) return;
+    if (cands.length === 0) {
+      if (size > best) best = size;
+      return;
+    }
+
+    while (cands.length > 0) {
+      if (size + cands.length <= best) return;
+      const v = cands.pop();
+      const next = [];
+      for (const u of cands) if (comp[v][u]) next.push(u);
+      dfs(next, size + 1);
+    }
+  }
+
+  dfs(Array.from({ length: m }, (_, i) => i), 0);
+  return best;
+}
+
+function bestStar(family, n) {
+  let best = 0;
+  for (let x = 0; x < n; x += 1) {
+    const b = 1 << x;
+    let c = 0;
+    for (const s of family) if ((s & b) !== 0) c += 1;
+    if (c > best) best = c;
+  }
+  return best;
+}
+
+const t0 = Date.now();
+const rows = [];
+let worst = null;
+
+for (let n = 5; n <= MAX_N; n += 1) {
+  let violations = 0;
+  let avgGap = 0;
+  let maxViolation = null;
+
+  for (let t = 0; t < SAMPLES; t += 1) {
+    const F = randomDownset(n, MAX_FAMILY_SIZE);
+    const mInt = maxIntersectingExact(F);
+    const star = bestStar(F, n);
+    const gap = star - mInt;
+    avgGap += gap;
+
+    if (gap < 0) {
+      violations += 1;
+      const rec = { n, family_size: F.length, star, max_intersecting: mInt, gap };
+      if (!maxViolation || gap < maxViolation.gap) maxViolation = rec;
+      if (!worst || gap < worst.gap) worst = rec;
+    }
+  }
+
+  rows.push({
+    n,
+    samples: SAMPLES,
+    max_family_size: MAX_FAMILY_SIZE,
+    violations_of_star_bound: violations,
+    violation_rate: Number((violations / SAMPLES).toPrecision(8)),
+    avg_star_minus_max_intersecting: Number((avgGap / SAMPLES).toPrecision(8)),
+    worst_violation_for_n: maxViolation,
+  });
+}
+
+const out = {
+  problem: 'EP-701',
+  script: path.basename(process.argv[1]),
+  method: 'exact_max_intersecting_vs_best_star_on_random_downsets',
+  params: { SAMPLES, MAX_N, MAX_FAMILY_SIZE },
+  rows,
+  worst_overall_violation: worst,
+  elapsed_ms: Date.now() - t0,
+  generated_utc: new Date().toISOString(),
+};
+
+if (OUT) fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+console.log(JSON.stringify(out, null, 2));

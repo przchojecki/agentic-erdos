@@ -1,5 +1,96 @@
 {
   "problem": "EP-712",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:49:30.612Z",
+  "computations": [
+    {
+      "source_file": "ep712_standalone_deeper_20260313T094855Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:49:01.253Z",
+      "data": {
+        "problem": "EP-712",
+        "script": "ep712.mjs",
+        "method": "finite_Kk_r_free_hypergraph_density_experiment",
+        "warning": "Finite random-greedy lower bounds only; not asymptotic determination of ex_r(n,K_k^r).",
+        "params": {
+          "R": 3,
+          "K": 4,
+          "N_LIST": [
+            10,
+            12,
+            14,
+            16,
+            18,
+            20
+          ],
+          "TRIALS": 90
+        },
+        "rows": [
+          {
+            "n": 10,
+            "r": 3,
+            "k": 4,
+            "total_r_edges": 120,
+            "random_greedy_best_Kk_free_edges": 70,
+            "greedy_density": 0.58333333,
+            "balanced_k_minus_1_partite_edges": 36,
+            "partite_density": 0.3
+          },
+          {
+            "n": 12,
+            "r": 3,
+            "k": 4,
+            "total_r_edges": 220,
+            "random_greedy_best_Kk_free_edges": 122,
+            "greedy_density": 0.55454545,
+            "balanced_k_minus_1_partite_edges": 64,
+            "partite_density": 0.29090909
+          },
+          {
+            "n": 14,
+            "r": 3,
+            "k": 4,
+            "total_r_edges": 364,
+            "random_greedy_best_Kk_free_edges": 190,
+            "greedy_density": 0.52197802,
+            "balanced_k_minus_1_partite_edges": 100,
+            "partite_density": 0.27472527
+          },
+          {
+            "n": 16,
+            "r": 3,
+            "k": 4,
+            "total_r_edges": 560,
+            "random_greedy_best_Kk_free_edges": 282,
+            "greedy_density": 0.50357143,
+            "balanced_k_minus_1_partite_edges": 150,
+            "partite_density": 0.26785714
+          },
+          {
+            "n": 18,
+            "r": 3,
+            "k": 4,
+            "total_r_edges": 816,
+            "random_greedy_best_Kk_free_edges": 396,
+            "greedy_density": 0.48529412,
+            "balanced_k_minus_1_partite_edges": 216,
+            "partite_density": 0.26470588
+          },
+          {
+            "n": 20,
+            "r": 3,
+            "k": 4,
+            "total_r_edges": 1140,
+            "random_greedy_best_Kk_free_edges": 537,
+            "greedy_density": 0.47105263,
+            "balanced_k_minus_1_partite_edges": 294,
+            "partite_density": 0.25789474
+          }
+        ],
+        "elapsed_ms": 5877,
+        "generated_utc": "2026-03-13T09:49:01.253Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

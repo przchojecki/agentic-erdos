@@ -1,57 +1,58 @@
 {
   "problem": "EP-643",
-  "normalized_utc": "2026-03-05T08:54:16.965Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch16_web_compute.md",
-        "content": "### EP-643\n- Quick literature check:\n  - Open; for `t=3` page records upper constants around `(13/9) * binom(n,2)` and asymptotic ratio still unresolved.\n- Finite compute signal:\n  - Greedy 3-uniform constructions gave about `0.59..0.62 * binom(n,2)` for `n=12,15,18`.\n- Interpretation:\n  - Computation gives lower-side witnesses only; substantial constant-factor gap remains."
+  "normalized_utc": "2026-03-12T19:42:13.559Z",
+  "computations": [
+    {
+      "source_file": "ep643_standalone_deeper_20260312T194212Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:42:13.559Z",
+      "data": {
+        "problem": "EP-643",
+        "script": "ep643.mjs",
+        "method": "deeper_greedy_lower_bound_search_for_t3_union_equality_obstruction",
+        "params": {},
+        "rows": [
+          {
+            "n": 12,
+            "restarts": 60,
+            "best_edges_found_t3": 42,
+            "binom_n_2": 66,
+            "best_over_binom_n_2": 0.63636364
+          },
+          {
+            "n": 15,
+            "restarts": 48,
+            "best_edges_found_t3": 67,
+            "binom_n_2": 105,
+            "best_over_binom_n_2": 0.63809524
+          },
+          {
+            "n": 18,
+            "restarts": 40,
+            "best_edges_found_t3": 93,
+            "binom_n_2": 153,
+            "best_over_binom_n_2": 0.60784314
+          },
+          {
+            "n": 21,
+            "restarts": 30,
+            "best_edges_found_t3": 128,
+            "binom_n_2": 210,
+            "best_over_binom_n_2": 0.60952381
+          },
+          {
+            "n": 24,
+            "restarts": 24,
+            "best_edges_found_t3": 162,
+            "binom_n_2": 276,
+            "best_over_binom_n_2": 0.58695652
+          }
+        ],
+        "elapsed_ms": 785,
+        "generated_utc": "2026-03-12T19:42:13.559Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch16_quick_compute.mjs",
-        "heading": "3-uniform hypergraph avoiding A∪B=C∪D with disjoint pairs.",
-        "content": "// EP-643: 3-uniform hypergraph avoiding A∪B=C∪D with disjoint pairs.\n{\n  const rng = makeRng(20260304 ^ 1605);\n\n  function disjoint3(a, b) {\n    return !(\n      a[0] === b[0] || a[0] === b[1] || a[0] === b[2] ||\n      a[1] === b[0] || a[1] === b[1] || a[1] === b[2] ||\n      a[2] === b[0] || a[2] === b[1] || a[2] === b[2]\n    );\n  }\n\n  function union6Key(a, b) {\n    const U = [a[0], a[1], a[2], b[0], b[1], b[2]].sort((x, y) => x - y);\n    return `${U[0]},${U[1]},${U[2]},${U[3]},${U[4]},${U[5]}`;\n  }\n\n  function greedyMax(n, restarts) {\n    const verts = Array.from({ length: n }, (_, i) => i);\n    const triples = combinations(verts, 3);\n    let best = 0;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const order = [...triples];\n      shuffle(order, rng);\n\n      const chosen = [];\n      const pairCount = new Map();\n\n      for (const e of order) {\n        const touched = [];\n        let bad = false;\n\n        for (const f of chosen) {\n          if (!disjoint3(e, f)) continue;\n          const key = union6Key(e, f);\n          const c = pairCount.get(key) || 0;\n          if (c >= 1) {\n            bad = true;\n            break;\n          }\n          touched.push(key);\n        }\n\n        if (bad) continue;\n        chosen.push(e);\n        for (const key of touched) {\n          pairCount.set(key, (pairCount.get(key) || 0) + 1);\n        }\n      }\n\n      if (chosen.length > best) best = chosen.length;\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const [n, restarts] of [[12, 24], [15, 18], [18, 14]]) {\n    const best = greedyMax(n, restarts);\n    rows.push({\n      n,\n      restarts,\n      best_edges_found_t3: best,\n      binom_n_2: choose2(n),\n      best_over_binom_n_2: Number((best / choose2(n)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep643 = {\n    description: 'Greedy lower-bound search for f(n;3)-type extremal size under union-equality obstruction.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch16_quick_compute.json",
-        "key": "ep643",
-        "container_meta": {
-          "script": "harder_batch16_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:01:32.236Z"
-        },
-        "data": {
-          "description": "Greedy lower-bound search for f(n;3)-type extremal size under union-equality obstruction.",
-          "rows": [
-            {
-              "n": 12,
-              "restarts": 24,
-              "best_edges_found_t3": 41,
-              "binom_n_2": 66,
-              "best_over_binom_n_2": 0.6212121
-            },
-            {
-              "n": 15,
-              "restarts": 18,
-              "best_edges_found_t3": 63,
-              "binom_n_2": 105,
-              "best_over_binom_n_2": 0.6
-            },
-            {
-              "n": 18,
-              "restarts": 14,
-              "best_edges_found_t3": 91,
-              "binom_n_2": 153,
-              "best_over_binom_n_2": 0.5947712
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

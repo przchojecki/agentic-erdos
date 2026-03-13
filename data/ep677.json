@@ -1,75 +1,121 @@
 {
   "problem": "EP-677",
-  "normalized_utc": "2026-03-05T08:54:16.965Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch16_web_compute.md",
-        "content": "### EP-677\n- Quick literature check:\n  - Still open; page confirms no known general resolution and keeps Erdos’ classical examples for cross-`k` equalities.\n- Finite compute signal:\n  - Exhaustive scan up to `n<=500`, `k<=8` found no same-`k` collisions with `m>=n+k`; cross-`k` scan reproduces known examples and finds additional finite cross-`k` coincidences in-range.\n- Interpretation:\n  - Computation supports rarity of equal interval-LCM values for fixed `k`, but cannot address asymptotic finiteness alone.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/620\n  - https://www.erdosproblems.com/625\n  - https://www.erdosproblems.com/633\n  - https://www.erdosproblems.com/634\n  - https://www.erdosproblems.com/642\n  - https://www.erdosproblems.com/643\n  - https://www.erdosproblems.com/652\n  - https://www.erdosproblems.com/657\n  - https://www.erdosproblems.com/668\n  - https://www.erdosproblems.com/677\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2411.10394\n  - https://arxiv.org/abs/2411.18906\n  - https://doi.org/10.1016/j.aim.2025.110228\n  - https://arxiv.org/abs/2508.20041\n  - https://arxiv.org/abs/2506.14910"
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch16_quick_compute.mjs",
-        "heading": "collision search for M(n,k)=lcm(n+1,...,n+k).",
-        "content": "// EP-677: collision search for M(n,k)=lcm(n+1,...,n+k).\n{\n  function M(n, k) {\n    let v = 1n;\n    for (let i = 1; i <= k; i += 1) {\n      v = lcmBig(v, BigInt(n + i));\n    }\n    return v;\n  }\n\n  const NMAX = 500;\n  const KMAX = 8;\n\n  const collisionsSameK = [];\n  const crossKCollisions = [];\n\n  for (let k = 2; k <= KMAX; k += 1) {\n    const seen = new Map();\n    for (let n = 1; n <= NMAX; n += 1) {\n      const v = M(n, k).toString();\n      if (!seen.has(v)) seen.set(v, []);\n      const prev = seen.get(v);\n\n      for (const m0 of prev) {\n        const a = Math.min(m0, n);\n        const b = Math.max(m0, n);\n        if (b >= a + k) {\n          collisionsSameK.push({ k, n: a, m: b, lcm_value_digits: v.length });\n        }\n      }\n\n      prev.push(n);\n    }\n  }\n\n  // Search M(n,k)=M(m,l) with l<k, m>=n+k, small ranges.\n  const vals = [];\n  for (let k = 2; k <= 6; k += 1) {\n    for (let n = 1; n <= 200; n += 1) {\n      vals.push({ n, k, v: M(n, k).toString() });\n    }\n  }\n\n  const byValue = new Map();\n  for (const r of vals) {\n    if (!byValue.has(r.v)) byValue.set(r.v, []);\n    byValue.get(r.v).push(r);\n  }\n\n  for (const arr of byValue.values()) {\n    if (arr.length < 2) continue;\n    for (let i = 0; i < arr.length; i += 1) {\n      for (let j = i + 1; j < arr.length; j += 1) {\n        const a = arr[i];\n        const b = arr[j];\n        let x = a;\n        let y = b;\n        if (x.k < y.k) {\n          const t = x;\n          x = y;\n          y = t;\n        }\n        if (y.k >= x.k) continue;\n        if (y.n >= x.n + x.k) {\n          crossKCollisions.push({ n: x.n, k: x.k, m: y.n, l: y.k });\n        }\n      }\n    }\n  }\n\n  out.results.ep677 = {\n    description: 'Finite collision scan for equal interval-LCM values.',\n    search_limits: {\n      n_up_to_same_k: NMAX,\n      k_up_to_same_k: KMAX,\n      n_up_to_cross_k: 200,\n      k_up_to_cross_k: 6,\n    },\n    same_k_collisions_count: collisionsSameK.length,\n    first_40_same_k_collisions: collisionsSameK.slice(0, 40),\n    cross_k_collisions_count: crossKCollisions.length,\n    first_40_cross_k_collisions: crossKCollisions.slice(0, 40),\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch16_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch16_quick_compute.json",
-        "key": "ep677",
-        "container_meta": {
-          "script": "harder_batch16_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:01:32.236Z"
+  "normalized_utc": "2026-03-12T20:32:56.414Z",
+  "computations": [
+    {
+      "source_file": "ep677_standalone_deeper_20260312T203256Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:32:56.414Z",
+      "data": {
+        "problem": "EP-677",
+        "script": "ep677.mjs",
+        "method": "deeper_finite_collision_scan_for_interval_lcm_values",
+        "params": {
+          "NMAX": 1600,
+          "KMAX": 10,
+          "CROSS_N": 600,
+          "CROSS_K": 8
         },
-        "data": {
-          "description": "Finite collision scan for equal interval-LCM values.",
-          "search_limits": {
-            "n_up_to_same_k": 500,
-            "k_up_to_same_k": 8,
-            "n_up_to_cross_k": 200,
-            "k_up_to_cross_k": 6
+        "same_k_rows": [
+          {
+            "k": 2,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
           },
-          "same_k_collisions_count": 0,
-          "first_40_same_k_collisions": [],
-          "cross_k_collisions_count": 5,
-          "first_40_cross_k_collisions": [
-            {
-              "n": 4,
-              "k": 3,
-              "m": 13,
-              "l": 2
-            },
-            {
-              "n": 3,
-              "k": 4,
-              "m": 19,
-              "l": 2
-            },
-            {
-              "n": 2,
-              "k": 5,
-              "m": 19,
-              "l": 2
-            },
-            {
-              "n": 1,
-              "k": 6,
-              "m": 19,
-              "l": 2
-            },
-            {
-              "n": 8,
-              "k": 4,
-              "m": 43,
-              "l": 2
-            }
-          ]
-        }
+          {
+            "k": 3,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 4,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 5,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 6,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 7,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 8,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 9,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          },
+          {
+            "k": 10,
+            "n_scan_limit": 1600,
+            "same_k_collision_count": 0,
+            "first_10": []
+          }
+        ],
+        "cross_k_rows": [
+          {
+            "n_scan_limit": 600,
+            "k_scan_limit": 8,
+            "cross_k_collision_count": 5,
+            "first_20": [
+              {
+                "n": 4,
+                "k": 3,
+                "m": 13,
+                "l": 2
+              },
+              {
+                "n": 3,
+                "k": 4,
+                "m": 19,
+                "l": 2
+              },
+              {
+                "n": 2,
+                "k": 5,
+                "m": 19,
+                "l": 2
+              },
+              {
+                "n": 1,
+                "k": 6,
+                "m": 19,
+                "l": 2
+              },
+              {
+                "n": 8,
+                "k": 4,
+                "m": 43,
+                "l": 2
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 14,
+        "generated_utc": "2026-03-12T20:32:56.414Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

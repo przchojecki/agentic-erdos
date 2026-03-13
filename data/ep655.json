@@ -1,5 +1,72 @@
 {
   "problem": "EP-655",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:14:04.502Z",
+  "computations": [
+    {
+      "source_file": "ep655_standalone_deeper_20260312T201404Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:14:04.502Z",
+      "data": {
+        "problem": "EP-655",
+        "script": "ep655.mjs",
+        "method": "regular_n_gon_counterexample_verification_for_as_written_conjecture",
+        "params": {},
+        "rows": [
+          {
+            "n": 30,
+            "condition_no_centered_circle_through_three_other_points": true,
+            "distinct_distances_total": 21,
+            "distinct_over_n": 0.7,
+            "target_threshold_n_over_2": 15,
+            "target_ratio_required_for_conjecture": "> 0.5 + c"
+          },
+          {
+            "n": 60,
+            "condition_no_centered_circle_through_three_other_points": true,
+            "distinct_distances_total": 38,
+            "distinct_over_n": 0.63333333,
+            "target_threshold_n_over_2": 30,
+            "target_ratio_required_for_conjecture": "> 0.5 + c"
+          },
+          {
+            "n": 120,
+            "condition_no_centered_circle_through_three_other_points": true,
+            "distinct_distances_total": 80,
+            "distinct_over_n": 0.66666667,
+            "target_threshold_n_over_2": 60,
+            "target_ratio_required_for_conjecture": "> 0.5 + c"
+          },
+          {
+            "n": 240,
+            "condition_no_centered_circle_through_three_other_points": true,
+            "distinct_distances_total": 160,
+            "distinct_over_n": 0.66666667,
+            "target_threshold_n_over_2": 120,
+            "target_ratio_required_for_conjecture": "> 0.5 + c"
+          },
+          {
+            "n": 480,
+            "condition_no_centered_circle_through_three_other_points": true,
+            "distinct_distances_total": 319,
+            "distinct_over_n": 0.66458333,
+            "target_threshold_n_over_2": 240,
+            "target_ratio_required_for_conjecture": "> 0.5 + c"
+          },
+          {
+            "n": 960,
+            "condition_no_centered_circle_through_three_other_points": true,
+            "distinct_distances_total": 650,
+            "distinct_over_n": 0.67708333,
+            "target_threshold_n_over_2": 480,
+            "target_ratio_required_for_conjecture": "> 0.5 + c"
+          }
+        ],
+        "elapsed_ms": 263,
+        "generated_utc": "2026-03-12T20:14:04.502Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation",
+  "closure_state": "resolved"
 }

@@ -1,5 +1,71 @@
 {
   "problem": "EP-640",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T19:39:36.436Z",
+  "computations": [
+    {
+      "source_file": "ep640_standalone_deeper_20260312T193936Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:39:36.436Z",
+      "data": {
+        "problem": "EP-640",
+        "script": "ep640.mjs",
+        "method": "mycielski_family_probe_for_odd_cycle_induced_chromatic_behavior",
+        "params": {},
+        "rows": [
+          {
+            "construction": "C5",
+            "n": 5,
+            "known_chi_for_mycielski": 3,
+            "chi_upper_computed": 3,
+            "odd_cycle_vertex_count_found": 5,
+            "induced_chromatic_upper_on_found_odd_cycle_vertices": 3
+          },
+          {
+            "construction": "M^1(C5)",
+            "n": 11,
+            "known_chi_for_mycielski": 4,
+            "chi_upper_computed": 4,
+            "odd_cycle_vertex_count_found": 5,
+            "induced_chromatic_upper_on_found_odd_cycle_vertices": 3
+          },
+          {
+            "construction": "M^2(C5)",
+            "n": 23,
+            "known_chi_for_mycielski": 5,
+            "chi_upper_computed": 5,
+            "odd_cycle_vertex_count_found": 5,
+            "induced_chromatic_upper_on_found_odd_cycle_vertices": 3
+          },
+          {
+            "construction": "M^3(C5)",
+            "n": 47,
+            "known_chi_for_mycielski": 6,
+            "chi_upper_computed": 6,
+            "odd_cycle_vertex_count_found": 5,
+            "induced_chromatic_upper_on_found_odd_cycle_vertices": 3
+          },
+          {
+            "construction": "M^4(C5)",
+            "n": 95,
+            "known_chi_for_mycielski": 7,
+            "chi_upper_computed": 7,
+            "odd_cycle_vertex_count_found": 5,
+            "induced_chromatic_upper_on_found_odd_cycle_vertices": 3
+          },
+          {
+            "construction": "M^5(C5)",
+            "n": 191,
+            "known_chi_for_mycielski": 8,
+            "chi_upper_computed": 8,
+            "odd_cycle_vertex_count_found": 5,
+            "induced_chromatic_upper_on_found_odd_cycle_vertices": 3
+          }
+        ],
+        "elapsed_ms": 13,
+        "generated_utc": "2026-03-12T19:39:36.436Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

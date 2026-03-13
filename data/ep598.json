@@ -1,5 +1,435 @@
 {
   "problem": "EP-598",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:52:33.486Z",
+  "computations": [
+    {
+      "source_file": "ep598_standalone_deeper_20260312T135233Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:52:33.486Z",
+      "data": {
+        "problem": "EP-598",
+        "script": "ep598.mjs",
+        "method": "dataset_integrity_scan_for_injected_json_fragment_and_empty_backgrounds",
+        "params": {
+          "sources": [
+            "external/unsolvedmath/problems.json",
+            "external/unsolvedmath/dataset.json"
+          ]
+        },
+        "rows": [
+          {
+            "source_file": "external/unsolvedmath/problems.json",
+            "total_entries": 1146,
+            "empty_background_count": 17,
+            "malformed_injected_fragment_count": 592,
+            "sample_first_25": [
+              {
+                "problem_number": "EP-77",
+                "id": 1914,
+                "title": "Erdős Problem #77",
+                "statement_len": 207,
+                "background_len": 3021
+              },
+              {
+                "problem_number": "EP-78",
+                "id": 1915,
+                "title": "Erdős Problem #78",
+                "statement_len": 66,
+                "background_len": 1262
+              },
+              {
+                "problem_number": "EP-80",
+                "id": 1916,
+                "title": "Erdős Problem #80",
+                "statement_len": 383,
+                "background_len": 1018
+              },
+              {
+                "problem_number": "EP-81",
+                "id": 1917,
+                "title": "Erdős Problem #81",
+                "statement_len": 175,
+                "background_len": 944
+              },
+              {
+                "problem_number": "EP-82",
+                "id": 1918,
+                "title": "Erdős Problem #82",
+                "statement_len": 160,
+                "background_len": 1436
+              },
+              {
+                "problem_number": "EP-84",
+                "id": 1919,
+                "title": "Erdős Problem #84",
+                "statement_len": 274,
+                "background_len": 555
+              },
+              {
+                "problem_number": "EP-86",
+                "id": 1920,
+                "title": "Erdős Problem #86",
+                "statement_len": 226,
+                "background_len": 1426
+              },
+              {
+                "problem_number": "EP-87",
+                "id": 1921,
+                "title": "Erdős Problem #87",
+                "statement_len": 286,
+                "background_len": 718
+              },
+              {
+                "problem_number": "EP-89",
+                "id": 1922,
+                "title": "Erdős Problem #89",
+                "statement_len": 112,
+                "background_len": 999
+              },
+              {
+                "problem_number": "EP-90",
+                "id": 1923,
+                "title": "Erdős Problem #90",
+                "statement_len": 134,
+                "background_len": 1891
+              },
+              {
+                "problem_number": "EP-91",
+                "id": 1924,
+                "title": "Erdős Problem #91",
+                "statement_len": 250,
+                "background_len": 1024
+              },
+              {
+                "problem_number": "EP-92",
+                "id": 1925,
+                "title": "Erdős Problem #92",
+                "statement_len": 241,
+                "background_len": 1304
+              },
+              {
+                "problem_number": "EP-96",
+                "id": 1926,
+                "title": "Erdős Problem #96",
+                "statement_len": 116,
+                "background_len": 1667
+              },
+              {
+                "problem_number": "EP-98",
+                "id": 1927,
+                "title": "Erdős Problem #98",
+                "statement_len": 177,
+                "background_len": 378
+              },
+              {
+                "problem_number": "EP-99",
+                "id": 1928,
+                "title": "Erdős Problem #99",
+                "statement_len": 239,
+                "background_len": 1035
+              },
+              {
+                "problem_number": "EP-100",
+                "id": 1929,
+                "title": "Erdős Problem #100",
+                "statement_len": 201,
+                "background_len": 476
+              },
+              {
+                "problem_number": "EP-101",
+                "id": 1930,
+                "title": "Erdős Problem #101",
+                "statement_len": 123,
+                "background_len": 1342
+              },
+              {
+                "problem_number": "EP-102",
+                "id": 1931,
+                "title": "Erdős Problem #102",
+                "statement_len": 288,
+                "background_len": 910
+              },
+              {
+                "problem_number": "EP-103",
+                "id": 1932,
+                "title": "Erdős Problem #103",
+                "statement_len": 212,
+                "background_len": 104
+              },
+              {
+                "problem_number": "EP-104",
+                "id": 1933,
+                "title": "Erdős Problem #104",
+                "statement_len": 116,
+                "background_len": 1580
+              },
+              {
+                "problem_number": "EP-108",
+                "id": 1934,
+                "title": "Erdős Problem #108",
+                "statement_len": 188,
+                "background_len": 775
+              },
+              {
+                "problem_number": "EP-111",
+                "id": 1935,
+                "title": "Erdős Problem #111",
+                "statement_len": 274,
+                "background_len": 803
+              },
+              {
+                "problem_number": "EP-112",
+                "id": 1936,
+                "title": "Erdős Problem #112",
+                "statement_len": 181,
+                "background_len": 948
+              },
+              {
+                "problem_number": "EP-114",
+                "id": 1937,
+                "title": "Erdős Problem #114",
+                "statement_len": 167,
+                "background_len": 2579
+              },
+              {
+                "problem_number": "EP-117",
+                "id": 1938,
+                "title": "Erdős Problem #117",
+                "statement_len": 231,
+                "background_len": 480
+              }
+            ],
+            "ep598_entry": {
+              "problem_number": "EP-598",
+              "id": 2203,
+              "title": "Erdős Problem #598",
+              "statement_len": 291,
+              "background_len": 0
+            }
+          },
+          {
+            "source_file": "external/unsolvedmath/dataset.json",
+            "total_entries": 1146,
+            "empty_background_count": 17,
+            "malformed_injected_fragment_count": 592,
+            "sample_first_25": [
+              {
+                "problem_number": "EP-77",
+                "id": 1914,
+                "title": "Erdős Problem #77",
+                "statement_len": 207,
+                "background_len": 3021
+              },
+              {
+                "problem_number": "EP-78",
+                "id": 1915,
+                "title": "Erdős Problem #78",
+                "statement_len": 66,
+                "background_len": 1262
+              },
+              {
+                "problem_number": "EP-80",
+                "id": 1916,
+                "title": "Erdős Problem #80",
+                "statement_len": 383,
+                "background_len": 1018
+              },
+              {
+                "problem_number": "EP-81",
+                "id": 1917,
+                "title": "Erdős Problem #81",
+                "statement_len": 175,
+                "background_len": 944
+              },
+              {
+                "problem_number": "EP-82",
+                "id": 1918,
+                "title": "Erdős Problem #82",
+                "statement_len": 160,
+                "background_len": 1436
+              },
+              {
+                "problem_number": "EP-84",
+                "id": 1919,
+                "title": "Erdős Problem #84",
+                "statement_len": 274,
+                "background_len": 555
+              },
+              {
+                "problem_number": "EP-86",
+                "id": 1920,
+                "title": "Erdős Problem #86",
+                "statement_len": 226,
+                "background_len": 1426
+              },
+              {
+                "problem_number": "EP-87",
+                "id": 1921,
+                "title": "Erdős Problem #87",
+                "statement_len": 286,
+                "background_len": 718
+              },
+              {
+                "problem_number": "EP-89",
+                "id": 1922,
+                "title": "Erdős Problem #89",
+                "statement_len": 112,
+                "background_len": 999
+              },
+              {
+                "problem_number": "EP-90",
+                "id": 1923,
+                "title": "Erdős Problem #90",
+                "statement_len": 134,
+                "background_len": 1891
+              },
+              {
+                "problem_number": "EP-91",
+                "id": 1924,
+                "title": "Erdős Problem #91",
+                "statement_len": 250,
+                "background_len": 1024
+              },
+              {
+                "problem_number": "EP-92",
+                "id": 1925,
+                "title": "Erdős Problem #92",
+                "statement_len": 241,
+                "background_len": 1304
+              },
+              {
+                "problem_number": "EP-96",
+                "id": 1926,
+                "title": "Erdős Problem #96",
+                "statement_len": 116,
+                "background_len": 1667
+              },
+              {
+                "problem_number": "EP-98",
+                "id": 1927,
+                "title": "Erdős Problem #98",
+                "statement_len": 177,
+                "background_len": 378
+              },
+              {
+                "problem_number": "EP-99",
+                "id": 1928,
+                "title": "Erdős Problem #99",
+                "statement_len": 239,
+                "background_len": 1035
+              },
+              {
+                "problem_number": "EP-100",
+                "id": 1929,
+                "title": "Erdős Problem #100",
+                "statement_len": 201,
+                "background_len": 476
+              },
+              {
+                "problem_number": "EP-101",
+                "id": 1930,
+                "title": "Erdős Problem #101",
+                "statement_len": 123,
+                "background_len": 1342
+              },
+              {
+                "problem_number": "EP-102",
+                "id": 1931,
+                "title": "Erdős Problem #102",
+                "statement_len": 288,
+                "background_len": 910
+              },
+              {
+                "problem_number": "EP-103",
+                "id": 1932,
+                "title": "Erdős Problem #103",
+                "statement_len": 212,
+                "background_len": 104
+              },
+              {
+                "problem_number": "EP-104",
+                "id": 1933,
+                "title": "Erdős Problem #104",
+                "statement_len": 116,
+                "background_len": 1580
+              },
+              {
+                "problem_number": "EP-108",
+                "id": 1934,
+                "title": "Erdős Problem #108",
+                "statement_len": 188,
+                "background_len": 775
+              },
+              {
+                "problem_number": "EP-111",
+                "id": 1935,
+                "title": "Erdős Problem #111",
+                "statement_len": 274,
+                "background_len": 803
+              },
+              {
+                "problem_number": "EP-112",
+                "id": 1936,
+                "title": "Erdős Problem #112",
+                "statement_len": 181,
+                "background_len": 948
+              },
+              {
+                "problem_number": "EP-114",
+                "id": 1937,
+                "title": "Erdős Problem #114",
+                "statement_len": 167,
+                "background_len": 2579
+              },
+              {
+                "problem_number": "EP-117",
+                "id": 1938,
+                "title": "Erdős Problem #117",
+                "statement_len": 231,
+                "background_len": 480
+              }
+            ],
+            "ep598_entry": {
+              "problem_number": "EP-598",
+              "id": 2203,
+              "title": "Erdős Problem #598",
+              "statement_len": 291,
+              "background_len": 0
+            }
+          }
+        ],
+        "quick_union_sample_problem_numbers": [
+          "EP-77",
+          "EP-78",
+          "EP-80",
+          "EP-81",
+          "EP-82",
+          "EP-84",
+          "EP-86",
+          "EP-87",
+          "EP-89",
+          "EP-90",
+          "EP-91",
+          "EP-92",
+          "EP-96",
+          "EP-98",
+          "EP-99",
+          "EP-100",
+          "EP-101",
+          "EP-102",
+          "EP-103",
+          "EP-104",
+          "EP-108",
+          "EP-111",
+          "EP-112",
+          "EP-114",
+          "EP-117"
+        ],
+        "elapsed_ms": 10,
+        "generated_utc": "2026-03-12T13:52:33.486Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

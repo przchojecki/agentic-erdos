@@ -1,5 +1,119 @@
 {
   "problem": "EP-638",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T19:39:36.460Z",
+  "computations": [
+    {
+      "source_file": "ep638_standalone_deeper_20260312T193936Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:39:36.460Z",
+      "data": {
+        "problem": "EP-638",
+        "script": "ep638.mjs",
+        "method": "finite_color_ramsey_profile_sampling_for_triangle_forcing",
+        "params": {},
+        "rows": [
+          {
+            "colors_q": 2,
+            "n": 5,
+            "trials": 400,
+            "mono_triangle_frequency": 0.9825
+          },
+          {
+            "colors_q": 2,
+            "n": 6,
+            "trials": 400,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 2,
+            "n": 7,
+            "trials": 400,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 3,
+            "n": 16,
+            "trials": 260,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 3,
+            "n": 20,
+            "trials": 260,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 3,
+            "n": 24,
+            "trials": 260,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 3,
+            "n": 28,
+            "trials": 260,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 3,
+            "n": 32,
+            "trials": 260,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 4,
+            "n": 36,
+            "trials": 200,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 4,
+            "n": 44,
+            "trials": 200,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 4,
+            "n": 52,
+            "trials": 200,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 4,
+            "n": 60,
+            "trials": 200,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 5,
+            "n": 58,
+            "trials": 160,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 5,
+            "n": 70,
+            "trials": 160,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 5,
+            "n": 82,
+            "trials": 160,
+            "mono_triangle_frequency": 1
+          },
+          {
+            "colors_q": 5,
+            "n": 94,
+            "trials": 160,
+            "mono_triangle_frequency": 1
+          }
+        ],
+        "elapsed_ms": 54,
+        "generated_utc": "2026-03-12T19:39:36.460Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

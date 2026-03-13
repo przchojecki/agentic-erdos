@@ -1,5 +1,170 @@
 {
   "problem": "EP-738",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:03:06.583Z",
+  "computations": [
+    {
+      "source_file": "ep738_standalone_deeper_20260313T100221Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:02:22.112Z",
+      "data": {
+        "problem": "EP-738",
+        "script": "ep738.mjs",
+        "method": "mycielski_triangle_free_high_chromatic_graphs_induced_tree_coverage_proxy",
+        "warning": "Finite proxy under repaired statement interpretation.",
+        "params": {
+          "MAX_TREE_ORDER": 6
+        },
+        "rows": [
+          {
+            "mycielski_level": 0,
+            "n": 2,
+            "triangle_free": true,
+            "tree_order_h": 3,
+            "nonisomorphic_trees_count": 1,
+            "induced_tree_shapes_found": 0,
+            "coverage_fraction": 0
+          },
+          {
+            "mycielski_level": 0,
+            "n": 2,
+            "triangle_free": true,
+            "tree_order_h": 4,
+            "nonisomorphic_trees_count": 2,
+            "induced_tree_shapes_found": 0,
+            "coverage_fraction": 0
+          },
+          {
+            "mycielski_level": 0,
+            "n": 2,
+            "triangle_free": true,
+            "tree_order_h": 5,
+            "nonisomorphic_trees_count": 3,
+            "induced_tree_shapes_found": 0,
+            "coverage_fraction": 0
+          },
+          {
+            "mycielski_level": 0,
+            "n": 2,
+            "triangle_free": true,
+            "tree_order_h": 6,
+            "nonisomorphic_trees_count": 6,
+            "induced_tree_shapes_found": 0,
+            "coverage_fraction": 0
+          },
+          {
+            "mycielski_level": 1,
+            "n": 5,
+            "triangle_free": true,
+            "tree_order_h": 3,
+            "nonisomorphic_trees_count": 1,
+            "induced_tree_shapes_found": 1,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 1,
+            "n": 5,
+            "triangle_free": true,
+            "tree_order_h": 4,
+            "nonisomorphic_trees_count": 2,
+            "induced_tree_shapes_found": 1,
+            "coverage_fraction": 0.5
+          },
+          {
+            "mycielski_level": 1,
+            "n": 5,
+            "triangle_free": true,
+            "tree_order_h": 5,
+            "nonisomorphic_trees_count": 3,
+            "induced_tree_shapes_found": 0,
+            "coverage_fraction": 0
+          },
+          {
+            "mycielski_level": 1,
+            "n": 5,
+            "triangle_free": true,
+            "tree_order_h": 6,
+            "nonisomorphic_trees_count": 6,
+            "induced_tree_shapes_found": 0,
+            "coverage_fraction": 0
+          },
+          {
+            "mycielski_level": 2,
+            "n": 11,
+            "triangle_free": true,
+            "tree_order_h": 3,
+            "nonisomorphic_trees_count": 1,
+            "induced_tree_shapes_found": 1,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 2,
+            "n": 11,
+            "triangle_free": true,
+            "tree_order_h": 4,
+            "nonisomorphic_trees_count": 2,
+            "induced_tree_shapes_found": 2,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 2,
+            "n": 11,
+            "triangle_free": true,
+            "tree_order_h": 5,
+            "nonisomorphic_trees_count": 3,
+            "induced_tree_shapes_found": 3,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 2,
+            "n": 11,
+            "triangle_free": true,
+            "tree_order_h": 6,
+            "nonisomorphic_trees_count": 6,
+            "induced_tree_shapes_found": 4,
+            "coverage_fraction": 0.66666667
+          },
+          {
+            "mycielski_level": 3,
+            "n": 23,
+            "triangle_free": true,
+            "tree_order_h": 3,
+            "nonisomorphic_trees_count": 1,
+            "induced_tree_shapes_found": 1,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 3,
+            "n": 23,
+            "triangle_free": true,
+            "tree_order_h": 4,
+            "nonisomorphic_trees_count": 2,
+            "induced_tree_shapes_found": 2,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 3,
+            "n": 23,
+            "triangle_free": true,
+            "tree_order_h": 5,
+            "nonisomorphic_trees_count": 3,
+            "induced_tree_shapes_found": 3,
+            "coverage_fraction": 1
+          },
+          {
+            "mycielski_level": 3,
+            "n": 23,
+            "triangle_free": true,
+            "tree_order_h": 6,
+            "nonisomorphic_trees_count": 6,
+            "induced_tree_shapes_found": 6,
+            "coverage_fraction": 1
+          }
+        ],
+        "elapsed_ms": 896,
+        "generated_utc": "2026-03-13T10:02:22.112Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

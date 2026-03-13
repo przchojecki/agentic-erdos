@@ -1,63 +1,50 @@
 {
   "problem": "EP-620",
-  "normalized_utc": "2026-03-05T08:54:16.964Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch16_web_compute.md",
-        "content": "### EP-620\n- Quick literature check:\n  - Problem page remains open and now records near-sharp behavior `f(n)=n^{1/2+o(1)}` with best listed bounds around `n^{1/2} (log n)^{1/2}/log log n` (lower) and `n^{1/2} log n` (upper), including 2024 update.\n- Finite compute signal:\n  - On random maximal `K_4`-free graphs (`n=50,70,90`), heuristic largest triangle-free induced subsets were around `23,28,33` (best), i.e. roughly `3.3*sqrt(n)` in this range.\n- Interpretation:\n  - Finite behavior is consistent with the `n^{1/2+o(1)}` scale, not with a substantially larger power."
+  "normalized_utc": "2026-03-12T15:57:24.580Z",
+  "computations": [
+    {
+      "source_file": "ep620_standalone_deeper_20260312T155724Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:57:24.580Z",
+      "data": {
+        "problem": "EP-620",
+        "script": "ep620.mjs",
+        "method": "deeper_random_maximal_K4_free_probe_for_largest_triangle_free_induced_subgraph",
+        "params": {},
+        "rows": [
+          {
+            "n": 60,
+            "trials": 12,
+            "avg_edges_in_random_maximal_K4_free_graph": 643.16667,
+            "best_triangle_free_induced_size_found": 25,
+            "avg_triangle_free_induced_size_found": 24.083333,
+            "best_over_sqrt_n": 3.2274861,
+            "best_over_n_pow_0_6": 2.1431337
+          },
+          {
+            "n": 80,
+            "trials": 10,
+            "avg_edges_in_random_maximal_K4_free_graph": 1034.7,
+            "best_triangle_free_induced_size_found": 32,
+            "avg_triangle_free_induced_size_found": 28.6,
+            "best_over_sqrt_n": 3.5777088,
+            "best_over_n_pow_0_6": 2.3083198
+          },
+          {
+            "n": 100,
+            "trials": 8,
+            "avg_edges_in_random_maximal_K4_free_graph": 1496.375,
+            "best_triangle_free_induced_size_found": 36,
+            "avg_triangle_free_induced_size_found": 33.375,
+            "best_over_sqrt_n": 3.6,
+            "best_over_n_pow_0_6": 2.2714464
+          }
+        ],
+        "elapsed_ms": 137,
+        "generated_utc": "2026-03-12T15:57:24.580Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch16_quick_compute.mjs",
-        "heading": "K4-free graphs and triangle-free induced subgraph size heuristics.",
-        "content": "// EP-620: K4-free graphs and triangle-free induced subgraph size heuristics.\n{\n  const rng = makeRng(20260304 ^ 1601);\n\n  function createsK4(G, u, v) {\n    const common = [];\n    for (let x = 0; x < G.n; x += 1) {\n      if (G.adj[u][x] && G.adj[v][x]) common.push(x);\n    }\n    for (let i = 0; i < common.length; i += 1) {\n      for (let j = i + 1; j < common.length; j += 1) {\n        if (G.adj[common[i]][common[j]]) return true;\n      }\n    }\n    return false;\n  }\n\n  function maximalK4Free(n) {\n    const G = makeGraph(n);\n    const edges = allEdges(n);\n    shuffle(edges, rng);\n\n    for (const [u, v] of edges) {\n      if (createsK4(G, u, v)) continue;\n      addEdge(G, u, v);\n    }\n    return G;\n  }\n\n  function largestTriangleFreeInducedHeuristic(G) {\n    const n = G.n;\n    const alive = Array(n).fill(true);\n\n    while (true) {\n      const triCount = Array(n).fill(0);\n      let found = false;\n\n      for (let a = 0; a < n; a += 1) {\n        if (!alive[a]) continue;\n        for (let b = a + 1; b < n; b += 1) {\n          if (!alive[b] || !G.adj[a][b]) continue;\n          for (let c = b + 1; c < n; c += 1) {\n            if (!alive[c]) continue;\n            if (G.adj[a][c] && G.adj[b][c]) {\n              triCount[a] += 1;\n              triCount[b] += 1;\n              triCount[c] += 1;\n              found = true;\n            }\n          }\n        }\n      }\n\n      if (!found) break;\n\n      let bestV = -1;\n      let bestC = -1;\n      for (let v = 0; v < n; v += 1) {\n        if (!alive[v]) continue;\n        if (triCount[v] > bestC) {\n          bestC = triCount[v];\n          bestV = v;\n        }\n      }\n      if (bestV < 0) break;\n      alive[bestV] = false;\n    }\n\n    let sz = 0;\n    for (let v = 0; v < n; v += 1) if (alive[v]) sz += 1;\n    return sz;\n  }\n\n  const rows = [];\n  for (const [n, trials] of [[50, 8], [70, 7], [90, 6]]) {\n    let best = 0;\n    let avg = 0;\n    let avgEdges = 0;\n\n    for (let t = 0; t < trials; t += 1) {\n      const G = maximalK4Free(n);\n      avgEdges += G.m;\n      const s = largestTriangleFreeInducedHeuristic(G);\n      avg += s;\n      if (s > best) best = s;\n    }\n\n    avg /= trials;\n    avgEdges /= trials;\n\n    rows.push({\n      n,\n      trials,\n      avg_edges_in_random_maximal_K4_free_graph: Number(avgEdges.toPrecision(7)),\n      best_triangle_free_induced_size_found: best,\n      avg_triangle_free_induced_size_found: Number(avg.toPrecision(7)),\n      best_over_sqrt_n: Number((best / Math.sqrt(n)).toPrecision(7)),\n      best_over_n_pow_0_6: Number((best / (n ** 0.6)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep620 = {\n    description: 'Random maximal K4-free graph probe for forced triangle-free induced subgraph size.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch16_quick_compute.json",
-        "key": "ep620",
-        "container_meta": {
-          "script": "harder_batch16_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:01:32.236Z"
-        },
-        "data": {
-          "description": "Random maximal K4-free graph probe for forced triangle-free induced subgraph size.",
-          "rows": [
-            {
-              "n": 50,
-              "trials": 8,
-              "avg_edges_in_random_maximal_K4_free_graph": 474.75,
-              "best_triangle_free_induced_size_found": 23,
-              "avg_triangle_free_induced_size_found": 21.625,
-              "best_over_sqrt_n": 3.252691,
-              "best_over_n_pow_0_6": 2.199611
-            },
-            {
-              "n": 70,
-              "trials": 7,
-              "avg_edges_in_random_maximal_K4_free_graph": 830.2857,
-              "best_triangle_free_induced_size_found": 28,
-              "avg_triangle_free_induced_size_found": 26.85714,
-              "best_over_sqrt_n": 3.34664,
-              "best_over_n_pow_0_6": 2.188261
-            },
-            {
-              "n": 90,
-              "trials": 6,
-              "avg_edges_in_random_maximal_K4_free_graph": 1249.667,
-              "best_triangle_free_induced_size_found": 33,
-              "avg_triangle_free_induced_size_found": 31.5,
-              "best_over_sqrt_n": 3.478505,
-              "best_over_n_pow_0_6": 2.218035
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

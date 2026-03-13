@@ -1,5 +1,46 @@
 {
   "problem": "EP-614",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T15:42:30.351Z",
+  "computations": [
+    {
+      "source_file": "ep614_standalone_deeper_20260312T154230Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:42:30.351Z",
+      "data": {
+        "problem": "EP-614",
+        "script": "ep614.mjs",
+        "method": "targeted_dataset_integrity_scan_for_malformed_ep614_statement",
+        "params": {
+          "sources": [
+            "external/unsolvedmath/problems.json",
+            "external/unsolvedmath/dataset.json"
+          ]
+        },
+        "rows": [
+          {
+            "source_file": "external/unsolvedmath/problems.json",
+            "found": true,
+            "statement_len": 224,
+            "background_len": 0,
+            "background_empty": true,
+            "malformed_injected_fragment": true,
+            "statement_preview": "Let $f(n,k)$ be minimal such that there is a graph with $n$ vertices and $f(n,k)$ edges where every set of $k+2$ vertices induces a subgraph with maximum degree at least $k$. Deter"
+          },
+          {
+            "source_file": "external/unsolvedmath/dataset.json",
+            "found": true,
+            "statement_len": 224,
+            "background_len": 0,
+            "background_empty": true,
+            "malformed_injected_fragment": true,
+            "statement_preview": "Let $f(n,k)$ be minimal such that there is a graph with $n$ vertices and $f(n,k)$ edges where every set of $k+2$ vertices induces a subgraph with maximum degree at least $k$. Deter"
+          }
+        ],
+        "elapsed_ms": 10,
+        "generated_utc": "2026-03-12T15:42:30.351Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

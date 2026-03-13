@@ -1,5 +1,87 @@
 {
   "problem": "EP-601",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:51:56.173Z",
+  "computations": [
+    {
+      "source_file": "ep601_standalone_deeper_20260312T135155Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:51:56.173Z",
+      "data": {
+        "problem": "EP-601",
+        "script": "ep601.mjs",
+        "method": "finite_limit_ordinal_proxy_long_path_vs_large_independent_set",
+        "params": {},
+        "rows": [
+          {
+            "n": 40,
+            "p": 0.15,
+            "trials": 80,
+            "avg_longest_path_ratio_lb": 0.926875,
+            "avg_independence_ratio_lb": 0.385625,
+            "sampled_min_of_max_ratio_lb": 0.825
+          },
+          {
+            "n": 40,
+            "p": 0.25,
+            "trials": 80,
+            "avg_longest_path_ratio_lb": 0.9896875,
+            "avg_independence_ratio_lb": 0.29,
+            "sampled_min_of_max_ratio_lb": 0.95
+          },
+          {
+            "n": 40,
+            "p": 0.35,
+            "trials": 80,
+            "avg_longest_path_ratio_lb": 0.9996875,
+            "avg_independence_ratio_lb": 0.23125,
+            "sampled_min_of_max_ratio_lb": 0.975
+          },
+          {
+            "n": 40,
+            "p": 0.5,
+            "trials": 80,
+            "avg_longest_path_ratio_lb": 1,
+            "avg_independence_ratio_lb": 0.1759375,
+            "sampled_min_of_max_ratio_lb": 1
+          },
+          {
+            "n": 60,
+            "p": 0.1,
+            "trials": 60,
+            "avg_longest_path_ratio_lb": 0.86027778,
+            "avg_independence_ratio_lb": 0.38416667,
+            "sampled_min_of_max_ratio_lb": 0.71666667
+          },
+          {
+            "n": 60,
+            "p": 0.18,
+            "trials": 60,
+            "avg_longest_path_ratio_lb": 0.97555556,
+            "avg_independence_ratio_lb": 0.27611111,
+            "sampled_min_of_max_ratio_lb": 0.93333333
+          },
+          {
+            "n": 60,
+            "p": 0.28,
+            "trials": 60,
+            "avg_longest_path_ratio_lb": 0.99861111,
+            "avg_independence_ratio_lb": 0.21,
+            "sampled_min_of_max_ratio_lb": 0.98333333
+          },
+          {
+            "n": 60,
+            "p": 0.4,
+            "trials": 60,
+            "avg_longest_path_ratio_lb": 1,
+            "avg_independence_ratio_lb": 0.15861111,
+            "sampled_min_of_max_ratio_lb": 1
+          }
+        ],
+        "elapsed_ms": 884,
+        "generated_utc": "2026-03-12T13:51:56.173Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

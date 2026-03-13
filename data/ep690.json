@@ -1,100 +1,226 @@
 {
   "problem": "EP-690",
-  "normalized_utc": "2026-03-05T08:54:16.965Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch17_web_compute.md",
-        "content": "### EP-690\n- Quick literature check:\n  - New 2026 paper reports a strong negative resolution trend: only `d_1(p)` is unimodal, with non-unimodality broadly established for larger `k`.\n- Finite compute signal:\n  - Exact density recursion over primes shows sampled unimodality for `k<=3` and clear multiple local maxima for `k>=4`.\n- Interpretation:\n  - Computational profile aligns with the modern negative direction for general `k`."
+  "normalized_utc": "2026-03-12T21:13:06.779Z",
+  "computations": [
+    {
+      "source_file": "ep690_standalone_deeper_20260312T211306Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:13:06.779Z",
+      "data": {
+        "problem": "EP-690",
+        "script": "ep690.mjs",
+        "method": "deep_density_recursion_profiles_for_kth_smallest_prime_factor_distribution",
+        "params": {},
+        "rows": [
+          {
+            "k": 1,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 2,
+            "max_density_sampled": 0.5,
+            "strict_local_maxima_count_sampled": 0,
+            "first_local_maxima_primes": [],
+            "appears_unimodal_on_sample": true
+          },
+          {
+            "k": 2,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 3,
+            "max_density_sampled": 0.1666666667,
+            "strict_local_maxima_count_sampled": 1,
+            "first_local_maxima_primes": [
+              3
+            ],
+            "appears_unimodal_on_sample": true
+          },
+          {
+            "k": 3,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 5,
+            "max_density_sampled": 0.03333333333,
+            "strict_local_maxima_count_sampled": 0,
+            "first_local_maxima_primes": [],
+            "appears_unimodal_on_sample": true
+          },
+          {
+            "k": 4,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 13,
+            "max_density_sampled": 0.006193806194,
+            "strict_local_maxima_count_sampled": 2,
+            "first_local_maxima_primes": [
+              13,
+              19
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 5,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 23,
+            "max_density_sampled": 0.001075354851,
+            "strict_local_maxima_count_sampled": 5,
+            "first_local_maxima_primes": [
+              23,
+              31,
+              43,
+              61,
+              73
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 6,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 47,
+            "max_density_sampled": 0.00017012427,
+            "strict_local_maxima_count_sampled": 24,
+            "first_local_maxima_primes": [
+              31,
+              47,
+              61,
+              73,
+              103,
+              109,
+              139,
+              151,
+              181,
+              193,
+              199,
+              229
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 8,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 199,
+            "max_density_sampled": 0.00000368303004,
+            "strict_local_maxima_count_sampled": 57,
+            "first_local_maxima_primes": [
+              89,
+              113,
+              139,
+              151,
+              167,
+              181,
+              199,
+              233,
+              241,
+              271,
+              283,
+              317
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 10,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 467,
+            "max_density_sampled": 6.133870455E-8,
+            "strict_local_maxima_count_sampled": 61,
+            "first_local_maxima_primes": [
+              113,
+              139,
+              181,
+              199,
+              241,
+              283,
+              317,
+              337,
+              359,
+              389,
+              401,
+              421
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 12,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 1627,
+            "max_density_sampled": 8.275339466E-10,
+            "strict_local_maxima_count_sampled": 48,
+            "first_local_maxima_primes": [
+              293,
+              317,
+              467,
+              509,
+              523,
+              547,
+              577,
+              619,
+              661,
+              691,
+              709,
+              773
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 15,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 1951,
+            "max_density_sampled": 6.932897718E-13,
+            "strict_local_maxima_count_sampled": 30,
+            "first_local_maxima_primes": [
+              523,
+              773,
+              839,
+              863,
+              887,
+              953,
+              1069,
+              1129,
+              1201,
+              1237,
+              1259,
+              1307
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 20,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 1987,
+            "max_density_sampled": 7.455049661E-19,
+            "strict_local_maxima_count_sampled": 7,
+            "first_local_maxima_primes": [
+              1129,
+              1327,
+              1637,
+              1669,
+              1759,
+              1913,
+              1951
+            ],
+            "appears_unimodal_on_sample": false
+          },
+          {
+            "k": 25,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 1987,
+            "max_density_sampled": 1.151483332E-25,
+            "strict_local_maxima_count_sampled": 1,
+            "first_local_maxima_primes": [
+              1327
+            ],
+            "appears_unimodal_on_sample": true
+          },
+          {
+            "k": 30,
+            "sampled_primes": 300,
+            "argmax_prime_sampled": 1987,
+            "max_density_sampled": 3.739183307E-33,
+            "strict_local_maxima_count_sampled": 0,
+            "first_local_maxima_primes": [],
+            "appears_unimodal_on_sample": true
+          }
+        ],
+        "elapsed_ms": 3,
+        "generated_utc": "2026-03-12T21:13:06.779Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch17_quick_compute.mjs",
-        "heading": "exact density profile d_k(p_i) via prime-divisibility recursion.",
-        "content": "// EP-690: exact density profile d_k(p_i) via prime-divisibility recursion.\n{\n  const P = sieve(500).primes; // first ~95 primes.\n\n  function densityProfile(k, numPrimes) {\n    const delta = Array(k + 1).fill(0);\n    delta[0] = 1;\n    const vals = [];\n\n    for (let i = 0; i < numPrimes; i += 1) {\n      const p = P[i];\n      const dkp = delta[k - 1] / p;\n      vals.push({ prime: p, density: dkp });\n\n      const next = Array(k + 1).fill(0);\n      for (let r = 0; r <= k; r += 1) {\n        next[r] += delta[r] * (1 - 1 / p);\n        if (r >= 1) next[r] += delta[r - 1] * (1 / p);\n      }\n      for (let r = 0; r <= k; r += 1) delta[r] = next[r];\n    }\n\n    return vals;\n  }\n\n  const rows = [];\n  for (const k of [1, 2, 3, 4, 5, 6, 8, 10]) {\n    const vals = densityProfile(k, 70);\n    let peaks = 0;\n    for (let i = 1; i + 1 < vals.length; i += 1) {\n      if (vals[i].density > vals[i - 1].density && vals[i].density > vals[i + 1].density) peaks += 1;\n    }\n    let best = vals[0];\n    for (const v of vals) if (v.density > best.density) best = v;\n\n    rows.push({\n      k,\n      sampled_primes: vals.length,\n      argmax_prime_sampled: best.prime,\n      max_density_sampled: Number(best.density.toPrecision(8)),\n      strict_local_maxima_count_sampled: peaks,\n      appears_unimodal_on_sample: peaks <= 1,\n    });\n  }\n\n  out.results.ep690 = {\n    description: 'Exact sampled d_k(p) profiles from prime-divisibility density recursion.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch17_quick_compute.json",
-        "key": "ep690",
-        "container_meta": {
-          "script": "harder_batch17_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:13:20.362Z"
-        },
-        "data": {
-          "description": "Exact sampled d_k(p) profiles from prime-divisibility density recursion.",
-          "rows": [
-            {
-              "k": 1,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 2,
-              "max_density_sampled": 0.5,
-              "strict_local_maxima_count_sampled": 0,
-              "appears_unimodal_on_sample": true
-            },
-            {
-              "k": 2,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 3,
-              "max_density_sampled": 0.16666667,
-              "strict_local_maxima_count_sampled": 1,
-              "appears_unimodal_on_sample": true
-            },
-            {
-              "k": 3,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 5,
-              "max_density_sampled": 0.033333333,
-              "strict_local_maxima_count_sampled": 0,
-              "appears_unimodal_on_sample": true
-            },
-            {
-              "k": 4,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 13,
-              "max_density_sampled": 0.0061938062,
-              "strict_local_maxima_count_sampled": 2,
-              "appears_unimodal_on_sample": false
-            },
-            {
-              "k": 5,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 23,
-              "max_density_sampled": 0.0010753549,
-              "strict_local_maxima_count_sampled": 5,
-              "appears_unimodal_on_sample": false
-            },
-            {
-              "k": 6,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 47,
-              "max_density_sampled": 0.00017012427,
-              "strict_local_maxima_count_sampled": 16,
-              "appears_unimodal_on_sample": false
-            },
-            {
-              "k": 8,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 199,
-              "max_density_sampled": 0.00000368303,
-              "strict_local_maxima_count_sampled": 12,
-              "appears_unimodal_on_sample": false
-            },
-            {
-              "k": 10,
-              "sampled_primes": 70,
-              "argmax_prime_sampled": 317,
-              "max_density_sampled": 5.7720132e-8,
-              "strict_local_maxima_count_sampled": 8,
-              "appears_unimodal_on_sample": false
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

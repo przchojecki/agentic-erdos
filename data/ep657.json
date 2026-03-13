@@ -1,60 +1,95 @@
 {
   "problem": "EP-657",
-  "normalized_utc": "2026-03-05T08:54:16.965Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch16_web_compute.md",
-        "content": "### EP-657\n- Quick literature check:\n  - Open; page still frames this via no-isosceles constraints and equivalent difference-set/AP-free formulations.\n- Finite compute signal:\n  - In a 1D AP-free surrogate search, best distinct-difference counts for `n=10,12,14` were `22,27,32` (roughly `2.2n` to `2.29n`).\n- Interpretation:\n  - Finite surrogate suggests growth beyond linear constants, but does not settle the required unbounded-factor statement."
+  "normalized_utc": "2026-03-12T20:14:08.981Z",
+  "computations": [
+    {
+      "source_file": "ep657_standalone_deeper_20260312T201404Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:14:08.981Z",
+      "data": {
+        "problem": "EP-657",
+        "script": "ep657.mjs",
+        "method": "deeper_1D_AP_free_difference_minimization_surrogate",
+        "params": {},
+        "rows": [
+          {
+            "n": 10,
+            "ambient_interval_size_M": 90,
+            "restarts": 48,
+            "best_distinct_differences_found": 22,
+            "best_over_n": 2.2,
+            "best_over_n_log_n": 0.95544786
+          },
+          {
+            "n": 12,
+            "ambient_interval_size_M": 108,
+            "restarts": 48,
+            "best_distinct_differences_found": 27,
+            "best_over_n": 2.25,
+            "best_over_n_log_n": 0.90546661
+          },
+          {
+            "n": 14,
+            "ambient_interval_size_M": 126,
+            "restarts": 48,
+            "best_distinct_differences_found": 35,
+            "best_over_n": 2.5,
+            "best_over_n_log_n": 0.94730795
+          },
+          {
+            "n": 16,
+            "ambient_interval_size_M": 144,
+            "restarts": 48,
+            "best_distinct_differences_found": 40,
+            "best_over_n": 2.5,
+            "best_over_n_log_n": 0.9016844
+          },
+          {
+            "n": 18,
+            "ambient_interval_size_M": 162,
+            "restarts": 36,
+            "best_distinct_differences_found": 57,
+            "best_over_n": 3.1666667,
+            "best_over_n_log_n": 1.0955915
+          },
+          {
+            "n": 20,
+            "ambient_interval_size_M": 180,
+            "restarts": 36,
+            "best_distinct_differences_found": 64,
+            "best_over_n": 3.2,
+            "best_over_n_log_n": 1.0681862
+          },
+          {
+            "n": 22,
+            "ambient_interval_size_M": 198,
+            "restarts": 36,
+            "best_distinct_differences_found": 71,
+            "best_over_n": 3.2272727,
+            "best_over_n_log_n": 1.0440726
+          },
+          {
+            "n": 24,
+            "ambient_interval_size_M": 216,
+            "restarts": 36,
+            "best_distinct_differences_found": 84,
+            "best_over_n": 3.5,
+            "best_over_n_log_n": 1.1013029
+          },
+          {
+            "n": 26,
+            "ambient_interval_size_M": 234,
+            "restarts": 36,
+            "best_distinct_differences_found": 92,
+            "best_over_n": 3.5384615,
+            "best_over_n_log_n": 1.0860518
+          }
+        ],
+        "elapsed_ms": 4742,
+        "generated_utc": "2026-03-12T20:14:08.981Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch16_quick_compute.mjs",
-        "heading": "1D AP-free surrogate search minimizing distinct differences.",
-        "content": "// EP-657: 1D AP-free surrogate search minimizing distinct differences.\n{\n  const rng = makeRng(20260304 ^ 1607);\n\n  function isAPFree(setArr) {\n    const S = new Set(setArr);\n    const arr = [...setArr].sort((a, b) => a - b);\n    for (let i = 0; i < arr.length; i += 1) {\n      for (let j = i + 1; j < arr.length; j += 1) {\n        const a = arr[i];\n        const b = arr[j];\n        const c = 2 * b - a;\n        if (S.has(c)) return false;\n      }\n    }\n    return true;\n  }\n\n  function canAddWithout3AP(S, x) {\n    for (const a of S) {\n      if (S.has(2 * a - x)) return false;\n      if ((a + x) % 2 === 0 && S.has((a + x) / 2)) return false;\n      if (S.has(2 * x - a)) return false;\n    }\n    return true;\n  }\n\n  function diffCount(S) {\n    const arr = [...S].sort((a, b) => a - b);\n    const D = new Set();\n    for (let i = 0; i < arr.length; i += 1) {\n      for (let j = i + 1; j < arr.length; j += 1) D.add(arr[j] - arr[i]);\n    }\n    return D.size;\n  }\n\n  function randomAPFreeSet(n, M) {\n    for (let attempt = 0; attempt < 200; attempt += 1) {\n      const perm = Array.from({ length: M }, (_, i) => i + 1);\n      shuffle(perm, rng);\n      const S = new Set();\n      for (const x of perm) {\n        if (S.size >= n) break;\n        if (canAddWithout3AP(S, x)) S.add(x);\n      }\n      if (S.size === n) return S;\n    }\n    return null;\n  }\n\n  function improveSet(S, M, iters) {\n    let best = diffCount(S);\n\n    for (let it = 0; it < iters; it += 1) {\n      const arr = [...S];\n      const rem = arr[Math.floor(rng() * arr.length)];\n      S.delete(rem);\n\n      let added = null;\n      for (let tr = 0; tr < 35; tr += 1) {\n        const x = 1 + Math.floor(rng() * M);\n        if (S.has(x)) continue;\n        if (!canAddWithout3AP(S, x)) continue;\n        added = x;\n        break;\n      }\n\n      if (added === null) {\n        S.add(rem);\n        continue;\n      }\n\n      S.add(added);\n      const cur = diffCount(S);\n      if (cur <= best) {\n        best = cur;\n      } else {\n        S.delete(added);\n        S.add(rem);\n      }\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const n of [10, 12, 14]) {\n    const M = 6 * n;\n    const restarts = 36;\n    let best = Infinity;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const S = randomAPFreeSet(n, M);\n      if (!S) continue;\n      const cur = improveSet(S, M, 1500);\n      if (cur < best) best = cur;\n    }\n\n    rows.push({\n      n,\n      ambient_interval_size_M: M,\n      restarts,\n      best_distinct_differences_found: best,\n      best_over_n: Number((best / n).toPrecision(7)),\n      best_over_n_log_n: Number((best / Math.max(1, n * Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep657 = {\n    description: '1D AP-free difference-minimization surrogate for no-isosceles-distance growth behavior.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch16_quick_compute.json",
-        "key": "ep657",
-        "container_meta": {
-          "script": "harder_batch16_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:01:32.236Z"
-        },
-        "data": {
-          "description": "1D AP-free difference-minimization surrogate for no-isosceles-distance growth behavior.",
-          "rows": [
-            {
-              "n": 10,
-              "ambient_interval_size_M": 60,
-              "restarts": 36,
-              "best_distinct_differences_found": 22,
-              "best_over_n": 2.2,
-              "best_over_n_log_n": 0.9554479
-            },
-            {
-              "n": 12,
-              "ambient_interval_size_M": 72,
-              "restarts": 36,
-              "best_distinct_differences_found": 27,
-              "best_over_n": 2.25,
-              "best_over_n_log_n": 0.9054666
-            },
-            {
-              "n": 14,
-              "ambient_interval_size_M": 84,
-              "restarts": 36,
-              "best_distinct_differences_found": 32,
-              "best_over_n": 2.285714,
-              "best_over_n_log_n": 0.8661101
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

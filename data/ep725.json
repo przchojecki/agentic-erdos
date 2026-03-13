@@ -1,5 +1,94 @@
 {
   "problem": "EP-725",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:55:42.677Z",
+  "computations": [
+    {
+      "source_file": "ep725_standalone_deeper_20260313T095510Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:55:10.534Z",
+      "data": {
+        "problem": "EP-725",
+        "script": "ep725.mjs",
+        "method": "exact_small_latin_rectangle_count_vs_asymptotic_template",
+        "warning": "Exact only for small n,k in this computation.",
+        "params": {
+          "N_LIST": [
+            4,
+            5,
+            6
+          ],
+          "K_MAX": 4
+        },
+        "rows": [
+          {
+            "n": 4,
+            "k": 2,
+            "exact_count": 216,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 211.898558,
+            "ratio_exact_over_template": 1.0193557
+          },
+          {
+            "n": 4,
+            "k": 3,
+            "exact_count": 576,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 688.256433,
+            "ratio_exact_over_template": 0.83689737
+          },
+          {
+            "n": 4,
+            "k": 4,
+            "exact_count": 576,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 822.390482,
+            "ratio_exact_over_template": 0.70039721
+          },
+          {
+            "n": 5,
+            "k": 2,
+            "exact_count": 5280,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 5297.46395,
+            "ratio_exact_over_template": 0.99670334
+          },
+          {
+            "n": 5,
+            "k": 3,
+            "exact_count": 66240,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 86032.0541,
+            "ratio_exact_over_template": 0.76994558
+          },
+          {
+            "n": 5,
+            "k": 4,
+            "exact_count": 161280,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 513994.051,
+            "ratio_exact_over_template": 0.31377795
+          },
+          {
+            "n": 6,
+            "k": 2,
+            "exact_count": 190800,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 190708.702,
+            "ratio_exact_over_template": 1.0004787
+          },
+          {
+            "n": 6,
+            "k": 3,
+            "exact_count": 15321600,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 18582923.7,
+            "ratio_exact_over_template": 0.82449889
+          },
+          {
+            "n": 6,
+            "k": 4,
+            "exact_count": 283046400,
+            "asymptotic_template_exp_neg_binom_k2_times_nfact_pow_k": 666136291,
+            "ratio_exact_over_template": 0.42490764
+          }
+        ],
+        "elapsed_ms": 370,
+        "generated_utc": "2026-03-13T09:55:10.534Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

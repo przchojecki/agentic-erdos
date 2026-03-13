@@ -1,5 +1,83 @@
 {
   "problem": "EP-740",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:03:06.583Z",
+  "computations": [
+    {
+      "source_file": "ep740_standalone_deeper_20260313T100133Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:01:34.721Z",
+      "data": {
+        "problem": "EP-740",
+        "script": "ep740.mjs",
+        "method": "finite_proxy_same_chromatic_subgraph_with_large_odd_girth_search",
+        "warning": "Finite random-graph analogue only; original statement is for infinite-cardinal chromatic numbers.",
+        "params": {
+          "N_LIST": [
+            10,
+            11,
+            12
+          ],
+          "SAMPLES": 48,
+          "R_LIST": [
+            3,
+            5
+          ]
+        },
+        "rows": [
+          {
+            "n": 10,
+            "r": 3,
+            "sampled_graphs": 48,
+            "eligible_with_chi_at_least_3": 48,
+            "success_count_same_chi_subgraph_with_odd_girth_gt_r": 13,
+            "success_rate_over_eligible": 0.27083333
+          },
+          {
+            "n": 10,
+            "r": 5,
+            "sampled_graphs": 48,
+            "eligible_with_chi_at_least_3": 48,
+            "success_count_same_chi_subgraph_with_odd_girth_gt_r": 2,
+            "success_rate_over_eligible": 0.041666667
+          },
+          {
+            "n": 11,
+            "r": 3,
+            "sampled_graphs": 48,
+            "eligible_with_chi_at_least_3": 47,
+            "success_count_same_chi_subgraph_with_odd_girth_gt_r": 14,
+            "success_rate_over_eligible": 0.29787234
+          },
+          {
+            "n": 11,
+            "r": 5,
+            "sampled_graphs": 48,
+            "eligible_with_chi_at_least_3": 48,
+            "success_count_same_chi_subgraph_with_odd_girth_gt_r": 2,
+            "success_rate_over_eligible": 0.041666667
+          },
+          {
+            "n": 12,
+            "r": 3,
+            "sampled_graphs": 48,
+            "eligible_with_chi_at_least_3": 48,
+            "success_count_same_chi_subgraph_with_odd_girth_gt_r": 7,
+            "success_rate_over_eligible": 0.14583333
+          },
+          {
+            "n": 12,
+            "r": 5,
+            "sampled_graphs": 48,
+            "eligible_with_chi_at_least_3": 48,
+            "success_count_same_chi_subgraph_with_odd_girth_gt_r": 3,
+            "success_rate_over_eligible": 0.0625
+          }
+        ],
+        "elapsed_ms": 1444,
+        "generated_utc": "2026-03-13T10:01:34.721Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

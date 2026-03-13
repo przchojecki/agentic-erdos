@@ -1,5 +1,53 @@
 {
   "problem": "EP-616",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T15:47:57.022Z",
+  "computations": [
+    {
+      "source_file": "ep616_standalone_deeper_20260312T154756Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:47:57.022Z",
+      "data": {
+        "problem": "EP-616",
+        "script": "ep616.mjs",
+        "method": "exact_small_n_hypergraph_search_under_local_tau_le_2_proxy",
+        "params": {},
+        "rows": [
+          {
+            "r": 3,
+            "n": 10,
+            "target_edges_m": 12,
+            "trials": 180,
+            "accepted_local_tau_le_2_instances": 179,
+            "max_tau_over_accepted": 4,
+            "avg_tau_over_accepted": 3.2625698,
+            "max_tau_over_r": 1.3333333
+          },
+          {
+            "r": 3,
+            "n": 11,
+            "target_edges_m": 14,
+            "trials": 150,
+            "accepted_local_tau_le_2_instances": 148,
+            "max_tau_over_accepted": 4,
+            "avg_tau_over_accepted": 3.7635135,
+            "max_tau_over_r": 1.3333333
+          },
+          {
+            "r": 4,
+            "n": 12,
+            "target_edges_m": 16,
+            "trials": 120,
+            "accepted_local_tau_le_2_instances": 45,
+            "max_tau_over_accepted": 4,
+            "avg_tau_over_accepted": 3.1555556,
+            "max_tau_over_r": 1
+          }
+        ],
+        "elapsed_ms": 272,
+        "generated_utc": "2026-03-12T15:47:57.022Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

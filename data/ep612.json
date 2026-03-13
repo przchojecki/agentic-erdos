@@ -1,91 +1,100 @@
 {
   "problem": "EP-612",
-  "normalized_utc": "2026-03-05T08:54:16.964Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-612\n- Quick literature check:\n  - Original conjecture is known false in the `K_{2r}`-free branch (CSS21), and newer 2025 examples add further pressure; amended `(3-2/k) n/d + O(1)`-type formulation remains open.\n- Finite compute signal:\n  - Explicit triangle-free blow-up families give coefficient `D / (n/d)` around `0.89..0.94` in tested cases, well below conjectured upper constants.\n- Interpretation:\n  - Construction tests are sanity checks only; proving sharp upper constants for the amended conjecture is still the key obstacle.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/576\n  - https://www.erdosproblems.com/584\n  - https://www.erdosproblems.com/585\n  - https://www.erdosproblems.com/588\n  - https://www.erdosproblems.com/589\n  - https://www.erdosproblems.com/591\n  - https://www.erdosproblems.com/592\n  - https://www.erdosproblems.com/604\n  - https://www.erdosproblems.com/609\n  - https://www.erdosproblems.com/612\n- Additional primary references surfaced in quick scan:\n  - https://doi.org/10.1016/j.aim.2025.110228\n  - https://arxiv.org/abs/2412.07708\n  - https://arxiv.org/abs/2506.14910\n  - https://doi.org/10.1016/j.jctb.2021.06.001"
+  "normalized_utc": "2026-03-12T15:42:30.351Z",
+  "computations": [
+    {
+      "source_file": "ep612_standalone_deeper_20260312T154230Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:42:30.351Z",
+      "data": {
+        "problem": "EP-612",
+        "script": "ep612.mjs",
+        "method": "deeper_explicit_triangle_free_blowup_family_diameter_profiles",
+        "params": {},
+        "rows": [
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 9,
+            "s": 8,
+            "n": 72,
+            "min_degree": 16,
+            "diameter": 4,
+            "coeff_D_over_n_over_d": 0.88888889,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.38888889,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.38095238
+          },
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 13,
+            "s": 8,
+            "n": 104,
+            "min_degree": 16,
+            "diameter": 6,
+            "coeff_D_over_n_over_d": 0.92307692,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.40384615,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.3956044
+          },
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 17,
+            "s": 8,
+            "n": 136,
+            "min_degree": 16,
+            "diameter": 8,
+            "coeff_D_over_n_over_d": 0.94117647,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.41176471,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.40336134
+          },
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 21,
+            "s": 8,
+            "n": 168,
+            "min_degree": 16,
+            "diameter": 10,
+            "coeff_D_over_n_over_d": 0.95238095,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.41666667,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.40816327
+          },
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 13,
+            "s": 12,
+            "n": 156,
+            "min_degree": 24,
+            "diameter": 6,
+            "coeff_D_over_n_over_d": 0.92307692,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.40384615,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.3956044
+          },
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 17,
+            "s": 12,
+            "n": 204,
+            "min_degree": 24,
+            "diameter": 8,
+            "coeff_D_over_n_over_d": 0.94117647,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.41176471,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.40336134
+          },
+          {
+            "family": "blowup_of_odd_cycle_triangle_free",
+            "L": 21,
+            "s": 12,
+            "n": 252,
+            "min_degree": 24,
+            "diameter": 10,
+            "coeff_D_over_n_over_d": 0.95238095,
+            "ratio_to_original_k4_free_coeff_16_over_7": 0.41666667,
+            "ratio_to_amended_k4_free_coeff_7_over_3": 0.40816327
+          }
+        ],
+        "elapsed_ms": 11,
+        "generated_utc": "2026-03-12T15:42:30.351Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch15_quick_compute.mjs",
-        "heading": "diameter/n-over-d ratios for explicit K4-free (triangle-free) blow-up families.",
-        "content": "// EP-612: diameter/n-over-d ratios for explicit K4-free (triangle-free) blow-up families.\n{\n  function blowupCycleGraph(L, s) {\n    const n = L * s;\n    const G = makeGraph(n);\n\n    function id(block, idx) {\n      return block * s + idx;\n    }\n\n    for (let b = 0; b < L; b += 1) {\n      const nb = (b + 1) % L;\n      for (let i = 0; i < s; i += 1) {\n        for (let j = 0; j < s; j += 1) {\n          addEdge(G, id(b, i), id(nb, j));\n        }\n      }\n    }\n\n    return G;\n  }\n\n  function diameter(G) {\n    const { n, neigh } = G;\n    let D = 0;\n    for (let s = 0; s < n; s += 1) {\n      const dist = Array(n).fill(-1);\n      dist[s] = 0;\n      const q = [s];\n      let qi = 0;\n      while (qi < q.length) {\n        const u = q[qi++];\n        for (const v of neigh[u]) {\n          if (dist[v] >= 0) continue;\n          dist[v] = dist[u] + 1;\n          q.push(v);\n        }\n      }\n      for (const x of dist) if (x > D) D = x;\n    }\n    return D;\n  }\n\n  function minDegree(G) {\n    let d = Infinity;\n    for (const arr of G.neigh) if (arr.length < d) d = arr.length;\n    return d;\n  }\n\n  const rows = [];\n  const originalK4FreeCoeff = 16 / 7; // first formula in statement at r=2\n  const amendedK4FreeCoeff = 3 - 2 / 3; // (3 - 2/k) with k=3 (K4-free)\n\n  for (const [L, s] of [\n    [9, 8],\n    [13, 8],\n    [17, 8],\n    [13, 12],\n    [17, 12],\n  ]) {\n    const G = blowupCycleGraph(L, s);\n    const n = G.n;\n    const d = minDegree(G);\n    const D = diameter(G);\n    const coeff = (D * d) / n;\n\n    rows.push({\n      family: 'blowup_of_odd_cycle_triangle_free',\n      L,\n      s,\n      n,\n      min_degree: d,\n      diameter: D,\n      coeff_D_over_n_over_d: Number(coeff.toPrecision(7)),\n      ratio_to_original_k4_free_coeff_16_over_7: Number((coeff / originalK4FreeCoeff).toPrecision(7)),\n      ratio_to_amended_k4_free_coeff_7_over_3: Number((coeff / amendedK4FreeCoeff).toPrecision(7)),\n    });\n  }\n\n  out.results.ep612 = {\n    description: 'Explicit K4-free family diameter profile versus n/d scaling constants.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch15_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep612",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "Explicit K4-free family diameter profile versus n/d scaling constants.",
-          "rows": [
-            {
-              "family": "blowup_of_odd_cycle_triangle_free",
-              "L": 9,
-              "s": 8,
-              "n": 72,
-              "min_degree": 16,
-              "diameter": 4,
-              "coeff_D_over_n_over_d": 0.8888889,
-              "ratio_to_original_k4_free_coeff_16_over_7": 0.3888889,
-              "ratio_to_amended_k4_free_coeff_7_over_3": 0.3809524
-            },
-            {
-              "family": "blowup_of_odd_cycle_triangle_free",
-              "L": 13,
-              "s": 8,
-              "n": 104,
-              "min_degree": 16,
-              "diameter": 6,
-              "coeff_D_over_n_over_d": 0.9230769,
-              "ratio_to_original_k4_free_coeff_16_over_7": 0.4038462,
-              "ratio_to_amended_k4_free_coeff_7_over_3": 0.3956044
-            },
-            {
-              "family": "blowup_of_odd_cycle_triangle_free",
-              "L": 17,
-              "s": 8,
-              "n": 136,
-              "min_degree": 16,
-              "diameter": 8,
-              "coeff_D_over_n_over_d": 0.9411765,
-              "ratio_to_original_k4_free_coeff_16_over_7": 0.4117647,
-              "ratio_to_amended_k4_free_coeff_7_over_3": 0.4033613
-            },
-            {
-              "family": "blowup_of_odd_cycle_triangle_free",
-              "L": 13,
-              "s": 12,
-              "n": 156,
-              "min_degree": 24,
-              "diameter": 6,
-              "coeff_D_over_n_over_d": 0.9230769,
-              "ratio_to_original_k4_free_coeff_16_over_7": 0.4038462,
-              "ratio_to_amended_k4_free_coeff_7_over_3": 0.3956044
-            },
-            {
-              "family": "blowup_of_odd_cycle_triangle_free",
-              "L": 17,
-              "s": 12,
-              "n": 204,
-              "min_degree": 24,
-              "diameter": 8,
-              "coeff_D_over_n_over_d": 0.9411765,
-              "ratio_to_original_k4_free_coeff_16_over_7": 0.4117647,
-              "ratio_to_amended_k4_free_coeff_7_over_3": 0.4033613
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

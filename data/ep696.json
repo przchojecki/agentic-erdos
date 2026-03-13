@@ -1,5 +1,264 @@
 {
   "problem": "EP-696",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T21:17:54.432Z",
+  "computations": [
+    {
+      "source_file": "ep696_standalone_deeper_20260312T211742Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:17:42.264Z",
+      "data": {
+        "problem": "EP-696",
+        "script": "ep696.mjs",
+        "method": "exact_chain_lengths_over_divisors_and_prime_divisors",
+        "params": {
+          "N": 120000
+        },
+        "stats": [
+          {
+            "upto_n": 1000,
+            "mean_h": 1.6986987,
+            "mean_H": 2.003003,
+            "fraction_H_gt_h": 0.21121121,
+            "best_gap_record": {
+              "n": 840,
+              "h": 3,
+              "H": 8,
+              "gap": 5,
+              "ratio": 2.6666667
+            }
+          },
+          {
+            "upto_n": 5000,
+            "mean_h": 1.7545509,
+            "mean_H": 2.1068214,
+            "fraction_H_gt_h": 0.23764753,
+            "best_gap_record": {
+              "n": 2520,
+              "h": 3,
+              "H": 10,
+              "gap": 7,
+              "ratio": 3.3333333
+            }
+          },
+          {
+            "upto_n": 10000,
+            "mean_h": 1.7718772,
+            "mean_H": 2.1386139,
+            "fraction_H_gt_h": 0.24652465,
+            "best_gap_record": {
+              "n": 7560,
+              "h": 3,
+              "H": 10,
+              "gap": 7,
+              "ratio": 3.3333333
+            }
+          },
+          {
+            "upto_n": 20000,
+            "mean_h": 1.7868393,
+            "mean_H": 2.1659583,
+            "fraction_H_gt_h": 0.25511276,
+            "best_gap_record": {
+              "n": 17640,
+              "h": 3,
+              "H": 10,
+              "gap": 7,
+              "ratio": 3.3333333
+            }
+          },
+          {
+            "upto_n": 25000,
+            "mean_h": 1.7915517,
+            "mean_H": 2.1732069,
+            "fraction_H_gt_h": 0.25677027,
+            "best_gap_record": {
+              "n": 20160,
+              "h": 3,
+              "H": 11,
+              "gap": 8,
+              "ratio": 3.6666667
+            }
+          },
+          {
+            "upto_n": 50000,
+            "mean_h": 1.8037361,
+            "mean_H": 2.1946839,
+            "fraction_H_gt_h": 0.26290526,
+            "best_gap_record": {
+              "n": 27720,
+              "h": 3,
+              "H": 12,
+              "gap": 9,
+              "ratio": 4
+            }
+          },
+          {
+            "upto_n": 80000,
+            "mean_h": 1.8111726,
+            "mean_H": 2.2080026,
+            "fraction_H_gt_h": 0.26700334,
+            "best_gap_record": {
+              "n": 27720,
+              "h": 3,
+              "H": 12,
+              "gap": 9,
+              "ratio": 4
+            }
+          },
+          {
+            "upto_n": 100000,
+            "mean_h": 1.8146881,
+            "mean_H": 2.2135321,
+            "fraction_H_gt_h": 0.26845268,
+            "best_gap_record": {
+              "n": 27720,
+              "h": 3,
+              "H": 12,
+              "gap": 9,
+              "ratio": 4
+            }
+          },
+          {
+            "upto_n": 120000,
+            "mean_h": 1.8174235,
+            "mean_H": 2.2183018,
+            "fraction_H_gt_h": 0.26991892,
+            "best_gap_record": {
+              "n": 27720,
+              "h": 3,
+              "H": 12,
+              "gap": 9,
+              "ratio": 4
+            }
+          }
+        ],
+        "first_examples_ratio_ge_2": [
+          {
+            "n": 36,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 60,
+            "h": 2,
+            "H": 5,
+            "ratio_H_over_h": 2.5
+          },
+          {
+            "n": 72,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 75,
+            "h": 1,
+            "H": 2,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 108,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 120,
+            "h": 2,
+            "H": 5,
+            "ratio_H_over_h": 2.5
+          },
+          {
+            "n": 132,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 144,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 150,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 180,
+            "h": 2,
+            "H": 5,
+            "ratio_H_over_h": 2.5
+          },
+          {
+            "n": 204,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 216,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 225,
+            "h": 1,
+            "H": 2,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 240,
+            "h": 2,
+            "H": 5,
+            "ratio_H_over_h": 2.5
+          },
+          {
+            "n": 255,
+            "h": 1,
+            "H": 2,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 264,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 276,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 288,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          },
+          {
+            "n": 300,
+            "h": 2,
+            "H": 6,
+            "ratio_H_over_h": 3
+          },
+          {
+            "n": 324,
+            "h": 2,
+            "H": 4,
+            "ratio_H_over_h": 2
+          }
+        ],
+        "elapsed_ms": 90,
+        "generated_utc": "2026-03-12T21:17:42.264Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

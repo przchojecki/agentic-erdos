@@ -1,5 +1,50 @@
 {
   "problem": "EP-610",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T15:39:47.848Z",
+  "computations": [
+    {
+      "source_file": "ep610_standalone_deeper_20260312T153947Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:39:47.848Z",
+      "data": {
+        "problem": "EP-610",
+        "script": "ep610.mjs",
+        "method": "exact_small_n_clique_transversal_profile_vs_classical_sqrt_barrier",
+        "params": {},
+        "rows": [
+          {
+            "n": 14,
+            "p": 0.25,
+            "trials": 18,
+            "avg_tau_exact": 5.5555556,
+            "max_tau_exact": 7,
+            "avg_tau_minus_n_minus_sqrt_2n": -3.1529418,
+            "avg_tau_over_n": 0.3968254
+          },
+          {
+            "n": 16,
+            "p": 0.22,
+            "trials": 14,
+            "avg_tau_exact": 6.8571429,
+            "max_tau_exact": 9,
+            "avg_tau_minus_n_minus_sqrt_2n": -3.4860029,
+            "avg_tau_over_n": 0.42857143
+          },
+          {
+            "n": 18,
+            "p": 0.2,
+            "trials": 10,
+            "avg_tau_exact": 7.3,
+            "max_tau_exact": 8,
+            "avg_tau_minus_n_minus_sqrt_2n": -4.7,
+            "avg_tau_over_n": 0.40555556
+          }
+        ],
+        "elapsed_ms": 6,
+        "generated_utc": "2026-03-12T15:39:47.848Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,53 @@
 {
   "problem": "EP-619",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T15:54:17.203Z",
+  "computations": [
+    {
+      "source_file": "ep619_standalone_deeper_20260312T155416Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:54:17.203Z",
+      "data": {
+        "problem": "EP-619",
+        "script": "ep619.mjs",
+        "method": "sparse_triangle_free_diameter_4_augmentation_proxy_via_greedy_triangle_preserving_additions",
+        "params": {},
+        "rows": [
+          {
+            "n": 24,
+            "trials": 8,
+            "success_to_diameter_4": 8,
+            "success_ratio": 1,
+            "avg_initial_diameter": 6.75,
+            "avg_edges_added_for_target": 11.125,
+            "avg_added_over_n": 0.46354167,
+            "worst_added_over_n": 0.70833333
+          },
+          {
+            "n": 30,
+            "trials": 6,
+            "success_to_diameter_4": 6,
+            "success_ratio": 1,
+            "avg_initial_diameter": 6.8333333,
+            "avg_edges_added_for_target": 14.166667,
+            "avg_added_over_n": 0.47222222,
+            "worst_added_over_n": 0.7
+          },
+          {
+            "n": 36,
+            "trials": 5,
+            "success_to_diameter_4": 5,
+            "success_ratio": 1,
+            "avg_initial_diameter": 6.8,
+            "avg_edges_added_for_target": 23.8,
+            "avg_added_over_n": 0.66111111,
+            "worst_added_over_n": 0.94444444
+          }
+        ],
+        "elapsed_ms": 1080,
+        "generated_utc": "2026-03-12T15:54:17.203Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

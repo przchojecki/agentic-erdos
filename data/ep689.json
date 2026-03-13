@@ -1,5 +1,79 @@
 {
   "problem": "EP-689",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:49:32.116Z",
+  "computations": [
+    {
+      "source_file": "ep689_standalone_deeper_20260312T204931Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:49:32.116Z",
+      "data": {
+        "problem": "EP-689",
+        "script": "ep689.mjs",
+        "method": "stochastic_optimization_for_minimum_multiplicity_cover_of_1_to_n_by_prime_residue_classes",
+        "params": {},
+        "rows": [
+          {
+            "n": 120,
+            "primes_up_to_n": 30,
+            "restarts": 28,
+            "steps_per_restart": 1200,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          },
+          {
+            "n": 180,
+            "primes_up_to_n": 41,
+            "restarts": 24,
+            "steps_per_restart": 1100,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          },
+          {
+            "n": 260,
+            "primes_up_to_n": 55,
+            "restarts": 20,
+            "steps_per_restart": 1000,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          },
+          {
+            "n": 360,
+            "primes_up_to_n": 72,
+            "restarts": 16,
+            "steps_per_restart": 900,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          },
+          {
+            "n": 500,
+            "primes_up_to_n": 95,
+            "restarts": 14,
+            "steps_per_restart": 800,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          },
+          {
+            "n": 700,
+            "primes_up_to_n": 125,
+            "restarts": 12,
+            "steps_per_restart": 750,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          },
+          {
+            "n": 1000,
+            "primes_up_to_n": 168,
+            "restarts": 10,
+            "steps_per_restart": 700,
+            "best_min_cover_count_found": 0,
+            "reached_double_cover_everywhere": false
+          }
+        ],
+        "elapsed_ms": 172,
+        "generated_utc": "2026-03-12T20:49:32.116Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

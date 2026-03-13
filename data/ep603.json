@@ -1,5 +1,71 @@
 {
   "problem": "EP-603",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:55:19.734Z",
+  "computations": [
+    {
+      "source_file": "ep603_standalone_deeper_20260312T135513Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:55:19.734Z",
+      "data": {
+        "problem": "EP-603",
+        "script": "ep603.mjs",
+        "method": "finite_min_color_proxy_for_families_with_pairwise_intersection_not_2",
+        "params": {},
+        "rows": [
+          {
+            "universe_size": 30,
+            "set_size": 6,
+            "family_size_target": 24,
+            "forbidden_intersection_size": 2,
+            "trials": 26,
+            "built_instances": 26,
+            "avg_min_colors_over_built": 2,
+            "unresolved_over_kmax5": 0,
+            "histogram_min_colors": {
+              "2": 26,
+              "3": 0,
+              "4": 0,
+              "5+": 0
+            }
+          },
+          {
+            "universe_size": 36,
+            "set_size": 7,
+            "family_size_target": 28,
+            "forbidden_intersection_size": 2,
+            "trials": 22,
+            "built_instances": 22,
+            "avg_min_colors_over_built": 2,
+            "unresolved_over_kmax5": 0,
+            "histogram_min_colors": {
+              "2": 22,
+              "3": 0,
+              "4": 0,
+              "5+": 0
+            }
+          },
+          {
+            "universe_size": 42,
+            "set_size": 8,
+            "family_size_target": 32,
+            "forbidden_intersection_size": 2,
+            "trials": 18,
+            "built_instances": 15,
+            "avg_min_colors_over_built": 2,
+            "unresolved_over_kmax5": 0,
+            "histogram_min_colors": {
+              "2": 15,
+              "3": 0,
+              "4": 0,
+              "5+": 0
+            }
+          }
+        ],
+        "elapsed_ms": 6632,
+        "generated_utc": "2026-03-12T13:55:19.734Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

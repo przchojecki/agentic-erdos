@@ -1,5 +1,55 @@
 {
   "problem": "EP-623",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T15:57:25.597Z",
+  "computations": [
+    {
+      "source_file": "ep623_standalone_deeper_20260312T155724Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:57:25.597Z",
+      "data": {
+        "problem": "EP-623",
+        "script": "ep623.mjs",
+        "method": "finite_set_mapping_independence_proxy_exact_max_independent_subset_size",
+        "params": {},
+        "rows": [
+          {
+            "n": 9,
+            "trials": 120,
+            "max_independent_size_best": 4,
+            "max_independent_size_worst": 3,
+            "max_independent_size_avg": 3.3666667,
+            "avg_over_log2_n": 1.0620651
+          },
+          {
+            "n": 10,
+            "trials": 100,
+            "max_independent_size_best": 4,
+            "max_independent_size_worst": 3,
+            "max_independent_size_avg": 3.9,
+            "avg_over_log2_n": 1.174017
+          },
+          {
+            "n": 11,
+            "trials": 70,
+            "max_independent_size_best": 4,
+            "max_independent_size_worst": 4,
+            "max_independent_size_avg": 4,
+            "avg_over_log2_n": 1.1562593
+          },
+          {
+            "n": 12,
+            "trials": 50,
+            "max_independent_size_best": 5,
+            "max_independent_size_worst": 4,
+            "max_independent_size_avg": 4.02,
+            "avg_over_log2_n": 1.1213506
+          }
+        ],
+        "elapsed_ms": 1052,
+        "generated_utc": "2026-03-12T15:57:25.597Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

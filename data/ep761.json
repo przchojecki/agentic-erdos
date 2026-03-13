@@ -1,5 +1,58 @@
 {
   "problem": "EP-761",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:09:32.481Z",
+  "computations": [
+    {
+      "source_file": "ep761_standalone_deeper_20260313T100754Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:07:54.825Z",
+      "data": {
+        "problem": "EP-761",
+        "script": "ep761.mjs",
+        "method": "finite_proxy_scan_chromatic_vs_dichromatic_vs_cochromatic",
+        "warning": "Exact dichromatic on small n with random orientations; not a proof of asymptotic implications.",
+        "params": {
+          "N_LIST": [
+            7,
+            8,
+            9
+          ],
+          "SAMPLES": 100
+        },
+        "rows": [
+          {
+            "n": 7,
+            "samples": 100,
+            "avg_chromatic": 3.08,
+            "avg_dichromatic_random_orientation": 1.6,
+            "avg_cochromatic_greedy_proxy": 2.62,
+            "frac_chi_ge_4": 0.19,
+            "frac_dichromatic_ge_3": 0
+          },
+          {
+            "n": 8,
+            "samples": 100,
+            "avg_chromatic": 3.34,
+            "avg_dichromatic_random_orientation": 1.73,
+            "avg_cochromatic_greedy_proxy": 2.84,
+            "frac_chi_ge_4": 0.34,
+            "frac_dichromatic_ge_3": 0
+          },
+          {
+            "n": 9,
+            "samples": 100,
+            "avg_chromatic": 3.52,
+            "avg_dichromatic_random_orientation": 1.88,
+            "avg_cochromatic_greedy_proxy": 3.05,
+            "frac_chi_ge_4": 0.5,
+            "frac_dichromatic_ge_3": 0
+          }
+        ],
+        "elapsed_ms": 12,
+        "generated_utc": "2026-03-13T10:07:54.825Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

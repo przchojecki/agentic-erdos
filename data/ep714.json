@@ -1,5 +1,117 @@
 {
   "problem": "EP-714",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:53:23.735Z",
+  "computations": [
+    {
+      "source_file": "ep714_standalone_deeper_20260313T095234Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:52:35.190Z",
+      "data": {
+        "problem": "EP-714",
+        "script": "ep714.mjs",
+        "method": "finite_random_greedy_bipartite_Krr_free_construction_scan",
+        "warning": "Finite lower-bound construction only, for r=2,3 in this implementation.",
+        "params": {
+          "R_LIST": [
+            2,
+            3
+          ],
+          "N_LIST": [
+            20,
+            30,
+            40,
+            50,
+            60
+          ],
+          "TRIALS": 40
+        },
+        "rows": [
+          {
+            "r": 2,
+            "n": 20,
+            "trials": 40,
+            "best_edges_found": 34,
+            "scale_n_2_minus_1_over_r": 89.442719,
+            "ratio_edges_over_scale": 0.38013156
+          },
+          {
+            "r": 2,
+            "n": 30,
+            "trials": 40,
+            "best_edges_found": 58,
+            "scale_n_2_minus_1_over_r": 164.31677,
+            "ratio_edges_over_scale": 0.35297676
+          },
+          {
+            "r": 2,
+            "n": 40,
+            "trials": 40,
+            "best_edges_found": 85,
+            "scale_n_2_minus_1_over_r": 252.98221,
+            "ratio_edges_over_scale": 0.335992
+          },
+          {
+            "r": 2,
+            "n": 50,
+            "trials": 40,
+            "best_edges_found": 114,
+            "scale_n_2_minus_1_over_r": 353.55339,
+            "ratio_edges_over_scale": 0.32244069
+          },
+          {
+            "r": 2,
+            "n": 60,
+            "trials": 40,
+            "best_edges_found": 148,
+            "scale_n_2_minus_1_over_r": 464.758,
+            "ratio_edges_over_scale": 0.3184453
+          },
+          {
+            "r": 3,
+            "n": 20,
+            "trials": 40,
+            "best_edges_found": 57,
+            "scale_n_2_minus_1_over_r": 147.36126,
+            "ratio_edges_over_scale": 0.38680451
+          },
+          {
+            "r": 3,
+            "n": 30,
+            "trials": 40,
+            "best_edges_found": 102,
+            "scale_n_2_minus_1_over_r": 289.64682,
+            "ratio_edges_over_scale": 0.35215302
+          },
+          {
+            "r": 3,
+            "n": 40,
+            "trials": 40,
+            "best_edges_found": 158,
+            "scale_n_2_minus_1_over_r": 467.84284,
+            "ratio_edges_over_scale": 0.33772025
+          },
+          {
+            "r": 3,
+            "n": 50,
+            "trials": 40,
+            "best_edges_found": 219,
+            "scale_n_2_minus_1_over_r": 678.6044,
+            "ratio_edges_over_scale": 0.32272116
+          },
+          {
+            "r": 3,
+            "n": 60,
+            "trials": 40,
+            "best_edges_found": 289,
+            "scale_n_2_minus_1_over_r": 919.57132,
+            "ratio_edges_over_scale": 0.31427687
+          }
+        ],
+        "elapsed_ms": 813,
+        "generated_utc": "2026-03-13T09:52:35.190Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

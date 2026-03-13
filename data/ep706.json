@@ -1,5 +1,89 @@
 {
   "problem": "EP-706",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:46:52.971Z",
+  "computations": [
+    {
+      "source_file": "ep706_standalone_deeper_20260313T094546Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:45:47.169Z",
+      "data": {
+        "problem": "EP-706",
+        "script": "ep706.mjs",
+        "method": "finite_random_planar_multi_distance_graph_coloring_slices",
+        "warning": "Finite random proxy only; this does not establish asymptotic bounds for L(r).",
+        "params": {
+          "R_MAX": 6,
+          "POINTS": 160,
+          "TRIALS_PER_R": 40,
+          "EPS": 0.018
+        },
+        "rows": [
+          {
+            "r": 1,
+            "trials": 40,
+            "points": 160,
+            "eps": 0.018,
+            "max_greedy_upper": 6,
+            "max_greedy_clique_lower": 3,
+            "mean_greedy_upper": 4.4,
+            "mean_clique_lower": 2.825
+          },
+          {
+            "r": 2,
+            "trials": 40,
+            "points": 160,
+            "eps": 0.018,
+            "max_greedy_upper": 8,
+            "max_greedy_clique_lower": 4,
+            "mean_greedy_upper": 5.725,
+            "mean_clique_lower": 3.15
+          },
+          {
+            "r": 3,
+            "trials": 40,
+            "points": 160,
+            "eps": 0.018,
+            "max_greedy_upper": 10,
+            "max_greedy_clique_lower": 4,
+            "mean_greedy_upper": 7.5,
+            "mean_clique_lower": 3.625
+          },
+          {
+            "r": 4,
+            "trials": 40,
+            "points": 160,
+            "eps": 0.018,
+            "max_greedy_upper": 11,
+            "max_greedy_clique_lower": 6,
+            "mean_greedy_upper": 9,
+            "mean_clique_lower": 4.3
+          },
+          {
+            "r": 5,
+            "trials": 40,
+            "points": 160,
+            "eps": 0.018,
+            "max_greedy_upper": 14,
+            "max_greedy_clique_lower": 6,
+            "mean_greedy_upper": 10.725,
+            "mean_clique_lower": 4.65
+          },
+          {
+            "r": 6,
+            "trials": 40,
+            "points": 160,
+            "eps": 0.018,
+            "max_greedy_upper": 15,
+            "max_greedy_clique_lower": 6,
+            "mean_greedy_upper": 12.175,
+            "mean_clique_lower": 4.95
+          }
+        ],
+        "elapsed_ms": 161,
+        "generated_utc": "2026-03-13T09:45:47.169Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,1038 @@
 {
   "problem": "EP-635",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T19:39:36.419Z",
+  "computations": [
+    {
+      "source_file": "ep635_standalone_deeper_20260312T193936Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:39:36.419Z",
+      "data": {
+        "problem": "EP-635",
+        "script": "ep635.mjs",
+        "method": "exact_branch_and_bound_for_maximum_set_avoiding_large_divisor_differences",
+        "params": {},
+        "rows": [
+          {
+            "t": 1,
+            "N": 10,
+            "max_size_exact": 5,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9
+            ]
+          },
+          {
+            "t": 1,
+            "N": 12,
+            "max_size_exact": 6,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11
+            ]
+          },
+          {
+            "t": 1,
+            "N": 14,
+            "max_size_exact": 7,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13
+            ]
+          },
+          {
+            "t": 1,
+            "N": 16,
+            "max_size_exact": 8,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "t": 1,
+            "N": 18,
+            "max_size_exact": 9,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17
+            ]
+          },
+          {
+            "t": 1,
+            "N": 20,
+            "max_size_exact": 10,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19
+            ]
+          },
+          {
+            "t": 1,
+            "N": 22,
+            "max_size_exact": 11,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21
+            ]
+          },
+          {
+            "t": 1,
+            "N": 24,
+            "max_size_exact": 12,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23
+            ]
+          },
+          {
+            "t": 1,
+            "N": 26,
+            "max_size_exact": 13,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25
+            ]
+          },
+          {
+            "t": 1,
+            "N": 28,
+            "max_size_exact": 14,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27
+            ]
+          },
+          {
+            "t": 1,
+            "N": 30,
+            "max_size_exact": 15,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29
+            ]
+          },
+          {
+            "t": 1,
+            "N": 32,
+            "max_size_exact": 16,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29,
+              31
+            ]
+          },
+          {
+            "t": 1,
+            "N": 34,
+            "max_size_exact": 17,
+            "ratio_over_N": 0.5,
+            "witness_prefix": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29,
+              31,
+              33
+            ]
+          },
+          {
+            "t": 2,
+            "N": 10,
+            "max_size_exact": 7,
+            "ratio_over_N": 0.7,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "t": 2,
+            "N": 12,
+            "max_size_exact": 8,
+            "ratio_over_N": 0.66666667,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11
+            ]
+          },
+          {
+            "t": 2,
+            "N": 14,
+            "max_size_exact": 9,
+            "ratio_over_N": 0.64285714,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13
+            ]
+          },
+          {
+            "t": 2,
+            "N": 16,
+            "max_size_exact": 10,
+            "ratio_over_N": 0.625,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "t": 2,
+            "N": 18,
+            "max_size_exact": 11,
+            "ratio_over_N": 0.61111111,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17
+            ]
+          },
+          {
+            "t": 2,
+            "N": 20,
+            "max_size_exact": 12,
+            "ratio_over_N": 0.6,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19
+            ]
+          },
+          {
+            "t": 2,
+            "N": 22,
+            "max_size_exact": 13,
+            "ratio_over_N": 0.59090909,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21
+            ]
+          },
+          {
+            "t": 2,
+            "N": 24,
+            "max_size_exact": 14,
+            "ratio_over_N": 0.58333333,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23
+            ]
+          },
+          {
+            "t": 2,
+            "N": 26,
+            "max_size_exact": 15,
+            "ratio_over_N": 0.57692308,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25
+            ]
+          },
+          {
+            "t": 2,
+            "N": 28,
+            "max_size_exact": 16,
+            "ratio_over_N": 0.57142857,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27
+            ]
+          },
+          {
+            "t": 2,
+            "N": 30,
+            "max_size_exact": 17,
+            "ratio_over_N": 0.56666667,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29
+            ]
+          },
+          {
+            "t": 2,
+            "N": 32,
+            "max_size_exact": 19,
+            "ratio_over_N": 0.59375,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29,
+              31,
+              32
+            ]
+          },
+          {
+            "t": 2,
+            "N": 34,
+            "max_size_exact": 20,
+            "ratio_over_N": 0.58823529,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              5,
+              7,
+              8,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29,
+              31,
+              32,
+              33
+            ]
+          },
+          {
+            "t": 3,
+            "N": 10,
+            "max_size_exact": 7,
+            "ratio_over_N": 0.7,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9
+            ]
+          },
+          {
+            "t": 3,
+            "N": 12,
+            "max_size_exact": 8,
+            "ratio_over_N": 0.66666667,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11
+            ]
+          },
+          {
+            "t": 3,
+            "N": 14,
+            "max_size_exact": 9,
+            "ratio_over_N": 0.64285714,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13
+            ]
+          },
+          {
+            "t": 3,
+            "N": 16,
+            "max_size_exact": 11,
+            "ratio_over_N": 0.6875,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16
+            ]
+          },
+          {
+            "t": 3,
+            "N": 18,
+            "max_size_exact": 12,
+            "ratio_over_N": 0.66666667,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17
+            ]
+          },
+          {
+            "t": 3,
+            "N": 20,
+            "max_size_exact": 13,
+            "ratio_over_N": 0.65,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19
+            ]
+          },
+          {
+            "t": 3,
+            "N": 22,
+            "max_size_exact": 14,
+            "ratio_over_N": 0.63636364,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21
+            ]
+          },
+          {
+            "t": 3,
+            "N": 24,
+            "max_size_exact": 15,
+            "ratio_over_N": 0.625,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23
+            ]
+          },
+          {
+            "t": 3,
+            "N": 26,
+            "max_size_exact": 16,
+            "ratio_over_N": 0.61538462,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23,
+              25
+            ]
+          },
+          {
+            "t": 3,
+            "N": 28,
+            "max_size_exact": 17,
+            "ratio_over_N": 0.60714286,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27
+            ]
+          },
+          {
+            "t": 3,
+            "N": 30,
+            "max_size_exact": 18,
+            "ratio_over_N": 0.6,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29
+            ]
+          },
+          {
+            "t": 4,
+            "N": 10,
+            "max_size_exact": 8,
+            "ratio_over_N": 0.8,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9
+            ]
+          },
+          {
+            "t": 4,
+            "N": 12,
+            "max_size_exact": 9,
+            "ratio_over_N": 0.75,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11
+            ]
+          },
+          {
+            "t": 4,
+            "N": 14,
+            "max_size_exact": 10,
+            "ratio_over_N": 0.71428571,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13
+            ]
+          },
+          {
+            "t": 4,
+            "N": 16,
+            "max_size_exact": 12,
+            "ratio_over_N": 0.75,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16
+            ]
+          },
+          {
+            "t": 4,
+            "N": 18,
+            "max_size_exact": 13,
+            "ratio_over_N": 0.72222222,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17
+            ]
+          },
+          {
+            "t": 4,
+            "N": 20,
+            "max_size_exact": 14,
+            "ratio_over_N": 0.7,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19
+            ]
+          },
+          {
+            "t": 4,
+            "N": 22,
+            "max_size_exact": 15,
+            "ratio_over_N": 0.68181818,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21
+            ]
+          },
+          {
+            "t": 4,
+            "N": 24,
+            "max_size_exact": 16,
+            "ratio_over_N": 0.66666667,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23
+            ]
+          },
+          {
+            "t": 4,
+            "N": 26,
+            "max_size_exact": 17,
+            "ratio_over_N": 0.65384615,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23,
+              25
+            ]
+          },
+          {
+            "t": 4,
+            "N": 28,
+            "max_size_exact": 18,
+            "ratio_over_N": 0.64285714,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27
+            ]
+          },
+          {
+            "t": 4,
+            "N": 30,
+            "max_size_exact": 19,
+            "ratio_over_N": 0.63333333,
+            "witness_prefix": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29
+            ]
+          }
+        ],
+        "summary": [
+          {
+            "t": 1,
+            "largest_N_checked": 34,
+            "max_size_at_largest_N": 17,
+            "ratio_at_largest_N": 0.5
+          },
+          {
+            "t": 2,
+            "largest_N_checked": 34,
+            "max_size_at_largest_N": 20,
+            "ratio_at_largest_N": 0.58823529
+          },
+          {
+            "t": 3,
+            "largest_N_checked": 30,
+            "max_size_at_largest_N": 18,
+            "ratio_at_largest_N": 0.6
+          },
+          {
+            "t": 4,
+            "largest_N_checked": 30,
+            "max_size_at_largest_N": 19,
+            "ratio_at_largest_N": 0.63333333
+          }
+        ],
+        "elapsed_ms": 23,
+        "generated_utc": "2026-03-12T19:39:36.419Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

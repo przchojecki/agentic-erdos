@@ -1,5 +1,53 @@
 {
   "problem": "EP-602",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T13:55:18.292Z",
+  "computations": [
+    {
+      "source_file": "ep602_standalone_deeper_20260312T135513Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T13:55:18.292Z",
+      "data": {
+        "problem": "EP-602",
+        "script": "ep602.mjs",
+        "method": "finite_property_B_proxy_for_families_with_pairwise_intersection_not_1",
+        "params": {},
+        "rows": [
+          {
+            "universe_size": 30,
+            "set_size": 6,
+            "family_size_target": 24,
+            "forbidden_intersection_size": 1,
+            "trials": 30,
+            "built_instances": 30,
+            "two_colorable_instances": 30,
+            "two_colorable_ratio": 1
+          },
+          {
+            "universe_size": 36,
+            "set_size": 7,
+            "family_size_target": 28,
+            "forbidden_intersection_size": 1,
+            "trials": 26,
+            "built_instances": 24,
+            "two_colorable_instances": 24,
+            "two_colorable_ratio": 1
+          },
+          {
+            "universe_size": 42,
+            "set_size": 8,
+            "family_size_target": 32,
+            "forbidden_intersection_size": 1,
+            "trials": 22,
+            "built_instances": 20,
+            "two_colorable_instances": 20,
+            "two_colorable_ratio": 1
+          }
+        ],
+        "elapsed_ms": 5200,
+        "generated_utc": "2026-03-12T13:55:18.292Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

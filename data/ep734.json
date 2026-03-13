@@ -1,5 +1,158 @@
 {
   "problem": "EP-734",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:03:06.583Z",
+  "computations": [
+    {
+      "source_file": "ep734_standalone_deeper_20260313T100133Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:01:34.848Z",
+      "data": {
+        "problem": "EP-734",
+        "script": "ep734.mjs",
+        "method": "random_edge_partition_of_complete_graph_into_cliques_as_PBD_proxy",
+        "warning": "Heuristic finite construction proxy; not a proof-level PBD existence theorem.",
+        "params": {
+          "N_LIST": [
+            25,
+            36,
+            49,
+            64,
+            81,
+            100,
+            121
+          ],
+          "TRIALS": 36
+        },
+        "rows": [
+          {
+            "n": 25,
+            "trials": 36,
+            "best_found_block_count": 93,
+            "best_found_max_multiplicity_any_size": 46,
+            "sqrt_n": 5,
+            "ratio_max_mult_over_sqrt_n": 9.2,
+            "multiplicities_by_block_size_for_best": {
+              "2": 44,
+              "3": 46,
+              "8": 1,
+              "10": 2
+            }
+          },
+          {
+            "n": 36,
+            "trials": 36,
+            "best_found_block_count": 133,
+            "best_found_max_multiplicity_any_size": 44,
+            "sqrt_n": 6,
+            "ratio_max_mult_over_sqrt_n": 7.3333333,
+            "multiplicities_by_block_size_for_best": {
+              "2": 44,
+              "3": 44,
+              "4": 34,
+              "5": 7,
+              "10": 4
+            }
+          },
+          {
+            "n": 49,
+            "trials": 36,
+            "best_found_block_count": 201,
+            "best_found_max_multiplicity_any_size": 70,
+            "sqrt_n": 7,
+            "ratio_max_mult_over_sqrt_n": 10,
+            "multiplicities_by_block_size_for_best": {
+              "2": 70,
+              "3": 48,
+              "4": 42,
+              "5": 22,
+              "6": 10,
+              "7": 2,
+              "8": 1,
+              "10": 6
+            }
+          },
+          {
+            "n": 64,
+            "trials": 36,
+            "best_found_block_count": 322,
+            "best_found_max_multiplicity_any_size": 122,
+            "sqrt_n": 8,
+            "ratio_max_mult_over_sqrt_n": 15.25,
+            "multiplicities_by_block_size_for_best": {
+              "2": 122,
+              "3": 78,
+              "4": 51,
+              "5": 31,
+              "6": 16,
+              "7": 9,
+              "8": 3,
+              "9": 1,
+              "10": 11
+            }
+          },
+          {
+            "n": 81,
+            "trials": 36,
+            "best_found_block_count": 498,
+            "best_found_max_multiplicity_any_size": 185,
+            "sqrt_n": 9,
+            "ratio_max_mult_over_sqrt_n": 20.555556,
+            "multiplicities_by_block_size_for_best": {
+              "2": 185,
+              "3": 140,
+              "4": 71,
+              "5": 31,
+              "6": 28,
+              "7": 14,
+              "8": 6,
+              "9": 2,
+              "10": 21
+            }
+          },
+          {
+            "n": 100,
+            "trials": 36,
+            "best_found_block_count": 719,
+            "best_found_max_multiplicity_any_size": 261,
+            "sqrt_n": 10,
+            "ratio_max_mult_over_sqrt_n": 26.1,
+            "multiplicities_by_block_size_for_best": {
+              "2": 261,
+              "3": 201,
+              "4": 103,
+              "5": 52,
+              "6": 35,
+              "7": 15,
+              "8": 11,
+              "9": 5,
+              "10": 36
+            }
+          },
+          {
+            "n": 121,
+            "trials": 36,
+            "best_found_block_count": 1020,
+            "best_found_max_multiplicity_any_size": 363,
+            "sqrt_n": 11,
+            "ratio_max_mult_over_sqrt_n": 33,
+            "multiplicities_by_block_size_for_best": {
+              "2": 363,
+              "3": 294,
+              "4": 137,
+              "5": 72,
+              "6": 49,
+              "7": 26,
+              "8": 15,
+              "9": 12,
+              "10": 52
+            }
+          }
+        ],
+        "elapsed_ms": 1571,
+        "generated_utc": "2026-03-13T10:01:34.848Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,57 +1,58 @@
 {
   "problem": "EP-642",
-  "normalized_utc": "2026-03-05T08:54:16.964Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch16_web_compute.md",
-        "content": "### EP-642\n- Quick literature check:\n  - Open; best listed bound improved to near-linear `f(n) << n (log n)^8` (2024), far below the older `n^{3/2}` bound.\n- Finite compute signal:\n  - Small-`n` greedy maxima under exact cycle-diagonal checks are about `1.9n` edges (`n=8,9,10`).\n- Interpretation:\n  - Finite extremal behavior is strongly linear-like, compatible with conjectural `f(n) << n`."
+  "normalized_utc": "2026-03-12T19:42:12.812Z",
+  "computations": [
+    {
+      "source_file": "ep642_standalone_deeper_20260312T194212Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T19:42:12.812Z",
+      "data": {
+        "problem": "EP-642",
+        "script": "ep642.mjs",
+        "method": "deeper_greedy_extremal_search_under_cycle_more_vertices_than_diagonals_constraint",
+        "params": {},
+        "rows": [
+          {
+            "n": 8,
+            "restarts": 40,
+            "best_edges_found": 16,
+            "best_over_n": 2,
+            "best_over_n_log_n": 0.96179669
+          },
+          {
+            "n": 9,
+            "restarts": 34,
+            "best_edges_found": 17,
+            "best_over_n": 1.8888889,
+            "best_over_n_log_n": 0.85967038
+          },
+          {
+            "n": 10,
+            "restarts": 28,
+            "best_edges_found": 20,
+            "best_over_n": 2,
+            "best_over_n_log_n": 0.86858896
+          },
+          {
+            "n": 11,
+            "restarts": 20,
+            "best_edges_found": 21,
+            "best_over_n": 1.9090909,
+            "best_over_n_log_n": 0.79615275
+          },
+          {
+            "n": 12,
+            "restarts": 14,
+            "best_edges_found": 23,
+            "best_over_n": 1.9166667,
+            "best_over_n_log_n": 0.77132341
+          }
+        ],
+        "elapsed_ms": 46,
+        "generated_utc": "2026-03-12T19:42:12.812Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch16_quick_compute.mjs",
-        "heading": "maximize edges under cycle-diagonal constraint (small n exact-check within greedy).",
-        "content": "// EP-642: maximize edges under cycle-diagonal constraint (small n exact-check within greedy).\n{\n  const rng = makeRng(20260304 ^ 1604);\n\n  function hasViolation(G) {\n    const n = G.n;\n    const seenMask = new Map();\n\n    function checkCycle(path) {\n      let mask = 0;\n      for (const v of path) mask |= 1 << v;\n      if (seenMask.has(mask)) return seenMask.get(mask);\n\n      const S = path;\n      let mS = 0;\n      for (let i = 0; i < S.length; i += 1) {\n        for (let j = i + 1; j < S.length; j += 1) {\n          if (G.adj[S[i]][S[j]]) mS += 1;\n        }\n      }\n\n      const viol = mS - S.length >= S.length;\n      seenMask.set(mask, viol);\n      return viol;\n    }\n\n    for (let s = 0; s < n; s += 1) {\n      const visited = Array(n).fill(false);\n      const path = [s];\n      visited[s] = true;\n\n      function dfs(u) {\n        for (const v of G.neigh[u]) {\n          if (v < s) continue;\n          if (v === s) {\n            if (path.length >= 3) {\n              const second = path[1];\n              const last = u;\n              if (second < last && checkCycle(path)) return true;\n            }\n            continue;\n          }\n          if (visited[v]) continue;\n          visited[v] = true;\n          path.push(v);\n          const bad = dfs(v);\n          path.pop();\n          visited[v] = false;\n          if (bad) return true;\n        }\n        return false;\n      }\n\n      if (dfs(s)) return true;\n    }\n\n    return false;\n  }\n\n  function greedyMaxNoViolation(n, restarts) {\n    let best = 0;\n\n    for (let r = 0; r < restarts; r += 1) {\n      const G = makeGraph(n);\n      const edges = allEdges(n);\n      shuffle(edges, rng);\n\n      for (const [u, v] of edges) {\n        addEdge(G, u, v);\n        if (hasViolation(G)) removeEdge(G, u, v);\n      }\n\n      if (G.m > best) best = G.m;\n    }\n\n    return best;\n  }\n\n  const rows = [];\n  for (const [n, restarts] of [[8, 22], [9, 18], [10, 14]]) {\n    const best = greedyMaxNoViolation(n, restarts);\n    rows.push({\n      n,\n      restarts,\n      best_edges_found: best,\n      best_over_n: Number((best / n).toPrecision(7)),\n      best_over_n_log_n: Number((best / Math.max(1, n * Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep642 = {\n    description: 'Small-n greedy maxima under exact cycle-diagonal violation checks.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch16_quick_compute.json",
-        "key": "ep642",
-        "container_meta": {
-          "script": "harder_batch16_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:01:32.236Z"
-        },
-        "data": {
-          "description": "Small-n greedy maxima under exact cycle-diagonal violation checks.",
-          "rows": [
-            {
-              "n": 8,
-              "restarts": 22,
-              "best_edges_found": 15,
-              "best_over_n": 1.875,
-              "best_over_n_log_n": 0.9016844
-            },
-            {
-              "n": 9,
-              "restarts": 18,
-              "best_edges_found": 17,
-              "best_over_n": 1.888889,
-              "best_over_n_log_n": 0.8596704
-            },
-            {
-              "n": 10,
-              "restarts": 14,
-              "best_edges_found": 19,
-              "best_over_n": 1.9,
-              "best_over_n_log_n": 0.8251595
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

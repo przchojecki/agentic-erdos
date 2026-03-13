@@ -1,54 +1,47 @@
 {
   "problem": "EP-774",
-  "normalized_utc": "2026-03-05T08:54:16.967Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch17_web_compute.md",
-        "content": "### EP-774\n- Quick literature check:\n  - Still open in the dissociated setting; 2024 negative result is for the analogous Sidon-partition question, not a full resolution of this exact problem.\n- Finite compute signal:\n  - Random finite sets show moderate dissociated dimension ratios and small partition counts (`2` or `3`) into dissociated classes in tested sizes.\n- Interpretation:\n  - Finite behavior does not decide whether proportional dissociation implies bounded union of dissociated sets in general.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/687\n  - https://www.erdosproblems.com/690\n  - https://www.erdosproblems.com/695\n  - https://www.erdosproblems.com/701\n  - https://www.erdosproblems.com/704\n  - https://www.erdosproblems.com/705\n  - https://www.erdosproblems.com/711\n  - https://www.erdosproblems.com/713\n  - https://www.erdosproblems.com/769\n  - https://www.erdosproblems.com/774\n- Additional primary references surfaced in quick scan:\n  - https://doi.org/10.1016/j.jnt.2026.03.017\n  - https://arxiv.org/abs/2508.20041\n  - https://arxiv.org/abs/2410.16554\n  - https://arxiv.org/abs/1806.06668\n  - https://arxiv.org/abs/2402.19077"
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch17_quick_compute.mjs",
-        "heading": "finite surrogates for dissociated dimension and partition count.",
-        "content": "// EP-774: finite surrogates for dissociated dimension and partition count.\n{\n  const rng = makeRng(20260304 ^ 1710);\n\n  function subsetSums(arr) {\n    const sums = [0];\n    for (const x of arr) {\n      const len = sums.length;\n      for (let i = 0; i < len; i += 1) sums.push(sums[i] + x);\n    }\n    return sums;\n  }\n\n  function isDissociated(arr) {\n    const sums = subsetSums(arr);\n    sums.sort((a, b) => a - b);\n    for (let i = 1; i < sums.length; i += 1) if (sums[i] === sums[i - 1]) return false;\n    return true;\n  }\n\n  function maxDissociatedSize(A) {\n    const n = A.length;\n    let best = 0;\n    for (let mask = 1; mask < (1 << n); mask += 1) {\n      const bits = mask.toString(2).split('0').join('').length;\n      if (bits <= best) continue;\n      const S = [];\n      for (let i = 0; i < n; i += 1) if ((mask >> i) & 1) S.push(A[i]);\n      if (isDissociated(S)) best = bits;\n    }\n    return best;\n  }\n\n  function canPartitionIntoTDissociated(A, t) {\n    const n = A.length;\n    const bins = Array.from({ length: t }, () => []);\n    const order = [...A].sort((a, b) => b - a);\n\n    function dfs(i) {\n      if (i === n) return true;\n      const x = order[i];\n      for (let b = 0; b < t; b += 1) {\n        bins[b].push(x);\n        if (isDissociated(bins[b]) && dfs(i + 1)) return true;\n        bins[b].pop();\n      }\n      return false;\n    }\n\n    return dfs(0);\n  }\n\n  function randomSet(m, maxV) {\n    const S = new Set();\n    while (S.size < m) S.add(1 + Math.floor(rng() * maxV));\n    return [...S].sort((a, b) => a - b);\n  }\n\n  const rows = [];\n  for (const [m, trials] of [[12, 8], [14, 7], [16, 6]]) {\n    let bestRatio = 0;\n    let worstT = 1;\n\n    for (let t = 0; t < trials; t += 1) {\n      const A = randomSet(m, 300);\n      const d = maxDissociatedSize(A);\n      const ratio = d / m;\n      if (ratio > bestRatio) bestRatio = ratio;\n\n      let tNeed = m;\n      for (let k = 1; k <= 5; k += 1) {\n        if (canPartitionIntoTDissociated(A, k)) {\n          tNeed = k;\n          break;\n        }\n      }\n      if (tNeed > worstT) worstT = tNeed;\n    }\n\n    rows.push({\n      m,\n      trials,\n      best_dissociated_dimension_ratio_found: Number(bestRatio.toPrecision(7)),\n      worst_min_partition_count_into_dissociated_classes_found: worstT,\n    });\n  }\n\n  out.results.ep774 = {\n    description: 'Finite surrogate profile for dissociated dimension and minimal partition into dissociated classes.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch17_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch17_quick_compute.json",
-        "key": "ep774",
-        "container_meta": {
-          "script": "harder_batch17_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:13:20.362Z"
+  "normalized_utc": "2026-03-13T10:22:52.306Z",
+  "computations": [
+    {
+      "source_file": "ep774_standalone_deeper_20260313T102153Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:21:56.656Z",
+      "data": {
+        "problem": "EP-774",
+        "script": "ep774.mjs",
+        "method": "exact_finite_dissociation_dimension_and_partition_profile_scan",
+        "params": {
+          "M_LIST": [
+            12,
+            14
+          ],
+          "TRIALS": 16,
+          "MAX_T": 5,
+          "MAX_V": 700
         },
-        "data": {
-          "description": "Finite surrogate profile for dissociated dimension and minimal partition into dissociated classes.",
-          "rows": [
-            {
-              "m": 12,
-              "trials": 8,
-              "best_dissociated_dimension_ratio_found": 0.6666667,
-              "worst_min_partition_count_into_dissociated_classes_found": 2
-            },
-            {
-              "m": 14,
-              "trials": 7,
-              "best_dissociated_dimension_ratio_found": 0.5714286,
-              "worst_min_partition_count_into_dissociated_classes_found": 2
-            },
-            {
-              "m": 16,
-              "trials": 6,
-              "best_dissociated_dimension_ratio_found": 0.5,
-              "worst_min_partition_count_into_dissociated_classes_found": 3
-            }
-          ]
-        }
+        "rows": [
+          {
+            "m": 12,
+            "trials": 16,
+            "best_dissociated_dimension_ratio_found": 0.75,
+            "avg_dissociated_dimension_ratio": 0.71354167,
+            "worst_min_partition_count_into_dissociated_classes_found": 2,
+            "avg_min_partition_count_proxy": 2
+          },
+          {
+            "m": 14,
+            "trials": 16,
+            "best_dissociated_dimension_ratio_found": 0.64285714,
+            "avg_dissociated_dimension_ratio": 0.63839286,
+            "worst_min_partition_count_into_dissociated_classes_found": 2,
+            "avg_min_partition_count_proxy": 2
+          }
+        ],
+        "elapsed_ms": 2657,
+        "generated_utc": "2026-03-13T10:21:56.656Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,293 @@
 {
   "problem": "EP-669",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:28:31.115Z",
+  "computations": [
+    {
+      "source_file": "ep669_standalone_deeper_20260312T202831Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:28:31.115Z",
+      "data": {
+        "problem": "EP-669",
+        "script": "ep669.mjs",
+        "method": "rich_line_count_profiles_for_explicit_point_families",
+        "params": {},
+        "rows": [
+          {
+            "family": "square_grid",
+            "n": 49,
+            "k": 3,
+            "F_k_proxy_at_least_k": 108,
+            "f_k_proxy_exactly_k": 64,
+            "F_k_over_n2": 0.044981258,
+            "f_k_over_n2": 0.02665556
+          },
+          {
+            "family": "square_grid",
+            "n": 49,
+            "k": 4,
+            "F_k_proxy_at_least_k": 44,
+            "f_k_proxy_exactly_k": 20,
+            "F_k_over_n2": 0.018325698,
+            "f_k_over_n2": 0.0083298626
+          },
+          {
+            "family": "square_grid",
+            "n": 49,
+            "k": 5,
+            "F_k_proxy_at_least_k": 24,
+            "f_k_proxy_exactly_k": 4,
+            "F_k_over_n2": 0.0099958351,
+            "f_k_over_n2": 0.0016659725
+          },
+          {
+            "family": "square_grid",
+            "n": 64,
+            "k": 3,
+            "F_k_proxy_at_least_k": 174,
+            "f_k_proxy_exactly_k": 100,
+            "F_k_over_n2": 0.042480469,
+            "f_k_over_n2": 0.024414063
+          },
+          {
+            "family": "square_grid",
+            "n": 64,
+            "k": 4,
+            "F_k_proxy_at_least_k": 74,
+            "f_k_proxy_exactly_k": 44,
+            "F_k_over_n2": 0.018066406,
+            "f_k_over_n2": 0.010742188
+          },
+          {
+            "family": "square_grid",
+            "n": 64,
+            "k": 5,
+            "F_k_proxy_at_least_k": 30,
+            "f_k_proxy_exactly_k": 4,
+            "F_k_over_n2": 0.0073242188,
+            "f_k_over_n2": 0.0009765625
+          },
+          {
+            "family": "square_grid",
+            "n": 81,
+            "k": 3,
+            "F_k_proxy_at_least_k": 296,
+            "f_k_proxy_exactly_k": 204,
+            "F_k_over_n2": 0.045115074,
+            "f_k_over_n2": 0.031092821
+          },
+          {
+            "family": "square_grid",
+            "n": 81,
+            "k": 4,
+            "F_k_proxy_at_least_k": 92,
+            "f_k_proxy_exactly_k": 36,
+            "F_k_over_n2": 0.014022253,
+            "f_k_over_n2": 0.0054869684
+          },
+          {
+            "family": "square_grid",
+            "n": 81,
+            "k": 5,
+            "F_k_proxy_at_least_k": 56,
+            "f_k_proxy_exactly_k": 24,
+            "F_k_over_n2": 0.0085352843,
+            "f_k_over_n2": 0.003657979
+          },
+          {
+            "family": "square_grid",
+            "n": 100,
+            "k": 3,
+            "F_k_proxy_at_least_k": 406,
+            "f_k_proxy_exactly_k": 252,
+            "F_k_over_n2": 0.0406,
+            "f_k_over_n2": 0.0252
+          },
+          {
+            "family": "square_grid",
+            "n": 100,
+            "k": 4,
+            "F_k_proxy_at_least_k": 154,
+            "f_k_proxy_exactly_k": 64,
+            "F_k_over_n2": 0.0154,
+            "f_k_over_n2": 0.0064
+          },
+          {
+            "family": "square_grid",
+            "n": 100,
+            "k": 5,
+            "F_k_proxy_at_least_k": 90,
+            "f_k_proxy_exactly_k": 52,
+            "F_k_over_n2": 0.009,
+            "f_k_over_n2": 0.0052
+          },
+          {
+            "family": "square_grid",
+            "n": 121,
+            "k": 3,
+            "F_k_proxy_at_least_k": 628,
+            "f_k_proxy_exactly_k": 396,
+            "F_k_over_n2": 0.042893245,
+            "f_k_over_n2": 0.027047333
+          },
+          {
+            "family": "square_grid",
+            "n": 121,
+            "k": 4,
+            "F_k_proxy_at_least_k": 232,
+            "f_k_proxy_exactly_k": 124,
+            "F_k_over_n2": 0.015845912,
+            "f_k_over_n2": 0.0084693668
+          },
+          {
+            "family": "square_grid",
+            "n": 121,
+            "k": 5,
+            "F_k_proxy_at_least_k": 108,
+            "f_k_proxy_exactly_k": 40,
+            "F_k_over_n2": 0.0073765453,
+            "f_k_over_n2": 0.0027320538
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 60,
+            "k": 3,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 60,
+            "k": 4,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 60,
+            "k": 5,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 90,
+            "k": 3,
+            "F_k_proxy_at_least_k": 6,
+            "f_k_proxy_exactly_k": 6,
+            "F_k_over_n2": 0.00074074074,
+            "f_k_over_n2": 0.00074074074
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 90,
+            "k": 4,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 90,
+            "k": 5,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 120,
+            "k": 3,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 120,
+            "k": 4,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 120,
+            "k": 5,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 150,
+            "k": 3,
+            "F_k_proxy_at_least_k": 12,
+            "f_k_proxy_exactly_k": 12,
+            "F_k_over_n2": 0.00053333333,
+            "f_k_over_n2": 0.00053333333
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 150,
+            "k": 4,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 150,
+            "k": 5,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 180,
+            "k": 3,
+            "F_k_proxy_at_least_k": 40,
+            "f_k_proxy_exactly_k": 40,
+            "F_k_over_n2": 0.0012345679,
+            "f_k_over_n2": 0.0012345679
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 180,
+            "k": 4,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          },
+          {
+            "family": "near_orchard_like_perturbed_circle",
+            "n": 180,
+            "k": 5,
+            "F_k_proxy_at_least_k": 0,
+            "f_k_proxy_exactly_k": 0,
+            "F_k_over_n2": 0,
+            "f_k_over_n2": 0
+          }
+        ],
+        "elapsed_ms": 46,
+        "generated_utc": "2026-03-12T20:28:31.115Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

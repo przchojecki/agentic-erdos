@@ -1,5 +1,65 @@
 {
   "problem": "EP-688",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:49:35.090Z",
+  "computations": [
+    {
+      "source_file": "ep688_standalone_deeper_20260312T204931Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:49:35.090Z",
+      "data": {
+        "problem": "EP-688",
+        "script": "ep688.mjs",
+        "method": "stochastic_search_for_covering_1_to_n_using_primes_above_n_power_eps",
+        "params": {},
+        "rows": [
+          {
+            "n": 200,
+            "best_eps_found_for_full_cover_in_grid": 0.05,
+            "best_coverage_ratio_in_grid": 1,
+            "lower_bound_proxy_if_no_full_cover": null
+          },
+          {
+            "n": 300,
+            "best_eps_found_for_full_cover_in_grid": null,
+            "best_coverage_ratio_in_grid": 0.99666667,
+            "lower_bound_proxy_if_no_full_cover": ">0.4 (in tested grid)"
+          },
+          {
+            "n": 500,
+            "best_eps_found_for_full_cover_in_grid": null,
+            "best_coverage_ratio_in_grid": 0.992,
+            "lower_bound_proxy_if_no_full_cover": ">0.4 (in tested grid)"
+          },
+          {
+            "n": 800,
+            "best_eps_found_for_full_cover_in_grid": null,
+            "best_coverage_ratio_in_grid": 0.9825,
+            "lower_bound_proxy_if_no_full_cover": ">0.4 (in tested grid)"
+          },
+          {
+            "n": 1200,
+            "best_eps_found_for_full_cover_in_grid": null,
+            "best_coverage_ratio_in_grid": 0.97666667,
+            "lower_bound_proxy_if_no_full_cover": ">0.4 (in tested grid)"
+          },
+          {
+            "n": 2000,
+            "best_eps_found_for_full_cover_in_grid": null,
+            "best_coverage_ratio_in_grid": 0.97,
+            "lower_bound_proxy_if_no_full_cover": ">0.4 (in tested grid)"
+          },
+          {
+            "n": 3200,
+            "best_eps_found_for_full_cover_in_grid": null,
+            "best_coverage_ratio_in_grid": 0.9609375,
+            "lower_bound_proxy_if_no_full_cover": ">0.4 (in tested grid)"
+          }
+        ],
+        "elapsed_ms": 3146,
+        "generated_utc": "2026-03-12T20:49:35.090Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

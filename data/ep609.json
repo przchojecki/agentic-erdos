@@ -1,48 +1,47 @@
 {
   "problem": "EP-609",
-  "normalized_utc": "2026-03-05T08:54:16.964Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch15_web_compute.md",
-        "content": "### EP-609\n- Quick literature check:\n  - Problem-page updates include 2024 and 2025 progress on upper bounds (notably `f(n) << n^{3/2}2^{n/2}` in 2025), while lower bounds still grow much slower.\n- Finite compute signal:\n  - Heuristic search on `K_{2^n+1}` found best minimum monochromatic odd-cycle length `5` for `n=3` colors and `3` for `n=4` colors in tested runs.\n- Interpretation:\n  - Finite search is consistent with strong forcing at moderate `n`; asymptotic upper/lower gap remains very large."
+  "normalized_utc": "2026-03-12T15:39:48.593Z",
+  "computations": [
+    {
+      "source_file": "ep609_standalone_deeper_20260312T153947Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T15:39:48.593Z",
+      "data": {
+        "problem": "EP-609",
+        "script": "ep609.mjs",
+        "method": "deeper_odd_girth_search_in_n_colorings_of_K_2_pow_n_plus_1",
+        "params": {},
+        "rows": [
+          {
+            "n_colors": 3,
+            "complete_graph_vertices": 9,
+            "restarts": 24,
+            "iters": 2600,
+            "best_min_monochromatic_odd_cycle_length_found": 5,
+            "best_bipartite_color_classes": 1
+          },
+          {
+            "n_colors": 4,
+            "complete_graph_vertices": 17,
+            "restarts": 14,
+            "iters": 1700,
+            "best_min_monochromatic_odd_cycle_length_found": 5,
+            "best_bipartite_color_classes": 2
+          },
+          {
+            "n_colors": 5,
+            "complete_graph_vertices": 33,
+            "restarts": 6,
+            "iters": 220,
+            "best_min_monochromatic_odd_cycle_length_found": 3,
+            "best_bipartite_color_classes": 3
+          }
+        ],
+        "elapsed_ms": 751,
+        "generated_utc": "2026-03-12T15:39:48.593Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch15_quick_compute.mjs",
-        "heading": "odd-girth lower-bound search in n-colorings of K_{2^n+1}.",
-        "content": "// EP-609: odd-girth lower-bound search in n-colorings of K_{2^n+1}.\n{\n  function buildEdges(N) {\n    const e = [];\n    for (let i = 0; i < N; i += 1) {\n      for (let j = i + 1; j < N; j += 1) e.push([i, j]);\n    }\n    return e;\n  }\n\n  function firstDiffBit(a, b, bits) {\n    for (let k = 0; k < bits; k += 1) {\n      const ba = (a >> k) & 1;\n      const bb = (b >> k) & 1;\n      if (ba !== bb) return k;\n    }\n    return 0;\n  }\n\n  function initColoring(bits, rng) {\n    const base = 1 << bits;\n    const N = base + 1;\n    const edges = buildEdges(N);\n    const colors = new Int16Array(edges.length);\n\n    for (let ei = 0; ei < edges.length; ei += 1) {\n      const [u, v] = edges[ei];\n      if (u < base && v < base) {\n        colors[ei] = firstDiffBit(u, v, bits);\n      } else {\n        colors[ei] = Math.floor(rng() * bits);\n      }\n    }\n\n    return { N, edges, colors };\n  }\n\n  function oddGirthOfColor(N, edges, colors, targetColor) {\n    const neigh = Array.from({ length: N }, () => []);\n    for (let i = 0; i < edges.length; i += 1) {\n      if (colors[i] !== targetColor) continue;\n      const [u, v] = edges[i];\n      neigh[u].push(v);\n      neigh[v].push(u);\n    }\n\n    let best = Infinity;\n\n    for (let s = 0; s < N; s += 1) {\n      const dist = Array(N).fill(-1);\n      dist[s] = 0;\n      const q = [s];\n      let qi = 0;\n\n      while (qi < q.length) {\n        const u = q[qi++];\n        for (const v of neigh[u]) {\n          if (dist[v] < 0) {\n            dist[v] = dist[u] + 1;\n            q.push(v);\n          } else if ((dist[v] & 1) === (dist[u] & 1)) {\n            const cand = dist[v] + dist[u] + 1;\n            if (cand < best) best = cand;\n          }\n        }\n      }\n    }\n\n    return best;\n  }\n\n  function evaluate(bits, conf) {\n    let minOdd = Infinity;\n    let numBipartiteColors = 0;\n\n    for (let c = 0; c < bits; c += 1) {\n      const og = oddGirthOfColor(conf.N, conf.edges, conf.colors, c);\n      if (!Number.isFinite(og)) {\n        numBipartiteColors += 1;\n      } else if (og < minOdd) {\n        minOdd = og;\n      }\n    }\n\n    return {\n      minMonochromaticOddCycleLength: Number.isFinite(minOdd) ? minOdd : null,\n      bipartiteColorClasses: numBipartiteColors,\n    };\n  }\n\n  const rng = makeRng(20260303 ^ 1507);\n  const rows = [];\n\n  for (const [bits, restarts, iters] of [[3, 8, 800], [4, 6, 700]]) {\n    let best = { minMonochromaticOddCycleLength: -1, bipartiteColorClasses: -1 };\n\n    for (let r = 0; r < restarts; r += 1) {\n      const conf = initColoring(bits, rng);\n      let cur = evaluate(bits, conf);\n\n      function better(a, b) {\n        const aa = a.minMonochromaticOddCycleLength ?? 10_000;\n        const bb = b.minMonochromaticOddCycleLength ?? 10_000;\n        if (aa !== bb) return aa > bb;\n        return a.bipartiteColorClasses > b.bipartiteColorClasses;\n      }\n\n      if (better(cur, best)) best = { ...cur };\n\n      for (let it = 0; it < iters; it += 1) {\n        const ei = Math.floor(rng() * conf.edges.length);\n        const old = conf.colors[ei];\n        let neu = old;\n        while (neu === old) neu = Math.floor(rng() * bits);\n        conf.colors[ei] = neu;\n\n        const nxt = evaluate(bits, conf);\n        if (better(nxt, cur)) {\n          cur = nxt;\n          if (better(cur, best)) best = { ...cur };\n        } else {\n          conf.colors[ei] = old;\n        }\n      }\n    }\n\n    rows.push({\n      n_colors: bits,\n      complete_graph_vertices: (1 << bits) + 1,\n      best_min_monochromatic_odd_cycle_length_found: best.minMonochromaticOddCycleLength,\n      best_bipartite_color_classes: best.bipartiteColorClasses,\n    });\n  }\n\n  out.results.ep609 = {\n    description: 'Heuristic search for large monochromatic odd girth in n-colorings of K_{2^n+1}.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch15_quick_compute.json",
-        "key": "ep609",
-        "container_meta": {
-          "script": "harder_batch15_quick_compute.mjs",
-          "generated_utc": "2026-03-04T07:52:21.327Z"
-        },
-        "data": {
-          "description": "Heuristic search for large monochromatic odd girth in n-colorings of K_{2^n+1}.",
-          "rows": [
-            {
-              "n_colors": 3,
-              "complete_graph_vertices": 9,
-              "best_min_monochromatic_odd_cycle_length_found": 5,
-              "best_bipartite_color_classes": 1
-            },
-            {
-              "n_colors": 4,
-              "complete_graph_vertices": 17,
-              "best_min_monochromatic_odd_cycle_length_found": 3,
-              "best_bipartite_color_classes": 3
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

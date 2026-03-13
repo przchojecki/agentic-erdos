@@ -1,5 +1,199 @@
 {
   "problem": "EP-749",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:04:49.829Z",
+  "computations": [
+    {
+      "source_file": "ep749_standalone_deeper_20260313T100415Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:04:17.233Z",
+      "data": {
+        "problem": "EP-749",
+        "script": "ep749.mjs",
+        "method": "local_search_for_dense_sumset_under_bounded_representation_cap",
+        "warning": "Finite heuristic optimization only; not an asymptotic existence proof.",
+        "params": {
+          "N_LIST": [
+            120,
+            180,
+            240,
+            320,
+            420
+          ],
+          "R_LIST": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "STEPS": 70000
+        },
+        "rows": [
+          {
+            "N": 120,
+            "representation_cap_R": 3,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.49377593,
+            "max_representation_seen": 3,
+            "A_size": 18
+          },
+          {
+            "N": 180,
+            "representation_cap_R": 3,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.65096953,
+            "max_representation_seen": 3,
+            "A_size": 26
+          },
+          {
+            "N": 240,
+            "representation_cap_R": 3,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.43243243,
+            "max_representation_seen": 3,
+            "A_size": 22
+          },
+          {
+            "N": 320,
+            "representation_cap_R": 3,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.46021841,
+            "max_representation_seen": 3,
+            "A_size": 28
+          },
+          {
+            "N": 420,
+            "representation_cap_R": 3,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.41854935,
+            "max_representation_seen": 3,
+            "A_size": 30
+          },
+          {
+            "N": 120,
+            "representation_cap_R": 4,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.69294606,
+            "max_representation_seen": 4,
+            "A_size": 23
+          },
+          {
+            "N": 180,
+            "representation_cap_R": 4,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.65927978,
+            "max_representation_seen": 4,
+            "A_size": 28
+          },
+          {
+            "N": 240,
+            "representation_cap_R": 4,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.51143451,
+            "max_representation_seen": 3,
+            "A_size": 25
+          },
+          {
+            "N": 320,
+            "representation_cap_R": 4,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.60062402,
+            "max_representation_seen": 4,
+            "A_size": 36
+          },
+          {
+            "N": 420,
+            "representation_cap_R": 4,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.58263971,
+            "max_representation_seen": 4,
+            "A_size": 38
+          },
+          {
+            "N": 120,
+            "representation_cap_R": 5,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.75103734,
+            "max_representation_seen": 4,
+            "A_size": 25
+          },
+          {
+            "N": 180,
+            "representation_cap_R": 5,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.73684211,
+            "max_representation_seen": 5,
+            "A_size": 30
+          },
+          {
+            "N": 240,
+            "representation_cap_R": 5,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.68399168,
+            "max_representation_seen": 5,
+            "A_size": 32
+          },
+          {
+            "N": 320,
+            "representation_cap_R": 5,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.67862715,
+            "max_representation_seen": 5,
+            "A_size": 40
+          },
+          {
+            "N": 420,
+            "representation_cap_R": 5,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.45541023,
+            "max_representation_seen": 5,
+            "A_size": 33
+          },
+          {
+            "N": 120,
+            "representation_cap_R": 6,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.593361,
+            "max_representation_seen": 3,
+            "A_size": 20
+          },
+          {
+            "N": 180,
+            "representation_cap_R": 6,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.70360111,
+            "max_representation_seen": 6,
+            "A_size": 31
+          },
+          {
+            "N": 240,
+            "representation_cap_R": 6,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.82952183,
+            "max_representation_seen": 6,
+            "A_size": 42
+          },
+          {
+            "N": 320,
+            "representation_cap_R": 6,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.6099844,
+            "max_representation_seen": 5,
+            "A_size": 35
+          },
+          {
+            "N": 420,
+            "representation_cap_R": 6,
+            "steps": 70000,
+            "best_sumset_density_over_0_to_2N": 0.70273484,
+            "max_representation_seen": 6,
+            "A_size": 46
+          }
+        ],
+        "elapsed_ms": 2002,
+        "generated_utc": "2026-03-13T10:04:17.233Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,1611 @@
 {
   "problem": "EP-665",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:16:52.561Z",
+  "computations": [
+    {
+      "source_file": "ep665_standalone_deeper_20260312T201652Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:16:52.561Z",
+      "data": {
+        "problem": "EP-665",
+        "script": "ep665.mjs",
+        "method": "projective_plane_parameter_sweep_for_block_size_gap_to_sqrt_n",
+        "params": {},
+        "projective_rows": [
+          {
+            "projective_plane_order_q": 2,
+            "n_points": 7,
+            "min_block_size": 3,
+            "sqrt_n": 2.645751311,
+            "sqrt_n_minus_min_block": -0.3542486889,
+            "ratio_min_block_over_sqrt_n": 1.133893419
+          },
+          {
+            "projective_plane_order_q": 3,
+            "n_points": 13,
+            "min_block_size": 4,
+            "sqrt_n": 3.605551275,
+            "sqrt_n_minus_min_block": -0.3944487245,
+            "ratio_min_block_over_sqrt_n": 1.109400392
+          },
+          {
+            "projective_plane_order_q": 4,
+            "n_points": 21,
+            "min_block_size": 5,
+            "sqrt_n": 4.582575695,
+            "sqrt_n_minus_min_block": -0.417424305,
+            "ratio_min_block_over_sqrt_n": 1.091089451
+          },
+          {
+            "projective_plane_order_q": 5,
+            "n_points": 31,
+            "min_block_size": 6,
+            "sqrt_n": 5.567764363,
+            "sqrt_n_minus_min_block": -0.4322356372,
+            "ratio_min_block_over_sqrt_n": 1.077631812
+          },
+          {
+            "projective_plane_order_q": 7,
+            "n_points": 57,
+            "min_block_size": 8,
+            "sqrt_n": 7.549834435,
+            "sqrt_n_minus_min_block": -0.4501655647,
+            "ratio_min_block_over_sqrt_n": 1.059625886
+          },
+          {
+            "projective_plane_order_q": 8,
+            "n_points": 73,
+            "min_block_size": 9,
+            "sqrt_n": 8.544003745,
+            "sqrt_n_minus_min_block": -0.4559962547,
+            "ratio_min_block_over_sqrt_n": 1.053370325
+          },
+          {
+            "projective_plane_order_q": 9,
+            "n_points": 91,
+            "min_block_size": 10,
+            "sqrt_n": 9.539392014,
+            "sqrt_n_minus_min_block": -0.4606079858,
+            "ratio_min_block_over_sqrt_n": 1.048284837
+          },
+          {
+            "projective_plane_order_q": 11,
+            "n_points": 133,
+            "min_block_size": 12,
+            "sqrt_n": 11.53256259,
+            "sqrt_n_minus_min_block": -0.4674374053,
+            "ratio_min_block_over_sqrt_n": 1.040531963
+          },
+          {
+            "projective_plane_order_q": 13,
+            "n_points": 183,
+            "min_block_size": 14,
+            "sqrt_n": 13.52774926,
+            "sqrt_n_minus_min_block": -0.4722507415,
+            "ratio_min_block_over_sqrt_n": 1.034909779
+          },
+          {
+            "projective_plane_order_q": 16,
+            "n_points": 273,
+            "min_block_size": 17,
+            "sqrt_n": 16.52271164,
+            "sqrt_n_minus_min_block": -0.4772883581,
+            "ratio_min_block_over_sqrt_n": 1.028886806
+          },
+          {
+            "projective_plane_order_q": 17,
+            "n_points": 307,
+            "min_block_size": 18,
+            "sqrt_n": 17.52141547,
+            "sqrt_n_minus_min_block": -0.4785845321,
+            "ratio_min_block_over_sqrt_n": 1.027314262
+          },
+          {
+            "projective_plane_order_q": 19,
+            "n_points": 381,
+            "min_block_size": 20,
+            "sqrt_n": 19.5192213,
+            "sqrt_n_minus_min_block": -0.4807787041,
+            "ratio_min_block_over_sqrt_n": 1.024631039
+          },
+          {
+            "projective_plane_order_q": 23,
+            "n_points": 553,
+            "min_block_size": 24,
+            "sqrt_n": 23.51595203,
+            "sqrt_n_minus_min_block": -0.4840479674,
+            "ratio_min_block_over_sqrt_n": 1.020583813
+          },
+          {
+            "projective_plane_order_q": 25,
+            "n_points": 651,
+            "min_block_size": 26,
+            "sqrt_n": 25.51470164,
+            "sqrt_n_minus_min_block": -0.4852983557,
+            "ratio_min_block_over_sqrt_n": 1.019020342
+          },
+          {
+            "projective_plane_order_q": 27,
+            "n_points": 757,
+            "min_block_size": 28,
+            "sqrt_n": 27.51363298,
+            "sqrt_n_minus_min_block": -0.4863670156,
+            "ratio_min_block_over_sqrt_n": 1.01767731
+          },
+          {
+            "projective_plane_order_q": 29,
+            "n_points": 871,
+            "min_block_size": 30,
+            "sqrt_n": 29.51270913,
+            "sqrt_n_minus_min_block": -0.4872908733,
+            "ratio_min_block_over_sqrt_n": 1.016511221
+          },
+          {
+            "projective_plane_order_q": 31,
+            "n_points": 993,
+            "min_block_size": 32,
+            "sqrt_n": 31.51190251,
+            "sqrt_n_minus_min_block": -0.4880974868,
+            "ratio_min_block_over_sqrt_n": 1.015489306
+          },
+          {
+            "projective_plane_order_q": 32,
+            "n_points": 1057,
+            "min_block_size": 33,
+            "sqrt_n": 32.51153641,
+            "sqrt_n_minus_min_block": -0.488463586,
+            "ratio_min_block_over_sqrt_n": 1.015024316
+          },
+          {
+            "projective_plane_order_q": 37,
+            "n_points": 1407,
+            "min_block_size": 38,
+            "sqrt_n": 37.50999867,
+            "sqrt_n_minus_min_block": -0.490001333,
+            "ratio_min_block_over_sqrt_n": 1.013063219
+          },
+          {
+            "projective_plane_order_q": 41,
+            "n_points": 1723,
+            "min_block_size": 42,
+            "sqrt_n": 41.50903516,
+            "sqrt_n_minus_min_block": -0.490964839,
+            "ratio_min_block_over_sqrt_n": 1.011827903
+          },
+          {
+            "projective_plane_order_q": 43,
+            "n_points": 1893,
+            "min_block_size": 44,
+            "sqrt_n": 43.50861984,
+            "sqrt_n_minus_min_block": -0.4913801644,
+            "ratio_min_block_over_sqrt_n": 1.011293858
+          },
+          {
+            "projective_plane_order_q": 47,
+            "n_points": 2257,
+            "min_block_size": 48,
+            "sqrt_n": 47.50789408,
+            "sqrt_n_minus_min_block": -0.4921059191,
+            "ratio_min_block_over_sqrt_n": 1.010358403
+          },
+          {
+            "projective_plane_order_q": 49,
+            "n_points": 2451,
+            "min_block_size": 50,
+            "sqrt_n": 49.50757518,
+            "sqrt_n_minus_min_block": -0.4924248221,
+            "ratio_min_block_over_sqrt_n": 1.009946454
+          },
+          {
+            "projective_plane_order_q": 53,
+            "n_points": 2863,
+            "min_block_size": 54,
+            "sqrt_n": 53.50700889,
+            "sqrt_n_minus_min_block": -0.4929911133,
+            "ratio_min_block_over_sqrt_n": 1.00921358
+          },
+          {
+            "projective_plane_order_q": 59,
+            "n_points": 3541,
+            "min_block_size": 60,
+            "sqrt_n": 59.50630219,
+            "sqrt_n_minus_min_block": -0.4936978128,
+            "ratio_min_block_over_sqrt_n": 1.008296563
+          },
+          {
+            "projective_plane_order_q": 61,
+            "n_points": 3783,
+            "min_block_size": 62,
+            "sqrt_n": 61.50609726,
+            "sqrt_n_minus_min_block": -0.4939027413,
+            "ratio_min_block_over_sqrt_n": 1.008030143
+          },
+          {
+            "projective_plane_order_q": 64,
+            "n_points": 4161,
+            "min_block_size": 65,
+            "sqrt_n": 64.50581369,
+            "sqrt_n_minus_min_block": -0.4941863085,
+            "ratio_min_block_over_sqrt_n": 1.007661113
+          },
+          {
+            "projective_plane_order_q": 67,
+            "n_points": 4557,
+            "min_block_size": 68,
+            "sqrt_n": 67.50555533,
+            "sqrt_n_minus_min_block": -0.494444673,
+            "ratio_min_block_over_sqrt_n": 1.007324503
+          },
+          {
+            "projective_plane_order_q": 71,
+            "n_points": 5113,
+            "min_block_size": 72,
+            "sqrt_n": 71.50524456,
+            "sqrt_n_minus_min_block": -0.4947554371,
+            "ratio_min_block_over_sqrt_n": 1.006919149
+          },
+          {
+            "projective_plane_order_q": 73,
+            "n_points": 5403,
+            "min_block_size": 74,
+            "sqrt_n": 73.50510186,
+            "sqrt_n_minus_min_block": -0.4948981363,
+            "ratio_min_block_over_sqrt_n": 1.006732841
+          },
+          {
+            "projective_plane_order_q": 79,
+            "n_points": 6321,
+            "min_block_size": 80,
+            "sqrt_n": 79.50471684,
+            "sqrt_n_minus_min_block": -0.4952831588,
+            "ratio_min_block_over_sqrt_n": 1.006229607
+          },
+          {
+            "projective_plane_order_q": 81,
+            "n_points": 6643,
+            "min_block_size": 82,
+            "sqrt_n": 81.5046011,
+            "sqrt_n_minus_min_block": -0.4953989029,
+            "ratio_min_block_over_sqrt_n": 1.006078171
+          },
+          {
+            "projective_plane_order_q": 83,
+            "n_points": 6973,
+            "min_block_size": 84,
+            "sqrt_n": 83.5044909,
+            "sqrt_n_minus_min_block": -0.4955091028,
+            "ratio_min_block_over_sqrt_n": 1.005933922
+          },
+          {
+            "projective_plane_order_q": 89,
+            "n_points": 8011,
+            "min_block_size": 90,
+            "sqrt_n": 89.50418985,
+            "sqrt_n_minus_min_block": -0.4958101539,
+            "ratio_min_block_over_sqrt_n": 1.005539519
+          },
+          {
+            "projective_plane_order_q": 97,
+            "n_points": 9507,
+            "min_block_size": 98,
+            "sqrt_n": 97.50384608,
+            "sqrt_n_minus_min_block": -0.496153922,
+            "ratio_min_block_over_sqrt_n": 1.005088557
+          },
+          {
+            "projective_plane_order_q": 101,
+            "n_points": 10303,
+            "min_block_size": 102,
+            "sqrt_n": 101.5036945,
+            "sqrt_n_minus_min_block": -0.496305486,
+            "ratio_min_block_over_sqrt_n": 1.004889531
+          },
+          {
+            "projective_plane_order_q": 103,
+            "n_points": 10713,
+            "min_block_size": 104,
+            "sqrt_n": 103.5036231,
+            "sqrt_n_minus_min_block": -0.496376875,
+            "ratio_min_block_over_sqrt_n": 1.004795744
+          },
+          {
+            "projective_plane_order_q": 107,
+            "n_points": 11557,
+            "min_block_size": 108,
+            "sqrt_n": 107.5034883,
+            "sqrt_n_minus_min_block": -0.4965116845,
+            "ratio_min_block_over_sqrt_n": 1.004618563
+          },
+          {
+            "projective_plane_order_q": 109,
+            "n_points": 11991,
+            "min_block_size": 110,
+            "sqrt_n": 109.5034246,
+            "sqrt_n_minus_min_block": -0.496575396,
+            "ratio_min_block_over_sqrt_n": 1.004534793
+          },
+          {
+            "projective_plane_order_q": 113,
+            "n_points": 12883,
+            "min_block_size": 114,
+            "sqrt_n": 113.5033039,
+            "sqrt_n_minus_min_block": -0.4966960833,
+            "ratio_min_block_over_sqrt_n": 1.00437605
+          },
+          {
+            "projective_plane_order_q": 121,
+            "n_points": 14763,
+            "min_block_size": 122,
+            "sqrt_n": 121.5030864,
+            "sqrt_n_minus_min_block": -0.4969136194,
+            "ratio_min_block_over_sqrt_n": 1.00408972
+          },
+          {
+            "projective_plane_order_q": 125,
+            "n_points": 15751,
+            "min_block_size": 126,
+            "sqrt_n": 125.502988,
+            "sqrt_n_minus_min_block": -0.4970119878,
+            "ratio_min_block_over_sqrt_n": 1.003960161
+          },
+          {
+            "projective_plane_order_q": 127,
+            "n_points": 16257,
+            "min_block_size": 128,
+            "sqrt_n": 127.5029411,
+            "sqrt_n_minus_min_block": -0.4970588575,
+            "ratio_min_block_over_sqrt_n": 1.003898411
+          },
+          {
+            "projective_plane_order_q": 128,
+            "n_points": 16513,
+            "min_block_size": 129,
+            "sqrt_n": 128.5029183,
+            "sqrt_n_minus_min_block": -0.4970817452,
+            "ratio_min_block_over_sqrt_n": 1.003868253
+          },
+          {
+            "projective_plane_order_q": 131,
+            "n_points": 17293,
+            "min_block_size": 132,
+            "sqrt_n": 131.5028517,
+            "sqrt_n_minus_min_block": -0.4971483199,
+            "ratio_min_block_over_sqrt_n": 1.003780514
+          },
+          {
+            "projective_plane_order_q": 137,
+            "n_points": 18907,
+            "min_block_size": 138,
+            "sqrt_n": 137.5027272,
+            "sqrt_n_minus_min_block": -0.4972727543,
+            "ratio_min_block_over_sqrt_n": 1.003616457
+          },
+          {
+            "projective_plane_order_q": 139,
+            "n_points": 19461,
+            "min_block_size": 140,
+            "sqrt_n": 139.5026881,
+            "sqrt_n_minus_min_block": -0.4973118539,
+            "ratio_min_block_over_sqrt_n": 1.003564891
+          },
+          {
+            "projective_plane_order_q": 149,
+            "n_points": 22351,
+            "min_block_size": 150,
+            "sqrt_n": 149.5025083,
+            "sqrt_n_minus_min_block": -0.4974916598,
+            "ratio_min_block_over_sqrt_n": 1.003327648
+          },
+          {
+            "projective_plane_order_q": 151,
+            "n_points": 22953,
+            "min_block_size": 152,
+            "sqrt_n": 151.5024752,
+            "sqrt_n_minus_min_block": -0.4975247727,
+            "ratio_min_block_over_sqrt_n": 1.003283938
+          },
+          {
+            "projective_plane_order_q": 157,
+            "n_points": 24807,
+            "min_block_size": 158,
+            "sqrt_n": 157.5023809,
+            "sqrt_n_minus_min_block": -0.4976190656,
+            "ratio_min_block_over_sqrt_n": 1.003159438
+          },
+          {
+            "projective_plane_order_q": 163,
+            "n_points": 26733,
+            "min_block_size": 164,
+            "sqrt_n": 163.5022936,
+            "sqrt_n_minus_min_block": -0.4977064381,
+            "ratio_min_block_over_sqrt_n": 1.003044033
+          },
+          {
+            "projective_plane_order_q": 167,
+            "n_points": 28057,
+            "min_block_size": 168,
+            "sqrt_n": 167.5022388,
+            "sqrt_n_minus_min_block": -0.497761209,
+            "ratio_min_block_over_sqrt_n": 1.002971669
+          },
+          {
+            "projective_plane_order_q": 169,
+            "n_points": 28731,
+            "min_block_size": 170,
+            "sqrt_n": 169.5022124,
+            "sqrt_n_minus_min_block": -0.4977876251,
+            "ratio_min_block_over_sqrt_n": 1.002936762
+          },
+          {
+            "projective_plane_order_q": 173,
+            "n_points": 30103,
+            "min_block_size": 174,
+            "sqrt_n": 173.5021614,
+            "sqrt_n_minus_min_block": -0.4978386302,
+            "ratio_min_block_over_sqrt_n": 1.002869351
+          },
+          {
+            "projective_plane_order_q": 179,
+            "n_points": 32221,
+            "min_block_size": 180,
+            "sqrt_n": 179.5020891,
+            "sqrt_n_minus_min_block": -0.4979108757,
+            "ratio_min_block_over_sqrt_n": 1.002773844
+          },
+          {
+            "projective_plane_order_q": 181,
+            "n_points": 32943,
+            "min_block_size": 182,
+            "sqrt_n": 181.5020661,
+            "sqrt_n_minus_min_block": -0.4979338961,
+            "ratio_min_block_over_sqrt_n": 1.002743406
+          },
+          {
+            "projective_plane_order_q": 191,
+            "n_points": 36673,
+            "min_block_size": 192,
+            "sqrt_n": 191.5019582,
+            "sqrt_n_minus_min_block": -0.4980417855,
+            "ratio_min_block_over_sqrt_n": 1.002600714
+          },
+          {
+            "projective_plane_order_q": 193,
+            "n_points": 37443,
+            "min_block_size": 194,
+            "sqrt_n": 193.501938,
+            "sqrt_n_minus_min_block": -0.4980620252,
+            "ratio_min_block_over_sqrt_n": 1.002573938
+          },
+          {
+            "projective_plane_order_q": 197,
+            "n_points": 39007,
+            "min_block_size": 198,
+            "sqrt_n": 197.5018987,
+            "sqrt_n_minus_min_block": -0.4981012749,
+            "ratio_min_block_over_sqrt_n": 1.002522008
+          },
+          {
+            "projective_plane_order_q": 199,
+            "n_points": 39801,
+            "min_block_size": 200,
+            "sqrt_n": 199.5018797,
+            "sqrt_n_minus_min_block": -0.4981203096,
+            "ratio_min_block_over_sqrt_n": 1.00249682
+          },
+          {
+            "projective_plane_order_q": 211,
+            "n_points": 44733,
+            "min_block_size": 212,
+            "sqrt_n": 211.501773,
+            "sqrt_n_minus_min_block": -0.4982269578,
+            "ratio_min_block_over_sqrt_n": 1.002355663
+          },
+          {
+            "projective_plane_order_q": 223,
+            "n_points": 49953,
+            "min_block_size": 224,
+            "sqrt_n": 223.5016778,
+            "sqrt_n_minus_min_block": -0.4983221539,
+            "ratio_min_block_over_sqrt_n": 1.002229613
+          },
+          {
+            "projective_plane_order_q": 227,
+            "n_points": 51757,
+            "min_block_size": 228,
+            "sqrt_n": 227.5016483,
+            "sqrt_n_minus_min_block": -0.4983516543,
+            "ratio_min_block_over_sqrt_n": 1.002190541
+          },
+          {
+            "projective_plane_order_q": 229,
+            "n_points": 52671,
+            "min_block_size": 230,
+            "sqrt_n": 229.501634,
+            "sqrt_n_minus_min_block": -0.4983660189,
+            "ratio_min_block_over_sqrt_n": 1.002171514
+          },
+          {
+            "projective_plane_order_q": 233,
+            "n_points": 54523,
+            "min_block_size": 234,
+            "sqrt_n": 233.501606,
+            "sqrt_n_minus_min_block": -0.4983940098,
+            "ratio_min_block_over_sqrt_n": 1.002134435
+          },
+          {
+            "projective_plane_order_q": 239,
+            "n_points": 57361,
+            "min_block_size": 240,
+            "sqrt_n": 239.5015658,
+            "sqrt_n_minus_min_block": -0.4984342431,
+            "ratio_min_block_over_sqrt_n": 1.002081131
+          },
+          {
+            "projective_plane_order_q": 241,
+            "n_points": 58323,
+            "min_block_size": 242,
+            "sqrt_n": 241.5015528,
+            "sqrt_n_minus_min_block": -0.49844721,
+            "ratio_min_block_over_sqrt_n": 1.00206395
+          },
+          {
+            "projective_plane_order_q": 243,
+            "n_points": 59293,
+            "min_block_size": 244,
+            "sqrt_n": 243.50154,
+            "sqrt_n_minus_min_block": -0.4984599638,
+            "ratio_min_block_over_sqrt_n": 1.002047051
+          },
+          {
+            "projective_plane_order_q": 251,
+            "n_points": 63253,
+            "min_block_size": 252,
+            "sqrt_n": 251.501491,
+            "sqrt_n_minus_min_block": -0.4985089507,
+            "ratio_min_block_over_sqrt_n": 1.001982131
+          },
+          {
+            "projective_plane_order_q": 256,
+            "n_points": 65793,
+            "min_block_size": 257,
+            "sqrt_n": 256.501462,
+            "sqrt_n_minus_min_block": -0.4985380159,
+            "ratio_min_block_over_sqrt_n": 1.001943607
+          },
+          {
+            "projective_plane_order_q": 257,
+            "n_points": 66307,
+            "min_block_size": 258,
+            "sqrt_n": 257.5014563,
+            "sqrt_n_minus_min_block": -0.4985436934,
+            "ratio_min_block_over_sqrt_n": 1.001936081
+          },
+          {
+            "projective_plane_order_q": 263,
+            "n_points": 69433,
+            "min_block_size": 264,
+            "sqrt_n": 263.5014231,
+            "sqrt_n_minus_min_block": -0.4985768539,
+            "ratio_min_block_over_sqrt_n": 1.001892122
+          },
+          {
+            "projective_plane_order_q": 269,
+            "n_points": 72631,
+            "min_block_size": 270,
+            "sqrt_n": 269.5013915,
+            "sqrt_n_minus_min_block": -0.4986085379,
+            "ratio_min_block_over_sqrt_n": 1.001850115
+          },
+          {
+            "projective_plane_order_q": 271,
+            "n_points": 73713,
+            "min_block_size": 272,
+            "sqrt_n": 271.5013812,
+            "sqrt_n_minus_min_block": -0.498618788,
+            "ratio_min_block_over_sqrt_n": 1.001836524
+          },
+          {
+            "projective_plane_order_q": 277,
+            "n_points": 77007,
+            "min_block_size": 278,
+            "sqrt_n": 277.5013513,
+            "sqrt_n_minus_min_block": -0.4986486519,
+            "ratio_min_block_over_sqrt_n": 1.001796923
+          },
+          {
+            "projective_plane_order_q": 281,
+            "n_points": 79243,
+            "min_block_size": 282,
+            "sqrt_n": 281.5013321,
+            "sqrt_n_minus_min_block": -0.498667854,
+            "ratio_min_block_over_sqrt_n": 1.001771458
+          },
+          {
+            "projective_plane_order_q": 283,
+            "n_points": 80373,
+            "min_block_size": 284,
+            "sqrt_n": 283.5013227,
+            "sqrt_n_minus_min_block": -0.4986772518,
+            "ratio_min_block_over_sqrt_n": 1.001758994
+          },
+          {
+            "projective_plane_order_q": 289,
+            "n_points": 83811,
+            "min_block_size": 290,
+            "sqrt_n": 289.5012953,
+            "sqrt_n_minus_min_block": -0.4987046661,
+            "ratio_min_block_over_sqrt_n": 1.001722634
+          },
+          {
+            "projective_plane_order_q": 293,
+            "n_points": 86143,
+            "min_block_size": 294,
+            "sqrt_n": 293.5012777,
+            "sqrt_n_minus_min_block": -0.4987223196,
+            "ratio_min_block_over_sqrt_n": 1.001699217
+          },
+          {
+            "projective_plane_order_q": 307,
+            "n_points": 94557,
+            "min_block_size": 308,
+            "sqrt_n": 307.5012195,
+            "sqrt_n_minus_min_block": -0.4987804902,
+            "ratio_min_block_over_sqrt_n": 1.001622044
+          },
+          {
+            "projective_plane_order_q": 311,
+            "n_points": 97033,
+            "min_block_size": 312,
+            "sqrt_n": 311.5012039,
+            "sqrt_n_minus_min_block": -0.49879615,
+            "ratio_min_block_over_sqrt_n": 1.001601266
+          },
+          {
+            "projective_plane_order_q": 313,
+            "n_points": 98283,
+            "min_block_size": 314,
+            "sqrt_n": 313.5011962,
+            "sqrt_n_minus_min_block": -0.49880383,
+            "ratio_min_block_over_sqrt_n": 1.001591075
+          },
+          {
+            "projective_plane_order_q": 317,
+            "n_points": 100807,
+            "min_block_size": 318,
+            "sqrt_n": 317.5011811,
+            "sqrt_n_minus_min_block": -0.4988188998,
+            "ratio_min_block_over_sqrt_n": 1.001571077
+          },
+          {
+            "projective_plane_order_q": 331,
+            "n_points": 109893,
+            "min_block_size": 332,
+            "sqrt_n": 331.5011312,
+            "sqrt_n_minus_min_block": -0.4988687802,
+            "ratio_min_block_over_sqrt_n": 1.001504878
+          },
+          {
+            "projective_plane_order_q": 337,
+            "n_points": 113907,
+            "min_block_size": 338,
+            "sqrt_n": 337.5011111,
+            "sqrt_n_minus_min_block": -0.4988888907,
+            "ratio_min_block_over_sqrt_n": 1.001478184
+          },
+          {
+            "projective_plane_order_q": 343,
+            "n_points": 117993,
+            "min_block_size": 344,
+            "sqrt_n": 343.5010917,
+            "sqrt_n_minus_min_block": -0.4989082987,
+            "ratio_min_block_over_sqrt_n": 1.001452421
+          },
+          {
+            "projective_plane_order_q": 347,
+            "n_points": 120757,
+            "min_block_size": 348,
+            "sqrt_n": 347.5010791,
+            "sqrt_n_minus_min_block": -0.498920865,
+            "ratio_min_block_over_sqrt_n": 1.001435739
+          },
+          {
+            "projective_plane_order_q": 349,
+            "n_points": 122151,
+            "min_block_size": 350,
+            "sqrt_n": 349.501073,
+            "sqrt_n_minus_min_block": -0.4989270403,
+            "ratio_min_block_over_sqrt_n": 1.001427541
+          },
+          {
+            "projective_plane_order_q": 353,
+            "n_points": 124963,
+            "min_block_size": 354,
+            "sqrt_n": 353.5010608,
+            "sqrt_n_minus_min_block": -0.4989391812,
+            "ratio_min_block_over_sqrt_n": 1.001411422
+          },
+          {
+            "projective_plane_order_q": 359,
+            "n_points": 129241,
+            "min_block_size": 360,
+            "sqrt_n": 359.5010431,
+            "sqrt_n_minus_min_block": -0.4989568861,
+            "ratio_min_block_over_sqrt_n": 1.001387915
+          },
+          {
+            "projective_plane_order_q": 361,
+            "n_points": 130683,
+            "min_block_size": 362,
+            "sqrt_n": 361.5010373,
+            "sqrt_n_minus_min_block": -0.4989626571,
+            "ratio_min_block_over_sqrt_n": 1.001380252
+          },
+          {
+            "projective_plane_order_q": 367,
+            "n_points": 135057,
+            "min_block_size": 368,
+            "sqrt_n": 367.5010204,
+            "sqrt_n_minus_min_block": -0.4989795933,
+            "ratio_min_block_over_sqrt_n": 1.001357764
+          },
+          {
+            "projective_plane_order_q": 373,
+            "n_points": 139503,
+            "min_block_size": 374,
+            "sqrt_n": 373.501004,
+            "sqrt_n_minus_min_block": -0.4989959853,
+            "ratio_min_block_over_sqrt_n": 1.001335996
+          },
+          {
+            "projective_plane_order_q": 379,
+            "n_points": 144021,
+            "min_block_size": 380,
+            "sqrt_n": 379.5009881,
+            "sqrt_n_minus_min_block": -0.499011859,
+            "ratio_min_block_over_sqrt_n": 1.001314916
+          },
+          {
+            "projective_plane_order_q": 383,
+            "n_points": 147073,
+            "min_block_size": 384,
+            "sqrt_n": 383.5009778,
+            "sqrt_n_minus_min_block": -0.4990221655,
+            "ratio_min_block_over_sqrt_n": 1.001301228
+          },
+          {
+            "projective_plane_order_q": 389,
+            "n_points": 151711,
+            "min_block_size": 390,
+            "sqrt_n": 389.5009628,
+            "sqrt_n_minus_min_block": -0.4990372284,
+            "ratio_min_block_over_sqrt_n": 1.001281222
+          },
+          {
+            "projective_plane_order_q": 397,
+            "n_points": 158007,
+            "min_block_size": 398,
+            "sqrt_n": 397.5009434,
+            "sqrt_n_minus_min_block": -0.4990566049,
+            "ratio_min_block_over_sqrt_n": 1.001255485
+          },
+          {
+            "projective_plane_order_q": 401,
+            "n_points": 161203,
+            "min_block_size": 402,
+            "sqrt_n": 401.500934,
+            "sqrt_n_minus_min_block": -0.4990660036,
+            "ratio_min_block_over_sqrt_n": 1.001243001
+          },
+          {
+            "projective_plane_order_q": 409,
+            "n_points": 167691,
+            "min_block_size": 410,
+            "sqrt_n": 409.5009157,
+            "sqrt_n_minus_min_block": -0.4990842501,
+            "ratio_min_block_over_sqrt_n": 1.001218762
+          },
+          {
+            "projective_plane_order_q": 419,
+            "n_points": 175981,
+            "min_block_size": 420,
+            "sqrt_n": 419.5008939,
+            "sqrt_n_minus_min_block": -0.4991060796,
+            "ratio_min_block_over_sqrt_n": 1.001189762
+          },
+          {
+            "projective_plane_order_q": 421,
+            "n_points": 177663,
+            "min_block_size": 422,
+            "sqrt_n": 421.5008897,
+            "sqrt_n_minus_min_block": -0.4991103212,
+            "ratio_min_block_over_sqrt_n": 1.001184126
+          },
+          {
+            "projective_plane_order_q": 431,
+            "n_points": 186193,
+            "min_block_size": 432,
+            "sqrt_n": 431.5008691,
+            "sqrt_n_minus_min_block": -0.4991309395,
+            "ratio_min_block_over_sqrt_n": 1.001156732
+          },
+          {
+            "projective_plane_order_q": 433,
+            "n_points": 187923,
+            "min_block_size": 434,
+            "sqrt_n": 433.5008651,
+            "sqrt_n_minus_min_block": -0.499134949,
+            "ratio_min_block_over_sqrt_n": 1.001151405
+          },
+          {
+            "projective_plane_order_q": 439,
+            "n_points": 193161,
+            "min_block_size": 440,
+            "sqrt_n": 439.5008532,
+            "sqrt_n_minus_min_block": -0.4991467585,
+            "ratio_min_block_over_sqrt_n": 1.001135713
+          },
+          {
+            "projective_plane_order_q": 443,
+            "n_points": 196693,
+            "min_block_size": 444,
+            "sqrt_n": 443.5008455,
+            "sqrt_n_minus_min_block": -0.499154454,
+            "ratio_min_block_over_sqrt_n": 1.001125487
+          },
+          {
+            "projective_plane_order_q": 449,
+            "n_points": 202051,
+            "min_block_size": 450,
+            "sqrt_n": 449.5008343,
+            "sqrt_n_minus_min_block": -0.4991657405,
+            "ratio_min_block_over_sqrt_n": 1.001110489
+          },
+          {
+            "projective_plane_order_q": 457,
+            "n_points": 209307,
+            "min_block_size": 458,
+            "sqrt_n": 457.5008197,
+            "sqrt_n_minus_min_block": -0.4991803286,
+            "ratio_min_block_over_sqrt_n": 1.001091103
+          },
+          {
+            "projective_plane_order_q": 461,
+            "n_points": 212983,
+            "min_block_size": 462,
+            "sqrt_n": 461.5008126,
+            "sqrt_n_minus_min_block": -0.499187433,
+            "ratio_min_block_over_sqrt_n": 1.001081661
+          },
+          {
+            "projective_plane_order_q": 463,
+            "n_points": 214833,
+            "min_block_size": 464,
+            "sqrt_n": 463.5008091,
+            "sqrt_n_minus_min_block": -0.4991909392,
+            "ratio_min_block_over_sqrt_n": 1.001077001
+          },
+          {
+            "projective_plane_order_q": 467,
+            "n_points": 218557,
+            "min_block_size": 468,
+            "sqrt_n": 467.5008021,
+            "sqrt_n_minus_min_block": -0.4991978617,
+            "ratio_min_block_over_sqrt_n": 1.001067801
+          },
+          {
+            "projective_plane_order_q": 479,
+            "n_points": 229921,
+            "min_block_size": 480,
+            "sqrt_n": 479.5007821,
+            "sqrt_n_minus_min_block": -0.499217936,
+            "ratio_min_block_over_sqrt_n": 1.00104112
+          },
+          {
+            "projective_plane_order_q": 487,
+            "n_points": 237657,
+            "min_block_size": 488,
+            "sqrt_n": 487.5007692,
+            "sqrt_n_minus_min_block": -0.4992307698,
+            "ratio_min_block_over_sqrt_n": 1.001024062
+          },
+          {
+            "projective_plane_order_q": 491,
+            "n_points": 241573,
+            "min_block_size": 492,
+            "sqrt_n": 491.500763,
+            "sqrt_n_minus_min_block": -0.4992370301,
+            "ratio_min_block_over_sqrt_n": 1.00101574
+          },
+          {
+            "projective_plane_order_q": 499,
+            "n_points": 249501,
+            "min_block_size": 500,
+            "sqrt_n": 499.5007508,
+            "sqrt_n_minus_min_block": -0.4992492498,
+            "ratio_min_block_over_sqrt_n": 1.000999496
+          },
+          {
+            "projective_plane_order_q": 503,
+            "n_points": 253513,
+            "min_block_size": 504,
+            "sqrt_n": 503.5007448,
+            "sqrt_n_minus_min_block": -0.4992552141,
+            "ratio_min_block_over_sqrt_n": 1.000991568
+          },
+          {
+            "projective_plane_order_q": 509,
+            "n_points": 259591,
+            "min_block_size": 510,
+            "sqrt_n": 509.500736,
+            "sqrt_n_minus_min_block": -0.4992639848,
+            "ratio_min_block_over_sqrt_n": 1.000979908
+          },
+          {
+            "projective_plane_order_q": 512,
+            "n_points": 262657,
+            "min_block_size": 513,
+            "sqrt_n": 512.5007317,
+            "sqrt_n_minus_min_block": -0.4992682932,
+            "ratio_min_block_over_sqrt_n": 1.000974181
+          },
+          {
+            "projective_plane_order_q": 521,
+            "n_points": 271963,
+            "min_block_size": 522,
+            "sqrt_n": 521.5007191,
+            "sqrt_n_minus_min_block": -0.4992809209,
+            "ratio_min_block_over_sqrt_n": 1.000957393
+          },
+          {
+            "projective_plane_order_q": 523,
+            "n_points": 274053,
+            "min_block_size": 524,
+            "sqrt_n": 523.5007163,
+            "sqrt_n_minus_min_block": -0.4992836681,
+            "ratio_min_block_over_sqrt_n": 1.00095374
+          },
+          {
+            "projective_plane_order_q": 529,
+            "n_points": 280371,
+            "min_block_size": 530,
+            "sqrt_n": 529.5007082,
+            "sqrt_n_minus_min_block": -0.4992917852,
+            "ratio_min_block_over_sqrt_n": 1.000942948
+          },
+          {
+            "projective_plane_order_q": 541,
+            "n_points": 293223,
+            "min_block_size": 542,
+            "sqrt_n": 541.5006925,
+            "sqrt_n_minus_min_block": -0.4993074797,
+            "ratio_min_block_over_sqrt_n": 1.000922081
+          },
+          {
+            "projective_plane_order_q": 547,
+            "n_points": 299757,
+            "min_block_size": 548,
+            "sqrt_n": 547.5006849,
+            "sqrt_n_minus_min_block": -0.4993150689,
+            "ratio_min_block_over_sqrt_n": 1.00091199
+          },
+          {
+            "projective_plane_order_q": 557,
+            "n_points": 310807,
+            "min_block_size": 558,
+            "sqrt_n": 557.5006726,
+            "sqrt_n_minus_min_block": -0.4993273547,
+            "ratio_min_block_over_sqrt_n": 1.000895653
+          },
+          {
+            "projective_plane_order_q": 563,
+            "n_points": 317533,
+            "min_block_size": 564,
+            "sqrt_n": 563.5006655,
+            "sqrt_n_minus_min_block": -0.4993345168,
+            "ratio_min_block_over_sqrt_n": 1.000886129
+          },
+          {
+            "projective_plane_order_q": 569,
+            "n_points": 324331,
+            "min_block_size": 570,
+            "sqrt_n": 569.5006585,
+            "sqrt_n_minus_min_block": -0.499341528,
+            "ratio_min_block_over_sqrt_n": 1.000876806
+          },
+          {
+            "projective_plane_order_q": 571,
+            "n_points": 326613,
+            "min_block_size": 572,
+            "sqrt_n": 571.5006562,
+            "sqrt_n_minus_min_block": -0.4993438324,
+            "ratio_min_block_over_sqrt_n": 1.000873741
+          },
+          {
+            "projective_plane_order_q": 577,
+            "n_points": 333507,
+            "min_block_size": 578,
+            "sqrt_n": 577.5006494,
+            "sqrt_n_minus_min_block": -0.4993506497,
+            "ratio_min_block_over_sqrt_n": 1.000864675
+          },
+          {
+            "projective_plane_order_q": 587,
+            "n_points": 345157,
+            "min_block_size": 588,
+            "sqrt_n": 587.5006383,
+            "sqrt_n_minus_min_block": -0.4993617025,
+            "ratio_min_block_over_sqrt_n": 1.000849976
+          },
+          {
+            "projective_plane_order_q": 593,
+            "n_points": 352243,
+            "min_block_size": 594,
+            "sqrt_n": 593.5006318,
+            "sqrt_n_minus_min_block": -0.4993681553,
+            "ratio_min_block_over_sqrt_n": 1.000841394
+          },
+          {
+            "projective_plane_order_q": 599,
+            "n_points": 359401,
+            "min_block_size": 600,
+            "sqrt_n": 599.5006255,
+            "sqrt_n_minus_min_block": -0.4993744791,
+            "ratio_min_block_over_sqrt_n": 1.000832984
+          },
+          {
+            "projective_plane_order_q": 601,
+            "n_points": 361803,
+            "min_block_size": 602,
+            "sqrt_n": 601.5006234,
+            "sqrt_n_minus_min_block": -0.4993765589,
+            "ratio_min_block_over_sqrt_n": 1.000830218
+          },
+          {
+            "projective_plane_order_q": 607,
+            "n_points": 369057,
+            "min_block_size": 608,
+            "sqrt_n": 607.5006173,
+            "sqrt_n_minus_min_block": -0.4993827164,
+            "ratio_min_block_over_sqrt_n": 1.000822028
+          },
+          {
+            "projective_plane_order_q": 613,
+            "n_points": 376383,
+            "min_block_size": 614,
+            "sqrt_n": 613.5006112,
+            "sqrt_n_minus_min_block": -0.4993887534,
+            "ratio_min_block_over_sqrt_n": 1.000813999
+          },
+          {
+            "projective_plane_order_q": 617,
+            "n_points": 381307,
+            "min_block_size": 618,
+            "sqrt_n": 617.5006073,
+            "sqrt_n_minus_min_block": -0.4993927128,
+            "ratio_min_block_over_sqrt_n": 1.000808732
+          },
+          {
+            "projective_plane_order_q": 619,
+            "n_points": 383781,
+            "min_block_size": 620,
+            "sqrt_n": 619.5006053,
+            "sqrt_n_minus_min_block": -0.4993946734,
+            "ratio_min_block_over_sqrt_n": 1.000806125
+          },
+          {
+            "projective_plane_order_q": 625,
+            "n_points": 391251,
+            "min_block_size": 626,
+            "sqrt_n": 625.5005995,
+            "sqrt_n_minus_min_block": -0.4994004799,
+            "ratio_min_block_over_sqrt_n": 1.000798401
+          },
+          {
+            "projective_plane_order_q": 631,
+            "n_points": 398793,
+            "min_block_size": 632,
+            "sqrt_n": 631.5005938,
+            "sqrt_n_minus_min_block": -0.4994061761,
+            "ratio_min_block_over_sqrt_n": 1.000790825
+          },
+          {
+            "projective_plane_order_q": 641,
+            "n_points": 411523,
+            "min_block_size": 642,
+            "sqrt_n": 641.5005846,
+            "sqrt_n_minus_min_block": -0.4994154328,
+            "ratio_min_block_over_sqrt_n": 1.000778511
+          },
+          {
+            "projective_plane_order_q": 643,
+            "n_points": 414093,
+            "min_block_size": 644,
+            "sqrt_n": 643.5005828,
+            "sqrt_n_minus_min_block": -0.4994172497,
+            "ratio_min_block_over_sqrt_n": 1.000776094
+          },
+          {
+            "projective_plane_order_q": 647,
+            "n_points": 419257,
+            "min_block_size": 648,
+            "sqrt_n": 647.5005792,
+            "sqrt_n_minus_min_block": -0.4994208497,
+            "ratio_min_block_over_sqrt_n": 1.000771306
+          },
+          {
+            "projective_plane_order_q": 653,
+            "n_points": 427063,
+            "min_block_size": 654,
+            "sqrt_n": 653.5005738,
+            "sqrt_n_minus_min_block": -0.499426167,
+            "ratio_min_block_over_sqrt_n": 1.000764232
+          },
+          {
+            "projective_plane_order_q": 659,
+            "n_points": 434941,
+            "min_block_size": 660,
+            "sqrt_n": 659.5005686,
+            "sqrt_n_minus_min_block": -0.4994313877,
+            "ratio_min_block_over_sqrt_n": 1.000757287
+          },
+          {
+            "projective_plane_order_q": 661,
+            "n_points": 437583,
+            "min_block_size": 662,
+            "sqrt_n": 661.5005669,
+            "sqrt_n_minus_min_block": -0.4994331068,
+            "ratio_min_block_over_sqrt_n": 1.000755
+          },
+          {
+            "projective_plane_order_q": 673,
+            "n_points": 453603,
+            "min_block_size": 674,
+            "sqrt_n": 673.5005568,
+            "sqrt_n_minus_min_block": -0.4994432074,
+            "ratio_min_block_over_sqrt_n": 1.000741563
+          },
+          {
+            "projective_plane_order_q": 677,
+            "n_points": 459007,
+            "min_block_size": 678,
+            "sqrt_n": 677.5005535,
+            "sqrt_n_minus_min_block": -0.4994464947,
+            "ratio_min_block_over_sqrt_n": 1.00073719
+          },
+          {
+            "projective_plane_order_q": 683,
+            "n_points": 467173,
+            "min_block_size": 684,
+            "sqrt_n": 683.5005486,
+            "sqrt_n_minus_min_block": -0.4994513535,
+            "ratio_min_block_over_sqrt_n": 1.000730726
+          },
+          {
+            "projective_plane_order_q": 691,
+            "n_points": 478173,
+            "min_block_size": 692,
+            "sqrt_n": 691.5005423,
+            "sqrt_n_minus_min_block": -0.4994577009,
+            "ratio_min_block_over_sqrt_n": 1.000722281
+          },
+          {
+            "projective_plane_order_q": 701,
+            "n_points": 492103,
+            "min_block_size": 702,
+            "sqrt_n": 701.5005346,
+            "sqrt_n_minus_min_block": -0.4994654314,
+            "ratio_min_block_over_sqrt_n": 1.000711996
+          },
+          {
+            "projective_plane_order_q": 709,
+            "n_points": 503391,
+            "min_block_size": 710,
+            "sqrt_n": 709.5005285,
+            "sqrt_n_minus_min_block": -0.499471459,
+            "ratio_min_block_over_sqrt_n": 1.000703976
+          },
+          {
+            "projective_plane_order_q": 719,
+            "n_points": 517681,
+            "min_block_size": 720,
+            "sqrt_n": 719.5005212,
+            "sqrt_n_minus_min_block": -0.4994788049,
+            "ratio_min_block_over_sqrt_n": 1.000694202
+          },
+          {
+            "projective_plane_order_q": 727,
+            "n_points": 529257,
+            "min_block_size": 728,
+            "sqrt_n": 727.5005155,
+            "sqrt_n_minus_min_block": -0.4994845363,
+            "ratio_min_block_over_sqrt_n": 1.000686576
+          },
+          {
+            "projective_plane_order_q": 729,
+            "n_points": 532171,
+            "min_block_size": 730,
+            "sqrt_n": 729.5005141,
+            "sqrt_n_minus_min_block": -0.4994859495,
+            "ratio_min_block_over_sqrt_n": 1.000684696
+          },
+          {
+            "projective_plane_order_q": 733,
+            "n_points": 538023,
+            "min_block_size": 734,
+            "sqrt_n": 733.5005112,
+            "sqrt_n_minus_min_block": -0.4994887527,
+            "ratio_min_block_over_sqrt_n": 1.000680966
+          },
+          {
+            "projective_plane_order_q": 739,
+            "n_points": 546861,
+            "min_block_size": 740,
+            "sqrt_n": 739.5005071,
+            "sqrt_n_minus_min_block": -0.4994929008,
+            "ratio_min_block_over_sqrt_n": 1.000675446
+          },
+          {
+            "projective_plane_order_q": 743,
+            "n_points": 552793,
+            "min_block_size": 744,
+            "sqrt_n": 743.5005044,
+            "sqrt_n_minus_min_block": -0.499495629,
+            "ratio_min_block_over_sqrt_n": 1.000671816
+          },
+          {
+            "projective_plane_order_q": 751,
+            "n_points": 564753,
+            "min_block_size": 752,
+            "sqrt_n": 751.500499,
+            "sqrt_n_minus_min_block": -0.4995009982,
+            "ratio_min_block_over_sqrt_n": 1.000664672
+          },
+          {
+            "projective_plane_order_q": 757,
+            "n_points": 573807,
+            "min_block_size": 758,
+            "sqrt_n": 757.500495,
+            "sqrt_n_minus_min_block": -0.4995049507,
+            "ratio_min_block_over_sqrt_n": 1.000659412
+          },
+          {
+            "projective_plane_order_q": 761,
+            "n_points": 579883,
+            "min_block_size": 762,
+            "sqrt_n": 761.5004924,
+            "sqrt_n_minus_min_block": -0.499507551,
+            "ratio_min_block_over_sqrt_n": 1.000655952
+          },
+          {
+            "projective_plane_order_q": 769,
+            "n_points": 592131,
+            "min_block_size": 770,
+            "sqrt_n": 769.5004873,
+            "sqrt_n_minus_min_block": -0.4995126707,
+            "ratio_min_block_over_sqrt_n": 1.000649139
+          },
+          {
+            "projective_plane_order_q": 773,
+            "n_points": 598303,
+            "min_block_size": 774,
+            "sqrt_n": 773.5004848,
+            "sqrt_n_minus_min_block": -0.4995151908,
+            "ratio_min_block_over_sqrt_n": 1.000645785
+          },
+          {
+            "projective_plane_order_q": 787,
+            "n_points": 620157,
+            "min_block_size": 788,
+            "sqrt_n": 787.5004762,
+            "sqrt_n_minus_min_block": -0.4995238097,
+            "ratio_min_block_over_sqrt_n": 1.000634316
+          },
+          {
+            "projective_plane_order_q": 797,
+            "n_points": 636007,
+            "min_block_size": 798,
+            "sqrt_n": 797.5004702,
+            "sqrt_n_minus_min_block": -0.4995297807,
+            "ratio_min_block_over_sqrt_n": 1.000626369
+          },
+          {
+            "projective_plane_order_q": 809,
+            "n_points": 655291,
+            "min_block_size": 810,
+            "sqrt_n": 809.5004632,
+            "sqrt_n_minus_min_block": -0.4995367512,
+            "ratio_min_block_over_sqrt_n": 1.000617093
+          },
+          {
+            "projective_plane_order_q": 811,
+            "n_points": 658533,
+            "min_block_size": 812,
+            "sqrt_n": 811.5004621,
+            "sqrt_n_minus_min_block": -0.4995378929,
+            "ratio_min_block_over_sqrt_n": 1.000615573
+          },
+          {
+            "projective_plane_order_q": 821,
+            "n_points": 674863,
+            "min_block_size": 822,
+            "sqrt_n": 821.5004565,
+            "sqrt_n_minus_min_block": -0.4995435181,
+            "ratio_min_block_over_sqrt_n": 1.000608087
+          },
+          {
+            "projective_plane_order_q": 823,
+            "n_points": 678153,
+            "min_block_size": 824,
+            "sqrt_n": 823.5004554,
+            "sqrt_n_minus_min_block": -0.4995446267,
+            "ratio_min_block_over_sqrt_n": 1.000606611
+          },
+          {
+            "projective_plane_order_q": 827,
+            "n_points": 684757,
+            "min_block_size": 828,
+            "sqrt_n": 827.5004532,
+            "sqrt_n_minus_min_block": -0.4995468279,
+            "ratio_min_block_over_sqrt_n": 1.000603682
+          },
+          {
+            "projective_plane_order_q": 829,
+            "n_points": 688071,
+            "min_block_size": 830,
+            "sqrt_n": 829.5004521,
+            "sqrt_n_minus_min_block": -0.4995479206,
+            "ratio_min_block_over_sqrt_n": 1.000602227
+          },
+          {
+            "projective_plane_order_q": 839,
+            "n_points": 704761,
+            "min_block_size": 840,
+            "sqrt_n": 839.5004467,
+            "sqrt_n_minus_min_block": -0.4995533057,
+            "ratio_min_block_over_sqrt_n": 1.00059506
+          },
+          {
+            "projective_plane_order_q": 841,
+            "n_points": 708123,
+            "min_block_size": 842,
+            "sqrt_n": 841.5004456,
+            "sqrt_n_minus_min_block": -0.4995543673,
+            "ratio_min_block_over_sqrt_n": 1.000593647
+          },
+          {
+            "projective_plane_order_q": 853,
+            "n_points": 728463,
+            "min_block_size": 854,
+            "sqrt_n": 853.5004394,
+            "sqrt_n_minus_min_block": -0.4995606328,
+            "ratio_min_block_over_sqrt_n": 1.000585308
+          },
+          {
+            "projective_plane_order_q": 857,
+            "n_points": 735307,
+            "min_block_size": 858,
+            "sqrt_n": 857.5004373,
+            "sqrt_n_minus_min_block": -0.4995626823,
+            "ratio_min_block_over_sqrt_n": 1.00058258
+          },
+          {
+            "projective_plane_order_q": 859,
+            "n_points": 738741,
+            "min_block_size": 860,
+            "sqrt_n": 859.5004363,
+            "sqrt_n_minus_min_block": -0.4995636999,
+            "ratio_min_block_over_sqrt_n": 1.000581226
+          },
+          {
+            "projective_plane_order_q": 863,
+            "n_points": 745633,
+            "min_block_size": 864,
+            "sqrt_n": 863.5004343,
+            "sqrt_n_minus_min_block": -0.499565721,
+            "ratio_min_block_over_sqrt_n": 1.000578536
+          },
+          {
+            "projective_plane_order_q": 877,
+            "n_points": 770007,
+            "min_block_size": 878,
+            "sqrt_n": 877.5004274,
+            "sqrt_n_minus_min_block": -0.4995726497,
+            "ratio_min_block_over_sqrt_n": 1.000569313
+          },
+          {
+            "projective_plane_order_q": 881,
+            "n_points": 777043,
+            "min_block_size": 882,
+            "sqrt_n": 881.5004254,
+            "sqrt_n_minus_min_block": -0.4995745889,
+            "ratio_min_block_over_sqrt_n": 1.000566732
+          },
+          {
+            "projective_plane_order_q": 883,
+            "n_points": 780573,
+            "min_block_size": 884,
+            "sqrt_n": 883.5004244,
+            "sqrt_n_minus_min_block": -0.4995755519,
+            "ratio_min_block_over_sqrt_n": 1.00056545
+          },
+          {
+            "projective_plane_order_q": 887,
+            "n_points": 787657,
+            "min_block_size": 888,
+            "sqrt_n": 887.5004225,
+            "sqrt_n_minus_min_block": -0.4995774649,
+            "ratio_min_block_over_sqrt_n": 1.000562904
+          },
+          {
+            "projective_plane_order_q": 907,
+            "n_points": 823557,
+            "min_block_size": 908,
+            "sqrt_n": 907.5004132,
+            "sqrt_n_minus_min_block": -0.499586777,
+            "ratio_min_block_over_sqrt_n": 1.000550509
+          },
+          {
+            "projective_plane_order_q": 911,
+            "n_points": 830833,
+            "min_block_size": 912,
+            "sqrt_n": 911.5004114,
+            "sqrt_n_minus_min_block": -0.4995885903,
+            "ratio_min_block_over_sqrt_n": 1.000548095
+          },
+          {
+            "projective_plane_order_q": 919,
+            "n_points": 845481,
+            "min_block_size": 920,
+            "sqrt_n": 919.5004078,
+            "sqrt_n_minus_min_block": -0.4995921697,
+            "ratio_min_block_over_sqrt_n": 1.00054333
+          },
+          {
+            "projective_plane_order_q": 929,
+            "n_points": 863971,
+            "min_block_size": 930,
+            "sqrt_n": 929.5004034,
+            "sqrt_n_minus_min_block": -0.4995965574,
+            "ratio_min_block_over_sqrt_n": 1.000537489
+          },
+          {
+            "projective_plane_order_q": 937,
+            "n_points": 878907,
+            "min_block_size": 938,
+            "sqrt_n": 937.5004,
+            "sqrt_n_minus_min_block": -0.4996000001,
+            "ratio_min_block_over_sqrt_n": 1.000532906
+          },
+          {
+            "projective_plane_order_q": 941,
+            "n_points": 886423,
+            "min_block_size": 942,
+            "sqrt_n": 941.5003983,
+            "sqrt_n_minus_min_block": -0.4996016995,
+            "ratio_min_block_over_sqrt_n": 1.000530644
+          },
+          {
+            "projective_plane_order_q": 947,
+            "n_points": 897757,
+            "min_block_size": 948,
+            "sqrt_n": 947.5003958,
+            "sqrt_n_minus_min_block": -0.4996042217,
+            "ratio_min_block_over_sqrt_n": 1.000527287
+          },
+          {
+            "projective_plane_order_q": 953,
+            "n_points": 909163,
+            "min_block_size": 954,
+            "sqrt_n": 953.5003933,
+            "sqrt_n_minus_min_block": -0.4996067122,
+            "ratio_min_block_over_sqrt_n": 1.000523971
+          },
+          {
+            "projective_plane_order_q": 961,
+            "n_points": 924483,
+            "min_block_size": 962,
+            "sqrt_n": 961.50039,
+            "sqrt_n_minus_min_block": -0.4996099845,
+            "ratio_min_block_over_sqrt_n": 1.000519615
+          },
+          {
+            "projective_plane_order_q": 967,
+            "n_points": 936057,
+            "min_block_size": 968,
+            "sqrt_n": 967.5003876,
+            "sqrt_n_minus_min_block": -0.4996124032,
+            "ratio_min_block_over_sqrt_n": 1.000516395
+          },
+          {
+            "projective_plane_order_q": 971,
+            "n_points": 943813,
+            "min_block_size": 972,
+            "sqrt_n": 971.500386,
+            "sqrt_n_minus_min_block": -0.499613999,
+            "ratio_min_block_over_sqrt_n": 1.000514271
+          },
+          {
+            "projective_plane_order_q": 977,
+            "n_points": 955507,
+            "min_block_size": 978,
+            "sqrt_n": 977.5003836,
+            "sqrt_n_minus_min_block": -0.4996163684,
+            "ratio_min_block_over_sqrt_n": 1.000511116
+          },
+          {
+            "projective_plane_order_q": 983,
+            "n_points": 967273,
+            "min_block_size": 984,
+            "sqrt_n": 983.5003813,
+            "sqrt_n_minus_min_block": -0.4996187088,
+            "ratio_min_block_over_sqrt_n": 1.000508001
+          },
+          {
+            "projective_plane_order_q": 991,
+            "n_points": 983073,
+            "min_block_size": 992,
+            "sqrt_n": 991.5003782,
+            "sqrt_n_minus_min_block": -0.4996217852,
+            "ratio_min_block_over_sqrt_n": 1.000503905
+          },
+          {
+            "projective_plane_order_q": 997,
+            "n_points": 995007,
+            "min_block_size": 998,
+            "sqrt_n": 997.5003759,
+            "sqrt_n_minus_min_block": -0.4996240602,
+            "ratio_min_block_over_sqrt_n": 1.000500876
+          }
+        ],
+        "scale_gap_rows": [
+          {
+            "target_n_scale": 100,
+            "selected_projective_n": 2451,
+            "q": 49,
+            "resulting_h_proxy": -0.4924248221
+          },
+          {
+            "target_n_scale": 300,
+            "selected_projective_n": 2863,
+            "q": 53,
+            "resulting_h_proxy": -0.4929911133
+          },
+          {
+            "target_n_scale": 1000,
+            "selected_projective_n": 5113,
+            "q": 71,
+            "resulting_h_proxy": -0.4947554371
+          },
+          {
+            "target_n_scale": 3000,
+            "selected_projective_n": 8011,
+            "q": 89,
+            "resulting_h_proxy": -0.4958101539
+          },
+          {
+            "target_n_scale": 10000,
+            "selected_projective_n": 19461,
+            "q": 139,
+            "resulting_h_proxy": -0.4973118539
+          },
+          {
+            "target_n_scale": 30000,
+            "selected_projective_n": 44733,
+            "q": 211,
+            "resulting_h_proxy": -0.4982269578
+          },
+          {
+            "target_n_scale": 100000,
+            "selected_projective_n": 124963,
+            "q": 353,
+            "resulting_h_proxy": -0.4989391812
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-12T20:16:52.561Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

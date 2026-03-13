@@ -1,5 +1,139 @@
 {
   "problem": "EP-653",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T20:09:38.328Z",
+  "computations": [
+    {
+      "source_file": "ep653_standalone_deeper_20260312T200936Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T20:09:38.328Z",
+      "data": {
+        "problem": "EP-653",
+        "script": "ep653.mjs",
+        "method": "targeted_construction_plus_1D_local_search_for_large_number_of_distinct_R_values",
+        "params": {},
+        "rows": [
+          {
+            "n": 60,
+            "g_line_arithmetic_progression": 30,
+            "g_two_parallel_progressions": 24,
+            "best_g_from_1D_local_search": 11,
+            "best_g_over_n": 0.18333333,
+            "witness_x_prefix": [
+              6,
+              27,
+              30,
+              46,
+              61,
+              83,
+              93,
+              98,
+              100,
+              101,
+              107,
+              116,
+              138,
+              151,
+              168,
+              178,
+              186,
+              199,
+              200,
+              214
+            ]
+          },
+          {
+            "n": 80,
+            "g_line_arithmetic_progression": 40,
+            "g_two_parallel_progressions": 31,
+            "best_g_from_1D_local_search": 13,
+            "best_g_over_n": 0.1625,
+            "witness_x_prefix": [
+              13,
+              24,
+              37,
+              61,
+              64,
+              66,
+              69,
+              73,
+              78,
+              79,
+              84,
+              86,
+              94,
+              117,
+              124,
+              129,
+              132,
+              144,
+              153,
+              159
+            ]
+          },
+          {
+            "n": 100,
+            "g_line_arithmetic_progression": 50,
+            "g_two_parallel_progressions": 39,
+            "best_g_from_1D_local_search": 15,
+            "best_g_over_n": 0.15,
+            "witness_x_prefix": [
+              2,
+              24,
+              44,
+              47,
+              61,
+              72,
+              82,
+              84,
+              86,
+              96,
+              99,
+              102,
+              107,
+              113,
+              124,
+              130,
+              134,
+              140,
+              150,
+              156
+            ]
+          },
+          {
+            "n": 120,
+            "g_line_arithmetic_progression": 60,
+            "g_two_parallel_progressions": 46,
+            "best_g_from_1D_local_search": 16,
+            "best_g_over_n": 0.13333333,
+            "witness_x_prefix": [
+              10,
+              15,
+              16,
+              38,
+              43,
+              49,
+              60,
+              61,
+              73,
+              109,
+              112,
+              119,
+              123,
+              135,
+              143,
+              149,
+              154,
+              158,
+              160,
+              164
+            ]
+          }
+        ],
+        "elapsed_ms": 2086,
+        "generated_utc": "2026-03-12T20:09:38.328Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

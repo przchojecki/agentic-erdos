@@ -1,5 +1,309 @@
 {
   "problem": "EP-693",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-12T21:13:06.874Z",
+  "computations": [
+    {
+      "source_file": "ep693_standalone_deeper_20260312T211306Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-12T21:13:06.874Z",
+      "data": {
+        "problem": "EP-693",
+        "script": "ep693.mjs",
+        "method": "direct_gap_scan_for_numbers_in_n_to_nk_with_divisor_in_open_interval_n_2n",
+        "params": {},
+        "rows": [
+          {
+            "k": 2,
+            "n": 40,
+            "interval_right_end": 1600,
+            "qualifying_count": 744,
+            "max_consecutive_gap": 7,
+            "max_gap_over_log_n": 1.8975952,
+            "first_values": [
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52
+            ]
+          },
+          {
+            "k": 2,
+            "n": 60,
+            "interval_right_end": 3600,
+            "qualifying_count": 1601,
+            "max_consecutive_gap": 10,
+            "max_gap_over_log_n": 2.4423934,
+            "first_values": [
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72
+            ]
+          },
+          {
+            "k": 2,
+            "n": 80,
+            "interval_right_end": 6400,
+            "qualifying_count": 2765,
+            "max_consecutive_gap": 12,
+            "max_gap_over_log_n": 2.7384589,
+            "first_values": [
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92
+            ]
+          },
+          {
+            "k": 2,
+            "n": 100,
+            "interval_right_end": 10000,
+            "qualifying_count": 4300,
+            "max_consecutive_gap": 11,
+            "max_gap_over_log_n": 2.3886197,
+            "first_values": [
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112
+            ]
+          },
+          {
+            "k": 2,
+            "n": 120,
+            "interval_right_end": 14400,
+            "qualifying_count": 6044,
+            "max_consecutive_gap": 13,
+            "max_gap_over_log_n": 2.7154094,
+            "first_values": [
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132
+            ]
+          },
+          {
+            "k": 2,
+            "n": 160,
+            "interval_right_end": 25600,
+            "qualifying_count": 10509,
+            "max_consecutive_gap": 13,
+            "max_gap_over_log_n": 2.5614886,
+            "first_values": [
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172
+            ]
+          },
+          {
+            "k": 2,
+            "n": 200,
+            "interval_right_end": 40000,
+            "qualifying_count": 16028,
+            "max_consecutive_gap": 17,
+            "max_gap_over_log_n": 3.2085658,
+            "first_values": [
+              201,
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212
+            ]
+          },
+          {
+            "k": 3,
+            "n": 20,
+            "interval_right_end": 8000,
+            "qualifying_count": 3249,
+            "max_consecutive_gap": 13,
+            "max_gap_over_log_n": 4.3395066,
+            "first_values": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ]
+          },
+          {
+            "k": 3,
+            "n": 30,
+            "interval_right_end": 27000,
+            "qualifying_count": 10920,
+            "max_consecutive_gap": 15,
+            "max_gap_over_log_n": 4.4102116,
+            "first_values": [
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42
+            ]
+          },
+          {
+            "k": 3,
+            "n": 40,
+            "interval_right_end": 64000,
+            "qualifying_count": 25602,
+            "max_consecutive_gap": 17,
+            "max_gap_over_log_n": 4.6084455,
+            "first_values": [
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52
+            ]
+          },
+          {
+            "k": 3,
+            "n": 50,
+            "interval_right_end": 125000,
+            "qualifying_count": 49098,
+            "max_consecutive_gap": 18,
+            "max_gap_over_log_n": 4.6011999,
+            "first_values": [
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62
+            ]
+          },
+          {
+            "k": 3,
+            "n": 60,
+            "interval_right_end": 216000,
+            "qualifying_count": 85003,
+            "max_consecutive_gap": 16,
+            "max_gap_over_log_n": 3.9078294,
+            "first_values": [
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72
+            ]
+          },
+          {
+            "k": 3,
+            "n": 80,
+            "interval_right_end": 512000,
+            "qualifying_count": 199217,
+            "max_consecutive_gap": 24,
+            "max_gap_over_log_n": 5.4769179,
+            "first_values": [
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92
+            ]
+          }
+        ],
+        "elapsed_ms": 72,
+        "generated_utc": "2026-03-12T21:13:06.874Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

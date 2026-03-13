@@ -1,5 +1,109 @@
 {
   "problem": "EP-766",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:09:32.481Z",
+  "computations": [
+    {
+      "source_file": "ep766_standalone_deeper_20260313T100754Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:08:22.093Z",
+      "data": {
+        "problem": "EP-766",
+        "script": "ep766.mjs",
+        "method": "sampled_profile_for_f_n_k_l_via_min_over_sampled_k_vertex_l_edge_graphs",
+        "warning": "Sampled finite proxy only; not exact f(n;k,l) over all graphs.",
+        "params": {
+          "K": 6,
+          "L_LIST": [
+            7,
+            8,
+            9
+          ],
+          "N_LIST": [
+            9,
+            10,
+            11
+          ],
+          "G_SAMPLES": 35
+        },
+        "rows": [
+          {
+            "k": 6,
+            "l": 7,
+            "n": 9,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 12,
+            "normalized_by_n2": 0.14814815
+          },
+          {
+            "k": 6,
+            "l": 7,
+            "n": 10,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 17,
+            "normalized_by_n2": 0.17
+          },
+          {
+            "k": 6,
+            "l": 7,
+            "n": 11,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 15,
+            "normalized_by_n2": 0.12396694
+          },
+          {
+            "k": 6,
+            "l": 8,
+            "n": 9,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 15,
+            "normalized_by_n2": 0.18518519
+          },
+          {
+            "k": 6,
+            "l": 8,
+            "n": 10,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 17,
+            "normalized_by_n2": 0.17
+          },
+          {
+            "k": 6,
+            "l": 8,
+            "n": 11,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 19,
+            "normalized_by_n2": 0.15702479
+          },
+          {
+            "k": 6,
+            "l": 9,
+            "n": 9,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 15,
+            "normalized_by_n2": 0.18518519
+          },
+          {
+            "k": 6,
+            "l": 9,
+            "n": 10,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 17,
+            "normalized_by_n2": 0.17
+          },
+          {
+            "k": 6,
+            "l": 9,
+            "n": 11,
+            "sampled_graphs": 35,
+            "sampled_min_ex_n_G": 19,
+            "normalized_by_n2": 0.15702479
+          }
+        ],
+        "elapsed_ms": 27279,
+        "generated_utc": "2026-03-13T10:08:22.093Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

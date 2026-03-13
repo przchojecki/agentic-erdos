@@ -1,5 +1,58 @@
 {
   "problem": "EP-709",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T09:46:52.971Z",
+  "computations": [
+    {
+      "source_file": "ep709_standalone_deeper_20260313T094546Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T09:45:47.896Z",
+      "data": {
+        "problem": "EP-709",
+        "script": "ep709.mjs",
+        "method": "finite_exhaustive_small_n_estimation_via_distinct_multiples_matching",
+        "warning": "This computes finite-range estimates only; not asymptotic f(n).",
+        "params": {
+          "N_MAX": 4,
+          "M_MAX": 22,
+          "CAND_FACTOR_MAX": 5
+        },
+        "rows": [
+          {
+            "n": 2,
+            "tested_sets": 231,
+            "finite_estimated_f_n": 2,
+            "witness_set": [
+              2,
+              3
+            ]
+          },
+          {
+            "n": 3,
+            "tested_sets": 1540,
+            "finite_estimated_f_n": 2,
+            "witness_set": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 4,
+            "tested_sets": 7315,
+            "finite_estimated_f_n": 2,
+            "witness_set": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "elapsed_ms": 887,
+        "generated_utc": "2026-03-13T09:45:47.896Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }
