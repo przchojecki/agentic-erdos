@@ -1,60 +1,82 @@
 {
   "problem": "EP-792",
-  "normalized_utc": "2026-03-05T08:54:16.967Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch18_web_compute.md",
-        "content": "### EP-792\n- Quick literature check:\n  - Open; newest lower-bound increment (2025) still far from closing asymptotic gap.\n- Finite compute signal:\n  - Exact sampled worst-cases for `n=16,20,24` gave max sum-free subset sizes near `n/2` (well above `n/3`).\n- Interpretation:\n  - Small finite instances are not near asymptotic extremality driving the `n/3+o(n)` frontier."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch18_quick_compute.mjs",
-        "heading": "sampled worst-case max sum-free subset size.",
-        "content": "// EP-792: sampled worst-case max sum-free subset size.\n{\n  const rng = makeRng(20260304 ^ 1804);\n\n  function maxSumFreeExact(A) {\n    const n = A.length;\n    const idx = new Map();\n    for (let i = 0; i < n; i += 1) idx.set(A[i], i);\n\n    const order = Array.from({ length: n }, (_, i) => i).sort((i, j) => A[j] - A[i]);\n    const chosenVals = new Set();\n    let best = 0;\n\n    function canAdd(v) {\n      if (chosenVals.has(2 * v)) return false;\n      for (const y of chosenVals) {\n        if (chosenVals.has(v + y)) return false;\n        if (chosenVals.has(v - y)) return false;\n        if (chosenVals.has(y - v)) return false;\n      }\n      return true;\n    }\n\n    function dfs(pos, cur) {\n      if (cur + (n - pos) <= best) return;\n      if (pos === n) {\n        if (cur > best) best = cur;\n        return;\n      }\n\n      const i = order[pos];\n      const v = A[i];\n\n      if (canAdd(v)) {\n        chosenVals.add(v);\n        dfs(pos + 1, cur + 1);\n        chosenVals.delete(v);\n      }\n\n      dfs(pos + 1, cur);\n    }\n\n    dfs(0, 0);\n    return best;\n  }\n\n  function randomSet(size, maxVal) {\n    const S = new Set();\n    while (S.size < size) S.add(1 + Math.floor(rng() * maxVal));\n    return [...S].sort((a, b) => a - b);\n  }\n\n  const rows = [];\n  for (const n of [16, 20, 24]) {\n    const samples = [];\n    samples.push(Array.from({ length: n }, (_, i) => i + 1));\n    samples.push(Array.from({ length: n }, (_, i) => i + 2));\n    for (let t = 0; t < 6; t += 1) samples.push(randomSet(n, 5 * n));\n\n    let worst = n;\n    let avg = 0;\n    for (const A of samples) {\n      const v = maxSumFreeExact(A);\n      avg += v;\n      if (v < worst) worst = v;\n    }\n\n    rows.push({\n      n,\n      sampled_A_count: samples.length,\n      worst_max_sum_free_size_found: worst,\n      avg_max_sum_free_size: Number((avg / samples.length).toPrecision(7)),\n      worst_minus_n_over_3: Number((worst - n / 3).toPrecision(7)),\n      worst_over_n: Number((worst / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep792 = {\n    description: 'Sampled finite profile for largest guaranteed sum-free subset size.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch18_quick_compute.json",
-        "key": "ep792",
-        "container_meta": {
-          "script": "harder_batch18_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:20:32.592Z"
+  "normalized_utc": "2026-03-13T10:42:02.473Z",
+  "computations": [
+    {
+      "source_file": "ep792_standalone_deeper_20260313T104113Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:41:13.575Z",
+      "data": {
+        "problem": "EP-792",
+        "script": "ep792.mjs",
+        "method": "exact_small_n_plus_heuristic_larger_n_sum_free_subset_profile",
+        "params": {
+          "EXACT_N_LIST": [
+            16,
+            20,
+            24
+          ],
+          "HEUR_N_LIST": [
+            28,
+            32,
+            40
+          ],
+          "RAND_SAMPLES": 12
         },
-        "data": {
-          "description": "Sampled finite profile for largest guaranteed sum-free subset size.",
-          "rows": [
-            {
-              "n": 16,
-              "sampled_A_count": 8,
-              "worst_max_sum_free_size_found": 8,
-              "avg_max_sum_free_size": 10.875,
-              "worst_minus_n_over_3": 2.666667,
-              "worst_over_n": 0.5
-            },
-            {
-              "n": 20,
-              "sampled_A_count": 8,
-              "worst_max_sum_free_size_found": 10,
-              "avg_max_sum_free_size": 13,
-              "worst_minus_n_over_3": 3.333333,
-              "worst_over_n": 0.5
-            },
-            {
-              "n": 24,
-              "sampled_A_count": 8,
-              "worst_max_sum_free_size_found": 12,
-              "avg_max_sum_free_size": 15.5,
-              "worst_minus_n_over_3": 4,
-              "worst_over_n": 0.5
-            }
-          ]
-        }
+        "exact_rows": [
+          {
+            "n": 16,
+            "sampled_A_count": 14,
+            "worst_max_sum_free_size_found": 8,
+            "avg_max_sum_free_size": 11.285714,
+            "worst_over_n": 0.5,
+            "worst_minus_n_over_3": 2.6666667
+          },
+          {
+            "n": 20,
+            "sampled_A_count": 14,
+            "worst_max_sum_free_size_found": 10,
+            "avg_max_sum_free_size": 14.214286,
+            "worst_over_n": 0.5,
+            "worst_minus_n_over_3": 3.3333333
+          },
+          {
+            "n": 24,
+            "sampled_A_count": 14,
+            "worst_max_sum_free_size_found": 12,
+            "avg_max_sum_free_size": 16.428571,
+            "worst_over_n": 0.5,
+            "worst_minus_n_over_3": 4
+          }
+        ],
+        "heuristic_rows": [
+          {
+            "n": 28,
+            "sampled_A_count": 14,
+            "worst_greedy_sum_free_size_found": 14,
+            "avg_greedy_sum_free_size": 18.785714,
+            "worst_over_n": 0.5
+          },
+          {
+            "n": 32,
+            "sampled_A_count": 14,
+            "worst_greedy_sum_free_size_found": 16,
+            "avg_greedy_sum_free_size": 21.071429,
+            "worst_over_n": 0.5
+          },
+          {
+            "n": 40,
+            "sampled_A_count": 14,
+            "worst_greedy_sum_free_size_found": 20,
+            "avg_greedy_sum_free_size": 26.071429,
+            "worst_over_n": 0.5
+          }
+        ],
+        "elapsed_ms": 144,
+        "generated_utc": "2026-03-13T10:41:13.575Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

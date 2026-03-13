@@ -1,120 +1,208 @@
 {
   "problem": "EP-805",
-  "normalized_utc": "2026-03-05T08:54:16.967Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch18_web_compute.md",
-        "content": "### EP-805\n- Quick literature check:\n  - Open; strongest known constructions/counterconstraints still leave a broad threshold interval for `g(n)`.\n- Finite compute signal:\n  - In `G(n,1/2)` samples with target threshold `t=ceil(log2 n)`, success probability for random induced `g`-subgraphs transitions sharply as `g` grows (around `g~56..72` in tested `n=128,256`).\n- Interpretation:\n  - Finite local-Ramsey transition is visible but does not identify the extremal existential threshold function."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch18_quick_compute.mjs",
-        "heading": "random-graph induced-subset local Ramsey checks.",
-        "content": "// EP-805: random-graph induced-subset local Ramsey checks.\n{\n  const rng = makeRng(20260304 ^ 1805);\n\n  function randomGraph(n, p) {\n    const G = makeGraph(n);\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) {\n        if (rng() < p) addEdge(G, i, j);\n      }\n    }\n    return G;\n  }\n\n  function hasCliqueAtLeastT(localAdjMasks, t) {\n    const m = localAdjMasks.length;\n    const all = (1n << BigInt(m)) - 1n;\n\n    function dfs(cand, need) {\n      if (need <= 0) return true;\n      if (popcountBigInt(cand) < need) return false;\n      let c = cand;\n      while (c) {\n        const bit = c & -c;\n        const v = lsbIndex(bit);\n        if (dfs(cand & localAdjMasks[v], need - 1)) return true;\n        c &= ~bit;\n        cand &= ~bit;\n        if (popcountBigInt(cand) < need) return false;\n      }\n      return false;\n    }\n\n    return dfs(all, t);\n  }\n\n  function sampleSubset(n, g) {\n    const arr = Array.from({ length: n }, (_, i) => i);\n    shuffle(arr, rng);\n    return arr.slice(0, g);\n  }\n\n  function buildLocalMasks(G, subset, complement = false) {\n    const m = subset.length;\n    const masks = Array(m).fill(0n);\n    for (let i = 0; i < m; i += 1) {\n      let mm = 0n;\n      for (let j = 0; j < m; j += 1) {\n        if (i === j) continue;\n        const u = subset[i];\n        const v = subset[j];\n        const edge = G.adj[u][v] === 1;\n        if (complement ? !edge : edge) mm |= 1n << BigInt(j);\n      }\n      masks[i] = mm;\n    }\n    return masks;\n  }\n\n  const rows = [];\n  for (const n of [128, 256]) {\n    const G = randomGraph(n, 0.5);\n    const t = Math.ceil(Math.log2(n));\n\n    for (const g of [24, 32, 40, 56, 72, 96]) {\n      if (g >= n) continue;\n      const samples = 140;\n      let pass = 0;\n\n      for (let s = 0; s < samples; s += 1) {\n        const subset = sampleSubset(n, g);\n        const masks = buildLocalMasks(G, subset, false);\n        const hasCl = hasCliqueAtLeastT(masks, t);\n        if (!hasCl) continue;\n        const compMasks = buildLocalMasks(G, subset, true);\n        const hasInd = hasCliqueAtLeastT(compMasks, t);\n        if (hasInd) pass += 1;\n      }\n\n      rows.push({\n        n,\n        target_log2_n_threshold_t: t,\n        g,\n        samples,\n        sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t: Number((pass / samples).toPrecision(6)),\n      });\n    }\n  }\n\n  out.results.ep805 = {\n    description: 'Sampled induced-subset local Ramsey profile in random graphs.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch18_quick_compute.json",
-        "key": "ep805",
-        "container_meta": {
-          "script": "harder_batch18_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:20:32.592Z"
+  "normalized_utc": "2026-03-13T10:59:46.903Z",
+  "computations": [
+    {
+      "source_file": "ep805_standalone_deeper_20260313T105831Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:58:39.362Z",
+      "data": {
+        "problem": "EP-805",
+        "script": "ep805.mjs",
+        "method": "deeper_induced_subgraph_local_ramsey_transition_scan_in_random_graphs",
+        "params": {
+          "N_LIST": [
+            128,
+            192,
+            256
+          ],
+          "G_LIST": [
+            24,
+            32,
+            40,
+            48,
+            56,
+            72,
+            96
+          ],
+          "GRAPH_SAMPLES": 8,
+          "SUBSET_SAMPLES": 120
         },
-        "data": {
-          "description": "Sampled induced-subset local Ramsey profile in random graphs.",
-          "rows": [
-            {
-              "n": 128,
-              "target_log2_n_threshold_t": 7,
-              "g": 24,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0.00714286
-            },
-            {
-              "n": 128,
-              "target_log2_n_threshold_t": 7,
-              "g": 32,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0.15
-            },
-            {
-              "n": 128,
-              "target_log2_n_threshold_t": 7,
-              "g": 40,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0.721429
-            },
-            {
-              "n": 128,
-              "target_log2_n_threshold_t": 7,
-              "g": 56,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 1
-            },
-            {
-              "n": 128,
-              "target_log2_n_threshold_t": 7,
-              "g": 72,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 1
-            },
-            {
-              "n": 128,
-              "target_log2_n_threshold_t": 7,
-              "g": 96,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 1
-            },
-            {
-              "n": 256,
-              "target_log2_n_threshold_t": 8,
-              "g": 24,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0
-            },
-            {
-              "n": 256,
-              "target_log2_n_threshold_t": 8,
-              "g": 32,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0
-            },
-            {
-              "n": 256,
-              "target_log2_n_threshold_t": 8,
-              "g": 40,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0.00714286
-            },
-            {
-              "n": 256,
-              "target_log2_n_threshold_t": 8,
-              "g": 56,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 0.528571
-            },
-            {
-              "n": 256,
-              "target_log2_n_threshold_t": 8,
-              "g": 72,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 1
-            },
-            {
-              "n": 256,
-              "target_log2_n_threshold_t": 8,
-              "g": 96,
-              "samples": 140,
-              "sampled_fraction_subsets_with_both_clique_and_independent_size_at_least_t": 1
-            }
-          ]
-        }
+        "rows": [
+          {
+            "n": 128,
+            "t": 7,
+            "g": 24,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.003125
+          },
+          {
+            "n": 128,
+            "t": 7,
+            "g": 32,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.125
+          },
+          {
+            "n": 128,
+            "t": 7,
+            "g": 40,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.69479167
+          },
+          {
+            "n": 128,
+            "t": 7,
+            "g": 48,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.98854167
+          },
+          {
+            "n": 128,
+            "t": 7,
+            "g": 56,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 1
+          },
+          {
+            "n": 128,
+            "t": 7,
+            "g": 72,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 1
+          },
+          {
+            "n": 128,
+            "t": 7,
+            "g": 96,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 1
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 24,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 32,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 40,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.00625
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 48,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.109375
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 56,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.5125
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 72,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.99895833
+          },
+          {
+            "n": 192,
+            "t": 8,
+            "g": 96,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 1
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 24,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 32,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 40,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.013541667
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 48,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.10729167
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 56,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.51145833
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 72,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 0.990625
+          },
+          {
+            "n": 256,
+            "t": 8,
+            "g": 96,
+            "graph_samples": 8,
+            "subset_samples_per_graph": 120,
+            "sampled_fraction_with_both_clique_and_independent_at_least_t": 1
+          }
+        ],
+        "elapsed_ms": 7980,
+        "generated_utc": "2026-03-13T10:58:39.362Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

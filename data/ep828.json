@@ -1,218 +1,355 @@
 {
   "problem": "EP-828",
-  "normalized_utc": "2026-03-05T08:54:16.968Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch19_web_compute.md",
-        "content": "### EP-828\n- Quick literature check:\n  - Remains open; no major post-classical resolution visible in quick scan.\n- Finite compute signal:\n  - For `n<=5e5`, counts of `phi(n) | n+a` vary sharply by `a`; very sparse for small positive `a` (e.g. `a=1` gave 5 hits), much denser for some nonpositive shifts.\n- Interpretation:\n  - Strongly shift-dependent arithmetic structure; no finite evidence toward a full infinitude theorem for all `a`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch19_quick_compute.mjs",
-        "heading": "counts of n with phi(n) | n+a.",
-        "content": "// EP-828: counts of n with phi(n) | n+a.\n{\n  const N = 500_000;\n  const phi = new Uint32Array(N + 1);\n  for (let i = 0; i <= N; i += 1) phi[i] = i;\n  for (let p = 2; p <= N; p += 1) {\n    if (phi[p] !== p) continue;\n    for (let k = p; k <= N; k += p) {\n      phi[k] -= Math.floor(phi[k] / p);\n    }\n  }\n\n  const rows = [];\n  for (const a of [-8, -4, -1, 0, 1, 2, 3, 5, 8, 12]) {\n    let cnt = 0;\n    const first = [];\n    for (let n = 2; n <= N; n += 1) {\n      const ph = phi[n];\n      const v = n + a;\n      if (v % ph === 0) {\n        cnt += 1;\n        if (first.length < 12) first.push(n);\n      }\n    }\n    rows.push({\n      a,\n      N,\n      count_solutions_n_le_N: cnt,\n      first_12_solutions: first,\n      density: Number((cnt / N).toPrecision(7)),\n    });\n  }\n\n  out.results.ep828 = {\n    description: 'Finite density/count profile for divisibility phi(n) | n+a across shifts a.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch19_quick_compute.json",
-        "key": "ep828",
-        "container_meta": {
-          "script": "harder_batch19_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:37:57.048Z"
-        },
-        "data": {
-          "description": "Finite density/count profile for divisibility phi(n) | n+a across shifts a.",
-          "rows": [
-            {
-              "a": -8,
-              "N": 500000,
-              "count_solutions_n_le_N": 6281,
-              "first_12_solutions": [
-                2,
-                4,
-                6,
-                8,
-                12,
-                14,
-                16,
-                24,
-                40,
-                56,
-                88,
-                104
-              ],
-              "density": 0.012562
-            },
-            {
-              "a": -4,
-              "N": 500000,
-              "count_solutions_n_le_N": 11737,
-              "first_12_solutions": [
-                2,
-                4,
-                6,
-                8,
-                12,
-                20,
-                28,
-                44,
-                52,
-                68,
-                76,
-                92
-              ],
-              "density": 0.023474
-            },
-            {
-              "a": -1,
-              "N": 500000,
-              "count_solutions_n_le_N": 41538,
-              "first_12_solutions": [
-                2,
-                3,
-                5,
-                7,
-                11,
-                13,
-                17,
-                19,
-                23,
-                29,
-                31,
-                37
-              ],
-              "density": 0.083076
-            },
-            {
-              "a": 0,
-              "N": 500000,
-              "count_solutions_n_le_N": 117,
-              "first_12_solutions": [
-                2,
-                4,
-                6,
-                8,
-                12,
-                16,
-                18,
-                24,
-                32,
-                36,
-                48,
-                54
-              ],
-              "density": 0.000234
-            },
-            {
-              "a": 1,
-              "N": 500000,
-              "count_solutions_n_le_N": 5,
-              "first_12_solutions": [
-                2,
-                3,
-                15,
-                255,
-                65535
-              ],
-              "density": 0.00001
-            },
-            {
-              "a": 2,
-              "N": 500000,
-              "count_solutions_n_le_N": 9,
-              "first_12_solutions": [
-                2,
-                4,
-                6,
-                10,
-                30,
-                70,
-                510,
-                2590,
-                131070
-              ],
-              "density": 0.000018
-            },
-            {
-              "a": 3,
-              "N": 500000,
-              "count_solutions_n_le_N": 10,
-              "first_12_solutions": [
-                2,
-                3,
-                5,
-                9,
-                21,
-                45,
-                285,
-                765,
-                27645,
-                196605
-              ],
-              "density": 0.00002
-            },
-            {
-              "a": 5,
-              "N": 500000,
-              "count_solutions_n_le_N": 6,
-              "first_12_solutions": [
-                2,
-                3,
-                7,
-                75,
-                1275,
-                327675
-              ],
-              "density": 0.000012
-            },
-            {
-              "a": 8,
-              "N": 500000,
-              "count_solutions_n_le_N": 14,
-              "first_12_solutions": [
-                2,
-                4,
-                6,
-                8,
-                12,
-                16,
-                22,
-                24,
-                28,
-                40,
-                120,
-                280
-              ],
-              "density": 0.000028
-            },
-            {
-              "a": 12,
-              "N": 500000,
-              "count_solutions_n_le_N": 13,
-              "first_12_solutions": [
-                2,
-                4,
-                6,
-                8,
-                12,
-                18,
-                20,
-                36,
-                84,
-                180,
-                1140,
-                3060
-              ],
-              "density": 0.000026
-            }
+  "normalized_utc": "2026-03-13T11:10:53.700Z",
+  "computations": [
+    {
+      "source_file": "ep828_standalone_deeper_20260313T111200Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T11:10:41.015Z",
+      "data": {
+        "problem": "EP-828",
+        "script": "ep828.mjs",
+        "method": "deep_shift_profile_for_phi_dividing_n_plus_a",
+        "params": {
+          "N": 2000000,
+          "A_LIST": [
+            -16,
+            -12,
+            -8,
+            -4,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
           ]
-        }
+        },
+        "rows": [
+          {
+            "a": -16,
+            "N": 2000000,
+            "count_solutions_n_le_N": 11742,
+            "density": 0.005871,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              16,
+              24,
+              28,
+              32,
+              48,
+              80,
+              112,
+              176,
+              208,
+              272,
+              304,
+              368,
+              464,
+              496,
+              592
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 1152
+          },
+          {
+            "a": -12,
+            "N": 2000000,
+            "count_solutions_n_le_N": 15234,
+            "density": 0.007617,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              18,
+              20,
+              22,
+              36,
+              60,
+              84,
+              132,
+              156,
+              204,
+              228,
+              276,
+              348,
+              372,
+              444,
+              492
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 1032
+          },
+          {
+            "a": -8,
+            "N": 2000000,
+            "count_solutions_n_le_N": 22050,
+            "density": 0.011025,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              14,
+              16,
+              24,
+              40,
+              56,
+              88,
+              104,
+              136,
+              152,
+              184,
+              232,
+              248,
+              296,
+              328,
+              344
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 688
+          },
+          {
+            "a": -4,
+            "N": 2000000,
+            "count_solutions_n_le_N": 41541,
+            "density": 0.0207705,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              20,
+              28,
+              44,
+              52,
+              68,
+              76,
+              92,
+              116,
+              124,
+              148,
+              164,
+              172,
+              188,
+              212,
+              236
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 456
+          },
+          {
+            "a": -1,
+            "N": 2000000,
+            "count_solutions_n_le_N": 148933,
+            "density": 0.0744665,
+            "first_20_solutions": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29,
+              31,
+              37,
+              41,
+              43,
+              47,
+              53,
+              59,
+              61,
+              67,
+              71
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 132
+          },
+          {
+            "a": 0,
+            "N": 2000000,
+            "count_solutions_n_le_N": 142,
+            "density": 0.000071,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              16,
+              18,
+              24,
+              32,
+              36,
+              48,
+              54,
+              64,
+              72,
+              96,
+              108,
+              128,
+              144,
+              162,
+              192
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 120096
+          },
+          {
+            "a": 1,
+            "N": 2000000,
+            "count_solutions_n_le_N": 5,
+            "density": 0.0000025,
+            "first_20_solutions": [
+              2,
+              3,
+              15,
+              255,
+              65535
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 65280
+          },
+          {
+            "a": 2,
+            "N": 2000000,
+            "count_solutions_n_le_N": 9,
+            "density": 0.0000045,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              10,
+              30,
+              70,
+              510,
+              2590,
+              131070
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 128480
+          },
+          {
+            "a": 3,
+            "N": 2000000,
+            "count_solutions_n_le_N": 10,
+            "density": 0.000005,
+            "first_20_solutions": [
+              2,
+              3,
+              5,
+              9,
+              21,
+              45,
+              285,
+              765,
+              27645,
+              196605
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 168960
+          },
+          {
+            "a": 5,
+            "N": 2000000,
+            "count_solutions_n_le_N": 6,
+            "density": 0.000003,
+            "first_20_solutions": [
+              2,
+              3,
+              7,
+              75,
+              1275,
+              327675
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 326400
+          },
+          {
+            "a": 8,
+            "N": 2000000,
+            "count_solutions_n_le_N": 15,
+            "density": 0.0000075,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              16,
+              22,
+              24,
+              28,
+              40,
+              120,
+              280,
+              2040,
+              10360,
+              524280
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 513920
+          },
+          {
+            "a": 12,
+            "N": 2000000,
+            "count_solutions_n_le_N": 14,
+            "density": 0.000007,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              18,
+              20,
+              36,
+              84,
+              180,
+              1140,
+              3060,
+              110580,
+              786420
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 675840
+          },
+          {
+            "a": 16,
+            "N": 2000000,
+            "count_solutions_n_le_N": 19,
+            "density": 0.0000095,
+            "first_20_solutions": [
+              2,
+              4,
+              6,
+              8,
+              12,
+              14,
+              16,
+              24,
+              32,
+              38,
+              44,
+              48,
+              56,
+              80,
+              240,
+              560,
+              4080,
+              20720,
+              1048560
+            ],
+            "max_gap_between_consecutive_solutions_in_range": 1027840
+          }
+        ],
+        "elapsed_ms": 152,
+        "generated_utc": "2026-03-13T11:10:41.015Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

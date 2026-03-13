@@ -1,114 +1,160 @@
 {
   "problem": "EP-782",
-  "normalized_utc": "2026-03-05T08:54:16.967Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch18_web_compute.md",
-        "content": "### EP-782\n- Quick literature check:\n  - Still open; no unconditional full resolution for long quasi-progressions/cubes in squares.\n- Finite compute signal:\n  - Quasi-progression search in squares up to `2e6` found best lengths increasing with tolerance `C` (e.g. up to `9` for `C=12`).\n  - Many 2D additive-cube patterns were found; no 3D pattern found in random probing at tested scale.\n- Interpretation:\n  - Finite data supports abundance of low-dimensional structure but does not resolve arbitrary-length behavior."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch18_quick_compute.mjs",
-        "heading": "quasi-progressions and additive-cube probes in squares.",
-        "content": "// EP-782: quasi-progressions and additive-cube probes in squares.\n{\n  const N = 2_000_000;\n  const squares = [];\n  const isSquare = new Uint8Array(N + 1);\n  for (let k = 1; k * k <= N; k += 1) {\n    const s = k * k;\n    squares.push(s);\n    isSquare[s] = 1;\n  }\n\n  function bestQuasiLen(C) {\n    const startLimit = Math.min(squares.length, 600);\n    const pairSpan = 80;\n\n    const memo = new Map();\n    function ext(prev, d) {\n      const key = `${prev}|${d}`;\n      if (memo.has(key)) return memo.get(key);\n      let best = 0;\n      for (let z = 0; z <= C; z += 1) {\n        const nxt = prev + d + z;\n        if (nxt <= N && isSquare[nxt]) {\n          const e = 1 + ext(nxt, d);\n          if (e > best) best = e;\n        }\n      }\n      memo.set(key, best);\n      return best;\n    }\n\n    let best = 1;\n    for (let i = 0; i < startLimit; i += 1) {\n      for (let j = i + 1; j < Math.min(startLimit, i + pairSpan); j += 1) {\n        const d = squares[j] - squares[i];\n        const len = 2 + ext(squares[j], d);\n        if (len > best) best = len;\n      }\n    }\n    return best;\n  }\n\n  const quasiRows = [];\n  for (const C of [0, 1, 2, 4, 8, 12]) {\n    quasiRows.push({ C, search_cap_N: N, best_length_found: bestQuasiLen(C) });\n  }\n\n  // 2D cube search: a, a+b1, a+b2, a+b1+b2 all squares.\n  let count2D = 0;\n  const examples2D = [];\n  const sqSmall = squares.filter((x) => x <= 200_000);\n  const sqSet = new Set(sqSmall);\n\n  for (let i = 0; i < sqSmall.length; i += 1) {\n    const a = sqSmall[i];\n    for (let j = i + 1; j < sqSmall.length; j += 1) {\n      const b1 = sqSmall[j] - a;\n      if (b1 <= 0) continue;\n      for (let k = j + 1; k < Math.min(sqSmall.length, j + 50); k += 1) {\n        const b2 = sqSmall[k] - a;\n        if (sqSet.has(a + b1 + b2)) {\n          count2D += 1;\n          if (examples2D.length < 8) examples2D.push({ a, b1, b2 });\n        }\n      }\n    }\n  }\n\n  // Random 3D cube probe.\n  const rng = makeRng(20260304 ^ 1802);\n  let found3D = 0;\n  let ex3D = null;\n  const sqRnd = sqSmall.slice(0, 1200);\n  const sqRndSet = new Set(sqRnd);\n\n  for (let t = 0; t < 300_000; t += 1) {\n    const a = sqRnd[Math.floor(rng() * sqRnd.length)];\n    const x1 = sqRnd[Math.floor(rng() * sqRnd.length)];\n    const x2 = sqRnd[Math.floor(rng() * sqRnd.length)];\n    const x3 = sqRnd[Math.floor(rng() * sqRnd.length)];\n    const b1 = Math.abs(x1 - a);\n    const b2 = Math.abs(x2 - a);\n    const b3 = Math.abs(x3 - a);\n    if (!b1 || !b2 || !b3) continue;\n\n    const vals = [\n      a,\n      a + b1,\n      a + b2,\n      a + b3,\n      a + b1 + b2,\n      a + b1 + b3,\n      a + b2 + b3,\n      a + b1 + b2 + b3,\n    ];\n    if (vals.every((v) => sqRndSet.has(v))) {\n      found3D += 1;\n      if (!ex3D) ex3D = { a, b1, b2, b3 };\n      if (found3D >= 3) break;\n    }\n  }\n\n  out.results.ep782 = {\n    description: 'Finite quasi-progression and additive-cube probes inside square numbers.',\n    quasi_rows: quasiRows,\n    additive_cube_probe: {\n      search_cap_for_square_values: 200_000,\n      two_dimensional_cube_hits: count2D,\n      two_dimensional_examples: examples2D,\n      random_three_dimensional_hits: found3D,\n      first_three_dimensional_example: ex3D,\n    },\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch18_quick_compute.json",
-        "key": "ep782",
-        "container_meta": {
-          "script": "harder_batch18_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:20:32.592Z"
+  "normalized_utc": "2026-03-13T10:34:37.148Z",
+  "computations": [
+    {
+      "source_file": "ep782_standalone_deeper_20260313T103341Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:33:41.373Z",
+      "data": {
+        "problem": "EP-782",
+        "script": "ep782.mjs",
+        "method": "deeper_quasi_progression_and_additive_cube_search_in_squares",
+        "params": {
+          "N": 3000000,
+          "START_LIMIT": 900,
+          "PAIR_SPAN": 110,
+          "C_LIST": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            12,
+            16
+          ],
+          "SQ_CAP_2D": 300000,
+          "RND_3D_TRIALS": 450000
         },
-        "data": {
-          "description": "Finite quasi-progression and additive-cube probes inside square numbers.",
-          "quasi_rows": [
+        "quasi_rows": [
+          {
+            "C": 0,
+            "best_length_found": 3,
+            "witness": {
+              "x1": 1,
+              "x2": 25,
+              "d": 24
+            }
+          },
+          {
+            "C": 1,
+            "best_length_found": 3,
+            "witness": {
+              "x1": 1,
+              "x2": 25,
+              "d": 24
+            }
+          },
+          {
+            "C": 2,
+            "best_length_found": 4,
+            "witness": {
+              "x1": 25,
+              "x2": 1024,
+              "d": 999
+            }
+          },
+          {
+            "C": 4,
+            "best_length_found": 4,
+            "witness": {
+              "x1": 1,
+              "x2": 4,
+              "d": 3
+            }
+          },
+          {
+            "C": 8,
+            "best_length_found": 7,
+            "witness": {
+              "x1": 4,
+              "x2": 16,
+              "d": 12
+            }
+          },
+          {
+            "C": 12,
+            "best_length_found": 9,
+            "witness": {
+              "x1": 4,
+              "x2": 16,
+              "d": 12
+            }
+          },
+          {
+            "C": 16,
+            "best_length_found": 12,
+            "witness": {
+              "x1": 1,
+              "x2": 16,
+              "d": 15
+            }
+          }
+        ],
+        "additive_cube_probe": {
+          "search_cap_for_square_values": 300000,
+          "two_dimensional_cube_hits": 31659,
+          "two_dimensional_examples": [
             {
-              "C": 0,
-              "search_cap_N": 2000000,
-              "best_length_found": 3
+              "a": 1,
+              "b1": 15,
+              "b2": 48
             },
             {
-              "C": 1,
-              "search_cap_N": 2000000,
-              "best_length_found": 3
+              "a": 1,
+              "b1": 35,
+              "b2": 288
             },
             {
-              "C": 2,
-              "search_cap_N": 2000000,
-              "best_length_found": 4
+              "a": 1,
+              "b1": 48,
+              "b2": 120
             },
             {
-              "C": 4,
-              "search_cap_N": 2000000,
-              "best_length_found": 4
+              "a": 1,
+              "b1": 63,
+              "b2": 80
             },
             {
-              "C": 8,
-              "search_cap_N": 2000000,
-              "best_length_found": 7
+              "a": 1,
+              "b1": 63,
+              "b2": 960
             },
             {
-              "C": 12,
-              "search_cap_N": 2000000,
-              "best_length_found": 9
+              "a": 1,
+              "b1": 80,
+              "b2": 360
+            },
+            {
+              "a": 1,
+              "b1": 99,
+              "b2": 224
+            },
+            {
+              "a": 1,
+              "b1": 99,
+              "b2": 2400
+            },
+            {
+              "a": 1,
+              "b1": 120,
+              "b2": 168
+            },
+            {
+              "a": 1,
+              "b1": 120,
+              "b2": 840
             }
           ],
-          "additive_cube_probe": {
-            "search_cap_for_square_values": 200000,
-            "two_dimensional_cube_hits": 17810,
-            "two_dimensional_examples": [
-              {
-                "a": 1,
-                "b1": 15,
-                "b2": 48
-              },
-              {
-                "a": 1,
-                "b1": 35,
-                "b2": 288
-              },
-              {
-                "a": 1,
-                "b1": 48,
-                "b2": 120
-              },
-              {
-                "a": 1,
-                "b1": 63,
-                "b2": 80
-              },
-              {
-                "a": 1,
-                "b1": 63,
-                "b2": 960
-              },
-              {
-                "a": 1,
-                "b1": 80,
-                "b2": 360
-              },
-              {
-                "a": 1,
-                "b1": 99,
-                "b2": 224
-              },
-              {
-                "a": 1,
-                "b1": 99,
-                "b2": 2400
-              }
-            ],
-            "random_three_dimensional_hits": 0,
-            "first_three_dimensional_example": null
-          }
-        }
+          "random_three_dimensional_hits": 0,
+          "first_three_dimensional_example": null,
+          "random_trials_3d": 450000
+        },
+        "elapsed_ms": 286,
+        "generated_utc": "2026-03-13T10:33:41.373Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

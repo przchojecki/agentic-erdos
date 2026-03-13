@@ -1,5 +1,83 @@
 {
   "problem": "EP-831",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T15:37:40.097Z",
+  "computations": [
+    {
+      "source_file": "ep831_standalone_deeper_20260313T111500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:37:13.186Z",
+      "data": {
+        "problem": "EP-831",
+        "script": "ep831.mjs",
+        "method": "random_general_position_distinct_circumradii_profile",
+        "warning": "Heuristic finite profile, not extremal lower-bound proof.",
+        "params": {
+          "CASES": [
+            [
+              10,
+              80,
+              120
+            ],
+            [
+              12,
+              90,
+              100
+            ],
+            [
+              14,
+              100,
+              80
+            ],
+            [
+              16,
+              110,
+              60
+            ]
+          ]
+        },
+        "rows": [
+          {
+            "n": 10,
+            "samples": 120,
+            "total_triples": 120,
+            "min_distinct_radii_seen": 115,
+            "avg_distinct_radii_seen": 119.76667,
+            "max_distinct_radii_seen": 120,
+            "min_ratio_distinct_over_all_triples": 0.95833333
+          },
+          {
+            "n": 12,
+            "samples": 100,
+            "total_triples": 220,
+            "min_distinct_radii_seen": 216,
+            "avg_distinct_radii_seen": 219.8,
+            "max_distinct_radii_seen": 220,
+            "min_ratio_distinct_over_all_triples": 0.98181818
+          },
+          {
+            "n": 14,
+            "samples": 80,
+            "total_triples": 364,
+            "min_distinct_radii_seen": 357,
+            "avg_distinct_radii_seen": 363.475,
+            "max_distinct_radii_seen": 364,
+            "min_ratio_distinct_over_all_triples": 0.98076923
+          },
+          {
+            "n": 16,
+            "samples": 60,
+            "total_triples": 560,
+            "min_distinct_radii_seen": 556,
+            "avg_distinct_radii_seen": 559.38333,
+            "max_distinct_radii_seen": 560,
+            "min_ratio_distinct_over_all_triples": 0.99285714
+          }
+        ],
+        "elapsed_ms": 34,
+        "generated_utc": "2026-03-13T15:37:13.186Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

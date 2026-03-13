@@ -1,160 +1,371 @@
 {
   "problem": "EP-821",
-  "normalized_utc": "2026-03-05T08:54:16.968Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch18_web_compute.md",
-        "content": "### EP-821\n- Quick literature check:\n  - Open; best current exponent remains below the `1-epsilon` target.\n- Finite compute signal:\n  - Totient-preimage scan up to `5e5` found maximum `g(n)=639` at `n=120960` (effective finite exponent around `0.552`).\n- Interpretation:\n  - Finite data is far from the conjectured near-linear exponent regime."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch18_quick_compute.mjs",
-        "heading": "totient preimage multiplicity scan.",
-        "content": "// EP-821: totient preimage multiplicity scan.\n{\n  const N = 500_000;\n  const phi = Array.from({ length: N + 1 }, (_, i) => i);\n  for (let p = 2; p <= N; p += 1) {\n    if (phi[p] !== p) continue;\n    for (let k = p; k <= N; k += p) {\n      phi[k] -= Math.floor(phi[k] / p);\n    }\n  }\n\n  const freq = new Uint32Array(N + 1);\n  for (let m = 1; m <= N; m += 1) {\n    const v = phi[m];\n    if (v <= N) freq[v] += 1;\n  }\n\n  let bestN = 1;\n  let bestG = 0;\n  const tops = [];\n  for (let n = 1; n <= N; n += 1) {\n    const g = freq[n];\n    if (g > bestG) {\n      bestG = g;\n      bestN = n;\n    }\n    if (g >= 20) tops.push({ n, g });\n  }\n\n  const topSorted = tops.sort((a, b) => b.g - a.g || a.n - b.n).slice(0, 30);\n\n  out.results.ep821 = {\n    description: 'Finite scan of g(n)=#{m:phi(m)=n} for n up to 5e5.',\n    N,\n    max_g_n_found: bestG,\n    argmax_n_found: bestN,\n    max_exponent_log_g_over_log_n: Number((Math.log(bestG) / Math.log(bestN)).toPrecision(7)),\n    top_values: topSorted,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch18_quick_compute.json",
-        "key": "ep821",
-        "container_meta": {
-          "script": "harder_batch18_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:20:32.592Z"
+  "normalized_utc": "2026-03-13T11:06:06.335Z",
+  "computations": [
+    {
+      "source_file": "ep821_standalone_deeper_20260313T110900Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T11:05:54.133Z",
+      "data": {
+        "problem": "EP-821",
+        "script": "ep821.mjs",
+        "method": "totient_preimage_multiplicity_scan_deepened",
+        "params": {
+          "N": 2000000,
+          "threshold_for_top_values": 40
         },
-        "data": {
-          "description": "Finite scan of g(n)=#{m:phi(m)=n} for n up to 5e5.",
-          "N": 500000,
-          "max_g_n_found": 639,
-          "argmax_n_found": 120960,
-          "max_exponent_log_g_over_log_n": 0.5519769,
-          "top_values": [
-            {
-              "n": 120960,
-              "g": 639
-            },
-            {
-              "n": 103680,
-              "g": 549
-            },
-            {
-              "n": 80640,
-              "g": 525
-            },
-            {
-              "n": 95040,
-              "g": 468
-            },
-            {
-              "n": 100800,
-              "g": 462
-            },
-            {
-              "n": 86400,
-              "g": 458
-            },
-            {
-              "n": 69120,
-              "g": 454
-            },
-            {
-              "n": 126720,
-              "g": 448
-            },
-            {
-              "n": 115200,
-              "g": 446
-            },
-            {
-              "n": 60480,
-              "g": 441
-            },
-            {
-              "n": 138240,
-              "g": 437
-            },
-            {
-              "n": 161280,
-              "g": 436
-            },
-            {
-              "n": 90720,
-              "g": 422
-            },
-            {
-              "n": 129600,
-              "g": 418
-            },
-            {
-              "n": 96768,
-              "g": 406
-            },
-            {
-              "n": 181440,
-              "g": 400
-            },
-            {
-              "n": 51840,
-              "g": 399
-            },
-            {
-              "n": 77760,
-              "g": 396
-            },
-            {
-              "n": 112320,
-              "g": 391
-            },
-            {
-              "n": 155520,
-              "g": 379
-            },
-            {
-              "n": 107520,
-              "g": 369
-            },
-            {
-              "n": 63360,
-              "g": 363
-            },
-            {
-              "n": 92160,
-              "g": 362
-            },
-            {
-              "n": 151200,
-              "g": 362
-            },
-            {
-              "n": 40320,
-              "g": 359
-            },
-            {
-              "n": 145152,
-              "g": 353
-            },
-            {
-              "n": 142560,
-              "g": 348
-            },
-            {
-              "n": 57600,
-              "g": 346
-            },
-            {
-              "n": 74880,
-              "g": 342
-            },
-            {
-              "n": 172800,
-              "g": 340
-            }
-          ]
-        }
+        "max_g_n_found": 1345,
+        "argmax_n_found": 483840,
+        "max_exponent_log_g_over_log_n": 0.5503758,
+        "record_progression": [
+          {
+            "n": 5760,
+            "g": 129,
+            "log_g_over_log_n": 0.561264
+          },
+          {
+            "n": 8640,
+            "g": 176,
+            "log_g_over_log_n": 0.5704318
+          },
+          {
+            "n": 11520,
+            "g": 178,
+            "log_g_over_log_n": 0.5540924
+          },
+          {
+            "n": 17280,
+            "g": 247,
+            "log_g_over_log_n": 0.5646424
+          },
+          {
+            "n": 25920,
+            "g": 276,
+            "log_g_over_log_n": 0.5530383
+          },
+          {
+            "n": 30240,
+            "g": 281,
+            "log_g_over_log_n": 0.5465153
+          },
+          {
+            "n": 34560,
+            "g": 331,
+            "log_g_over_log_n": 0.5552026
+          },
+          {
+            "n": 40320,
+            "g": 359,
+            "log_g_over_log_n": 0.5547895
+          },
+          {
+            "n": 51840,
+            "g": 399,
+            "log_g_over_log_n": 0.5516771
+          },
+          {
+            "n": 60480,
+            "g": 441,
+            "log_g_over_log_n": 0.5530433
+          },
+          {
+            "n": 69120,
+            "g": 454,
+            "log_g_over_log_n": 0.5490234
+          },
+          {
+            "n": 80640,
+            "g": 525,
+            "log_g_over_log_n": 0.5543934
+          },
+          {
+            "n": 103680,
+            "g": 558,
+            "log_g_over_log_n": 0.5476079
+          },
+          {
+            "n": 120960,
+            "g": 692,
+            "log_g_over_log_n": 0.5587854
+          },
+          {
+            "n": 161280,
+            "g": 718,
+            "log_g_over_log_n": 0.5484552
+          },
+          {
+            "n": 181440,
+            "g": 734,
+            "log_g_over_log_n": 0.5449404
+          },
+          {
+            "n": 207360,
+            "g": 764,
+            "log_g_over_log_n": 0.5422687
+          },
+          {
+            "n": 241920,
+            "g": 1023,
+            "log_g_over_log_n": 0.5590749
+          },
+          {
+            "n": 362880,
+            "g": 1138,
+            "log_g_over_log_n": 0.5496893
+          },
+          {
+            "n": 483840,
+            "g": 1345,
+            "log_g_over_log_n": 0.5503758
+          }
+        ],
+        "top_values": [
+          {
+            "n": 483840,
+            "g": 1345
+          },
+          {
+            "n": 362880,
+            "g": 1138
+          },
+          {
+            "n": 403200,
+            "g": 1068
+          },
+          {
+            "n": 414720,
+            "g": 1024
+          },
+          {
+            "n": 241920,
+            "g": 1023
+          },
+          {
+            "n": 380160,
+            "g": 1012
+          },
+          {
+            "n": 604800,
+            "g": 975
+          },
+          {
+            "n": 322560,
+            "g": 961
+          },
+          {
+            "n": 518400,
+            "g": 924
+          },
+          {
+            "n": 345600,
+            "g": 922
+          },
+          {
+            "n": 443520,
+            "g": 897
+          },
+          {
+            "n": 544320,
+            "g": 895
+          },
+          {
+            "n": 725760,
+            "g": 876
+          },
+          {
+            "n": 311040,
+            "g": 872
+          },
+          {
+            "n": 302400,
+            "g": 862
+          },
+          {
+            "n": 570240,
+            "g": 857
+          },
+          {
+            "n": 449280,
+            "g": 852
+          },
+          {
+            "n": 466560,
+            "g": 803
+          },
+          {
+            "n": 506880,
+            "g": 797
+          },
+          {
+            "n": 259200,
+            "g": 772
+          },
+          {
+            "n": 276480,
+            "g": 769
+          },
+          {
+            "n": 475200,
+            "g": 769
+          },
+          {
+            "n": 207360,
+            "g": 764
+          },
+          {
+            "n": 432000,
+            "g": 751
+          },
+          {
+            "n": 524160,
+            "g": 749
+          },
+          {
+            "n": 285120,
+            "g": 737
+          },
+          {
+            "n": 181440,
+            "g": 734
+          },
+          {
+            "n": 460800,
+            "g": 733
+          },
+          {
+            "n": 645120,
+            "g": 721
+          },
+          {
+            "n": 453600,
+            "g": 720
+          },
+          {
+            "n": 201600,
+            "g": 719
+          },
+          {
+            "n": 161280,
+            "g": 718
+          },
+          {
+            "n": 622080,
+            "g": 712
+          },
+          {
+            "n": 253440,
+            "g": 711
+          },
+          {
+            "n": 665280,
+            "g": 706
+          },
+          {
+            "n": 387072,
+            "g": 705
+          },
+          {
+            "n": 435456,
+            "g": 702
+          },
+          {
+            "n": 504000,
+            "g": 695
+          },
+          {
+            "n": 120960,
+            "g": 692
+          },
+          {
+            "n": 290304,
+            "g": 692
+          },
+          {
+            "n": 388800,
+            "g": 692
+          },
+          {
+            "n": 423360,
+            "g": 690
+          },
+          {
+            "n": 190080,
+            "g": 680
+          },
+          {
+            "n": 564480,
+            "g": 674
+          },
+          {
+            "n": 374400,
+            "g": 671
+          },
+          {
+            "n": 172800,
+            "g": 665
+          },
+          {
+            "n": 552960,
+            "g": 661
+          },
+          {
+            "n": 580608,
+            "g": 651
+          },
+          {
+            "n": 316800,
+            "g": 649
+          },
+          {
+            "n": 633600,
+            "g": 649
+          },
+          {
+            "n": 532224,
+            "g": 647
+          },
+          {
+            "n": 224640,
+            "g": 639
+          },
+          {
+            "n": 760320,
+            "g": 639
+          },
+          {
+            "n": 456192,
+            "g": 634
+          },
+          {
+            "n": 299520,
+            "g": 628
+          },
+          {
+            "n": 806400,
+            "g": 623
+          },
+          {
+            "n": 561600,
+            "g": 622
+          },
+          {
+            "n": 576000,
+            "g": 621
+          },
+          {
+            "n": 230400,
+            "g": 620
+          },
+          {
+            "n": 288000,
+            "g": 620
+          }
+        ],
+        "elapsed_ms": 72,
+        "generated_utc": "2026-03-13T11:05:54.133Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

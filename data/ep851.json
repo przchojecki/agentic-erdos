@@ -1,5 +1,63 @@
 {
   "problem": "EP-851",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T19:22:50.216Z",
+  "computations": [
+    {
+      "source_file": "ep851_standalone_deeper_20260313T155300Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:22:22.445Z",
+      "data": {
+        "problem": "EP-851",
+        "script": "ep851.mjs",
+        "method": "finite_density_profile_for_2k_plus_almost_prime_representations",
+        "warning": "Finite N profile only; does not prove asymptotic density limit.",
+        "params": {
+          "N": 1000000,
+          "R_LIST": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "rows": [
+          {
+            "r": 1,
+            "N": 1000000,
+            "covered_count": 538970,
+            "covered_density": 0.53897
+          },
+          {
+            "r": 2,
+            "N": 1000000,
+            "covered_count": 887019,
+            "covered_density": 0.887019
+          },
+          {
+            "r": 3,
+            "N": 1000000,
+            "covered_count": 990158,
+            "covered_density": 0.990158
+          },
+          {
+            "r": 4,
+            "N": 1000000,
+            "covered_count": 999831,
+            "covered_density": 0.999831
+          },
+          {
+            "r": 5,
+            "N": 1000000,
+            "covered_count": 999998,
+            "covered_density": 0.999998
+          }
+        ],
+        "elapsed_ms": 84,
+        "generated_utc": "2026-03-13T19:22:22.445Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,42 +1,32 @@
 {
   "problem": "EP-849",
-  "normalized_utc": "2026-03-05T08:54:16.969Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch19_web_compute.md",
-        "content": "### EP-849\n- Quick literature check:\n  - Open (Singmaster-type question); partial interior-of-Pascal results exist but no full multiplicity characterization by exact `t`.\n- Finite compute signal:\n  - Scan to row `n<=600` found max multiplicity `3` (no value with multiplicity `>=4` in that window).\n- Interpretation:\n  - Small finite windows remain consistent with rarity of high multiplicities; does not approach global conjectural structure."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch19_quick_compute.mjs",
-        "heading": "multiplicity profile for binomial values.",
-        "content": "// EP-849: multiplicity profile for binomial values.\n{\n  const NMAX = 600;\n  const map = new Map();\n\n  for (let n = 1; n <= NMAX; n += 1) {\n    let c = 1n;\n    for (let k = 1; k <= Math.floor(n / 2); k += 1) {\n      c = (c * BigInt(n - k + 1)) / BigInt(k);\n      const key = c.toString();\n      map.set(key, (map.get(key) || 0) + 1);\n    }\n  }\n\n  let maxMult = 0;\n  const top = [];\n  for (const [a, m] of map.entries()) {\n    if (m > maxMult) maxMult = m;\n    if (m >= 4) top.push({ a, m });\n  }\n  top.sort((x, y) => y.m - x.m || (x.a.length - y.a.length)).slice(0, 30);\n\n  const countByT = {};\n  for (const m of map.values()) {\n    countByT[m] = (countByT[m] || 0) + 1;\n  }\n\n  out.results.ep849 = {\n    description: 'Finite multiplicity scan for values appearing as binomial coefficients.',\n    NMAX,\n    max_multiplicity_found: maxMult,\n    counts_of_values_by_multiplicity: countByT,\n    sample_values_with_multiplicity_at_least_4: top.slice(0, 20),\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch19_quick_compute.json",
-        "key": "ep849",
-        "container_meta": {
-          "script": "harder_batch19_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:37:57.048Z"
+  "normalized_utc": "2026-03-13T15:43:15.865Z",
+  "computations": [
+    {
+      "source_file": "ep849_standalone_deeper_20260313T154900Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:43:01.605Z",
+      "data": {
+        "problem": "EP-849",
+        "script": "ep849.mjs",
+        "method": "deep_pascal_interior_multiplicity_scan",
+        "params": {
+          "NMAX": 1500
         },
-        "data": {
-          "description": "Finite multiplicity scan for values appearing as binomial coefficients.",
-          "NMAX": 600,
-          "max_multiplicity_found": 3,
-          "counts_of_values_by_multiplicity": {
-            "1": 89889,
-            "2": 51,
-            "3": 3
-          },
-          "sample_values_with_multiplicity_at_least_4": []
-        }
+        "max_multiplicity_found": 3,
+        "argmax_value": "120",
+        "multiplicity_histogram": {
+          "1": 562325,
+          "2": 83,
+          "3": 3
+        },
+        "values_with_multiplicity_at_least_4_count": 0,
+        "sample_values_with_multiplicity_at_least_4": [],
+        "elapsed_ms": 845,
+        "generated_utc": "2026-03-13T15:43:01.605Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

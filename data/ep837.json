@@ -1,5 +1,87 @@
 {
   "problem": "EP-837",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T15:40:43.392Z",
+  "computations": [
+    {
+      "source_file": "ep837_standalone_deeper_20260313T154000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:40:16.753Z",
+      "data": {
+        "problem": "EP-837",
+        "script": "ep837.mjs",
+        "method": "heuristic_random_3graph_local_density_gap_probe",
+        "warning": "Heuristic random-model evidence only; not a characterization of A_3.",
+        "params": {
+          "N": 80,
+          "SAMPLES": 140,
+          "M": 18,
+          "LOCAL_SAMPLES": 1000,
+          "P_LIST": [
+            0.05,
+            0.08,
+            0.12,
+            0.16,
+            0.2,
+            0.25,
+            0.3
+          ]
+        },
+        "rows": [
+          {
+            "p_target": 0.05,
+            "avg_global_density": 0.05010902,
+            "avg_sampled_min_local_density_m18": 0.02749475,
+            "avg_gap_global_minus_local": 0.02261427,
+            "max_gap_seen": 0.03047736
+          },
+          {
+            "p_target": 0.08,
+            "avg_global_density": 0.07995045,
+            "avg_sampled_min_local_density_m18": 0.05143557,
+            "avg_gap_global_minus_local": 0.02851487,
+            "max_gap_seen": 0.0373012
+          },
+          {
+            "p_target": 0.12,
+            "avg_global_density": 0.1200822,
+            "avg_sampled_min_local_density_m18": 0.0852591,
+            "avg_gap_global_minus_local": 0.03482314,
+            "max_gap_seen": 0.04583906
+          },
+          {
+            "p_target": 0.16,
+            "avg_global_density": 0.1600198,
+            "avg_sampled_min_local_density_m18": 0.1204132,
+            "avg_gap_global_minus_local": 0.03960666,
+            "max_gap_seen": 0.05301826
+          },
+          {
+            "p_target": 0.2,
+            "avg_global_density": 0.2001012,
+            "avg_sampled_min_local_density_m18": 0.156819,
+            "avg_gap_global_minus_local": 0.04328222,
+            "max_gap_seen": 0.05988793
+          },
+          {
+            "p_target": 0.25,
+            "avg_global_density": 0.2500656,
+            "avg_sampled_min_local_density_m18": 0.202486,
+            "avg_gap_global_minus_local": 0.04757956,
+            "max_gap_seen": 0.07040065
+          },
+          {
+            "p_target": 0.3,
+            "avg_global_density": 0.3001088,
+            "avg_sampled_min_local_density_m18": 0.2495973,
+            "avg_gap_global_minus_local": 0.05051151,
+            "max_gap_seen": 0.06666165
+          }
+        ],
+        "elapsed_ms": 35474,
+        "generated_utc": "2026-03-13T15:40:16.753Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

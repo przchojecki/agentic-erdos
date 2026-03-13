@@ -1,5 +1,51 @@
 {
   "problem": "EP-847",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T15:42:22.408Z",
+  "computations": [
+    {
+      "source_file": "ep847_standalone_deeper_20260313T154500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:42:03.525Z",
+      "data": {
+        "problem": "EP-847",
+        "script": "ep847.mjs",
+        "method": "finite_exact_profile_for_3ap_free_subsets_and_partitions",
+        "warning": "Finite exact data only, not an infinite decomposition theorem.",
+        "rows": [
+          {
+            "N": 9,
+            "ap_triples_count": 16,
+            "alpha_3ap_free": 5,
+            "alpha_over_N": 0.55555556,
+            "min_colors_partition_into_3ap_free_classes": 3
+          },
+          {
+            "N": 12,
+            "ap_triples_count": 30,
+            "alpha_3ap_free": 6,
+            "alpha_over_N": 0.5,
+            "min_colors_partition_into_3ap_free_classes": 3
+          },
+          {
+            "N": 15,
+            "ap_triples_count": 49,
+            "alpha_3ap_free": 8,
+            "alpha_over_N": 0.53333333,
+            "min_colors_partition_into_3ap_free_classes": 3
+          },
+          {
+            "N": 18,
+            "ap_triples_count": 72,
+            "alpha_3ap_free": 8,
+            "alpha_over_N": 0.44444444,
+            "min_colors_partition_into_3ap_free_classes": 3
+          }
+        ],
+        "elapsed_ms": 3,
+        "generated_utc": "2026-03-13T15:42:03.525Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

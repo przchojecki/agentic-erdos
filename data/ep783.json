@@ -1,5 +1,135 @@
 {
   "problem": "EP-783",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:34:37.148Z",
+  "computations": [
+    {
+      "source_file": "ep783_standalone_deeper_20260313T103341Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:33:43.572Z",
+      "data": {
+        "problem": "EP-783",
+        "script": "ep783.mjs",
+        "method": "finite_optimization_under_pairwise_coprime_harmonic_budget_vs_prime_tail",
+        "warning": "Finite-N heuristic optimization only; does not settle exact asymptotic extremizer theorem.",
+        "params": {
+          "N_LIST": [
+            5000,
+            10000,
+            20000
+          ],
+          "C_LIST": [
+            0.6,
+            1,
+            1.4
+          ],
+          "LOCAL_STEPS": 3500
+        },
+        "rows": [
+          {
+            "N": 5000,
+            "C": 0.6,
+            "prime_tail_size": 643,
+            "prime_tail_mu": 0.5924704665,
+            "prime_tail_uncovered_upto_N": 2315,
+            "best_found_size": 75,
+            "best_found_mu": 0.5998958211,
+            "best_found_uncovered_upto_N": 2239,
+            "improvement_best_minus_tail_uncovered": -76
+          },
+          {
+            "N": 5000,
+            "C": 1,
+            "prime_tail_size": 661,
+            "prime_tail_mu": 0.9497109053,
+            "prime_tail_uncovered_upto_N": 818,
+            "best_found_size": 85,
+            "best_found_mu": 0.9930563417,
+            "best_found_uncovered_upto_N": 1390,
+            "improvement_best_minus_tail_uncovered": 572
+          },
+          {
+            "N": 5000,
+            "C": 1.4,
+            "prime_tail_size": 666,
+            "prime_tail_mu": 1.371855324,
+            "prime_tail_uncovered_upto_N": 144,
+            "best_found_size": 140,
+            "best_found_mu": 1.076441466,
+            "best_found_uncovered_upto_N": 1303,
+            "improvement_best_minus_tail_uncovered": 1159
+          },
+          {
+            "N": 10000,
+            "C": 0.6,
+            "prime_tail_size": 1194,
+            "prime_tail_mu": 0.5965508268,
+            "prime_tail_uncovered_upto_N": 4548,
+            "best_found_size": 187,
+            "best_found_mu": 0.5939363532,
+            "best_found_uncovered_upto_N": 5014,
+            "improvement_best_minus_tail_uncovered": 466
+          },
+          {
+            "N": 10000,
+            "C": 1,
+            "prime_tail_size": 1220,
+            "prime_tail_mu": 0.984103934,
+            "prime_tail_uncovered_upto_N": 1385,
+            "best_found_size": 178,
+            "best_found_mu": 0.9701567345,
+            "best_found_uncovered_upto_N": 2844,
+            "improvement_best_minus_tail_uncovered": 1459
+          },
+          {
+            "N": 10000,
+            "C": 1.4,
+            "prime_tail_size": 1225,
+            "prime_tail_mu": 1.306869471,
+            "prime_tail_uncovered_upto_N": 338,
+            "best_found_size": 179,
+            "best_found_mu": 1.226254659,
+            "best_found_uncovered_upto_N": 2122,
+            "improvement_best_minus_tail_uncovered": 1784
+          },
+          {
+            "N": 20000,
+            "C": 0.6,
+            "prime_tail_size": 2214,
+            "prime_tail_mu": 0.5966765148,
+            "prime_tail_uncovered_upto_N": 9013,
+            "best_found_size": 172,
+            "best_found_mu": 0.5999901182,
+            "best_found_uncovered_upto_N": 8991,
+            "improvement_best_minus_tail_uncovered": -22
+          },
+          {
+            "N": 20000,
+            "C": 1,
+            "prime_tail_size": 2251,
+            "prime_tail_mu": 0.9892373948,
+            "prime_tail_uncovered_upto_N": 2619,
+            "best_found_size": 340,
+            "best_found_mu": 0.9771957674,
+            "best_found_uncovered_upto_N": 5639,
+            "improvement_best_minus_tail_uncovered": 3020
+          },
+          {
+            "N": 20000,
+            "C": 1.4,
+            "prime_tail_size": 2258,
+            "prime_tail_mu": 1.378743755,
+            "prime_tail_uncovered_upto_N": 427,
+            "best_found_size": 355,
+            "best_found_mu": 0.8805518544,
+            "best_found_uncovered_upto_N": 6557,
+            "improvement_best_minus_tail_uncovered": 6130
+          }
+        ],
+        "elapsed_ms": 2485,
+        "generated_utc": "2026-03-13T10:33:43.572Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

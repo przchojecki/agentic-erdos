@@ -1,5 +1,90 @@
 {
   "problem": "EP-826",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T11:08:28.106Z",
+  "computations": [
+    {
+      "source_file": "ep826_standalone_deeper_20260313T111000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T11:08:18.898Z",
+      "data": {
+        "problem": "EP-826",
+        "script": "ep826.mjs",
+        "method": "finite_uniform_shift_divisor_bound_scan",
+        "warning": "Finite K and N_MAX proxy only; asymptotic infinite-k statement remains open.",
+        "params": {
+          "N_MAX": 40000,
+          "K": 2000,
+          "K_TAIL_MIN": 50
+        },
+        "best_n_found": 1,
+        "best_uniform_constant_up_to_K": 2,
+        "best_n_found_tail_metric": 11,
+        "best_uniform_constant_for_k_ge_K_TAIL_MIN": 0.19672131,
+        "record_improvements": [
+          {
+            "n": 1,
+            "max_tau_over_k_up_to_K": 2,
+            "attained_at_k": 1,
+            "tau_n_plus_k": 2
+          }
+        ],
+        "tail_record_improvements": [
+          {
+            "n": 1,
+            "max_tau_over_k_for_k_ge_K_TAIL_MIN": 0.20338983,
+            "attained_at_k": 59,
+            "tau_n_plus_k": 12
+          },
+          {
+            "n": 11,
+            "max_tau_over_k_for_k_ge_K_TAIL_MIN": 0.19672131,
+            "attained_at_k": 61,
+            "tau_n_plus_k": 12
+          }
+        ],
+        "sample_rows": [
+          {
+            "n": 100,
+            "max_tau_over_k_up_to_K": 4
+          },
+          {
+            "n": 500,
+            "max_tau_over_k_up_to_K": 6
+          },
+          {
+            "n": 1000,
+            "max_tau_over_k_up_to_K": 8
+          },
+          {
+            "n": 2500,
+            "max_tau_over_k_up_to_K": 6
+          },
+          {
+            "n": 5000,
+            "max_tau_over_k_up_to_K": 4.5
+          },
+          {
+            "n": 10000,
+            "max_tau_over_k_up_to_K": 4
+          },
+          {
+            "n": 20000,
+            "max_tau_over_k_up_to_K": 8
+          },
+          {
+            "n": 30000,
+            "max_tau_over_k_up_to_K": 4
+          },
+          {
+            "n": 40000,
+            "max_tau_over_k_up_to_K": 8
+          }
+        ],
+        "elapsed_ms": 90,
+        "generated_utc": "2026-03-13T11:08:18.898Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

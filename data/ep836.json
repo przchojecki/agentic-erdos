@@ -1,5 +1,70 @@
 {
   "problem": "EP-836",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T15:40:43.392Z",
+  "computations": [
+    {
+      "source_file": "ep836_standalone_deeper_20260313T154000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:39:41.288Z",
+      "data": {
+        "problem": "EP-836",
+        "script": "ep836.mjs",
+        "method": "finite_verification_of_alon_style_counterexample_family",
+        "params": {
+          "R_LIST": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "rows": [
+          {
+            "r": 3,
+            "vertex_count": 7,
+            "edge_count": 10,
+            "pairwise_intersecting_verified": true,
+            "two_colorable_checked": false,
+            "three_colorable_checked": true,
+            "y_size": 3,
+            "x_size": 4
+          },
+          {
+            "r": 4,
+            "vertex_count": 16,
+            "edge_count": 35,
+            "pairwise_intersecting_verified": true,
+            "two_colorable_checked": false,
+            "three_colorable_checked": true,
+            "y_size": 10,
+            "x_size": 6
+          },
+          {
+            "r": 5,
+            "vertex_count": 43,
+            "edge_count": 126,
+            "pairwise_intersecting_verified": true,
+            "two_colorable_checked": null,
+            "three_colorable_checked": null,
+            "y_size": 35,
+            "x_size": 8
+          },
+          {
+            "r": 6,
+            "vertex_count": 136,
+            "edge_count": 462,
+            "pairwise_intersecting_verified": true,
+            "two_colorable_checked": null,
+            "three_colorable_checked": null,
+            "y_size": 126,
+            "x_size": 10
+          }
+        ],
+        "elapsed_ms": 9,
+        "generated_utc": "2026-03-13T15:39:41.288Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

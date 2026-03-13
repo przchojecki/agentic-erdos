@@ -1,61 +1,83 @@
 {
   "problem": "EP-860",
-  "normalized_utc": "2026-03-05T08:54:16.969Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-860\n- Quick literature check:\n  - Problem page remains open (page updated in 2025), with classical bounds still far apart.\n- Finite compute signal:\n  - Hall-matching proxy (over `m<=800`) gave worst required interval lengths around `46` (`n=30`), `47` (`n=50`), `79` (`n=80`).\n- Interpretation:\n  - Finite behavior is compatible with superlinear-vs-nearlinear uncertainty; no asymptotic resolution signal."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "finite matching proxy for h(n).",
-        "content": "// EP-860: finite matching proxy for h(n).\n{\n  const { primes } = sievePrimes(300);\n\n  function firstPrimesUpTo(n) {\n    return primes.filter((p) => p <= n);\n  }\n\n  function canMatch(primeList, m, h) {\n    const r = primeList.length;\n    const matchPos = new Int32Array(h + 1);\n    matchPos.fill(-1);\n\n    const adj = Array.from({ length: r }, () => []);\n    for (let i = 0; i < r; i += 1) {\n      const p = primeList[i];\n      let j = (p - (m % p)) % p;\n      if (j === 0) j = p;\n      for (; j <= h; j += p) adj[i].push(j);\n      if (adj[i].length === 0) return false;\n    }\n\n    function aug(i, seen) {\n      for (const pos of adj[i]) {\n        if (seen[pos]) continue;\n        seen[pos] = 1;\n        if (matchPos[pos] === -1 || aug(matchPos[pos], seen)) {\n          matchPos[pos] = i;\n          return true;\n        }\n      }\n      return false;\n    }\n\n    let got = 0;\n    for (let i = 0; i < r; i += 1) {\n      const seen = new Uint8Array(h + 1);\n      if (aug(i, seen)) got += 1;\n      else return false;\n    }\n    return got === r;\n  }\n\n  function finiteHn(n, mMax, hCap) {\n    const ps = firstPrimesUpTo(n);\n    const r = ps.length;\n\n    let worst = 0;\n    let argm = 1;\n\n    for (let m = 1; m <= mMax; m += 1) {\n      let lo = Math.max(r, 1);\n      let hi = lo;\n\n      while (hi <= hCap && !canMatch(ps, m, hi)) hi *= 2;\n      if (hi > hCap) {\n        worst = Math.max(worst, hCap + 1);\n        argm = m;\n        continue;\n      }\n\n      while (lo < hi) {\n        const mid = Math.floor((lo + hi) / 2);\n        if (canMatch(ps, m, mid)) hi = mid;\n        else lo = mid + 1;\n      }\n\n      if (lo > worst) {\n        worst = lo;\n        argm = m;\n      }\n    }\n\n    return { n, pi_n: ps.length, mMax, hCap, finite_worst_required_h: worst, witness_m: argm };\n  }\n\n  const rows = [];\n  for (const [n, mMax, hCap] of [[30, 800, 600], [50, 800, 900], [80, 800, 1500]]) {\n    rows.push(finiteHn(n, mMax, hCap));\n  }\n\n  out.results.ep860 = {\n    description: 'Finite Hall-matching proxy for h(n) over initial m range.',\n    rows,\n    note: 'These are finite lower-bound style profiles; true h(n) quantifies over all m>=1.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep860",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
+  "normalized_utc": "2026-03-13T19:29:50.233Z",
+  "computations": [
+    {
+      "source_file": "ep860_standalone_deeper_20260313T160300Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:29:33.036Z",
+      "data": {
+        "problem": "EP-860",
+        "script": "ep860.mjs",
+        "method": "deeper_finite_hall_matching_proxy_for_hn",
+        "warning": "Finite over m<=mMax and h<=hCap; true h(n) quantifies over all m.",
+        "params": {
+          "CASES": [
+            [
+              30,
+              3000,
+              600
+            ],
+            [
+              50,
+              3000,
+              1000
+            ],
+            [
+              80,
+              3000,
+              1600
+            ],
+            [
+              100,
+              3000,
+              2200
+            ]
+          ]
         },
-        "data": {
-          "description": "Finite Hall-matching proxy for h(n) over initial m range.",
-          "rows": [
-            {
-              "n": 30,
-              "pi_n": 10,
-              "mMax": 800,
-              "hCap": 600,
-              "finite_worst_required_h": 46,
-              "witness_m": 644
-            },
-            {
-              "n": 50,
-              "pi_n": 15,
-              "mMax": 800,
-              "hCap": 900,
-              "finite_worst_required_h": 47,
-              "witness_m": 47
-            },
-            {
-              "n": 80,
-              "pi_n": 22,
-              "mMax": 800,
-              "hCap": 1500,
-              "finite_worst_required_h": 79,
-              "witness_m": 79
-            }
-          ],
-          "note": "These are finite lower-bound style profiles; true h(n) quantifies over all m>=1."
-        }
+        "rows": [
+          {
+            "n": 30,
+            "pi_n": 10,
+            "mMax": 3000,
+            "hCap": 600,
+            "finite_worst_required_h": 46,
+            "witness_m": 644,
+            "finite_ratio_h_over_n": 1.5333333
+          },
+          {
+            "n": 50,
+            "pi_n": 15,
+            "mMax": 3000,
+            "hCap": 1000,
+            "finite_worst_required_h": 86,
+            "witness_m": 1978,
+            "finite_ratio_h_over_n": 1.72
+          },
+          {
+            "n": 80,
+            "pi_n": 22,
+            "mMax": 3000,
+            "hCap": 1600,
+            "finite_worst_required_h": 94,
+            "witness_m": 2444,
+            "finite_ratio_h_over_n": 1.175
+          },
+          {
+            "n": 100,
+            "pi_n": 25,
+            "mMax": 3000,
+            "hCap": 2200,
+            "finite_worst_required_h": 97,
+            "witness_m": 97,
+            "finite_ratio_h_over_n": 0.97
+          }
+        ],
+        "elapsed_ms": 346,
+        "generated_utc": "2026-03-13T19:29:33.036Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

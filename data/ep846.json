@@ -1,5 +1,55 @@
 {
   "problem": "EP-846",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T15:42:22.408Z",
+  "computations": [
+    {
+      "source_file": "ep846_standalone_deeper_20260313T154500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:42:03.528Z",
+      "data": {
+        "problem": "EP-846",
+        "script": "ep846.mjs",
+        "method": "finite_hypergraph_profile_for_no_three_collinear_vs_partition_number",
+        "warning": "Finite analog exploration only, not a proof of the infinite decomposition statement.",
+        "rows": [
+          {
+            "set_name": "grid_4x4",
+            "n": 16,
+            "collinear_triples": 44,
+            "alpha_no3collinear": 8,
+            "alpha_over_n": 0.5,
+            "min_colors_to_partition_into_no3collinear_classes": 2
+          },
+          {
+            "set_name": "grid_5x3",
+            "n": 15,
+            "collinear_triples": 43,
+            "alpha_no3collinear": 6,
+            "alpha_over_n": 0.4,
+            "min_colors_to_partition_into_no3collinear_classes": 3
+          },
+          {
+            "set_name": "union_3_lines_5_each",
+            "n": 15,
+            "collinear_triples": 43,
+            "alpha_no3collinear": 6,
+            "alpha_over_n": 0.4,
+            "min_colors_to_partition_into_no3collinear_classes": 3
+          },
+          {
+            "set_name": "parabola_15",
+            "n": 15,
+            "collinear_triples": 0,
+            "alpha_no3collinear": 15,
+            "alpha_over_n": 1,
+            "min_colors_to_partition_into_no3collinear_classes": 1
+          }
+        ],
+        "elapsed_ms": 6,
+        "generated_utc": "2026-03-13T15:42:03.528Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

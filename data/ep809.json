@@ -1,5 +1,85 @@
 {
   "problem": "EP-809",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:59:46.903Z",
+  "computations": [
+    {
+      "source_file": "ep809_standalone_deeper_20260313T105918Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:59:18.629Z",
+      "data": {
+        "problem": "EP-809",
+        "script": "ep809.mjs",
+        "method": "finite_proxy_near_turan_edge_coloring_with_bounded_odd-rainbow_avoidance",
+        "warning": "Statement text is malformed in local dataset; this is an explicit proxy experiment.",
+        "params": {
+          "N_LIST": [
+            30,
+            40,
+            50
+          ],
+          "K_COLORS": 6,
+          "ODD_LENS": [
+            3,
+            5,
+            7
+          ],
+          "TRIALS": 60
+        },
+        "rows": [
+          {
+            "n": 30,
+            "trials": 60,
+            "k_colors": 6,
+            "odd_cycle_lengths_checked": [
+              3,
+              5,
+              7
+            ],
+            "pass_fraction_no_rainbow_odd_cycle_sampled": 0,
+            "best_edge_count_among_random_passing_samples": 0,
+            "best_edge_density_over_n2_random": 0,
+            "structured_two_color_passes": true,
+            "structured_two_color_edge_density_over_n2": 0.48333333,
+            "turan_n2_over_4": 225
+          },
+          {
+            "n": 40,
+            "trials": 60,
+            "k_colors": 6,
+            "odd_cycle_lengths_checked": [
+              3,
+              5,
+              7
+            ],
+            "pass_fraction_no_rainbow_odd_cycle_sampled": 0,
+            "best_edge_count_among_random_passing_samples": 0,
+            "best_edge_density_over_n2_random": 0,
+            "structured_two_color_passes": true,
+            "structured_two_color_edge_density_over_n2": 0.4875,
+            "turan_n2_over_4": 400
+          },
+          {
+            "n": 50,
+            "trials": 60,
+            "k_colors": 6,
+            "odd_cycle_lengths_checked": [
+              3,
+              5,
+              7
+            ],
+            "pass_fraction_no_rainbow_odd_cycle_sampled": 0,
+            "best_edge_count_among_random_passing_samples": 0,
+            "best_edge_density_over_n2_random": 0,
+            "structured_two_color_passes": true,
+            "structured_two_color_edge_density_over_n2": 0.49,
+            "turan_n2_over_4": 625
+          }
+        ],
+        "elapsed_ms": 82,
+        "generated_utc": "2026-03-13T10:59:18.629Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

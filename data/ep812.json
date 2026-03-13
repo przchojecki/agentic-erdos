@@ -1,5 +1,1448 @@
 {
   "problem": "EP-812",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T11:03:33.796Z",
+  "computations": [
+    {
+      "source_file": "ep812_standalone_deeper_20260313T110248Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T11:02:54.823Z",
+      "data": {
+        "problem": "EP-812",
+        "script": "ep812.mjs",
+        "method": "quantitative_implication_profile_from_known_linear_ramsey_difference_bound",
+        "note": "This computes what the known linear difference lower bound implies for ratio and quadratic-gap targets in a minimal consistent model.",
+        "params": {
+          "N_MAX": 160
+        },
+        "rows": [
+          {
+            "n": 3,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 4,
+            "minimal_sequence_Rn_under_linear_bound": 2,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1,
+            "implied_c_in_ratio_model": 0,
+            "quadratic_gap_scale_n2": 9,
+            "linear_over_quadratic": 0.44444444
+          },
+          {
+            "n": 4,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 8,
+            "minimal_sequence_Rn_under_linear_bound": 6,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 3,
+            "implied_c_in_ratio_model": 2,
+            "quadratic_gap_scale_n2": 16,
+            "linear_over_quadratic": 0.5
+          },
+          {
+            "n": 5,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 12,
+            "minimal_sequence_Rn_under_linear_bound": 14,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 2.3333333,
+            "implied_c_in_ratio_model": 1.3333333,
+            "quadratic_gap_scale_n2": 25,
+            "linear_over_quadratic": 0.48
+          },
+          {
+            "n": 6,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 16,
+            "minimal_sequence_Rn_under_linear_bound": 26,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.8571429,
+            "implied_c_in_ratio_model": 0.85714286,
+            "quadratic_gap_scale_n2": 36,
+            "linear_over_quadratic": 0.44444444
+          },
+          {
+            "n": 7,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 20,
+            "minimal_sequence_Rn_under_linear_bound": 42,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.6153846,
+            "implied_c_in_ratio_model": 0.61538462,
+            "quadratic_gap_scale_n2": 49,
+            "linear_over_quadratic": 0.40816327
+          },
+          {
+            "n": 8,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 24,
+            "minimal_sequence_Rn_under_linear_bound": 62,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.4761905,
+            "implied_c_in_ratio_model": 0.47619048,
+            "quadratic_gap_scale_n2": 64,
+            "linear_over_quadratic": 0.375
+          },
+          {
+            "n": 9,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 28,
+            "minimal_sequence_Rn_under_linear_bound": 86,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.3870968,
+            "implied_c_in_ratio_model": 0.38709677,
+            "quadratic_gap_scale_n2": 81,
+            "linear_over_quadratic": 0.34567901
+          },
+          {
+            "n": 10,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 32,
+            "minimal_sequence_Rn_under_linear_bound": 114,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.3255814,
+            "implied_c_in_ratio_model": 0.3255814,
+            "quadratic_gap_scale_n2": 100,
+            "linear_over_quadratic": 0.32
+          },
+          {
+            "n": 11,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 36,
+            "minimal_sequence_Rn_under_linear_bound": 146,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.2807018,
+            "implied_c_in_ratio_model": 0.28070175,
+            "quadratic_gap_scale_n2": 121,
+            "linear_over_quadratic": 0.29752066
+          },
+          {
+            "n": 12,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 40,
+            "minimal_sequence_Rn_under_linear_bound": 182,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.2465753,
+            "implied_c_in_ratio_model": 0.24657534,
+            "quadratic_gap_scale_n2": 144,
+            "linear_over_quadratic": 0.27777778
+          },
+          {
+            "n": 13,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 44,
+            "minimal_sequence_Rn_under_linear_bound": 222,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.2197802,
+            "implied_c_in_ratio_model": 0.21978022,
+            "quadratic_gap_scale_n2": 169,
+            "linear_over_quadratic": 0.26035503
+          },
+          {
+            "n": 14,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 48,
+            "minimal_sequence_Rn_under_linear_bound": 266,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1981982,
+            "implied_c_in_ratio_model": 0.1981982,
+            "quadratic_gap_scale_n2": 196,
+            "linear_over_quadratic": 0.24489796
+          },
+          {
+            "n": 15,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 52,
+            "minimal_sequence_Rn_under_linear_bound": 314,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1804511,
+            "implied_c_in_ratio_model": 0.18045113,
+            "quadratic_gap_scale_n2": 225,
+            "linear_over_quadratic": 0.23111111
+          },
+          {
+            "n": 16,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 56,
+            "minimal_sequence_Rn_under_linear_bound": 366,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1656051,
+            "implied_c_in_ratio_model": 0.1656051,
+            "quadratic_gap_scale_n2": 256,
+            "linear_over_quadratic": 0.21875
+          },
+          {
+            "n": 17,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 60,
+            "minimal_sequence_Rn_under_linear_bound": 422,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1530055,
+            "implied_c_in_ratio_model": 0.15300546,
+            "quadratic_gap_scale_n2": 289,
+            "linear_over_quadratic": 0.20761246
+          },
+          {
+            "n": 18,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 64,
+            "minimal_sequence_Rn_under_linear_bound": 482,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1421801,
+            "implied_c_in_ratio_model": 0.14218009,
+            "quadratic_gap_scale_n2": 324,
+            "linear_over_quadratic": 0.19753086
+          },
+          {
+            "n": 19,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 68,
+            "minimal_sequence_Rn_under_linear_bound": 546,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1327801,
+            "implied_c_in_ratio_model": 0.13278008,
+            "quadratic_gap_scale_n2": 361,
+            "linear_over_quadratic": 0.18836565
+          },
+          {
+            "n": 20,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 72,
+            "minimal_sequence_Rn_under_linear_bound": 614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1245421,
+            "implied_c_in_ratio_model": 0.12454212,
+            "quadratic_gap_scale_n2": 400,
+            "linear_over_quadratic": 0.18
+          },
+          {
+            "n": 21,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 76,
+            "minimal_sequence_Rn_under_linear_bound": 686,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1172638,
+            "implied_c_in_ratio_model": 0.11726384,
+            "quadratic_gap_scale_n2": 441,
+            "linear_over_quadratic": 0.1723356
+          },
+          {
+            "n": 22,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 80,
+            "minimal_sequence_Rn_under_linear_bound": 762,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1107872,
+            "implied_c_in_ratio_model": 0.11078717,
+            "quadratic_gap_scale_n2": 484,
+            "linear_over_quadratic": 0.16528926
+          },
+          {
+            "n": 23,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 84,
+            "minimal_sequence_Rn_under_linear_bound": 842,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.1049869,
+            "implied_c_in_ratio_model": 0.10498688,
+            "quadratic_gap_scale_n2": 529,
+            "linear_over_quadratic": 0.15879017
+          },
+          {
+            "n": 24,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 88,
+            "minimal_sequence_Rn_under_linear_bound": 926,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0997625,
+            "implied_c_in_ratio_model": 0.09976247,
+            "quadratic_gap_scale_n2": 576,
+            "linear_over_quadratic": 0.15277778
+          },
+          {
+            "n": 25,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 92,
+            "minimal_sequence_Rn_under_linear_bound": 1014,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0950324,
+            "implied_c_in_ratio_model": 0.095032397,
+            "quadratic_gap_scale_n2": 625,
+            "linear_over_quadratic": 0.1472
+          },
+          {
+            "n": 26,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 96,
+            "minimal_sequence_Rn_under_linear_bound": 1106,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0907298,
+            "implied_c_in_ratio_model": 0.090729783,
+            "quadratic_gap_scale_n2": 676,
+            "linear_over_quadratic": 0.14201183
+          },
+          {
+            "n": 27,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 100,
+            "minimal_sequence_Rn_under_linear_bound": 1202,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0867993,
+            "implied_c_in_ratio_model": 0.086799277,
+            "quadratic_gap_scale_n2": 729,
+            "linear_over_quadratic": 0.13717421
+          },
+          {
+            "n": 28,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 104,
+            "minimal_sequence_Rn_under_linear_bound": 1302,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0831947,
+            "implied_c_in_ratio_model": 0.083194676,
+            "quadratic_gap_scale_n2": 784,
+            "linear_over_quadratic": 0.13265306
+          },
+          {
+            "n": 29,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 108,
+            "minimal_sequence_Rn_under_linear_bound": 1406,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0798771,
+            "implied_c_in_ratio_model": 0.079877112,
+            "quadratic_gap_scale_n2": 841,
+            "linear_over_quadratic": 0.12841855
+          },
+          {
+            "n": 30,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 112,
+            "minimal_sequence_Rn_under_linear_bound": 1514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0768137,
+            "implied_c_in_ratio_model": 0.076813656,
+            "quadratic_gap_scale_n2": 900,
+            "linear_over_quadratic": 0.12444444
+          },
+          {
+            "n": 31,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 116,
+            "minimal_sequence_Rn_under_linear_bound": 1626,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0739762,
+            "implied_c_in_ratio_model": 0.073976222,
+            "quadratic_gap_scale_n2": 961,
+            "linear_over_quadratic": 0.1207076
+          },
+          {
+            "n": 32,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 120,
+            "minimal_sequence_Rn_under_linear_bound": 1742,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0713407,
+            "implied_c_in_ratio_model": 0.071340713,
+            "quadratic_gap_scale_n2": 1024,
+            "linear_over_quadratic": 0.1171875
+          },
+          {
+            "n": 33,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 124,
+            "minimal_sequence_Rn_under_linear_bound": 1862,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0688863,
+            "implied_c_in_ratio_model": 0.068886338,
+            "quadratic_gap_scale_n2": 1089,
+            "linear_over_quadratic": 0.11386593
+          },
+          {
+            "n": 34,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 128,
+            "minimal_sequence_Rn_under_linear_bound": 1986,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0665951,
+            "implied_c_in_ratio_model": 0.066595059,
+            "quadratic_gap_scale_n2": 1156,
+            "linear_over_quadratic": 0.11072664
+          },
+          {
+            "n": 35,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 132,
+            "minimal_sequence_Rn_under_linear_bound": 2114,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0644512,
+            "implied_c_in_ratio_model": 0.064451158,
+            "quadratic_gap_scale_n2": 1225,
+            "linear_over_quadratic": 0.1077551
+          },
+          {
+            "n": 36,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 136,
+            "minimal_sequence_Rn_under_linear_bound": 2246,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0624409,
+            "implied_c_in_ratio_model": 0.06244087,
+            "quadratic_gap_scale_n2": 1296,
+            "linear_over_quadratic": 0.10493827
+          },
+          {
+            "n": 37,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 140,
+            "minimal_sequence_Rn_under_linear_bound": 2382,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0605521,
+            "implied_c_in_ratio_model": 0.060552093,
+            "quadratic_gap_scale_n2": 1369,
+            "linear_over_quadratic": 0.10226443
+          },
+          {
+            "n": 38,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 144,
+            "minimal_sequence_Rn_under_linear_bound": 2522,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0587741,
+            "implied_c_in_ratio_model": 0.058774139,
+            "quadratic_gap_scale_n2": 1444,
+            "linear_over_quadratic": 0.099722992
+          },
+          {
+            "n": 39,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 148,
+            "minimal_sequence_Rn_under_linear_bound": 2666,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0570975,
+            "implied_c_in_ratio_model": 0.057097542,
+            "quadratic_gap_scale_n2": 1521,
+            "linear_over_quadratic": 0.097304405
+          },
+          {
+            "n": 40,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 152,
+            "minimal_sequence_Rn_under_linear_bound": 2814,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0555139,
+            "implied_c_in_ratio_model": 0.055513878,
+            "quadratic_gap_scale_n2": 1600,
+            "linear_over_quadratic": 0.095
+          },
+          {
+            "n": 41,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 156,
+            "minimal_sequence_Rn_under_linear_bound": 2966,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0540156,
+            "implied_c_in_ratio_model": 0.054015636,
+            "quadratic_gap_scale_n2": 1681,
+            "linear_over_quadratic": 0.092801904
+          },
+          {
+            "n": 42,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 160,
+            "minimal_sequence_Rn_under_linear_bound": 3122,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0525961,
+            "implied_c_in_ratio_model": 0.052596089,
+            "quadratic_gap_scale_n2": 1764,
+            "linear_over_quadratic": 0.090702948
+          },
+          {
+            "n": 43,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 164,
+            "minimal_sequence_Rn_under_linear_bound": 3282,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0512492,
+            "implied_c_in_ratio_model": 0.051249199,
+            "quadratic_gap_scale_n2": 1849,
+            "linear_over_quadratic": 0.088696593
+          },
+          {
+            "n": 44,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 168,
+            "minimal_sequence_Rn_under_linear_bound": 3446,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0499695,
+            "implied_c_in_ratio_model": 0.049969531,
+            "quadratic_gap_scale_n2": 1936,
+            "linear_over_quadratic": 0.08677686
+          },
+          {
+            "n": 45,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 172,
+            "minimal_sequence_Rn_under_linear_bound": 3614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0487522,
+            "implied_c_in_ratio_model": 0.048752176,
+            "quadratic_gap_scale_n2": 2025,
+            "linear_over_quadratic": 0.084938272
+          },
+          {
+            "n": 46,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 176,
+            "minimal_sequence_Rn_under_linear_bound": 3786,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0475927,
+            "implied_c_in_ratio_model": 0.047592695,
+            "quadratic_gap_scale_n2": 2116,
+            "linear_over_quadratic": 0.083175803
+          },
+          {
+            "n": 47,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 180,
+            "minimal_sequence_Rn_under_linear_bound": 3962,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0464871,
+            "implied_c_in_ratio_model": 0.046487058,
+            "quadratic_gap_scale_n2": 2209,
+            "linear_over_quadratic": 0.081484835
+          },
+          {
+            "n": 48,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 184,
+            "minimal_sequence_Rn_under_linear_bound": 4142,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0454316,
+            "implied_c_in_ratio_model": 0.0454316,
+            "quadratic_gap_scale_n2": 2304,
+            "linear_over_quadratic": 0.079861111
+          },
+          {
+            "n": 49,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 188,
+            "minimal_sequence_Rn_under_linear_bound": 4326,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.044423,
+            "implied_c_in_ratio_model": 0.044422984,
+            "quadratic_gap_scale_n2": 2401,
+            "linear_over_quadratic": 0.078300708
+          },
+          {
+            "n": 50,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 192,
+            "minimal_sequence_Rn_under_linear_bound": 4514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0434582,
+            "implied_c_in_ratio_model": 0.04345816,
+            "quadratic_gap_scale_n2": 2500,
+            "linear_over_quadratic": 0.0768
+          },
+          {
+            "n": 51,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 196,
+            "minimal_sequence_Rn_under_linear_bound": 4706,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0425343,
+            "implied_c_in_ratio_model": 0.042534338,
+            "quadratic_gap_scale_n2": 2601,
+            "linear_over_quadratic": 0.075355632
+          },
+          {
+            "n": 52,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 200,
+            "minimal_sequence_Rn_under_linear_bound": 4902,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.041649,
+            "implied_c_in_ratio_model": 0.041648959,
+            "quadratic_gap_scale_n2": 2704,
+            "linear_over_quadratic": 0.073964497
+          },
+          {
+            "n": 53,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 204,
+            "minimal_sequence_Rn_under_linear_bound": 5102,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0407997,
+            "implied_c_in_ratio_model": 0.040799674,
+            "quadratic_gap_scale_n2": 2809,
+            "linear_over_quadratic": 0.07262371
+          },
+          {
+            "n": 54,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 208,
+            "minimal_sequence_Rn_under_linear_bound": 5306,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0399843,
+            "implied_c_in_ratio_model": 0.03998432,
+            "quadratic_gap_scale_n2": 2916,
+            "linear_over_quadratic": 0.07133059
+          },
+          {
+            "n": 55,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 212,
+            "minimal_sequence_Rn_under_linear_bound": 5514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0392009,
+            "implied_c_in_ratio_model": 0.039200905,
+            "quadratic_gap_scale_n2": 3025,
+            "linear_over_quadratic": 0.070082645
+          },
+          {
+            "n": 56,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 216,
+            "minimal_sequence_Rn_under_linear_bound": 5726,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0384476,
+            "implied_c_in_ratio_model": 0.038447588,
+            "quadratic_gap_scale_n2": 3136,
+            "linear_over_quadratic": 0.068877551
+          },
+          {
+            "n": 57,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 220,
+            "minimal_sequence_Rn_under_linear_bound": 5942,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0377227,
+            "implied_c_in_ratio_model": 0.037722669,
+            "quadratic_gap_scale_n2": 3249,
+            "linear_over_quadratic": 0.067713143
+          },
+          {
+            "n": 58,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 224,
+            "minimal_sequence_Rn_under_linear_bound": 6162,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0370246,
+            "implied_c_in_ratio_model": 0.037024571,
+            "quadratic_gap_scale_n2": 3364,
+            "linear_over_quadratic": 0.066587396
+          },
+          {
+            "n": 59,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 228,
+            "minimal_sequence_Rn_under_linear_bound": 6386,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0363518,
+            "implied_c_in_ratio_model": 0.036351834,
+            "quadratic_gap_scale_n2": 3481,
+            "linear_over_quadratic": 0.06549842
+          },
+          {
+            "n": 60,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 232,
+            "minimal_sequence_Rn_under_linear_bound": 6614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0357031,
+            "implied_c_in_ratio_model": 0.035703101,
+            "quadratic_gap_scale_n2": 3600,
+            "linear_over_quadratic": 0.064444444
+          },
+          {
+            "n": 61,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 236,
+            "minimal_sequence_Rn_under_linear_bound": 6846,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0350771,
+            "implied_c_in_ratio_model": 0.035077109,
+            "quadratic_gap_scale_n2": 3721,
+            "linear_over_quadratic": 0.063423811
+          },
+          {
+            "n": 62,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 240,
+            "minimal_sequence_Rn_under_linear_bound": 7082,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0344727,
+            "implied_c_in_ratio_model": 0.034472685,
+            "quadratic_gap_scale_n2": 3844,
+            "linear_over_quadratic": 0.062434964
+          },
+          {
+            "n": 63,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 244,
+            "minimal_sequence_Rn_under_linear_bound": 7322,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0338887,
+            "implied_c_in_ratio_model": 0.033888732,
+            "quadratic_gap_scale_n2": 3969,
+            "linear_over_quadratic": 0.061476442
+          },
+          {
+            "n": 64,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 248,
+            "minimal_sequence_Rn_under_linear_bound": 7566,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0333242,
+            "implied_c_in_ratio_model": 0.033324228,
+            "quadratic_gap_scale_n2": 4096,
+            "linear_over_quadratic": 0.060546875
+          },
+          {
+            "n": 65,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 252,
+            "minimal_sequence_Rn_under_linear_bound": 7814,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0327782,
+            "implied_c_in_ratio_model": 0.032778218,
+            "quadratic_gap_scale_n2": 4225,
+            "linear_over_quadratic": 0.05964497
+          },
+          {
+            "n": 66,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 256,
+            "minimal_sequence_Rn_under_linear_bound": 8066,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0322498,
+            "implied_c_in_ratio_model": 0.032249808,
+            "quadratic_gap_scale_n2": 4356,
+            "linear_over_quadratic": 0.058769513
+          },
+          {
+            "n": 67,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 260,
+            "minimal_sequence_Rn_under_linear_bound": 8322,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0317382,
+            "implied_c_in_ratio_model": 0.03173816,
+            "quadratic_gap_scale_n2": 4489,
+            "linear_over_quadratic": 0.057919358
+          },
+          {
+            "n": 68,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 264,
+            "minimal_sequence_Rn_under_linear_bound": 8582,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0312425,
+            "implied_c_in_ratio_model": 0.03124249,
+            "quadratic_gap_scale_n2": 4624,
+            "linear_over_quadratic": 0.057093426
+          },
+          {
+            "n": 69,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 268,
+            "minimal_sequence_Rn_under_linear_bound": 8846,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0307621,
+            "implied_c_in_ratio_model": 0.03076206,
+            "quadratic_gap_scale_n2": 4761,
+            "linear_over_quadratic": 0.056290695
+          },
+          {
+            "n": 70,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 272,
+            "minimal_sequence_Rn_under_linear_bound": 9114,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0302962,
+            "implied_c_in_ratio_model": 0.030296179,
+            "quadratic_gap_scale_n2": 4900,
+            "linear_over_quadratic": 0.055510204
+          },
+          {
+            "n": 71,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 276,
+            "minimal_sequence_Rn_under_linear_bound": 9386,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0298442,
+            "implied_c_in_ratio_model": 0.029844196,
+            "quadratic_gap_scale_n2": 5041,
+            "linear_over_quadratic": 0.054751041
+          },
+          {
+            "n": 72,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 280,
+            "minimal_sequence_Rn_under_linear_bound": 9662,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0294055,
+            "implied_c_in_ratio_model": 0.029405498,
+            "quadratic_gap_scale_n2": 5184,
+            "linear_over_quadratic": 0.054012346
+          },
+          {
+            "n": 73,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 284,
+            "minimal_sequence_Rn_under_linear_bound": 9942,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0289795,
+            "implied_c_in_ratio_model": 0.028979507,
+            "quadratic_gap_scale_n2": 5329,
+            "linear_over_quadratic": 0.053293301
+          },
+          {
+            "n": 74,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 288,
+            "minimal_sequence_Rn_under_linear_bound": 10226,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0285657,
+            "implied_c_in_ratio_model": 0.028565681,
+            "quadratic_gap_scale_n2": 5476,
+            "linear_over_quadratic": 0.052593134
+          },
+          {
+            "n": 75,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 292,
+            "minimal_sequence_Rn_under_linear_bound": 10514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0281635,
+            "implied_c_in_ratio_model": 0.028163505,
+            "quadratic_gap_scale_n2": 5625,
+            "linear_over_quadratic": 0.051911111
+          },
+          {
+            "n": 76,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 296,
+            "minimal_sequence_Rn_under_linear_bound": 10806,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0277725,
+            "implied_c_in_ratio_model": 0.027772494,
+            "quadratic_gap_scale_n2": 5776,
+            "linear_over_quadratic": 0.051246537
+          },
+          {
+            "n": 77,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 300,
+            "minimal_sequence_Rn_under_linear_bound": 11102,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0273922,
+            "implied_c_in_ratio_model": 0.02739219,
+            "quadratic_gap_scale_n2": 5929,
+            "linear_over_quadratic": 0.050598752
+          },
+          {
+            "n": 78,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 304,
+            "minimal_sequence_Rn_under_linear_bound": 11402,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0270222,
+            "implied_c_in_ratio_model": 0.027022158,
+            "quadratic_gap_scale_n2": 6084,
+            "linear_over_quadratic": 0.049967127
+          },
+          {
+            "n": 79,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 308,
+            "minimal_sequence_Rn_under_linear_bound": 11706,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.026662,
+            "implied_c_in_ratio_model": 0.026661989,
+            "quadratic_gap_scale_n2": 6241,
+            "linear_over_quadratic": 0.049351066
+          },
+          {
+            "n": 80,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 312,
+            "minimal_sequence_Rn_under_linear_bound": 12014,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0263113,
+            "implied_c_in_ratio_model": 0.026311293,
+            "quadratic_gap_scale_n2": 6400,
+            "linear_over_quadratic": 0.04875
+          },
+          {
+            "n": 81,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 316,
+            "minimal_sequence_Rn_under_linear_bound": 12326,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0259697,
+            "implied_c_in_ratio_model": 0.025969702,
+            "quadratic_gap_scale_n2": 6561,
+            "linear_over_quadratic": 0.04816339
+          },
+          {
+            "n": 82,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 320,
+            "minimal_sequence_Rn_under_linear_bound": 12642,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0256369,
+            "implied_c_in_ratio_model": 0.025636865,
+            "quadratic_gap_scale_n2": 6724,
+            "linear_over_quadratic": 0.04759072
+          },
+          {
+            "n": 83,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 324,
+            "minimal_sequence_Rn_under_linear_bound": 12962,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0253125,
+            "implied_c_in_ratio_model": 0.025312451,
+            "quadratic_gap_scale_n2": 6889,
+            "linear_over_quadratic": 0.047031499
+          },
+          {
+            "n": 84,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 328,
+            "minimal_sequence_Rn_under_linear_bound": 13286,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0249961,
+            "implied_c_in_ratio_model": 0.024996143,
+            "quadratic_gap_scale_n2": 7056,
+            "linear_over_quadratic": 0.046485261
+          },
+          {
+            "n": 85,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 332,
+            "minimal_sequence_Rn_under_linear_bound": 13614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0246876,
+            "implied_c_in_ratio_model": 0.024687641,
+            "quadratic_gap_scale_n2": 7225,
+            "linear_over_quadratic": 0.045951557
+          },
+          {
+            "n": 86,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 336,
+            "minimal_sequence_Rn_under_linear_bound": 13946,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0243867,
+            "implied_c_in_ratio_model": 0.024386661,
+            "quadratic_gap_scale_n2": 7396,
+            "linear_over_quadratic": 0.045429962
+          },
+          {
+            "n": 87,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 340,
+            "minimal_sequence_Rn_under_linear_bound": 14282,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0240929,
+            "implied_c_in_ratio_model": 0.02409293,
+            "quadratic_gap_scale_n2": 7569,
+            "linear_over_quadratic": 0.044920069
+          },
+          {
+            "n": 88,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 344,
+            "minimal_sequence_Rn_under_linear_bound": 14622,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0238062,
+            "implied_c_in_ratio_model": 0.02380619,
+            "quadratic_gap_scale_n2": 7744,
+            "linear_over_quadratic": 0.044421488
+          },
+          {
+            "n": 89,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 348,
+            "minimal_sequence_Rn_under_linear_bound": 14966,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0235262,
+            "implied_c_in_ratio_model": 0.023526193,
+            "quadratic_gap_scale_n2": 7921,
+            "linear_over_quadratic": 0.043933847
+          },
+          {
+            "n": 90,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 352,
+            "minimal_sequence_Rn_under_linear_bound": 15314,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0232527,
+            "implied_c_in_ratio_model": 0.023252706,
+            "quadratic_gap_scale_n2": 8100,
+            "linear_over_quadratic": 0.04345679
+          },
+          {
+            "n": 91,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 356,
+            "minimal_sequence_Rn_under_linear_bound": 15666,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0229855,
+            "implied_c_in_ratio_model": 0.022985503,
+            "quadratic_gap_scale_n2": 8281,
+            "linear_over_quadratic": 0.042989977
+          },
+          {
+            "n": 92,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 360,
+            "minimal_sequence_Rn_under_linear_bound": 16022,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0227244,
+            "implied_c_in_ratio_model": 0.022724371,
+            "quadratic_gap_scale_n2": 8464,
+            "linear_over_quadratic": 0.042533081
+          },
+          {
+            "n": 93,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 364,
+            "minimal_sequence_Rn_under_linear_bound": 16382,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0224691,
+            "implied_c_in_ratio_model": 0.022469105,
+            "quadratic_gap_scale_n2": 8649,
+            "linear_over_quadratic": 0.04208579
+          },
+          {
+            "n": 94,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 368,
+            "minimal_sequence_Rn_under_linear_bound": 16746,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0222195,
+            "implied_c_in_ratio_model": 0.022219509,
+            "quadratic_gap_scale_n2": 8836,
+            "linear_over_quadratic": 0.041647804
+          },
+          {
+            "n": 95,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 372,
+            "minimal_sequence_Rn_under_linear_bound": 17114,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0219754,
+            "implied_c_in_ratio_model": 0.021975397,
+            "quadratic_gap_scale_n2": 9025,
+            "linear_over_quadratic": 0.041218837
+          },
+          {
+            "n": 96,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 376,
+            "minimal_sequence_Rn_under_linear_bound": 17486,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0217366,
+            "implied_c_in_ratio_model": 0.02173659,
+            "quadratic_gap_scale_n2": 9216,
+            "linear_over_quadratic": 0.040798611
+          },
+          {
+            "n": 97,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 380,
+            "minimal_sequence_Rn_under_linear_bound": 17862,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0215029,
+            "implied_c_in_ratio_model": 0.021502917,
+            "quadratic_gap_scale_n2": 9409,
+            "linear_over_quadratic": 0.040386864
+          },
+          {
+            "n": 98,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 384,
+            "minimal_sequence_Rn_under_linear_bound": 18242,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0212742,
+            "implied_c_in_ratio_model": 0.021274213,
+            "quadratic_gap_scale_n2": 9604,
+            "linear_over_quadratic": 0.03998334
+          },
+          {
+            "n": 99,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 388,
+            "minimal_sequence_Rn_under_linear_bound": 18626,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0210503,
+            "implied_c_in_ratio_model": 0.021050323,
+            "quadratic_gap_scale_n2": 9801,
+            "linear_over_quadratic": 0.039587797
+          },
+          {
+            "n": 100,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 392,
+            "minimal_sequence_Rn_under_linear_bound": 19014,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0208311,
+            "implied_c_in_ratio_model": 0.020831096,
+            "quadratic_gap_scale_n2": 10000,
+            "linear_over_quadratic": 0.0392
+          },
+          {
+            "n": 101,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 396,
+            "minimal_sequence_Rn_under_linear_bound": 19406,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0206164,
+            "implied_c_in_ratio_model": 0.020616388,
+            "quadratic_gap_scale_n2": 10201,
+            "linear_over_quadratic": 0.038819724
+          },
+          {
+            "n": 102,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 400,
+            "minimal_sequence_Rn_under_linear_bound": 19802,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0204061,
+            "implied_c_in_ratio_model": 0.02040606,
+            "quadratic_gap_scale_n2": 10404,
+            "linear_over_quadratic": 0.038446751
+          },
+          {
+            "n": 103,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 404,
+            "minimal_sequence_Rn_under_linear_bound": 20202,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0202,
+            "implied_c_in_ratio_model": 0.02019998,
+            "quadratic_gap_scale_n2": 10609,
+            "linear_over_quadratic": 0.038080875
+          },
+          {
+            "n": 104,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 408,
+            "minimal_sequence_Rn_under_linear_bound": 20606,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.019998,
+            "implied_c_in_ratio_model": 0.01999802,
+            "quadratic_gap_scale_n2": 10816,
+            "linear_over_quadratic": 0.037721893
+          },
+          {
+            "n": 105,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 412,
+            "minimal_sequence_Rn_under_linear_bound": 21014,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0198001,
+            "implied_c_in_ratio_model": 0.019800058,
+            "quadratic_gap_scale_n2": 11025,
+            "linear_over_quadratic": 0.037369615
+          },
+          {
+            "n": 106,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 416,
+            "minimal_sequence_Rn_under_linear_bound": 21426,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.019606,
+            "implied_c_in_ratio_model": 0.019605977,
+            "quadratic_gap_scale_n2": 11236,
+            "linear_over_quadratic": 0.037023852
+          },
+          {
+            "n": 107,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 420,
+            "minimal_sequence_Rn_under_linear_bound": 21842,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0194157,
+            "implied_c_in_ratio_model": 0.019415663,
+            "quadratic_gap_scale_n2": 11449,
+            "linear_over_quadratic": 0.036684427
+          },
+          {
+            "n": 108,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 424,
+            "minimal_sequence_Rn_under_linear_bound": 22262,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.019229,
+            "implied_c_in_ratio_model": 0.019229008,
+            "quadratic_gap_scale_n2": 11664,
+            "linear_over_quadratic": 0.036351166
+          },
+          {
+            "n": 109,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 428,
+            "minimal_sequence_Rn_under_linear_bound": 22686,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0190459,
+            "implied_c_in_ratio_model": 0.019045908,
+            "quadratic_gap_scale_n2": 11881,
+            "linear_over_quadratic": 0.036023904
+          },
+          {
+            "n": 110,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 432,
+            "minimal_sequence_Rn_under_linear_bound": 23114,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0188663,
+            "implied_c_in_ratio_model": 0.018866261,
+            "quadratic_gap_scale_n2": 12100,
+            "linear_over_quadratic": 0.035702479
+          },
+          {
+            "n": 111,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 436,
+            "minimal_sequence_Rn_under_linear_bound": 23546,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.01869,
+            "implied_c_in_ratio_model": 0.018689971,
+            "quadratic_gap_scale_n2": 12321,
+            "linear_over_quadratic": 0.035386738
+          },
+          {
+            "n": 112,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 440,
+            "minimal_sequence_Rn_under_linear_bound": 23982,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0185169,
+            "implied_c_in_ratio_model": 0.018516946,
+            "quadratic_gap_scale_n2": 12544,
+            "linear_over_quadratic": 0.035076531
+          },
+          {
+            "n": 113,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 444,
+            "minimal_sequence_Rn_under_linear_bound": 24422,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0183471,
+            "implied_c_in_ratio_model": 0.018347094,
+            "quadratic_gap_scale_n2": 12769,
+            "linear_over_quadratic": 0.034771713
+          },
+          {
+            "n": 114,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 448,
+            "minimal_sequence_Rn_under_linear_bound": 24866,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0181803,
+            "implied_c_in_ratio_model": 0.018180329,
+            "quadratic_gap_scale_n2": 12996,
+            "linear_over_quadratic": 0.034472145
+          },
+          {
+            "n": 115,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 452,
+            "minimal_sequence_Rn_under_linear_bound": 25314,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0180166,
+            "implied_c_in_ratio_model": 0.018016569,
+            "quadratic_gap_scale_n2": 13225,
+            "linear_over_quadratic": 0.034177694
+          },
+          {
+            "n": 116,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 456,
+            "minimal_sequence_Rn_under_linear_bound": 25766,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0178557,
+            "implied_c_in_ratio_model": 0.017855732,
+            "quadratic_gap_scale_n2": 13456,
+            "linear_over_quadratic": 0.033888228
+          },
+          {
+            "n": 117,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 460,
+            "minimal_sequence_Rn_under_linear_bound": 26222,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0176977,
+            "implied_c_in_ratio_model": 0.017697741,
+            "quadratic_gap_scale_n2": 13689,
+            "linear_over_quadratic": 0.033603623
+          },
+          {
+            "n": 118,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 464,
+            "minimal_sequence_Rn_under_linear_bound": 26682,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0175425,
+            "implied_c_in_ratio_model": 0.017542522,
+            "quadratic_gap_scale_n2": 13924,
+            "linear_over_quadratic": 0.033323758
+          },
+          {
+            "n": 119,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 468,
+            "minimal_sequence_Rn_under_linear_bound": 27146,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.01739,
+            "implied_c_in_ratio_model": 0.017390001,
+            "quadratic_gap_scale_n2": 14161,
+            "linear_over_quadratic": 0.033048514
+          },
+          {
+            "n": 120,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 472,
+            "minimal_sequence_Rn_under_linear_bound": 27614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0172401,
+            "implied_c_in_ratio_model": 0.017240109,
+            "quadratic_gap_scale_n2": 14400,
+            "linear_over_quadratic": 0.032777778
+          },
+          {
+            "n": 121,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 476,
+            "minimal_sequence_Rn_under_linear_bound": 28086,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0170928,
+            "implied_c_in_ratio_model": 0.017092779,
+            "quadratic_gap_scale_n2": 14641,
+            "linear_over_quadratic": 0.03251144
+          },
+          {
+            "n": 122,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 480,
+            "minimal_sequence_Rn_under_linear_bound": 28562,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0169479,
+            "implied_c_in_ratio_model": 0.016947946,
+            "quadratic_gap_scale_n2": 14884,
+            "linear_over_quadratic": 0.032249395
+          },
+          {
+            "n": 123,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 484,
+            "minimal_sequence_Rn_under_linear_bound": 29042,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0168055,
+            "implied_c_in_ratio_model": 0.016805546,
+            "quadratic_gap_scale_n2": 15129,
+            "linear_over_quadratic": 0.031991539
+          },
+          {
+            "n": 124,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 488,
+            "minimal_sequence_Rn_under_linear_bound": 29526,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0166655,
+            "implied_c_in_ratio_model": 0.016665519,
+            "quadratic_gap_scale_n2": 15376,
+            "linear_over_quadratic": 0.031737773
+          },
+          {
+            "n": 125,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 492,
+            "minimal_sequence_Rn_under_linear_bound": 30014,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0165278,
+            "implied_c_in_ratio_model": 0.016527806,
+            "quadratic_gap_scale_n2": 15625,
+            "linear_over_quadratic": 0.031488
+          },
+          {
+            "n": 126,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 496,
+            "minimal_sequence_Rn_under_linear_bound": 30506,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0163924,
+            "implied_c_in_ratio_model": 0.01639235,
+            "quadratic_gap_scale_n2": 15876,
+            "linear_over_quadratic": 0.031242126
+          },
+          {
+            "n": 127,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 500,
+            "minimal_sequence_Rn_under_linear_bound": 31002,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0162591,
+            "implied_c_in_ratio_model": 0.016259097,
+            "quadratic_gap_scale_n2": 16129,
+            "linear_over_quadratic": 0.031000062
+          },
+          {
+            "n": 128,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 504,
+            "minimal_sequence_Rn_under_linear_bound": 31502,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.016128,
+            "implied_c_in_ratio_model": 0.016127992,
+            "quadratic_gap_scale_n2": 16384,
+            "linear_over_quadratic": 0.030761719
+          },
+          {
+            "n": 129,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 508,
+            "minimal_sequence_Rn_under_linear_bound": 32006,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.015999,
+            "implied_c_in_ratio_model": 0.015998984,
+            "quadratic_gap_scale_n2": 16641,
+            "linear_over_quadratic": 0.030527012
+          },
+          {
+            "n": 130,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 512,
+            "minimal_sequence_Rn_under_linear_bound": 32514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.015872,
+            "implied_c_in_ratio_model": 0.015872024,
+            "quadratic_gap_scale_n2": 16900,
+            "linear_over_quadratic": 0.030295858
+          },
+          {
+            "n": 131,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 516,
+            "minimal_sequence_Rn_under_linear_bound": 33026,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0157471,
+            "implied_c_in_ratio_model": 0.015747063,
+            "quadratic_gap_scale_n2": 17161,
+            "linear_over_quadratic": 0.030068178
+          },
+          {
+            "n": 132,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 520,
+            "minimal_sequence_Rn_under_linear_bound": 33542,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0156241,
+            "implied_c_in_ratio_model": 0.015624054,
+            "quadratic_gap_scale_n2": 17424,
+            "linear_over_quadratic": 0.029843893
+          },
+          {
+            "n": 133,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 524,
+            "minimal_sequence_Rn_under_linear_bound": 34062,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.015503,
+            "implied_c_in_ratio_model": 0.015502952,
+            "quadratic_gap_scale_n2": 17689,
+            "linear_over_quadratic": 0.02962293
+          },
+          {
+            "n": 134,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 528,
+            "minimal_sequence_Rn_under_linear_bound": 34586,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0153837,
+            "implied_c_in_ratio_model": 0.015383712,
+            "quadratic_gap_scale_n2": 17956,
+            "linear_over_quadratic": 0.029405213
+          },
+          {
+            "n": 135,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 532,
+            "minimal_sequence_Rn_under_linear_bound": 35114,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0152663,
+            "implied_c_in_ratio_model": 0.015266293,
+            "quadratic_gap_scale_n2": 18225,
+            "linear_over_quadratic": 0.029190672
+          },
+          {
+            "n": 136,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 536,
+            "minimal_sequence_Rn_under_linear_bound": 35646,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0151507,
+            "implied_c_in_ratio_model": 0.015150652,
+            "quadratic_gap_scale_n2": 18496,
+            "linear_over_quadratic": 0.028979239
+          },
+          {
+            "n": 137,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 540,
+            "minimal_sequence_Rn_under_linear_bound": 36182,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0150368,
+            "implied_c_in_ratio_model": 0.01503675,
+            "quadratic_gap_scale_n2": 18769,
+            "linear_over_quadratic": 0.028770846
+          },
+          {
+            "n": 138,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 544,
+            "minimal_sequence_Rn_under_linear_bound": 36722,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0149245,
+            "implied_c_in_ratio_model": 0.014924548,
+            "quadratic_gap_scale_n2": 19044,
+            "linear_over_quadratic": 0.028565427
+          },
+          {
+            "n": 139,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 548,
+            "minimal_sequence_Rn_under_linear_bound": 37266,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.014814,
+            "implied_c_in_ratio_model": 0.014814008,
+            "quadratic_gap_scale_n2": 19321,
+            "linear_over_quadratic": 0.028362921
+          },
+          {
+            "n": 140,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 552,
+            "minimal_sequence_Rn_under_linear_bound": 37814,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0147051,
+            "implied_c_in_ratio_model": 0.014705093,
+            "quadratic_gap_scale_n2": 19600,
+            "linear_over_quadratic": 0.028163265
+          },
+          {
+            "n": 141,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 556,
+            "minimal_sequence_Rn_under_linear_bound": 38366,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0145978,
+            "implied_c_in_ratio_model": 0.014597768,
+            "quadratic_gap_scale_n2": 19881,
+            "linear_over_quadratic": 0.0279664
+          },
+          {
+            "n": 142,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 560,
+            "minimal_sequence_Rn_under_linear_bound": 38922,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.014492,
+            "implied_c_in_ratio_model": 0.014491998,
+            "quadratic_gap_scale_n2": 20164,
+            "linear_over_quadratic": 0.027772267
+          },
+          {
+            "n": 143,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 564,
+            "minimal_sequence_Rn_under_linear_bound": 39482,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0143877,
+            "implied_c_in_ratio_model": 0.01438775,
+            "quadratic_gap_scale_n2": 20449,
+            "linear_over_quadratic": 0.027580811
+          },
+          {
+            "n": 144,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 568,
+            "minimal_sequence_Rn_under_linear_bound": 40046,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.014285,
+            "implied_c_in_ratio_model": 0.014284991,
+            "quadratic_gap_scale_n2": 20736,
+            "linear_over_quadratic": 0.027391975
+          },
+          {
+            "n": 145,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 572,
+            "minimal_sequence_Rn_under_linear_bound": 40614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0141837,
+            "implied_c_in_ratio_model": 0.014183689,
+            "quadratic_gap_scale_n2": 21025,
+            "linear_over_quadratic": 0.027205707
+          },
+          {
+            "n": 146,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 576,
+            "minimal_sequence_Rn_under_linear_bound": 41186,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0140838,
+            "implied_c_in_ratio_model": 0.014083813,
+            "quadratic_gap_scale_n2": 21316,
+            "linear_over_quadratic": 0.027021955
+          },
+          {
+            "n": 147,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 580,
+            "minimal_sequence_Rn_under_linear_bound": 41762,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0139853,
+            "implied_c_in_ratio_model": 0.013985335,
+            "quadratic_gap_scale_n2": 21609,
+            "linear_over_quadratic": 0.026840668
+          },
+          {
+            "n": 148,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 584,
+            "minimal_sequence_Rn_under_linear_bound": 42342,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0138882,
+            "implied_c_in_ratio_model": 0.013888224,
+            "quadratic_gap_scale_n2": 21904,
+            "linear_over_quadratic": 0.026661797
+          },
+          {
+            "n": 149,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 588,
+            "minimal_sequence_Rn_under_linear_bound": 42926,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0137925,
+            "implied_c_in_ratio_model": 0.013792452,
+            "quadratic_gap_scale_n2": 22201,
+            "linear_over_quadratic": 0.026485293
+          },
+          {
+            "n": 150,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 592,
+            "minimal_sequence_Rn_under_linear_bound": 43514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.013698,
+            "implied_c_in_ratio_model": 0.013697992,
+            "quadratic_gap_scale_n2": 22500,
+            "linear_over_quadratic": 0.026311111
+          },
+          {
+            "n": 151,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 596,
+            "minimal_sequence_Rn_under_linear_bound": 44106,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0136048,
+            "implied_c_in_ratio_model": 0.013604817,
+            "quadratic_gap_scale_n2": 22801,
+            "linear_over_quadratic": 0.026139204
+          },
+          {
+            "n": 152,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 600,
+            "minimal_sequence_Rn_under_linear_bound": 44702,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0135129,
+            "implied_c_in_ratio_model": 0.013512901,
+            "quadratic_gap_scale_n2": 23104,
+            "linear_over_quadratic": 0.025969529
+          },
+          {
+            "n": 153,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 604,
+            "minimal_sequence_Rn_under_linear_bound": 45302,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0134222,
+            "implied_c_in_ratio_model": 0.013422218,
+            "quadratic_gap_scale_n2": 23409,
+            "linear_over_quadratic": 0.025802042
+          },
+          {
+            "n": 154,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 608,
+            "minimal_sequence_Rn_under_linear_bound": 45906,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0133327,
+            "implied_c_in_ratio_model": 0.013332745,
+            "quadratic_gap_scale_n2": 23716,
+            "linear_over_quadratic": 0.025636701
+          },
+          {
+            "n": 155,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 612,
+            "minimal_sequence_Rn_under_linear_bound": 46514,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0132445,
+            "implied_c_in_ratio_model": 0.013244456,
+            "quadratic_gap_scale_n2": 24025,
+            "linear_over_quadratic": 0.025473465
+          },
+          {
+            "n": 156,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 616,
+            "minimal_sequence_Rn_under_linear_bound": 47126,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0131573,
+            "implied_c_in_ratio_model": 0.013157329,
+            "quadratic_gap_scale_n2": 24336,
+            "linear_over_quadratic": 0.025312295
+          },
+          {
+            "n": 157,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 620,
+            "minimal_sequence_Rn_under_linear_bound": 47742,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0130713,
+            "implied_c_in_ratio_model": 0.013071341,
+            "quadratic_gap_scale_n2": 24649,
+            "linear_over_quadratic": 0.02515315
+          },
+          {
+            "n": 158,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 624,
+            "minimal_sequence_Rn_under_linear_bound": 48362,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0129865,
+            "implied_c_in_ratio_model": 0.012986469,
+            "quadratic_gap_scale_n2": 24964,
+            "linear_over_quadratic": 0.024995994
+          },
+          {
+            "n": 159,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 628,
+            "minimal_sequence_Rn_under_linear_bound": 48986,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.0129027,
+            "implied_c_in_ratio_model": 0.012902692,
+            "quadratic_gap_scale_n2": 25281,
+            "linear_over_quadratic": 0.02484079
+          },
+          {
+            "n": 160,
+            "linear_gap_lower_bound_diff_Rn_minus_Rn_minus_1": 632,
+            "minimal_sequence_Rn_under_linear_bound": 49614,
+            "implied_ratio_Rn_over_Rn_minus_1_in_minimal_model": 1.01282,
+            "implied_c_in_ratio_model": 0.012819989,
+            "quadratic_gap_scale_n2": 25600,
+            "linear_over_quadratic": 0.0246875
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-13T11:02:54.823Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

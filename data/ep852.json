@@ -1,5 +1,91 @@
 {
   "problem": "EP-852",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T19:22:50.216Z",
+  "computations": [
+    {
+      "source_file": "ep852_standalone_deeper_20260313T155300Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:22:22.516Z",
+      "data": {
+        "problem": "EP-852",
+        "script": "ep852.mjs",
+        "method": "prime_gap_distinct_run_profile",
+        "params": {
+          "PRIME_LIMIT": 20000000,
+          "CHECKPOINTS": [
+            1000,
+            5000,
+            10000,
+            50000,
+            100000,
+            200000,
+            400000,
+            800000,
+            1200000
+          ]
+        },
+        "primes_count": 1270607,
+        "rows": [
+          {
+            "x_index": 1000,
+            "h_of_x": 9,
+            "h_over_log_x": 1.3028834,
+            "h_over_sqrt_log_x": 3.4243176
+          },
+          {
+            "x_index": 5000,
+            "h_of_x": 11,
+            "h_over_log_x": 1.2915053,
+            "h_over_sqrt_log_x": 3.7691588
+          },
+          {
+            "x_index": 10000,
+            "h_of_x": 13,
+            "h_over_log_x": 1.4114571,
+            "h_over_sqrt_log_x": 4.2835665
+          },
+          {
+            "x_index": 50000,
+            "h_of_x": 15,
+            "h_over_log_x": 1.38635,
+            "h_over_sqrt_log_x": 4.560181
+          },
+          {
+            "x_index": 100000,
+            "h_of_x": 15,
+            "h_over_log_x": 1.3028834,
+            "h_over_sqrt_log_x": 4.420775
+          },
+          {
+            "x_index": 200000,
+            "h_of_x": 16,
+            "h_over_log_x": 1.3108229,
+            "h_over_sqrt_log_x": 4.579647
+          },
+          {
+            "x_index": 400000,
+            "h_of_x": 17,
+            "h_over_log_x": 1.3179092,
+            "h_over_sqrt_log_x": 4.7333345
+          },
+          {
+            "x_index": 800000,
+            "h_of_x": 17,
+            "h_over_log_x": 1.250702,
+            "h_over_sqrt_log_x": 4.6110664
+          },
+          {
+            "x_index": 1200000,
+            "h_of_x": 18,
+            "h_over_log_x": 1.2859134,
+            "h_over_sqrt_log_x": 4.8110749
+          }
+        ],
+        "elapsed_ms": 139,
+        "generated_utc": "2026-03-13T19:22:22.516Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

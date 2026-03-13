@@ -1,5 +1,101 @@
 {
   "problem": "EP-817",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T11:06:06.335Z",
+  "computations": [
+    {
+      "source_file": "ep817_standalone_deeper_20260313T110900Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T11:05:59.054Z",
+      "data": {
+        "problem": "EP-817",
+        "script": "ep817.mjs",
+        "method": "randomized_greedy_search_for_large_sets_with_3AP-free_subset_sums",
+        "warning": "Finite heuristic lower-bound exploration only.",
+        "params": {
+          "N_LIST": [
+            80,
+            120,
+            160,
+            220,
+            300
+          ],
+          "TRIES_PER_N": 3500,
+          "RUNTIME_CAP_MS": 5000
+        },
+        "rows": [
+          {
+            "N": 80,
+            "tries": 3500,
+            "best_size_found": 5,
+            "best_set_found": [
+              3,
+              49,
+              58,
+              68,
+              79
+            ],
+            "lower_exponent_log3_size_over_logN": 0.3672816
+          },
+          {
+            "N": 120,
+            "tries": 3500,
+            "best_size_found": 5,
+            "best_set_found": [
+              6,
+              11,
+              32,
+              106,
+              113
+            ],
+            "lower_exponent_log3_size_over_logN": 0.3361756
+          },
+          {
+            "N": 160,
+            "tries": 3500,
+            "best_size_found": 5,
+            "best_set_found": [
+              1,
+              43,
+              51,
+              132,
+              155
+            ],
+            "lower_exponent_log3_size_over_logN": 0.3171198
+          },
+          {
+            "N": 220,
+            "tries": 3500,
+            "best_size_found": 6,
+            "best_set_found": [
+              136,
+              137,
+              182,
+              201,
+              204,
+              210
+            ],
+            "lower_exponent_log3_size_over_logN": 0.3321993
+          },
+          {
+            "N": 300,
+            "tries": 3500,
+            "best_size_found": 6,
+            "best_set_found": [
+              171,
+              206,
+              210,
+              213,
+              222,
+              246
+            ],
+            "lower_exponent_log3_size_over_logN": 0.3141353
+          }
+        ],
+        "elapsed_ms": 4993,
+        "generated_utc": "2026-03-13T11:05:59.054Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

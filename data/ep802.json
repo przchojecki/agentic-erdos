@@ -1,5 +1,118 @@
 {
   "problem": "EP-802",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T10:42:02.473Z",
+  "computations": [
+    {
+      "source_file": "ep802_standalone_deeper_20260313T104113Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T10:41:14.338Z",
+      "data": {
+        "problem": "EP-802",
+        "script": "ep802.mjs",
+        "method": "finite_Kr_free_graph_scan_for_alpha_vs_logt_over_t_n_scale",
+        "warning": "Finite heuristic proxy (Kr-free pruning + greedy alpha), not proof of the asymptotic theorem.",
+        "params": {
+          "R": 4,
+          "N_LIST": [
+            40,
+            60,
+            80
+          ],
+          "P_GRID": [
+            0.15,
+            0.25,
+            0.35
+          ],
+          "SAMPLES": 18
+        },
+        "rows": [
+          {
+            "r": 4,
+            "n": 40,
+            "p_seed": 0.15,
+            "samples": 18,
+            "avg_degree_t": 4.4361111,
+            "avg_alpha_greedy": 19.777778,
+            "avg_alpha_over_logt_over_t_n_proxy": 1.5530587
+          },
+          {
+            "r": 4,
+            "n": 40,
+            "p_seed": 0.25,
+            "samples": 18,
+            "avg_degree_t": 2.5666667,
+            "avg_alpha_greedy": 27.833333,
+            "avg_alpha_over_logt_over_t_n_proxy": 2.1835931
+          },
+          {
+            "r": 4,
+            "n": 40,
+            "p_seed": 0.35,
+            "samples": 18,
+            "avg_degree_t": 1.4388889,
+            "avg_alpha_greedy": 32.611111,
+            "avg_alpha_over_logt_over_t_n_proxy": 2.3278381
+          },
+          {
+            "r": 4,
+            "n": 60,
+            "p_seed": 0.15,
+            "samples": 18,
+            "avg_degree_t": 3.7018519,
+            "avg_alpha_greedy": 36.055556,
+            "avg_alpha_over_logt_over_t_n_proxy": 2.2497141
+          },
+          {
+            "r": 4,
+            "n": 60,
+            "p_seed": 0.25,
+            "samples": 18,
+            "avg_degree_t": 1.712963,
+            "avg_alpha_greedy": 47.888889,
+            "avg_alpha_over_logt_over_t_n_proxy": 1.4510876
+          },
+          {
+            "r": 4,
+            "n": 60,
+            "p_seed": 0.35,
+            "samples": 18,
+            "avg_degree_t": 1.1277778,
+            "avg_alpha_greedy": 51.777778,
+            "avg_alpha_over_logt_over_t_n_proxy": 2.2423271
+          },
+          {
+            "r": 4,
+            "n": 80,
+            "p_seed": 0.15,
+            "samples": 18,
+            "avg_degree_t": 2.9361111,
+            "avg_alpha_greedy": 55.666667,
+            "avg_alpha_over_logt_over_t_n_proxy": 1.8470866
+          },
+          {
+            "r": 4,
+            "n": 80,
+            "p_seed": 0.25,
+            "samples": 18,
+            "avg_degree_t": 1.3888889,
+            "avg_alpha_greedy": 66.833333,
+            "avg_alpha_over_logt_over_t_n_proxy": 2.0005369
+          },
+          {
+            "r": 4,
+            "n": 80,
+            "p_seed": 0.35,
+            "samples": 18,
+            "avg_degree_t": 0.80277778,
+            "avg_alpha_greedy": 71.833333,
+            "avg_alpha_over_logt_over_t_n_proxy": 0.55726609
+          }
+        ],
+        "elapsed_ms": 887,
+        "generated_utc": "2026-03-13T10:41:14.338Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

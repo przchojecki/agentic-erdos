@@ -1,64 +1,71 @@
 {
   "problem": "EP-824",
-  "normalized_utc": "2026-03-05T08:54:16.968Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch18_web_compute.md",
-        "content": "### EP-824\n- Quick literature check:\n  - Open; known progress proves superlinear growth of `h(x)/x`, while near-quadratic claim remains unresolved.\n- Finite compute signal:\n  - Counts up to `x=30000` show increasing `h(x)/x`, with fitted finite exponent near `1.07`.\n- Interpretation:\n  - Numerical growth is consistent with known superlinear behavior, but far from confirming `x^{2-o(1)}`.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/778\n  - https://www.erdosproblems.com/782\n  - https://www.erdosproblems.com/787\n  - https://www.erdosproblems.com/791\n  - https://www.erdosproblems.com/792\n  - https://www.erdosproblems.com/805\n  - https://www.erdosproblems.com/811\n  - https://www.erdosproblems.com/813\n  - https://www.erdosproblems.com/821\n  - https://www.erdosproblems.com/824\n- Additional primary references surfaced in quick scan:\n  - https://doi.org/10.1016/j.jnt.2026.03.017\n  - https://arxiv.org/abs/2410.16554"
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch18_quick_compute.mjs",
-        "heading": "coprime pairs with equal sigma.",
-        "content": "// EP-824: coprime pairs with equal sigma.\n{\n  const MAXX = 30_000;\n  const sigma = new Uint32Array(MAXX + 1);\n  for (let d = 1; d <= MAXX; d += 1) {\n    for (let m = d; m <= MAXX; m += d) sigma[m] += d;\n  }\n\n  function hOfX(x) {\n    const mp = new Map();\n    for (let a = 1; a < x; a += 1) {\n      const s = sigma[a];\n      if (!mp.has(s)) mp.set(s, []);\n      mp.get(s).push(a);\n    }\n\n    let h = 0;\n    for (const arr of mp.values()) {\n      if (arr.length < 2) continue;\n      for (let i = 0; i < arr.length; i += 1) {\n        for (let j = i + 1; j < arr.length; j += 1) {\n          if (gcd(arr[i], arr[j]) === 1) h += 1;\n        }\n      }\n    }\n    return h;\n  }\n\n  const rows = [];\n  for (const x of [5_000, 10_000, 20_000, 30_000]) {\n    const h = hOfX(x);\n    rows.push({\n      x,\n      h_x: h,\n      h_over_x: Number((h / x).toPrecision(7)),\n      h_over_x_pow_1p5: Number((h / (x ** 1.5)).toPrecision(7)),\n      log_h_over_log_x: h > 0 ? Number((Math.log(h) / Math.log(x)).toPrecision(7)) : null,\n    });\n  }\n\n  out.results.ep824 = {\n    description: 'Finite coprime-equal-sigma pair counts for increasing x.',\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch18_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch18_quick_compute.json",
-        "key": "ep824",
-        "container_meta": {
-          "script": "harder_batch18_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:20:32.592Z"
-        },
-        "data": {
-          "description": "Finite coprime-equal-sigma pair counts for increasing x.",
-          "rows": [
-            {
-              "x": 5000,
-              "h_x": 6049,
-              "h_over_x": 1.2098,
-              "h_over_x_pow_1p5": 0.01710916,
-              "log_h_over_log_x": 1.022361
-            },
-            {
-              "x": 10000,
-              "h_x": 15073,
-              "h_over_x": 1.5073,
-              "h_over_x_pow_1p5": 0.015073,
-              "log_h_over_log_x": 1.04455
-            },
-            {
-              "x": 20000,
-              "h_x": 37661,
-              "h_over_x": 1.88305,
-              "h_over_x_pow_1p5": 0.01331517,
-              "log_h_over_log_x": 1.063906
-            },
-            {
-              "x": 30000,
-              "h_x": 64234,
-              "h_over_x": 2.141133,
-              "h_over_x_pow_1p5": 0.01236184,
-              "log_h_over_log_x": 1.073852
-            }
+  "normalized_utc": "2026-03-13T11:06:06.335Z",
+  "computations": [
+    {
+      "source_file": "ep824_standalone_deeper_20260313T110900Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T11:05:54.102Z",
+      "data": {
+        "problem": "EP-824",
+        "script": "ep824.mjs",
+        "method": "coprime_equal_sigma_pair_count_deepened",
+        "params": {
+          "X_LIST": [
+            10000,
+            20000,
+            30000,
+            40000,
+            50000
           ]
-        }
+        },
+        "rows": [
+          {
+            "x": 10000,
+            "h_x": 15073,
+            "tested_pairs_with_equal_sigma": 38383,
+            "h_over_x": 1.5073,
+            "h_over_x_pow_1p5": 0.015073,
+            "log_h_over_log_x": 1.04455
+          },
+          {
+            "x": 20000,
+            "h_x": 37661,
+            "tested_pairs_with_equal_sigma": 98520,
+            "h_over_x": 1.88305,
+            "h_over_x_pow_1p5": 0.01331517,
+            "log_h_over_log_x": 1.063906
+          },
+          {
+            "x": 30000,
+            "h_x": 64234,
+            "tested_pairs_with_equal_sigma": 170868,
+            "h_over_x": 2.141133,
+            "h_over_x_pow_1p5": 0.01236184,
+            "log_h_over_log_x": 1.073852
+          },
+          {
+            "x": 40000,
+            "h_x": 93874,
+            "tested_pairs_with_equal_sigma": 251732,
+            "h_over_x": 2.34685,
+            "h_over_x_pow_1p5": 0.01173425,
+            "log_h_over_log_x": 1.080504
+          },
+          {
+            "x": 50000,
+            "h_x": 125083,
+            "tested_pairs_with_equal_sigma": 339402,
+            "h_over_x": 2.50166,
+            "h_over_x_pow_1p5": 0.01118776,
+            "log_h_over_log_x": 1.084748
+          }
+        ],
+        "elapsed_ms": 41,
+        "generated_utc": "2026-03-13T11:05:54.102Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

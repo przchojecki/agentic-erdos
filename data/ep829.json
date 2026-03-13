@@ -1,41 +1,79 @@
 {
   "problem": "EP-829",
-  "normalized_utc": "2026-03-05T08:54:16.968Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch19_web_compute.md",
-        "content": "### EP-829\n- Quick literature check:\n  - Open; page/thread reflects known lower-bound progress (`(log n)^{11/13}` infinitely often) but no polylog upper bound proof.\n- Finite compute signal:\n  - For `n<=2e8`, max representation multiplicity by two cubes was `3` (no `r(n)>=4` seen).\n- Interpretation:\n  - Finite range suggests low multiplicity at this scale; asymptotic upper bound remains inaccessible."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch19_quick_compute.mjs",
-        "heading": "representation counts as sum of two cubes.",
-        "content": "// EP-829: representation counts as sum of two cubes.\n{\n  const LIM = 200_000_000;\n  const maxBase = Math.floor(Math.cbrt(LIM));\n  const cubes = Array.from({ length: maxBase + 1 }, (_, i) => i ** 3);\n\n  const mp = new Map();\n  for (let i = 0; i <= maxBase; i += 1) {\n    for (let j = i; j <= maxBase; j += 1) {\n      const s = cubes[i] + cubes[j];\n      if (s > LIM) break;\n      mp.set(s, (mp.get(s) || 0) + 1);\n    }\n  }\n\n  let bestN = 0;\n  let bestR = 0;\n  let over1 = 0;\n  let over2 = 0;\n  let over3 = 0;\n  for (const [n, r] of mp.entries()) {\n    if (r > bestR) {\n      bestR = r;\n      bestN = n;\n    }\n    if (r >= 2) over1 += 1;\n    if (r >= 3) over2 += 1;\n    if (r >= 4) over3 += 1;\n  }\n\n  out.results.ep829 = {\n    description: 'Finite map of r(n)=1_A*1_A(n) for cubes up to a large bound.',\n    lim_n: LIM,\n    max_representation_count_found: bestR,\n    argmax_n_found: bestN,\n    counts_with_r_at_least_2: over1,\n    counts_with_r_at_least_3: over2,\n    counts_with_r_at_least_4: over3,\n    log_scale_ratio_max_r_over_log_lim: Number((bestR / Math.log(LIM)).toPrecision(7)),\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch19_quick_compute.json",
-        "key": "ep829",
-        "container_meta": {
-          "script": "harder_batch19_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:37:57.048Z"
+  "normalized_utc": "2026-03-13T15:37:40.097Z",
+  "computations": [
+    {
+      "source_file": "ep829_standalone_deeper_20260313T111500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T15:37:13.175Z",
+      "data": {
+        "problem": "EP-829",
+        "script": "ep829.mjs",
+        "method": "deep_enumeration_of_two_cube_representation_function",
+        "params": {
+          "LIM": 1000000000,
+          "max_base": 1000
         },
-        "data": {
-          "description": "Finite map of r(n)=1_A*1_A(n) for cubes up to a large bound.",
-          "lim_n": 200000000,
-          "max_representation_count_found": 3,
-          "argmax_n_found": 119824488,
-          "counts_with_r_at_least_2": 696,
-          "counts_with_r_at_least_3": 4,
-          "counts_with_r_at_least_4": 0,
-          "log_scale_ratio_max_r_over_log_lim": 0.1569544
-        }
+        "max_representation_count_found": 3,
+        "argmax_n_found": 119824488,
+        "tail_counts": [
+          {
+            "threshold_r_at_least": 2,
+            "count_n": 1554
+          },
+          {
+            "threshold_r_at_least": 3,
+            "count_n": 8
+          },
+          {
+            "threshold_r_at_least": 4,
+            "count_n": 0
+          },
+          {
+            "threshold_r_at_least": 5,
+            "count_n": 0
+          }
+        ],
+        "top_values": [
+          {
+            "n": 87539319,
+            "r": 3
+          },
+          {
+            "n": 119824488,
+            "r": 3
+          },
+          {
+            "n": 143604279,
+            "r": 3
+          },
+          {
+            "n": 175959000,
+            "r": 3
+          },
+          {
+            "n": 327763000,
+            "r": 3
+          },
+          {
+            "n": 700314552,
+            "r": 3
+          },
+          {
+            "n": 804360375,
+            "r": 3
+          },
+          {
+            "n": 958595904,
+            "r": 3
+          }
+        ],
+        "log_scale_ratio_max_r_over_log_lim": 0.1447648,
+        "elapsed_ms": 49,
+        "generated_utc": "2026-03-13T15:37:13.175Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

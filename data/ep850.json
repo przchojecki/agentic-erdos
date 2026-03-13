@@ -1,38 +1,69 @@
 {
   "problem": "EP-850",
-  "normalized_utc": "2026-03-05T08:54:16.969Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch19_web_compute.md",
-        "content": "### EP-850\n- Quick literature check:\n  - Open; known exceptional pair `(75,1215)` for the 2-shift support-sharing pattern is recorded, and conditional negative results are known under strong ABC variants.\n- Finite compute signal:\n  - Collision search up to `x<=2e5` found no `x!=y` with matching prime-support triples on `(x,x+1,x+2)`.\n- Interpretation:\n  - No new counterexample candidate found; finite search remains far from settling existence/nonexistence."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch19_quick_compute.mjs",
-        "heading": "search for equal-prime-support triples at shifts 0,1,2.",
-        "content": "// EP-850: search for equal-prime-support triples at shifts 0,1,2.\n{\n  const X = 200_000;\n  const spf = sieveSPF(X + 3);\n\n  const sig = Array(X + 3).fill('');\n  for (let n = 2; n <= X + 2; n += 1) {\n    sig[n] = factorDistinct(n, spf).join('.');\n  }\n\n  const mp = new Map();\n  const hits = [];\n\n  for (let x = 2; x <= X; x += 1) {\n    const key = `${sig[x]}|${sig[x + 1]}|${sig[x + 2]}`;\n    if (!mp.has(key)) mp.set(key, []);\n    const arr = mp.get(key);\n    for (const y of arr) {\n      if (y !== x) hits.push({ x: y, y: x });\n      if (hits.length >= 20) break;\n    }\n    if (hits.length >= 20) break;\n    arr.push(x);\n  }\n\n  out.results.ep850 = {\n    description: 'Finite collision scan for Erdos-Woods prime-support pattern across x,x+1,x+2.',\n    X,\n    collision_count_found: hits.length,\n    collisions_sample: hits,\n    contains_known_75_1215_pair: hits.some((h) => h.x === 75 && h.y === 1215),\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch19_quick_compute.json",
-        "key": "ep850",
-        "container_meta": {
-          "script": "harder_batch19_quick_compute.mjs",
-          "generated_utc": "2026-03-04T08:37:57.048Z"
+  "normalized_utc": "2026-03-13T19:22:50.216Z",
+  "computations": [
+    {
+      "source_file": "ep850_standalone_deeper_20260313T155300Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:22:24.716Z",
+      "data": {
+        "problem": "EP-850",
+        "script": "ep850.mjs",
+        "method": "deep_collision_scan_for_equal_prime_support_patterns",
+        "params": {
+          "X": 2000000
         },
-        "data": {
-          "description": "Finite collision scan for Erdos-Woods prime-support pattern across x,x+1,x+2.",
-          "X": 200000,
-          "collision_count_found": 0,
-          "collisions_sample": [],
-          "contains_known_75_1215_pair": false
-        }
+        "triple_shift012_collision_count_found": 0,
+        "triple_shift012_collisions_sample": [],
+        "pair_shift01_collision_count_found": 10,
+        "pair_shift01_collisions_sample": [
+          {
+            "x": 2,
+            "y": 8
+          },
+          {
+            "x": 6,
+            "y": 48
+          },
+          {
+            "x": 14,
+            "y": 224
+          },
+          {
+            "x": 30,
+            "y": 960
+          },
+          {
+            "x": 75,
+            "y": 1215
+          },
+          {
+            "x": 62,
+            "y": 3968
+          },
+          {
+            "x": 126,
+            "y": 16128
+          },
+          {
+            "x": 254,
+            "y": 65024
+          },
+          {
+            "x": 510,
+            "y": 261120
+          },
+          {
+            "x": 1022,
+            "y": 1046528
+          }
+        ],
+        "pair_shift01_contains_known_75_1215": true,
+        "elapsed_ms": 2355,
+        "generated_utc": "2026-03-13T19:22:24.716Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }
