@@ -1,40 +1,38 @@
 # EP-3
 
-## Proof Attempts and Literature Notes
+## Problem Statement
+Investigate the Erdős-Turán type principle linking additive largeness and arithmetic progressions:
+if $A\subset \mathbb{N}$ has divergent reciprocal sum
+\[
+\sum_{a\in A}\frac1a=\infty,
+\]
+must $A$ contain arbitrarily long arithmetic progressions?
 
-### Source: ep3_partial.md
+## Literature
+- For 3-term progressions, quantitative Roth-type results are very strong.
+- For general $k$, strongest bounds are still not enough to fully settle the divergent-harmonic implication in this form.
 
-# EP-3 partial attempt
+## Our Approaches / What Is Proven
+- Replaced placeholder script with deep standalone long-range computation (`scripts/ep3.mjs`):
+  - builds the canonical ascending greedy 3-AP-free sequence up to large $N$;
+  - tracks size growth, effective exponent $\log |A\cap[1,N]|/\log N$, and harmonic partial sums.
 
-## Route
-Reduced the conjecture to quantitative bounds on `r_k(N)` (largest `k`-AP-free subsets of `[1,N]`).
+## Computation-Guided Observations
+Deep run (`DEPTH=4`, `Nmax=10^7`) gives:
+- \[
+|A\cap[1,10^7]|=32768,
+\]
+with effective growth exponent near $0.64$ to $0.68$ across checkpoints.
+- Harmonic partial sum over this construction is
+\[
+\sum_{a\in A,\,a\le 10^7}\frac1a \approx 3.002345,
+\]
+still very slowly increasing.
 
-## What is resolved from background
-- `k=3` case of the needed implication is now known via strong Roth-type bounds.
-- General `k` still lacks bounds strong enough to force the full divergent-harmonic-series implication.
-
-## Hard point
-Need sufficiently strong `r_k(N)` decay uniformly in each fixed `k` to push through the harmonic-divergence criterion for arbitrary progression lengths.
+Interpretation:
+- this major 3-AP-free model remains too sparse to force evident fast divergence in finite range;
+- finite evidence is compatible with a convergent or extremely slowly diverging harmonic profile for this specific construction, so it does not approach a proof of the full conjectural implication.
 
 ## Status
-Partially resolved at low progression lengths; full conjecture open.
-
-## Integrated Batch Reasoning
-
-Batch scripts were integrated into `data/ep3.json` with extracted EP-specific sections.
-
-- harder_batch1_quick_compute.mjs: : simple greedy 3-AP-free sequence growth and harmonic sum.
-## Batch Split Integrations (From HEAD)
-
-### Source: notes/harder_batch1_web_compute.md
-
-### EP-3
-- Quick literature check:
-  - Recent progress remains active: Leng-Sah-Sawhney (2024) on improved quantitative Szemeredi bounds.
-- Finite compute signal:
-  - A simple ascending greedy 3-AP-free proxy in $[1,N]$ reaches size $2048$ at $N=100000$, with reciprocal sum about $2.9796$.
-- Interpretation:
-  - Finite proxies show substantial AP-avoidance room, but do not resolve the divergent-harmonic implication for all progression lengths.
-
-## New Experiments
-- 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-3.
+- Partially resolved in literature at low progression lengths.
+- Added deep standalone finite evidence up to $10^7$ for a canonical 3-AP-free model.

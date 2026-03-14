@@ -1,6 +1,6 @@
 {
   "problem": "EP-1",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-14T17:25:52Z",
   "computations": [
     {
       "source_file": "harder_batch1_quick_compute.json",
@@ -76,6 +76,1276 @@
             "scaled_ratio_times_sqrt_n": 0.79477403
           }
         ]
+      }
+    },
+    {
+      "source_file": "ep1_standalone_deeper_20260314T172338Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T17:25:26.616Z",
+      "data": {
+        "problem": "EP-1",
+        "script": "ep1.mjs",
+        "method": "exact_branch_and_bound_for_small_N_plus_large_N_randomized_construction_search",
+        "warning": "Computational evidence only; does not prove asymptotic N >> 2^n.",
+        "params": {
+          "depth": 4,
+          "exactMaxN": 70,
+          "randomMaxN": 600,
+          "randomStep": 25,
+          "randomTrials": 12000
+        },
+        "exact_rows": [
+          {
+            "N": 8,
+            "max_cardinality": 4,
+            "log2_N": 3,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          {
+            "N": 9,
+            "max_cardinality": 4,
+            "log2_N": 3.169925,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          {
+            "N": 10,
+            "max_cardinality": 4,
+            "log2_N": 3.321928,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          {
+            "N": 11,
+            "max_cardinality": 4,
+            "log2_N": 3.459432,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          {
+            "N": 12,
+            "max_cardinality": 4,
+            "log2_N": 3.584963,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          {
+            "N": 13,
+            "max_cardinality": 5,
+            "log2_N": 3.70044,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              3,
+              6,
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "N": 14,
+            "max_cardinality": 5,
+            "log2_N": 3.807355,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              6,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "N": 15,
+            "max_cardinality": 5,
+            "log2_N": 3.906891,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              6,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "N": 16,
+            "max_cardinality": 5,
+            "log2_N": 4,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 17,
+            "max_cardinality": 5,
+            "log2_N": 4.087463,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 18,
+            "max_cardinality": 5,
+            "log2_N": 4.169925,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 19,
+            "max_cardinality": 5,
+            "log2_N": 4.247928,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 20,
+            "max_cardinality": 5,
+            "log2_N": 4.321928,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 21,
+            "max_cardinality": 5,
+            "log2_N": 4.392317,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 22,
+            "max_cardinality": 5,
+            "log2_N": 4.459432,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 23,
+            "max_cardinality": 5,
+            "log2_N": 4.523562,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16
+            ]
+          },
+          {
+            "N": 24,
+            "max_cardinality": 6,
+            "log2_N": 4.584963,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              11,
+              17,
+              20,
+              22,
+              23,
+              24
+            ]
+          },
+          {
+            "N": 25,
+            "max_cardinality": 6,
+            "log2_N": 4.643856,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              3,
+              6,
+              12,
+              23,
+              24,
+              25
+            ]
+          },
+          {
+            "N": 26,
+            "max_cardinality": 6,
+            "log2_N": 4.70044,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              6,
+              12,
+              22,
+              24,
+              26
+            ]
+          },
+          {
+            "N": 27,
+            "max_cardinality": 6,
+            "log2_N": 4.754888,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              6,
+              12,
+              22,
+              24,
+              26
+            ]
+          },
+          {
+            "N": 28,
+            "max_cardinality": 6,
+            "log2_N": 4.807355,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              20,
+              24,
+              28
+            ]
+          },
+          {
+            "N": 29,
+            "max_cardinality": 6,
+            "log2_N": 4.857981,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              20,
+              24,
+              28
+            ]
+          },
+          {
+            "N": 30,
+            "max_cardinality": 6,
+            "log2_N": 4.906891,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              20,
+              24,
+              28
+            ]
+          },
+          {
+            "N": 31,
+            "max_cardinality": 6,
+            "log2_N": 4.954196,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              20,
+              24,
+              28
+            ]
+          },
+          {
+            "N": 32,
+            "max_cardinality": 6,
+            "log2_N": 5,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 33,
+            "max_cardinality": 6,
+            "log2_N": 5.044394,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 34,
+            "max_cardinality": 6,
+            "log2_N": 5.087463,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 35,
+            "max_cardinality": 6,
+            "log2_N": 5.129283,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 36,
+            "max_cardinality": 6,
+            "log2_N": 5.169925,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 37,
+            "max_cardinality": 6,
+            "log2_N": 5.209453,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 38,
+            "max_cardinality": 6,
+            "log2_N": 5.247928,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 39,
+            "max_cardinality": 6,
+            "log2_N": 5.285402,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 40,
+            "max_cardinality": 6,
+            "log2_N": 5.321928,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 41,
+            "max_cardinality": 6,
+            "log2_N": 5.357552,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 42,
+            "max_cardinality": 6,
+            "log2_N": 5.392317,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 43,
+            "max_cardinality": 6,
+            "log2_N": 5.426265,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32
+            ]
+          },
+          {
+            "N": 44,
+            "max_cardinality": 7,
+            "log2_N": 5.459432,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              20,
+              31,
+              37,
+              40,
+              42,
+              43,
+              44
+            ]
+          },
+          {
+            "N": 45,
+            "max_cardinality": 7,
+            "log2_N": 5.491853,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              20,
+              31,
+              37,
+              40,
+              42,
+              43,
+              44
+            ]
+          },
+          {
+            "N": 46,
+            "max_cardinality": 7,
+            "log2_N": 5.523562,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              11,
+              22,
+              39,
+              42,
+              44,
+              45,
+              46
+            ]
+          },
+          {
+            "N": 47,
+            "max_cardinality": 7,
+            "log2_N": 5.554589,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              11,
+              22,
+              39,
+              42,
+              44,
+              45,
+              46
+            ]
+          },
+          {
+            "N": 48,
+            "max_cardinality": 7,
+            "log2_N": 5.584963,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              22,
+              34,
+              40,
+              44,
+              46,
+              48
+            ]
+          },
+          {
+            "N": 49,
+            "max_cardinality": 7,
+            "log2_N": 5.61471,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              22,
+              34,
+              40,
+              44,
+              46,
+              48
+            ]
+          },
+          {
+            "N": 50,
+            "max_cardinality": 7,
+            "log2_N": 5.643856,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              6,
+              12,
+              24,
+              46,
+              48,
+              50
+            ]
+          },
+          {
+            "N": 51,
+            "max_cardinality": 7,
+            "log2_N": 5.672425,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              6,
+              12,
+              24,
+              46,
+              48,
+              50
+            ]
+          },
+          {
+            "N": 52,
+            "max_cardinality": 7,
+            "log2_N": 5.70044,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              24,
+              44,
+              48,
+              52
+            ]
+          },
+          {
+            "N": 53,
+            "max_cardinality": 7,
+            "log2_N": 5.72792,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              24,
+              44,
+              48,
+              52
+            ]
+          },
+          {
+            "N": 54,
+            "max_cardinality": 7,
+            "log2_N": 5.754888,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              24,
+              44,
+              48,
+              52
+            ]
+          },
+          {
+            "N": 55,
+            "max_cardinality": 7,
+            "log2_N": 5.78136,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              12,
+              24,
+              44,
+              48,
+              52
+            ]
+          },
+          {
+            "N": 56,
+            "max_cardinality": 7,
+            "log2_N": 5.807355,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 57,
+            "max_cardinality": 7,
+            "log2_N": 5.83289,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 58,
+            "max_cardinality": 7,
+            "log2_N": 5.857981,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 59,
+            "max_cardinality": 7,
+            "log2_N": 5.882643,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 60,
+            "max_cardinality": 7,
+            "log2_N": 5.906891,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 61,
+            "max_cardinality": 7,
+            "log2_N": 5.930737,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 62,
+            "max_cardinality": 7,
+            "log2_N": 5.954196,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 63,
+            "max_cardinality": 7,
+            "log2_N": 5.97728,
+            "max_minus_floor_log2N_plus1": 1,
+            "witness_set": [
+              1,
+              2,
+              4,
+              24,
+              40,
+              48,
+              56
+            ]
+          },
+          {
+            "N": 64,
+            "max_cardinality": 7,
+            "log2_N": 6,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          {
+            "N": 65,
+            "max_cardinality": 7,
+            "log2_N": 6.022368,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          {
+            "N": 66,
+            "max_cardinality": 7,
+            "log2_N": 6.044394,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          {
+            "N": 67,
+            "max_cardinality": 7,
+            "log2_N": 6.066089,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          {
+            "N": 68,
+            "max_cardinality": 7,
+            "log2_N": 6.087463,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          {
+            "N": 69,
+            "max_cardinality": 7,
+            "log2_N": 6.108524,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          {
+            "N": 70,
+            "max_cardinality": 7,
+            "log2_N": 6.129283,
+            "max_minus_floor_log2N_plus1": 0,
+            "witness_set": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ]
+          }
+        ],
+        "random_rows": [
+          {
+            "N": 95,
+            "randomized_lower_bound_cardinality": 7,
+            "floor_log2N_plus1": 7,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              1,
+              28,
+              42,
+              67,
+              72,
+              84,
+              91
+            ]
+          },
+          {
+            "N": 120,
+            "randomized_lower_bound_cardinality": 8,
+            "floor_log2N_plus1": 7,
+            "gap_over_power2_construction": 1,
+            "witness_set_sample_prefix": [
+              42,
+              54,
+              78,
+              89,
+              100,
+              102,
+              108,
+              116
+            ]
+          },
+          {
+            "N": 145,
+            "randomized_lower_bound_cardinality": 8,
+            "floor_log2N_plus1": 8,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              5,
+              22,
+              57,
+              97,
+              109,
+              110,
+              141,
+              143
+            ]
+          },
+          {
+            "N": 170,
+            "randomized_lower_bound_cardinality": 8,
+            "floor_log2N_plus1": 8,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              10,
+              18,
+              35,
+              74,
+              115,
+              116,
+              148,
+              153
+            ]
+          },
+          {
+            "N": 195,
+            "randomized_lower_bound_cardinality": 8,
+            "floor_log2N_plus1": 8,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              70,
+              89,
+              99,
+              141,
+              143,
+              177,
+              178,
+              181
+            ]
+          },
+          {
+            "N": 220,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 8,
+            "gap_over_power2_construction": 1,
+            "witness_set_sample_prefix": [
+              50,
+              82,
+              146,
+              164,
+              166,
+              172,
+              177,
+              200,
+              210
+            ]
+          },
+          {
+            "N": 245,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 8,
+            "gap_over_power2_construction": 1,
+            "witness_set_sample_prefix": [
+              109,
+              162,
+              174,
+              177,
+              191,
+              205,
+              212,
+              218,
+              245
+            ]
+          },
+          {
+            "N": 270,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              59,
+              118,
+              132,
+              135,
+              144,
+              170,
+              216,
+              236,
+              264
+            ]
+          },
+          {
+            "N": 295,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              57,
+              82,
+              102,
+              147,
+              157,
+              254,
+              261,
+              265,
+              294
+            ]
+          },
+          {
+            "N": 320,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              36,
+              73,
+              149,
+              263,
+              272,
+              285,
+              288,
+              298,
+              317
+            ]
+          },
+          {
+            "N": 345,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              38,
+              83,
+              203,
+              206,
+              213,
+              243,
+              283,
+              303,
+              322
+            ]
+          },
+          {
+            "N": 370,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              20,
+              22,
+              88,
+              176,
+              245,
+              292,
+              316,
+              340,
+              349
+            ]
+          },
+          {
+            "N": 395,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              34,
+              127,
+              137,
+              184,
+              247,
+              279,
+              317,
+              385,
+              392
+            ]
+          },
+          {
+            "N": 420,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              8,
+              76,
+              189,
+              250,
+              260,
+              314,
+              325,
+              351,
+              395
+            ]
+          },
+          {
+            "N": 445,
+            "randomized_lower_bound_cardinality": 9,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              2,
+              54,
+              98,
+              194,
+              244,
+              295,
+              378,
+              404,
+              416
+            ]
+          },
+          {
+            "N": 470,
+            "randomized_lower_bound_cardinality": 10,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 1,
+            "witness_set_sample_prefix": [
+              189,
+              197,
+              198,
+              201,
+              221,
+              315,
+              331,
+              378,
+              441,
+              451
+            ]
+          },
+          {
+            "N": 495,
+            "randomized_lower_bound_cardinality": 10,
+            "floor_log2N_plus1": 9,
+            "gap_over_power2_construction": 1,
+            "witness_set_sample_prefix": [
+              64,
+              173,
+              181,
+              258,
+              335,
+              362,
+              387,
+              463,
+              487,
+              489
+            ]
+          },
+          {
+            "N": 520,
+            "randomized_lower_bound_cardinality": 10,
+            "floor_log2N_plus1": 10,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              66,
+              200,
+              322,
+              370,
+              401,
+              442,
+              446,
+              476,
+              506,
+              514
+            ]
+          },
+          {
+            "N": 545,
+            "randomized_lower_bound_cardinality": 10,
+            "floor_log2N_plus1": 10,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              248,
+              252,
+              337,
+              370,
+              387,
+              456,
+              466,
+              478,
+              496,
+              526
+            ]
+          },
+          {
+            "N": 570,
+            "randomized_lower_bound_cardinality": 10,
+            "floor_log2N_plus1": 10,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              19,
+              38,
+              67,
+              115,
+              230,
+              325,
+              408,
+              460,
+              472,
+              531
+            ]
+          },
+          {
+            "N": 595,
+            "randomized_lower_bound_cardinality": 10,
+            "floor_log2N_plus1": 10,
+            "gap_over_power2_construction": 0,
+            "witness_set_sample_prefix": [
+              6,
+              149,
+              259,
+              492,
+              513,
+              526,
+              534,
+              548,
+              560,
+              564
+            ]
+          }
+        ],
+        "elapsed_ms": 108179,
+        "generated_utc": "2026-03-14T17:25:26.616Z"
       }
     }
   ],
@@ -193,5 +1463,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

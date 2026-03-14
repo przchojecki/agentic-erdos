@@ -1,5 +1,173 @@
 {
   "problem": "EP-888",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T21:41:33.189Z",
+  "computations": [
+    {
+      "source_file": "ep888_standalone_deeper_20260313T164700Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:41:13.991Z",
+      "data": {
+        "problem": "EP-888",
+        "script": "ep888.mjs",
+        "method": "exact_small_n_and_greedy_larger_n_profiles_for_square_product_constraint",
+        "params": {
+          "EXACT_N_LIST": [
+            22,
+            24,
+            26,
+            28
+          ],
+          "GREEDY_N_LIST": [
+            80,
+            100,
+            120,
+            150,
+            180
+          ],
+          "GREEDY_TRIALS": 40
+        },
+        "exact_rows": [
+          {
+            "n": 22,
+            "exact_best_size": 14,
+            "exact_best_over_n": 0.63636364,
+            "prime_count_up_to_n": 8,
+            "exact_best_set": [
+              5,
+              6,
+              7,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              17,
+              18,
+              19,
+              21,
+              22
+            ]
+          },
+          {
+            "n": 24,
+            "exact_best_size": 15,
+            "exact_best_over_n": 0.625,
+            "prime_count_up_to_n": 9,
+            "exact_best_set": [
+              5,
+              7,
+              8,
+              10,
+              11,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              21,
+              22,
+              23,
+              24
+            ]
+          },
+          {
+            "n": 26,
+            "exact_best_size": 16,
+            "exact_best_over_n": 0.61538462,
+            "prime_count_up_to_n": 9,
+            "exact_best_set": [
+              5,
+              7,
+              8,
+              10,
+              11,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              21,
+              22,
+              23,
+              24,
+              26
+            ]
+          },
+          {
+            "n": 28,
+            "exact_best_size": 16,
+            "exact_best_over_n": 0.57142857,
+            "prime_count_up_to_n": 9,
+            "exact_best_set": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              26,
+              28
+            ]
+          }
+        ],
+        "greedy_rows": [
+          {
+            "n": 80,
+            "trials": 40,
+            "best_size_found": 41,
+            "avg_size_found": 31.95,
+            "best_over_n": 0.5125,
+            "best_vs_nloglog_over_log": 1.5199807
+          },
+          {
+            "n": 100,
+            "trials": 40,
+            "best_size_found": 51,
+            "avg_size_found": 36.5,
+            "best_over_n": 0.51,
+            "best_vs_nloglog_over_log": 1.5378917
+          },
+          {
+            "n": 120,
+            "trials": 40,
+            "best_size_found": 52,
+            "avg_size_found": 42.275,
+            "best_over_n": 0.43333333,
+            "best_vs_nloglog_over_log": 1.324758
+          },
+          {
+            "n": 150,
+            "trials": 40,
+            "best_size_found": 62,
+            "avg_size_found": 50.6,
+            "best_over_n": 0.41333333,
+            "best_vs_nloglog_over_log": 1.2851269
+          },
+          {
+            "n": 180,
+            "trials": 40,
+            "best_size_found": 81,
+            "avg_size_found": 60.55,
+            "best_over_n": 0.45,
+            "best_vs_nloglog_over_log": 1.4185795
+          }
+        ],
+        "elapsed_ms": 2765,
+        "generated_utc": "2026-03-13T21:41:13.991Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

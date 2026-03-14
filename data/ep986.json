@@ -1,57 +1,95 @@
 {
   "problem": "EP-986",
-  "normalized_utc": "2026-03-05T08:54:16.972Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch22_web_compute.md",
-        "content": "### EP-986\n- Quick literature check:\n  - General fixed-`k` lower bound remains open; page records solved cases `k=3` (Spencer) and `k=4` (Mattheus--Verstraete, 2023).\n- Finite compute signal:\n  - Triangle-free process samples with exact `alpha(G)` yielded witnesses such as `R(3,12)>30`.\n- Interpretation:\n  - Finite constructions match the expected off-diagonal Ramsey growth regime for `k=3`, but do not advance the general-`k` conjecture."
+  "normalized_utc": "2026-03-14T10:00:00Z",
+  "computations": [
+    {
+      "source_file": "ep986_standalone_deeper_20260314T011500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:59:34.907Z",
+      "data": {
+        "problem": "EP-986",
+        "script": "ep986.mjs",
+        "method": "deeper_triangle_free_process_with_exact_independence_search",
+        "warning": "Finite constructive witnesses only; does not resolve general fixed-k conjecture.",
+        "rows": [
+          {
+            "n": 24,
+            "trials": 260,
+            "best_alpha_found": 8,
+            "best_edges_among_best_alpha": 89,
+            "best_edge_density": 0.15451389,
+            "implied_lower_bound": "R(3,9) > 24"
+          },
+          {
+            "n": 28,
+            "trials": 240,
+            "best_alpha_found": 9,
+            "best_edges_among_best_alpha": 113,
+            "best_edge_density": 0.14413265,
+            "implied_lower_bound": "R(3,10) > 28"
+          },
+          {
+            "n": 32,
+            "trials": 220,
+            "best_alpha_found": 10,
+            "best_edges_among_best_alpha": 145,
+            "best_edge_density": 0.14160156,
+            "implied_lower_bound": "R(3,11) > 32"
+          },
+          {
+            "n": 36,
+            "trials": 200,
+            "best_alpha_found": 11,
+            "best_edges_among_best_alpha": 175,
+            "best_edge_density": 0.13503086,
+            "implied_lower_bound": "R(3,12) > 36"
+          },
+          {
+            "n": 40,
+            "trials": 180,
+            "best_alpha_found": 12,
+            "best_edges_among_best_alpha": 211,
+            "best_edge_density": 0.131875,
+            "implied_lower_bound": "R(3,13) > 40"
+          },
+          {
+            "n": 44,
+            "trials": 160,
+            "best_alpha_found": 13,
+            "best_edges_among_best_alpha": 250,
+            "best_edge_density": 0.12913223,
+            "implied_lower_bound": "R(3,14) > 44"
+          },
+          {
+            "n": 48,
+            "trials": 140,
+            "best_alpha_found": 14,
+            "best_edges_among_best_alpha": 295,
+            "best_edge_density": 0.12803819,
+            "implied_lower_bound": "R(3,15) > 48"
+          },
+          {
+            "n": 56,
+            "trials": 100,
+            "best_alpha_found": 15,
+            "best_edges_among_best_alpha": 363,
+            "best_edge_density": 0.11575255,
+            "implied_lower_bound": "R(3,16) > 56"
+          },
+          {
+            "n": 64,
+            "trials": 80,
+            "best_alpha_found": 17,
+            "best_edges_among_best_alpha": 459,
+            "best_edge_density": 0.11206055,
+            "implied_lower_bound": "R(3,18) > 64"
+          }
+        ],
+        "elapsed_ms": 1890,
+        "generated_utc": "2026-03-14T09:59:34.907Z"
       }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch22_quick_compute.mjs",
-        "heading": "finite random triangle-free constructions and exact independence profile (k=3 proxy).",
-        "content": "// EP-986: finite random triangle-free constructions and exact independence profile (k=3 proxy).\n{\n  const rng = makeRng(20260304 ^ 986);\n  const rows = [];\n\n  for (const n of [22, 26, 30]) {\n    let bestEdge = -1;\n    let bestAlpha = null;\n\n    for (let t = 0; t < 12; t += 1) {\n      const G = triangleFreeProcess(n, rng);\n      const masksComp = Array(n).fill(0n);\n      for (let i = 0; i < n; i += 1) {\n        let m = 0n;\n        for (let j = 0; j < n; j += 1) {\n          if (i === j) continue;\n          if (!G.adj[i][j]) m |= 1n << BigInt(j);\n        }\n        masksComp[i] = m;\n      }\n      const alpha = maxCliqueSizeFromAdjMasks(masksComp, n);\n      if (G.m > bestEdge || (G.m === bestEdge && alpha < bestAlpha)) {\n        bestEdge = G.m;\n        bestAlpha = alpha;\n      }\n    }\n\n    rows.push({\n      n,\n      best_triangle_free_edges_found: bestEdge,\n      corresponding_independence_number_alpha: bestAlpha,\n      implied_lower_bound_R_3_alpha_plus_1_gt_n: `R(3,${bestAlpha + 1}) > ${n}`,\n      edge_scale_over_n_3_over_2: Number((bestEdge / (n ** 1.5)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep986 = {\n    description: 'Finite k=3 proxy: random triangle-free process with exact alpha(G) on sampled best graphs.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch22_quick_compute.json",
-        "key": "ep986",
-        "container_meta": {
-          "script": "harder_batch22_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:34:53.027Z"
-        },
-        "data": {
-          "description": "Finite k=3 proxy: random triangle-free process with exact alpha(G) on sampled best graphs.",
-          "rows": [
-            {
-              "n": 22,
-              "best_triangle_free_edges_found": 85,
-              "corresponding_independence_number_alpha": 9,
-              "implied_lower_bound_R_3_alpha_plus_1_gt_n": "R(3,10) > 22",
-              "edge_scale_over_n_3_over_2": 0.82373
-            },
-            {
-              "n": 26,
-              "best_triangle_free_edges_found": 112,
-              "corresponding_independence_number_alpha": 10,
-              "implied_lower_bound_R_3_alpha_plus_1_gt_n": "R(3,11) > 26",
-              "edge_scale_over_n_3_over_2": 0.844808
-            },
-            {
-              "n": 30,
-              "best_triangle_free_edges_found": 144,
-              "corresponding_independence_number_alpha": 11,
-              "implied_lower_bound_R_3_alpha_plus_1_gt_n": "R(3,12) > 30",
-              "edge_scale_over_n_3_over_2": 0.8763561
-            }
-          ]
-        }
-      }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

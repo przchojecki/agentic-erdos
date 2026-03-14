@@ -1,108 +1,153 @@
 {
   "problem": "EP-1066",
-  "normalized_utc": "2026-03-05T08:54:16.974Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch24_web_compute.md",
-        "content": "### EP-1066\n- Quick literature check:\n  - Open (edited 02 Oct 2025), with current bounds roughly `0.258n <= g(n) <= 0.3125n`.\n- Finite compute signal:\n  - Induced-subgraph samples from triangular-lattice unit-distance contact graphs gave `alpha/n` minima around `0.47..0.54` on tested finite windows.\n- Interpretation:\n  - Finite induced models are consistent with linear-scale independent sets; they do not directly target worst-case constructions."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch24_quick_compute.mjs",
-        "heading": "finite proxy via induced subgraphs of triangular-lattice contact graphs.",
-        "content": "// EP-1066: finite proxy via induced subgraphs of triangular-lattice contact graphs.\n{\n  const rng = makeRng(20260304 ^ 1066);\n  const W = 9;\n  const H = 9;\n  const coords = [];\n  const pos = new Map();\n  for (let x = 0; x < W; x += 1) {\n    for (let y = 0; y < H; y += 1) {\n      const id = coords.length;\n      coords.push([x, y]);\n      pos.set(`${x},${y}`, id);\n    }\n  }\n\n  const dirs = [\n    [1, 0],\n    [0, 1],\n    [1, -1],\n    [-1, 0],\n    [0, -1],\n    [-1, 1],\n  ];\n\n  const baseEdges = [];\n  for (let i = 0; i < coords.length; i += 1) {\n    const [x, y] = coords[i];\n    for (const [dx, dy] of dirs) {\n      const j = pos.get(`${x + dx},${y + dy}`);\n      if (j !== undefined && i < j) baseEdges.push([i, j]);\n    }\n  }\n  const baseMasks = adjacencyMasksFromEdgeList(coords.length, baseEdges);\n\n  function alphaOfInduced(n) {\n    const verts = [...Array(coords.length).keys()];\n    shuffle(verts, rng);\n    const picked = verts.slice(0, n);\n    const masks = inducedMasks(baseMasks, picked);\n    const comp = Array(n).fill(0n);\n    for (let i = 0; i < n; i += 1) {\n      let m = 0n;\n      for (let j = 0; j < n; j += 1) {\n        if (i === j) continue;\n        if (((masks[i] >> BigInt(j)) & 1n) === 0n) m |= 1n << BigInt(j);\n      }\n      comp[i] = m;\n    }\n    return maxCliqueSizeFromAdjMasks(comp, n);\n  }\n\n  const rows = [];\n  for (const n of [18, 24, 30, 36]) {\n    let bestAlpha = n;\n    const samples = [];\n    for (let t = 0; t < 10; t += 1) {\n      const a = alphaOfInduced(n);\n      samples.push(a);\n      if (a < bestAlpha) bestAlpha = a;\n    }\n    rows.push({\n      n,\n      min_alpha_found_in_samples: bestAlpha,\n      min_alpha_over_n: Number((bestAlpha / n).toPrecision(7)),\n      sampled_alpha_values: samples,\n    });\n  }\n\n  out.results.ep1066 = {\n    description: 'Finite contact-graph proxy using induced subgraphs of a triangular-lattice unit-distance graph.',\n    base_patch_size: [W, H],\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch24_quick_compute.json",
-        "key": "ep1066",
-        "container_meta": {
-          "script": "harder_batch24_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:28:27.056Z"
-        },
-        "data": {
-          "description": "Finite contact-graph proxy using induced subgraphs of a triangular-lattice unit-distance graph.",
-          "base_patch_size": [
-            9,
-            9
+  "normalized_utc": "2026-03-14T14:04:41Z",
+  "computations": [
+    {
+      "source_file": "ep1066_standalone_deeper_20260314T140441Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T14:05:28.155Z",
+      "data": {
+        "problem": "EP-1066",
+        "script": "ep1066.mjs",
+        "method": "deep_exact_independent_set_sampling_on_triangular_lattice_induced_subgraphs",
+        "warning": "Induced-subgraph model gives finite proxy evidence, not worst-case unit-distance extremal proof.",
+        "params": {
+          "depth": 8,
+          "patch": [
+            14,
+            14
           ],
-          "rows": [
-            {
-              "n": 18,
-              "min_alpha_found_in_samples": 9,
-              "min_alpha_over_n": 0.5,
-              "sampled_alpha_values": [
-                9,
-                11,
-                12,
-                12,
-                10,
-                10,
-                14,
-                13,
-                12,
-                12
-              ]
-            },
-            {
-              "n": 24,
-              "min_alpha_found_in_samples": 13,
-              "min_alpha_over_n": 0.5416667,
-              "sampled_alpha_values": [
-                15,
-                14,
-                16,
-                15,
-                13,
-                13,
-                13,
-                15,
-                15,
-                16
-              ]
-            },
-            {
-              "n": 30,
-              "min_alpha_found_in_samples": 14,
-              "min_alpha_over_n": 0.4666667,
-              "sampled_alpha_values": [
-                16,
-                16,
-                17,
-                15,
-                15,
-                17,
-                14,
-                16,
-                17,
-                17
-              ]
-            },
-            {
-              "n": 36,
-              "min_alpha_found_in_samples": 18,
-              "min_alpha_over_n": 0.5,
-              "sampled_alpha_values": [
-                20,
-                20,
-                18,
-                20,
-                19,
-                18,
-                18,
-                18,
-                18,
-                19
-              ]
-            }
-          ]
-        }
+          "nList": [
+            24,
+            30,
+            36,
+            42
+          ],
+          "samplesPerN": 480
+        },
+        "rows": [
+          {
+            "n": 24,
+            "samples": 480,
+            "min_alpha_over_n_found": 0.625,
+            "mean_alpha_over_n": 0.76840278,
+            "max_alpha_over_n_found": 0.95833333,
+            "sample_alpha_values_first20": [
+              18,
+              19,
+              19,
+              19,
+              18,
+              18,
+              19,
+              19,
+              17,
+              20,
+              19,
+              19,
+              15,
+              19,
+              17,
+              19,
+              20,
+              17,
+              19,
+              22
+            ]
+          },
+          {
+            "n": 30,
+            "samples": 480,
+            "min_alpha_over_n_found": 0.56666667,
+            "mean_alpha_over_n": 0.72409722,
+            "max_alpha_over_n_found": 0.86666667,
+            "sample_alpha_values_first20": [
+              23,
+              20,
+              21,
+              25,
+              24,
+              23,
+              19,
+              22,
+              20,
+              24,
+              20,
+              22,
+              24,
+              22,
+              24,
+              24,
+              20,
+              21,
+              21,
+              23
+            ]
+          },
+          {
+            "n": 36,
+            "samples": 480,
+            "min_alpha_over_n_found": 0.55555556,
+            "mean_alpha_over_n": 0.68836806,
+            "max_alpha_over_n_found": 0.83333333,
+            "sample_alpha_values_first20": [
+              24,
+              25,
+              25,
+              24,
+              25,
+              22,
+              23,
+              28,
+              27,
+              24,
+              25,
+              23,
+              25,
+              25,
+              24,
+              27,
+              27,
+              28,
+              24,
+              26
+            ]
+          },
+          {
+            "n": 42,
+            "samples": 480,
+            "min_alpha_over_n_found": 0.54761905,
+            "mean_alpha_over_n": 0.65739087,
+            "max_alpha_over_n_found": 0.76190476,
+            "sample_alpha_values_first20": [
+              27,
+              26,
+              29,
+              26,
+              28,
+              30,
+              28,
+              27,
+              28,
+              27,
+              29,
+              27,
+              27,
+              28,
+              28,
+              26,
+              25,
+              27,
+              25,
+              27
+            ]
+          }
+        ],
+        "elapsed_ms": 46380,
+        "generated_utc": "2026-03-14T14:05:28.155Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

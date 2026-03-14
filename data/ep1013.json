@@ -1,5 +1,72 @@
 {
   "problem": "EP-1013",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:13:34Z",
+  "computations": [
+    {
+      "source_file": "ep1013_standalone_deeper_20260314T101334Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:13:37.985Z",
+      "data": {
+        "problem": "EP-1013",
+        "script": "ep1013.mjs",
+        "method": "deep_triangle_free_chromatic_threshold_search_for_h3k_profile",
+        "warning": "Finite random search gives upper-bound witnesses for h_3(k) only.",
+        "params": {
+          "kTargets": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "n_min": 11,
+          "n_max": 38
+        },
+        "rows": [
+          {
+            "k": 4,
+            "smallest_n_found_with_triangle_free_chi_ge_k": 11,
+            "witness": {
+              "n": 11,
+              "trial": 174,
+              "chi": 4
+            },
+            "mycielski_constructive_upper_bound_2powk": 11
+          },
+          {
+            "k": 5,
+            "smallest_n_found_with_triangle_free_chi_ge_k": 33,
+            "witness": {
+              "n": 33,
+              "trial": 292,
+              "chi": 5
+            },
+            "mycielski_constructive_upper_bound_2powk": 23
+          },
+          {
+            "k": 6,
+            "smallest_n_found_with_triangle_free_chi_ge_k": null,
+            "witness": null,
+            "mycielski_constructive_upper_bound_2powk": 47
+          },
+          {
+            "k": 7,
+            "smallest_n_found_with_triangle_free_chi_ge_k": null,
+            "witness": null,
+            "mycielski_constructive_upper_bound_2powk": 95
+          },
+          {
+            "k": 8,
+            "smallest_n_found_with_triangle_free_chi_ge_k": null,
+            "witness": null,
+            "mycielski_constructive_upper_bound_2powk": 191
+          }
+        ],
+        "elapsed_ms": 3225,
+        "generated_utc": "2026-03-14T10:13:37.985Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

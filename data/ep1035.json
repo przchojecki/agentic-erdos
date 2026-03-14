@@ -1,5 +1,170 @@
 {
   "problem": "EP-1035",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:34:45Z",
+  "computations": [
+    {
+      "source_file": "ep1035_standalone_deeper_20260314T103445Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:34:48.598Z",
+      "data": {
+        "problem": "EP-1035",
+        "script": "ep1035.mjs",
+        "method": "deep_dense_random_graph_spanning_hypercube_embedding_local_search_proxy",
+        "warning": "Heuristic embedding search only; non-detection is not a proof of non-existence.",
+        "params": {
+          "depth": 4,
+          "dimensions": [
+            4,
+            5
+          ]
+        },
+        "rows": [
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.6,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 0.85416667,
+            "mean_best_missing_cube_edges": 0.14583333,
+            "mean_edge_count": 72.9688,
+            "edge_count_ratio_to_complete": 0.60807292
+          },
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.65,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 0.97916667,
+            "mean_best_missing_cube_edges": 0.03125,
+            "mean_edge_count": 78.0208,
+            "edge_count_ratio_to_complete": 0.65017361
+          },
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.7,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 84.1354,
+            "edge_count_ratio_to_complete": 0.70112847
+          },
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.75,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 89.6563,
+            "edge_count_ratio_to_complete": 0.74713542
+          },
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.8,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 96.125,
+            "edge_count_ratio_to_complete": 0.80104167
+          },
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.85,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 101.9583,
+            "edge_count_ratio_to_complete": 0.84965278
+          },
+          {
+            "d": 4,
+            "n": 16,
+            "density_p": 0.9,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 108.0938,
+            "edge_count_ratio_to_complete": 0.90078125
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.6,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 0.22916667,
+            "mean_best_missing_cube_edges": 1.05208333,
+            "mean_edge_count": 298.5104,
+            "edge_count_ratio_to_complete": 0.60183552
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.65,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 0.875,
+            "mean_best_missing_cube_edges": 0.125,
+            "mean_edge_count": 322.1667,
+            "edge_count_ratio_to_complete": 0.64952957
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.7,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 347.3646,
+            "edge_count_ratio_to_complete": 0.70033182
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.75,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 370.9896,
+            "edge_count_ratio_to_complete": 0.74796287
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.8,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 397.3021,
+            "edge_count_ratio_to_complete": 0.80101226
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.85,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 421.1875,
+            "edge_count_ratio_to_complete": 0.84916835
+          },
+          {
+            "d": 5,
+            "n": 32,
+            "density_p": 0.9,
+            "graph_trials": 96,
+            "success_rate_spanning_Qd_embedding": 1,
+            "mean_best_missing_cube_edges": 0,
+            "mean_edge_count": 446.2708,
+            "edge_count_ratio_to_complete": 0.89973958
+          }
+        ],
+        "elapsed_ms": 3345,
+        "generated_utc": "2026-03-14T10:34:48.598Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

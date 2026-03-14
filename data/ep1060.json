@@ -1,88 +1,115 @@
 {
   "problem": "EP-1060",
-  "normalized_utc": "2026-03-05T08:54:16.973Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch23_web_compute.md",
-        "content": "### EP-1060\n- Quick literature check:\n  - Open; no listed closure on growth of solution multiplicity for `k sigma(k)=n`.\n- Finite compute signal:\n  - For `k<=300000`, max multiplicity observed is `4`; for `n<=2^16`, max multiplicity observed is `2`.\n- Interpretation:\n  - Finite multiplicities are modest and compatible with slow growth hypotheses, but not asymptotically decisive."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch23_quick_compute.mjs",
-        "heading": "multiplicity profile for values n = k * sigma(k).",
-        "content": "// EP-1060: multiplicity profile for values n = k * sigma(k).\n{\n  const K = 300_000;\n  const cnt = new Map();\n  let maxMult = 0;\n  let argN = null;\n\n  for (let k = 1; k <= K; k += 1) {\n    const n = k * sigma[k];\n    const c = (cnt.get(n) || 0) + 1;\n    cnt.set(n, c);\n    if (c > maxMult) {\n      maxMult = c;\n      argN = n;\n    }\n  }\n\n  const top = [...cnt.entries()]\n    .sort((a, b) => b[1] - a[1] || a[0] - b[0])\n    .slice(0, 12)\n    .map(([n, c]) => ({ n, multiplicity: c }));\n\n  let maxSmall = 0;\n  for (const [n, c] of cnt.entries()) if (n <= 65536 && c > maxSmall) maxSmall = c;\n\n  out.results.ep1060 = {\n    description: 'Finite multiplicity profile of the map k -> k*sigma(k).',\n    K,\n    max_multiplicity_found: maxMult,\n    first_n_at_max_multiplicity: argN,\n    max_multiplicity_for_n_le_2_pow_16: maxSmall,\n    top_rows: top,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch23_quick_compute.json",
-        "key": "ep1060",
-        "container_meta": {
-          "script": "harder_batch23_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:43:44.789Z"
+  "normalized_utc": "2026-03-14T13:48:01Z",
+  "computations": [
+    {
+      "source_file": "ep1060_standalone_deeper_20260314T134801Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T13:48:03.851Z",
+      "data": {
+        "problem": "EP-1060",
+        "script": "ep1060.mjs",
+        "method": "deep_multiplicity_profile_of_k_times_sigma_k_map",
+        "warning": "Finite K-window only; not asymptotic proof.",
+        "params": {
+          "depth": 12,
+          "K": 2700000
         },
-        "data": {
-          "description": "Finite multiplicity profile of the map k -> k*sigma(k).",
-          "K": 300000,
-          "max_multiplicity_found": 4,
-          "first_n_at_max_multiplicity": 6499584000,
-          "max_multiplicity_for_n_le_2_pow_16": 2,
-          "top_rows": [
-            {
-              "n": 5418319872,
-              "multiplicity": 4
-            },
-            {
-              "n": 6499584000,
-              "multiplicity": 4
-            },
-            {
-              "n": 162549596160,
-              "multiplicity": 4
-            },
-            {
-              "n": 333312,
-              "multiplicity": 3
-            },
-            {
-              "n": 5462016,
-              "multiplicity": 3
-            },
-            {
-              "n": 9999360,
-              "multiplicity": 3
-            },
-            {
-              "n": 43997184,
-              "multiplicity": 3
-            },
-            {
-              "n": 60662784,
-              "multiplicity": 3
-            },
-            {
-              "n": 96755712,
-              "multiplicity": 3
-            },
-            {
-              "n": 97493760,
-              "multiplicity": 3
-            },
-            {
-              "n": 101993472,
-              "multiplicity": 3
-            },
-            {
-              "n": 126658560,
-              "multiplicity": 3
-            }
-          ]
-        }
+        "rows": [
+          {
+            "K": 2700000,
+            "max_multiplicity_found": 5,
+            "first_n_at_max_multiplicity": 1584858562560,
+            "max_multiplicity_for_n_le_2_pow_16": 2,
+            "top_rows": [
+              {
+                "n": 1584858562560,
+                "multiplicity": 5
+              },
+              {
+                "n": 5418319872,
+                "multiplicity": 4
+              },
+              {
+                "n": 6499584000,
+                "multiplicity": 4
+              },
+              {
+                "n": 162549596160,
+                "multiplicity": 4
+              },
+              {
+                "n": 715218223104,
+                "multiplicity": 4
+              },
+              {
+                "n": 857945088000,
+                "multiplicity": 4
+              },
+              {
+                "n": 986134216704,
+                "multiplicity": 4
+              },
+              {
+                "n": 1182924288000,
+                "multiplicity": 4
+              },
+              {
+                "n": 1658005880832,
+                "multiplicity": 4
+              },
+              {
+                "n": 1988872704000,
+                "multiplicity": 4
+              },
+              {
+                "n": 2058961551360,
+                "multiplicity": 4
+              },
+              {
+                "n": 2469841920000,
+                "multiplicity": 4
+              },
+              {
+                "n": 2990912569344,
+                "multiplicity": 4
+              },
+              {
+                "n": 3587770368000,
+                "multiplicity": 4
+              },
+              {
+                "n": 4199197900800,
+                "multiplicity": 4
+              },
+              {
+                "n": 4713938288640,
+                "multiplicity": 4
+              },
+              {
+                "n": 5654638080000,
+                "multiplicity": 4
+              },
+              {
+                "n": 7618157740032,
+                "multiplicity": 4
+              },
+              {
+                "n": 9138415104000,
+                "multiplicity": 4
+              },
+              {
+                "n": 9330346819584,
+                "multiplicity": 4
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 2253,
+        "generated_utc": "2026-03-14T13:48:03.851Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,335 @@
 {
   "problem": "EP-1092",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T15:57:11Z",
+  "computations": [
+    {
+      "source_file": "ep1092_standalone_deeper_20260314T155708Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:57:11.265Z",
+      "data": {
+        "problem": "EP-1092",
+        "script": "ep1092.mjs",
+        "method": "deep_sampling_of_induced_subgraph_edge_bipartization_numbers_on_high_chromatic_mycielski_graphs",
+        "warning": "Finite sampled upper-envelope evidence only; not an exact extremal determination of f_2(m).",
+        "params": {
+          "depth": 4,
+          "mList": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "samplesPerM": 1200
+        },
+        "rows": [
+          {
+            "graph": "mycielski_C5_n11",
+            "n": 11,
+            "edges": 20,
+            "chromatic_lower_bound_exact_up_to_5": 4,
+            "rows": [
+              {
+                "m": 6,
+                "samples": 1200,
+                "best_bipartization_edges_found": 1,
+                "avg_bipartization_edges": 0.2708333333,
+                "best_over_m": 0.1666666667,
+                "best_over_m_logm": 0.0930184378,
+                "best_sample": {
+                  "vertices": [
+                    2,
+                    5,
+                    4,
+                    7,
+                    1,
+                    8
+                  ],
+                  "edges": 6
+                }
+              },
+              {
+                "m": 7,
+                "samples": 1200,
+                "best_bipartization_edges_found": 1,
+                "avg_bipartization_edges": 0.6516666667,
+                "best_over_m": 0.1428571429,
+                "best_over_m_logm": 0.0734140489,
+                "best_sample": {
+                  "vertices": [
+                    2,
+                    6,
+                    4,
+                    1,
+                    7,
+                    10,
+                    9
+                  ],
+                  "edges": 6
+                }
+              },
+              {
+                "m": 8,
+                "samples": 1200,
+                "best_bipartization_edges_found": 2,
+                "avg_bipartization_edges": 1.1941666667,
+                "best_over_m": 0.25,
+                "best_over_m_logm": 0.1202245867,
+                "best_sample": {
+                  "vertices": [
+                    2,
+                    10,
+                    6,
+                    9,
+                    5,
+                    1,
+                    8,
+                    3
+                  ],
+                  "edges": 10
+                }
+              },
+              {
+                "m": 9,
+                "samples": 1200,
+                "best_bipartization_edges_found": 2,
+                "avg_bipartization_edges": 1.8141666667,
+                "best_over_m": 0.2222222222,
+                "best_over_m_logm": 0.1011376918,
+                "best_sample": {
+                  "vertices": [
+                    5,
+                    9,
+                    7,
+                    6,
+                    10,
+                    2,
+                    0,
+                    4,
+                    3
+                  ],
+                  "edges": 13
+                }
+              },
+              {
+                "m": 10,
+                "samples": 1200,
+                "best_bipartization_edges_found": 3,
+                "avg_bipartization_edges": 3,
+                "best_over_m": 0.3,
+                "best_over_m_logm": 0.1302883446,
+                "best_sample": {
+                  "vertices": [
+                    1,
+                    8,
+                    0,
+                    4,
+                    7,
+                    2,
+                    3,
+                    5,
+                    6,
+                    9
+                  ],
+                  "edges": 15
+                }
+              },
+              {
+                "m": 11,
+                "samples": 1200,
+                "best_bipartization_edges_found": 4,
+                "avg_bipartization_edges": 4,
+                "best_over_m": 0.3636363636,
+                "best_over_m_logm": 0.1516481423,
+                "best_sample": {
+                  "vertices": [
+                    5,
+                    1,
+                    9,
+                    0,
+                    10,
+                    3,
+                    7,
+                    4,
+                    2,
+                    8,
+                    6
+                  ],
+                  "edges": 20
+                }
+              }
+            ]
+          },
+          {
+            "graph": "mycielski2_C5_n23",
+            "n": 23,
+            "edges": 71,
+            "chromatic_lower_bound_exact_up_to_5": 5,
+            "rows": [
+              {
+                "m": 6,
+                "samples": 1200,
+                "best_bipartization_edges_found": 1,
+                "avg_bipartization_edges": 0.0916666667,
+                "best_over_m": 0.1666666667,
+                "best_over_m_logm": 0.0930184378,
+                "best_sample": {
+                  "vertices": [
+                    2,
+                    22,
+                    3,
+                    17,
+                    18,
+                    16
+                  ],
+                  "edges": 6
+                }
+              },
+              {
+                "m": 7,
+                "samples": 1200,
+                "best_bipartization_edges_found": 1,
+                "avg_bipartization_edges": 0.1908333333,
+                "best_over_m": 0.1428571429,
+                "best_over_m_logm": 0.0734140489,
+                "best_sample": {
+                  "vertices": [
+                    8,
+                    12,
+                    6,
+                    7,
+                    2,
+                    10,
+                    18
+                  ],
+                  "edges": 8
+                }
+              },
+              {
+                "m": 8,
+                "samples": 1200,
+                "best_bipartization_edges_found": 2,
+                "avg_bipartization_edges": 0.4041666667,
+                "best_over_m": 0.25,
+                "best_over_m_logm": 0.1202245867,
+                "best_sample": {
+                  "vertices": [
+                    6,
+                    13,
+                    22,
+                    14,
+                    1,
+                    11,
+                    2,
+                    19
+                  ],
+                  "edges": 12
+                }
+              },
+              {
+                "m": 9,
+                "samples": 1200,
+                "best_bipartization_edges_found": 2,
+                "avg_bipartization_edges": 0.6916666667,
+                "best_over_m": 0.2222222222,
+                "best_over_m_logm": 0.1011376918,
+                "best_sample": {
+                  "vertices": [
+                    6,
+                    0,
+                    7,
+                    10,
+                    5,
+                    1,
+                    8,
+                    15,
+                    17
+                  ],
+                  "edges": 13
+                }
+              },
+              {
+                "m": 10,
+                "samples": 1200,
+                "best_bipartization_edges_found": 3,
+                "avg_bipartization_edges": 1.02,
+                "best_over_m": 0.3,
+                "best_over_m_logm": 0.1302883446,
+                "best_sample": {
+                  "vertices": [
+                    4,
+                    15,
+                    8,
+                    1,
+                    19,
+                    22,
+                    0,
+                    13,
+                    14,
+                    20
+                  ],
+                  "edges": 15
+                }
+              },
+              {
+                "m": 11,
+                "samples": 1200,
+                "best_bipartization_edges_found": 4,
+                "avg_bipartization_edges": 1.475,
+                "best_over_m": 0.3636363636,
+                "best_over_m_logm": 0.1516481423,
+                "best_sample": {
+                  "vertices": [
+                    9,
+                    5,
+                    11,
+                    1,
+                    3,
+                    18,
+                    21,
+                    22,
+                    7,
+                    0,
+                    15
+                  ],
+                  "edges": 20
+                }
+              },
+              {
+                "m": 12,
+                "samples": 1200,
+                "best_bipartization_edges_found": 4,
+                "avg_bipartization_edges": 1.985,
+                "best_over_m": 0.3333333333,
+                "best_over_m_logm": 0.1341432015,
+                "best_sample": {
+                  "vertices": [
+                    18,
+                    13,
+                    3,
+                    0,
+                    22,
+                    5,
+                    1,
+                    9,
+                    10,
+                    6,
+                    21,
+                    15
+                  ],
+                  "edges": 24
+                }
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 2687,
+        "generated_utc": "2026-03-14T15:57:11.265Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

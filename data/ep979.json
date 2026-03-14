@@ -1,5 +1,44 @@
 {
   "problem": "EP-979",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:00:00Z",
+  "computations": [
+    {
+      "source_file": "ep979_standalone_deeper_20260314T011500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:57:13.925Z",
+      "data": {
+        "problem": "EP-979",
+        "script": "ep979.mjs",
+        "method": "deep_finite_max_multiplicity_scan_for_prime_power_sum_representations",
+        "warning": "Finite profile only; does not prove limsup_{n->infty} f_k(n)=infty for all k.",
+        "rows": [
+          {
+            "k": 2,
+            "N": 20000000,
+            "max_f_k_n": 26,
+            "argmax_n": 9549410,
+            "prime_count": 607
+          },
+          {
+            "k": 3,
+            "N": 200000000,
+            "max_f_k_n": 18,
+            "argmax_n": 8627527,
+            "prime_count": 106
+          },
+          {
+            "k": 4,
+            "N": 500000000,
+            "max_f_k_n": 60,
+            "argmax_n": 141339844,
+            "prime_count": 35
+          }
+        ],
+        "elapsed_ms": 1227,
+        "generated_utc": "2026-03-14T09:57:13.925Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,123 +1,237 @@
 {
   "problem": "EP-1094",
-  "normalized_utc": "2026-03-05T08:54:16.975Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch25_web_compute.md",
-        "content": "### EP-1094\n- Quick literature check:\n  - Open (last edited 24 October 2025); page records a conjectured finite exception list of size `14`.\n- Finite compute signal:\n  - Exact scan through `n<=420` found exactly `14` violations of `lpf(C(n,k)) <= max(n/k,k)` and matches the listed exception pattern in this range.\n- Interpretation:\n  - Finite evidence strongly supports the finite-exception formulation, but cannot prove no new exceptions beyond scanned ranges."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch25_quick_compute.mjs",
-        "heading": "finite exception scan for least prime factor of C(n,k).",
-        "content": "// EP-1094: finite exception scan for least prime factor of C(n,k).\n{\n  const NMAX = 420;\n  const { primes } = sievePrimes(NMAX);\n\n  const exceptions = [];\n  let tested = 0;\n  for (let n = 4; n <= NMAX; n += 1) {\n    for (let k = 2; k <= Math.floor(n / 2); k += 1) {\n      if (n < 2 * k) continue;\n      tested += 1;\n      const lp = leastPrimeFactorBinom(n, k, primes);\n      const bound = Math.max(n / k, k);\n      if (lp > bound + 1e-12) exceptions.push({ n, k, least_prime_factor: lp, bound });\n    }\n  }\n\n  out.results.ep1094 = {\n    description: 'Finite exact scan of least prime factor condition for binomial coefficients.',\n    NMAX,\n    tested_pairs_n_k: tested,\n    exception_count: exceptions.length,\n    exception_sample_first_30: exceptions.slice(0, 30),\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch25_quick_compute.json",
-        "key": "ep1094",
-        "container_meta": {
-          "script": "harder_batch25_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:52:16.569Z"
+  "normalized_utc": "2026-03-14T15:58:27Z",
+  "computations": [
+    {
+      "source_file": "ep1094_standalone_deeper_20260314T155827Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:58:27.399Z",
+      "data": {
+        "problem": "EP-1094",
+        "script": "ep1094.mjs",
+        "method": "deep_exhaustive_p_adic_scan_for_least_prime_factor_of_binomial_coefficients",
+        "warning": "Finite exhaustive verification up to NMAX only.",
+        "params": {
+          "depth": 4,
+          "NMAX": 2600
         },
-        "data": {
-          "description": "Finite exact scan of least prime factor condition for binomial coefficients.",
-          "NMAX": 420,
-          "tested_pairs_n_k": 43681,
-          "exception_count": 14,
-          "exception_sample_first_30": [
-            {
-              "n": 7,
-              "k": 3,
-              "least_prime_factor": 5,
-              "bound": 3
-            },
-            {
-              "n": 13,
-              "k": 4,
-              "least_prime_factor": 5,
-              "bound": 4
-            },
-            {
-              "n": 14,
-              "k": 4,
-              "least_prime_factor": 7,
-              "bound": 4
-            },
-            {
-              "n": 23,
-              "k": 5,
-              "least_prime_factor": 7,
-              "bound": 5
-            },
-            {
-              "n": 44,
-              "k": 8,
-              "least_prime_factor": 11,
-              "bound": 8
-            },
-            {
-              "n": 46,
-              "k": 10,
-              "least_prime_factor": 11,
-              "bound": 10
-            },
-            {
-              "n": 47,
-              "k": 10,
-              "least_prime_factor": 11,
-              "bound": 10
-            },
-            {
-              "n": 47,
-              "k": 11,
-              "least_prime_factor": 13,
-              "bound": 11
-            },
-            {
-              "n": 62,
-              "k": 6,
-              "least_prime_factor": 19,
-              "bound": 10.333333333333334
-            },
-            {
-              "n": 74,
-              "k": 10,
-              "least_prime_factor": 11,
-              "bound": 10
-            },
-            {
-              "n": 94,
-              "k": 10,
-              "least_prime_factor": 11,
-              "bound": 10
-            },
-            {
-              "n": 95,
-              "k": 10,
-              "least_prime_factor": 11,
-              "bound": 10
-            },
-            {
-              "n": 241,
-              "k": 16,
-              "least_prime_factor": 17,
-              "bound": 16
-            },
-            {
-              "n": 284,
-              "k": 28,
-              "least_prime_factor": 29,
-              "bound": 28
-            }
-          ]
-        }
+        "rows": [
+          {
+            "NMAX": 2600,
+            "tested_pairs_n_k": 1687401,
+            "exception_count": 14,
+            "exceptions_first_40": [
+              {
+                "n": 7,
+                "k": 3,
+                "least_prime_factor": 5,
+                "bound": 3
+              },
+              {
+                "n": 13,
+                "k": 4,
+                "least_prime_factor": 5,
+                "bound": 4
+              },
+              {
+                "n": 14,
+                "k": 4,
+                "least_prime_factor": 7,
+                "bound": 4
+              },
+              {
+                "n": 23,
+                "k": 5,
+                "least_prime_factor": 7,
+                "bound": 5
+              },
+              {
+                "n": 44,
+                "k": 8,
+                "least_prime_factor": 11,
+                "bound": 8
+              },
+              {
+                "n": 46,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 47,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 47,
+                "k": 11,
+                "least_prime_factor": 13,
+                "bound": 11
+              },
+              {
+                "n": 62,
+                "k": 6,
+                "least_prime_factor": 19,
+                "bound": 10.333333333333334
+              },
+              {
+                "n": 74,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 94,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 95,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 241,
+                "k": 16,
+                "least_prime_factor": 17,
+                "bound": 16
+              },
+              {
+                "n": 284,
+                "k": 28,
+                "least_prime_factor": 29,
+                "bound": 28
+              }
+            ],
+            "exceptions_last_20": [
+              {
+                "n": 7,
+                "k": 3,
+                "least_prime_factor": 5,
+                "bound": 3
+              },
+              {
+                "n": 13,
+                "k": 4,
+                "least_prime_factor": 5,
+                "bound": 4
+              },
+              {
+                "n": 14,
+                "k": 4,
+                "least_prime_factor": 7,
+                "bound": 4
+              },
+              {
+                "n": 23,
+                "k": 5,
+                "least_prime_factor": 7,
+                "bound": 5
+              },
+              {
+                "n": 44,
+                "k": 8,
+                "least_prime_factor": 11,
+                "bound": 8
+              },
+              {
+                "n": 46,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 47,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 47,
+                "k": 11,
+                "least_prime_factor": 13,
+                "bound": 11
+              },
+              {
+                "n": 62,
+                "k": 6,
+                "least_prime_factor": 19,
+                "bound": 10.333333333333334
+              },
+              {
+                "n": 74,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 94,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 95,
+                "k": 10,
+                "least_prime_factor": 11,
+                "bound": 10
+              },
+              {
+                "n": 241,
+                "k": 16,
+                "least_prime_factor": 17,
+                "bound": 16
+              },
+              {
+                "n": 284,
+                "k": 28,
+                "least_prime_factor": 29,
+                "bound": 28
+              }
+            ],
+            "missing_from_known_14_within_range": [],
+            "new_exceptions_beyond_known_14_within_range": [],
+            "probe_rows": [
+              {
+                "n": 420,
+                "exceptions_up_to_n": 14
+              },
+              {
+                "n": 800,
+                "exceptions_up_to_n": 14
+              },
+              {
+                "n": 1200,
+                "exceptions_up_to_n": 14
+              },
+              {
+                "n": 1600,
+                "exceptions_up_to_n": 14
+              },
+              {
+                "n": 2000,
+                "exceptions_up_to_n": 14
+              },
+              {
+                "n": 2400,
+                "exceptions_up_to_n": 14
+              },
+              {
+                "n": 2600,
+                "exceptions_up_to_n": 14
+              }
+            ],
+            "valuation_prime_checks_proxy": 1818268
+          }
+        ],
+        "elapsed_ms": 141,
+        "generated_utc": "2026-03-14T15:58:27.399Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

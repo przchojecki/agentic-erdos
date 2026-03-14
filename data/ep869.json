@@ -1,5 +1,63 @@
 {
   "problem": "EP-869",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:01:46.013Z",
+  "computations": [
+    {
+      "source_file": "ep869_standalone_deeper_20260313T161400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:01:26.386Z",
+      "data": {
+        "problem": "EP-869",
+        "script": "ep869.mjs",
+        "method": "finite_horizon_disjoint_bases_and_minimal_core_search",
+        "warning": "Finite interval proxy only; not a proof for infinite additive bases.",
+        "params": {
+          "CASES": [
+            [
+              80,
+              70,
+              130,
+              80
+            ],
+            [
+              120,
+              110,
+              210,
+              70
+            ]
+          ]
+        },
+        "rows": [
+          {
+            "N": 80,
+            "L": 70,
+            "U": 130,
+            "trials": 80,
+            "interval_len": 61,
+            "best_A1_coverage_count": 61,
+            "best_A2_coverage_count": 61,
+            "best_union_coverage_count": 61,
+            "finite_minimal_core_instances_found": 6,
+            "max_finite_minimal_core_size_found": 21
+          },
+          {
+            "N": 120,
+            "L": 110,
+            "U": 210,
+            "trials": 70,
+            "interval_len": 101,
+            "best_A1_coverage_count": 101,
+            "best_A2_coverage_count": 101,
+            "best_union_coverage_count": 101,
+            "finite_minimal_core_instances_found": 10,
+            "max_finite_minimal_core_size_found": 23
+          }
+        ],
+        "elapsed_ms": 9,
+        "generated_utc": "2026-03-13T20:01:26.386Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

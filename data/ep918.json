@@ -1,5 +1,108 @@
 {
   "problem": "EP-918",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T22:14:25Z",
+  "computations": [
+    {
+      "source_file": "ep918_standalone_deeper_20260313T220400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T22:13:57.521Z",
+      "data": {
+        "problem": "EP-918",
+        "script": "ep918.mjs",
+        "method": "finite_proxy_random_search_for_global_local_chromatic_separation",
+        "warning": "Finite proxy only; infinite-cardinal statement is set-theoretic and not resolved by finite simulation.",
+        "per_config_results": [
+          {
+            "config": {
+              "name": "proxy_A",
+              "n": 18,
+              "m": 9,
+              "globalK": 4,
+              "localK": 4,
+              "pList": [
+                0.26,
+                0.32
+              ],
+              "trialsPerP": 30,
+              "localSubsetSamples": 0,
+              "exhaustiveLocalCheck": true,
+              "evaluateLocalOnAll": true
+            },
+            "rows": [
+              {
+                "p": 0.26,
+                "trials": 30,
+                "global_not_k_colorable_count": 0,
+                "finite_proxy_success_count": 0,
+                "success_rate_over_trials": 0
+              },
+              {
+                "p": 0.32,
+                "trials": 30,
+                "global_not_k_colorable_count": 1,
+                "finite_proxy_success_count": 0,
+                "success_rate_over_trials": 0
+              }
+            ],
+            "total_successes": 0,
+            "witness_examples": []
+          },
+          {
+            "config": {
+              "name": "proxy_B",
+              "n": 28,
+              "m": 16,
+              "globalK": 5,
+              "localK": 4,
+              "pList": [
+                0.18,
+                0.22,
+                0.26,
+                0.3
+              ],
+              "trialsPerP": 180,
+              "localSubsetSamples": 320,
+              "exhaustiveLocalCheck": false
+            },
+            "rows": [
+              {
+                "p": 0.18,
+                "trials": 180,
+                "global_not_k_colorable_count": 0,
+                "finite_proxy_success_count": 0,
+                "success_rate_over_trials": 0
+              },
+              {
+                "p": 0.22,
+                "trials": 180,
+                "global_not_k_colorable_count": 0,
+                "finite_proxy_success_count": 0,
+                "success_rate_over_trials": 0
+              },
+              {
+                "p": 0.26,
+                "trials": 180,
+                "global_not_k_colorable_count": 0,
+                "finite_proxy_success_count": 0,
+                "success_rate_over_trials": 0
+              },
+              {
+                "p": 0.3,
+                "trials": 180,
+                "global_not_k_colorable_count": 2,
+                "finite_proxy_success_count": 0,
+                "success_rate_over_trials": 0
+              }
+            ],
+            "total_successes": 0,
+            "witness_examples": []
+          }
+        ],
+        "elapsed_ms": 7478,
+        "generated_utc": "2026-03-13T22:13:57.521Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,77 +1,398 @@
 {
   "problem": "EP-969",
-  "normalized_utc": "2026-03-05T08:54:16.971Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch21_web_compute.md",
-        "content": "### EP-969\n- Quick literature check:\n  - Problem remains open; classical upper/lower landscapes are still far from matching the conjectural order.\n- Finite compute signal:\n  - For `x<=2e6`, observed max `|E(x)|` stayed small and the empirical exponent `log(max|E|)/log x` near `0.22..0.23`.\n- Interpretation:\n  - Finite regime is compatible with sub-`x^{1/4+epsilon}` style behavior but far too small to infer true asymptotic order.\n\n## Web sources used\n- Problem pages:\n  - https://www.erdosproblems.com/931\n  - https://www.erdosproblems.com/934\n  - https://www.erdosproblems.com/936\n  - https://www.erdosproblems.com/939\n  - https://www.erdosproblems.com/942\n  - https://www.erdosproblems.com/944\n  - https://www.erdosproblems.com/945\n  - https://www.erdosproblems.com/955\n  - https://www.erdosproblems.com/959\n  - https://www.erdosproblems.com/969\n- Additional primary references surfaced in quick scan:\n  - https://arxiv.org/abs/2505.04283\n  - https://arxiv.org/abs/2502.01105"
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch21_quick_compute.mjs",
-        "heading": "squarefree counting error profile Q(x)-6/pi^2*x.",
-        "content": "// EP-969: squarefree counting error profile Q(x)-6/pi^2*x.\n{\n  const X = 2_000_000;\n\n  const primes = [];\n  const lp = new Int32Array(X + 1);\n  const mu = new Int8Array(X + 1);\n  mu[1] = 1;\n\n  for (let i = 2; i <= X; i += 1) {\n    if (lp[i] === 0) {\n      lp[i] = i;\n      primes.push(i);\n      mu[i] = -1;\n    }\n    for (const p of primes) {\n      const v = i * p;\n      if (v > X) break;\n      lp[v] = p;\n      if (p === lp[i]) {\n        mu[v] = 0;\n        break;\n      }\n      mu[v] = -mu[i];\n    }\n  }\n\n  const c = 6 / (Math.PI * Math.PI);\n  let Q = 0;\n  let maxAbsE = 0;\n\n  const scales = new Set([10_000, 100_000, 500_000, 1_000_000, 2_000_000]);\n  const rows = [];\n\n  for (let x = 1; x <= X; x += 1) {\n    if (mu[x] !== 0) Q += 1;\n    const E = Q - c * x;\n    const aE = Math.abs(E);\n    if (aE > maxAbsE) maxAbsE = aE;\n\n    if (scales.has(x)) {\n      rows.push({\n        x,\n        Q_x: Q,\n        E_x: Number(E.toPrecision(8)),\n        abs_E_x: Number(aE.toPrecision(8)),\n        max_abs_E_up_to_x: Number(maxAbsE.toPrecision(8)),\n        log_max_abs_E_over_log_x: Number((Math.log(maxAbsE) / Math.log(x)).toPrecision(7)),\n      });\n    }\n  }\n\n  out.results.ep969 = {\n    description: 'Finite error-term profile for squarefree counting function Q(x).',\n    X,\n    rows,\n  };\n}\n\nconst outPath = path.join('data', 'harder_batch21_quick_compute.json');\nfs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\\n');\nconsole.log(JSON.stringify({ outPath }, null, 2));"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch21_quick_compute.json",
-        "key": "ep969",
-        "container_meta": {
-          "script": "harder_batch21_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:09:50.566Z"
-        },
-        "data": {
-          "description": "Finite error-term profile for squarefree counting function Q(x).",
-          "X": 2000000,
-          "rows": [
-            {
-              "x": 10000,
-              "Q_x": 6083,
-              "E_x": 3.7289815,
-              "abs_E_x": 3.7289815,
-              "max_abs_E_up_to_x": 7.5377247,
-              "log_max_abs_E_over_log_x": 0.2193101
-            },
-            {
-              "x": 100000,
-              "Q_x": 60794,
-              "E_x": 1.2898146,
-              "abs_E_x": 1.2898146,
-              "max_abs_E_up_to_x": 14.480339,
-              "log_max_abs_E_over_log_x": 0.2321557
-            },
-            {
-              "x": 500000,
-              "Q_x": 303958,
-              "E_x": -5.550927,
-              "abs_E_x": 5.550927,
-              "max_abs_E_up_to_x": 21.675633,
-              "log_max_abs_E_over_log_x": 0.2344234
-            },
-            {
-              "x": 1000000,
-              "Q_x": 607926,
-              "E_x": -1.101854,
-              "abs_E_x": 1.101854,
-              "max_abs_E_up_to_x": 21.675633,
-              "log_max_abs_E_over_log_x": 0.222662
-            },
-            {
-              "x": 2000000,
-              "Q_x": 1215877,
-              "E_x": 22.796292,
-              "abs_E_x": 22.796292,
-              "max_abs_E_up_to_x": 26.505741,
-              "log_max_abs_E_over_log_x": 0.22589
-            }
+  "normalized_utc": "2026-03-14T09:36:07Z",
+  "computations": [
+    {
+      "source_file": "ep969_standalone_deeper_20260314T003500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:35:39.894Z",
+      "data": {
+        "problem": "EP-969",
+        "script": "ep969.mjs",
+        "method": "deep_squarefree_error_scan_with_linear_mobius_sieve",
+        "warning": "Finite-range data only; asymptotic order remains open.",
+        "params": {
+          "X": 30000000,
+          "scales": [
+            1000000,
+            2000000,
+            5000000,
+            10000000,
+            20000000,
+            30000000
           ]
-        }
+        },
+        "rows": [
+          {
+            "x": 1000000,
+            "Q_x": 607926,
+            "E_x": -1.10185403,
+            "abs_E_x": 1.10185403,
+            "max_abs_E_up_to_x": 21.67563252,
+            "argmax_up_to_x": 351115,
+            "log_max_abs_E_over_log_x": 0.22266196,
+            "max_abs_over_x_quarter": 0.68544368
+          },
+          {
+            "x": 2000000,
+            "Q_x": 1215877,
+            "E_x": 22.79629195,
+            "abs_E_x": 22.79629195,
+            "max_abs_E_up_to_x": 26.50574095,
+            "argmax_up_to_x": 1618611,
+            "log_max_abs_E_over_log_x": 0.22589004,
+            "max_abs_over_x_quarter": 0.70482687
+          },
+          {
+            "x": 5000000,
+            "Q_x": 3039633,
+            "E_x": -2.50927013,
+            "abs_E_x": 2.50927013,
+            "max_abs_E_up_to_x": 38.84256459,
+            "argmax_up_to_x": 4026914,
+            "log_max_abs_E_over_log_x": 0.23724661,
+            "max_abs_over_x_quarter": 0.82142023
+          },
+          {
+            "x": 10000000,
+            "Q_x": 6079291,
+            "E_x": 19.98145973,
+            "abs_E_x": 19.98145973,
+            "max_abs_E_up_to_x": 38.84256459,
+            "argmax_up_to_x": 4026914,
+            "log_max_abs_E_over_log_x": 0.22704399,
+            "max_abs_over_x_quarter": 0.69072933
+          },
+          {
+            "x": 20000000,
+            "Q_x": 12158575,
+            "E_x": 32.96291947,
+            "abs_E_x": 32.96291947,
+            "max_abs_E_up_to_x": 55.23708611,
+            "argmax_up_to_x": 17199380,
+            "log_max_abs_E_over_log_x": 0.23862808,
+            "max_abs_over_x_quarter": 0.82598709
+          },
+          {
+            "x": 30000000,
+            "Q_x": 18237829,
+            "E_x": 15.9443792,
+            "abs_E_x": 15.9443792,
+            "max_abs_E_up_to_x": 55.23708611,
+            "argmax_up_to_x": 17199380,
+            "log_max_abs_E_over_log_x": 0.23300823,
+            "max_abs_over_x_quarter": 0.74636359
+          }
+        ],
+        "first_peak_updates": [
+          {
+            "x": 1,
+            "E_x": 0.3920729,
+            "abs_E_x": 0.3920729
+          },
+          {
+            "x": 2,
+            "E_x": 0.7841458,
+            "abs_E_x": 0.7841458
+          },
+          {
+            "x": 3,
+            "E_x": 1.17621869,
+            "abs_E_x": 1.17621869
+          },
+          {
+            "x": 6,
+            "E_x": 1.35243739,
+            "abs_E_x": 1.35243739
+          },
+          {
+            "x": 7,
+            "E_x": 1.74451029,
+            "abs_E_x": 1.74451029
+          },
+          {
+            "x": 15,
+            "E_x": 1.88109347,
+            "abs_E_x": 1.88109347
+          },
+          {
+            "x": 23,
+            "E_x": 2.01767666,
+            "abs_E_x": 2.01767666
+          },
+          {
+            "x": 39,
+            "E_x": 2.29084303,
+            "abs_E_x": 2.29084303
+          },
+          {
+            "x": 42,
+            "E_x": 2.46706172,
+            "abs_E_x": 2.46706172
+          },
+          {
+            "x": 43,
+            "E_x": 2.85913462,
+            "abs_E_x": 2.85913462
+          },
+          {
+            "x": 115,
+            "E_x": 3.08838329,
+            "abs_E_x": 3.08838329
+          },
+          {
+            "x": 223,
+            "E_x": 3.43225629,
+            "abs_E_x": 3.43225629
+          },
+          {
+            "x": 231,
+            "E_x": 3.56883947,
+            "abs_E_x": 3.56883947
+          },
+          {
+            "x": 239,
+            "E_x": 3.70542266,
+            "abs_E_x": 3.70542266
+          },
+          {
+            "x": 474,
+            "E_x": 3.84255372,
+            "abs_E_x": 3.84255372
+          },
+          {
+            "x": 719,
+            "E_x": 3.90041377,
+            "abs_E_x": 3.90041377
+          },
+          {
+            "x": 1367,
+            "E_x": 3.96365177,
+            "abs_E_x": 3.96365177
+          },
+          {
+            "x": 1403,
+            "E_x": 4.0782761,
+            "abs_E_x": 4.0782761
+          },
+          {
+            "x": 1406,
+            "E_x": 4.25449479,
+            "abs_E_x": 4.25449479
+          },
+          {
+            "x": 1407,
+            "E_x": 4.64656769,
+            "abs_E_x": 4.64656769
+          },
+          {
+            "x": 1410,
+            "E_x": 4.82278639,
+            "abs_E_x": 4.82278639
+          },
+          {
+            "x": 1411,
+            "E_x": 5.21485928,
+            "abs_E_x": 5.21485928
+          },
+          {
+            "x": 1419,
+            "E_x": 5.35144247,
+            "abs_E_x": 5.35144247
+          },
+          {
+            "x": 1646,
+            "E_x": 5.35199035,
+            "abs_E_x": 5.35199035
+          },
+          {
+            "x": 1659,
+            "E_x": 5.44893802,
+            "abs_E_x": 5.44893802
+          },
+          {
+            "x": 1662,
+            "E_x": 5.62515672,
+            "abs_E_x": 5.62515672
+          },
+          {
+            "x": 1663,
+            "E_x": 6.01722962,
+            "abs_E_x": 6.01722962
+          },
+          {
+            "x": 3423,
+            "E_x": 6.06553035,
+            "abs_E_x": 6.06553035
+          },
+          {
+            "x": 8810,
+            "E_x": 6.16223267,
+            "abs_E_x": 6.16223267
+          },
+          {
+            "x": 8818,
+            "E_x": 6.29881585,
+            "abs_E_x": 6.29881585
+          },
+          {
+            "x": 8819,
+            "E_x": 6.69088875,
+            "abs_E_x": 6.69088875
+          },
+          {
+            "x": 8822,
+            "E_x": 6.86710744,
+            "abs_E_x": 6.86710744
+          },
+          {
+            "x": 8823,
+            "E_x": 7.25918034,
+            "abs_E_x": 7.25918034
+          },
+          {
+            "x": 8915,
+            "E_x": 7.32988697,
+            "abs_E_x": 7.32988697
+          },
+          {
+            "x": 9239,
+            "E_x": 7.36150597,
+            "abs_E_x": 7.36150597
+          },
+          {
+            "x": 9242,
+            "E_x": 7.53772467,
+            "abs_E_x": 7.53772467
+          },
+          {
+            "x": 18399,
+            "E_x": 7.74925299,
+            "abs_E_x": 7.74925299
+          },
+          {
+            "x": 18402,
+            "E_x": 7.92547168,
+            "abs_E_x": 7.92547168
+          },
+          {
+            "x": 18403,
+            "E_x": 8.31754458,
+            "abs_E_x": 8.31754458
+          },
+          {
+            "x": 18467,
+            "E_x": 8.41021006,
+            "abs_E_x": 8.41021006
+          },
+          {
+            "x": 18470,
+            "E_x": 8.58642876,
+            "abs_E_x": 8.58642876
+          },
+          {
+            "x": 18471,
+            "E_x": 8.97850165,
+            "abs_E_x": 8.97850165
+          },
+          {
+            "x": 38872,
+            "E_x": -9.34230327,
+            "abs_E_x": 9.34230327
+          },
+          {
+            "x": 38876,
+            "E_x": -9.77401168,
+            "abs_E_x": 9.77401168
+          },
+          {
+            "x": 39740,
+            "E_x": -10.02302768,
+            "abs_E_x": 10.02302768
+          },
+          {
+            "x": 46767,
+            "E_x": 10.07322759,
+            "abs_E_x": 10.07322759
+          },
+          {
+            "x": 46770,
+            "E_x": 10.24944629,
+            "abs_E_x": 10.24944629
+          },
+          {
+            "x": 46771,
+            "E_x": 10.64151919,
+            "abs_E_x": 10.64151919
+          },
+          {
+            "x": 46807,
+            "E_x": 10.75614352,
+            "abs_E_x": 10.75614352
+          },
+          {
+            "x": 46843,
+            "E_x": 10.87076785,
+            "abs_E_x": 10.87076785
+          },
+          {
+            "x": 46874,
+            "E_x": 11.02502769,
+            "abs_E_x": 11.02502769
+          },
+          {
+            "x": 46887,
+            "E_x": 11.12197537,
+            "abs_E_x": 11.12197537
+          },
+          {
+            "x": 46910,
+            "E_x": 11.13965203,
+            "abs_E_x": 11.13965203
+          },
+          {
+            "x": 46911,
+            "E_x": 11.53172493,
+            "abs_E_x": 11.53172493
+          },
+          {
+            "x": 46914,
+            "E_x": 11.70794362,
+            "abs_E_x": 11.70794362
+          },
+          {
+            "x": 46915,
+            "E_x": 12.10001652,
+            "abs_E_x": 12.10001652
+          },
+          {
+            "x": 46923,
+            "E_x": 12.2365997,
+            "abs_E_x": 12.2365997
+          },
+          {
+            "x": 47270,
+            "E_x": 12.28589536,
+            "abs_E_x": 12.28589536
+          },
+          {
+            "x": 47271,
+            "E_x": 12.67796826,
+            "abs_E_x": 12.67796826
+          },
+          {
+            "x": 47274,
+            "E_x": 12.85418695,
+            "abs_E_x": 12.85418695
+          }
+        ],
+        "final_max_abs_error": 55.23708611,
+        "final_argmax": 17199380,
+        "elapsed_ms": 529,
+        "generated_utc": "2026-03-14T09:35:39.894Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,54 +1,145 @@
 {
   "problem": "EP-1105",
-  "normalized_utc": "2026-03-05T08:54:16.975Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch25_web_compute.md",
-        "content": "### EP-1105\n- Quick literature check:\n  - Page is now marked **PROVED** (last edited 29 January 2026), citing exact cycle and path anti-Ramsey formula progress.\n- Finite compute signal:\n  - Exact small-`n` brute force for `C_3` recovers `AR(n,C_3)=n-1` for `n=4,5,6`.\n- Interpretation:\n  - Treat as resolved on the list; finite computation is a consistency check only."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch25_quick_compute.mjs",
-        "heading": "exact small-n anti-Ramsey for triangles (C3 case) via backtracking.",
-        "content": "// EP-1105: exact small-n anti-Ramsey for triangles (C3 case) via backtracking.\n{\n  function maxColorsNoRainbowTriangle(n) {\n    const edges = [];\n    for (let i = 0; i < n; i += 1) {\n      for (let j = i + 1; j < n; j += 1) edges.push([i, j]);\n    }\n    const m = edges.length;\n    const color = new Int16Array(m);\n    color.fill(-1);\n\n    // Triangles as edge-index triples.\n    const edgeId = new Map();\n    edges.forEach(([u, v], idx) => edgeId.set(`${u},${v}`, idx));\n    const trianglesByEdge = Array.from({ length: m }, () => []);\n    for (let a = 0; a < n; a += 1) {\n      for (let b = a + 1; b < n; b += 1) {\n        for (let c = b + 1; c < n; c += 1) {\n          const e1 = edgeId.get(`${a},${b}`);\n          const e2 = edgeId.get(`${a},${c}`);\n          const e3 = edgeId.get(`${b},${c}`);\n          trianglesByEdge[e1].push([e1, e2, e3]);\n          trianglesByEdge[e2].push([e1, e2, e3]);\n          trianglesByEdge[e3].push([e1, e2, e3]);\n        }\n      }\n    }\n\n    let best = 0;\n    function dfs(pos, usedColors) {\n      if (pos === m) {\n        if (usedColors > best) best = usedColors;\n        return;\n      }\n      if (usedColors + (m - pos) <= best) return;\n\n      const maxTry = usedColors;\n      for (let c = 0; c <= maxTry; c += 1) {\n        color[pos] = c;\n        let ok = true;\n        for (const tri of trianglesByEdge[pos]) {\n          const [e1, e2, e3] = tri;\n          const c1 = color[e1];\n          const c2 = color[e2];\n          const c3 = color[e3];\n          if (c1 === -1 || c2 === -1 || c3 === -1) continue;\n          if (c1 !== c2 && c1 !== c3 && c2 !== c3) {\n            ok = false;\n            break;\n          }\n        }\n        if (ok) dfs(pos + 1, Math.max(usedColors, c + 1));\n        color[pos] = -1;\n      }\n    }\n\n    dfs(0, 0);\n    return best;\n  }\n\n  const rows = [];\n  for (const n of [4, 5, 6]) {\n    const ar = maxColorsNoRainbowTriangle(n);\n    rows.push({\n      n,\n      exact_ar_n_C3: ar,\n      n_minus_1: n - 1,\n      matches_n_minus_1: ar === n - 1,\n    });\n  }\n\n  out.results.ep1105 = {\n    description: 'Exact small-n anti-Ramsey computation for C3 (rainbow-triangle avoidance).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch25_quick_compute.json",
-        "key": "ep1105",
-        "container_meta": {
-          "script": "harder_batch25_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:52:16.569Z"
+  "normalized_utc": "2026-03-14T16:30:09Z",
+  "computations": [
+    {
+      "source_file": "ep1105_standalone_deeper_20260314T162707Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T16:30:09.284Z",
+      "data": {
+        "problem": "EP-1105",
+        "script": "ep1105.mjs",
+        "method": "deep_bounded_backtracking_for_small_n_anti_ramsey_values_for_cycles_and_paths",
+        "warning": "Exact only where timeout not hit; otherwise reported value is a certified lower bound.",
+        "params": {
+          "depth": 4,
+          "timeoutMs": 45000,
+          "instance_count": 9
         },
-        "data": {
-          "description": "Exact small-n anti-Ramsey computation for C3 (rainbow-triangle avoidance).",
-          "rows": [
-            {
-              "n": 4,
-              "exact_ar_n_C3": 3,
-              "n_minus_1": 3,
-              "matches_n_minus_1": true
-            },
-            {
-              "n": 5,
-              "exact_ar_n_C3": 4,
-              "n_minus_1": 4,
-              "matches_n_minus_1": true
-            },
-            {
-              "n": 6,
-              "exact_ar_n_C3": 5,
-              "n_minus_1": 5,
-              "matches_n_minus_1": true
-            }
-          ]
-        }
+        "rows": [
+          {
+            "graph": "C3",
+            "n": 4,
+            "timeout_ms": 45000,
+            "bestLowerBound": 3,
+            "exact": true,
+            "timedOut": false,
+            "nodes": 66,
+            "elapsedMs": 0,
+            "edgeCount": 6,
+            "forbiddenCount": 4,
+            "exact_or_lower_bound_AR": 3
+          },
+          {
+            "graph": "C3",
+            "n": 5,
+            "timeout_ms": 45000,
+            "bestLowerBound": 4,
+            "exact": true,
+            "timedOut": false,
+            "nodes": 1292,
+            "elapsedMs": 2,
+            "edgeCount": 10,
+            "forbiddenCount": 10,
+            "exact_or_lower_bound_AR": 4
+          },
+          {
+            "graph": "C3",
+            "n": 6,
+            "timeout_ms": 45000,
+            "bestLowerBound": 5,
+            "exact": true,
+            "timedOut": false,
+            "nodes": 48166,
+            "elapsedMs": 16,
+            "edgeCount": 15,
+            "forbiddenCount": 20,
+            "exact_or_lower_bound_AR": 5
+          },
+          {
+            "graph": "C3",
+            "n": 7,
+            "timeout_ms": 45000,
+            "bestLowerBound": 6,
+            "exact": true,
+            "timedOut": false,
+            "nodes": 2750999,
+            "elapsedMs": 1179,
+            "edgeCount": 21,
+            "forbiddenCount": 35,
+            "exact_or_lower_bound_AR": 6
+          },
+          {
+            "graph": "P5",
+            "n": 6,
+            "timeout_ms": 45000,
+            "bestLowerBound": 6,
+            "exact": true,
+            "timedOut": false,
+            "nodes": 136955,
+            "elapsedMs": 621,
+            "edgeCount": 15,
+            "forbiddenCount": 360,
+            "exact_or_lower_bound_AR": 6
+          },
+          {
+            "graph": "P5",
+            "n": 7,
+            "timeout_ms": 45000,
+            "bestLowerBound": 7,
+            "exact": false,
+            "timedOut": true,
+            "nodes": 3222254,
+            "elapsedMs": 45001,
+            "edgeCount": 21,
+            "forbiddenCount": 1260,
+            "exact_or_lower_bound_AR": 7
+          },
+          {
+            "graph": "P5",
+            "n": 8,
+            "timeout_ms": 45000,
+            "bestLowerBound": 7,
+            "exact": false,
+            "timedOut": true,
+            "nodes": 1600443,
+            "elapsedMs": 45001,
+            "edgeCount": 28,
+            "forbiddenCount": 3360,
+            "exact_or_lower_bound_AR": 7
+          },
+          {
+            "graph": "C4",
+            "n": 7,
+            "timeout_ms": 45000,
+            "bestLowerBound": 8,
+            "exact": false,
+            "timedOut": true,
+            "nodes": 39603604,
+            "elapsedMs": 45001,
+            "edgeCount": 21,
+            "forbiddenCount": 105,
+            "exact_or_lower_bound_AR": 8
+          },
+          {
+            "graph": "C4",
+            "n": 8,
+            "timeout_ms": 45000,
+            "bestLowerBound": 8,
+            "exact": false,
+            "timedOut": true,
+            "nodes": 19800785,
+            "elapsedMs": 45001,
+            "edgeCount": 28,
+            "forbiddenCount": 210,
+            "exact_or_lower_bound_AR": 8
+          }
+        ],
+        "elapsed_ms": 181829,
+        "generated_utc": "2026-03-14T16:30:09.284Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

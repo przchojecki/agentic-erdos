@@ -1,5 +1,154 @@
 {
   "problem": "EP-992",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:07:49Z",
+  "computations": [
+    {
+      "source_file": "ep992_standalone_deeper_20260314T100748Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:07:49.723Z",
+      "data": {
+        "problem": "EP-992",
+        "script": "ep992.mjs",
+        "method": "deep_metrical_discrepancy_sampling_over_alpha_for_multiple_integer_sequences",
+        "warning": "Finite Monte Carlo metrical proxy only; not an almost-everywhere theorem.",
+        "params": {
+          "Nlist": [
+            1000,
+            2000,
+            4000,
+            6000
+          ],
+          "alphaSamples": 120,
+          "sequences": [
+            "linear",
+            "squares",
+            "lacunary_1p05",
+            "primes"
+          ]
+        },
+        "rows": [
+          {
+            "sequence": "linear",
+            "profile": [
+              {
+                "N": 1000,
+                "median_D_over_sqrtN": 0.1230386,
+                "q90_D_over_sqrtN": 0.31319432,
+                "max_D_over_sqrtN": 1.0185497
+              },
+              {
+                "N": 2000,
+                "median_D_over_sqrtN": 0.09963571,
+                "q90_D_over_sqrtN": 0.2173302,
+                "max_D_over_sqrtN": 1.29005854
+              },
+              {
+                "N": 4000,
+                "median_D_over_sqrtN": 0.07457588,
+                "q90_D_over_sqrtN": 0.1976364,
+                "max_D_over_sqrtN": 1.76956304
+              },
+              {
+                "N": 6000,
+                "median_D_over_sqrtN": 0.06457492,
+                "q90_D_over_sqrtN": 0.19078309,
+                "max_D_over_sqrtN": 2.09449062
+              }
+            ]
+          },
+          {
+            "sequence": "squares",
+            "profile": [
+              {
+                "N": 1000,
+                "median_D_over_sqrtN": 0.84743397,
+                "q90_D_over_sqrtN": 1.14301887,
+                "max_D_over_sqrtN": 3.30570283
+              },
+              {
+                "N": 2000,
+                "median_D_over_sqrtN": 0.80250223,
+                "q90_D_over_sqrtN": 1.20612289,
+                "max_D_over_sqrtN": 2.00563338
+              },
+              {
+                "N": 4000,
+                "median_D_over_sqrtN": 0.86355938,
+                "q90_D_over_sqrtN": 1.25907609,
+                "max_D_over_sqrtN": 1.84080295
+              },
+              {
+                "N": 6000,
+                "median_D_over_sqrtN": 0.82986069,
+                "q90_D_over_sqrtN": 1.24552003,
+                "max_D_over_sqrtN": 1.95975316
+              }
+            ]
+          },
+          {
+            "sequence": "lacunary_1p05",
+            "profile": [
+              {
+                "N": 1000,
+                "median_D_over_sqrtN": 9.87762045,
+                "q90_D_over_sqrtN": 10.39036304,
+                "max_D_over_sqrtN": 10.65886457
+              },
+              {
+                "N": 2000,
+                "median_D_over_sqrtN": 29.33721186,
+                "q90_D_over_sqrtN": 29.68579499,
+                "max_D_over_sqrtN": 29.87386818
+              },
+              {
+                "N": 4000,
+                "median_D_over_sqrtN": 52.36731805,
+                "q90_D_over_sqrtN": 52.60448888,
+                "max_D_over_sqrtN": 52.74679137
+              },
+              {
+                "N": 6000,
+                "median_D_over_sqrtN": 68.57762512,
+                "q90_D_over_sqrtN": 68.77127428,
+                "max_D_over_sqrtN": 68.88746378
+              }
+            ]
+          },
+          {
+            "sequence": "primes",
+            "profile": [
+              {
+                "N": 1000,
+                "median_D_over_sqrtN": 0.58152228,
+                "q90_D_over_sqrtN": 0.99042234,
+                "max_D_over_sqrtN": 1.79326244
+              },
+              {
+                "N": 2000,
+                "median_D_over_sqrtN": 0.56627512,
+                "q90_D_over_sqrtN": 0.85972205,
+                "max_D_over_sqrtN": 2.2472233
+              },
+              {
+                "N": 4000,
+                "median_D_over_sqrtN": 0.61705227,
+                "q90_D_over_sqrtN": 0.83932315,
+                "max_D_over_sqrtN": 3.272922
+              },
+              {
+                "N": 6000,
+                "median_D_over_sqrtN": 0.55744691,
+                "q90_D_over_sqrtN": 0.86491599,
+                "max_D_over_sqrtN": 4.2021436
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 1135,
+        "generated_utc": "2026-03-14T10:07:49.723Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

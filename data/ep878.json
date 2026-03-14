@@ -1,5 +1,67 @@
 {
   "problem": "EP-878",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:06:43.415Z",
+  "computations": [
+    {
+      "source_file": "ep878_standalone_deeper_20260313T162500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:05:43.167Z",
+      "data": {
+        "problem": "EP-878",
+        "script": "ep878.mjs",
+        "method": "finite_formula_core_scan_for_f_and_exact_small_F_proxy",
+        "warning": "Original statement is malformed in dataset; this uses inferred formula core only.",
+        "params": {
+          "X_LIST": [
+            2000,
+            5000,
+            10000,
+            20000
+          ]
+        },
+        "rows": [
+          {
+            "X": 2000,
+            "sampled_n_count": 1999,
+            "max_f_n": 4204,
+            "argmax_f_n": 1892,
+            "max_Fproxy_n": 4406,
+            "argmax_Fproxy_n": 1722,
+            "avg_ratio_Fproxy_over_f": 1.2827525
+          },
+          {
+            "X": 5000,
+            "sampled_n_count": 4999,
+            "max_f_n": 14111,
+            "argmax_f_n": 4690,
+            "max_Fproxy_n": 14383,
+            "argmax_Fproxy_n": 4830,
+            "avg_ratio_Fproxy_over_f": 1.3168597
+          },
+          {
+            "X": 10000,
+            "sampled_n_count": 9999,
+            "max_f_n": 29650,
+            "argmax_f_n": 9690,
+            "max_Fproxy_n": 29650,
+            "argmax_Fproxy_n": 9690,
+            "avg_ratio_Fproxy_over_f": 1.377121
+          },
+          {
+            "X": 20000,
+            "sampled_n_count": 19999,
+            "max_f_n": 75624,
+            "argmax_f_n": 17710,
+            "max_Fproxy_n": 75624,
+            "argmax_Fproxy_n": 17710,
+            "avg_ratio_Fproxy_over_f": 1.483544
+          }
+        ],
+        "elapsed_ms": 24,
+        "generated_utc": "2026-03-13T20:05:43.167Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

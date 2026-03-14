@@ -1,67 +1,70 @@
 {
   "problem": "EP-1016",
-  "normalized_utc": "2026-03-05T08:54:16.972Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch22_web_compute.md",
-        "content": "### EP-1016\n- Quick literature check:\n  - Open; benchmark remains around Bondy/Erdos logarithmic-band bounds for pancyclic excess edges.\n- Finite compute signal:\n  - Random search for `n<=12` found pancyclic witnesses with `h` between `2` and `4`.\n- Interpretation:\n  - Small-`n` behavior is compatible with logarithmic-scale growth, but finite random witnesses give only upper-bound evidence."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch22_quick_compute.mjs",
-        "heading": "finite random search for pancyclic graphs with n+h edges.",
-        "content": "// EP-1016: finite random search for pancyclic graphs with n+h edges.\n{\n  const rng = makeRng(20260304 ^ 1016);\n  const rows = [];\n  for (const n of [8, 9, 10, 11, 12]) {\n    let bestH = null;\n    let witnessM = null;\n    for (let h = 0; h <= 12; h += 1) {\n      const m = n + h;\n      let found = false;\n      for (let t = 0; t < 220; t += 1) {\n        const G = randomGraphWithMEdges(n, m, rng);\n        const cyc = cycleLengthsPresent(G.adj);\n        let ok = true;\n        for (let k = 3; k <= n; k += 1) {\n          if (!cyc[k]) {\n            ok = false;\n            break;\n          }\n        }\n        if (ok) {\n          found = true;\n          break;\n        }\n      }\n      if (found) {\n        bestH = h;\n        witnessM = m;\n        break;\n      }\n    }\n\n    rows.push({\n      n,\n      minimal_h_found_in_random_search: bestH,\n      witness_edge_count_n_plus_h: witnessM,\n      log2_n: Number(Math.log2(n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1016 = {\n    description: 'Finite random search profile for small-n pancyclicity threshold n+h.',\n    rows,\n    caveat: 'Random search provides upper-bound witnesses only; non-detection is not a lower-bound proof.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch22_quick_compute.json",
-        "key": "ep1016",
-        "container_meta": {
-          "script": "harder_batch22_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:34:53.027Z"
+  "normalized_utc": "2026-03-14T10:16:10Z",
+  "computations": [
+    {
+      "source_file": "ep1016_standalone_deeper_20260314T101610Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:16:10.293Z",
+      "data": {
+        "problem": "EP-1016",
+        "script": "ep1016.mjs",
+        "method": "deep_random_pancyclic_witness_search_with_exact_cycle_length_checks",
+        "warning": "Random search gives upper-bound witnesses only; non-detection is inconclusive.",
+        "params": {
+          "depth": 2,
+          "max_h_tested": 14,
+          "trials_per_h_base": 320
         },
-        "data": {
-          "description": "Finite random search profile for small-n pancyclicity threshold n+h.",
-          "rows": [
-            {
-              "n": 8,
-              "minimal_h_found_in_random_search": 2,
-              "witness_edge_count_n_plus_h": 10,
-              "log2_n": 3
-            },
-            {
-              "n": 9,
-              "minimal_h_found_in_random_search": 3,
-              "witness_edge_count_n_plus_h": 12,
-              "log2_n": 3.169925
-            },
-            {
-              "n": 10,
-              "minimal_h_found_in_random_search": 3,
-              "witness_edge_count_n_plus_h": 13,
-              "log2_n": 3.321928
-            },
-            {
-              "n": 11,
-              "minimal_h_found_in_random_search": 4,
-              "witness_edge_count_n_plus_h": 15,
-              "log2_n": 3.459432
-            },
-            {
-              "n": 12,
-              "minimal_h_found_in_random_search": 3,
-              "witness_edge_count_n_plus_h": 15,
-              "log2_n": 3.584963
-            }
-          ],
-          "caveat": "Random search provides upper-bound witnesses only; non-detection is not a lower-bound proof."
-        }
+        "rows": [
+          {
+            "n": 8,
+            "minimal_h_found_in_random_search": 2,
+            "witness_edge_count_n_plus_h": 10,
+            "baseline_log2_n": 3
+          },
+          {
+            "n": 9,
+            "minimal_h_found_in_random_search": 3,
+            "witness_edge_count_n_plus_h": 12,
+            "baseline_log2_n": 3.169925
+          },
+          {
+            "n": 10,
+            "minimal_h_found_in_random_search": 3,
+            "witness_edge_count_n_plus_h": 13,
+            "baseline_log2_n": 3.32192809
+          },
+          {
+            "n": 11,
+            "minimal_h_found_in_random_search": 4,
+            "witness_edge_count_n_plus_h": 15,
+            "baseline_log2_n": 3.45943162
+          },
+          {
+            "n": 12,
+            "minimal_h_found_in_random_search": 4,
+            "witness_edge_count_n_plus_h": 16,
+            "baseline_log2_n": 3.5849625
+          },
+          {
+            "n": 13,
+            "minimal_h_found_in_random_search": 5,
+            "witness_edge_count_n_plus_h": 18,
+            "baseline_log2_n": 3.70043972
+          },
+          {
+            "n": 14,
+            "minimal_h_found_in_random_search": 6,
+            "witness_edge_count_n_plus_h": 20,
+            "baseline_log2_n": 3.80735492
+          }
+        ],
+        "elapsed_ms": 184,
+        "generated_utc": "2026-03-14T10:16:10.293Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

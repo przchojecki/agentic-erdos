@@ -1,5 +1,59 @@
 {
   "problem": "EP-881",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:08:37.348Z",
+  "computations": [
+    {
+      "source_file": "ep881_standalone_deeper_20260313T163200Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:08:12.823Z",
+      "data": {
+        "problem": "EP-881",
+        "script": "ep881.mjs",
+        "method": "finite_k2_to_k3_minimal_basis_transition_probe",
+        "warning": "Finite horizon proxy only; does not resolve the infinite-set statement.",
+        "params": {
+          "CASES": [
+            [
+              36,
+              20,
+              60,
+              120
+            ],
+            [
+              48,
+              30,
+              90,
+              100
+            ]
+          ]
+        },
+        "rows": [
+          {
+            "N": 36,
+            "L": 20,
+            "U": 60,
+            "trials": 120,
+            "finite_minimal_2basis_instances": 9,
+            "instances_with_small_removal_to_3basis": 6,
+            "best_minimal_2basis_size_found": 14,
+            "smallest_removal_size_found_for_3basis": 1
+          },
+          {
+            "N": 48,
+            "L": 30,
+            "U": 90,
+            "trials": 100,
+            "finite_minimal_2basis_instances": 3,
+            "instances_with_small_removal_to_3basis": 3,
+            "best_minimal_2basis_size_found": 17,
+            "smallest_removal_size_found_for_3basis": 1
+          }
+        ],
+        "elapsed_ms": 5,
+        "generated_utc": "2026-03-13T20:08:12.823Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

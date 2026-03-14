@@ -1,0 +1,96 @@
+{
+  "problem": "EP-489",
+  "script": "ep489.mjs",
+  "method": "squarefree_gap_second_moment_profile_for_model_A_eq_{p^2}",
+  "params": {
+    "X": 30000000,
+    "checkpoints": [
+      200000,
+      500000,
+      1000000,
+      2000000,
+      5000000,
+      10000000,
+      20000000,
+      30000000
+    ],
+    "reference_density_6_over_pi2": 0.6079271018540267,
+    "reference_mean_gap_pi2_over_6": 1.6449340668482264
+  },
+  "rows": [
+    {
+      "X": 200000,
+      "squarefree_count": 121581,
+      "density": 0.607905,
+      "mean_gap": 1.644991,
+      "second_moment_gap": 3.3573285,
+      "max_gap": 7,
+      "max_gap_start": 22019
+    },
+    {
+      "X": 500000,
+      "squarefree_count": 303958,
+      "density": 0.607916,
+      "mean_gap": 1.6449596,
+      "second_moment_gap": 3.357215,
+      "max_gap": 8,
+      "max_gap_start": 217069
+    },
+    {
+      "X": 1000000,
+      "squarefree_count": 607926,
+      "density": 0.607926,
+      "mean_gap": 1.6449332,
+      "second_moment_gap": 3.356845,
+      "max_gap": 8,
+      "max_gap_start": 217069
+    },
+    {
+      "X": 2000000,
+      "squarefree_count": 1215877,
+      "density": 0.6079385,
+      "mean_gap": 1.6449029,
+      "second_moment_gap": 3.3566252,
+      "max_gap": 9,
+      "max_gap_start": 1092746
+    },
+    {
+      "X": 5000000,
+      "squarefree_count": 3039633,
+      "density": 0.6079266,
+      "mean_gap": 1.6449353,
+      "second_moment_gap": 3.356784,
+      "max_gap": 9,
+      "max_gap_start": 1092746
+    },
+    {
+      "X": 10000000,
+      "squarefree_count": 6079291,
+      "density": 0.6079291,
+      "mean_gap": 1.6449284,
+      "second_moment_gap": 3.3568178,
+      "max_gap": 10,
+      "max_gap_start": 8870023
+    },
+    {
+      "X": 20000000,
+      "squarefree_count": 12158575,
+      "density": 0.60792875,
+      "mean_gap": 1.6449296,
+      "second_moment_gap": 3.3567935,
+      "max_gap": 10,
+      "max_gap_start": 8870023
+    },
+    {
+      "X": 30000000,
+      "squarefree_count": 18237829,
+      "density": 0.60792763,
+      "mean_gap": 1.6449326,
+      "second_moment_gap": 3.3568126,
+      "max_gap": 10,
+      "max_gap_start": 8870023
+    }
+  ],
+  "elapsed_ms": 372,
+  "generated_utc": "2026-03-12T10:37:03.302Z"
+}

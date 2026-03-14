@@ -1,5 +1,523 @@
 {
   "problem": "EP-919",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T22:16:33Z",
+  "computations": [
+    {
+      "source_file": "ep919_standalone_deeper_20260313T220400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T22:16:10.211Z",
+      "data": {
+        "problem": "EP-919",
+        "script": "ep919.mjs",
+        "method": "finite_lex_square_construction_profile_with_exact_small_m_verification",
+        "warning": "Finite analogue only; does not resolve the infinite-cardinal question.",
+        "exact_prefix_formula_verification": [
+          {
+            "m": 4,
+            "n": 16,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          },
+          {
+            "m": 5,
+            "n": 25,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          },
+          {
+            "m": 6,
+            "n": 36,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          },
+          {
+            "m": 7,
+            "n": 49,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          },
+          {
+            "m": 8,
+            "n": 64,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          },
+          {
+            "m": 9,
+            "n": 81,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          },
+          {
+            "m": 10,
+            "n": 100,
+            "all_prefixes_match_formula": true,
+            "first_mismatch": null
+          }
+        ],
+        "large_scale_profile": [
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.1,
+            "prefix_size_t": 40,
+            "prefix_chromatic_formula": 2,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.1
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.2,
+            "prefix_size_t": 80,
+            "prefix_chromatic_formula": 4,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.2
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.35,
+            "prefix_size_t": 140,
+            "prefix_chromatic_formula": 7,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.35
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.5,
+            "prefix_size_t": 200,
+            "prefix_chromatic_formula": 10,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.5
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.7,
+            "prefix_size_t": 280,
+            "prefix_chromatic_formula": 14,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.7
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.85,
+            "prefix_size_t": 340,
+            "prefix_chromatic_formula": 17,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.85
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.95,
+            "prefix_size_t": 380,
+            "prefix_chromatic_formula": 19,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.95
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.99,
+            "prefix_size_t": 396,
+            "prefix_chromatic_formula": 19,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.95
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.999,
+            "prefix_size_t": 399,
+            "prefix_chromatic_formula": 19,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.95
+          },
+          {
+            "m": 20,
+            "total_vertices": 400,
+            "prefix_fraction": 0.9975,
+            "prefix_size_t": 399,
+            "prefix_chromatic_formula": 19,
+            "global_chromatic": 20,
+            "ratio_prefix_over_global": 0.95,
+            "note": "largest proper initial segment"
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.1,
+            "prefix_size_t": 250,
+            "prefix_chromatic_formula": 5,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.1
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.2,
+            "prefix_size_t": 500,
+            "prefix_chromatic_formula": 10,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.2
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.35,
+            "prefix_size_t": 875,
+            "prefix_chromatic_formula": 18,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.36
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.5,
+            "prefix_size_t": 1250,
+            "prefix_chromatic_formula": 25,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.5
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.7,
+            "prefix_size_t": 1750,
+            "prefix_chromatic_formula": 35,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.7
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.85,
+            "prefix_size_t": 2125,
+            "prefix_chromatic_formula": 42,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.84
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.95,
+            "prefix_size_t": 2375,
+            "prefix_chromatic_formula": 47,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.94
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.99,
+            "prefix_size_t": 2475,
+            "prefix_chromatic_formula": 49,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.98
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.999,
+            "prefix_size_t": 2497,
+            "prefix_chromatic_formula": 49,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.98
+          },
+          {
+            "m": 50,
+            "total_vertices": 2500,
+            "prefix_fraction": 0.9996,
+            "prefix_size_t": 2499,
+            "prefix_chromatic_formula": 49,
+            "global_chromatic": 50,
+            "ratio_prefix_over_global": 0.98,
+            "note": "largest proper initial segment"
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.1,
+            "prefix_size_t": 1000,
+            "prefix_chromatic_formula": 10,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.1
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.2,
+            "prefix_size_t": 2000,
+            "prefix_chromatic_formula": 20,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.2
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.35,
+            "prefix_size_t": 3500,
+            "prefix_chromatic_formula": 35,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.35
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.5,
+            "prefix_size_t": 5000,
+            "prefix_chromatic_formula": 50,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.5
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.7,
+            "prefix_size_t": 7000,
+            "prefix_chromatic_formula": 70,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.7
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.85,
+            "prefix_size_t": 8500,
+            "prefix_chromatic_formula": 85,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.85
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.95,
+            "prefix_size_t": 9500,
+            "prefix_chromatic_formula": 95,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.95
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.99,
+            "prefix_size_t": 9900,
+            "prefix_chromatic_formula": 99,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.99
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.999,
+            "prefix_size_t": 9990,
+            "prefix_chromatic_formula": 99,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.99
+          },
+          {
+            "m": 100,
+            "total_vertices": 10000,
+            "prefix_fraction": 0.9999,
+            "prefix_size_t": 9999,
+            "prefix_chromatic_formula": 99,
+            "global_chromatic": 100,
+            "ratio_prefix_over_global": 0.99,
+            "note": "largest proper initial segment"
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.1,
+            "prefix_size_t": 4000,
+            "prefix_chromatic_formula": 20,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.1
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.2,
+            "prefix_size_t": 8000,
+            "prefix_chromatic_formula": 40,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.2
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.35,
+            "prefix_size_t": 14000,
+            "prefix_chromatic_formula": 70,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.35
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.5,
+            "prefix_size_t": 20000,
+            "prefix_chromatic_formula": 100,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.5
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.7,
+            "prefix_size_t": 28000,
+            "prefix_chromatic_formula": 140,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.7
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.85,
+            "prefix_size_t": 34000,
+            "prefix_chromatic_formula": 170,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.85
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.95,
+            "prefix_size_t": 38000,
+            "prefix_chromatic_formula": 190,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.95
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.99,
+            "prefix_size_t": 39600,
+            "prefix_chromatic_formula": 198,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.99
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.999,
+            "prefix_size_t": 39960,
+            "prefix_chromatic_formula": 199,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.995
+          },
+          {
+            "m": 200,
+            "total_vertices": 40000,
+            "prefix_fraction": 0.999975,
+            "prefix_size_t": 39999,
+            "prefix_chromatic_formula": 199,
+            "global_chromatic": 200,
+            "ratio_prefix_over_global": 0.995,
+            "note": "largest proper initial segment"
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.1,
+            "prefix_size_t": 16000,
+            "prefix_chromatic_formula": 40,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.1
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.2,
+            "prefix_size_t": 32000,
+            "prefix_chromatic_formula": 80,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.2
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.35,
+            "prefix_size_t": 56000,
+            "prefix_chromatic_formula": 140,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.35
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.5,
+            "prefix_size_t": 80000,
+            "prefix_chromatic_formula": 200,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.5
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.7,
+            "prefix_size_t": 112000,
+            "prefix_chromatic_formula": 280,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.7
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.85,
+            "prefix_size_t": 136000,
+            "prefix_chromatic_formula": 340,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.85
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.95,
+            "prefix_size_t": 152000,
+            "prefix_chromatic_formula": 380,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.95
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.99,
+            "prefix_size_t": 158400,
+            "prefix_chromatic_formula": 396,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.99
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.999,
+            "prefix_size_t": 159840,
+            "prefix_chromatic_formula": 399,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.9975
+          },
+          {
+            "m": 400,
+            "total_vertices": 160000,
+            "prefix_fraction": 0.99999375,
+            "prefix_size_t": 159999,
+            "prefix_chromatic_formula": 399,
+            "global_chromatic": 400,
+            "ratio_prefix_over_global": 0.9975,
+            "note": "largest proper initial segment"
+          }
+        ],
+        "key_observation": "In this finite model, proper initial segments have chromatic number at most m-1 while full graph has m.",
+        "elapsed_ms": 17,
+        "generated_utc": "2026-03-13T22:16:10.211Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

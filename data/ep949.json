@@ -1,5 +1,420 @@
 {
   "problem": "EP-949",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T09:06:11Z",
+  "computations": [
+    {
+      "source_file": "ep949_standalone_deeper_20260314T001500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:05:34.717Z",
+      "data": {
+        "problem": "EP-949",
+        "script": "ep949.mjs",
+        "method": "finite_sumfree_complement_search_for_large_A_with_AplusA_avoids_S",
+        "warning": "Finite integer proxy only; original statement is over R and cardinality continuum.",
+        "params": {
+          "N": 60,
+          "randomTrials": 40
+        },
+        "rows": [
+          {
+            "source": "structured_upper_half",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 30,
+            "complement_size": 30,
+            "max_A_size_found": 15,
+            "ratio_A_over_N": 0.25
+          },
+          {
+            "source": "structured_odds",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 30,
+            "complement_size": 30,
+            "max_A_size_found": 30,
+            "ratio_A_over_N": 0.5
+          },
+          {
+            "source": "structured_mod3_eq1",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 20,
+            "complement_size": 40,
+            "max_A_size_found": 30,
+            "ratio_A_over_N": 0.5
+          },
+          {
+            "source": "random_0",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 13,
+            "complement_size": 47,
+            "max_A_size_found": 26,
+            "ratio_A_over_N": 0.43333333
+          },
+          {
+            "source": "random_1",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_2",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 16,
+            "complement_size": 44,
+            "max_A_size_found": 24,
+            "ratio_A_over_N": 0.4
+          },
+          {
+            "source": "random_3",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 12,
+            "complement_size": 48,
+            "max_A_size_found": 26,
+            "ratio_A_over_N": 0.43333333
+          },
+          {
+            "source": "random_4",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 18,
+            "complement_size": 42,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_5",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 16,
+            "complement_size": 44,
+            "max_A_size_found": 20,
+            "ratio_A_over_N": 0.33333333
+          },
+          {
+            "source": "random_6",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_7",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 17,
+            "complement_size": 43,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_8",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 16,
+            "complement_size": 44,
+            "max_A_size_found": 21,
+            "ratio_A_over_N": 0.35
+          },
+          {
+            "source": "random_9",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 26,
+            "complement_size": 34,
+            "max_A_size_found": 14,
+            "ratio_A_over_N": 0.23333333
+          },
+          {
+            "source": "random_10",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 16,
+            "complement_size": 44,
+            "max_A_size_found": 23,
+            "ratio_A_over_N": 0.38333333
+          },
+          {
+            "source": "random_11",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 23,
+            "ratio_A_over_N": 0.38333333
+          },
+          {
+            "source": "random_12",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 19,
+            "complement_size": 41,
+            "max_A_size_found": 23,
+            "ratio_A_over_N": 0.38333333
+          },
+          {
+            "source": "random_13",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 24,
+            "ratio_A_over_N": 0.4
+          },
+          {
+            "source": "random_14",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 24,
+            "ratio_A_over_N": 0.4
+          },
+          {
+            "source": "random_15",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 26,
+            "ratio_A_over_N": 0.43333333
+          },
+          {
+            "source": "random_16",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 14,
+            "complement_size": 46,
+            "max_A_size_found": 27,
+            "ratio_A_over_N": 0.45
+          },
+          {
+            "source": "random_17",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 18,
+            "complement_size": 42,
+            "max_A_size_found": 21,
+            "ratio_A_over_N": 0.35
+          },
+          {
+            "source": "random_18",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 14,
+            "complement_size": 46,
+            "max_A_size_found": 25,
+            "ratio_A_over_N": 0.41666667
+          },
+          {
+            "source": "random_19",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 13,
+            "complement_size": 47,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_20",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 20,
+            "complement_size": 40,
+            "max_A_size_found": 13,
+            "ratio_A_over_N": 0.21666667
+          },
+          {
+            "source": "random_21",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 24,
+            "ratio_A_over_N": 0.4
+          },
+          {
+            "source": "random_22",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 19,
+            "complement_size": 41,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_23",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 16,
+            "complement_size": 44,
+            "max_A_size_found": 23,
+            "ratio_A_over_N": 0.38333333
+          },
+          {
+            "source": "random_24",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 19,
+            "complement_size": 41,
+            "max_A_size_found": 19,
+            "ratio_A_over_N": 0.31666667
+          },
+          {
+            "source": "random_25",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 20,
+            "ratio_A_over_N": 0.33333333
+          },
+          {
+            "source": "random_26",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 16,
+            "complement_size": 44,
+            "max_A_size_found": 19,
+            "ratio_A_over_N": 0.31666667
+          },
+          {
+            "source": "random_27",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 21,
+            "ratio_A_over_N": 0.35
+          },
+          {
+            "source": "random_28",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 29,
+            "ratio_A_over_N": 0.48333333
+          },
+          {
+            "source": "random_29",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 17,
+            "complement_size": 43,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_30",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_31",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 20,
+            "complement_size": 40,
+            "max_A_size_found": 25,
+            "ratio_A_over_N": 0.41666667
+          },
+          {
+            "source": "random_32",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 15,
+            "complement_size": 45,
+            "max_A_size_found": 21,
+            "ratio_A_over_N": 0.35
+          },
+          {
+            "source": "random_33",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 17,
+            "complement_size": 43,
+            "max_A_size_found": 21,
+            "ratio_A_over_N": 0.35
+          },
+          {
+            "source": "random_34",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 14,
+            "complement_size": 46,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_35",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 17,
+            "complement_size": 43,
+            "max_A_size_found": 20,
+            "ratio_A_over_N": 0.33333333
+          },
+          {
+            "source": "random_36",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 14,
+            "complement_size": 46,
+            "max_A_size_found": 24,
+            "ratio_A_over_N": 0.4
+          },
+          {
+            "source": "random_37",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 19,
+            "complement_size": 41,
+            "max_A_size_found": 24,
+            "ratio_A_over_N": 0.4
+          },
+          {
+            "source": "random_38",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 14,
+            "complement_size": 46,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          },
+          {
+            "source": "random_39",
+            "N": 60,
+            "sum_free_verified": true,
+            "S_size": 18,
+            "complement_size": 42,
+            "max_A_size_found": 22,
+            "ratio_A_over_N": 0.36666667
+          }
+        ],
+        "summary": {
+          "best_ratio_A_over_N": 0.5,
+          "worst_ratio_A_over_N": 0.21666667,
+          "best_source": "structured_odds",
+          "worst_source": "random_20"
+        },
+        "elapsed_ms": 31,
+        "generated_utc": "2026-03-14T09:05:34.717Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

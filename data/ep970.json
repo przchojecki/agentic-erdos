@@ -1,122 +1,151 @@
 {
   "problem": "EP-970",
-  "normalized_utc": "2026-03-05T08:54:16.972Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch22_web_compute.md",
-        "content": "### EP-970\n- Quick literature check:\n  - Still open; page keeps Jacobsthal's conjectural `h(k) << k^2` with classical upper bound `(k log k)^2` and FGKMT18 lower growth.\n- Finite compute signal:\n  - Primorial profile through `k=8` gives `j(n)=34` at `n=9699690`, with `j(n)/k^2` around `0.53`; sampled squarefree moduli gave similar scale.\n- Interpretation:\n  - Finite data supports moderate (subquadratic-looking at this scale) growth but gives no asymptotic separation between `k^2` and `(k log k)^2`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch22_quick_compute.mjs",
-        "heading": "Jacobsthal-function finite profile for primorial and sampled squarefree n.",
-        "content": "// EP-970: Jacobsthal-function finite profile for primorial and sampled squarefree n.\n{\n  const rng = makeRng(20260304 ^ 970);\n  const plist = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31];\n\n  function jacobsthalFromFactors(factors) {\n    let n = 1;\n    for (const p of factors) n *= p;\n    const blocked = new Uint8Array(n);\n    for (const p of factors) {\n      for (let i = 0; i < n; i += p) blocked[i] = 1;\n    }\n\n    let maxRun = 0;\n    let cur = 0;\n    for (let i = 0; i < n; i += 1) {\n      if (blocked[i]) {\n        cur += 1;\n        if (cur > maxRun) maxRun = cur;\n      } else cur = 0;\n    }\n    // Circular wrap.\n    let pref = 0;\n    while (pref < n && blocked[pref]) pref += 1;\n    let suff = 0;\n    while (suff < n && blocked[n - 1 - suff]) suff += 1;\n    if (pref + suff > maxRun) maxRun = pref + suff;\n\n    return { n, j_of_n: maxRun + 1 };\n  }\n\n  const primorialRows = [];\n  let prod = 1;\n  for (let k = 1; k <= 8; k += 1) {\n    prod *= plist[k - 1];\n    const factors = plist.slice(0, k);\n    const { j_of_n } = jacobsthalFromFactors(factors);\n    primorialRows.push({ k, n: prod, j_of_n, j_over_k2: Number((j_of_n / (k * k)).toPrecision(7)) });\n  }\n\n  const sampledRows = [];\n  for (let k = 2; k <= 7; k += 1) {\n    let best = { j: -1, n: 1, factors: [] };\n    for (let t = 0; t < 140; t += 1) {\n      const idx = [...Array(plist.length).keys()];\n      shuffle(idx, rng);\n      const pick = idx.slice(0, k).map((i) => plist[i]).sort((a, b) => a - b);\n      let n = 1;\n      for (const p of pick) n *= p;\n      if (n > 2_000_000) continue;\n      const { j_of_n } = jacobsthalFromFactors(pick);\n      if (j_of_n > best.j) best = { j: j_of_n, n, factors: pick };\n    }\n    sampledRows.push({\n      k,\n      best_sampled_n: best.n,\n      best_sampled_j_n: best.j,\n      factorization: best.factors.join(' * '),\n    });\n  }\n\n  out.results.ep970 = {\n    description: 'Finite Jacobsthal-profile computation for squarefree moduli (primorial baseline + random samples).',\n    primorial_rows: primorialRows,\n    sampled_rows: sampledRows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch22_quick_compute.json",
-        "key": "ep970",
-        "container_meta": {
-          "script": "harder_batch22_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:34:53.027Z"
-        },
-        "data": {
-          "description": "Finite Jacobsthal-profile computation for squarefree moduli (primorial baseline + random samples).",
-          "primorial_rows": [
-            {
-              "k": 1,
-              "n": 2,
-              "j_of_n": 2,
-              "j_over_k2": 2
-            },
-            {
-              "k": 2,
-              "n": 6,
-              "j_of_n": 4,
-              "j_over_k2": 1
-            },
-            {
-              "k": 3,
-              "n": 30,
-              "j_of_n": 6,
-              "j_over_k2": 0.6666667
-            },
-            {
-              "k": 4,
-              "n": 210,
-              "j_of_n": 10,
-              "j_over_k2": 0.625
-            },
-            {
-              "k": 5,
-              "n": 2310,
-              "j_of_n": 14,
-              "j_over_k2": 0.56
-            },
-            {
-              "k": 6,
-              "n": 30030,
-              "j_of_n": 22,
-              "j_over_k2": 0.6111111
-            },
-            {
-              "k": 7,
-              "n": 510510,
-              "j_of_n": 26,
-              "j_over_k2": 0.5306122
-            },
-            {
-              "k": 8,
-              "n": 9699690,
-              "j_of_n": 34,
-              "j_over_k2": 0.53125
-            }
+  "normalized_utc": "2026-03-14T09:36:07Z",
+  "computations": [
+    {
+      "source_file": "ep970_standalone_deeper_20260314T003500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:35:40.228Z",
+      "data": {
+        "problem": "EP-970",
+        "script": "ep970.mjs",
+        "method": "deep_exact_jacobsthal_scan_for_squarefree_moduli_by_factor_count",
+        "warning": "Finite squarefree-modulus profile only; full h(k) asymptotic remains open.",
+        "params": {
+          "primes": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31
           ],
-          "sampled_rows": [
-            {
-              "k": 2,
-              "best_sampled_n": 14,
-              "best_sampled_j_n": 4,
-              "factorization": "2 * 7"
-            },
-            {
-              "k": 3,
-              "best_sampled_n": 374,
-              "best_sampled_j_n": 6,
-              "factorization": "2 * 11 * 17"
-            },
-            {
-              "k": 4,
-              "best_sampled_n": 714,
-              "best_sampled_j_n": 10,
-              "factorization": "2 * 3 * 7 * 17"
-            },
-            {
-              "k": 5,
-              "best_sampled_n": 17670,
-              "best_sampled_j_n": 14,
-              "factorization": "2 * 3 * 5 * 19 * 31"
-            },
-            {
-              "k": 6,
-              "best_sampled_n": 188790,
-              "best_sampled_j_n": 22,
-              "factorization": "2 * 3 * 5 * 7 * 29 * 31"
-            },
-            {
-              "k": 7,
-              "best_sampled_n": 930930,
-              "best_sampled_j_n": 26,
-              "factorization": "2 * 3 * 5 * 7 * 11 * 13 * 31"
-            }
-          ]
-        }
+          "nCap": 2000000
+        },
+        "primorial_rows": [
+          {
+            "k": 1,
+            "n": 2,
+            "j_of_n": 2,
+            "j_over_k2": 2,
+            "lower_witness_p_kplus1_minus_1": 2
+          },
+          {
+            "k": 2,
+            "n": 6,
+            "j_of_n": 4,
+            "j_over_k2": 1,
+            "lower_witness_p_kplus1_minus_1": 4
+          },
+          {
+            "k": 3,
+            "n": 30,
+            "j_of_n": 6,
+            "j_over_k2": 0.66666667,
+            "lower_witness_p_kplus1_minus_1": 6
+          },
+          {
+            "k": 4,
+            "n": 210,
+            "j_of_n": 10,
+            "j_over_k2": 0.625,
+            "lower_witness_p_kplus1_minus_1": 10
+          },
+          {
+            "k": 5,
+            "n": 2310,
+            "j_of_n": 14,
+            "j_over_k2": 0.56,
+            "lower_witness_p_kplus1_minus_1": 12
+          },
+          {
+            "k": 6,
+            "n": 30030,
+            "j_of_n": 22,
+            "j_over_k2": 0.61111111,
+            "lower_witness_p_kplus1_minus_1": 16
+          },
+          {
+            "k": 7,
+            "n": 510510,
+            "j_of_n": 26,
+            "j_over_k2": 0.53061224,
+            "lower_witness_p_kplus1_minus_1": 18
+          },
+          {
+            "k": 8,
+            "n": 9699690,
+            "j_of_n": 34,
+            "j_over_k2": 0.53125,
+            "lower_witness_p_kplus1_minus_1": 22
+          }
+        ],
+        "exhaustive_rows": [
+          {
+            "k": 2,
+            "tested_squarefree_moduli": 55,
+            "n_cap": 2000000,
+            "best_n": 6,
+            "best_j_n": 4,
+            "best_factorization": "2 * 3",
+            "best_j_over_k2": 1
+          },
+          {
+            "k": 3,
+            "tested_squarefree_moduli": 165,
+            "n_cap": 2000000,
+            "best_n": 30,
+            "best_j_n": 6,
+            "best_factorization": "2 * 3 * 5",
+            "best_j_over_k2": 0.66666667
+          },
+          {
+            "k": 4,
+            "tested_squarefree_moduli": 330,
+            "n_cap": 2000000,
+            "best_n": 210,
+            "best_j_n": 10,
+            "best_factorization": "2 * 3 * 5 * 7",
+            "best_j_over_k2": 0.625
+          },
+          {
+            "k": 5,
+            "tested_squarefree_moduli": 445,
+            "n_cap": 2000000,
+            "best_n": 2310,
+            "best_j_n": 14,
+            "best_factorization": "2 * 3 * 5 * 7 * 11",
+            "best_j_over_k2": 0.56
+          },
+          {
+            "k": 6,
+            "tested_squarefree_moduli": 267,
+            "n_cap": 2000000,
+            "best_n": 30030,
+            "best_j_n": 22,
+            "best_factorization": "2 * 3 * 5 * 7 * 11 * 13",
+            "best_j_over_k2": 0.61111111
+          },
+          {
+            "k": 7,
+            "tested_squarefree_moduli": 29,
+            "n_cap": 2000000,
+            "best_n": 510510,
+            "best_j_n": 26,
+            "best_factorization": "2 * 3 * 5 * 7 * 11 * 13 * 17",
+            "best_j_over_k2": 0.53061224
+          }
+        ],
+        "elapsed_ms": 809,
+        "generated_utc": "2026-03-14T09:35:40.228Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

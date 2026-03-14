@@ -1,91 +1,232 @@
 #!/usr/bin/env node
-const meta={problem:'EP-1104',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-1104 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch25_quick_compute.mjs | finite triangle-free chromatic profile (Mycielski + random process). ----
-// // EP-1104: finite triangle-free chromatic profile (Mycielski + random process).
-// {
-//   function mycielski(masks) {
-//     const n = masks.length;
-//     const outMasks = Array(2 * n + 1).fill(0n);
-//     for (let u = 0; u < n; u += 1) {
-//       let m = masks[u];
-//       while (m) {
-//         const b = m & -m;
-//         const v = bitIndexBigInt(b);
-//         m ^= b;
-//         if (u < v) {
-//           outMasks[u] |= 1n << BigInt(v);
-//           outMasks[v] |= 1n << BigInt(u);
-//           outMasks[u] |= 1n << BigInt(n + v);
-//           outMasks[n + v] |= 1n << BigInt(u);
-//           outMasks[v] |= 1n << BigInt(n + u);
-//           outMasks[n + u] |= 1n << BigInt(v);
-//         }
-//       }
-//     }
-//     const w = 2 * n;
-//     for (let u = 0; u < n; u += 1) {
-//       outMasks[n + u] |= 1n << BigInt(w);
-//       outMasks[w] |= 1n << BigInt(n + u);
-//     }
-//     return outMasks;
-//   }
-// 
-//   const c5 = adjacencyMasksFromEdgeList(5, [
-//     [0, 1],
-//     [1, 2],
-//     [2, 3],
-//     [3, 4],
-//     [4, 0],
-//   ]);
-//   const m1 = mycielski(c5);
-//   const m2 = mycielski(m1);
-//   const family = [c5, m1, m2];
-//   const familyRows = family.map((masks, i) => ({
-//     graph: i === 0 ? 'C5' : `Mycielski^${i}(C5)`,
-//     n: masks.length,
-//     chi_exact: chromaticNumberDSATUR(adjacencyListFromMasks(masks)),
-//   }));
-// 
-//   const rng = makeRng(20260304 ^ 1104);
-//   function triangleFreeProcess(n) {
-//     const edges = [];
-//     for (let i = 0; i < n; i += 1) {
-//       for (let j = i + 1; j < n; j += 1) edges.push([i, j]);
-//     }
-//     shuffle(edges, rng);
-//     const masks = Array(n).fill(0n);
-//     for (const [u, v] of edges) {
-//       if ((masks[u] & masks[v]) !== 0n) continue;
-//       masks[u] |= 1n << BigInt(v);
-//       masks[v] |= 1n << BigInt(u);
-//     }
-//     return masks;
-//   }
-// 
-//   const randomRows = [];
-//   for (const n of [18, 22, 26, 30]) {
-//     let bestChi = 0;
-//     for (let t = 0; t < 20; t += 1) {
-//       const masks = triangleFreeProcess(n);
-//       const chi = chromaticNumberDSATUR(adjacencyListFromMasks(masks));
-//       if (chi > bestChi) bestChi = chi;
-//     }
-//     randomRows.push({
-//       n,
-//       best_chi_found_in_samples: bestChi,
-//       proxy_sqrt_n_over_log_n: Number(Math.sqrt(n / Math.log(n)).toPrecision(7)),
-//       ratio_best_over_sqrt_n_over_log_n: Number((bestChi / Math.sqrt(n / Math.log(n))).toPrecision(7)),
-//     });
-//   }
-// 
-//   out.results.ep1104 = {
-//     description: 'Finite triangle-free chromatic profile from Mycielski constructions and random triangle-free process samples.',
-//     mycielski_rows: familyRows,
-//     random_rows: randomRows,
-//   };
-// }
-// ==== End Batch Split Integrations ====
+
+// EP-1104 deep standalone computation:
+// Search high-chromatic triangle-free graphs via random triangle-free process,
+// then attempt exact chromatic verification on best-found instances.
+
+function mulberry32(seed) {
+  let t = seed >>> 0;
+  return function rand() {
+    t += 0x6d2b79f5;
+    let z = t;
+    z = Math.imul(z ^ (z >>> 15), z | 1);
+    z ^= z + Math.imul(z ^ (z >>> 7), z | 61);
+    return ((z ^ (z >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function emptyGraph(n) {
+  return { n, adj: Array.from({ length: n }, () => new Uint8Array(n)) };
+}
+
+function addEdge(g, u, v) {
+  if (u === v) return;
+  g.adj[u][v] = 1;
+  g.adj[v][u] = 1;
+}
+
+function edgeCount(g) {
+  let m = 0;
+  for (let i = 0; i < g.n; i += 1) for (let j = i + 1; j < g.n; j += 1) if (g.adj[i][j]) m += 1;
+  return m;
+}
+
+function copyGraph(g) {
+  const h = emptyGraph(g.n);
+  for (let i = 0; i < g.n; i += 1) h.adj[i].set(g.adj[i]);
+  return h;
+}
+
+function triangleFreeProcess(n, rand) {
+  const g = emptyGraph(n);
+  const edges = [];
+  for (let u = 0; u < n; u += 1) {
+    for (let v = u + 1; v < n; v += 1) edges.push([u, v]);
+  }
+  for (let i = 0; i < edges.length; i += 1) {
+    const j = i + Math.floor(rand() * (edges.length - i));
+    const tmp = edges[i];
+    edges[i] = edges[j];
+    edges[j] = tmp;
+  }
+
+  for (const [u, v] of edges) {
+    let common = false;
+    for (let w = 0; w < n; w += 1) {
+      if (g.adj[u][w] && g.adj[v][w]) {
+        common = true;
+        break;
+      }
+    }
+    if (!common) addEdge(g, u, v);
+  }
+
+  return g;
+}
+
+function dsaturHeuristicChi(g) {
+  const n = g.n;
+  const color = new Int32Array(n).fill(-1);
+  const sat = Array.from({ length: n }, () => new Set());
+  const deg = new Int32Array(n);
+  for (let v = 0; v < n; v += 1) {
+    let d = 0;
+    for (let u = 0; u < n; u += 1) d += g.adj[v][u];
+    deg[v] = d;
+  }
+
+  let usedColors = 0;
+  for (let step = 0; step < n; step += 1) {
+    let vBest = -1;
+    for (let v = 0; v < n; v += 1) {
+      if (color[v] !== -1) continue;
+      if (vBest === -1) {
+        vBest = v;
+        continue;
+      }
+      const s1 = sat[v].size;
+      const s2 = sat[vBest].size;
+      if (s1 > s2 || (s1 === s2 && deg[v] > deg[vBest])) vBest = v;
+    }
+
+    const forbidden = new Uint8Array(n + 1);
+    for (let u = 0; u < n; u += 1) {
+      if (g.adj[vBest][u] && color[u] >= 0) forbidden[color[u]] = 1;
+    }
+    let c = 0;
+    while (forbidden[c]) c += 1;
+    color[vBest] = c;
+    if (c + 1 > usedColors) usedColors = c + 1;
+
+    for (let u = 0; u < n; u += 1) {
+      if (g.adj[vBest][u] && color[u] === -1) sat[u].add(c);
+    }
+  }
+
+  return usedColors;
+}
+
+function canColorWithK(g, k, timeoutMs) {
+  const t0 = Date.now();
+  const n = g.n;
+
+  const order = [...Array(n).keys()].sort((a, b) => {
+    let da = 0;
+    let db = 0;
+    for (let i = 0; i < n; i += 1) {
+      da += g.adj[a][i];
+      db += g.adj[b][i];
+    }
+    return db - da;
+  });
+
+  const col = new Int8Array(n).fill(-1);
+  let timedOut = false;
+  let nodes = 0;
+
+  function dfs(pos) {
+    if (Date.now() - t0 > timeoutMs) {
+      timedOut = true;
+      return false;
+    }
+    nodes += 1;
+    if (pos === n) return true;
+
+    const v = order[pos];
+    const used = new Uint8Array(k);
+    for (let u = 0; u < n; u += 1) if (g.adj[v][u] && col[u] >= 0) used[col[u]] = 1;
+
+    for (let c = 0; c < k; c += 1) {
+      if (used[c]) continue;
+      col[v] = c;
+      if (dfs(pos + 1)) return true;
+      col[v] = -1;
+      if (timedOut) return false;
+    }
+    return false;
+  }
+
+  const ok = dfs(0);
+  return { ok, timedOut, nodes, elapsedMs: Date.now() - t0 };
+}
+
+function exactOrBoundChi(g, heuristicChi, timeoutPerKMs) {
+  // We know chi <= heuristicChi.
+  // Try proving k-colorability for k=2..heuristicChi-1.
+  let lower = 2;
+  let upper = heuristicChi;
+  const attempts = [];
+
+  for (let k = 2; k < heuristicChi; k += 1) {
+    const r = canColorWithK(g, k, timeoutPerKMs);
+    attempts.push({ k, ...r });
+    if (r.timedOut) {
+      return { exact: false, lower_bound: lower, upper_bound: upper, attempts };
+    }
+    if (r.ok) {
+      upper = Math.min(upper, k);
+      return { exact: true, chi: upper, attempts };
+    }
+    lower = Math.max(lower, k + 1);
+  }
+
+  return { exact: true, chi: heuristicChi, attempts };
+}
+
+function main() {
+  const t0 = Date.now();
+  const depth = Math.max(1, Number(process.env.DEPTH || 1));
+  const nList = depth >= 4 ? [30, 40, 50, 60] : [24, 30, 36, 42];
+  const perNBudgetMs = depth >= 4 ? 25000 : 8000;
+  const timeoutPerKMs = depth >= 4 ? 1800 : 500;
+
+  const rand = mulberry32(0x1104 ^ (depth * 123));
+
+  const rows = [];
+  for (const n of nList) {
+    const tN0 = Date.now();
+    let samples = 0;
+    let bestChiHeu = 0;
+    let bestGraph = null;
+    let bestEdges = 0;
+
+    while (Date.now() - tN0 < perNBudgetMs) {
+      const g = triangleFreeProcess(n, rand);
+      samples += 1;
+      const chiHeu = dsaturHeuristicChi(g);
+      if (chiHeu > bestChiHeu) {
+        bestChiHeu = chiHeu;
+        bestGraph = copyGraph(g);
+        bestEdges = edgeCount(g);
+      }
+    }
+
+    const cert = exactOrBoundChi(bestGraph, bestChiHeu, timeoutPerKMs);
+    rows.push({
+      n,
+      time_budget_ms: perNBudgetMs,
+      samples,
+      best_chi_heuristic_found: bestChiHeu,
+      best_graph_edges: bestEdges,
+      exact_certification: cert,
+      proxy_sqrt_n_over_log_n: Number(Math.sqrt(n / Math.log(n)).toFixed(10)),
+      ratio_best_heuristic_over_proxy: Number((bestChiHeu / Math.sqrt(n / Math.log(n))).toFixed(10)),
+      elapsed_ms_for_n: Date.now() - tN0,
+    });
+  }
+
+  const payload = {
+    problem: 'EP-1104',
+    script: 'ep1104.mjs',
+    method: 'deep_random_triangle_free_process_search_with_dsatur_and_partial_exact_chromatic_certification',
+    warning: 'Finite random-search evidence only; asymptotic constants remain open.',
+    params: { depth, nList, perNBudgetMs, timeoutPerKMs },
+    rows,
+    elapsed_ms: Date.now() - t0,
+    generated_utc: new Date().toISOString(),
+  };
+
+  console.log(JSON.stringify(payload, null, 2));
+}
+
+main();

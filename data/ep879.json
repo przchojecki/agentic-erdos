@@ -1,5 +1,120 @@
 {
   "problem": "EP-879",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:08:37.348Z",
+  "computations": [
+    {
+      "source_file": "ep879_standalone_deeper_20260313T163200Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:08:12.794Z",
+      "data": {
+        "problem": "EP-879",
+        "script": "ep879.mjs",
+        "method": "exact_small_n_pairwise_coprime_sum_optimization_proxy",
+        "warning": "Finite proxy does not encode all asymptotic conditions from the full problem statement.",
+        "params": {
+          "N_LIST": [
+            16,
+            18,
+            20,
+            22,
+            24
+          ]
+        },
+        "rows": [
+          {
+            "n": 16,
+            "exact_max_sum_pairwise_coprime": 63,
+            "exact_best_set_size": 6,
+            "exact_best_set": [
+              1,
+              7,
+              11,
+              13,
+              15,
+              16
+            ],
+            "greedy_lower_sum": 63,
+            "greedy_lower_size": 6,
+            "gap_exact_minus_greedy": 0
+          },
+          {
+            "n": 18,
+            "exact_max_sum_pairwise_coprime": 80,
+            "exact_best_set_size": 7,
+            "exact_best_set": [
+              1,
+              7,
+              11,
+              13,
+              15,
+              16,
+              17
+            ],
+            "greedy_lower_sum": 72,
+            "greedy_lower_size": 7,
+            "gap_exact_minus_greedy": 8
+          },
+          {
+            "n": 20,
+            "exact_max_sum_pairwise_coprime": 99,
+            "exact_best_set_size": 8,
+            "exact_best_set": [
+              1,
+              7,
+              11,
+              13,
+              15,
+              16,
+              17,
+              19
+            ],
+            "greedy_lower_sum": 97,
+            "greedy_lower_size": 8,
+            "gap_exact_minus_greedy": 2
+          },
+          {
+            "n": 22,
+            "exact_max_sum_pairwise_coprime": 103,
+            "exact_best_set_size": 8,
+            "exact_best_set": [
+              1,
+              5,
+              11,
+              13,
+              16,
+              17,
+              19,
+              21
+            ],
+            "greedy_lower_sum": 98,
+            "greedy_lower_size": 7,
+            "gap_exact_minus_greedy": 5
+          },
+          {
+            "n": 24,
+            "exact_max_sum_pairwise_coprime": 126,
+            "exact_best_set_size": 9,
+            "exact_best_set": [
+              1,
+              5,
+              11,
+              13,
+              16,
+              17,
+              19,
+              21,
+              23
+            ],
+            "greedy_lower_sum": 120,
+            "greedy_lower_size": 9,
+            "gap_exact_minus_greedy": 6
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-13T20:08:12.794Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

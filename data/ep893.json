@@ -1,165 +1,166 @@
 {
   "problem": "EP-893",
-  "normalized_utc": "2026-03-05T08:54:16.970Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-893\n- Quick literature check:\n  - 2025 work (Kovac--Luca, arXiv:2506.04883) shows no finite limit, with `\\limsup f(2n)/f(n)=\\infty`; page remains listed open for full limit behavior.\n- Finite compute signal:\n  - Exact prefix computation up to `k=44` gives `f(2n)/f(n)` rising from about `3` to about `8.08` in sampled `n`.\n- Interpretation:\n  - Numerics align with non-convergence to a finite limit and support the observed upward trend."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "exact tau(2^k-1) for feasible k by trial division.",
-        "content": "// EP-893: exact tau(2^k-1) for feasible k by trial division.\n{\n  const KMAX = 44;\n  const maxM = (1n << BigInt(KMAX)) - 1n;\n  const sqrtMax = Math.floor(Math.sqrt(Number(maxM)));\n  const { primes } = sievePrimes(sqrtMax + 5);\n\n  function tauBigByTrial(n0) {\n    let n = n0;\n    let tau = 1;\n    for (const p of primes) {\n      const pb = BigInt(p);\n      if (pb * pb > n) break;\n      let e = 0;\n      while (n % pb === 0n) {\n        n /= pb;\n        e += 1;\n      }\n      if (e > 0) tau *= (e + 1);\n    }\n    if (n > 1n) tau *= 2;\n    return tau;\n  }\n\n  const tauVals = [];\n  for (let k = 1; k <= KMAX; k += 1) {\n    const m = (1n << BigInt(k)) - 1n;\n    const t = tauBigByTrial(m);\n    tauVals.push(t);\n  }\n\n  const f = [0];\n  for (let i = 1; i <= KMAX; i += 1) f[i] = f[i - 1] + tauVals[i - 1];\n\n  const rows = [];\n  for (let n = 2; 2 * n <= KMAX; n += 1) {\n    rows.push({\n      n,\n      f_n: f[n],\n      f_2n: f[2 * n],\n      ratio_f_2n_over_f_n: Number((f[2 * n] / f[n]).toPrecision(8)),\n    });\n  }\n\n  let minRatio = 1e9;\n  let maxRatio = 0;\n  for (const r of rows) {\n    if (r.ratio_f_2n_over_f_n < minRatio) minRatio = r.ratio_f_2n_over_f_n;\n    if (r.ratio_f_2n_over_f_n > maxRatio) maxRatio = r.ratio_f_2n_over_f_n;\n  }\n\n  out.results.ep893 = {\n    description: 'Exact finite prefix ratio profile for f(2n)/f(n) using tau(2^k-1) up to k=44.',\n    KMAX,\n    min_ratio_in_tested_range: minRatio,\n    max_ratio_in_tested_range: maxRatio,\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep893",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
+  "normalized_utc": "2026-03-13T21:55:43Z",
+  "computations": [
+    {
+      "source_file": "ep893_standalone_deeper_20260313T165400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:53:48.031Z",
+      "data": {
+        "problem": "EP-893",
+        "script": "ep893.mjs",
+        "method": "deeper_exact_prefix_ratio_profile_for_f2n_over_fn",
+        "params": {
+          "KMAX": 48
         },
-        "data": {
-          "description": "Exact finite prefix ratio profile for f(2n)/f(n) using tau(2^k-1) up to k=44.",
-          "KMAX": 44,
-          "min_ratio_in_tested_range": 3,
-          "max_ratio_in_tested_range": 8.0814815,
-          "rows": [
-            {
-              "n": 2,
-              "f_n": 3,
-              "f_2n": 9,
-              "ratio_f_2n_over_f_n": 3
-            },
-            {
-              "n": 3,
-              "f_n": 5,
-              "f_2n": 17,
-              "ratio_f_2n_over_f_n": 3.4
-            },
-            {
-              "n": 4,
-              "f_n": 9,
-              "f_2n": 27,
-              "ratio_f_2n_over_f_n": 3
-            },
-            {
-              "n": 5,
-              "f_n": 11,
-              "f_2n": 39,
-              "ratio_f_2n_over_f_n": 3.5454545
-            },
-            {
-              "n": 6,
-              "f_n": 17,
-              "f_2n": 67,
-              "ratio_f_2n_over_f_n": 3.9411765
-            },
-            {
-              "n": 7,
-              "f_n": 19,
-              "f_2n": 77,
-              "ratio_f_2n_over_f_n": 4.0526316
-            },
-            {
-              "n": 8,
-              "f_n": 27,
-              "f_2n": 101,
-              "ratio_f_2n_over_f_n": 3.7407407
-            },
-            {
-              "n": 9,
-              "f_n": 31,
-              "f_2n": 135,
-              "ratio_f_2n_over_f_n": 4.3548387
-            },
-            {
-              "n": 10,
-              "f_n": 39,
-              "f_2n": 185,
-              "ratio_f_2n_over_f_n": 4.7435897
-            },
-            {
-              "n": 11,
-              "f_n": 43,
-              "f_2n": 213,
-              "ratio_f_2n_over_f_n": 4.9534884
-            },
-            {
-              "n": 12,
-              "f_n": 67,
-              "f_2n": 313,
-              "ratio_f_2n_over_f_n": 4.6716418
-            },
-            {
-              "n": 13,
-              "f_n": 69,
-              "f_2n": 329,
-              "ratio_f_2n_over_f_n": 4.7681159
-            },
-            {
-              "n": 14,
-              "f_n": 77,
-              "f_2n": 401,
-              "ratio_f_2n_over_f_n": 5.2077922
-            },
-            {
-              "n": 15,
-              "f_n": 85,
-              "f_2n": 505,
-              "ratio_f_2n_over_f_n": 5.9411765
-            },
-            {
-              "n": 16,
-              "f_n": 101,
-              "f_2n": 539,
-              "ratio_f_2n_over_f_n": 5.3366337
-            },
-            {
-              "n": 17,
-              "f_n": 103,
-              "f_2n": 563,
-              "ratio_f_2n_over_f_n": 5.4660194
-            },
-            {
-              "n": 18,
-              "f_n": 135,
-              "f_2n": 1091,
-              "ratio_f_2n_over_f_n": 8.0814815
-            },
-            {
-              "n": 19,
-              "f_n": 137,
-              "f_2n": 1103,
-              "ratio_f_2n_over_f_n": 8.0510949
-            },
-            {
-              "n": 20,
-              "f_n": 185,
-              "f_2n": 1311,
-              "ratio_f_2n_over_f_n": 7.0864865
-            },
-            {
-              "n": 21,
-              "f_n": 197,
-              "f_2n": 1459,
-              "ratio_f_2n_over_f_n": 7.4060914
-            },
-            {
-              "n": 22,
-              "f_n": 213,
-              "f_2n": 1595,
-              "ratio_f_2n_over_f_n": 7.4882629
-            }
-          ]
-        }
+        "min_ratio_in_tested_range": 3,
+        "max_ratio_in_tested_range": 8.08148148,
+        "argmax_n_for_ratio": 18,
+        "rows": [
+          {
+            "n": 2,
+            "f_n": 3,
+            "f_2n": 9,
+            "ratio_f_2n_over_f_n": 3
+          },
+          {
+            "n": 3,
+            "f_n": 5,
+            "f_2n": 17,
+            "ratio_f_2n_over_f_n": 3.4
+          },
+          {
+            "n": 4,
+            "f_n": 9,
+            "f_2n": 27,
+            "ratio_f_2n_over_f_n": 3
+          },
+          {
+            "n": 5,
+            "f_n": 11,
+            "f_2n": 39,
+            "ratio_f_2n_over_f_n": 3.54545455
+          },
+          {
+            "n": 6,
+            "f_n": 17,
+            "f_2n": 67,
+            "ratio_f_2n_over_f_n": 3.94117647
+          },
+          {
+            "n": 7,
+            "f_n": 19,
+            "f_2n": 77,
+            "ratio_f_2n_over_f_n": 4.05263158
+          },
+          {
+            "n": 8,
+            "f_n": 27,
+            "f_2n": 101,
+            "ratio_f_2n_over_f_n": 3.74074074
+          },
+          {
+            "n": 9,
+            "f_n": 31,
+            "f_2n": 135,
+            "ratio_f_2n_over_f_n": 4.35483871
+          },
+          {
+            "n": 10,
+            "f_n": 39,
+            "f_2n": 185,
+            "ratio_f_2n_over_f_n": 4.74358974
+          },
+          {
+            "n": 11,
+            "f_n": 43,
+            "f_2n": 213,
+            "ratio_f_2n_over_f_n": 4.95348837
+          },
+          {
+            "n": 12,
+            "f_n": 67,
+            "f_2n": 313,
+            "ratio_f_2n_over_f_n": 4.67164179
+          },
+          {
+            "n": 13,
+            "f_n": 69,
+            "f_2n": 329,
+            "ratio_f_2n_over_f_n": 4.76811594
+          },
+          {
+            "n": 14,
+            "f_n": 77,
+            "f_2n": 401,
+            "ratio_f_2n_over_f_n": 5.20779221
+          },
+          {
+            "n": 15,
+            "f_n": 85,
+            "f_2n": 505,
+            "ratio_f_2n_over_f_n": 5.94117647
+          },
+          {
+            "n": 16,
+            "f_n": 101,
+            "f_2n": 539,
+            "ratio_f_2n_over_f_n": 5.33663366
+          },
+          {
+            "n": 17,
+            "f_n": 103,
+            "f_2n": 563,
+            "ratio_f_2n_over_f_n": 5.46601942
+          },
+          {
+            "n": 18,
+            "f_n": 135,
+            "f_2n": 1091,
+            "ratio_f_2n_over_f_n": 8.08148148
+          },
+          {
+            "n": 19,
+            "f_n": 137,
+            "f_2n": 1103,
+            "ratio_f_2n_over_f_n": 8.05109489
+          },
+          {
+            "n": 20,
+            "f_n": 185,
+            "f_2n": 1311,
+            "ratio_f_2n_over_f_n": 7.08648649
+          },
+          {
+            "n": 21,
+            "f_n": 197,
+            "f_2n": 1459,
+            "ratio_f_2n_over_f_n": 7.40609137
+          },
+          {
+            "n": 22,
+            "f_n": 213,
+            "f_2n": 1595,
+            "ratio_f_2n_over_f_n": 7.48826291
+          },
+          {
+            "n": 23,
+            "f_n": 217,
+            "f_2n": 1675,
+            "ratio_f_2n_over_f_n": 7.71889401
+          },
+          {
+            "n": 24,
+            "f_n": 313,
+            "f_2n": 2451,
+            "ratio_f_2n_over_f_n": 7.83067093
+          }
+        ],
+        "elapsed_ms": 54,
+        "generated_utc": "2026-03-13T21:53:48.031Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

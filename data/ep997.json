@@ -1,185 +1,1385 @@
 {
   "problem": "EP-997",
-  "normalized_utc": "2026-03-05T08:54:16.972Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch22_web_compute.md",
-        "content": "### EP-997\n- Quick literature check:\n  - Open as stated (\"for every `alpha`\"); page records 2024 progress proving existence of an irrational `alpha` where `{alpha p_n}` is not well-distributed.\n- Finite compute signal:\n  - Sliding-window discrepancy scan on first `40000` primes for several irrational `alpha` found max relative deviations around `0.09..0.115`.\n- Interpretation:\n  - Finite windows show persistent irregularity signals for tested `alpha`, but this is far from an all-`alpha` theorem."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch22_quick_compute.mjs",
-        "heading": "sliding-window discrepancy profile for {alpha * p_n} on sampled irrational alphas.",
-        "content": "// EP-997: sliding-window discrepancy profile for {alpha * p_n} on sampled irrational alphas.\n{\n  const N = 40_000;\n  const { primes } = sievePrimes(500_000);\n  const p = primes.slice(0, N);\n\n  const alphaRows = [\n    { name: 'sqrt2', val: Math.SQRT2 },\n    { name: 'pi', val: Math.PI },\n    { name: 'e', val: Math.E },\n    { name: 'phi', val: (1 + Math.sqrt(5)) / 2 },\n  ];\n  const windows = [200, 500, 1000, 2000];\n  const intervals = [\n    [0, 0.5],\n    [0, 1 / 3],\n    [1 / 3, 2 / 3],\n    [0.2, 0.7],\n  ];\n\n  const outRows = [];\n  for (const a of alphaRows) {\n    const vals = p.map((x) => frac(a.val * x));\n    const stats = [];\n\n    for (const k of windows) {\n      let best = { relDev: -1, interval: null };\n      for (const [L, R] of intervals) {\n        const ind = new Uint8Array(N);\n        for (let i = 0; i < N; i += 1) if (vals[i] >= L && vals[i] < R) ind[i] = 1;\n        const pref = new Int32Array(N + 1);\n        for (let i = 0; i < N; i += 1) pref[i + 1] = pref[i] + ind[i];\n\n        let localBest = 0;\n        for (let s = 0; s + k <= N; s += 97) {\n          const c = pref[s + k] - pref[s];\n          const dev = Math.abs(c - (R - L) * k) / k;\n          if (dev > localBest) localBest = dev;\n        }\n\n        if (localBest > best.relDev) best = { relDev: localBest, interval: [L, R] };\n      }\n      stats.push({\n        k,\n        max_relative_deviation_found: Number(best.relDev.toPrecision(7)),\n        interval: best.interval,\n      });\n    }\n    outRows.push({ alpha: a.name, rows: stats });\n  }\n\n  out.results.ep997 = {\n    description: 'Finite discrepancy scan for fractional parts of alpha times primes in sliding windows.',\n    N,\n    sampled_alphas: outRows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch22_quick_compute.json",
-        "key": "ep997",
-        "container_meta": {
-          "script": "harder_batch22_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:34:53.027Z"
+  "normalized_utc": "2026-03-14T10:07:55Z",
+  "computations": [
+    {
+      "source_file": "ep997_standalone_deeper_20260314T100748Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:07:55.508Z",
+      "data": {
+        "problem": "EP-997",
+        "script": "ep997.mjs",
+        "method": "deep_sliding_window_well_distribution_proxy_for_alpha_times_primes",
+        "warning": "Finite-window discrepancy proxy only; does not decide asymptotic well-distribution statement for every alpha.",
+        "params": {
+          "N": 120000,
+          "windows": [
+            500,
+            1000,
+            2000,
+            5000,
+            10000
+          ],
+          "alpha_count": 30,
+          "interval_count": 70
         },
-        "data": {
-          "description": "Finite discrepancy scan for fractional parts of alpha times primes in sliding windows.",
-          "N": 40000,
-          "sampled_alphas": [
-            {
-              "alpha": "sqrt2",
-              "rows": [
-                {
-                  "k": 200,
-                  "max_relative_deviation_found": 0.09333333,
-                  "interval": [
-                    0,
-                    0.3333333333333333
-                  ]
-                },
-                {
-                  "k": 500,
-                  "max_relative_deviation_found": 0.06,
-                  "interval": [
-                    0,
-                    0.5
-                  ]
-                },
-                {
-                  "k": 1000,
-                  "max_relative_deviation_found": 0.03066667,
-                  "interval": [
-                    0,
-                    0.3333333333333333
-                  ]
-                },
-                {
-                  "k": 2000,
-                  "max_relative_deviation_found": 0.02233333,
-                  "interval": [
-                    0,
-                    0.3333333333333333
-                  ]
-                }
-              ]
-            },
-            {
-              "alpha": "pi",
-              "rows": [
-                {
-                  "k": 200,
-                  "max_relative_deviation_found": 0.095,
-                  "interval": [
-                    0.2,
-                    0.7
-                  ]
-                },
-                {
-                  "k": 500,
-                  "max_relative_deviation_found": 0.06066667,
-                  "interval": [
-                    0.3333333333333333,
-                    0.6666666666666666
-                  ]
-                },
-                {
-                  "k": 1000,
-                  "max_relative_deviation_found": 0.04,
-                  "interval": [
-                    0,
-                    0.5
-                  ]
-                },
-                {
-                  "k": 2000,
-                  "max_relative_deviation_found": 0.027,
-                  "interval": [
-                    0,
-                    0.5
-                  ]
-                }
-              ]
-            },
-            {
-              "alpha": "e",
-              "rows": [
-                {
-                  "k": 200,
-                  "max_relative_deviation_found": 0.115,
-                  "interval": [
-                    0,
-                    0.5
-                  ]
-                },
-                {
-                  "k": 500,
-                  "max_relative_deviation_found": 0.066,
-                  "interval": [
-                    0,
-                    0.5
-                  ]
-                },
-                {
-                  "k": 1000,
-                  "max_relative_deviation_found": 0.04566667,
-                  "interval": [
-                    0,
-                    0.3333333333333333
-                  ]
-                },
-                {
-                  "k": 2000,
-                  "max_relative_deviation_found": 0.026,
-                  "interval": [
-                    0,
-                    0.5
-                  ]
-                }
-              ]
-            },
-            {
-              "alpha": "phi",
-              "rows": [
-                {
-                  "k": 200,
-                  "max_relative_deviation_found": 0.115,
-                  "interval": [
-                    0.2,
-                    0.7
-                  ]
-                },
-                {
-                  "k": 500,
-                  "max_relative_deviation_found": 0.05133333,
-                  "interval": [
-                    0.3333333333333333,
-                    0.6666666666666666
-                  ]
-                },
-                {
-                  "k": 1000,
-                  "max_relative_deviation_found": 0.031,
-                  "interval": [
-                    0.2,
-                    0.7
-                  ]
-                },
-                {
-                  "k": 2000,
-                  "max_relative_deviation_found": 0.02616667,
-                  "interval": [
-                    0.3333333333333333,
-                    0.6666666666666666
-                  ]
-                }
-              ]
-            }
-          ]
-        }
+        "rows": [
+          {
+            "alpha": "sqrt2",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.084,
+                "interval": [
+                  0.1,
+                  0.65
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.054,
+                "interval": [
+                  0.3,
+                  1
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.036,
+                "interval": [
+                  0.2,
+                  0.75
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0208,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0115,
+                "interval": [
+                  0.3,
+                  0.7
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "pi",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.08,
+                "interval": [
+                  0.45,
+                  1
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.053,
+                "interval": [
+                  0.5,
+                  0.9
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0305,
+                "interval": [
+                  0.15,
+                  0.55
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.02,
+                "interval": [
+                  0,
+                  0.7
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.015,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "e",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.074,
+                "interval": [
+                  0.1,
+                  0.65
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.052,
+                "interval": [
+                  0.3,
+                  0.7
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.036,
+                "interval": [
+                  0.15,
+                  0.7
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0192,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0127,
+                "interval": [
+                  0.15,
+                  0.55
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "phi",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.072,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.049,
+                "interval": [
+                  0.4,
+                  0.8
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0345,
+                "interval": [
+                  0.4,
+                  0.8
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.019,
+                "interval": [
+                  0.3,
+                  1
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0137,
+                "interval": [
+                  0.3,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "sqrt3",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.074,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.056,
+                "interval": [
+                  0.15,
+                  0.4
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0395,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0218,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0134,
+                "interval": [
+                  0.05,
+                  0.3
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "sqrt5",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.08,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.057,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.038,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.02,
+                "interval": [
+                  0.05,
+                  0.3
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0127,
+                "interval": [
+                  0.3,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_0",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.086,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.049,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0335,
+                "interval": [
+                  0.65,
+                  0.9
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0202,
+                "interval": [
+                  0.5,
+                  0.9
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0133,
+                "interval": [
+                  0.15,
+                  0.7
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_1",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.078,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.054,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0355,
+                "interval": [
+                  0.1,
+                  0.8
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0252,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0184,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_2",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.074,
+                "interval": [
+                  0.4,
+                  0.95
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.056,
+                "interval": [
+                  0.35,
+                  0.75
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.038,
+                "interval": [
+                  0.35,
+                  0.75
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0186,
+                "interval": [
+                  0.35,
+                  0.75
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0124,
+                "interval": [
+                  0,
+                  0.25
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_3",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.08,
+                "interval": [
+                  0.2,
+                  0.6
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.056,
+                "interval": [
+                  0.5,
+                  0.9
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0375,
+                "interval": [
+                  0.5,
+                  0.9
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.019,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0123,
+                "interval": [
+                  0.4,
+                  0.8
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_4",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.086,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.052,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0375,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0198,
+                "interval": [
+                  0.4,
+                  0.8
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0122,
+                "interval": [
+                  0.05,
+                  0.45
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_5",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.084,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.05,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0335,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.019,
+                "interval": [
+                  0.05,
+                  0.45
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0111,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_6",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.084,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.055,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0395,
+                "interval": [
+                  0,
+                  0.4
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0204,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0156,
+                "interval": [
+                  0.15,
+                  0.55
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_7",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.084,
+                "interval": [
+                  0.35,
+                  0.75
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.052,
+                "interval": [
+                  0.4,
+                  0.8
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0325,
+                "interval": [
+                  0.4,
+                  0.65
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.018,
+                "interval": [
+                  0.35,
+                  0.9
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0122,
+                "interval": [
+                  0,
+                  0.4
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_8",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.072,
+                "interval": [
+                  0.2,
+                  0.6
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.052,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.041,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0192,
+                "interval": [
+                  0.55,
+                  0.95
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0149,
+                "interval": [
+                  0.2,
+                  0.75
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_9",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.084,
+                "interval": [
+                  0.45,
+                  1
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.052,
+                "interval": [
+                  0.4,
+                  0.95
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.037,
+                "interval": [
+                  0.35,
+                  0.9
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.021,
+                "interval": [
+                  0.35,
+                  0.9
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0162,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_10",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.076,
+                "interval": [
+                  0.2,
+                  0.75
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.05,
+                "interval": [
+                  0.2,
+                  0.75
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0385,
+                "interval": [
+                  0.1,
+                  0.5
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0202,
+                "interval": [
+                  0.1,
+                  0.5
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.014,
+                "interval": [
+                  0.1,
+                  0.5
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_11",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.078,
+                "interval": [
+                  0.2,
+                  0.6
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.051,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0335,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0194,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0121,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_12",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.084,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.056,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.035,
+                "interval": [
+                  0.4,
+                  0.65
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0206,
+                "interval": [
+                  0.3,
+                  1
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0162,
+                "interval": [
+                  0.35,
+                  0.75
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_13",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.092,
+                "interval": [
+                  0,
+                  0.4
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.054,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.034,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0208,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0153,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_14",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.082,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.054,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.029,
+                "interval": [
+                  0.2,
+                  0.45
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0172,
+                "interval": [
+                  0.25,
+                  0.95
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0127,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_15",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.086,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.061,
+                "interval": [
+                  0,
+                  0.4
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0345,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0214,
+                "interval": [
+                  0.7,
+                  0.95
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0125,
+                "interval": [
+                  0.15,
+                  0.7
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_16",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.088,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.049,
+                "interval": [
+                  0.1,
+                  0.5
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0315,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0176,
+                "interval": [
+                  0.05,
+                  0.45
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0098,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_17",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.08,
+                "interval": [
+                  0.15,
+                  0.7
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.054,
+                "interval": [
+                  0.2,
+                  0.75
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0375,
+                "interval": [
+                  0.3,
+                  1
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0228,
+                "interval": [
+                  0.45,
+                  1
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0158,
+                "interval": [
+                  0.2,
+                  0.75
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_18",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.078,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.059,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0455,
+                "interval": [
+                  0.05,
+                  0.6
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0272,
+                "interval": [
+                  0.15,
+                  0.7
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0172,
+                "interval": [
+                  0.25,
+                  0.65
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_19",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.072,
+                "interval": [
+                  0.45,
+                  1
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.055,
+                "interval": [
+                  0,
+                  0.4
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0325,
+                "interval": [
+                  0.05,
+                  0.3
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.018,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0101,
+                "interval": [
+                  0.35,
+                  0.75
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_20",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.074,
+                "interval": [
+                  0.1,
+                  0.35
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.052,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0335,
+                "interval": [
+                  0.05,
+                  0.75
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0208,
+                "interval": [
+                  0.05,
+                  0.45
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0163,
+                "interval": [
+                  0.05,
+                  0.45
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_21",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.086,
+                "interval": [
+                  0.2,
+                  0.6
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.059,
+                "interval": [
+                  0.25,
+                  0.5
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0385,
+                "interval": [
+                  0.55,
+                  0.8
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0196,
+                "interval": [
+                  0.05,
+                  0.45
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0122,
+                "interval": [
+                  0.45,
+                  0.85
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_22",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.118,
+                "interval": [
+                  0.3,
+                  0.7
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.073,
+                "interval": [
+                  0.6,
+                  0.85
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.038,
+                "interval": [
+                  0.2,
+                  0.6
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0212,
+                "interval": [
+                  0,
+                  0.4
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0141,
+                "interval": [
+                  0.5,
+                  0.9
+                ]
+              }
+            ]
+          },
+          {
+            "alpha": "rand_23",
+            "windows": [
+              {
+                "k": 500,
+                "max_relative_deviation": 0.08,
+                "interval": [
+                  0.15,
+                  0.55
+                ]
+              },
+              {
+                "k": 1000,
+                "max_relative_deviation": 0.056,
+                "interval": [
+                  0.25,
+                  0.95
+                ]
+              },
+              {
+                "k": 2000,
+                "max_relative_deviation": 0.0385,
+                "interval": [
+                  0.25,
+                  0.8
+                ]
+              },
+              {
+                "k": 5000,
+                "max_relative_deviation": 0.0198,
+                "interval": [
+                  0,
+                  0.25
+                ]
+              },
+              {
+                "k": 10000,
+                "max_relative_deviation": 0.0124,
+                "interval": [
+                  0.3,
+                  0.85
+                ]
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 6911,
+        "generated_utc": "2026-03-14T10:07:55.508Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

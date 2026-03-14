@@ -1,5 +1,1931 @@
 {
   "problem": "EP-1106",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T16:32:45Z",
+  "computations": [
+    {
+      "source_file": "ep1106_standalone_deeper_20260314T163237Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T16:32:45.957Z",
+      "data": {
+        "problem": "EP-1106",
+        "script": "ep1106.mjs",
+        "method": "deep_modular_partition_recurrence_scan_for_prime_divisors_of_partition_values",
+        "warning": "This gives rigorous lower bounds for F(n) from tested primes only, not exact F(n).",
+        "params": {
+          "depth": 4,
+          "maxN": 50000,
+          "primeLimit": 12000,
+          "primesCount": 1438
+        },
+        "rows": [
+          {
+            "maxN": 50000,
+            "primeLimit": 12000,
+            "primes_tested": 1438,
+            "primes_hit_by_some_p_k_up_to_maxN": 1433,
+            "uncovered_primes_with_no_hit_up_to_maxN": [
+              8543,
+              8893,
+              9733,
+              10433,
+              11587
+            ],
+            "probe_rows": [
+              {
+                "n": 100,
+                "lower_bound_F_n_from_primes_le_primeLimit": 79,
+                "lower_over_log_n": 17.1546320352,
+                "lower_minus_n": -21
+              },
+              {
+                "n": 200,
+                "lower_bound_F_n_from_primes_le_primeLimit": 139,
+                "lower_over_log_n": 26.2347440487,
+                "lower_minus_n": -61
+              },
+              {
+                "n": 400,
+                "lower_bound_F_n_from_primes_le_primeLimit": 235,
+                "lower_over_log_n": 39.2224635817,
+                "lower_minus_n": -165
+              },
+              {
+                "n": 800,
+                "lower_bound_F_n_from_primes_le_primeLimit": 375,
+                "lower_over_log_n": 56.0989950168,
+                "lower_minus_n": -425
+              },
+              {
+                "n": 1200,
+                "lower_bound_F_n_from_primes_le_primeLimit": 461,
+                "lower_over_log_n": 65.0204519186,
+                "lower_minus_n": -739
+              },
+              {
+                "n": 2000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 615,
+                "lower_over_log_n": 80.9114448282,
+                "lower_minus_n": -1385
+              },
+              {
+                "n": 3000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 754,
+                "lower_over_log_n": 94.1750417563,
+                "lower_minus_n": -2246
+              },
+              {
+                "n": 5000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 927,
+                "lower_over_log_n": 108.8386724554,
+                "lower_minus_n": -4073
+              },
+              {
+                "n": 8000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 1121,
+                "lower_over_log_n": 124.7329976598,
+                "lower_minus_n": -6879
+              },
+              {
+                "n": 10000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 1206,
+                "lower_over_log_n": 130.9397862938,
+                "lower_minus_n": -8794
+              },
+              {
+                "n": 12000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 1256,
+                "lower_over_log_n": 133.721410344,
+                "lower_minus_n": -10744
+              },
+              {
+                "n": 14000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 1299,
+                "lower_over_log_n": 136.0663556788,
+                "lower_minus_n": -12701
+              },
+              {
+                "n": 50000,
+                "lower_bound_F_n_from_primes_le_primeLimit": 1433,
+                "lower_over_log_n": 132.4426399813,
+                "lower_minus_n": -48567
+              }
+            ],
+            "full_residue_profiles_count": 260,
+            "full_residue_profiles_first_80": [
+              {
+                "q": 2,
+                "first_zero": 2,
+                "last_zero": 49999,
+                "zero_count": 24984,
+                "max_gap_between_zeros": 18,
+                "maxN": 50000
+              },
+              {
+                "q": 3,
+                "first_zero": 3,
+                "last_zero": 49997,
+                "zero_count": 16628,
+                "max_gap_between_zeros": 27,
+                "maxN": 50000
+              },
+              {
+                "q": 5,
+                "first_zero": 4,
+                "last_zero": 49999,
+                "zero_count": 18195,
+                "max_gap_between_zeros": 5,
+                "maxN": 50000
+              },
+              {
+                "q": 7,
+                "first_zero": 5,
+                "last_zero": 49999,
+                "zero_count": 13619,
+                "max_gap_between_zeros": 7,
+                "maxN": 50000
+              },
+              {
+                "q": 11,
+                "first_zero": 6,
+                "last_zero": 49994,
+                "zero_count": 8753,
+                "max_gap_between_zeros": 11,
+                "maxN": 50000
+              },
+              {
+                "q": 13,
+                "first_zero": 28,
+                "last_zero": 49990,
+                "zero_count": 4067,
+                "max_gap_between_zeros": 138,
+                "maxN": 50000
+              },
+              {
+                "q": 17,
+                "first_zero": 54,
+                "last_zero": 49970,
+                "zero_count": 2924,
+                "max_gap_between_zeros": 123,
+                "maxN": 50000
+              },
+              {
+                "q": 19,
+                "first_zero": 20,
+                "last_zero": 49994,
+                "zero_count": 2592,
+                "max_gap_between_zeros": 145,
+                "maxN": 50000
+              },
+              {
+                "q": 23,
+                "first_zero": 32,
+                "last_zero": 49959,
+                "zero_count": 2121,
+                "max_gap_between_zeros": 209,
+                "maxN": 50000
+              },
+              {
+                "q": 29,
+                "first_zero": 26,
+                "last_zero": 49999,
+                "zero_count": 1677,
+                "max_gap_between_zeros": 258,
+                "maxN": 50000
+              },
+              {
+                "q": 31,
+                "first_zero": 44,
+                "last_zero": 49970,
+                "zero_count": 1653,
+                "max_gap_between_zeros": 226,
+                "maxN": 50000
+              },
+              {
+                "q": 37,
+                "first_zero": 86,
+                "last_zero": 49973,
+                "zero_count": 1357,
+                "max_gap_between_zeros": 296,
+                "maxN": 50000
+              },
+              {
+                "q": 41,
+                "first_zero": 35,
+                "last_zero": 49972,
+                "zero_count": 1220,
+                "max_gap_between_zeros": 268,
+                "maxN": 50000
+              },
+              {
+                "q": 43,
+                "first_zero": 27,
+                "last_zero": 49981,
+                "zero_count": 1109,
+                "max_gap_between_zeros": 302,
+                "maxN": 50000
+              },
+              {
+                "q": 47,
+                "first_zero": 56,
+                "last_zero": 49983,
+                "zero_count": 1071,
+                "max_gap_between_zeros": 309,
+                "maxN": 50000
+              },
+              {
+                "q": 53,
+                "first_zero": 52,
+                "last_zero": 49962,
+                "zero_count": 908,
+                "max_gap_between_zeros": 454,
+                "maxN": 50000
+              },
+              {
+                "q": 59,
+                "first_zero": 54,
+                "last_zero": 49878,
+                "zero_count": 788,
+                "max_gap_between_zeros": 458,
+                "maxN": 50000
+              },
+              {
+                "q": 61,
+                "first_zero": 115,
+                "last_zero": 49985,
+                "zero_count": 777,
+                "max_gap_between_zeros": 403,
+                "maxN": 50000
+              },
+              {
+                "q": 67,
+                "first_zero": 47,
+                "last_zero": 49999,
+                "zero_count": 747,
+                "max_gap_between_zeros": 514,
+                "maxN": 50000
+              },
+              {
+                "q": 71,
+                "first_zero": 43,
+                "last_zero": 49946,
+                "zero_count": 765,
+                "max_gap_between_zeros": 390,
+                "maxN": 50000
+              },
+              {
+                "q": 73,
+                "first_zero": 46,
+                "last_zero": 49879,
+                "zero_count": 712,
+                "max_gap_between_zeros": 369,
+                "maxN": 50000
+              },
+              {
+                "q": 79,
+                "first_zero": 123,
+                "last_zero": 49976,
+                "zero_count": 660,
+                "max_gap_between_zeros": 539,
+                "maxN": 50000
+              },
+              {
+                "q": 83,
+                "first_zero": 29,
+                "last_zero": 49976,
+                "zero_count": 591,
+                "max_gap_between_zeros": 696,
+                "maxN": 50000
+              },
+              {
+                "q": 89,
+                "first_zero": 25,
+                "last_zero": 49899,
+                "zero_count": 583,
+                "max_gap_between_zeros": 532,
+                "maxN": 50000
+              },
+              {
+                "q": 97,
+                "first_zero": 44,
+                "last_zero": 49992,
+                "zero_count": 537,
+                "max_gap_between_zeros": 523,
+                "maxN": 50000
+              },
+              {
+                "q": 101,
+                "first_zero": 13,
+                "last_zero": 49621,
+                "zero_count": 517,
+                "max_gap_between_zeros": 671,
+                "maxN": 50000
+              },
+              {
+                "q": 103,
+                "first_zero": 78,
+                "last_zero": 49941,
+                "zero_count": 475,
+                "max_gap_between_zeros": 571,
+                "maxN": 50000
+              },
+              {
+                "q": 107,
+                "first_zero": 96,
+                "last_zero": 49999,
+                "zero_count": 492,
+                "max_gap_between_zeros": 630,
+                "maxN": 50000
+              },
+              {
+                "q": 109,
+                "first_zero": 320,
+                "last_zero": 49903,
+                "zero_count": 483,
+                "max_gap_between_zeros": 675,
+                "maxN": 50000
+              },
+              {
+                "q": 113,
+                "first_zero": 63,
+                "last_zero": 49915,
+                "zero_count": 396,
+                "max_gap_between_zeros": 778,
+                "maxN": 50000
+              },
+              {
+                "q": 127,
+                "first_zero": 40,
+                "last_zero": 49992,
+                "zero_count": 400,
+                "max_gap_between_zeros": 645,
+                "maxN": 50000
+              },
+              {
+                "q": 131,
+                "first_zero": 73,
+                "last_zero": 49770,
+                "zero_count": 382,
+                "max_gap_between_zeros": 887,
+                "maxN": 50000
+              },
+              {
+                "q": 137,
+                "first_zero": 66,
+                "last_zero": 49942,
+                "zero_count": 360,
+                "max_gap_between_zeros": 821,
+                "maxN": 50000
+              },
+              {
+                "q": 139,
+                "first_zero": 60,
+                "last_zero": 49940,
+                "zero_count": 351,
+                "max_gap_between_zeros": 965,
+                "maxN": 50000
+              },
+              {
+                "q": 149,
+                "first_zero": 333,
+                "last_zero": 49782,
+                "zero_count": 353,
+                "max_gap_between_zeros": 1016,
+                "maxN": 50000
+              },
+              {
+                "q": 151,
+                "first_zero": 203,
+                "last_zero": 49853,
+                "zero_count": 359,
+                "max_gap_between_zeros": 944,
+                "maxN": 50000
+              },
+              {
+                "q": 157,
+                "first_zero": 116,
+                "last_zero": 49959,
+                "zero_count": 334,
+                "max_gap_between_zeros": 847,
+                "maxN": 50000
+              },
+              {
+                "q": 163,
+                "first_zero": 960,
+                "last_zero": 49829,
+                "zero_count": 305,
+                "max_gap_between_zeros": 960,
+                "maxN": 50000
+              },
+              {
+                "q": 167,
+                "first_zero": 22,
+                "last_zero": 49821,
+                "zero_count": 264,
+                "max_gap_between_zeros": 865,
+                "maxN": 50000
+              },
+              {
+                "q": 173,
+                "first_zero": 79,
+                "last_zero": 49972,
+                "zero_count": 298,
+                "max_gap_between_zeros": 1005,
+                "maxN": 50000
+              },
+              {
+                "q": 179,
+                "first_zero": 368,
+                "last_zero": 49919,
+                "zero_count": 270,
+                "max_gap_between_zeros": 1003,
+                "maxN": 50000
+              },
+              {
+                "q": 181,
+                "first_zero": 310,
+                "last_zero": 49947,
+                "zero_count": 263,
+                "max_gap_between_zeros": 1337,
+                "maxN": 50000
+              },
+              {
+                "q": 191,
+                "first_zero": 75,
+                "last_zero": 49855,
+                "zero_count": 242,
+                "max_gap_between_zeros": 1292,
+                "maxN": 50000
+              },
+              {
+                "q": 193,
+                "first_zero": 41,
+                "last_zero": 49872,
+                "zero_count": 249,
+                "max_gap_between_zeros": 1295,
+                "maxN": 50000
+              },
+              {
+                "q": 197,
+                "first_zero": 118,
+                "last_zero": 49869,
+                "zero_count": 271,
+                "max_gap_between_zeros": 1012,
+                "maxN": 50000
+              },
+              {
+                "q": 199,
+                "first_zero": 59,
+                "last_zero": 49671,
+                "zero_count": 269,
+                "max_gap_between_zeros": 1274,
+                "maxN": 50000
+              },
+              {
+                "q": 211,
+                "first_zero": 100,
+                "last_zero": 48374,
+                "zero_count": 257,
+                "max_gap_between_zeros": 1010,
+                "maxN": 50000
+              },
+              {
+                "q": 223,
+                "first_zero": 64,
+                "last_zero": 49686,
+                "zero_count": 215,
+                "max_gap_between_zeros": 1774,
+                "maxN": 50000
+              },
+              {
+                "q": 227,
+                "first_zero": 55,
+                "last_zero": 49804,
+                "zero_count": 183,
+                "max_gap_between_zeros": 1403,
+                "maxN": 50000
+              },
+              {
+                "q": 229,
+                "first_zero": 115,
+                "last_zero": 49709,
+                "zero_count": 203,
+                "max_gap_between_zeros": 1353,
+                "maxN": 50000
+              },
+              {
+                "q": 233,
+                "first_zero": 316,
+                "last_zero": 49848,
+                "zero_count": 228,
+                "max_gap_between_zeros": 1174,
+                "maxN": 50000
+              },
+              {
+                "q": 239,
+                "first_zero": 353,
+                "last_zero": 49447,
+                "zero_count": 191,
+                "max_gap_between_zeros": 1349,
+                "maxN": 50000
+              },
+              {
+                "q": 241,
+                "first_zero": 46,
+                "last_zero": 49967,
+                "zero_count": 207,
+                "max_gap_between_zeros": 1482,
+                "maxN": 50000
+              },
+              {
+                "q": 251,
+                "first_zero": 23,
+                "last_zero": 49269,
+                "zero_count": 214,
+                "max_gap_between_zeros": 1044,
+                "maxN": 50000
+              },
+              {
+                "q": 257,
+                "first_zero": 197,
+                "last_zero": 49764,
+                "zero_count": 187,
+                "max_gap_between_zeros": 1864,
+                "maxN": 50000
+              },
+              {
+                "q": 263,
+                "first_zero": 236,
+                "last_zero": 49479,
+                "zero_count": 208,
+                "max_gap_between_zeros": 998,
+                "maxN": 50000
+              },
+              {
+                "q": 269,
+                "first_zero": 193,
+                "last_zero": 49908,
+                "zero_count": 179,
+                "max_gap_between_zeros": 1449,
+                "maxN": 50000
+              },
+              {
+                "q": 271,
+                "first_zero": 871,
+                "last_zero": 49971,
+                "zero_count": 197,
+                "max_gap_between_zeros": 1207,
+                "maxN": 50000
+              },
+              {
+                "q": 277,
+                "first_zero": 179,
+                "last_zero": 49926,
+                "zero_count": 183,
+                "max_gap_between_zeros": 1188,
+                "maxN": 50000
+              },
+              {
+                "q": 281,
+                "first_zero": 37,
+                "last_zero": 49623,
+                "zero_count": 156,
+                "max_gap_between_zeros": 2515,
+                "maxN": 50000
+              },
+              {
+                "q": 283,
+                "first_zero": 95,
+                "last_zero": 49584,
+                "zero_count": 186,
+                "max_gap_between_zeros": 1767,
+                "maxN": 50000
+              },
+              {
+                "q": 293,
+                "first_zero": 183,
+                "last_zero": 49676,
+                "zero_count": 159,
+                "max_gap_between_zeros": 1623,
+                "maxN": 50000
+              },
+              {
+                "q": 307,
+                "first_zero": 233,
+                "last_zero": 49396,
+                "zero_count": 160,
+                "max_gap_between_zeros": 2372,
+                "maxN": 50000
+              },
+              {
+                "q": 311,
+                "first_zero": 31,
+                "last_zero": 48443,
+                "zero_count": 170,
+                "max_gap_between_zeros": 1673,
+                "maxN": 50000
+              },
+              {
+                "q": 313,
+                "first_zero": 165,
+                "last_zero": 49563,
+                "zero_count": 173,
+                "max_gap_between_zeros": 1802,
+                "maxN": 50000
+              },
+              {
+                "q": 317,
+                "first_zero": 128,
+                "last_zero": 49712,
+                "zero_count": 142,
+                "max_gap_between_zeros": 1979,
+                "maxN": 50000
+              },
+              {
+                "q": 331,
+                "first_zero": 682,
+                "last_zero": 49557,
+                "zero_count": 175,
+                "max_gap_between_zeros": 1614,
+                "maxN": 50000
+              },
+              {
+                "q": 337,
+                "first_zero": 574,
+                "last_zero": 49392,
+                "zero_count": 145,
+                "max_gap_between_zeros": 2179,
+                "maxN": 50000
+              },
+              {
+                "q": 347,
+                "first_zero": 233,
+                "last_zero": 49929,
+                "zero_count": 148,
+                "max_gap_between_zeros": 1510,
+                "maxN": 50000
+              },
+              {
+                "q": 349,
+                "first_zero": 261,
+                "last_zero": 49992,
+                "zero_count": 125,
+                "max_gap_between_zeros": 1610,
+                "maxN": 50000
+              },
+              {
+                "q": 353,
+                "first_zero": 223,
+                "last_zero": 49275,
+                "zero_count": 131,
+                "max_gap_between_zeros": 1494,
+                "maxN": 50000
+              },
+              {
+                "q": 359,
+                "first_zero": 394,
+                "last_zero": 49685,
+                "zero_count": 110,
+                "max_gap_between_zeros": 3340,
+                "maxN": 50000
+              },
+              {
+                "q": 367,
+                "first_zero": 128,
+                "last_zero": 49599,
+                "zero_count": 125,
+                "max_gap_between_zeros": 1729,
+                "maxN": 50000
+              },
+              {
+                "q": 373,
+                "first_zero": 91,
+                "last_zero": 49781,
+                "zero_count": 119,
+                "max_gap_between_zeros": 2074,
+                "maxN": 50000
+              },
+              {
+                "q": 379,
+                "first_zero": 115,
+                "last_zero": 49818,
+                "zero_count": 122,
+                "max_gap_between_zeros": 1763,
+                "maxN": 50000
+              },
+              {
+                "q": 383,
+                "first_zero": 473,
+                "last_zero": 49683,
+                "zero_count": 142,
+                "max_gap_between_zeros": 2870,
+                "maxN": 50000
+              },
+              {
+                "q": 389,
+                "first_zero": 280,
+                "last_zero": 49105,
+                "zero_count": 160,
+                "max_gap_between_zeros": 2192,
+                "maxN": 50000
+              },
+              {
+                "q": 397,
+                "first_zero": 1067,
+                "last_zero": 49450,
+                "zero_count": 125,
+                "max_gap_between_zeros": 2639,
+                "maxN": 50000
+              },
+              {
+                "q": 401,
+                "first_zero": 358,
+                "last_zero": 49563,
+                "zero_count": 109,
+                "max_gap_between_zeros": 2619,
+                "maxN": 50000
+              },
+              {
+                "q": 409,
+                "first_zero": 60,
+                "last_zero": 49686,
+                "zero_count": 129,
+                "max_gap_between_zeros": 1788,
+                "maxN": 50000
+              }
+            ],
+            "full_residue_profiles_last_80": [
+              {
+                "q": 11243,
+                "first_zero": 14167,
+                "last_zero": 38105,
+                "zero_count": 3,
+                "max_gap_between_zeros": 17601,
+                "maxN": 50000
+              },
+              {
+                "q": 11251,
+                "first_zero": 49390,
+                "last_zero": 49390,
+                "zero_count": 1,
+                "max_gap_between_zeros": 49390,
+                "maxN": 50000
+              },
+              {
+                "q": 11257,
+                "first_zero": 19465,
+                "last_zero": 38854,
+                "zero_count": 2,
+                "max_gap_between_zeros": 19465,
+                "maxN": 50000
+              },
+              {
+                "q": 11261,
+                "first_zero": 7411,
+                "last_zero": 46711,
+                "zero_count": 4,
+                "max_gap_between_zeros": 21947,
+                "maxN": 50000
+              },
+              {
+                "q": 11273,
+                "first_zero": 1496,
+                "last_zero": 44742,
+                "zero_count": 4,
+                "max_gap_between_zeros": 19744,
+                "maxN": 50000
+              },
+              {
+                "q": 11279,
+                "first_zero": 25050,
+                "last_zero": 39251,
+                "zero_count": 2,
+                "max_gap_between_zeros": 25050,
+                "maxN": 50000
+              },
+              {
+                "q": 11287,
+                "first_zero": 15845,
+                "last_zero": 46908,
+                "zero_count": 4,
+                "max_gap_between_zeros": 21631,
+                "maxN": 50000
+              },
+              {
+                "q": 11299,
+                "first_zero": 18722,
+                "last_zero": 45816,
+                "zero_count": 3,
+                "max_gap_between_zeros": 18722,
+                "maxN": 50000
+              },
+              {
+                "q": 11311,
+                "first_zero": 14164,
+                "last_zero": 14164,
+                "zero_count": 1,
+                "max_gap_between_zeros": 14164,
+                "maxN": 50000
+              },
+              {
+                "q": 11317,
+                "first_zero": 5006,
+                "last_zero": 45109,
+                "zero_count": 4,
+                "max_gap_between_zeros": 22209,
+                "maxN": 50000
+              },
+              {
+                "q": 11321,
+                "first_zero": 8361,
+                "last_zero": 45488,
+                "zero_count": 3,
+                "max_gap_between_zeros": 21725,
+                "maxN": 50000
+              },
+              {
+                "q": 11329,
+                "first_zero": 7973,
+                "last_zero": 49310,
+                "zero_count": 7,
+                "max_gap_between_zeros": 15286,
+                "maxN": 50000
+              },
+              {
+                "q": 11351,
+                "first_zero": 1255,
+                "last_zero": 47852,
+                "zero_count": 5,
+                "max_gap_between_zeros": 20357,
+                "maxN": 50000
+              },
+              {
+                "q": 11353,
+                "first_zero": 3351,
+                "last_zero": 49243,
+                "zero_count": 4,
+                "max_gap_between_zeros": 17033,
+                "maxN": 50000
+              },
+              {
+                "q": 11369,
+                "first_zero": 2116,
+                "last_zero": 45389,
+                "zero_count": 6,
+                "max_gap_between_zeros": 14018,
+                "maxN": 50000
+              },
+              {
+                "q": 11383,
+                "first_zero": 4869,
+                "last_zero": 21743,
+                "zero_count": 3,
+                "max_gap_between_zeros": 11243,
+                "maxN": 50000
+              },
+              {
+                "q": 11393,
+                "first_zero": 14403,
+                "last_zero": 44885,
+                "zero_count": 5,
+                "max_gap_between_zeros": 20742,
+                "maxN": 50000
+              },
+              {
+                "q": 11399,
+                "first_zero": 6255,
+                "last_zero": 16580,
+                "zero_count": 2,
+                "max_gap_between_zeros": 10325,
+                "maxN": 50000
+              },
+              {
+                "q": 11411,
+                "first_zero": 8170,
+                "last_zero": 49202,
+                "zero_count": 6,
+                "max_gap_between_zeros": 15599,
+                "maxN": 50000
+              },
+              {
+                "q": 11423,
+                "first_zero": 15343,
+                "last_zero": 49348,
+                "zero_count": 3,
+                "max_gap_between_zeros": 32492,
+                "maxN": 50000
+              },
+              {
+                "q": 11437,
+                "first_zero": 4163,
+                "last_zero": 48036,
+                "zero_count": 5,
+                "max_gap_between_zeros": 19331,
+                "maxN": 50000
+              },
+              {
+                "q": 11443,
+                "first_zero": 11762,
+                "last_zero": 38136,
+                "zero_count": 2,
+                "max_gap_between_zeros": 26374,
+                "maxN": 50000
+              },
+              {
+                "q": 11447,
+                "first_zero": 6848,
+                "last_zero": 49588,
+                "zero_count": 5,
+                "max_gap_between_zeros": 22547,
+                "maxN": 50000
+              },
+              {
+                "q": 11467,
+                "first_zero": 20444,
+                "last_zero": 20981,
+                "zero_count": 2,
+                "max_gap_between_zeros": 20444,
+                "maxN": 50000
+              },
+              {
+                "q": 11471,
+                "first_zero": 505,
+                "last_zero": 21289,
+                "zero_count": 4,
+                "max_gap_between_zeros": 7075,
+                "maxN": 50000
+              },
+              {
+                "q": 11483,
+                "first_zero": 6516,
+                "last_zero": 22111,
+                "zero_count": 4,
+                "max_gap_between_zeros": 11223,
+                "maxN": 50000
+              },
+              {
+                "q": 11489,
+                "first_zero": 16938,
+                "last_zero": 37625,
+                "zero_count": 3,
+                "max_gap_between_zeros": 19067,
+                "maxN": 50000
+              },
+              {
+                "q": 11491,
+                "first_zero": 35053,
+                "last_zero": 39728,
+                "zero_count": 3,
+                "max_gap_between_zeros": 35053,
+                "maxN": 50000
+              },
+              {
+                "q": 11497,
+                "first_zero": 3381,
+                "last_zero": 48295,
+                "zero_count": 7,
+                "max_gap_between_zeros": 14262,
+                "maxN": 50000
+              },
+              {
+                "q": 11503,
+                "first_zero": 13718,
+                "last_zero": 29736,
+                "zero_count": 3,
+                "max_gap_between_zeros": 15597,
+                "maxN": 50000
+              },
+              {
+                "q": 11519,
+                "first_zero": 5622,
+                "last_zero": 49404,
+                "zero_count": 4,
+                "max_gap_between_zeros": 21706,
+                "maxN": 50000
+              },
+              {
+                "q": 11527,
+                "first_zero": 40620,
+                "last_zero": 49513,
+                "zero_count": 4,
+                "max_gap_between_zeros": 40620,
+                "maxN": 50000
+              },
+              {
+                "q": 11549,
+                "first_zero": 19792,
+                "last_zero": 41685,
+                "zero_count": 3,
+                "max_gap_between_zeros": 21447,
+                "maxN": 50000
+              },
+              {
+                "q": 11551,
+                "first_zero": 9379,
+                "last_zero": 44274,
+                "zero_count": 8,
+                "max_gap_between_zeros": 18008,
+                "maxN": 50000
+              },
+              {
+                "q": 11579,
+                "first_zero": 7638,
+                "last_zero": 48279,
+                "zero_count": 4,
+                "max_gap_between_zeros": 36393,
+                "maxN": 50000
+              },
+              {
+                "q": 11587,
+                "first_zero": null,
+                "last_zero": null,
+                "zero_count": 0,
+                "max_gap_between_zeros": 0,
+                "maxN": 50000
+              },
+              {
+                "q": 11593,
+                "first_zero": 4927,
+                "last_zero": 49974,
+                "zero_count": 5,
+                "max_gap_between_zeros": 15728,
+                "maxN": 50000
+              },
+              {
+                "q": 11597,
+                "first_zero": 10427,
+                "last_zero": 43650,
+                "zero_count": 6,
+                "max_gap_between_zeros": 16988,
+                "maxN": 50000
+              },
+              {
+                "q": 11617,
+                "first_zero": 9182,
+                "last_zero": 42803,
+                "zero_count": 5,
+                "max_gap_between_zeros": 12378,
+                "maxN": 50000
+              },
+              {
+                "q": 11621,
+                "first_zero": 516,
+                "last_zero": 42608,
+                "zero_count": 8,
+                "max_gap_between_zeros": 12419,
+                "maxN": 50000
+              },
+              {
+                "q": 11633,
+                "first_zero": 1840,
+                "last_zero": 43799,
+                "zero_count": 4,
+                "max_gap_between_zeros": 17449,
+                "maxN": 50000
+              },
+              {
+                "q": 11657,
+                "first_zero": 1205,
+                "last_zero": 43511,
+                "zero_count": 3,
+                "max_gap_between_zeros": 37753,
+                "maxN": 50000
+              },
+              {
+                "q": 11677,
+                "first_zero": 10302,
+                "last_zero": 36019,
+                "zero_count": 7,
+                "max_gap_between_zeros": 10302,
+                "maxN": 50000
+              },
+              {
+                "q": 11681,
+                "first_zero": 14921,
+                "last_zero": 40283,
+                "zero_count": 3,
+                "max_gap_between_zeros": 19705,
+                "maxN": 50000
+              },
+              {
+                "q": 11689,
+                "first_zero": 15364,
+                "last_zero": 39611,
+                "zero_count": 6,
+                "max_gap_between_zeros": 15364,
+                "maxN": 50000
+              },
+              {
+                "q": 11699,
+                "first_zero": 22720,
+                "last_zero": 22720,
+                "zero_count": 1,
+                "max_gap_between_zeros": 22720,
+                "maxN": 50000
+              },
+              {
+                "q": 11701,
+                "first_zero": 7931,
+                "last_zero": 44018,
+                "zero_count": 4,
+                "max_gap_between_zeros": 28089,
+                "maxN": 50000
+              },
+              {
+                "q": 11717,
+                "first_zero": 3708,
+                "last_zero": 40788,
+                "zero_count": 3,
+                "max_gap_between_zeros": 19222,
+                "maxN": 50000
+              },
+              {
+                "q": 11719,
+                "first_zero": 30909,
+                "last_zero": 47385,
+                "zero_count": 2,
+                "max_gap_between_zeros": 30909,
+                "maxN": 50000
+              },
+              {
+                "q": 11731,
+                "first_zero": 30290,
+                "last_zero": 39754,
+                "zero_count": 2,
+                "max_gap_between_zeros": 30290,
+                "maxN": 50000
+              },
+              {
+                "q": 11743,
+                "first_zero": 982,
+                "last_zero": 47115,
+                "zero_count": 4,
+                "max_gap_between_zeros": 26553,
+                "maxN": 50000
+              },
+              {
+                "q": 11777,
+                "first_zero": 6858,
+                "last_zero": 43713,
+                "zero_count": 6,
+                "max_gap_between_zeros": 15018,
+                "maxN": 50000
+              },
+              {
+                "q": 11779,
+                "first_zero": 833,
+                "last_zero": 46132,
+                "zero_count": 3,
+                "max_gap_between_zeros": 31407,
+                "maxN": 50000
+              },
+              {
+                "q": 11783,
+                "first_zero": 6199,
+                "last_zero": 44283,
+                "zero_count": 3,
+                "max_gap_between_zeros": 37954,
+                "maxN": 50000
+              },
+              {
+                "q": 11789,
+                "first_zero": 8759,
+                "last_zero": 32475,
+                "zero_count": 5,
+                "max_gap_between_zeros": 15079,
+                "maxN": 50000
+              },
+              {
+                "q": 11801,
+                "first_zero": 20294,
+                "last_zero": 47503,
+                "zero_count": 3,
+                "max_gap_between_zeros": 20294,
+                "maxN": 50000
+              },
+              {
+                "q": 11807,
+                "first_zero": 5930,
+                "last_zero": 30096,
+                "zero_count": 4,
+                "max_gap_between_zeros": 14921,
+                "maxN": 50000
+              },
+              {
+                "q": 11813,
+                "first_zero": 12009,
+                "last_zero": 47888,
+                "zero_count": 5,
+                "max_gap_between_zeros": 12324,
+                "maxN": 50000
+              },
+              {
+                "q": 11821,
+                "first_zero": 22160,
+                "last_zero": 22160,
+                "zero_count": 1,
+                "max_gap_between_zeros": 22160,
+                "maxN": 50000
+              },
+              {
+                "q": 11827,
+                "first_zero": 1008,
+                "last_zero": 44721,
+                "zero_count": 5,
+                "max_gap_between_zeros": 26344,
+                "maxN": 50000
+              },
+              {
+                "q": 11831,
+                "first_zero": 30267,
+                "last_zero": 44694,
+                "zero_count": 4,
+                "max_gap_between_zeros": 30267,
+                "maxN": 50000
+              },
+              {
+                "q": 11833,
+                "first_zero": 4889,
+                "last_zero": 33369,
+                "zero_count": 3,
+                "max_gap_between_zeros": 20332,
+                "maxN": 50000
+              },
+              {
+                "q": 11839,
+                "first_zero": 15513,
+                "last_zero": 26176,
+                "zero_count": 2,
+                "max_gap_between_zeros": 15513,
+                "maxN": 50000
+              },
+              {
+                "q": 11863,
+                "first_zero": 1464,
+                "last_zero": 43821,
+                "zero_count": 5,
+                "max_gap_between_zeros": 16779,
+                "maxN": 50000
+              },
+              {
+                "q": 11867,
+                "first_zero": 6109,
+                "last_zero": 47602,
+                "zero_count": 4,
+                "max_gap_between_zeros": 31570,
+                "maxN": 50000
+              },
+              {
+                "q": 11887,
+                "first_zero": 4570,
+                "last_zero": 48549,
+                "zero_count": 8,
+                "max_gap_between_zeros": 23625,
+                "maxN": 50000
+              },
+              {
+                "q": 11897,
+                "first_zero": 2588,
+                "last_zero": 42913,
+                "zero_count": 4,
+                "max_gap_between_zeros": 32761,
+                "maxN": 50000
+              },
+              {
+                "q": 11903,
+                "first_zero": 3036,
+                "last_zero": 39410,
+                "zero_count": 3,
+                "max_gap_between_zeros": 19683,
+                "maxN": 50000
+              },
+              {
+                "q": 11909,
+                "first_zero": 3385,
+                "last_zero": 42418,
+                "zero_count": 6,
+                "max_gap_between_zeros": 14234,
+                "maxN": 50000
+              },
+              {
+                "q": 11923,
+                "first_zero": 3804,
+                "last_zero": 21403,
+                "zero_count": 5,
+                "max_gap_between_zeros": 8645,
+                "maxN": 50000
+              },
+              {
+                "q": 11927,
+                "first_zero": 12643,
+                "last_zero": 40298,
+                "zero_count": 3,
+                "max_gap_between_zeros": 22325,
+                "maxN": 50000
+              },
+              {
+                "q": 11933,
+                "first_zero": 4567,
+                "last_zero": 40619,
+                "zero_count": 7,
+                "max_gap_between_zeros": 18190,
+                "maxN": 50000
+              },
+              {
+                "q": 11939,
+                "first_zero": 8019,
+                "last_zero": 48893,
+                "zero_count": 6,
+                "max_gap_between_zeros": 18734,
+                "maxN": 50000
+              },
+              {
+                "q": 11941,
+                "first_zero": 16523,
+                "last_zero": 47416,
+                "zero_count": 5,
+                "max_gap_between_zeros": 22312,
+                "maxN": 50000
+              },
+              {
+                "q": 11953,
+                "first_zero": 5211,
+                "last_zero": 42770,
+                "zero_count": 6,
+                "max_gap_between_zeros": 22946,
+                "maxN": 50000
+              },
+              {
+                "q": 11959,
+                "first_zero": 36153,
+                "last_zero": 41363,
+                "zero_count": 2,
+                "max_gap_between_zeros": 36153,
+                "maxN": 50000
+              },
+              {
+                "q": 11969,
+                "first_zero": 5510,
+                "last_zero": 5510,
+                "zero_count": 1,
+                "max_gap_between_zeros": 5510,
+                "maxN": 50000
+              },
+              {
+                "q": 11971,
+                "first_zero": 11862,
+                "last_zero": 49742,
+                "zero_count": 6,
+                "max_gap_between_zeros": 19317,
+                "maxN": 50000
+              },
+              {
+                "q": 11981,
+                "first_zero": 16192,
+                "last_zero": 41316,
+                "zero_count": 5,
+                "max_gap_between_zeros": 16192,
+                "maxN": 50000
+              },
+              {
+                "q": 11987,
+                "first_zero": 38698,
+                "last_zero": 47271,
+                "zero_count": 3,
+                "max_gap_between_zeros": 38698,
+                "maxN": 50000
+              }
+            ],
+            "hit_rows_first_80": [
+              {
+                "q": 2,
+                "first_k_with_q_divides_p_k_up_to_maxN": 2
+              },
+              {
+                "q": 3,
+                "first_k_with_q_divides_p_k_up_to_maxN": 3
+              },
+              {
+                "q": 5,
+                "first_k_with_q_divides_p_k_up_to_maxN": 4
+              },
+              {
+                "q": 7,
+                "first_k_with_q_divides_p_k_up_to_maxN": 5
+              },
+              {
+                "q": 11,
+                "first_k_with_q_divides_p_k_up_to_maxN": 6
+              },
+              {
+                "q": 13,
+                "first_k_with_q_divides_p_k_up_to_maxN": 28
+              },
+              {
+                "q": 17,
+                "first_k_with_q_divides_p_k_up_to_maxN": 54
+              },
+              {
+                "q": 19,
+                "first_k_with_q_divides_p_k_up_to_maxN": 20
+              },
+              {
+                "q": 23,
+                "first_k_with_q_divides_p_k_up_to_maxN": 32
+              },
+              {
+                "q": 29,
+                "first_k_with_q_divides_p_k_up_to_maxN": 26
+              },
+              {
+                "q": 31,
+                "first_k_with_q_divides_p_k_up_to_maxN": 44
+              },
+              {
+                "q": 37,
+                "first_k_with_q_divides_p_k_up_to_maxN": 86
+              },
+              {
+                "q": 41,
+                "first_k_with_q_divides_p_k_up_to_maxN": 35
+              },
+              {
+                "q": 43,
+                "first_k_with_q_divides_p_k_up_to_maxN": 27
+              },
+              {
+                "q": 47,
+                "first_k_with_q_divides_p_k_up_to_maxN": 56
+              },
+              {
+                "q": 53,
+                "first_k_with_q_divides_p_k_up_to_maxN": 52
+              },
+              {
+                "q": 59,
+                "first_k_with_q_divides_p_k_up_to_maxN": 54
+              },
+              {
+                "q": 61,
+                "first_k_with_q_divides_p_k_up_to_maxN": 115
+              },
+              {
+                "q": 67,
+                "first_k_with_q_divides_p_k_up_to_maxN": 47
+              },
+              {
+                "q": 71,
+                "first_k_with_q_divides_p_k_up_to_maxN": 43
+              },
+              {
+                "q": 73,
+                "first_k_with_q_divides_p_k_up_to_maxN": 46
+              },
+              {
+                "q": 79,
+                "first_k_with_q_divides_p_k_up_to_maxN": 123
+              },
+              {
+                "q": 83,
+                "first_k_with_q_divides_p_k_up_to_maxN": 29
+              },
+              {
+                "q": 89,
+                "first_k_with_q_divides_p_k_up_to_maxN": 25
+              },
+              {
+                "q": 97,
+                "first_k_with_q_divides_p_k_up_to_maxN": 44
+              },
+              {
+                "q": 101,
+                "first_k_with_q_divides_p_k_up_to_maxN": 13
+              },
+              {
+                "q": 103,
+                "first_k_with_q_divides_p_k_up_to_maxN": 78
+              },
+              {
+                "q": 107,
+                "first_k_with_q_divides_p_k_up_to_maxN": 96
+              },
+              {
+                "q": 109,
+                "first_k_with_q_divides_p_k_up_to_maxN": 320
+              },
+              {
+                "q": 113,
+                "first_k_with_q_divides_p_k_up_to_maxN": 63
+              },
+              {
+                "q": 127,
+                "first_k_with_q_divides_p_k_up_to_maxN": 40
+              },
+              {
+                "q": 131,
+                "first_k_with_q_divides_p_k_up_to_maxN": 73
+              },
+              {
+                "q": 137,
+                "first_k_with_q_divides_p_k_up_to_maxN": 66
+              },
+              {
+                "q": 139,
+                "first_k_with_q_divides_p_k_up_to_maxN": 60
+              },
+              {
+                "q": 149,
+                "first_k_with_q_divides_p_k_up_to_maxN": 333
+              },
+              {
+                "q": 151,
+                "first_k_with_q_divides_p_k_up_to_maxN": 203
+              },
+              {
+                "q": 157,
+                "first_k_with_q_divides_p_k_up_to_maxN": 116
+              },
+              {
+                "q": 163,
+                "first_k_with_q_divides_p_k_up_to_maxN": 960
+              },
+              {
+                "q": 167,
+                "first_k_with_q_divides_p_k_up_to_maxN": 22
+              },
+              {
+                "q": 173,
+                "first_k_with_q_divides_p_k_up_to_maxN": 79
+              },
+              {
+                "q": 179,
+                "first_k_with_q_divides_p_k_up_to_maxN": 368
+              },
+              {
+                "q": 181,
+                "first_k_with_q_divides_p_k_up_to_maxN": 310
+              },
+              {
+                "q": 191,
+                "first_k_with_q_divides_p_k_up_to_maxN": 75
+              },
+              {
+                "q": 193,
+                "first_k_with_q_divides_p_k_up_to_maxN": 41
+              },
+              {
+                "q": 197,
+                "first_k_with_q_divides_p_k_up_to_maxN": 118
+              },
+              {
+                "q": 199,
+                "first_k_with_q_divides_p_k_up_to_maxN": 59
+              },
+              {
+                "q": 211,
+                "first_k_with_q_divides_p_k_up_to_maxN": 100
+              },
+              {
+                "q": 223,
+                "first_k_with_q_divides_p_k_up_to_maxN": 64
+              },
+              {
+                "q": 227,
+                "first_k_with_q_divides_p_k_up_to_maxN": 55
+              },
+              {
+                "q": 229,
+                "first_k_with_q_divides_p_k_up_to_maxN": 115
+              },
+              {
+                "q": 233,
+                "first_k_with_q_divides_p_k_up_to_maxN": 316
+              },
+              {
+                "q": 239,
+                "first_k_with_q_divides_p_k_up_to_maxN": 353
+              },
+              {
+                "q": 241,
+                "first_k_with_q_divides_p_k_up_to_maxN": 46
+              },
+              {
+                "q": 251,
+                "first_k_with_q_divides_p_k_up_to_maxN": 23
+              },
+              {
+                "q": 257,
+                "first_k_with_q_divides_p_k_up_to_maxN": 197
+              },
+              {
+                "q": 263,
+                "first_k_with_q_divides_p_k_up_to_maxN": 236
+              },
+              {
+                "q": 269,
+                "first_k_with_q_divides_p_k_up_to_maxN": 193
+              },
+              {
+                "q": 271,
+                "first_k_with_q_divides_p_k_up_to_maxN": 871
+              },
+              {
+                "q": 277,
+                "first_k_with_q_divides_p_k_up_to_maxN": 179
+              },
+              {
+                "q": 281,
+                "first_k_with_q_divides_p_k_up_to_maxN": 37
+              },
+              {
+                "q": 283,
+                "first_k_with_q_divides_p_k_up_to_maxN": 95
+              },
+              {
+                "q": 293,
+                "first_k_with_q_divides_p_k_up_to_maxN": 183
+              },
+              {
+                "q": 307,
+                "first_k_with_q_divides_p_k_up_to_maxN": 233
+              },
+              {
+                "q": 311,
+                "first_k_with_q_divides_p_k_up_to_maxN": 31
+              },
+              {
+                "q": 313,
+                "first_k_with_q_divides_p_k_up_to_maxN": 165
+              },
+              {
+                "q": 317,
+                "first_k_with_q_divides_p_k_up_to_maxN": 128
+              },
+              {
+                "q": 331,
+                "first_k_with_q_divides_p_k_up_to_maxN": 682
+              },
+              {
+                "q": 337,
+                "first_k_with_q_divides_p_k_up_to_maxN": 574
+              },
+              {
+                "q": 347,
+                "first_k_with_q_divides_p_k_up_to_maxN": 233
+              },
+              {
+                "q": 349,
+                "first_k_with_q_divides_p_k_up_to_maxN": 261
+              },
+              {
+                "q": 353,
+                "first_k_with_q_divides_p_k_up_to_maxN": 223
+              },
+              {
+                "q": 359,
+                "first_k_with_q_divides_p_k_up_to_maxN": 394
+              },
+              {
+                "q": 367,
+                "first_k_with_q_divides_p_k_up_to_maxN": 128
+              },
+              {
+                "q": 373,
+                "first_k_with_q_divides_p_k_up_to_maxN": 91
+              },
+              {
+                "q": 379,
+                "first_k_with_q_divides_p_k_up_to_maxN": 115
+              },
+              {
+                "q": 383,
+                "first_k_with_q_divides_p_k_up_to_maxN": 473
+              },
+              {
+                "q": 389,
+                "first_k_with_q_divides_p_k_up_to_maxN": 280
+              },
+              {
+                "q": 397,
+                "first_k_with_q_divides_p_k_up_to_maxN": 1067
+              },
+              {
+                "q": 401,
+                "first_k_with_q_divides_p_k_up_to_maxN": 358
+              },
+              {
+                "q": 409,
+                "first_k_with_q_divides_p_k_up_to_maxN": 60
+              }
+            ],
+            "hit_rows_last_50": [
+              {
+                "q": 11519,
+                "first_k_with_q_divides_p_k_up_to_maxN": 5622
+              },
+              {
+                "q": 11527,
+                "first_k_with_q_divides_p_k_up_to_maxN": 40620
+              },
+              {
+                "q": 11549,
+                "first_k_with_q_divides_p_k_up_to_maxN": 19792
+              },
+              {
+                "q": 11551,
+                "first_k_with_q_divides_p_k_up_to_maxN": 9379
+              },
+              {
+                "q": 11579,
+                "first_k_with_q_divides_p_k_up_to_maxN": 7638
+              },
+              {
+                "q": 11587,
+                "first_k_with_q_divides_p_k_up_to_maxN": null
+              },
+              {
+                "q": 11593,
+                "first_k_with_q_divides_p_k_up_to_maxN": 4927
+              },
+              {
+                "q": 11597,
+                "first_k_with_q_divides_p_k_up_to_maxN": 10427
+              },
+              {
+                "q": 11617,
+                "first_k_with_q_divides_p_k_up_to_maxN": 9182
+              },
+              {
+                "q": 11621,
+                "first_k_with_q_divides_p_k_up_to_maxN": 516
+              },
+              {
+                "q": 11633,
+                "first_k_with_q_divides_p_k_up_to_maxN": 1840
+              },
+              {
+                "q": 11657,
+                "first_k_with_q_divides_p_k_up_to_maxN": 1205
+              },
+              {
+                "q": 11677,
+                "first_k_with_q_divides_p_k_up_to_maxN": 10302
+              },
+              {
+                "q": 11681,
+                "first_k_with_q_divides_p_k_up_to_maxN": 14921
+              },
+              {
+                "q": 11689,
+                "first_k_with_q_divides_p_k_up_to_maxN": 15364
+              },
+              {
+                "q": 11699,
+                "first_k_with_q_divides_p_k_up_to_maxN": 22720
+              },
+              {
+                "q": 11701,
+                "first_k_with_q_divides_p_k_up_to_maxN": 7931
+              },
+              {
+                "q": 11717,
+                "first_k_with_q_divides_p_k_up_to_maxN": 3708
+              },
+              {
+                "q": 11719,
+                "first_k_with_q_divides_p_k_up_to_maxN": 30909
+              },
+              {
+                "q": 11731,
+                "first_k_with_q_divides_p_k_up_to_maxN": 30290
+              },
+              {
+                "q": 11743,
+                "first_k_with_q_divides_p_k_up_to_maxN": 982
+              },
+              {
+                "q": 11777,
+                "first_k_with_q_divides_p_k_up_to_maxN": 6858
+              },
+              {
+                "q": 11779,
+                "first_k_with_q_divides_p_k_up_to_maxN": 833
+              },
+              {
+                "q": 11783,
+                "first_k_with_q_divides_p_k_up_to_maxN": 6199
+              },
+              {
+                "q": 11789,
+                "first_k_with_q_divides_p_k_up_to_maxN": 8759
+              },
+              {
+                "q": 11801,
+                "first_k_with_q_divides_p_k_up_to_maxN": 20294
+              },
+              {
+                "q": 11807,
+                "first_k_with_q_divides_p_k_up_to_maxN": 5930
+              },
+              {
+                "q": 11813,
+                "first_k_with_q_divides_p_k_up_to_maxN": 12009
+              },
+              {
+                "q": 11821,
+                "first_k_with_q_divides_p_k_up_to_maxN": 22160
+              },
+              {
+                "q": 11827,
+                "first_k_with_q_divides_p_k_up_to_maxN": 1008
+              },
+              {
+                "q": 11831,
+                "first_k_with_q_divides_p_k_up_to_maxN": 30267
+              },
+              {
+                "q": 11833,
+                "first_k_with_q_divides_p_k_up_to_maxN": 4889
+              },
+              {
+                "q": 11839,
+                "first_k_with_q_divides_p_k_up_to_maxN": 15513
+              },
+              {
+                "q": 11863,
+                "first_k_with_q_divides_p_k_up_to_maxN": 1464
+              },
+              {
+                "q": 11867,
+                "first_k_with_q_divides_p_k_up_to_maxN": 6109
+              },
+              {
+                "q": 11887,
+                "first_k_with_q_divides_p_k_up_to_maxN": 4570
+              },
+              {
+                "q": 11897,
+                "first_k_with_q_divides_p_k_up_to_maxN": 2588
+              },
+              {
+                "q": 11903,
+                "first_k_with_q_divides_p_k_up_to_maxN": 3036
+              },
+              {
+                "q": 11909,
+                "first_k_with_q_divides_p_k_up_to_maxN": 3385
+              },
+              {
+                "q": 11923,
+                "first_k_with_q_divides_p_k_up_to_maxN": 3804
+              },
+              {
+                "q": 11927,
+                "first_k_with_q_divides_p_k_up_to_maxN": 12643
+              },
+              {
+                "q": 11933,
+                "first_k_with_q_divides_p_k_up_to_maxN": 4567
+              },
+              {
+                "q": 11939,
+                "first_k_with_q_divides_p_k_up_to_maxN": 8019
+              },
+              {
+                "q": 11941,
+                "first_k_with_q_divides_p_k_up_to_maxN": 16523
+              },
+              {
+                "q": 11953,
+                "first_k_with_q_divides_p_k_up_to_maxN": 5211
+              },
+              {
+                "q": 11959,
+                "first_k_with_q_divides_p_k_up_to_maxN": 36153
+              },
+              {
+                "q": 11969,
+                "first_k_with_q_divides_p_k_up_to_maxN": 5510
+              },
+              {
+                "q": 11971,
+                "first_k_with_q_divides_p_k_up_to_maxN": 11862
+              },
+              {
+                "q": 11981,
+                "first_k_with_q_divides_p_k_up_to_maxN": 16192
+              },
+              {
+                "q": 11987,
+                "first_k_with_q_divides_p_k_up_to_maxN": 38698
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 8875,
+        "generated_utc": "2026-03-14T16:32:45.957Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,223 @@
 {
   "problem": "EP-1071",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T14:48:59Z",
+  "computations": [
+    {
+      "source_file": "ep1071_standalone_deeper_20260314T144859Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T14:50:52.095Z",
+      "data": {
+        "problem": "EP-1071",
+        "script": "ep1071.mjs",
+        "method": "deep_random_geometric_unit_segment_packing_with_bounded_exact_mis_on_conflict_graphs",
+        "warning": "Finite random-candidate proxy only; not a proof for the infinite maximal-family question.",
+        "params": {
+          "depth": 8,
+          "trials": 4000,
+          "candidateCount": 348,
+          "cliqueBudgetMs": 1020,
+          "cliqueNodeCap": 1840000
+        },
+        "rows": [
+          {
+            "best_trial_summary": {
+              "trial": 115,
+              "candidate_count": 348,
+              "best_disjoint_family_size_found": 26,
+              "ratio_alpha_over_candidates": 0.07471264,
+              "clique_timed_out": false,
+              "clique_nodes": 51,
+              "extension_found_in_1200_random_attempts": true
+            },
+            "probe_rows_first20": [
+              {
+                "trial": 0,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 22,
+                "ratio_alpha_over_candidates": 0.06321839,
+                "clique_timed_out": false,
+                "clique_nodes": 61,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 1,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 21,
+                "ratio_alpha_over_candidates": 0.06034483,
+                "clique_timed_out": false,
+                "clique_nodes": 398,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 2,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 21,
+                "ratio_alpha_over_candidates": 0.06034483,
+                "clique_timed_out": false,
+                "clique_nodes": 174,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 3,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 20,
+                "ratio_alpha_over_candidates": 0.05747126,
+                "clique_timed_out": false,
+                "clique_nodes": 170,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 4,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 23,
+                "ratio_alpha_over_candidates": 0.06609195,
+                "clique_timed_out": false,
+                "clique_nodes": 82,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 5,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 20,
+                "ratio_alpha_over_candidates": 0.05747126,
+                "clique_timed_out": false,
+                "clique_nodes": 150,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 6,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 19,
+                "ratio_alpha_over_candidates": 0.0545977,
+                "clique_timed_out": false,
+                "clique_nodes": 435,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 7,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 21,
+                "ratio_alpha_over_candidates": 0.06034483,
+                "clique_timed_out": false,
+                "clique_nodes": 215,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 8,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 19,
+                "ratio_alpha_over_candidates": 0.0545977,
+                "clique_timed_out": false,
+                "clique_nodes": 161,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 9,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 20,
+                "ratio_alpha_over_candidates": 0.05747126,
+                "clique_timed_out": false,
+                "clique_nodes": 236,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 10,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 18,
+                "ratio_alpha_over_candidates": 0.05172414,
+                "clique_timed_out": false,
+                "clique_nodes": 254,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 11,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 24,
+                "ratio_alpha_over_candidates": 0.06896552,
+                "clique_timed_out": false,
+                "clique_nodes": 92,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 12,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 21,
+                "ratio_alpha_over_candidates": 0.06034483,
+                "clique_timed_out": false,
+                "clique_nodes": 219,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 13,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 19,
+                "ratio_alpha_over_candidates": 0.0545977,
+                "clique_timed_out": false,
+                "clique_nodes": 403,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 14,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 20,
+                "ratio_alpha_over_candidates": 0.05747126,
+                "clique_timed_out": false,
+                "clique_nodes": 557,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 15,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 20,
+                "ratio_alpha_over_candidates": 0.05747126,
+                "clique_timed_out": false,
+                "clique_nodes": 281,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 16,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 19,
+                "ratio_alpha_over_candidates": 0.0545977,
+                "clique_timed_out": false,
+                "clique_nodes": 284,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 17,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 19,
+                "ratio_alpha_over_candidates": 0.0545977,
+                "clique_timed_out": false,
+                "clique_nodes": 185,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 18,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 21,
+                "ratio_alpha_over_candidates": 0.06034483,
+                "clique_timed_out": false,
+                "clique_nodes": 122,
+                "extension_found_in_1200_random_attempts": true
+              },
+              {
+                "trial": 19,
+                "candidate_count": 348,
+                "best_disjoint_family_size_found": 19,
+                "ratio_alpha_over_candidates": 0.0545977,
+                "clique_timed_out": false,
+                "clique_nodes": 283,
+                "extension_found_in_1200_random_attempts": true
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 112848,
+        "generated_utc": "2026-03-14T14:50:52.095Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

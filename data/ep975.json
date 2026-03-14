@@ -1,5 +1,172 @@
 {
   "problem": "EP-975",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:00:00Z",
+  "computations": [
+    {
+      "source_file": "ep975_standalone_deeper_20260314T011500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:56:16.211Z",
+      "data": {
+        "problem": "EP-975",
+        "script": "ep975.mjs",
+        "method": "deep_finite_tau_of_polynomial_values_scan_for_irreducible_quadratics",
+        "warning": "Finite evidence only; asymptotic constant c(f) is not proved here.",
+        "params": {
+          "X": 50000,
+          "polynomials": [
+            "n^2+1",
+            "n^2+n+41",
+            "n^2+2",
+            "n^2+3"
+          ]
+        },
+        "rows": [
+          {
+            "poly": "n^2+1",
+            "checkpoints": [
+              {
+                "X_prefix": 5000,
+                "S_f_X": 45326,
+                "S_over_XlogX": 1.06434124
+              },
+              {
+                "X_prefix": 10000,
+                "S_f_X": 97122,
+                "S_over_XlogX": 1.05448872
+              },
+              {
+                "X_prefix": 20000,
+                "S_f_X": 207554,
+                "S_over_XlogX": 1.04788338
+              },
+              {
+                "X_prefix": 30000,
+                "S_f_X": 322852,
+                "S_over_XlogX": 1.04392111
+              },
+              {
+                "X_prefix": 40000,
+                "S_f_X": 441546,
+                "S_over_XlogX": 1.0417128
+              },
+              {
+                "X_prefix": 50000,
+                "S_f_X": 562870,
+                "S_over_XlogX": 1.04044646
+              }
+            ]
+          },
+          {
+            "poly": "n^2+n+41",
+            "checkpoints": [
+              {
+                "X_prefix": 5000,
+                "S_f_X": 17067,
+                "S_over_XlogX": 0.40076583
+              },
+              {
+                "X_prefix": 10000,
+                "S_f_X": 36183,
+                "S_over_XlogX": 0.39285193
+              },
+              {
+                "X_prefix": 20000,
+                "S_f_X": 76517,
+                "S_over_XlogX": 0.38631341
+              },
+              {
+                "X_prefix": 30000,
+                "S_f_X": 118423,
+                "S_over_XlogX": 0.38291313
+              },
+              {
+                "X_prefix": 40000,
+                "S_f_X": 161329,
+                "S_over_XlogX": 0.38061376
+              },
+              {
+                "X_prefix": 50000,
+                "S_f_X": 205023,
+                "S_over_XlogX": 0.37897819
+              }
+            ]
+          },
+          {
+            "poly": "n^2+2",
+            "checkpoints": [
+              {
+                "X_prefix": 5000,
+                "S_f_X": 62254,
+                "S_over_XlogX": 1.46184309
+              },
+              {
+                "X_prefix": 10000,
+                "S_f_X": 133908,
+                "S_over_XlogX": 1.45388764
+              },
+              {
+                "X_prefix": 20000,
+                "S_f_X": 286390,
+                "S_over_XlogX": 1.44590478
+              },
+              {
+                "X_prefix": 30000,
+                "S_f_X": 445876,
+                "S_over_XlogX": 1.44171128
+              },
+              {
+                "X_prefix": 40000,
+                "S_f_X": 609940,
+                "S_over_XlogX": 1.43899458
+              },
+              {
+                "X_prefix": 50000,
+                "S_f_X": 777642,
+                "S_over_XlogX": 1.43744535
+              }
+            ]
+          },
+          {
+            "poly": "n^2+3",
+            "checkpoints": [
+              {
+                "X_prefix": 5000,
+                "S_f_X": 66773,
+                "S_over_XlogX": 1.56795786
+              },
+              {
+                "X_prefix": 10000,
+                "S_f_X": 143701,
+                "S_over_XlogX": 1.56021378
+              },
+              {
+                "X_prefix": 20000,
+                "S_f_X": 307827,
+                "S_over_XlogX": 1.55413433
+              },
+              {
+                "X_prefix": 30000,
+                "S_f_X": 479959,
+                "S_over_XlogX": 1.55191646
+              },
+              {
+                "X_prefix": 40000,
+                "S_f_X": 656595,
+                "S_over_XlogX": 1.54906491
+              },
+              {
+                "X_prefix": 50000,
+                "S_f_X": 836867,
+                "S_over_XlogX": 1.54692079
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 4358,
+        "generated_utc": "2026-03-14T09:56:16.211Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,56 +1,550 @@
 {
   "problem": "EP-1086",
-  "normalized_utc": "2026-03-05T08:54:16.975Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch25_web_compute.md",
-        "content": "### EP-1086\n- Quick literature check:\n  - Open (last edited 16 October 2025); best listed upper bound remains `g(n) << n^{20/9}`.\n- Finite compute signal:\n  - Random integer-grid searches for `n=12..24` found repeated-area multiplicities growing to the low twenties in sampled runs.\n- Interpretation:\n  - Finite multiplicities grow quickly but are far from distinguishing between competing exponents."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch25_quick_compute.mjs",
-        "heading": "finite search for many equal-area triangles.",
-        "content": "// EP-1086: finite search for many equal-area triangles.\n{\n  const rng = makeRng(20260304 ^ 1086);\n\n  function maxRepeatedArea(points) {\n    const m = points.length;\n    const cnt = new Map();\n    let best = 0;\n    for (let i = 0; i < m; i += 1) {\n      const [x1, y1] = points[i];\n      for (let j = i + 1; j < m; j += 1) {\n        const [x2, y2] = points[j];\n        for (let k = j + 1; k < m; k += 1) {\n          const [x3, y3] = points[k];\n          const area2 = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));\n          if (area2 === 0) continue;\n          const c = (cnt.get(area2) || 0) + 1;\n          cnt.set(area2, c);\n          if (c > best) best = c;\n        }\n      }\n    }\n    return best;\n  }\n\n  function randomDistinctPoints(n, box) {\n    const used = new Set();\n    const pts = [];\n    while (pts.length < n) {\n      const x = Math.floor(rng() * box);\n      const y = Math.floor(rng() * box);\n      const key = `${x},${y}`;\n      if (used.has(key)) continue;\n      used.add(key);\n      pts.push([x, y]);\n    }\n    return pts;\n  }\n\n  const rows = [];\n  for (const n of [12, 16, 20, 24]) {\n    let best = 0;\n    for (let t = 0; t < 240; t += 1) {\n      const pts = randomDistinctPoints(n, 45);\n      const b = maxRepeatedArea(pts);\n      if (b > best) best = b;\n    }\n    rows.push({\n      n,\n      best_equal_area_triangle_count_found: best,\n      normalized_best_over_n_squared: Number((best / (n * n)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1086 = {\n    description: 'Finite random-grid search for maximal multiplicity of a triangle area.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch25_quick_compute.json",
-        "key": "ep1086",
-        "container_meta": {
-          "script": "harder_batch25_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:52:16.569Z"
-        },
-        "data": {
-          "description": "Finite random-grid search for maximal multiplicity of a triangle area.",
-          "rows": [
-            {
-              "n": 12,
-              "best_equal_area_triangle_count_found": 9,
-              "normalized_best_over_n_squared": 0.0625
-            },
-            {
-              "n": 16,
-              "best_equal_area_triangle_count_found": 14,
-              "normalized_best_over_n_squared": 0.0546875
-            },
-            {
-              "n": 20,
-              "best_equal_area_triangle_count_found": 17,
-              "normalized_best_over_n_squared": 0.0425
-            },
-            {
-              "n": 24,
-              "best_equal_area_triangle_count_found": 26,
-              "normalized_best_over_n_squared": 0.04513889
-            }
+  "normalized_utc": "2026-03-14T15:32:31Z",
+  "computations": [
+    {
+      "source_file": "ep1086_standalone_deeper_20260314T153131Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:32:31.518Z",
+      "data": {
+        "problem": "EP-1086",
+        "script": "ep1086.mjs",
+        "method": "deep_randomized_integer_grid_search_for_maximum_equal_area_triangle_multiplicity",
+        "warning": "Finite randomized lower-bound evidence only; does not prove asymptotic exponent.",
+        "params": {
+          "depth": 4,
+          "box": 95,
+          "budgetPerNMs": 12000,
+          "nList": [
+            18,
+            22,
+            26,
+            30,
+            34
           ]
-        }
+        },
+        "rows": [
+          {
+            "n": 18,
+            "box": 95,
+            "time_budget_ms": 12000,
+            "trials": 364134,
+            "best_equal_area_triangle_count_found": 18,
+            "best_area2": 256,
+            "normalized_best_over_n_squared": 0.0555555556,
+            "normalized_best_over_n_loglogn": 0.9421650746,
+            "sample_witness_points_prefix": [
+              [
+                23,
+                76
+              ],
+              [
+                17,
+                68
+              ],
+              [
+                27,
+                60
+              ],
+              [
+                39,
+                1
+              ],
+              [
+                26,
+                51
+              ],
+              [
+                51,
+                21
+              ],
+              [
+                43,
+                60
+              ],
+              [
+                16,
+                2
+              ],
+              [
+                49,
+                25
+              ],
+              [
+                64,
+                76
+              ],
+              [
+                11,
+                60
+              ],
+              [
+                14,
+                27
+              ],
+              [
+                37,
+                44
+              ],
+              [
+                64,
+                88
+              ],
+              [
+                66,
+                32
+              ],
+              [
+                9,
+                52
+              ],
+              [
+                15,
+                44
+              ],
+              [
+                83,
+                36
+              ]
+            ],
+            "elapsed_ms_for_n": 12000
+          },
+          {
+            "n": 22,
+            "box": 95,
+            "time_budget_ms": 12000,
+            "trials": 198344,
+            "best_equal_area_triangle_count_found": 16,
+            "best_area2": 84,
+            "normalized_best_over_n_squared": 0.0330578512,
+            "normalized_best_over_n_loglogn": 0.6444548652,
+            "sample_witness_points_prefix": [
+              [
+                63,
+                23
+              ],
+              [
+                44,
+                33
+              ],
+              [
+                54,
+                35
+              ],
+              [
+                38,
+                44
+              ],
+              [
+                86,
+                47
+              ],
+              [
+                43,
+                25
+              ],
+              [
+                58,
+                61
+              ],
+              [
+                37,
+                71
+              ],
+              [
+                44,
+                86
+              ],
+              [
+                94,
+                86
+              ],
+              [
+                70,
+                21
+              ],
+              [
+                51,
+                17
+              ],
+              [
+                91,
+                25
+              ],
+              [
+                2,
+                34
+              ],
+              [
+                51,
+                29
+              ],
+              [
+                44,
+                38
+              ],
+              [
+                75,
+                63
+              ],
+              [
+                38,
+                47
+              ],
+              [
+                44,
+                47
+              ],
+              [
+                41,
+                50
+              ],
+              [
+                8,
+                46
+              ],
+              [
+                84,
+                28
+              ]
+            ],
+            "elapsed_ms_for_n": 12000
+          },
+          {
+            "n": 26,
+            "box": 95,
+            "time_budget_ms": 12000,
+            "trials": 124015,
+            "best_equal_area_triangle_count_found": 19,
+            "best_area2": 30,
+            "normalized_best_over_n_squared": 0.0281065089,
+            "normalized_best_over_n_loglogn": 0.6186965877,
+            "sample_witness_points_prefix": [
+              [
+                78,
+                12
+              ],
+              [
+                49,
+                58
+              ],
+              [
+                38,
+                81
+              ],
+              [
+                46,
+                53
+              ],
+              [
+                43,
+                20
+              ],
+              [
+                45,
+                53
+              ],
+              [
+                36,
+                52
+              ],
+              [
+                71,
+                2
+              ],
+              [
+                76,
+                47
+              ],
+              [
+                24,
+                21
+              ],
+              [
+                51,
+                52
+              ],
+              [
+                64,
+                73
+              ],
+              [
+                49,
+                53
+              ],
+              [
+                7,
+                24
+              ],
+              [
+                50,
+                19
+              ],
+              [
+                86,
+                26
+              ],
+              [
+                37,
+                1
+              ],
+              [
+                55,
+                74
+              ],
+              [
+                12,
+                5
+              ],
+              [
+                3,
+                50
+              ],
+              [
+                49,
+                48
+              ],
+              [
+                82,
+                47
+              ],
+              [
+                32,
+                26
+              ],
+              [
+                43,
+                82
+              ]
+            ],
+            "elapsed_ms_for_n": 12000
+          },
+          {
+            "n": 30,
+            "box": 95,
+            "time_budget_ms": 12000,
+            "trials": 74291,
+            "best_equal_area_triangle_count_found": 25,
+            "best_area2": 42,
+            "normalized_best_over_n_squared": 0.0277777778,
+            "normalized_best_over_n_loglogn": 0.6807569519,
+            "sample_witness_points_prefix": [
+              [
+                63,
+                32
+              ],
+              [
+                90,
+                61
+              ],
+              [
+                53,
+                6
+              ],
+              [
+                49,
+                14
+              ],
+              [
+                29,
+                21
+              ],
+              [
+                35,
+                46
+              ],
+              [
+                15,
+                38
+              ],
+              [
+                42,
+                43
+              ],
+              [
+                21,
+                44
+              ],
+              [
+                14,
+                81
+              ],
+              [
+                35,
+                43
+              ],
+              [
+                78,
+                74
+              ],
+              [
+                38,
+                68
+              ],
+              [
+                44,
+                64
+              ],
+              [
+                28,
+                3
+              ],
+              [
+                63,
+                36
+              ],
+              [
+                86,
+                48
+              ],
+              [
+                40,
+                20
+              ],
+              [
+                48,
+                82
+              ],
+              [
+                84,
+                65
+              ],
+              [
+                57,
+                76
+              ],
+              [
+                50,
+                76
+              ],
+              [
+                77,
+                34
+              ],
+              [
+                42,
+                27
+              ]
+            ],
+            "elapsed_ms_for_n": 12000
+          },
+          {
+            "n": 34,
+            "box": 95,
+            "time_budget_ms": 12000,
+            "trials": 52568,
+            "best_equal_area_triangle_count_found": 28,
+            "best_area2": 84,
+            "normalized_best_over_n_squared": 0.0242214533,
+            "normalized_best_over_n_loglogn": 0.6534566501,
+            "sample_witness_points_prefix": [
+              [
+                79,
+                41
+              ],
+              [
+                83,
+                21
+              ],
+              [
+                72,
+                46
+              ],
+              [
+                86,
+                34
+              ],
+              [
+                66,
+                82
+              ],
+              [
+                28,
+                48
+              ],
+              [
+                58,
+                52
+              ],
+              [
+                43,
+                36
+              ],
+              [
+                70,
+                57
+              ],
+              [
+                69,
+                46
+              ],
+              [
+                1,
+                93
+              ],
+              [
+                84,
+                58
+              ],
+              [
+                75,
+                11
+              ],
+              [
+                93,
+                41
+              ],
+              [
+                35,
+                74
+              ],
+              [
+                81,
+                20
+              ],
+              [
+                11,
+                57
+              ],
+              [
+                29,
+                53
+              ],
+              [
+                42,
+                68
+              ],
+              [
+                5,
+                23
+              ],
+              [
+                88,
+                42
+              ],
+              [
+                78,
+                44
+              ],
+              [
+                51,
+                7
+              ],
+              [
+                72,
+                60
+              ]
+            ],
+            "elapsed_ms_for_n": 12000
+          }
+        ],
+        "total_candidates_evaluated": 813352,
+        "total_triangle_triples_scanned_estimate": 1541210476,
+        "elapsed_ms": 60000,
+        "generated_utc": "2026-03-14T15:32:31.518Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

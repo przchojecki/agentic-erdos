@@ -1,87 +1,603 @@
 {
   "problem": "EP-920",
-  "normalized_utc": "2026-03-05T08:54:16.970Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-920\n- Quick literature check:\n  - Open (updated 2026); known bounds improved for `k=4` but target exponent form remains unresolved.\n- Finite compute signal:\n  - Mycielski K4-free constructions verified through several iterations (still K4-free), yielding explicit finite lower bounds for `f_4(n)` via high chromatic number.\n- Interpretation:\n  - Construction data gives concrete finite lower bounds but no evidence close to conjectured near-optimal asymptotic growth."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "K4-free high-chromatic finite constructions (Mycielski chain).",
-        "content": "// EP-920: K4-free high-chromatic finite constructions (Mycielski chain).\n{\n  function makeC5() {\n    const adj = makeGraph(5);\n    for (let i = 0; i < 5; i += 1) addUndirectedEdge(adj, i, (i + 1) % 5);\n    return adj;\n  }\n\n  function mycielskian(adj) {\n    const n = adj.length;\n    const outN = 2 * n + 1;\n    const g = makeGraph(outN);\n\n    // Old edges\n    for (let u = 0; u < n; u += 1) {\n      for (const v of adj[u]) if (u < v) addUndirectedEdge(g, u, v);\n    }\n\n    // Clone vertices u_i = n+i; connect u_i to neighbors of v_i.\n    for (let i = 0; i < n; i += 1) {\n      for (const nb of adj[i]) addUndirectedEdge(g, n + i, nb);\n    }\n\n    // New apex w connected to all clones.\n    const w = 2 * n;\n    for (let i = 0; i < n; i += 1) addUndirectedEdge(g, w, n + i);\n\n    return g;\n  }\n\n  function hasK4(adj) {\n    const n = adj.length;\n    const mat = Array.from({ length: n }, () => new Uint8Array(n));\n    for (let u = 0; u < n; u += 1) for (const v of adj[u]) mat[u][v] = 1;\n\n    for (let a = 0; a < n; a += 1) {\n      for (let b = a + 1; b < n; b += 1) {\n        if (!mat[a][b]) continue;\n        for (let c = b + 1; c < n; c += 1) {\n          if (!(mat[a][c] && mat[b][c])) continue;\n          for (let d = c + 1; d < n; d += 1) {\n            if (mat[a][d] && mat[b][d] && mat[c][d]) return true;\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  const rows = [];\n  let G = makeC5();\n  for (let it = 0; it <= 4; it += 1) {\n    const n = G.length;\n    const chiExact = n <= 23 ? chromaticNumberDSATUR(G) : null;\n    const chiKnown = 3 + it;\n\n    let e = 0;\n    for (let u = 0; u < n; u += 1) e += G[u].length;\n    e /= 2;\n\n    rows.push({\n      iteration_from_C5: it,\n      n,\n      edge_count: e,\n      k4_free_check: !hasK4(G),\n      chromatic_number_exact_if_computed: chiExact,\n      chromatic_number_from_mycielski_construction: chiKnown,\n      lower_bound_f4_of_n_from_construction: chiKnown,\n      chi_over_n_to_2over3: Number((chiKnown / (n ** (2 / 3))).toPrecision(7)),\n    });\n\n    G = mycielskian(G);\n  }\n\n  out.results.ep920 = {\n    description: 'Finite K4-free high-chromatic profile via Mycielski constructions.',\n    rows,\n    note: 'These are constructive lower bounds for f_4(n), not extremal optima.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep920",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
-        },
-        "data": {
-          "description": "Finite K4-free high-chromatic profile via Mycielski constructions.",
-          "rows": [
-            {
-              "iteration_from_C5": 0,
-              "n": 5,
-              "edge_count": 5,
-              "k4_free_check": true,
-              "chromatic_number_exact_if_computed": 3,
-              "chromatic_number_from_mycielski_construction": 3,
-              "lower_bound_f4_of_n_from_construction": 3,
-              "chi_over_n_to_2over3": 1.025986
-            },
-            {
-              "iteration_from_C5": 1,
-              "n": 11,
-              "edge_count": 20,
-              "k4_free_check": true,
-              "chromatic_number_exact_if_computed": 4,
-              "chromatic_number_from_mycielski_construction": 4,
-              "lower_bound_f4_of_n_from_construction": 4,
-              "chi_over_n_to_2over3": 0.80872
-            },
-            {
-              "iteration_from_C5": 2,
-              "n": 23,
-              "edge_count": 71,
-              "k4_free_check": true,
-              "chromatic_number_exact_if_computed": 5,
-              "chromatic_number_from_mycielski_construction": 5,
-              "lower_bound_f4_of_n_from_construction": 5,
-              "chi_over_n_to_2over3": 0.618232
-            },
-            {
-              "iteration_from_C5": 3,
-              "n": 47,
-              "edge_count": 236,
-              "k4_free_check": true,
-              "chromatic_number_exact_if_computed": null,
-              "chromatic_number_from_mycielski_construction": 6,
-              "lower_bound_f4_of_n_from_construction": 6,
-              "chi_over_n_to_2over3": 0.4607012
-            },
-            {
-              "iteration_from_C5": 4,
-              "n": 95,
-              "edge_count": 755,
-              "k4_free_check": true,
-              "chromatic_number_exact_if_computed": null,
-              "chromatic_number_from_mycielski_construction": 7,
-              "lower_bound_f4_of_n_from_construction": 7,
-              "chi_over_n_to_2over3": 0.3362139
-            }
+  "normalized_utc": "2026-03-14T08:55:35Z",
+  "computations": [
+    {
+      "source_file": "ep920_standalone_deeper_20260313T233000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T08:55:11Z",
+      "data": {
+        "problem": "EP-920",
+        "script": "ep920.mjs",
+        "method": "deeper_mycielski_profile_plus_random_maximal_k4free_exact_chromatic_search_multiseed_ensemble",
+        "warning": "Finite constructive evidence only; does not establish asymptotic lower bound exponents.",
+        "params": {
+          "seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
           ],
-          "note": "These are constructive lower bounds for f_4(n), not extremal optima."
-        }
+          "mycielski_iterations": 7,
+          "searchNs": [
+            20,
+            24,
+            28,
+            32,
+            36
+          ],
+          "trialsPerN": 320
+        },
+        "representative_mycielski_rows": [
+          {
+            "iteration_from_C5": 0,
+            "n": 5,
+            "edge_count": 5,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": 3,
+            "chromatic_from_mycielski_theory": 3,
+            "chi_over_n_to_2over3": 1.02598557
+          },
+          {
+            "iteration_from_C5": 1,
+            "n": 11,
+            "edge_count": 20,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": 4,
+            "chromatic_from_mycielski_theory": 4,
+            "chi_over_n_to_2over3": 0.80872003
+          },
+          {
+            "iteration_from_C5": 2,
+            "n": 23,
+            "edge_count": 71,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": 5,
+            "chromatic_from_mycielski_theory": 5,
+            "chi_over_n_to_2over3": 0.61823195
+          },
+          {
+            "iteration_from_C5": 3,
+            "n": 47,
+            "edge_count": 236,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": 6,
+            "chromatic_from_mycielski_theory": 6,
+            "chi_over_n_to_2over3": 0.4607012
+          },
+          {
+            "iteration_from_C5": 4,
+            "n": 95,
+            "edge_count": 755,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": null,
+            "chromatic_from_mycielski_theory": 7,
+            "chi_over_n_to_2over3": 0.33621388
+          },
+          {
+            "iteration_from_C5": 5,
+            "n": 191,
+            "edge_count": 2360,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": null,
+            "chromatic_from_mycielski_theory": 8,
+            "chi_over_n_to_2over3": 0.2412132
+          },
+          {
+            "iteration_from_C5": 6,
+            "n": 383,
+            "edge_count": 7271,
+            "k4_free_check": true,
+            "chromatic_exact_if_computed": null,
+            "chromatic_from_mycielski_theory": 9,
+            "chi_over_n_to_2over3": 0.17065145
+          }
+        ],
+        "per_seed_random_rows": [
+          {
+            "seed": 0,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 112,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 136,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 188,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 241,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 295,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1316
+          },
+          {
+            "seed": 1,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 114,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 136,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 184,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 240,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 298,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1362
+          },
+          {
+            "seed": 2,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 115,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 133,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 189,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 235,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 293,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1310
+          },
+          {
+            "seed": 3,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 112,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 135,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 184,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 238,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 293,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1333
+          },
+          {
+            "seed": 4,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 114,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 134,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 185,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 246,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 294,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1321
+          },
+          {
+            "seed": 5,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 114,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 130,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 183,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 240,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 298,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1317
+          },
+          {
+            "seed": 6,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 113,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 132,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 187,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 239,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 295,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1309
+          },
+          {
+            "seed": 7,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 117,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 129,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 190,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 241,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 293,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1320
+          },
+          {
+            "seed": 8,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 113,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 130,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 189,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 242,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 298,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1420
+          },
+          {
+            "seed": 9,
+            "rows": [
+              {
+                "n": 20,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 5,
+                "best_edge_count_found": 116,
+                "best_chi_over_n_to_2over3": 0.6786044
+              },
+              {
+                "n": 24,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 136,
+                "best_chi_over_n_to_2over3": 0.72112479
+              },
+              {
+                "n": 28,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 184,
+                "best_chi_over_n_to_2over3": 0.65069764
+              },
+              {
+                "n": 32,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 238,
+                "best_chi_over_n_to_2over3": 0.59527539
+              },
+              {
+                "n": 36,
+                "trials": 320,
+                "k4_free_verified_trials": 320,
+                "best_chromatic_found": 6,
+                "best_edge_count_found": 291,
+                "best_chi_over_n_to_2over3": 0.55032121
+              }
+            ],
+            "elapsed_ms": 1695
+          }
+        ],
+        "ensemble_best_by_n": [
+          {
+            "n": 20,
+            "best_chromatic_found": 5,
+            "best_edge_count_among_best_chi": 117,
+            "best_chi_over_n_to_2over3": 0.6786044
+          },
+          {
+            "n": 24,
+            "best_chromatic_found": 6,
+            "best_edge_count_among_best_chi": 136,
+            "best_chi_over_n_to_2over3": 0.72112479
+          },
+          {
+            "n": 28,
+            "best_chromatic_found": 6,
+            "best_edge_count_among_best_chi": 190,
+            "best_chi_over_n_to_2over3": 0.65069764
+          },
+          {
+            "n": 32,
+            "best_chromatic_found": 6,
+            "best_edge_count_among_best_chi": 246,
+            "best_chi_over_n_to_2over3": 0.59527539
+          },
+          {
+            "n": 36,
+            "best_chromatic_found": 6,
+            "best_edge_count_among_best_chi": 298,
+            "best_chi_over_n_to_2over3": 0.55032121
+          }
+        ],
+        "total_elapsed_ms_over_seeds": 13703,
+        "generated_utc": "2026-03-14T08:55:11Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

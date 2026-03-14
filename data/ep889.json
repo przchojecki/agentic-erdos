@@ -1,72 +1,60 @@
 {
   "problem": "EP-889",
-  "normalized_utc": "2026-03-05T08:54:16.969Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-889\n- Quick literature check:\n  - Remains open; no listed modern closure for growth of `v_0(n)`.\n- Finite compute signal:\n  - In bounded search (`n<=2500`, `k<=6000`), max observed value is `5`, while prefix minima stay at `1`.\n- Interpretation:\n  - Finite data shows growth in sampled maxima but is too weak to infer `v_0(n)\\to\\infty`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "finite profile of v_0(n) with bounded k-range.",
-        "content": "// EP-889: finite profile of v_0(n) with bounded k-range.\n{\n  const N = 2500;\n  const KMAX = 6000;\n  const LIM = N + KMAX + 5;\n  const spf = sieveSPF(LIM);\n\n  const facs = Array.from({ length: LIM + 1 }, () => []);\n  for (let x = 2; x <= LIM; x += 1) facs[x] = factorDistinct(x, spf);\n\n  function vBounded(n) {\n    let best = 0;\n    let argk = 0;\n    for (let k = 0; k <= KMAX; k += 1) {\n      const arr = facs[n + k];\n      let c = 0;\n      for (const p of arr) if (p > k) c += 1;\n      if (c > best) {\n        best = c;\n        argk = k;\n      }\n    }\n    return { best, argk };\n  }\n\n  const v0 = new Int16Array(N + 1);\n  const argk = new Int32Array(N + 1);\n  let globalBest = 0;\n  let globalN = 1;\n\n  for (let n = 1; n <= N; n += 1) {\n    const v = vBounded(n);\n    v0[n] = v.best;\n    argk[n] = v.argk;\n    if (v.best > globalBest) {\n      globalBest = v.best;\n      globalN = n;\n    }\n  }\n\n  const rows = [];\n  for (const x of [200, 500, 1000, 1500, 2000, 2500]) {\n    let mn = 1e9;\n    let avg = 0;\n    for (let n = 1; n <= x; n += 1) {\n      if (v0[n] < mn) mn = v0[n];\n      avg += v0[n];\n    }\n    rows.push({\n      N_prefix: x,\n      min_v0_bounded_over_n_le_N: mn,\n      avg_v0_bounded_over_n_le_N: Number((avg / x).toPrecision(7)),\n    });\n  }\n\n  out.results.ep889 = {\n    description: 'Finite bounded-k profile for v_0(n) type quantity.',\n    N,\n    KMAX,\n    max_v0_bounded_found: globalBest,\n    argmax_n: globalN,\n    argmax_k_for_argmax_n: argk[globalN],\n    rows,\n    note: 'This is max over 0<=k<=KMAX only; unbounded k may be larger.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep889",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
+  "normalized_utc": "2026-03-13T21:52:24.062Z",
+  "computations": [
+    {
+      "source_file": "ep889_standalone_deeper_20260313T165400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:51:33.718Z",
+      "data": {
+        "problem": "EP-889",
+        "script": "ep889.mjs",
+        "method": "deeper_bounded_k_profile_for_v0n",
+        "params": {
+          "N": 5000,
+          "KMAX": 15000
         },
-        "data": {
-          "description": "Finite bounded-k profile for v_0(n) type quantity.",
-          "N": 2500,
-          "KMAX": 6000,
-          "max_v0_bounded_found": 5,
-          "argmax_n": 2309,
-          "argmax_k_for_argmax_n": 1,
-          "rows": [
-            {
-              "N_prefix": 200,
-              "min_v0_bounded_over_n_le_N": 1,
-              "avg_v0_bounded_over_n_le_N": 2.29
-            },
-            {
-              "N_prefix": 500,
-              "min_v0_bounded_over_n_le_N": 1,
-              "avg_v0_bounded_over_n_le_N": 2.514
-            },
-            {
-              "N_prefix": 1000,
-              "min_v0_bounded_over_n_le_N": 1,
-              "avg_v0_bounded_over_n_le_N": 2.678
-            },
-            {
-              "N_prefix": 1500,
-              "min_v0_bounded_over_n_le_N": 1,
-              "avg_v0_bounded_over_n_le_N": 2.762
-            },
-            {
-              "N_prefix": 2000,
-              "min_v0_bounded_over_n_le_N": 1,
-              "avg_v0_bounded_over_n_le_N": 2.821
-            },
-            {
-              "N_prefix": 2500,
-              "min_v0_bounded_over_n_le_N": 1,
-              "avg_v0_bounded_over_n_le_N": 2.866
-            }
-          ],
-          "note": "This is max over 0<=k<=KMAX only; unbounded k may be larger."
-        }
+        "max_v0_bounded_found": 5,
+        "argmax_n": 2309,
+        "argmax_k_for_argmax_n": 1,
+        "rows": [
+          {
+            "N_prefix": 500,
+            "min_v0_bounded_over_n_le_N": 1,
+            "avg_v0_bounded_over_n_le_N": 2.514
+          },
+          {
+            "N_prefix": 1000,
+            "min_v0_bounded_over_n_le_N": 1,
+            "avg_v0_bounded_over_n_le_N": 2.678
+          },
+          {
+            "N_prefix": 2000,
+            "min_v0_bounded_over_n_le_N": 1,
+            "avg_v0_bounded_over_n_le_N": 2.821
+          },
+          {
+            "N_prefix": 3000,
+            "min_v0_bounded_over_n_le_N": 1,
+            "avg_v0_bounded_over_n_le_N": 2.902
+          },
+          {
+            "N_prefix": 4000,
+            "min_v0_bounded_over_n_le_N": 1,
+            "avg_v0_bounded_over_n_le_N": 2.95275
+          },
+          {
+            "N_prefix": 5000,
+            "min_v0_bounded_over_n_le_N": 1,
+            "avg_v0_bounded_over_n_le_N": 2.9918
+          }
+        ],
+        "note": "Still bounded-k finite proxy; unbounded k may be larger.",
+        "elapsed_ms": 311,
+        "generated_utc": "2026-03-13T21:51:33.718Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,5 +1,55 @@
 {
   "problem": "EP-891",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T21:52:24.062Z",
+  "computations": [
+    {
+      "source_file": "ep891_standalone_deeper_20260313T165400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:51:55.913Z",
+      "data": {
+        "problem": "EP-891",
+        "script": "ep891.mjs",
+        "method": "finite_window_failure_scan_for_omega_threshold_formulation",
+        "params": {
+          "X": 300000,
+          "tested_k": [
+            2,
+            3
+          ]
+        },
+        "rows": [
+          {
+            "k": 2,
+            "interval_len_exact_prod_p1_to_pk": 6,
+            "check_exact": {
+              "fails": 2,
+              "first_fail_start": 1
+            },
+            "interval_len_variant_prod_p1_to_pkm1_times_pkp1": 10,
+            "check_variant": {
+              "fails": 0,
+              "first_fail_start": null
+            }
+          },
+          {
+            "k": 3,
+            "interval_len_exact_prod_p1_to_pk": 30,
+            "check_exact": {
+              "fails": 0,
+              "first_fail_start": null
+            },
+            "interval_len_variant_prod_p1_to_pkm1_times_pkp1": 42,
+            "check_variant": {
+              "fails": 0,
+              "first_fail_start": null
+            }
+          }
+        ],
+        "elapsed_ms": 13,
+        "generated_utc": "2026-03-13T21:51:55.913Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

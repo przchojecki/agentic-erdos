@@ -1,5 +1,115 @@
 {
   "problem": "EP-875",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:06:43.415Z",
+  "computations": [
+    {
+      "source_file": "ep875_standalone_deeper_20260313T162500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:06:02.467Z",
+      "data": {
+        "problem": "EP-875",
+        "script": "ep875.mjs",
+        "method": "finite_horizon_greedy_construction_with_disjoint_sum_levels",
+        "warning": "Checks disjointness only up to level R and finite prefix length.",
+        "params": {
+          "CASES": [
+            {
+              "R": 5,
+              "terms": 24,
+              "maxTryStep": 5000
+            },
+            {
+              "R": 6,
+              "terms": 22,
+              "maxTryStep": 6000
+            },
+            {
+              "R": 7,
+              "terms": 20,
+              "maxTryStep": 8000
+            }
+          ]
+        },
+        "rows": [
+          {
+            "R": 5,
+            "target_terms": 24,
+            "built_terms": 14,
+            "last_term": 6444,
+            "max_gap": 2982,
+            "avg_ratio": 1.9638153,
+            "sample_prefix": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              63,
+              124,
+              244,
+              480,
+              928,
+              1793,
+              3462,
+              6444
+            ]
+          },
+          {
+            "R": 6,
+            "target_terms": 22,
+            "built_terms": 14,
+            "last_term": 7617,
+            "max_gap": 3745,
+            "avg_ratio": 1.9888696,
+            "sample_prefix": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64,
+              127,
+              252,
+              500,
+              992,
+              1968,
+              3872,
+              7617
+            ]
+          },
+          {
+            "R": 7,
+            "target_terms": 20,
+            "built_terms": 15,
+            "last_term": 15872,
+            "max_gap": 7872,
+            "avg_ratio": 1.9954758,
+            "sample_prefix": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              32,
+              64,
+              128,
+              255,
+              508,
+              1012,
+              2016,
+              4016,
+              8000,
+              15872
+            ]
+          }
+        ],
+        "elapsed_ms": 19324,
+        "generated_utc": "2026-03-13T20:06:02.467Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

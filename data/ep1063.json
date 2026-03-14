@@ -1,102 +1,808 @@
 {
   "problem": "EP-1063",
-  "normalized_utc": "2026-03-05T08:54:16.974Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch24_web_compute.md",
-        "content": "### EP-1063\n- Quick literature check:\n  - Page remains open (edited 01 Feb 2026), with known initial values and exponential-type upper bounds.\n- Finite compute signal:\n  - Exact search for `k<=12` recovers `n_2=4, n_3=6, n_4=9, n_5=12`; finite values for larger `k` are highly non-monotone in this range.\n- Interpretation:\n  - Finite exact data supports irregular local behavior; asymptotic order of `n_k` remains unresolved."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch24_quick_compute.mjs",
-        "heading": "finite exact n_k for small k.",
-        "content": "// EP-1063: finite exact n_k for small k.\n{\n  function binomBig(n, k) {\n    const kk = Math.min(k, n - k);\n    let r = 1n;\n    for (let i = 1; i <= kk; i += 1) {\n      r = (r * BigInt(n - kk + i)) / BigInt(i);\n    }\n    return r;\n  }\n\n  const rows = [];\n  for (let k = 2; k <= 12; k += 1) {\n    let foundN = null;\n    let failIndex = null;\n    for (let n = 2 * k; n <= 6000; n += 1) {\n      const b = binomBig(n, k);\n      let fails = 0;\n      let fi = -1;\n      for (let i = 0; i < k; i += 1) {\n        if (b % BigInt(n - i) !== 0n) {\n          fails += 1;\n          fi = i;\n        }\n      }\n      if (fails === 1) {\n        foundN = n;\n        failIndex = fi;\n        break;\n      }\n    }\n    rows.push({\n      k,\n      n_k_found: foundN,\n      failing_i_for_nk: failIndex,\n      n_k_over_k: foundN ? Number((foundN / k).toPrecision(7)) : null,\n    });\n  }\n\n  out.results.ep1063 = {\n    description: 'Finite exact search for n_k where exactly one divisibility failure occurs among n-i | C(n,k).',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch24_quick_compute.json",
-        "key": "ep1063",
-        "container_meta": {
-          "script": "harder_batch24_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:28:27.056Z"
+  "normalized_utc": "2026-03-14T14:00:46Z",
+  "computations": [
+    {
+      "source_file": "ep1063_standalone_deeper_20260314T140046Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T14:01:13.751Z",
+      "data": {
+        "problem": "EP-1063",
+        "script": "ep1063.mjs",
+        "method": "deep_prime_valuation_exact_search_for_single_divisibility_failure_index",
+        "warning": "Rows with timed_out=true are unresolved within finite budget.",
+        "params": {
+          "depth": 20,
+          "kMax": 32,
+          "nMax": 1280000,
+          "perKBudgetMs": 300000
         },
-        "data": {
-          "description": "Finite exact search for n_k where exactly one divisibility failure occurs among n-i | C(n,k).",
-          "rows": [
-            {
-              "k": 2,
-              "n_k_found": 4,
-              "failing_i_for_nk": 0,
-              "n_k_over_k": 2
-            },
-            {
-              "k": 3,
-              "n_k_found": 6,
-              "failing_i_for_nk": 0,
-              "n_k_over_k": 2
-            },
-            {
-              "k": 4,
-              "n_k_found": 9,
-              "failing_i_for_nk": 1,
-              "n_k_over_k": 2.25
-            },
-            {
-              "k": 5,
-              "n_k_found": 12,
-              "failing_i_for_nk": 2,
-              "n_k_over_k": 2.4
-            },
-            {
-              "k": 6,
-              "n_k_found": 75,
-              "failing_i_for_nk": 3,
-              "n_k_over_k": 12.5
-            },
-            {
-              "k": 7,
-              "n_k_found": 30,
-              "failing_i_for_nk": 2,
-              "n_k_over_k": 4.285714
-            },
-            {
-              "k": 8,
-              "n_k_found": 70,
-              "failing_i_for_nk": 6,
-              "n_k_over_k": 8.75
-            },
-            {
-              "k": 9,
-              "n_k_found": 56,
-              "failing_i_for_nk": 2,
-              "n_k_over_k": 6.222222
-            },
-            {
-              "k": 10,
-              "n_k_found": 2403,
-              "failing_i_for_nk": 3,
-              "n_k_over_k": 240.3
-            },
-            {
-              "k": 11,
-              "n_k_found": 280,
-              "failing_i_for_nk": 5,
-              "n_k_over_k": 25.45455
-            },
-            {
-              "k": 12,
-              "n_k_found": 3465,
-              "failing_i_for_nk": 9,
-              "n_k_over_k": 288.75
-            }
-          ]
-        }
+        "rows": [
+          {
+            "k": 2,
+            "n_k_found": 4,
+            "failing_i_for_nk": 0,
+            "n_k_over_k": 2,
+            "first_solutions_found": [
+              {
+                "n": 4,
+                "failing_i": 0
+              },
+              {
+                "n": 5,
+                "failing_i": 1
+              },
+              {
+                "n": 6,
+                "failing_i": 0
+              },
+              {
+                "n": 7,
+                "failing_i": 1
+              }
+            ],
+            "scanned_n_values": 1279997,
+            "timed_out": false,
+            "elapsed_ms_for_k": 652
+          },
+          {
+            "k": 3,
+            "n_k_found": 6,
+            "failing_i_for_nk": 0,
+            "n_k_over_k": 2,
+            "first_solutions_found": [
+              {
+                "n": 6,
+                "failing_i": 0
+              },
+              {
+                "n": 7,
+                "failing_i": 1
+              },
+              {
+                "n": 8,
+                "failing_i": 2
+              },
+              {
+                "n": 10,
+                "failing_i": 1
+              }
+            ],
+            "scanned_n_values": 1279995,
+            "timed_out": false,
+            "elapsed_ms_for_k": 613
+          },
+          {
+            "k": 4,
+            "n_k_found": 9,
+            "failing_i_for_nk": 1,
+            "n_k_over_k": 2.25,
+            "first_solutions_found": [
+              {
+                "n": 9,
+                "failing_i": 1
+              },
+              {
+                "n": 18,
+                "failing_i": 2
+              },
+              {
+                "n": 24,
+                "failing_i": 0
+              },
+              {
+                "n": 25,
+                "failing_i": 1
+              }
+            ],
+            "scanned_n_values": 1279993,
+            "timed_out": false,
+            "elapsed_ms_for_k": 667
+          },
+          {
+            "k": 5,
+            "n_k_found": 12,
+            "failing_i_for_nk": 2,
+            "n_k_over_k": 2.4,
+            "first_solutions_found": [
+              {
+                "n": 12,
+                "failing_i": 2
+              },
+              {
+                "n": 16,
+                "failing_i": 1
+              },
+              {
+                "n": 22,
+                "failing_i": 2
+              },
+              {
+                "n": 24,
+                "failing_i": 4
+              }
+            ],
+            "scanned_n_values": 1279991,
+            "timed_out": false,
+            "elapsed_ms_for_k": 851
+          },
+          {
+            "k": 6,
+            "n_k_found": 75,
+            "failing_i_for_nk": 3,
+            "n_k_over_k": 12.5,
+            "first_solutions_found": [
+              {
+                "n": 75,
+                "failing_i": 3
+              },
+              {
+                "n": 145,
+                "failing_i": 1
+              },
+              {
+                "n": 220,
+                "failing_i": 4
+              },
+              {
+                "n": 290,
+                "failing_i": 2
+              }
+            ],
+            "scanned_n_values": 1279989,
+            "timed_out": false,
+            "elapsed_ms_for_k": 524
+          },
+          {
+            "k": 7,
+            "n_k_found": 30,
+            "failing_i_for_nk": 2,
+            "n_k_over_k": 4.28571429,
+            "first_solutions_found": [
+              {
+                "n": 30,
+                "failing_i": 2
+              },
+              {
+                "n": 36,
+                "failing_i": 1
+              },
+              {
+                "n": 60,
+                "failing_i": 4
+              },
+              {
+                "n": 66,
+                "failing_i": 3
+              }
+            ],
+            "scanned_n_values": 1279987,
+            "timed_out": false,
+            "elapsed_ms_for_k": 775
+          },
+          {
+            "k": 8,
+            "n_k_found": 70,
+            "failing_i_for_nk": 6,
+            "n_k_over_k": 8.75,
+            "first_solutions_found": [
+              {
+                "n": 70,
+                "failing_i": 6
+              },
+              {
+                "n": 196,
+                "failing_i": 4
+              },
+              {
+                "n": 225,
+                "failing_i": 1
+              },
+              {
+                "n": 226,
+                "failing_i": 2
+              }
+            ],
+            "scanned_n_values": 1279985,
+            "timed_out": false,
+            "elapsed_ms_for_k": 587
+          },
+          {
+            "k": 9,
+            "n_k_found": 56,
+            "failing_i_for_nk": 2,
+            "n_k_over_k": 6.22222222,
+            "first_solutions_found": [
+              {
+                "n": 56,
+                "failing_i": 2
+              },
+              {
+                "n": 112,
+                "failing_i": 4
+              },
+              {
+                "n": 168,
+                "failing_i": 6
+              },
+              {
+                "n": 192,
+                "failing_i": 3
+              }
+            ],
+            "scanned_n_values": 1279983,
+            "timed_out": false,
+            "elapsed_ms_for_k": 920
+          },
+          {
+            "k": 10,
+            "n_k_found": 2403,
+            "failing_i_for_nk": 3,
+            "n_k_over_k": 240.3,
+            "first_solutions_found": [
+              {
+                "n": 2403,
+                "failing_i": 3
+              },
+              {
+                "n": 2808,
+                "failing_i": 8
+              },
+              {
+                "n": 3600,
+                "failing_i": 0
+              },
+              {
+                "n": 4005,
+                "failing_i": 5
+              }
+            ],
+            "scanned_n_values": 1279981,
+            "timed_out": false,
+            "elapsed_ms_for_k": 658
+          },
+          {
+            "k": 11,
+            "n_k_found": 280,
+            "failing_i_for_nk": 5,
+            "n_k_over_k": 25.45454545,
+            "first_solutions_found": [
+              {
+                "n": 280,
+                "failing_i": 5
+              },
+              {
+                "n": 360,
+                "failing_i": 8
+              },
+              {
+                "n": 400,
+                "failing_i": 4
+              },
+              {
+                "n": 450,
+                "failing_i": 10
+              }
+            ],
+            "scanned_n_values": 1279979,
+            "timed_out": false,
+            "elapsed_ms_for_k": 1077
+          },
+          {
+            "k": 12,
+            "n_k_found": 3465,
+            "failing_i_for_nk": 9,
+            "n_k_over_k": 288.75,
+            "first_solutions_found": [
+              {
+                "n": 3465,
+                "failing_i": 9
+              },
+              {
+                "n": 6050,
+                "failing_i": 2
+              },
+              {
+                "n": 8646,
+                "failing_i": 6
+              },
+              {
+                "n": 9506,
+                "failing_i": 2
+              }
+            ],
+            "scanned_n_values": 1279977,
+            "timed_out": false,
+            "elapsed_ms_for_k": 614
+          },
+          {
+            "k": 13,
+            "n_k_found": 210,
+            "failing_i_for_nk": 2,
+            "n_k_over_k": 16.15384615,
+            "first_solutions_found": [
+              {
+                "n": 210,
+                "failing_i": 2
+              },
+              {
+                "n": 352,
+                "failing_i": 1
+              },
+              {
+                "n": 396,
+                "failing_i": 6
+              },
+              {
+                "n": 432,
+                "failing_i": 3
+              }
+            ],
+            "scanned_n_values": 1279975,
+            "timed_out": false,
+            "elapsed_ms_for_k": 835
+          },
+          {
+            "k": 14,
+            "n_k_found": 793,
+            "failing_i_for_nk": 9,
+            "n_k_over_k": 56.64285714,
+            "first_solutions_found": [
+              {
+                "n": 793,
+                "failing_i": 9
+              },
+              {
+                "n": 8632,
+                "failing_i": 8
+              },
+              {
+                "n": 10197,
+                "failing_i": 5
+              },
+              {
+                "n": 20385,
+                "failing_i": 1
+              }
+            ],
+            "scanned_n_values": 1279973,
+            "timed_out": false,
+            "elapsed_ms_for_k": 818
+          },
+          {
+            "k": 15,
+            "n_k_found": 4732,
+            "failing_i_for_nk": 7,
+            "n_k_over_k": 315.46666667,
+            "first_solutions_found": [
+              {
+                "n": 4732,
+                "failing_i": 7
+              },
+              {
+                "n": 8778,
+                "failing_i": 3
+              },
+              {
+                "n": 17556,
+                "failing_i": 6
+              },
+              {
+                "n": 26334,
+                "failing_i": 9
+              }
+            ],
+            "scanned_n_values": 1279971,
+            "timed_out": false,
+            "elapsed_ms_for_k": 831
+          },
+          {
+            "k": 16,
+            "n_k_found": 3213,
+            "failing_i_for_nk": 13,
+            "n_k_over_k": 200.8125,
+            "first_solutions_found": [
+              {
+                "n": 3213,
+                "failing_i": 13
+              },
+              {
+                "n": 9990,
+                "failing_i": 6
+              },
+              {
+                "n": 10375,
+                "failing_i": 7
+              },
+              {
+                "n": 12300,
+                "failing_i": 12
+              }
+            ],
+            "scanned_n_values": 1279969,
+            "timed_out": false,
+            "elapsed_ms_for_k": 836
+          },
+          {
+            "k": 17,
+            "n_k_found": 1456,
+            "failing_i_for_nk": 11,
+            "n_k_over_k": 85.64705882,
+            "first_solutions_found": [
+              {
+                "n": 1456,
+                "failing_i": 11
+              },
+              {
+                "n": 2016,
+                "failing_i": 10
+              },
+              {
+                "n": 2080,
+                "failing_i": 6
+              },
+              {
+                "n": 2640,
+                "failing_i": 5
+              }
+            ],
+            "scanned_n_values": 1279967,
+            "timed_out": false,
+            "elapsed_ms_for_k": 956
+          },
+          {
+            "k": 18,
+            "n_k_found": 31110,
+            "failing_i_for_nk": 6,
+            "n_k_over_k": 1728.33333333,
+            "first_solutions_found": [
+              {
+                "n": 31110,
+                "failing_i": 6
+              },
+              {
+                "n": 44072,
+                "failing_i": 8
+              },
+              {
+                "n": 176256,
+                "failing_i": 0
+              },
+              {
+                "n": 176267,
+                "failing_i": 11
+              }
+            ],
+            "scanned_n_values": 1279965,
+            "timed_out": false,
+            "elapsed_ms_for_k": 959
+          },
+          {
+            "k": 19,
+            "n_k_found": 612,
+            "failing_i_for_nk": 4,
+            "n_k_over_k": 32.21052632,
+            "first_solutions_found": [
+              {
+                "n": 612,
+                "failing_i": 4
+              },
+              {
+                "n": 2160,
+                "failing_i": 13
+              },
+              {
+                "n": 2592,
+                "failing_i": 8
+              },
+              {
+                "n": 3888,
+                "failing_i": 12
+              }
+            ],
+            "scanned_n_values": 1279963,
+            "timed_out": false,
+            "elapsed_ms_for_k": 981
+          },
+          {
+            "k": 20,
+            "n_k_found": 67203,
+            "failing_i_for_nk": 3,
+            "n_k_over_k": 3360.15,
+            "first_solutions_found": [
+              {
+                "n": 67203,
+                "failing_i": 3
+              },
+              {
+                "n": 86412,
+                "failing_i": 12
+              },
+              {
+                "n": 121618,
+                "failing_i": 18
+              },
+              {
+                "n": 206416,
+                "failing_i": 16
+              }
+            ],
+            "scanned_n_values": 1279961,
+            "timed_out": false,
+            "elapsed_ms_for_k": 867
+          },
+          {
+            "k": 21,
+            "n_k_found": 145540,
+            "failing_i_for_nk": 10,
+            "n_k_over_k": 6930.47619048,
+            "first_solutions_found": [
+              {
+                "n": 145540,
+                "failing_i": 10
+              },
+              {
+                "n": 165376,
+                "failing_i": 1
+              },
+              {
+                "n": 330752,
+                "failing_i": 2
+              },
+              {
+                "n": 854660,
+                "failing_i": 2
+              }
+            ],
+            "scanned_n_values": 1279959,
+            "timed_out": false,
+            "elapsed_ms_for_k": 847
+          },
+          {
+            "k": 22,
+            "n_k_found": 464646,
+            "failing_i_for_nk": 6,
+            "n_k_over_k": 21120.27272727,
+            "first_solutions_found": [
+              {
+                "n": 464646,
+                "failing_i": 6
+              },
+              {
+                "n": 654381,
+                "failing_i": 13
+              },
+              {
+                "n": 1099665,
+                "failing_i": 17
+              },
+              {
+                "n": 1184841,
+                "failing_i": 9
+              }
+            ],
+            "scanned_n_values": 1279957,
+            "timed_out": false,
+            "elapsed_ms_for_k": 1106
+          },
+          {
+            "k": 23,
+            "n_k_found": 2640,
+            "failing_i_for_nk": 18,
+            "n_k_over_k": 114.7826087,
+            "first_solutions_found": [
+              {
+                "n": 2640,
+                "failing_i": 18
+              },
+              {
+                "n": 6006,
+                "failing_i": 3
+              },
+              {
+                "n": 11781,
+                "failing_i": 5
+              },
+              {
+                "n": 23430,
+                "failing_i": 16
+              }
+            ],
+            "scanned_n_values": 1279955,
+            "timed_out": false,
+            "elapsed_ms_for_k": 1135
+          },
+          {
+            "k": 24,
+            "n_k_found": 476938,
+            "failing_i_for_nk": 10,
+            "n_k_over_k": 19872.41666667,
+            "first_solutions_found": [
+              {
+                "n": 476938,
+                "failing_i": 10
+              },
+              {
+                "n": 915860,
+                "failing_i": 20
+              },
+              {
+                "n": 953876,
+                "failing_i": 20
+              },
+              {
+                "n": 1057540,
+                "failing_i": 4
+              }
+            ],
+            "scanned_n_values": 1279953,
+            "timed_out": false,
+            "elapsed_ms_for_k": 870
+          },
+          {
+            "k": 25,
+            "n_k_found": 21000,
+            "failing_i_for_nk": 0,
+            "n_k_over_k": 840,
+            "first_solutions_found": [
+              {
+                "n": 21000,
+                "failing_i": 0
+              },
+              {
+                "n": 42504,
+                "failing_i": 4
+              },
+              {
+                "n": 85008,
+                "failing_i": 8
+              },
+              {
+                "n": 127512,
+                "failing_i": 12
+              }
+            ],
+            "scanned_n_values": 1279951,
+            "timed_out": false,
+            "elapsed_ms_for_k": 835
+          },
+          {
+            "k": 26,
+            "n_k_found": 86550,
+            "failing_i_for_nk": 22,
+            "n_k_over_k": 3328.84615385,
+            "first_solutions_found": [
+              {
+                "n": 86550,
+                "failing_i": 22
+              }
+            ],
+            "scanned_n_values": 1279949,
+            "timed_out": false,
+            "elapsed_ms_for_k": 1275
+          },
+          {
+            "k": 27,
+            "n_k_found": 234026,
+            "failing_i_for_nk": 17,
+            "n_k_over_k": 8667.62962963,
+            "first_solutions_found": [
+              {
+                "n": 234026,
+                "failing_i": 17
+              },
+              {
+                "n": 313976,
+                "failing_i": 20
+              },
+              {
+                "n": 343850,
+                "failing_i": 5
+              },
+              {
+                "n": 598026,
+                "failing_i": 3
+              }
+            ],
+            "scanned_n_values": 1279947,
+            "timed_out": false,
+            "elapsed_ms_for_k": 847
+          },
+          {
+            "k": 28,
+            "n_k_found": 1053702,
+            "failing_i_for_nk": 6,
+            "n_k_over_k": 37632.21428571,
+            "first_solutions_found": [
+              {
+                "n": 1053702,
+                "failing_i": 6
+              }
+            ],
+            "scanned_n_values": 1279945,
+            "timed_out": false,
+            "elapsed_ms_for_k": 800
+          },
+          {
+            "k": 29,
+            "n_k_found": 34776,
+            "failing_i_for_nk": 5,
+            "n_k_over_k": 1199.17241379,
+            "first_solutions_found": [
+              {
+                "n": 34776,
+                "failing_i": 5
+              },
+              {
+                "n": 113400,
+                "failing_i": 10
+              },
+              {
+                "n": 265356,
+                "failing_i": 6
+              },
+              {
+                "n": 297000,
+                "failing_i": 11
+              }
+            ],
+            "scanned_n_values": 1279943,
+            "timed_out": false,
+            "elapsed_ms_for_k": 1046
+          },
+          {
+            "k": 30,
+            "n_k_found": null,
+            "failing_i_for_nk": null,
+            "n_k_over_k": null,
+            "first_solutions_found": [],
+            "scanned_n_values": 1279941,
+            "timed_out": false,
+            "elapsed_ms_for_k": 702
+          },
+          {
+            "k": 31,
+            "n_k_found": 8100,
+            "failing_i_for_nk": 9,
+            "n_k_over_k": 261.29032258,
+            "first_solutions_found": [
+              {
+                "n": 8100,
+                "failing_i": 9
+              },
+              {
+                "n": 234900,
+                "failing_i": 13
+              },
+              {
+                "n": 340200,
+                "failing_i": 6
+              },
+              {
+                "n": 412650,
+                "failing_i": 9
+              }
+            ],
+            "scanned_n_values": 1279939,
+            "timed_out": false,
+            "elapsed_ms_for_k": 1479
+          },
+          {
+            "k": 32,
+            "n_k_found": null,
+            "failing_i_for_nk": null,
+            "n_k_over_k": null,
+            "first_solutions_found": [],
+            "scanned_n_values": 1279937,
+            "timed_out": false,
+            "elapsed_ms_for_k": 735
+          }
+        ],
+        "elapsed_ms": 27128,
+        "generated_utc": "2026-03-14T14:01:13.751Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

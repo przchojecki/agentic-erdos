@@ -1,76 +1,314 @@
 {
   "problem": "EP-901",
-  "normalized_utc": "2026-03-05T08:54:16.970Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-901\n- Quick literature check:\n  - Still open; classical `2^n` to polynomial-times-`2^n` gap remains.\n- Finite compute signal:\n  - Greedy constructions of non-2-colorable `n`-uniform hypergraphs gave finite upper-bound witnesses with edge counts about `30` (`n=4`), `92` (`n=5`), `327` (`n=6`).\n- Interpretation:\n  - Constructions are qualitatively in the expected exponential regime but do not sharpen asymptotic exponents."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "constructive upper bounds for m(n) via non-2-colorable n-uniform hypergraphs.",
-        "content": "// EP-901: constructive upper bounds for m(n) via non-2-colorable n-uniform hypergraphs.\n{\n  const rng = makeRng(20260304 ^ 2201);\n\n  function combinationsMasks(v, r) {\n    const outMasks = [];\n    const cur = [];\n\n    function rec(start, need) {\n      if (need === 0) {\n        let mask = 0;\n        for (const x of cur) mask |= (1 << x);\n        outMasks.push(mask);\n        return;\n      }\n      for (let x = start; x <= v - need; x += 1) {\n        cur.push(x);\n        rec(x + 1, need - 1);\n        cur.pop();\n      }\n    }\n\n    rec(0, r);\n    return outMasks;\n  }\n\n  function nonMonochromaticColorings(v, edges) {\n    const full = (1 << v) - 1;\n    const ok = [];\n    for (let c = 0; c < (1 << v); c += 1) {\n      let good = true;\n      const comp = full ^ c;\n      for (const e of edges) {\n        if ((e & c) === e || (e & comp) === e) {\n          good = false;\n          break;\n        }\n      }\n      if (good) ok.push(c);\n    }\n    return ok;\n  }\n\n  function greedyConstruct(v, n, stepsCap, sampleCand) {\n    const edgesAll = combinationsMasks(v, n);\n    const used = new Set();\n    const edges = [];\n    let validColorings = nonMonochromaticColorings(v, edges);\n\n    for (let step = 0; step < stepsCap && validColorings.length > 0; step += 1) {\n      let bestEdge = -1;\n      let bestKill = -1;\n\n      for (let t = 0; t < sampleCand; t += 1) {\n        const idx = Math.floor(rng() * edgesAll.length);\n        if (used.has(idx)) continue;\n        const e = edgesAll[idx];\n\n        let kill = 0;\n        const full = (1 << v) - 1;\n        for (const c of validColorings) {\n          const comp = full ^ c;\n          if ((e & c) === e || (e & comp) === e) kill += 1;\n        }\n\n        if (kill > bestKill) {\n          bestKill = kill;\n          bestEdge = idx;\n        }\n      }\n\n      if (bestEdge < 0) break;\n      used.add(bestEdge);\n      const e = edgesAll[bestEdge];\n      edges.push(e);\n\n      const full = (1 << v) - 1;\n      validColorings = validColorings.filter((c) => {\n        const comp = full ^ c;\n        return !((e & c) === e || (e & comp) === e);\n      });\n    }\n\n    return { edge_count: edges.length, remaining_colorings: validColorings.length };\n  }\n\n  const rows = [];\n  for (const n of [4, 5, 6]) {\n    const vCands = [2 * n, 2 * n + 1, 2 * n + 2];\n    let globalBest = 1e9;\n    let globalBestV = null;\n    let bestRem = 1e9;\n\n    for (const v of vCands) {\n      for (let r = 0; r < 6; r += 1) {\n        const g = greedyConstruct(v, n, 500, 140);\n        if (g.remaining_colorings === 0 && g.edge_count < globalBest) {\n          globalBest = g.edge_count;\n          globalBestV = v;\n        }\n        if (g.remaining_colorings < bestRem) bestRem = g.remaining_colorings;\n      }\n    }\n\n    rows.push({\n      n,\n      searched_v_values: vCands,\n      best_v_found: globalBestV,\n      finite_constructive_upper_bound_edges: Number.isFinite(globalBest) ? globalBest : null,\n      smallest_remaining_coloring_count_seen: bestRem,\n      trivial_probabilistic_lower_bound_2_pow_n_minus_1: 2 ** (n - 1),\n      upper_over_2_pow_n: Number.isFinite(globalBest) ? Number((globalBest / (2 ** n)).toPrecision(7)) : null,\n    });\n  }\n\n  out.results.ep901 = {\n    description: 'Greedy constructive finite upper bounds for non-2-colorable n-uniform hypergraphs.',\n    rows,\n    note: 'Upper bounds depend on construction heuristic and do not certify exact m(n).',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep901",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
-        },
-        "data": {
-          "description": "Greedy constructive finite upper bounds for non-2-colorable n-uniform hypergraphs.",
-          "rows": [
-            {
+  "normalized_utc": "2026-03-13T22:03:48Z",
+  "computations": [
+    {
+      "source_file": "ep901_standalone_deeper_20260313T220400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T22:03:27.924Z",
+      "data": {
+        "problem": "EP-901",
+        "script": "ep901.mjs",
+        "method": "deeper_multirestart_greedy_search_for_non2colorable_n_uniform_hypergraphs",
+        "warning": "Constructive finite upper bounds only; not exact m(n) and not asymptotic proof.",
+        "configs": [
+          {
+            "n": 4,
+            "vMin": 8,
+            "vMax": 11,
+            "restarts": 70,
+            "sampleCand": 320,
+            "stepsCap": 420
+          },
+          {
+            "n": 5,
+            "vMin": 10,
+            "vMax": 13,
+            "restarts": 60,
+            "sampleCand": 280,
+            "stepsCap": 420
+          },
+          {
+            "n": 6,
+            "vMin": 12,
+            "vMax": 14,
+            "restarts": 45,
+            "sampleCand": 220,
+            "stepsCap": 420
+          },
+          {
+            "n": 7,
+            "vMin": 14,
+            "vMax": 15,
+            "restarts": 24,
+            "sampleCand": 160,
+            "stepsCap": 420
+          }
+        ],
+        "per_n_results": [
+          {
+            "n": 4,
+            "rows": [
+              {
+                "n": 4,
+                "v": 8,
+                "restarts": 70,
+                "stepsCap": 420,
+                "sampleCand": 320,
+                "best_edges_found": 35,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 2.1875
+              },
+              {
+                "n": 4,
+                "v": 9,
+                "restarts": 70,
+                "stepsCap": 420,
+                "sampleCand": 320,
+                "best_edges_found": 28,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 1.75
+              },
+              {
+                "n": 4,
+                "v": 10,
+                "restarts": 70,
+                "stepsCap": 420,
+                "sampleCand": 320,
+                "best_edges_found": 29,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 1.8125
+              },
+              {
+                "n": 4,
+                "v": 11,
+                "restarts": 70,
+                "stepsCap": 420,
+                "sampleCand": 320,
+                "best_edges_found": 28,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 1.75
+              }
+            ],
+            "best_for_n": {
               "n": 4,
-              "searched_v_values": [
-                8,
-                9,
-                10
-              ],
-              "best_v_found": 9,
-              "finite_constructive_upper_bound_edges": 30,
-              "smallest_remaining_coloring_count_seen": 0,
-              "trivial_probabilistic_lower_bound_2_pow_n_minus_1": 8,
-              "upper_over_2_pow_n": 1.875
+              "v": 9,
+              "restarts": 70,
+              "stepsCap": 420,
+              "sampleCand": 320,
+              "best_edges_found": 28,
+              "best_remaining_colorings": 0,
+              "found_non2colorable_witness": true,
+              "ratio_over_2_pow_n": 1.75
             },
-            {
+            "trivial_lower_bound_2_pow_n_minus_1": 8
+          },
+          {
+            "n": 5,
+            "rows": [
+              {
+                "n": 5,
+                "v": 10,
+                "restarts": 60,
+                "stepsCap": 420,
+                "sampleCand": 280,
+                "best_edges_found": 126,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 3.9375
+              },
+              {
+                "n": 5,
+                "v": 11,
+                "restarts": 60,
+                "stepsCap": 420,
+                "sampleCand": 280,
+                "best_edges_found": 67,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 2.09375
+              },
+              {
+                "n": 5,
+                "v": 12,
+                "restarts": 60,
+                "stepsCap": 420,
+                "sampleCand": 280,
+                "best_edges_found": 89,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 2.78125
+              },
+              {
+                "n": 5,
+                "v": 13,
+                "restarts": 60,
+                "stepsCap": 420,
+                "sampleCand": 280,
+                "best_edges_found": 90,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 2.8125
+              }
+            ],
+            "best_for_n": {
               "n": 5,
-              "searched_v_values": [
-                10,
-                11,
-                12
-              ],
-              "best_v_found": 11,
-              "finite_constructive_upper_bound_edges": 92,
-              "smallest_remaining_coloring_count_seen": 0,
-              "trivial_probabilistic_lower_bound_2_pow_n_minus_1": 16,
-              "upper_over_2_pow_n": 2.875
+              "v": 11,
+              "restarts": 60,
+              "stepsCap": 420,
+              "sampleCand": 280,
+              "best_edges_found": 67,
+              "best_remaining_colorings": 0,
+              "found_non2colorable_witness": true,
+              "ratio_over_2_pow_n": 2.09375
             },
-            {
+            "trivial_lower_bound_2_pow_n_minus_1": 16
+          },
+          {
+            "n": 6,
+            "rows": [
+              {
+                "n": 6,
+                "v": 12,
+                "restarts": 45,
+                "stepsCap": 420,
+                "sampleCand": 220,
+                "best_edges_found": 420,
+                "best_remaining_colorings": 84,
+                "found_non2colorable_witness": false,
+                "ratio_over_2_pow_n": 6.5625
+              },
+              {
+                "n": 6,
+                "v": 13,
+                "restarts": 45,
+                "stepsCap": 420,
+                "sampleCand": 220,
+                "best_edges_found": 321,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 5.015625
+              },
+              {
+                "n": 6,
+                "v": 14,
+                "restarts": 45,
+                "stepsCap": 420,
+                "sampleCand": 220,
+                "best_edges_found": 323,
+                "best_remaining_colorings": 0,
+                "found_non2colorable_witness": true,
+                "ratio_over_2_pow_n": 5.046875
+              }
+            ],
+            "best_for_n": {
               "n": 6,
-              "searched_v_values": [
-                12,
-                13,
-                14
-              ],
-              "best_v_found": 13,
-              "finite_constructive_upper_bound_edges": 327,
-              "smallest_remaining_coloring_count_seen": 0,
-              "trivial_probabilistic_lower_bound_2_pow_n_minus_1": 32,
-              "upper_over_2_pow_n": 5.109375
-            }
-          ],
-          "note": "Upper bounds depend on construction heuristic and do not certify exact m(n)."
-        }
+              "v": 13,
+              "restarts": 45,
+              "stepsCap": 420,
+              "sampleCand": 220,
+              "best_edges_found": 321,
+              "best_remaining_colorings": 0,
+              "found_non2colorable_witness": true,
+              "ratio_over_2_pow_n": 5.015625
+            },
+            "trivial_lower_bound_2_pow_n_minus_1": 32
+          },
+          {
+            "n": 7,
+            "rows": [
+              {
+                "n": 7,
+                "v": 14,
+                "restarts": 24,
+                "stepsCap": 420,
+                "sampleCand": 160,
+                "best_edges_found": 420,
+                "best_remaining_colorings": 3666,
+                "found_non2colorable_witness": false,
+                "ratio_over_2_pow_n": 3.28125
+              },
+              {
+                "n": 7,
+                "v": 15,
+                "restarts": 24,
+                "stepsCap": 420,
+                "sampleCand": 160,
+                "best_edges_found": 420,
+                "best_remaining_colorings": 5758,
+                "found_non2colorable_witness": false,
+                "ratio_over_2_pow_n": 3.28125
+              }
+            ],
+            "best_for_n": {
+              "n": 7,
+              "v": 14,
+              "restarts": 24,
+              "stepsCap": 420,
+              "sampleCand": 160,
+              "best_edges_found": 420,
+              "best_remaining_colorings": 3666,
+              "found_non2colorable_witness": false,
+              "ratio_over_2_pow_n": 3.28125
+            },
+            "trivial_lower_bound_2_pow_n_minus_1": 64
+          }
+        ],
+        "global_best_rows": [
+          {
+            "n": 4,
+            "v": 9,
+            "restarts": 70,
+            "stepsCap": 420,
+            "sampleCand": 320,
+            "best_edges_found": 28,
+            "best_remaining_colorings": 0,
+            "found_non2colorable_witness": true,
+            "ratio_over_2_pow_n": 1.75
+          },
+          {
+            "n": 5,
+            "v": 11,
+            "restarts": 60,
+            "stepsCap": 420,
+            "sampleCand": 280,
+            "best_edges_found": 67,
+            "best_remaining_colorings": 0,
+            "found_non2colorable_witness": true,
+            "ratio_over_2_pow_n": 2.09375
+          },
+          {
+            "n": 6,
+            "v": 13,
+            "restarts": 45,
+            "stepsCap": 420,
+            "sampleCand": 220,
+            "best_edges_found": 321,
+            "best_remaining_colorings": 0,
+            "found_non2colorable_witness": true,
+            "ratio_over_2_pow_n": 5.015625
+          },
+          {
+            "n": 7,
+            "v": 14,
+            "restarts": 24,
+            "stepsCap": 420,
+            "sampleCand": 160,
+            "best_edges_found": 420,
+            "best_remaining_colorings": 3666,
+            "found_non2colorable_witness": false,
+            "ratio_over_2_pow_n": 3.28125
+          }
+        ],
+        "elapsed_ms": 56520,
+        "generated_utc": "2026-03-13T22:03:27.924Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

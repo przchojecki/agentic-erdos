@@ -1,5 +1,240 @@
 {
   "problem": "EP-892",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T21:52:24.062Z",
+  "computations": [
+    {
+      "source_file": "ep892_standalone_deeper_20260313T165400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:51:55.911Z",
+      "data": {
+        "problem": "EP-892",
+        "script": "ep892.mjs",
+        "method": "finite_greedy_feasibility_probe_for_primitive_sequences_under_an_bound",
+        "warning": "Finite heuristic probe only; not a characterization theorem.",
+        "params": {
+          "M": 800,
+          "C_LIST": [
+            1.5,
+            2,
+            3,
+            5,
+            8
+          ],
+          "models": [
+            "linear",
+            "nlogn",
+            "n_log2",
+            "quadratic",
+            "powers2"
+          ]
+        },
+        "rows": [
+          {
+            "b_model": "linear",
+            "C": 1.5,
+            "target_terms": 800,
+            "built_terms": 2,
+            "fail_at_index": 3,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "linear",
+            "C": 2,
+            "target_terms": 800,
+            "built_terms": 4,
+            "fail_at_index": 5,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "linear",
+            "C": 3,
+            "target_terms": 800,
+            "built_terms": 11,
+            "fail_at_index": 12,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "linear",
+            "C": 5,
+            "target_terms": 800,
+            "built_terms": 68,
+            "fail_at_index": 69,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "linear",
+            "C": 8,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "nlogn",
+            "C": 1.5,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "nlogn",
+            "C": 2,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "nlogn",
+            "C": 3,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "nlogn",
+            "C": 5,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "nlogn",
+            "C": 8,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "n_log2",
+            "C": 1.5,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "n_log2",
+            "C": 2,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "n_log2",
+            "C": 3,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "n_log2",
+            "C": 5,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "n_log2",
+            "C": 8,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "quadratic",
+            "C": 1.5,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "quadratic",
+            "C": 2,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "quadratic",
+            "C": 3,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "quadratic",
+            "C": 5,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "quadratic",
+            "C": 8,
+            "target_terms": 800,
+            "built_terms": 800,
+            "fail_at_index": null,
+            "success_full_prefix": true
+          },
+          {
+            "b_model": "powers2",
+            "C": 1.5,
+            "target_terms": 800,
+            "built_terms": 3,
+            "fail_at_index": 4,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "powers2",
+            "C": 2,
+            "target_terms": 800,
+            "built_terms": 4,
+            "fail_at_index": 5,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "powers2",
+            "C": 3,
+            "target_terms": 800,
+            "built_terms": 5,
+            "fail_at_index": 6,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "powers2",
+            "C": 5,
+            "target_terms": 800,
+            "built_terms": 12,
+            "fail_at_index": 13,
+            "success_full_prefix": false
+          },
+          {
+            "b_model": "powers2",
+            "C": 8,
+            "target_terms": 800,
+            "built_terms": 54,
+            "fail_at_index": 55,
+            "success_full_prefix": false
+          }
+        ],
+        "elapsed_ms": 11,
+        "generated_utc": "2026-03-13T21:51:55.911Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

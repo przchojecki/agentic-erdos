@@ -1,5 +1,284 @@
 {
   "problem": "EP-896",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T21:55:43Z",
+  "computations": [
+    {
+      "source_file": "ep896_standalone_deeper_20260313T165400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:55:16.383Z",
+      "data": {
+        "problem": "EP-896",
+        "script": "ep896.mjs",
+        "method": "exact_smallN_maximization_plus_deep_constructive_asymptotic_scans",
+        "warning": "Finite computations only; asymptotic theorem remains open.",
+        "params": {
+          "exact_smallN": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "deepN": [
+            1000,
+            2000,
+            4000,
+            8000,
+            12000
+          ]
+        },
+        "exact_smallN_results": [
+          {
+            "N": 6,
+            "exact_max_F": 13,
+            "best_A_size": 3,
+            "best_B_size": 5,
+            "best_A": [
+              1,
+              4,
+              5
+            ],
+            "best_B": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "best_distinct_products": 14,
+            "best_pair_count": 15,
+            "best_collision_bins": 1
+          },
+          {
+            "N": 7,
+            "exact_max_F": 18,
+            "best_A_size": 5,
+            "best_B_size": 4,
+            "best_A": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "best_B": [
+              1,
+              5,
+              6,
+              7
+            ],
+            "best_distinct_products": 19,
+            "best_pair_count": 20,
+            "best_collision_bins": 1
+          },
+          {
+            "N": 8,
+            "exact_max_F": 22,
+            "best_A_size": 6,
+            "best_B_size": 4,
+            "best_A": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "best_B": [
+              1,
+              5,
+              7,
+              8
+            ],
+            "best_distinct_products": 23,
+            "best_pair_count": 24,
+            "best_collision_bins": 1
+          },
+          {
+            "N": 9,
+            "exact_max_F": 29,
+            "best_A_size": 7,
+            "best_B_size": 5,
+            "best_A": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "best_B": [
+              1,
+              5,
+              7,
+              8,
+              9
+            ],
+            "best_distinct_products": 32,
+            "best_pair_count": 35,
+            "best_collision_bins": 3
+          },
+          {
+            "N": 10,
+            "exact_max_F": 32,
+            "best_A_size": 8,
+            "best_B_size": 5,
+            "best_A": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "best_B": [
+              1,
+              7,
+              8,
+              9,
+              10
+            ],
+            "best_distinct_products": 36,
+            "best_pair_count": 40,
+            "best_collision_bins": 4
+          }
+        ],
+        "constructive_results": [
+          {
+            "construction": "A=[1..floor(N/2)], B=primes in (N/2,N]",
+            "N": 1000,
+            "A_size": 500,
+            "B_size": 73,
+            "unique_count": 36500,
+            "collision_bins": 0,
+            "pair_count": 36500,
+            "ratio_to_N2_over_logN": 0.25213307
+          },
+          {
+            "construction": "A=[1..N], B=primes in (N/2,N]",
+            "N": 1000,
+            "A_size": 1000,
+            "B_size": 73,
+            "unique_count": 67744,
+            "collision_bins": 2628,
+            "pair_count": 73000,
+            "ratio_to_N2_over_logN": 0.46795897
+          },
+          {
+            "construction": "A=[1..floor(N/2)], B=primes in (N/2,N]",
+            "N": 2000,
+            "A_size": 1000,
+            "B_size": 135,
+            "unique_count": 135000,
+            "collision_bins": 0,
+            "pair_count": 135000,
+            "ratio_to_N2_over_logN": 0.25653046
+          },
+          {
+            "construction": "A=[1..N], B=primes in (N/2,N]",
+            "N": 2000,
+            "A_size": 2000,
+            "B_size": 135,
+            "unique_count": 251910,
+            "collision_bins": 9045,
+            "pair_count": 270000,
+            "ratio_to_N2_over_logN": 0.47868583
+          },
+          {
+            "construction": "A=[1..floor(N/2)], B=primes in (N/2,N]",
+            "N": 4000,
+            "A_size": 2000,
+            "B_size": 247,
+            "unique_count": 494000,
+            "collision_bins": 0,
+            "pair_count": 494000,
+            "ratio_to_N2_over_logN": 0.25607878
+          },
+          {
+            "construction": "A=[1..N], B=primes in (N/2,N]",
+            "N": 4000,
+            "A_size": 4000,
+            "B_size": 247,
+            "unique_count": 927238,
+            "collision_bins": 30381,
+            "pair_count": 988000,
+            "ratio_to_N2_over_logN": 0.48065988
+          },
+          {
+            "construction": "A=[1..floor(N/2)], B=primes in (N/2,N]",
+            "N": 8000,
+            "A_size": 4000,
+            "B_size": 457,
+            "unique_count": 1828000,
+            "collision_bins": 0,
+            "pair_count": 1828000,
+            "ratio_to_N2_over_logN": 0.25669681
+          },
+          {
+            "construction": "A=[1..N], B=primes in (N/2,N]",
+            "N": 8000,
+            "A_size": 8000,
+            "B_size": 457,
+            "unique_count": 3447608,
+            "collision_bins": 104196,
+            "pair_count": 3656000,
+            "ratio_to_N2_over_logN": 0.48413018
+          },
+          {
+            "construction": "A=[1..floor(N/2)], B=primes in (N/2,N]",
+            "N": 12000,
+            "A_size": 6000,
+            "B_size": 655,
+            "unique_count": 3930000,
+            "collision_bins": 0,
+            "pair_count": 3930000,
+            "ratio_to_N2_over_logN": 0.2563414
+          },
+          {
+            "construction": "A=[1..N], B=primes in (N/2,N]",
+            "N": 12000,
+            "A_size": 12000,
+            "B_size": 655,
+            "unique_count": 7431630,
+            "collision_bins": 214185,
+            "pair_count": 7860000,
+            "ratio_to_N2_over_logN": 0.48474158
+          }
+        ],
+        "best_exact_observed": {
+          "N": 10,
+          "exact_max_F": 32,
+          "best_A_size": 8,
+          "best_B_size": 5,
+          "best_A": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "best_B": [
+            1,
+            7,
+            8,
+            9,
+            10
+          ],
+          "best_distinct_products": 36,
+          "best_pair_count": 40,
+          "best_collision_bins": 4
+        },
+        "elapsed_ms": 2396,
+        "generated_utc": "2026-03-13T21:55:16.383Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

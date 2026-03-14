@@ -1,5 +1,196 @@
 {
   "problem": "EP-943",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T09:06:11Z",
+  "computations": [
+    {
+      "source_file": "ep943_standalone_deeper_20260314T001500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:05:36.883Z",
+      "data": {
+        "problem": "EP-943",
+        "script": "ep943.mjs",
+        "method": "deep_finite_additive_convolution_profile_for_powerful_numbers",
+        "warning": "Finite-range evidence only; does not prove n^{o(1)} bound.",
+        "params": {
+          "N": 50000000,
+          "checkpoints": [
+            1000000,
+            5000000,
+            10000000,
+            20000000,
+            50000000
+          ]
+        },
+        "powerful_count_up_to_N": 14819,
+        "checkpoint_growth_profile": [
+          {
+            "N_prefix": 1000000,
+            "max_r_n_up_to_prefix": 67,
+            "argmax_n_up_to_prefix": 793800,
+            "max_over_logN2": 0.35102732,
+            "max_over_exp_sqrt_logN": 1.62868091
+          },
+          {
+            "N_prefix": 5000000,
+            "max_r_n_up_to_prefix": 94,
+            "argmax_n_up_to_prefix": 4630500,
+            "max_over_logN2": 0.39507578,
+            "max_over_exp_sqrt_logN": 1.85119979
+          },
+          {
+            "N_prefix": 10000000,
+            "max_r_n_up_to_prefix": 122,
+            "argmax_n_up_to_prefix": 7452900,
+            "max_over_logN2": 0.46960463,
+            "max_over_exp_sqrt_logN": 2.20182426
+          },
+          {
+            "N_prefix": 20000000,
+            "max_r_n_up_to_prefix": 124,
+            "argmax_n_up_to_prefix": 16008300,
+            "max_over_logN2": 0.43875496,
+            "max_over_exp_sqrt_logN": 2.05470031
+          },
+          {
+            "N_prefix": 50000000,
+            "max_r_n_up_to_prefix": 174,
+            "argmax_n_up_to_prefix": 48024900,
+            "max_over_logN2": 0.55367207,
+            "max_over_exp_sqrt_logN": 2.58221493
+          }
+        ],
+        "global_max": {
+          "n": 48024900,
+          "r_n": 174,
+          "r_over_logN2": 0.55619822
+        },
+        "top_values": [
+          {
+            "n": 48024900,
+            "r_n": 174
+          },
+          {
+            "n": 42688800,
+            "r_n": 149
+          },
+          {
+            "n": 29811600,
+            "r_n": 143
+          },
+          {
+            "n": 21344400,
+            "r_n": 139
+          },
+          {
+            "n": 37352700,
+            "r_n": 132
+          },
+          {
+            "n": 46657800,
+            "r_n": 131
+          },
+          {
+            "n": 47628000,
+            "r_n": 129
+          },
+          {
+            "n": 33350625,
+            "r_n": 128
+          },
+          {
+            "n": 26680500,
+            "r_n": 126
+          },
+          {
+            "n": 44104500,
+            "r_n": 126
+          },
+          {
+            "n": 32016600,
+            "r_n": 125
+          },
+          {
+            "n": 16008300,
+            "r_n": 124
+          },
+          {
+            "n": 41674500,
+            "r_n": 124
+          },
+          {
+            "n": 38896200,
+            "r_n": 123
+          },
+          {
+            "n": 7452900,
+            "r_n": 122
+          },
+          {
+            "n": 37264500,
+            "r_n": 122
+          },
+          {
+            "n": 39204900,
+            "r_n": 122
+          },
+          {
+            "n": 23814000,
+            "r_n": 121
+          },
+          {
+            "n": 33339600,
+            "r_n": 121
+          },
+          {
+            "n": 37044000,
+            "r_n": 121
+          },
+          {
+            "n": 39690000,
+            "r_n": 121
+          },
+          {
+            "n": 44717400,
+            "r_n": 121
+          },
+          {
+            "n": 22358700,
+            "r_n": 120
+          },
+          {
+            "n": 39649428,
+            "r_n": 120
+          },
+          {
+            "n": 44496900,
+            "r_n": 120
+          },
+          {
+            "n": 46580625,
+            "r_n": 120
+          },
+          {
+            "n": 48841000,
+            "r_n": 119
+          },
+          {
+            "n": 49788900,
+            "r_n": 118
+          },
+          {
+            "n": 10672200,
+            "r_n": 117
+          },
+          {
+            "n": 14905800,
+            "r_n": 117
+          }
+        ],
+        "elapsed_ms": 2410,
+        "generated_utc": "2026-03-14T09:05:36.883Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

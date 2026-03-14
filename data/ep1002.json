@@ -1,5 +1,137 @@
 {
   "problem": "EP-1002",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:13:34Z",
+  "computations": [
+    {
+      "source_file": "ep1002_standalone_deeper_20260314T101334Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:13:36.849Z",
+      "data": {
+        "problem": "EP-1002",
+        "script": "ep1002.mjs",
+        "method": "deep_empirical_distribution_scan_for_kesten_special_case_beta0",
+        "warning": "Finite Monte Carlo distribution proxy only; does not replace the theorem-level proof.",
+        "params": {
+          "alphaSamples": 4800,
+          "nList": [
+            4000,
+            10000,
+            20000,
+            40000,
+            80000,
+            160000,
+            240000
+          ]
+        },
+        "rows": [
+          {
+            "n": 4000,
+            "mean": -0.03846273,
+            "variance": 13.79354689,
+            "q05": -0.88470462,
+            "q25": -0.170922,
+            "q50": -0.00263678,
+            "q75": 0.15883869,
+            "q95": 0.82865275
+          },
+          {
+            "n": 10000,
+            "mean": -0.07880102,
+            "variance": 8.28940357,
+            "q05": -0.91640575,
+            "q25": -0.16848898,
+            "q50": -0.0025681,
+            "q75": 0.1530767,
+            "q95": 0.82796696
+          },
+          {
+            "n": 20000,
+            "mean": -0.04176993,
+            "variance": 8.33202717,
+            "q05": -0.89947877,
+            "q25": -0.16782646,
+            "q50": -0.00302628,
+            "q75": 0.15563979,
+            "q95": 0.90368822
+          },
+          {
+            "n": 40000,
+            "mean": -0.00811032,
+            "variance": 6.95799591,
+            "q05": -0.95151545,
+            "q25": -0.16821441,
+            "q50": -0.00505483,
+            "q75": 0.15950121,
+            "q95": 0.85458113
+          },
+          {
+            "n": 80000,
+            "mean": -0.00024512,
+            "variance": 13.73141207,
+            "q05": -0.93989174,
+            "q25": -0.16373762,
+            "q50": -0.00374895,
+            "q75": 0.15602159,
+            "q95": 0.91352573
+          },
+          {
+            "n": 160000,
+            "mean": -0.01219659,
+            "variance": 21.59308038,
+            "q05": -0.91993066,
+            "q25": -0.16621513,
+            "q50": -0.00693311,
+            "q75": 0.15824795,
+            "q95": 0.88151214
+          },
+          {
+            "n": 240000,
+            "mean": 0.00681548,
+            "variance": 34.71043923,
+            "q05": -0.95653324,
+            "q25": -0.16320071,
+            "q50": -0.00821837,
+            "q75": 0.1531356,
+            "q95": 0.88158257
+          }
+        ],
+        "cdf_stability": [
+          {
+            "n_prev": 4000,
+            "n_curr": 10000,
+            "empirical_kolmogorov_distance": 0.00979167
+          },
+          {
+            "n_prev": 10000,
+            "n_curr": 20000,
+            "empirical_kolmogorov_distance": 0.01145833
+          },
+          {
+            "n_prev": 20000,
+            "n_curr": 40000,
+            "empirical_kolmogorov_distance": 0.01104167
+          },
+          {
+            "n_prev": 40000,
+            "n_curr": 80000,
+            "empirical_kolmogorov_distance": 0.01833333
+          },
+          {
+            "n_prev": 80000,
+            "n_curr": 160000,
+            "empirical_kolmogorov_distance": 0.0125
+          },
+          {
+            "n_prev": 160000,
+            "n_curr": 240000,
+            "empirical_kolmogorov_distance": 0.01104167
+          }
+        ],
+        "elapsed_ms": 2083,
+        "generated_utc": "2026-03-14T10:13:36.849Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

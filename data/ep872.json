@@ -1,79 +1,119 @@
 {
   "problem": "EP-872",
-  "normalized_utc": "2026-03-05T08:54:16.969Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-872\n- Quick literature check:\n  - Still open (updated 2025); comments suggest even strong linear lower bounds remain unclear.\n- Finite compute signal:\n  - Exact minimax for `n<=20` gives game lengths roughly `0.44n` to `0.50n` when the long-game player starts.\n- Interpretation:\n  - Small exact game values support linear-length behavior at finite scales, but do not certify a uniform `\\epsilon n` theorem."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "exact minimax game lengths for small n.",
-        "content": "// EP-872: exact minimax game lengths for small n.\n{\n  function solveGameLength(n, longStarts) {\n    const vals = Array.from({ length: n - 1 }, (_, i) => i + 2);\n    const m = vals.length;\n    const incompat = new Uint32Array(m);\n\n    for (let i = 0; i < m; i += 1) {\n      for (let j = 0; j < m; j += 1) {\n        if (i === j) continue;\n        const a = vals[i];\n        const b = vals[j];\n        if (a % b === 0 || b % a === 0) incompat[i] |= (1 << j);\n      }\n    }\n\n    const memoLong = new Map();\n    const memoShort = new Map();\n\n    function dfs(mask, longTurn) {\n      const memo = longTurn ? memoLong : memoShort;\n      if (memo.has(mask)) return memo.get(mask);\n\n      const legal = [];\n      for (let i = 0; i < m; i += 1) {\n        const bit = 1 << i;\n        if (mask & bit) continue;\n        if (mask & incompat[i]) continue;\n        legal.push(i);\n      }\n\n      if (legal.length === 0) {\n        memo.set(mask, 0);\n        return 0;\n      }\n\n      let best = longTurn ? -1 : 1e9;\n      for (const i of legal) {\n        const val = 1 + dfs(mask | (1 << i), !longTurn);\n        if (longTurn) {\n          if (val > best) best = val;\n        } else if (val < best) best = val;\n      }\n\n      memo.set(mask, best);\n      return best;\n    }\n\n    return dfs(0, longStarts);\n  }\n\n  const rows = [];\n  for (const n of [10, 12, 14, 16, 18, 20]) {\n    const lf = solveGameLength(n, true);\n    const sf = solveGameLength(n, false);\n    rows.push({\n      n,\n      optimal_length_long_player_starts: lf,\n      optimal_length_short_player_starts: sf,\n      pi_n: (() => {\n        let c = 0;\n        for (let x = 2; x <= n; x += 1) {\n          let p = true;\n          for (let d = 2; d * d <= x; d += 1) if (x % d === 0) p = false;\n          if (p) c += 1;\n        }\n        return c;\n      })(),\n      over_n_long_starts: Number((lf / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep872 = {\n    description: 'Exact minimax game length profile for the divisibility-free saturation game at small n.',\n    rows,\n    note: 'State space grows quickly; this is exact only for tested n.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep872",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
-        },
-        "data": {
-          "description": "Exact minimax game length profile for the divisibility-free saturation game at small n.",
-          "rows": [
-            {
-              "n": 10,
-              "optimal_length_long_player_starts": 5,
-              "optimal_length_short_player_starts": 4,
-              "pi_n": 4,
-              "over_n_long_starts": 0.5
-            },
-            {
-              "n": 12,
-              "optimal_length_long_player_starts": 6,
-              "optimal_length_short_player_starts": 5,
-              "pi_n": 5,
-              "over_n_long_starts": 0.5
-            },
-            {
-              "n": 14,
-              "optimal_length_long_player_starts": 7,
-              "optimal_length_short_player_starts": 6,
-              "pi_n": 6,
-              "over_n_long_starts": 0.5
-            },
-            {
-              "n": 16,
-              "optimal_length_long_player_starts": 7,
-              "optimal_length_short_player_starts": 6,
-              "pi_n": 6,
-              "over_n_long_starts": 0.4375
-            },
-            {
-              "n": 18,
-              "optimal_length_long_player_starts": 8,
-              "optimal_length_short_player_starts": 7,
-              "pi_n": 7,
-              "over_n_long_starts": 0.4444444
-            },
-            {
-              "n": 20,
-              "optimal_length_long_player_starts": 9,
-              "optimal_length_short_player_starts": 8,
-              "pi_n": 8,
-              "over_n_long_starts": 0.45
-            }
+  "normalized_utc": "2026-03-13T20:03:05.570Z",
+  "computations": [
+    {
+      "source_file": "ep872_standalone_deeper_20260313T161900Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:02:50.681Z",
+      "data": {
+        "problem": "EP-872",
+        "script": "ep872.mjs",
+        "method": "exact_small_n_minimax_and_larger_n_heuristic_profile_for_divisibility_game",
+        "params": {
+          "EXACT_N": [
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22
           ],
-          "note": "State space grows quickly; this is exact only for tested n."
-        }
+          "HEUR_N": [
+            30,
+            40,
+            50,
+            70
+          ],
+          "HEUR_TRIALS": 120
+        },
+        "exact_rows": [
+          {
+            "n": 10,
+            "optimal_length_long_player_starts": 5,
+            "optimal_length_short_player_starts": 4,
+            "pi_n": 4,
+            "over_n_long_starts": 0.5
+          },
+          {
+            "n": 12,
+            "optimal_length_long_player_starts": 6,
+            "optimal_length_short_player_starts": 5,
+            "pi_n": 5,
+            "over_n_long_starts": 0.5
+          },
+          {
+            "n": 14,
+            "optimal_length_long_player_starts": 7,
+            "optimal_length_short_player_starts": 6,
+            "pi_n": 6,
+            "over_n_long_starts": 0.5
+          },
+          {
+            "n": 16,
+            "optimal_length_long_player_starts": 7,
+            "optimal_length_short_player_starts": 6,
+            "pi_n": 6,
+            "over_n_long_starts": 0.4375
+          },
+          {
+            "n": 18,
+            "optimal_length_long_player_starts": 8,
+            "optimal_length_short_player_starts": 7,
+            "pi_n": 7,
+            "over_n_long_starts": 0.44444444
+          },
+          {
+            "n": 20,
+            "optimal_length_long_player_starts": 9,
+            "optimal_length_short_player_starts": 8,
+            "pi_n": 8,
+            "over_n_long_starts": 0.45
+          },
+          {
+            "n": 22,
+            "optimal_length_long_player_starts": 10,
+            "optimal_length_short_player_starts": 8,
+            "pi_n": 8,
+            "over_n_long_starts": 0.45454545
+          }
+        ],
+        "heuristic_rows": [
+          {
+            "n": 30,
+            "trials": 120,
+            "heuristic_best_length_long_starts": 14,
+            "heuristic_avg_length_long_starts": 11.575,
+            "heuristic_best_over_n": 0.46666667
+          },
+          {
+            "n": 40,
+            "trials": 120,
+            "heuristic_best_length_long_starts": 19,
+            "heuristic_avg_length_long_starts": 14.583333,
+            "heuristic_best_over_n": 0.475
+          },
+          {
+            "n": 50,
+            "trials": 120,
+            "heuristic_best_length_long_starts": 23,
+            "heuristic_avg_length_long_starts": 17.716667,
+            "heuristic_best_over_n": 0.46
+          },
+          {
+            "n": 70,
+            "trials": 120,
+            "heuristic_best_length_long_starts": 30,
+            "heuristic_avg_length_long_starts": 23.016667,
+            "heuristic_best_over_n": 0.42857143
+          }
+        ],
+        "elapsed_ms": 74,
+        "generated_utc": "2026-03-13T20:02:50.681Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

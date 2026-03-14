@@ -1,41 +1,43 @@
 # EP-1
 
-## Proof Attempts and Literature Notes
+## Problem Statement
+If $A\subseteq \{1,\ldots,N\}$ with $|A|=n$ has all subset sums
+\[
+\sum_{a\in S} a \quad (S\subseteq A)
+\]
+distinct, must one have $N\gg 2^n$?
 
-### Source: ep1_partial.md
+## Literature
+- Classical lower bounds are much weaker than $N\gg 2^n$:
+  best known scale is about $2^n/\sqrt{n}$ (central-binomial type barrier).
+- Standard exact lower bound:
+\[
+N \ge \binom{n}{\lfloor n/2\rfloor}.
+\]
 
-# EP-1 partial attempt
+## Our Approaches / What Is Proven
+- Replaced placeholder script with standalone deep computation (`scripts/ep1.mjs`):
+  - exact branch-and-bound search for maximal cardinality in $[1,N]$ for all $N\le 70$;
+  - randomized construction search up to $N=600$.
+- This computes
+\[
+m(N):=\max\{|A|:A\subseteq[1,N],\ \text{all subset sums distinct}\}.
+\]
 
-## Route
-Compared the conjectural `N >> 2^n` target with modern lower bounds from additive-combinatorial compression arguments.
+## Computation-Guided Observations
+Deep run (`DEPTH=4`) took about 108 seconds and found:
+- For many $N$, one can beat the powers-of-two construction by exactly $+1$ element:
+  \[
+  m(N)-(\lfloor \log_2 N\rfloor+1)=1
+  \]
+  at least for ranges like $N=13\text{--}15$, $24\text{--}31$, $44\text{--}63$.
+- Example witnesses:
+  - $N=13$: $A=\{3,6,11,12,13\}$ gives $|A|=5$ (baseline is 4).
+  - $N=50$: $A=\{1,6,12,24,46,48,50\}$ gives $|A|=7$ (baseline is 6).
+- Randomized search up to $N=600$ also repeatedly found the same $+1$ gain.
 
-## What is resolved from background
-- Strong exact lower bound known: `N >= binom(n, floor(n/2))`.
-- This is about `2^n / sqrt(n)` and still does not reach a constant-times-`2^n` lower bound.
-
-## Hard point
-Closing the remaining `sqrt(n)` factor gap appears to require new structural input beyond current extremal subset-sum arguments.
+Interpretation: finite data confirms nontrivial constructions beyond pure powers of two, but still far from the conjectural asymptotic scale needed to force $N\gg 2^n$.
 
 ## Status
-Major progress known, original stronger form still open.
-
-## Integrated Batch Reasoning
-
-Batch scripts were integrated into `data/ep1.json` with extracted EP-specific sections.
-
-- harder_batch1_quick_compute.mjs: ,3,5,9,12,15,17,20,28,30.
-- harder_batch1_quick_compute.mjs: : central binomial lower bound scale.
-## Batch Split Integrations (From HEAD)
-
-### Source: notes/harder_batch1_web_compute.md
-
-### EP-1
-- Quick literature check:
-  - Found a recent related extension in modular setting: Dousse et al., *Modular distinct subset sums* (Acta Arith., 2025).
-- Finite compute signal:
-  - Central-binomial scale check gives $\binom{n}{\lfloor n/2\rfloor} 2^{-n}\sqrt{n}$ approaching about $0.795$ by $n=64$.
-- Interpretation:
-  - Finite profile matches the known $2^n/\sqrt{n}$ scale and still leaves the $\sqrt{n}$ gap to the conjectural $c\,2^n$ target.
-
-## New Experiments
-- 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-1.
+- Major progress known, original stronger form still open.
+- Added deep exact/heuristic computation with explicit witness sets and quantitative gaps.

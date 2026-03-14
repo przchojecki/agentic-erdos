@@ -1,248 +1,721 @@
 {
   "problem": "EP-1095",
-  "normalized_utc": "2026-03-05T08:54:16.975Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch25_web_compute.md",
-        "content": "### EP-1095\n- Quick literature check:\n  - Open (edited 01 December 2025, with 2026 thread updates); heuristic focus remains around `log g(k) ~ k/log k`.\n- Finite compute signal:\n  - Exact small-`k` computations show highly irregular `g(k)` values and occasional large jumps; some `k` in the tested window required ranges near the search cap.\n- Interpretation:\n  - Finite data supports oscillatory behavior and irregular ratios, consistent with long-standing limsup/liminf heuristics."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch25_quick_compute.mjs",
-        "heading": "finite exact g(k) values for small k.",
-        "content": "// EP-1095: finite exact g(k) values for small k.\n{\n  const KMAX = 36;\n  const N_CAP = 80_000;\n  const { primes } = sievePrimes(Math.max(KMAX, N_CAP));\n\n  const rows = [];\n  for (let k = 2; k <= KMAX; k += 1) {\n    let gk = null;\n    for (let n = k + 2; n <= N_CAP; n += 1) {\n      let hasSmallPrime = false;\n      for (const p of primes) {\n        if (p > k) break;\n        if (vpBinom(n, k, p) > 0) {\n          hasSmallPrime = true;\n          break;\n        }\n      }\n      if (!hasSmallPrime) {\n        gk = n;\n        break;\n      }\n    }\n    rows.push({\n      k,\n      g_k_found: gk,\n      found_within_cap: gk !== null,\n      ratio_log_g_over_k_over_logk: gk && k > 2 ? Number((Math.log(gk) / (k / Math.log(k))).toPrecision(7)) : null,\n    });\n  }\n\n  out.results.ep1095 = {\n    description: 'Finite exact search for g(k): first n with all prime divisors of C(n,k) exceeding k.',\n    KMAX,\n    N_CAP,\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch25_quick_compute.json",
-        "key": "ep1095",
-        "container_meta": {
-          "script": "harder_batch25_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:52:16.569Z"
+  "normalized_utc": "2026-03-14T16:12:39Z",
+  "computations": [
+    {
+      "source_file": "ep1095_standalone_deeper_20260314T161234Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T16:12:39.039Z",
+      "data": {
+        "problem": "EP-1095",
+        "script": "ep1095.mjs",
+        "method": "deep_exact_search_for_gk_using_lucas_theorem_divisibility_tests",
+        "warning": "Exact for reported found values; unresolved rows may require larger cap/time.",
+        "params": {
+          "depth": 4,
+          "KMAX": 90,
+          "N_CAP": 2500000,
+          "perKBudgetMs": 14000
         },
-        "data": {
-          "description": "Finite exact search for g(k): first n with all prime divisors of C(n,k) exceeding k.",
-          "KMAX": 36,
-          "N_CAP": 80000,
-          "rows": [
-            {
-              "k": 2,
-              "g_k_found": 6,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": null
-            },
-            {
-              "k": 3,
-              "g_k_found": 7,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.7126003
-            },
-            {
-              "k": 4,
-              "g_k_found": 7,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.6744011
-            },
-            {
-              "k": 5,
-              "g_k_found": 23,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.009277
-            },
-            {
-              "k": 6,
-              "g_k_found": 62,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.232472
-            },
-            {
-              "k": 7,
-              "g_k_found": 143,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.379607
-            },
-            {
-              "k": 8,
-              "g_k_found": 44,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.9836251
-            },
-            {
-              "k": 9,
-              "g_k_found": 159,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.237502
-            },
-            {
-              "k": 10,
-              "g_k_found": 46,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.8815773
-            },
-            {
-              "k": 11,
-              "g_k_found": 47,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.8392955
-            },
-            {
-              "k": 12,
-              "g_k_found": 174,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.068314
-            },
-            {
-              "k": 13,
-              "g_k_found": 2239,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.521959
-            },
-            {
-              "k": 14,
-              "g_k_found": 239,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.032336
-            },
-            {
-              "k": 15,
-              "g_k_found": 719,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.187545
-            },
-            {
-              "k": 16,
-              "g_k_found": 241,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.9504429
-            },
-            {
-              "k": 17,
-              "g_k_found": 5849,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.44561
-            },
-            {
-              "k": 18,
-              "g_k_found": 2098,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.228206
-            },
-            {
-              "k": 19,
-              "g_k_found": 2099,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.185403
-            },
-            {
-              "k": 20,
-              "g_k_found": 43196,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.598748
-            },
-            {
-              "k": 21,
-              "g_k_found": 14871,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.392821
-            },
-            {
-              "k": 22,
-              "g_k_found": 19574,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.388434
-            },
-            {
-              "k": 23,
-              "g_k_found": 35423,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.428029
-            },
-            {
-              "k": 24,
-              "g_k_found": null,
-              "found_within_cap": false,
-              "ratio_log_g_over_k_over_logk": null
-            },
-            {
-              "k": 25,
-              "g_k_found": 2105,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.9852426
-            },
-            {
-              "k": 26,
-              "g_k_found": 36287,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.315671
-            },
-            {
-              "k": 27,
-              "g_k_found": 1119,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.8569409
-            },
-            {
-              "k": 28,
-              "g_k_found": 284,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.6722692
-            },
-            {
-              "k": 29,
-              "g_k_found": null,
-              "found_within_cap": false,
-              "ratio_log_g_over_k_over_logk": null
-            },
-            {
-              "k": 30,
-              "g_k_found": 58782,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.245019
-            },
-            {
-              "k": 31,
-              "g_k_found": null,
-              "found_within_cap": false,
-              "ratio_log_g_over_k_over_logk": null
-            },
-            {
-              "k": 32,
-              "g_k_found": null,
-              "found_within_cap": false,
-              "ratio_log_g_over_k_over_logk": null
-            },
-            {
-              "k": 33,
-              "g_k_found": 6459,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 0.9295656
-            },
-            {
-              "k": 34,
-              "g_k_found": 69614,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.156514
-            },
-            {
-              "k": 35,
-              "g_k_found": 37619,
-              "found_within_cap": true,
-              "ratio_log_g_over_k_over_logk": 1.070187
-            },
-            {
-              "k": 36,
-              "g_k_found": null,
-              "found_within_cap": false,
-              "ratio_log_g_over_k_over_logk": null
-            }
-          ]
-        }
+        "rows": [
+          {
+            "KMAX": 90,
+            "N_CAP": 2500000,
+            "perKBudgetMs": 14000,
+            "found_count": 42,
+            "unresolved_count": 47,
+            "unresolved_k_list": [
+              41,
+              43,
+              44,
+              45,
+              47,
+              48,
+              49,
+              50,
+              51,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90
+            ],
+            "sample_rows_first_40": [
+              {
+                "k": 2,
+                "g_k_found": 6,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 3,
+                "lucas_prime_checks": 3
+              },
+              {
+                "k": 3,
+                "g_k_found": 7,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.7126002675,
+                "tested_n_values": 3,
+                "lucas_prime_checks": 4
+              },
+              {
+                "k": 4,
+                "g_k_found": 7,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.6744010667,
+                "tested_n_values": 2,
+                "lucas_prime_checks": 4
+              },
+              {
+                "k": 5,
+                "g_k_found": 23,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.0092766531,
+                "tested_n_values": 17,
+                "lucas_prime_checks": 23
+              },
+              {
+                "k": 6,
+                "g_k_found": 62,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.2324720192,
+                "tested_n_values": 55,
+                "lucas_prime_checks": 70
+              },
+              {
+                "k": 7,
+                "g_k_found": 143,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.3796071049,
+                "tested_n_values": 135,
+                "lucas_prime_checks": 156
+              },
+              {
+                "k": 8,
+                "g_k_found": 44,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.9836251408,
+                "tested_n_values": 35,
+                "lucas_prime_checks": 57
+              },
+              {
+                "k": 9,
+                "g_k_found": 159,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.2375023215,
+                "tested_n_values": 149,
+                "lucas_prime_checks": 215
+              },
+              {
+                "k": 10,
+                "g_k_found": 46,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.8815772606,
+                "tested_n_values": 35,
+                "lucas_prime_checks": 51
+              },
+              {
+                "k": 11,
+                "g_k_found": 47,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.8392955212,
+                "tested_n_values": 35,
+                "lucas_prime_checks": 43
+              },
+              {
+                "k": 12,
+                "g_k_found": 174,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.068314235,
+                "tested_n_values": 161,
+                "lucas_prime_checks": 227
+              },
+              {
+                "k": 13,
+                "g_k_found": 2239,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.521958992,
+                "tested_n_values": 2225,
+                "lucas_prime_checks": 2607
+              },
+              {
+                "k": 14,
+                "g_k_found": 239,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.0323358055,
+                "tested_n_values": 224,
+                "lucas_prime_checks": 259
+              },
+              {
+                "k": 15,
+                "g_k_found": 719,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.1875452515,
+                "tested_n_values": 703,
+                "lucas_prime_checks": 763
+              },
+              {
+                "k": 16,
+                "g_k_found": 241,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.9504428826,
+                "tested_n_values": 224,
+                "lucas_prime_checks": 357
+              },
+              {
+                "k": 17,
+                "g_k_found": 5849,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.4456097746,
+                "tested_n_values": 5831,
+                "lucas_prime_checks": 7438
+              },
+              {
+                "k": 18,
+                "g_k_found": 2098,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.2282056372,
+                "tested_n_values": 2079,
+                "lucas_prime_checks": 2809
+              },
+              {
+                "k": 19,
+                "g_k_found": 2099,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.185402668,
+                "tested_n_values": 2079,
+                "lucas_prime_checks": 2407
+              },
+              {
+                "k": 20,
+                "g_k_found": 43196,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.598747897,
+                "tested_n_values": 43175,
+                "lucas_prime_checks": 55439
+              },
+              {
+                "k": 21,
+                "g_k_found": 14871,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.3928209244,
+                "tested_n_values": 14849,
+                "lucas_prime_checks": 17231
+              },
+              {
+                "k": 22,
+                "g_k_found": 19574,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.3884340887,
+                "tested_n_values": 19551,
+                "lucas_prime_checks": 22434
+              },
+              {
+                "k": 23,
+                "g_k_found": 35423,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.428029023,
+                "tested_n_values": 35399,
+                "lucas_prime_checks": 37800
+              },
+              {
+                "k": 24,
+                "g_k_found": 193049,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.6116307332,
+                "tested_n_values": 193024,
+                "lucas_prime_checks": 246976
+              },
+              {
+                "k": 25,
+                "g_k_found": 2105,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.9852426214,
+                "tested_n_values": 2079,
+                "lucas_prime_checks": 2380
+              },
+              {
+                "k": 26,
+                "g_k_found": 36287,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.3156713649,
+                "tested_n_values": 36260,
+                "lucas_prime_checks": 41099
+              },
+              {
+                "k": 27,
+                "g_k_found": 1119,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.8569408645,
+                "tested_n_values": 1091,
+                "lucas_prime_checks": 1241
+              },
+              {
+                "k": 28,
+                "g_k_found": 284,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.6722691941,
+                "tested_n_values": 255,
+                "lucas_prime_checks": 309
+              },
+              {
+                "k": 29,
+                "g_k_found": 240479,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.4386931725,
+                "tested_n_values": 240449,
+                "lucas_prime_checks": 259660
+              },
+              {
+                "k": 30,
+                "g_k_found": 58782,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.2450186145,
+                "tested_n_values": 58751,
+                "lucas_prime_checks": 65468
+              },
+              {
+                "k": 31,
+                "g_k_found": 341087,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.4112460985,
+                "tested_n_values": 341055,
+                "lucas_prime_checks": 356979
+              },
+              {
+                "k": 32,
+                "g_k_found": 371942,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.389163688,
+                "tested_n_values": 371909,
+                "lucas_prime_checks": 598143
+              },
+              {
+                "k": 33,
+                "g_k_found": 6459,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 0.9295655844,
+                "tested_n_values": 6425,
+                "lucas_prime_checks": 8519
+              },
+              {
+                "k": 34,
+                "g_k_found": 69614,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.1565135961,
+                "tested_n_values": 69579,
+                "lucas_prime_checks": 89916
+              },
+              {
+                "k": 35,
+                "g_k_found": 37619,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.0701866369,
+                "tested_n_values": 37583,
+                "lucas_prime_checks": 42911
+              },
+              {
+                "k": 36,
+                "g_k_found": 152188,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.1878242323,
+                "tested_n_values": 152151,
+                "lucas_prime_checks": 216322
+              },
+              {
+                "k": 37,
+                "g_k_found": 152189,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.1645579605,
+                "tested_n_values": 152151,
+                "lucas_prime_checks": 178956
+              },
+              {
+                "k": 38,
+                "g_k_found": 487343,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.2536963163,
+                "tested_n_values": 487304,
+                "lucas_prime_checks": 559373
+              },
+              {
+                "k": 39,
+                "g_k_found": 767919,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.2729880549,
+                "tested_n_values": 767879,
+                "lucas_prime_checks": 831767
+              },
+              {
+                "k": 40,
+                "g_k_found": 85741,
+                "found_within_cap": true,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": 1.0475575113,
+                "tested_n_values": 85700,
+                "lucas_prime_checks": 112880
+              },
+              {
+                "k": 41,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499958,
+                "lucas_prime_checks": 2851665
+              }
+            ],
+            "sample_rows_last_30": [
+              {
+                "k": 61,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499938,
+                "lucas_prime_checks": 2585994
+              },
+              {
+                "k": 62,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499937,
+                "lucas_prime_checks": 2581662
+              },
+              {
+                "k": 63,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499936,
+                "lucas_prime_checks": 2549837
+              },
+              {
+                "k": 64,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499935,
+                "lucas_prime_checks": 3956276
+              },
+              {
+                "k": 65,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499934,
+                "lucas_prime_checks": 3187686
+              },
+              {
+                "k": 66,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499933,
+                "lucas_prime_checks": 3246430
+              },
+              {
+                "k": 67,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499932,
+                "lucas_prime_checks": 2849670
+              },
+              {
+                "k": 68,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499931,
+                "lucas_prime_checks": 3159613
+              },
+              {
+                "k": 69,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499930,
+                "lucas_prime_checks": 2836852
+              },
+              {
+                "k": 70,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499929,
+                "lucas_prime_checks": 2830947
+              },
+              {
+                "k": 71,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499928,
+                "lucas_prime_checks": 2660619
+              },
+              {
+                "k": 72,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499927,
+                "lucas_prime_checks": 3201444
+              },
+              {
+                "k": 73,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499926,
+                "lucas_prime_checks": 2837038
+              },
+              {
+                "k": 74,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499925,
+                "lucas_prime_checks": 2824330
+              },
+              {
+                "k": 75,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499924,
+                "lucas_prime_checks": 2673101
+              },
+              {
+                "k": 76,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499923,
+                "lucas_prime_checks": 2833147
+              },
+              {
+                "k": 77,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499922,
+                "lucas_prime_checks": 2661439
+              },
+              {
+                "k": 78,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499921,
+                "lucas_prime_checks": 2663361
+              },
+              {
+                "k": 79,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499920,
+                "lucas_prime_checks": 2580189
+              },
+              {
+                "k": 80,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499919,
+                "lucas_prime_checks": 3135922
+              },
+              {
+                "k": 81,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499918,
+                "lucas_prime_checks": 3085445
+              },
+              {
+                "k": 82,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499917,
+                "lucas_prime_checks": 2981571
+              },
+              {
+                "k": 83,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499916,
+                "lucas_prime_checks": 2695625
+              },
+              {
+                "k": 84,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499915,
+                "lucas_prime_checks": 2962721
+              },
+              {
+                "k": 85,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499914,
+                "lucas_prime_checks": 2716205
+              },
+              {
+                "k": 86,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499913,
+                "lucas_prime_checks": 2684569
+              },
+              {
+                "k": 87,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499912,
+                "lucas_prime_checks": 2598262
+              },
+              {
+                "k": 88,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499911,
+                "lucas_prime_checks": 2863784
+              },
+              {
+                "k": 89,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499910,
+                "lucas_prime_checks": 2668339
+              },
+              {
+                "k": 90,
+                "g_k_found": null,
+                "found_within_cap": false,
+                "timeout_hit": false,
+                "ratio_log_g_over_k_over_logk": null,
+                "tested_n_values": 2499909,
+                "lucas_prime_checks": 2737239
+              }
+            ],
+            "total_n_values_tested": 121782980,
+            "total_lucas_prime_checks": 137642288
+          }
+        ],
+        "elapsed_ms": 4711,
+        "generated_utc": "2026-03-14T16:12:39.039Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

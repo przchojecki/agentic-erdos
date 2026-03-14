@@ -1,167 +1,270 @@
 {
   "problem": "EP-1072",
-  "normalized_utc": "2026-03-05T08:54:16.974Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch24_web_compute.md",
-        "content": "### EP-1072\n- Quick literature check:\n  - Open (edited 04 Oct 2025), still focused on behavior of `f(p)` relative to `p`.\n- Finite compute signal:\n  - Exact modular-factorial scan for primes `<=50000` finds `f(p)=p-1` for about `0.35..0.38` of sampled primes; mean `f(p)/p` near `0.60`.\n- Interpretation:\n  - Finite rates are informative but not asymptotic evidence for the two stated limit questions."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch24_quick_compute.mjs",
-        "heading": "finite profile of f(p), the least n with n! ≡ -1 mod p.",
-        "content": "// EP-1072: finite profile of f(p), the least n with n! ≡ -1 mod p.\n{\n  const LIMIT = 50_000;\n  const { isPrime, primes } = sievePrimes(LIMIT);\n  const probeX = [5_000, 10_000, 20_000, 35_000, 50_000];\n  let ptr = 0;\n\n  let pi = 0;\n  let countFpEqPminus1 = 0;\n  let avgRatio = 0;\n  const rows = [];\n  const smallSamples = [];\n\n  for (const p of primes) {\n    if (p <= 3) continue;\n    pi += 1;\n    let fac = 1 % p;\n    let f = p - 1;\n    for (let n = 1; n < p; n += 1) {\n      fac = (fac * n) % p;\n      if (fac === p - 1) {\n        f = n;\n        break;\n      }\n      if (fac === 0) break;\n    }\n    if (f === p - 1) countFpEqPminus1 += 1;\n    avgRatio += f / p;\n    if (smallSamples.length < 20) smallSamples.push({ p, f_p: f, ratio: Number((f / p).toPrecision(7)) });\n\n    while (ptr < probeX.length && p >= probeX[ptr]) {\n      rows.push({\n        x: probeX[ptr],\n        pi_x: pi,\n        count_f_p_eq_p_minus_1: countFpEqPminus1,\n        proportion_f_p_eq_p_minus_1: Number((countFpEqPminus1 / pi).toPrecision(7)),\n        mean_f_over_p_up_to_x: Number((avgRatio / pi).toPrecision(7)),\n      });\n      ptr += 1;\n    }\n  }\n\n  out.results.ep1072 = {\n    description: 'Finite exact computation of f(p) by modular factorial scan for primes p<=50,000.',\n    LIMIT,\n    sample_rows_small_primes: smallSamples,\n    probe_rows: rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch24_quick_compute.json",
-        "key": "ep1072",
-        "container_meta": {
-          "script": "harder_batch24_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:28:27.056Z"
+  "normalized_utc": "2026-03-14T15:01:23Z",
+  "computations": [
+    {
+      "source_file": "ep1072_standalone_deeper_20260314T150123Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:01:56.162Z",
+      "data": {
+        "problem": "EP-1072",
+        "script": "ep1072.mjs",
+        "method": "deep_exact_factorial_residue_scan_for_least_n_with_factorial_minus1_mod_p",
+        "warning": "Finite prime range only; does not settle asymptotic limit questions.",
+        "params": {
+          "depth": 1,
+          "LIMIT": 220000
         },
-        "data": {
-          "description": "Finite exact computation of f(p) by modular factorial scan for primes p<=50,000.",
-          "LIMIT": 50000,
-          "sample_rows_small_primes": [
-            {
-              "p": 5,
-              "f_p": 4,
-              "ratio": 0.8
-            },
-            {
-              "p": 7,
-              "f_p": 3,
-              "ratio": 0.4285714
-            },
-            {
-              "p": 11,
-              "f_p": 5,
-              "ratio": 0.4545455
-            },
-            {
-              "p": 13,
-              "f_p": 12,
-              "ratio": 0.9230769
-            },
-            {
-              "p": 17,
-              "f_p": 16,
-              "ratio": 0.9411765
-            },
-            {
-              "p": 19,
-              "f_p": 9,
-              "ratio": 0.4736842
-            },
-            {
-              "p": 23,
-              "f_p": 14,
-              "ratio": 0.6086957
-            },
-            {
-              "p": 29,
-              "f_p": 18,
-              "ratio": 0.6206897
-            },
-            {
-              "p": 31,
-              "f_p": 30,
-              "ratio": 0.9677419
-            },
-            {
-              "p": 37,
-              "f_p": 36,
-              "ratio": 0.972973
-            },
-            {
-              "p": 41,
-              "f_p": 40,
-              "ratio": 0.9756098
-            },
-            {
-              "p": 43,
-              "f_p": 21,
-              "ratio": 0.4883721
-            },
-            {
-              "p": 47,
-              "f_p": 23,
-              "ratio": 0.4893617
-            },
-            {
-              "p": 53,
-              "f_p": 52,
-              "ratio": 0.9811321
-            },
-            {
-              "p": 59,
-              "f_p": 15,
-              "ratio": 0.2542373
-            },
-            {
-              "p": 61,
-              "f_p": 8,
-              "ratio": 0.1311475
-            },
-            {
-              "p": 67,
-              "f_p": 18,
-              "ratio": 0.2686567
-            },
-            {
-              "p": 71,
-              "f_p": 7,
-              "ratio": 0.09859155
-            },
-            {
-              "p": 73,
-              "f_p": 72,
-              "ratio": 0.9863014
-            },
-            {
-              "p": 79,
-              "f_p": 23,
-              "ratio": 0.2911392
-            }
-          ],
-          "probe_rows": [
-            {
-              "x": 5000,
-              "pi_x": 668,
-              "count_f_p_eq_p_minus_1": 252,
-              "proportion_f_p_eq_p_minus_1": 0.3772455,
-              "mean_f_over_p_up_to_x": 0.614281
-            },
-            {
-              "x": 10000,
-              "pi_x": 1228,
-              "count_f_p_eq_p_minus_1": 465,
-              "proportion_f_p_eq_p_minus_1": 0.3786645,
-              "mean_f_over_p_up_to_x": 0.6132924
-            },
-            {
-              "x": 20000,
-              "pi_x": 2261,
-              "count_f_p_eq_p_minus_1": 819,
-              "proportion_f_p_eq_p_minus_1": 0.3622291,
-              "mean_f_over_p_up_to_x": 0.602444
-            },
-            {
-              "x": 35000,
-              "pi_x": 3731,
-              "count_f_p_eq_p_minus_1": 1319,
-              "proportion_f_p_eq_p_minus_1": 0.3535245,
-              "mean_f_over_p_up_to_x": 0.596308
-            }
-          ]
-        }
+        "rows": [
+          {
+            "LIMIT": 220000,
+            "sample_rows_small_primes": [
+              {
+                "p": 5,
+                "f_p": 4,
+                "f_over_p": 0.8
+              },
+              {
+                "p": 7,
+                "f_p": 3,
+                "f_over_p": 0.42857143
+              },
+              {
+                "p": 11,
+                "f_p": 5,
+                "f_over_p": 0.45454545
+              },
+              {
+                "p": 13,
+                "f_p": 12,
+                "f_over_p": 0.92307692
+              },
+              {
+                "p": 17,
+                "f_p": 16,
+                "f_over_p": 0.94117647
+              },
+              {
+                "p": 19,
+                "f_p": 9,
+                "f_over_p": 0.47368421
+              },
+              {
+                "p": 23,
+                "f_p": 14,
+                "f_over_p": 0.60869565
+              },
+              {
+                "p": 29,
+                "f_p": 18,
+                "f_over_p": 0.62068966
+              },
+              {
+                "p": 31,
+                "f_p": 30,
+                "f_over_p": 0.96774194
+              },
+              {
+                "p": 37,
+                "f_p": 36,
+                "f_over_p": 0.97297297
+              },
+              {
+                "p": 41,
+                "f_p": 40,
+                "f_over_p": 0.97560976
+              },
+              {
+                "p": 43,
+                "f_p": 21,
+                "f_over_p": 0.48837209
+              },
+              {
+                "p": 47,
+                "f_p": 23,
+                "f_over_p": 0.4893617
+              },
+              {
+                "p": 53,
+                "f_p": 52,
+                "f_over_p": 0.98113208
+              },
+              {
+                "p": 59,
+                "f_p": 15,
+                "f_over_p": 0.25423729
+              },
+              {
+                "p": 61,
+                "f_p": 8,
+                "f_over_p": 0.13114754
+              },
+              {
+                "p": 67,
+                "f_p": 18,
+                "f_over_p": 0.26865672
+              },
+              {
+                "p": 71,
+                "f_p": 7,
+                "f_over_p": 0.09859155
+              },
+              {
+                "p": 73,
+                "f_p": 72,
+                "f_over_p": 0.98630137
+              },
+              {
+                "p": 79,
+                "f_p": 23,
+                "f_over_p": 0.29113924
+              },
+              {
+                "p": 83,
+                "f_p": 13,
+                "f_over_p": 0.15662651
+              },
+              {
+                "p": 89,
+                "f_p": 88,
+                "f_over_p": 0.98876404
+              },
+              {
+                "p": 97,
+                "f_p": 96,
+                "f_over_p": 0.98969072
+              },
+              {
+                "p": 101,
+                "f_p": 100,
+                "f_over_p": 0.99009901
+              },
+              {
+                "p": 103,
+                "f_p": 6,
+                "f_over_p": 0.05825243
+              },
+              {
+                "p": 107,
+                "f_p": 106,
+                "f_over_p": 0.99065421
+              },
+              {
+                "p": 109,
+                "f_p": 86,
+                "f_over_p": 0.78899083
+              },
+              {
+                "p": 113,
+                "f_p": 112,
+                "f_over_p": 0.99115044
+              },
+              {
+                "p": 127,
+                "f_p": 63,
+                "f_over_p": 0.49606299
+              },
+              {
+                "p": 131,
+                "f_p": 65,
+                "f_over_p": 0.49618321
+              },
+              {
+                "p": 137,
+                "f_p": 16,
+                "f_over_p": 0.11678832
+              },
+              {
+                "p": 139,
+                "f_p": 16,
+                "f_over_p": 0.11510791
+              },
+              {
+                "p": 149,
+                "f_p": 50,
+                "f_over_p": 0.33557047
+              },
+              {
+                "p": 151,
+                "f_p": 150,
+                "f_over_p": 0.99337748
+              },
+              {
+                "p": 157,
+                "f_p": 156,
+                "f_over_p": 0.99363057
+              },
+              {
+                "p": 163,
+                "f_p": 81,
+                "f_over_p": 0.49693252
+              },
+              {
+                "p": 167,
+                "f_p": 166,
+                "f_over_p": 0.99401198
+              },
+              {
+                "p": 173,
+                "f_p": 172,
+                "f_over_p": 0.99421965
+              },
+              {
+                "p": 179,
+                "f_p": 89,
+                "f_over_p": 0.4972067
+              },
+              {
+                "p": 181,
+                "f_p": 180,
+                "f_over_p": 0.99447514
+              }
+            ],
+            "probe_rows": [
+              {
+                "x": 50000,
+                "pi_x": 5132,
+                "count_f_p_eq_p_minus_1": 1813,
+                "proportion_f_p_eq_p_minus_1": 0.3532735776,
+                "mean_f_over_p_up_to_x": 0.5948301488
+              },
+              {
+                "x": 80000,
+                "pi_x": 7836,
+                "count_f_p_eq_p_minus_1": 2798,
+                "proportion_f_p_eq_p_minus_1": 0.3570699336,
+                "mean_f_over_p_up_to_x": 0.597172272
+              },
+              {
+                "x": 120000,
+                "pi_x": 11300,
+                "count_f_p_eq_p_minus_1": 4032,
+                "proportion_f_p_eq_p_minus_1": 0.3568141593,
+                "mean_f_over_p_up_to_x": 0.5957915836
+              },
+              {
+                "x": 160000,
+                "pi_x": 14682,
+                "count_f_p_eq_p_minus_1": 5237,
+                "proportion_f_p_eq_p_minus_1": 0.3566952731,
+                "mean_f_over_p_up_to_x": 0.5968794806
+              },
+              {
+                "x": 200000,
+                "pi_x": 17983,
+                "count_f_p_eq_p_minus_1": 6411,
+                "proportion_f_p_eq_p_minus_1": 0.3565033643,
+                "mean_f_over_p_up_to_x": 0.596235483
+              }
+            ],
+            "total_factorial_updates": 1220183258
+          }
+        ],
+        "elapsed_ms": 32689,
+        "generated_utc": "2026-03-14T15:01:56.162Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

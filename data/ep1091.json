@@ -1,5 +1,77 @@
 {
   "problem": "EP-1091",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T15:55:14Z",
+  "computations": [
+    {
+      "source_file": "ep1091_standalone_deeper_20260314T155344Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:55:14.788Z",
+      "data": {
+        "problem": "EP-1091",
+        "script": "ep1091.mjs",
+        "method": "deep_k4_free_4_chromatic_graph_construction_and_mutation_search_with_odd_cycle_diagonal_measurements",
+        "warning": "Finite construction/search evidence only; does not resolve the asymptotic f(r) question.",
+        "params": {
+          "depth": 4,
+          "rList": [
+            5,
+            6,
+            7
+          ]
+        },
+        "rows": [
+          {
+            "graph": "pentagonal_wheel_W5",
+            "n": 6,
+            "m": 10,
+            "k4_free": true,
+            "chi_at_least_4": true,
+            "max_odd_cycle_diagonals_len_le_13": 2,
+            "local_chi_le_3_checks": {
+              "r_5": true,
+              "r_6": false,
+              "r_7": false
+            }
+          },
+          {
+            "graph": "mycielski_C5",
+            "n": 11,
+            "m": 20,
+            "k4_free": true,
+            "chi_at_least_4": true,
+            "max_odd_cycle_diagonals_len_le_13": 9,
+            "local_chi_le_3_checks": {
+              "r_5": true,
+              "r_6": true,
+              "r_7": true
+            }
+          },
+          {
+            "graph": "mutated_best_from_mycielski_C5",
+            "n": 11,
+            "m": 15,
+            "k4_free": true,
+            "chi_at_least_4": true,
+            "max_odd_cycle_diagonals_len_le_13": 2,
+            "local_chi_le_3_checks": {
+              "r_5": true,
+              "r_6": false,
+              "r_7": false
+            },
+            "search_stats": {
+              "budget_ms": 90000,
+              "iterations": 2351783,
+              "accepted": 121579,
+              "start_score_mycielski": 9,
+              "best_score_found": 2
+            }
+          }
+        ],
+        "elapsed_ms": 90013,
+        "generated_utc": "2026-03-14T15:55:14.788Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,54 +1,98 @@
 {
   "problem": "EP-1021",
-  "normalized_utc": "2026-03-05T08:54:16.972Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch22_web_compute.md",
-        "content": "### EP-1021\n- Quick literature check:\n  - Problem page now records an affirmative resolution: Conlon--Lee proved the subdivision bound, with Janzer improving the exponent to `c_k=1/(4k-6)`.\n- Finite compute signal:\n  - Small greedy `C_6`-free (`k=3`) constructions yield edge counts consistent with sub-`n^{3/2}` growth heuristics.\n- Interpretation:\n  - Treat as resolved on the list in the stated existential form for each fixed `k`; finite probe is only consistency context."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch22_quick_compute.mjs",
-        "heading": "finite C6-free greedy constructions (k=3 case where G_3 = C6).",
-        "content": "// EP-1021: finite C6-free greedy constructions (k=3 case where G_3 = C6).\n{\n  const rng = makeRng(20260304 ^ 1021);\n  const rows = [];\n  for (const n of [10, 12, 14]) {\n    let best = -1;\n    for (let t = 0; t < 16; t += 1) {\n      const G = c6FreeGreedyGraph(n, rng);\n      if (G.m > best) best = G.m;\n    }\n    rows.push({\n      n,\n      best_c6_free_edge_count_found: best,\n      n_to_7_over_6: Number((n ** (7 / 6)).toPrecision(7)),\n      ratio_best_over_n_7_over_6: Number((best / (n ** (7 / 6))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1021 = {\n    description: 'Finite C6-free greedy constructions as a concrete proxy for the k=3 (subdivision/C6) case.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch22_quick_compute.json",
-        "key": "ep1021",
-        "container_meta": {
-          "script": "harder_batch22_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:34:53.027Z"
+  "normalized_utc": "2026-03-14T10:21:24Z",
+  "computations": [
+    {
+      "source_file": "ep1021_standalone_deeper_20260314T102124Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:21:26.969Z",
+      "data": {
+        "problem": "EP-1021",
+        "script": "ep1021.mjs",
+        "method": "deeper_C6_free_greedy_growth_profile_for_k3_proxy",
+        "warning": "Finite C6-free consistency check only; theorem-level resolution comes from literature.",
+        "params": {
+          "depth": 8
         },
-        "data": {
-          "description": "Finite C6-free greedy constructions as a concrete proxy for the k=3 (subdivision/C6) case.",
-          "rows": [
-            {
-              "n": 10,
-              "best_c6_free_edge_count_found": 21,
-              "n_to_7_over_6": 14.67799,
-              "ratio_best_over_n_7_over_6": 1.430713
-            },
-            {
-              "n": 12,
-              "best_c6_free_edge_count_found": 23,
-              "n_to_7_over_6": 18.15703,
-              "ratio_best_over_n_7_over_6": 1.266727
-            },
-            {
-              "n": 14,
-              "best_c6_free_edge_count_found": 29,
-              "n_to_7_over_6": 21.73449,
-              "ratio_best_over_n_7_over_6": 1.334285
-            }
-          ]
-        }
+        "rows": [
+          {
+            "n": 16,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 36,
+            "mean_c6_free_edge_count_found": 27.79375,
+            "n_to_7_over_6": 25.39841683,
+            "ratio_best_over_n_7_over_6": 1.41741118
+          },
+          {
+            "n": 20,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 44,
+            "mean_c6_free_edge_count_found": 35.825,
+            "n_to_7_over_6": 32.95097945,
+            "ratio_best_over_n_7_over_6": 1.33531691
+          },
+          {
+            "n": 24,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 53,
+            "mean_c6_free_edge_count_found": 44.2375,
+            "n_to_7_over_6": 40.76115191,
+            "ratio_best_over_n_7_over_6": 1.30025766
+          },
+          {
+            "n": 28,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 62,
+            "mean_c6_free_edge_count_found": 52.3625,
+            "n_to_7_over_6": 48.79227146,
+            "ratio_best_over_n_7_over_6": 1.27069305
+          },
+          {
+            "n": 32,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 68,
+            "mean_c6_free_edge_count_found": 60.68125,
+            "n_to_7_over_6": 57.01751796,
+            "ratio_best_over_n_7_over_6": 1.19261593
+          },
+          {
+            "n": 36,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 80,
+            "mean_c6_free_edge_count_found": 69.6,
+            "n_to_7_over_6": 65.41634134,
+            "ratio_best_over_n_7_over_6": 1.22293602
+          },
+          {
+            "n": 40,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 86,
+            "mean_c6_free_edge_count_found": 77.8625,
+            "n_to_7_over_6": 73.97244777,
+            "ratio_best_over_n_7_over_6": 1.16259503
+          },
+          {
+            "n": 48,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 108,
+            "mean_c6_free_edge_count_found": 96.05625,
+            "n_to_7_over_6": 91.50569213,
+            "ratio_best_over_n_7_over_6": 1.18025445
+          },
+          {
+            "n": 56,
+            "trials": 160,
+            "best_c6_free_edge_count_found": 123,
+            "mean_c6_free_edge_count_found": 114.36875,
+            "n_to_7_over_6": 109.53494592,
+            "ratio_best_over_n_7_over_6": 1.1229293
+          }
+        ],
+        "elapsed_ms": 2652,
+        "generated_utc": "2026-03-14T10:21:26.969Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

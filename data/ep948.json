@@ -1,5 +1,149 @@
 {
   "problem": "EP-948",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T09:06:11Z",
+  "computations": [
+    {
+      "source_file": "ep948_standalone_deeper_20260314T001500Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T09:05:47.787Z",
+      "data": {
+        "problem": "EP-948",
+        "script": "ep948.mjs",
+        "method": "deep_random_coloring_finite_sums_omitted_color_sequence_search",
+        "warning": "Finite proxy only; not a proof/disproof of infinite theorem.",
+        "rows": [
+          {
+            "k": 3,
+            "M": 240,
+            "B": 16,
+            "trials": 60,
+            "Lcap": 10,
+            "max_best_length_found": 6,
+            "mean_best_length": 5.2,
+            "fraction_trials_with_best_length_at_least_6": 0.2
+          },
+          {
+            "k": 3,
+            "M": 320,
+            "B": 20,
+            "trials": 50,
+            "Lcap": 11,
+            "max_best_length_found": 7,
+            "mean_best_length": 5.42,
+            "fraction_trials_with_best_length_at_least_6": 0.4
+          },
+          {
+            "k": 4,
+            "M": 280,
+            "B": 18,
+            "trials": 50,
+            "Lcap": 9,
+            "max_best_length_found": 7,
+            "mean_best_length": 6.08,
+            "fraction_trials_with_best_length_at_least_6": 1
+          },
+          {
+            "k": 5,
+            "M": 320,
+            "B": 20,
+            "trials": 40,
+            "Lcap": 8,
+            "max_best_length_found": 8,
+            "mean_best_length": 7.05,
+            "fraction_trials_with_best_length_at_least_6": 1
+          }
+        ],
+        "representative_examples": [
+          {
+            "config": {
+              "k": 3,
+              "M": 240,
+              "B": 16,
+              "trials": 60,
+              "Lcap": 10
+            },
+            "trial": 0,
+            "best_length": 6,
+            "omitted_color": 0
+          },
+          {
+            "config": {
+              "k": 3,
+              "M": 320,
+              "B": 20,
+              "trials": 50,
+              "Lcap": 11
+            },
+            "trial": 0,
+            "best_length": 6,
+            "omitted_color": 1
+          },
+          {
+            "config": {
+              "k": 3,
+              "M": 320,
+              "B": 20,
+              "trials": 50,
+              "Lcap": 11
+            },
+            "trial": 42,
+            "best_length": 7,
+            "omitted_color": 0
+          },
+          {
+            "config": {
+              "k": 4,
+              "M": 280,
+              "B": 18,
+              "trials": 50,
+              "Lcap": 9
+            },
+            "trial": 0,
+            "best_length": 6,
+            "omitted_color": 0
+          },
+          {
+            "config": {
+              "k": 4,
+              "M": 280,
+              "B": 18,
+              "trials": 50,
+              "Lcap": 9
+            },
+            "trial": 7,
+            "best_length": 7,
+            "omitted_color": 2
+          },
+          {
+            "config": {
+              "k": 5,
+              "M": 320,
+              "B": 20,
+              "trials": 40,
+              "Lcap": 8
+            },
+            "trial": 0,
+            "best_length": 7,
+            "omitted_color": 3
+          },
+          {
+            "config": {
+              "k": 5,
+              "M": 320,
+              "B": 20,
+              "trials": 40,
+              "Lcap": 8
+            },
+            "trial": 28,
+            "best_length": 8,
+            "omitted_color": 3
+          }
+        ],
+        "elapsed_ms": 13158,
+        "generated_utc": "2026-03-14T09:05:47.787Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

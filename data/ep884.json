@@ -1,5 +1,52 @@
 {
   "problem": "EP-884",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T21:39:47.390Z",
+  "computations": [
+    {
+      "source_file": "ep884_standalone_deeper_20260313T164000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:39:18.283Z",
+      "data": {
+        "problem": "EP-884",
+        "script": "ep884.mjs",
+        "method": "direct_finite_ratio_scan_for_divisor_gap_inequality",
+        "params": {
+          "N": 200000
+        },
+        "max_ratio_found": 3.56587268692,
+        "witness_n": 166320,
+        "progress_checkpoints": [
+          {
+            "upto_n": 40000,
+            "current_max_ratio": 3.322255911,
+            "witness_n": 30240
+          },
+          {
+            "upto_n": 80000,
+            "current_max_ratio": 3.431580486,
+            "witness_n": 55440
+          },
+          {
+            "upto_n": 120000,
+            "current_max_ratio": 3.53183079,
+            "witness_n": 110880
+          },
+          {
+            "upto_n": 160000,
+            "current_max_ratio": 3.53183079,
+            "witness_n": 110880
+          },
+          {
+            "upto_n": 200000,
+            "current_max_ratio": 3.565872687,
+            "witness_n": 166320
+          }
+        ],
+        "elapsed_ms": 102,
+        "generated_utc": "2026-03-13T21:39:18.283Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

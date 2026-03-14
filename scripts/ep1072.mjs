@@ -1,57 +1,94 @@
 #!/usr/bin/env node
-const meta={problem:'EP-1072',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-1072 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch24_quick_compute.mjs | finite profile of f(p), the least n with n! ≡ -1 mod p. ----
-// // EP-1072: finite profile of f(p), the least n with n! ≡ -1 mod p.
-// {
-//   const LIMIT = 50_000;
-//   const { isPrime, primes } = sievePrimes(LIMIT);
-//   const probeX = [5_000, 10_000, 20_000, 35_000, 50_000];
-//   let ptr = 0;
-// 
-//   let pi = 0;
-//   let countFpEqPminus1 = 0;
-//   let avgRatio = 0;
-//   const rows = [];
-//   const smallSamples = [];
-// 
-//   for (const p of primes) {
-//     if (p <= 3) continue;
-//     pi += 1;
-//     let fac = 1 % p;
-//     let f = p - 1;
-//     for (let n = 1; n < p; n += 1) {
-//       fac = (fac * n) % p;
-//       if (fac === p - 1) {
-//         f = n;
-//         break;
-//       }
-//       if (fac === 0) break;
-//     }
-//     if (f === p - 1) countFpEqPminus1 += 1;
-//     avgRatio += f / p;
-//     if (smallSamples.length < 20) smallSamples.push({ p, f_p: f, ratio: Number((f / p).toPrecision(7)) });
-// 
-//     while (ptr < probeX.length && p >= probeX[ptr]) {
-//       rows.push({
-//         x: probeX[ptr],
-//         pi_x: pi,
-//         count_f_p_eq_p_minus_1: countFpEqPminus1,
-//         proportion_f_p_eq_p_minus_1: Number((countFpEqPminus1 / pi).toPrecision(7)),
-//         mean_f_over_p_up_to_x: Number((avgRatio / pi).toPrecision(7)),
-//       });
-//       ptr += 1;
-//     }
-//   }
-// 
-//   out.results.ep1072 = {
-//     description: 'Finite exact computation of f(p) by modular factorial scan for primes p<=50,000.',
-//     LIMIT,
-//     sample_rows_small_primes: smallSamples,
-//     probe_rows: rows,
-//   };
-// }
-// ==== End Batch Split Integrations ====
+
+// EP-1072 deep standalone computation:
+// for prime p, f(p)=least n with n! ≡ -1 (mod p), if any n<p.
+
+function sievePrimes(N) {
+  const isPrime = new Uint8Array(N + 1);
+  if (N >= 2) {
+    isPrime.fill(1, 2);
+    for (let p = 2; p * p <= N; p += 1) {
+      if (!isPrime[p]) continue;
+      for (let m = p * p; m <= N; m += p) isPrime[m] = 0;
+    }
+  }
+  const primes = [];
+  for (let i = 2; i <= N; i += 1) if (isPrime[i]) primes.push(i);
+  return primes;
+}
+
+function main() {
+  const t0 = Date.now();
+  const depth = Math.max(1, Number(process.env.DEPTH || 1));
+  const LIMIT = Number(process.env.P_LIMIT || (120_000 + 30_000 * depth));
+
+  const primes = sievePrimes(LIMIT);
+  const probeX = [50_000, 80_000, 120_000, 160_000, 200_000, LIMIT]
+    .filter((v, i, a) => v <= LIMIT && a.indexOf(v) === i)
+    .sort((a, b) => a - b);
+
+  let ptr = 0;
+  let pi = 0;
+  let countEq = 0;
+  let avgRatio = 0;
+  let totalInnerSteps = 0;
+
+  const sampleRows = [];
+  const probeRows = [];
+
+  for (const p of primes) {
+    if (p <= 3) continue;
+    pi += 1;
+
+    let fac = 1 % p;
+    let f = p - 1;
+    for (let n = 1; n < p; n += 1) {
+      fac = (fac * n) % p;
+      totalInnerSteps += 1;
+      if (fac === p - 1) {
+        f = n;
+        break;
+      }
+    }
+
+    if (f === p - 1) countEq += 1;
+    avgRatio += f / p;
+
+    if (sampleRows.length < 40) {
+      sampleRows.push({ p, f_p: f, f_over_p: Number((f / p).toFixed(8)) });
+    }
+
+    while (ptr < probeX.length && p >= probeX[ptr]) {
+      probeRows.push({
+        x: probeX[ptr],
+        pi_x: pi,
+        count_f_p_eq_p_minus_1: countEq,
+        proportion_f_p_eq_p_minus_1: Number((countEq / pi).toFixed(10)),
+        mean_f_over_p_up_to_x: Number((avgRatio / pi).toFixed(10)),
+      });
+      ptr += 1;
+    }
+  }
+
+  const payload = {
+    problem: 'EP-1072',
+    script: 'ep1072.mjs',
+    method: 'deep_exact_factorial_residue_scan_for_least_n_with_factorial_minus1_mod_p',
+    warning: 'Finite prime range only; does not settle asymptotic limit questions.',
+    params: { depth, LIMIT },
+    rows: [
+      {
+        LIMIT,
+        sample_rows_small_primes: sampleRows,
+        probe_rows: probeRows,
+        total_factorial_updates: totalInnerSteps,
+      },
+    ],
+    elapsed_ms: Date.now() - t0,
+    generated_utc: new Date().toISOString(),
+  };
+
+  console.log(JSON.stringify(payload, null, 2));
+}
+
+main();

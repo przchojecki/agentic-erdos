@@ -1,133 +1,172 @@
 {
   "problem": "EP-1059",
-  "normalized_utc": "2026-03-05T08:54:16.973Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch23_web_compute.md",
-        "content": "### EP-1059\n- Quick literature check:\n  - Open; listed examples remain `p=101` and `p=211`.\n- Finite compute signal:\n  - Prime scan to `10^6` found `7874` primes satisfying that all `p-k!` (`k!<p`) are composite; first hits begin `101, 211, 367, 409, ...`.\n- Interpretation:\n  - Finite range suggests many candidates, but does not establish infinitude."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch23_quick_compute.mjs",
-        "heading": "finite prime scan for p-k! all composite.",
-        "content": "// EP-1059: finite prime scan for p-k! all composite.\n{\n  const P_MAX = 1_000_000;\n  const facts = [];\n  let f = 1;\n  for (let k = 1; k <= 12; k += 1) {\n    f *= k;\n    if (f >= P_MAX) break;\n    facts.push({ k, value: f });\n  }\n\n  const hits = [];\n  const probeRows = [];\n  let cnt = 0;\n  const probes = new Set([100_000, 300_000, 600_000, 1_000_000]);\n\n  for (let p = 2; p <= P_MAX; p += 1) {\n    if (spf[p] !== p) {\n      if (probes.has(p)) probeRows.push({ x: p, count_hits_up_to_x: cnt });\n      continue;\n    }\n\n    let good = true;\n    for (const { value } of facts) {\n      if (value >= p) break;\n      const q = p - value;\n      if (q <= 3 || spf[q] === q) {\n        good = false;\n        break;\n      }\n    }\n    if (good) {\n      cnt += 1;\n      if (hits.length < 40) hits.push(p);\n    }\n    if (probes.has(p)) probeRows.push({ x: p, count_hits_up_to_x: cnt });\n  }\n\n  out.results.ep1059 = {\n    description: 'Finite prime search for p where p-k! is composite for every factorial below p.',\n    P_MAX,\n    factorials_used: facts,\n    first_hits: hits,\n    probe_rows: probeRows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch23_quick_compute.json",
-        "key": "ep1059",
-        "container_meta": {
-          "script": "harder_batch23_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:43:44.789Z"
+  "normalized_utc": "2026-03-14T13:48:01Z",
+  "computations": [
+    {
+      "source_file": "ep1059_standalone_deeper_20260314T134801Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T13:48:01.757Z",
+      "data": {
+        "problem": "EP-1059",
+        "script": "ep1059.mjs",
+        "method": "deep_prime_scan_for_factorial_shifted_composite_condition",
+        "warning": "Finite prime-range evidence only; does not prove infinitude.",
+        "params": {
+          "depth": 20,
+          "P_MAX": 11000000
         },
-        "data": {
-          "description": "Finite prime search for p where p-k! is composite for every factorial below p.",
-          "P_MAX": 1000000,
-          "factorials_used": [
-            {
-              "k": 1,
-              "value": 1
-            },
-            {
-              "k": 2,
-              "value": 2
-            },
-            {
-              "k": 3,
-              "value": 6
-            },
-            {
-              "k": 4,
-              "value": 24
-            },
-            {
-              "k": 5,
-              "value": 120
-            },
-            {
-              "k": 6,
-              "value": 720
-            },
-            {
-              "k": 7,
-              "value": 5040
-            },
-            {
-              "k": 8,
-              "value": 40320
-            },
-            {
-              "k": 9,
-              "value": 362880
-            }
-          ],
-          "first_hits": [
-            101,
-            211,
-            367,
-            409,
-            419,
-            461,
-            557,
-            673,
-            709,
-            769,
-            937,
-            967,
-            1009,
-            1201,
-            1259,
-            1709,
-            1831,
-            1889,
-            2141,
-            2221,
-            2309,
-            2351,
-            2411,
-            2437,
-            2539,
-            2647,
-            2837,
-            2879,
-            3011,
-            3019,
-            3041,
-            3049,
-            3079,
-            3163,
-            3217,
-            3221,
-            3359,
-            3389,
-            3499,
-            3593
-          ],
-          "probe_rows": [
-            {
-              "x": 100000,
-              "count_hits_up_to_x": 900
-            },
-            {
-              "x": 300000,
-              "count_hits_up_to_x": 2827
-            },
-            {
-              "x": 600000,
-              "count_hits_up_to_x": 4973
-            },
-            {
-              "x": 1000000,
-              "count_hits_up_to_x": 7874
-            }
-          ]
-        }
+        "rows": [
+          {
+            "P_MAX": 11000000,
+            "factorials_used": [
+              {
+                "k": 1,
+                "value": 1
+              },
+              {
+                "k": 2,
+                "value": 2
+              },
+              {
+                "k": 3,
+                "value": 6
+              },
+              {
+                "k": 4,
+                "value": 24
+              },
+              {
+                "k": 5,
+                "value": 120
+              },
+              {
+                "k": 6,
+                "value": 720
+              },
+              {
+                "k": 7,
+                "value": 5040
+              },
+              {
+                "k": 8,
+                "value": 40320
+              },
+              {
+                "k": 9,
+                "value": 362880
+              },
+              {
+                "k": 10,
+                "value": 3628800
+              }
+            ],
+            "first_hits": [
+              101,
+              211,
+              367,
+              409,
+              419,
+              461,
+              557,
+              673,
+              709,
+              769,
+              937,
+              967,
+              1009,
+              1201,
+              1259,
+              1709,
+              1831,
+              1889,
+              2141,
+              2221,
+              2309,
+              2351,
+              2411,
+              2437,
+              2539,
+              2647,
+              2837,
+              2879,
+              3011,
+              3019,
+              3041,
+              3049,
+              3079,
+              3163,
+              3217,
+              3221,
+              3359,
+              3389,
+              3499,
+              3593,
+              3671,
+              3709,
+              3833,
+              3851,
+              3863,
+              3989,
+              4229,
+              4271,
+              4441,
+              4451,
+              4691,
+              4751,
+              4787,
+              4861,
+              4889,
+              4987,
+              5021,
+              5209,
+              5573,
+              5669,
+              5737,
+              5843,
+              5939,
+              6121,
+              6229,
+              6791,
+              6959,
+              7187,
+              7207,
+              7369,
+              7559,
+              7621,
+              7639,
+              7757,
+              7867,
+              8263,
+              8273,
+              8521,
+              8609,
+              8681
+            ],
+            "probe_rows": [
+              {
+                "x": 1000000,
+                "count_hits_up_to_x": 7874
+              },
+              {
+                "x": 2000000,
+                "count_hits_up_to_x": 15868
+              },
+              {
+                "x": 4000000,
+                "count_hits_up_to_x": 31793
+              },
+              {
+                "x": 11000000,
+                "count_hits_up_to_x": 78049
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 211,
+        "generated_utc": "2026-03-14T13:48:01.757Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

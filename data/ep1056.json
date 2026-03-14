@@ -1,223 +1,355 @@
 {
   "problem": "EP-1056",
-  "normalized_utc": "2026-03-05T08:54:16.973Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch23_web_compute.md",
-        "content": "### EP-1056\n- Quick literature check:\n  - Open; page records classical examples for `k=2` (`p=11`) and `k=3` (`p=17`).\n- Finite compute signal:\n  - Prefix-factorial collision search over primes `p<=400` finds solutions with detected size at least `k=6` (first such prime in scan: `71`).\n- Interpretation:\n  - Finite small-prime evidence supports existence for several `k`, but does not resolve arbitrarily large `k`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch23_quick_compute.mjs",
-        "heading": "search for consecutive-interval product == 1 (mod p).",
-        "content": "// EP-1056: search for consecutive-interval product == 1 (mod p).\n{\n  const PRIMES_MAX = 400;\n  const primes = [];\n  for (let p = 2; p <= PRIMES_MAX; p += 1) if (spf[p] === p) primes.push(p);\n\n  const rows = [];\n  const kMaxByPrime = [];\n\n  for (const p of primes) {\n    if (p < 5) continue;\n    const pref = new Int32Array(p);\n    pref[0] = 1 % p;\n    for (let i = 1; i < p; i += 1) pref[i] = (pref[i - 1] * i) % p;\n\n    const pos = new Map();\n    for (let i = 0; i < p; i += 1) {\n      const v = pref[i];\n      if (!pos.has(v)) pos.set(v, []);\n      pos.get(v).push(i);\n    }\n\n    let bestList = [];\n    for (const lst of pos.values()) if (lst.length > bestList.length) bestList = lst;\n    const kMax = Math.max(0, bestList.length - 1);\n    kMaxByPrime.push({ p, kMax });\n\n    if (kMax >= 2 && rows.length < 10) {\n      const intervals = [];\n      for (let i = 1; i <= Math.min(kMax, 4); i += 1) {\n        intervals.push([bestList[i - 1] + 1, bestList[i]]);\n      }\n      rows.push({\n        p,\n        max_k_found_from_prefix_collisions: kMax,\n        sample_intervals_first_four: intervals,\n      });\n    }\n  }\n\n  const firstRows = [];\n  for (let k = 2; k <= 7; k += 1) {\n    const hit = kMaxByPrime.find((r) => r.kMax >= k);\n    if (hit) firstRows.push({ k, first_prime_with_detected_solution_of_size_at_least_k: hit.p });\n  }\n\n  out.results.ep1056 = {\n    description: 'Finite prefix-factorial collision search for consecutive-interval product congruent to 1 mod p.',\n    PRIMES_MAX,\n    sample_rows: rows,\n    first_prime_by_detected_k: firstRows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch23_quick_compute.json",
-        "key": "ep1056",
-        "container_meta": {
-          "script": "harder_batch23_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:43:44.789Z"
+  "normalized_utc": "2026-03-14T13:46:06Z",
+  "computations": [
+    {
+      "source_file": "ep1056_standalone_deeper_20260314T134606Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T13:46:06.159Z",
+      "data": {
+        "problem": "EP-1056",
+        "script": "ep1056.mjs",
+        "method": "deep_prefix_factorial_collision_scan_mod_p",
+        "warning": "Finite prime bound only; does not prove existence for arbitrarily large k.",
+        "params": {
+          "depth": 15,
+          "PRIMES_MAX": 3400
         },
-        "data": {
-          "description": "Finite prefix-factorial collision search for consecutive-interval product congruent to 1 mod p.",
-          "PRIMES_MAX": 400,
-          "sample_rows": [
-            {
-              "p": 5,
-              "max_k_found_from_prefix_collisions": 2,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  3
+        "rows": [
+          {
+            "PRIMES_MAX": 3400,
+            "max_k_seen": 10,
+            "sample_rows": [
+              {
+                "p": 5,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    3
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 7,
-              "max_k_found_from_prefix_collisions": 2,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  5
+              },
+              {
+                "p": 7,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    5
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 11,
-              "max_k_found_from_prefix_collisions": 2,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  9
+              },
+              {
+                "p": 11,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    9
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 13,
-              "max_k_found_from_prefix_collisions": 2,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  11
+              },
+              {
+                "p": 13,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    11
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 17,
-              "max_k_found_from_prefix_collisions": 4,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  5
-                ],
-                [
-                  6,
-                  11
-                ],
-                [
-                  12,
-                  15
+              },
+              {
+                "p": 17,
+                "max_k_found_from_prefix_collisions": 4,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    5
+                  ],
+                  [
+                    6,
+                    11
+                  ],
+                  [
+                    12,
+                    15
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 19,
-              "max_k_found_from_prefix_collisions": 2,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  17
+              },
+              {
+                "p": 19,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    17
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 23,
-              "max_k_found_from_prefix_collisions": 5,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  4
-                ],
-                [
-                  5,
-                  8
-                ],
-                [
-                  9,
-                  11
+              },
+              {
+                "p": 23,
+                "max_k_found_from_prefix_collisions": 5,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    5,
+                    8
+                  ],
+                  [
+                    9,
+                    11
+                  ],
+                  [
+                    12,
+                    21
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 29,
-              "max_k_found_from_prefix_collisions": 3,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  10
-                ],
-                [
-                  11,
-                  27
+              },
+              {
+                "p": 29,
+                "max_k_found_from_prefix_collisions": 3,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    10
+                  ],
+                  [
+                    11,
+                    27
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 31,
-              "max_k_found_from_prefix_collisions": 3,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  15
-                ],
-                [
-                  16,
-                  29
+              },
+              {
+                "p": 31,
+                "max_k_found_from_prefix_collisions": 3,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    15
+                  ],
+                  [
+                    16,
+                    29
+                  ]
                 ]
-              ]
-            },
-            {
-              "p": 37,
-              "max_k_found_from_prefix_collisions": 2,
-              "sample_intervals_first_four": [
-                [
-                  1,
-                  1
-                ],
-                [
-                  2,
-                  35
+              },
+              {
+                "p": 37,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    35
+                  ]
                 ]
-              ]
-            }
-          ],
-          "first_prime_by_detected_k": [
-            {
-              "k": 2,
-              "first_prime_with_detected_solution_of_size_at_least_k": 5
-            },
-            {
-              "k": 3,
-              "first_prime_with_detected_solution_of_size_at_least_k": 17
-            },
-            {
-              "k": 4,
-              "first_prime_with_detected_solution_of_size_at_least_k": 17
-            },
-            {
-              "k": 5,
-              "first_prime_with_detected_solution_of_size_at_least_k": 23
-            },
-            {
-              "k": 6,
-              "first_prime_with_detected_solution_of_size_at_least_k": 71
-            }
-          ]
-        }
+              },
+              {
+                "p": 41,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    39
+                  ]
+                ]
+              },
+              {
+                "p": 43,
+                "max_k_found_from_prefix_collisions": 3,
+                "sample_intervals": [
+                  [
+                    9,
+                    11
+                  ],
+                  [
+                    12,
+                    28
+                  ],
+                  [
+                    29,
+                    33
+                  ]
+                ]
+              },
+              {
+                "p": 47,
+                "max_k_found_from_prefix_collisions": 2,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    45
+                  ]
+                ]
+              },
+              {
+                "p": 53,
+                "max_k_found_from_prefix_collisions": 4,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    15
+                  ],
+                  [
+                    16,
+                    37
+                  ],
+                  [
+                    38,
+                    51
+                  ]
+                ]
+              },
+              {
+                "p": 59,
+                "max_k_found_from_prefix_collisions": 4,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    18
+                  ],
+                  [
+                    19,
+                    29
+                  ],
+                  [
+                    30,
+                    57
+                  ]
+                ]
+              },
+              {
+                "p": 61,
+                "max_k_found_from_prefix_collisions": 5,
+                "sample_intervals": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    42
+                  ],
+                  [
+                    43,
+                    44
+                  ],
+                  [
+                    45,
+                    52
+                  ],
+                  [
+                    53,
+                    59
+                  ]
+                ]
+              }
+            ],
+            "first_prime_by_detected_k": [
+              {
+                "k": 2,
+                "first_prime_with_detected_solution_size_at_least_k": 5
+              },
+              {
+                "k": 3,
+                "first_prime_with_detected_solution_size_at_least_k": 17
+              },
+              {
+                "k": 4,
+                "first_prime_with_detected_solution_size_at_least_k": 17
+              },
+              {
+                "k": 5,
+                "first_prime_with_detected_solution_size_at_least_k": 23
+              },
+              {
+                "k": 6,
+                "first_prime_with_detected_solution_size_at_least_k": 71
+              },
+              {
+                "k": 7,
+                "first_prime_with_detected_solution_size_at_least_k": 599
+              },
+              {
+                "k": 8,
+                "first_prime_with_detected_solution_size_at_least_k": 599
+              },
+              {
+                "k": 9,
+                "first_prime_with_detected_solution_size_at_least_k": 3011
+              },
+              {
+                "k": 10,
+                "first_prime_with_detected_solution_size_at_least_k": 3011
+              }
+            ]
+          }
+        ],
+        "elapsed_ms": 59,
+        "generated_utc": "2026-03-14T13:46:06.159Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

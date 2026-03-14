@@ -1,5 +1,821 @@
 {
   "problem": "EP-913",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T22:08:13Z",
+  "computations": [
+    {
+      "source_file": "ep913_standalone_deeper_20260313T220400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T22:07:54.258Z",
+      "data": {
+        "problem": "EP-913",
+        "script": "ep913.mjs",
+        "method": "deep_finite_scan_for_distinct_exponents_in_factorization_of_n_times_n_plus_1",
+        "warning": "Finite search only; cannot prove infinitude.",
+        "params": {
+          "N": 50000000,
+          "reportStride": 1000000
+        },
+        "first_witnesses": [
+          {
+            "n": 1,
+            "n_times_n_plus_1_prime_factor_count": 1,
+            "exponent_multiset": [
+              1
+            ]
+          },
+          {
+            "n": 3,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              2
+            ]
+          },
+          {
+            "n": 4,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              2
+            ]
+          },
+          {
+            "n": 7,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              3
+            ]
+          },
+          {
+            "n": 8,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              2,
+              3
+            ]
+          },
+          {
+            "n": 16,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              4
+            ]
+          },
+          {
+            "n": 24,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 27,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 31,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              5
+            ]
+          },
+          {
+            "n": 48,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              4
+            ]
+          },
+          {
+            "n": 63,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "n": 71,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 72,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 107,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 108,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 124,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 127,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              7
+            ]
+          },
+          {
+            "n": 199,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 242,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              5
+            ]
+          },
+          {
+            "n": 243,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              5
+            ]
+          },
+          {
+            "n": 256,
+            "n_times_n_plus_1_prime_factor_count": 2,
+            "exponent_multiset": [
+              1,
+              8
+            ]
+          },
+          {
+            "n": 400,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              4
+            ]
+          },
+          {
+            "n": 431,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 432,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 499,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 512,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              9
+            ]
+          },
+          {
+            "n": 576,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "n": 647,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 783,
+            "n_times_n_plus_1_prime_factor_count": 4,
+            "exponent_multiset": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 863,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              5
+            ]
+          },
+          {
+            "n": 967,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 971,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              5
+            ]
+          },
+          {
+            "n": 1024,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              10
+            ]
+          },
+          {
+            "n": 1151,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              7
+            ]
+          },
+          {
+            "n": 1152,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              7
+            ]
+          },
+          {
+            "n": 1372,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 1567,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              5
+            ]
+          },
+          {
+            "n": 1600,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "n": 1999,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 2187,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              7
+            ]
+          },
+          {
+            "n": 2311,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 2400,
+            "n_times_n_plus_1_prime_factor_count": 4,
+            "exponent_multiset": [
+              1,
+              2,
+              4,
+              5
+            ]
+          },
+          {
+            "n": 2591,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              4,
+              5
+            ]
+          },
+          {
+            "n": 2592,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              4,
+              5
+            ]
+          },
+          {
+            "n": 2887,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 2916,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "n": 3087,
+            "n_times_n_plus_1_prime_factor_count": 4,
+            "exponent_multiset": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 3136,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "n": 3456,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              7
+            ]
+          },
+          {
+            "n": 3887,
+            "n_times_n_plus_1_prime_factor_count": 4,
+            "exponent_multiset": [
+              1,
+              2,
+              4,
+              5
+            ]
+          },
+          {
+            "n": 3888,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              4,
+              5
+            ]
+          },
+          {
+            "n": 3968,
+            "n_times_n_plus_1_prime_factor_count": 4,
+            "exponent_multiset": [
+              1,
+              2,
+              4,
+              7
+            ]
+          },
+          {
+            "n": 4000,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              5
+            ]
+          },
+          {
+            "n": 4231,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 4624,
+            "n_times_n_plus_1_prime_factor_count": 4,
+            "exponent_multiset": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 4912,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 4999,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "n": 5323,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "n": 5407,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              5
+            ]
+          },
+          {
+            "n": 6271,
+            "n_times_n_plus_1_prime_factor_count": 3,
+            "exponent_multiset": [
+              1,
+              2,
+              7
+            ]
+          }
+        ],
+        "checkpoints": [
+          {
+            "n": 1000000,
+            "witnesses_up_to_n": 299,
+            "witness_density_up_to_n": 0.000299
+          },
+          {
+            "n": 2000000,
+            "witnesses_up_to_n": 385,
+            "witness_density_up_to_n": 0.0001925
+          },
+          {
+            "n": 3000000,
+            "witnesses_up_to_n": 438,
+            "witness_density_up_to_n": 0.000146
+          },
+          {
+            "n": 4000000,
+            "witnesses_up_to_n": 483,
+            "witness_density_up_to_n": 0.00012075
+          },
+          {
+            "n": 5000000,
+            "witnesses_up_to_n": 517,
+            "witness_density_up_to_n": 0.0001034
+          },
+          {
+            "n": 6000000,
+            "witnesses_up_to_n": 552,
+            "witness_density_up_to_n": 0.000092
+          },
+          {
+            "n": 7000000,
+            "witnesses_up_to_n": 584,
+            "witness_density_up_to_n": 0.00008343
+          },
+          {
+            "n": 8000000,
+            "witnesses_up_to_n": 614,
+            "witness_density_up_to_n": 0.00007675
+          },
+          {
+            "n": 9000000,
+            "witnesses_up_to_n": 643,
+            "witness_density_up_to_n": 0.00007144
+          },
+          {
+            "n": 10000000,
+            "witnesses_up_to_n": 662,
+            "witness_density_up_to_n": 0.0000662
+          },
+          {
+            "n": 11000000,
+            "witnesses_up_to_n": 683,
+            "witness_density_up_to_n": 0.00006209
+          },
+          {
+            "n": 12000000,
+            "witnesses_up_to_n": 708,
+            "witness_density_up_to_n": 0.000059
+          },
+          {
+            "n": 13000000,
+            "witnesses_up_to_n": 725,
+            "witness_density_up_to_n": 0.00005577
+          },
+          {
+            "n": 14000000,
+            "witnesses_up_to_n": 742,
+            "witness_density_up_to_n": 0.000053
+          },
+          {
+            "n": 15000000,
+            "witnesses_up_to_n": 758,
+            "witness_density_up_to_n": 0.00005053
+          },
+          {
+            "n": 16000000,
+            "witnesses_up_to_n": 774,
+            "witness_density_up_to_n": 0.00004837
+          },
+          {
+            "n": 17000000,
+            "witnesses_up_to_n": 784,
+            "witness_density_up_to_n": 0.00004612
+          },
+          {
+            "n": 18000000,
+            "witnesses_up_to_n": 805,
+            "witness_density_up_to_n": 0.00004472
+          },
+          {
+            "n": 19000000,
+            "witnesses_up_to_n": 813,
+            "witness_density_up_to_n": 0.00004279
+          },
+          {
+            "n": 20000000,
+            "witnesses_up_to_n": 835,
+            "witness_density_up_to_n": 0.00004175
+          },
+          {
+            "n": 21000000,
+            "witnesses_up_to_n": 849,
+            "witness_density_up_to_n": 0.00004043
+          },
+          {
+            "n": 22000000,
+            "witnesses_up_to_n": 862,
+            "witness_density_up_to_n": 0.00003918
+          },
+          {
+            "n": 23000000,
+            "witnesses_up_to_n": 874,
+            "witness_density_up_to_n": 0.000038
+          },
+          {
+            "n": 24000000,
+            "witnesses_up_to_n": 883,
+            "witness_density_up_to_n": 0.00003679
+          },
+          {
+            "n": 25000000,
+            "witnesses_up_to_n": 899,
+            "witness_density_up_to_n": 0.00003596
+          },
+          {
+            "n": 26000000,
+            "witnesses_up_to_n": 913,
+            "witness_density_up_to_n": 0.00003512
+          },
+          {
+            "n": 27000000,
+            "witnesses_up_to_n": 932,
+            "witness_density_up_to_n": 0.00003452
+          },
+          {
+            "n": 28000000,
+            "witnesses_up_to_n": 948,
+            "witness_density_up_to_n": 0.00003386
+          },
+          {
+            "n": 29000000,
+            "witnesses_up_to_n": 961,
+            "witness_density_up_to_n": 0.00003314
+          },
+          {
+            "n": 30000000,
+            "witnesses_up_to_n": 970,
+            "witness_density_up_to_n": 0.00003233
+          },
+          {
+            "n": 31000000,
+            "witnesses_up_to_n": 984,
+            "witness_density_up_to_n": 0.00003174
+          },
+          {
+            "n": 32000000,
+            "witnesses_up_to_n": 995,
+            "witness_density_up_to_n": 0.00003109
+          },
+          {
+            "n": 33000000,
+            "witnesses_up_to_n": 1005,
+            "witness_density_up_to_n": 0.00003045
+          },
+          {
+            "n": 34000000,
+            "witnesses_up_to_n": 1021,
+            "witness_density_up_to_n": 0.00003003
+          },
+          {
+            "n": 35000000,
+            "witnesses_up_to_n": 1028,
+            "witness_density_up_to_n": 0.00002937
+          },
+          {
+            "n": 36000000,
+            "witnesses_up_to_n": 1034,
+            "witness_density_up_to_n": 0.00002872
+          },
+          {
+            "n": 37000000,
+            "witnesses_up_to_n": 1040,
+            "witness_density_up_to_n": 0.00002811
+          },
+          {
+            "n": 38000000,
+            "witnesses_up_to_n": 1053,
+            "witness_density_up_to_n": 0.00002771
+          },
+          {
+            "n": 39000000,
+            "witnesses_up_to_n": 1060,
+            "witness_density_up_to_n": 0.00002718
+          },
+          {
+            "n": 40000000,
+            "witnesses_up_to_n": 1065,
+            "witness_density_up_to_n": 0.00002663
+          },
+          {
+            "n": 41000000,
+            "witnesses_up_to_n": 1075,
+            "witness_density_up_to_n": 0.00002622
+          },
+          {
+            "n": 42000000,
+            "witnesses_up_to_n": 1080,
+            "witness_density_up_to_n": 0.00002571
+          },
+          {
+            "n": 43000000,
+            "witnesses_up_to_n": 1084,
+            "witness_density_up_to_n": 0.00002521
+          },
+          {
+            "n": 44000000,
+            "witnesses_up_to_n": 1093,
+            "witness_density_up_to_n": 0.00002484
+          },
+          {
+            "n": 45000000,
+            "witnesses_up_to_n": 1101,
+            "witness_density_up_to_n": 0.00002447
+          },
+          {
+            "n": 46000000,
+            "witnesses_up_to_n": 1114,
+            "witness_density_up_to_n": 0.00002422
+          },
+          {
+            "n": 47000000,
+            "witnesses_up_to_n": 1122,
+            "witness_density_up_to_n": 0.00002387
+          },
+          {
+            "n": 48000000,
+            "witnesses_up_to_n": 1132,
+            "witness_density_up_to_n": 0.00002358
+          },
+          {
+            "n": 49000000,
+            "witnesses_up_to_n": 1142,
+            "witness_density_up_to_n": 0.00002331
+          },
+          {
+            "n": 50000000,
+            "witnesses_up_to_n": 1149,
+            "witness_density_up_to_n": 0.00002298
+          }
+        ],
+        "summary": {
+          "total_witnesses_up_to_N": 1149,
+          "final_density_up_to_N": 0.00002298,
+          "max_prime_factor_count_seen": 12,
+          "first_n_with_that_count": 11243154
+        },
+        "elapsed_ms": 8584,
+        "generated_utc": "2026-03-13T22:07:54.258Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

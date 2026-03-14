@@ -1,84 +1,231 @@
 #!/usr/bin/env node
-const meta={problem:'EP-1105',source_count:0,source_files:[]};
-if(process.argv.includes('--json')) console.log(JSON.stringify(meta,null,2));
-else {console.log('EP-1105 canonical script');console.log('Integrated sections: 0');}
-// ==== Batch Split Integrations (From HEAD) ====
-// Integrated UTC: 2026-03-05T08:56:18.891Z
-// ---- Source 1: scripts/harder_batch25_quick_compute.mjs | exact small-n anti-Ramsey for triangles (C3 case) via backtracking. ----
-// // EP-1105: exact small-n anti-Ramsey for triangles (C3 case) via backtracking.
-// {
-//   function maxColorsNoRainbowTriangle(n) {
-//     const edges = [];
-//     for (let i = 0; i < n; i += 1) {
-//       for (let j = i + 1; j < n; j += 1) edges.push([i, j]);
-//     }
-//     const m = edges.length;
-//     const color = new Int16Array(m);
-//     color.fill(-1);
-// 
-//     // Triangles as edge-index triples.
-//     const edgeId = new Map();
-//     edges.forEach(([u, v], idx) => edgeId.set(`${u},${v}`, idx));
-//     const trianglesByEdge = Array.from({ length: m }, () => []);
-//     for (let a = 0; a < n; a += 1) {
-//       for (let b = a + 1; b < n; b += 1) {
-//         for (let c = b + 1; c < n; c += 1) {
-//           const e1 = edgeId.get(`${a},${b}`);
-//           const e2 = edgeId.get(`${a},${c}`);
-//           const e3 = edgeId.get(`${b},${c}`);
-//           trianglesByEdge[e1].push([e1, e2, e3]);
-//           trianglesByEdge[e2].push([e1, e2, e3]);
-//           trianglesByEdge[e3].push([e1, e2, e3]);
-//         }
-//       }
-//     }
-// 
-//     let best = 0;
-//     function dfs(pos, usedColors) {
-//       if (pos === m) {
-//         if (usedColors > best) best = usedColors;
-//         return;
-//       }
-//       if (usedColors + (m - pos) <= best) return;
-// 
-//       const maxTry = usedColors;
-//       for (let c = 0; c <= maxTry; c += 1) {
-//         color[pos] = c;
-//         let ok = true;
-//         for (const tri of trianglesByEdge[pos]) {
-//           const [e1, e2, e3] = tri;
-//           const c1 = color[e1];
-//           const c2 = color[e2];
-//           const c3 = color[e3];
-//           if (c1 === -1 || c2 === -1 || c3 === -1) continue;
-//           if (c1 !== c2 && c1 !== c3 && c2 !== c3) {
-//             ok = false;
-//             break;
-//           }
-//         }
-//         if (ok) dfs(pos + 1, Math.max(usedColors, c + 1));
-//         color[pos] = -1;
-//       }
-//     }
-// 
-//     dfs(0, 0);
-//     return best;
-//   }
-// 
-//   const rows = [];
-//   for (const n of [4, 5, 6]) {
-//     const ar = maxColorsNoRainbowTriangle(n);
-//     rows.push({
-//       n,
-//       exact_ar_n_C3: ar,
-//       n_minus_1: n - 1,
-//       matches_n_minus_1: ar === n - 1,
-//     });
-//   }
-// 
-//   out.results.ep1105 = {
-//     description: 'Exact small-n anti-Ramsey computation for C3 (rainbow-triangle avoidance).',
-//     rows,
-//   };
-// }
-// ==== End Batch Split Integrations ====
+
+// EP-1105 deep standalone consistency computation:
+// Small-n exact/partial anti-Ramsey values via bounded backtracking.
+
+function edgeListKn(n) {
+  const edges = [];
+  const id = new Map();
+  for (let i = 0; i < n; i += 1) {
+    for (let j = i + 1; j < n; j += 1) {
+      id.set(`${i},${j}`, edges.length);
+      edges.push([i, j]);
+    }
+  }
+  return { edges, id };
+}
+
+function comb(arr, k, out) {
+  const cur = [];
+  function rec(start, need) {
+    if (need === 0) {
+      out.push(cur.slice());
+      return;
+    }
+    for (let i = start; i <= arr.length - need; i += 1) {
+      cur.push(arr[i]);
+      rec(i + 1, need - 1);
+      cur.pop();
+    }
+  }
+  rec(0, k);
+}
+
+function permute(a, out) {
+  function rec(i) {
+    if (i === a.length) {
+      out.push(a.slice());
+      return;
+    }
+    for (let j = i; j < a.length; j += 1) {
+      const t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+      rec(i + 1);
+      a[j] = a[i];
+      a[i] = t;
+    }
+  }
+  rec(0);
+}
+
+function forbiddenEdgeSets(n, kind, k) {
+  const { id } = edgeListKn(n);
+  const verts = [...Array(n).keys()];
+  const sets = [];
+
+  if (kind === 'C') {
+    const s = k;
+    const subs = [];
+    comb(verts, s, subs);
+    for (const sub of subs) {
+      const perms = [];
+      permute(sub.slice(), perms);
+      const seen = new Set();
+      for (const p of perms) {
+        // canonical orientation starting at min vertex
+        if (p[0] !== Math.min(...sub)) continue;
+        const eids = [];
+        for (let i = 0; i < s; i += 1) {
+          const a = Math.min(p[i], p[(i + 1) % s]);
+          const b = Math.max(p[i], p[(i + 1) % s]);
+          eids.push(id.get(`${a},${b}`));
+        }
+        eids.sort((x, y) => x - y);
+        const key = eids.join(',');
+        if (!seen.has(key)) {
+          seen.add(key);
+          sets.push(eids);
+        }
+      }
+    }
+  } else if (kind === 'P') {
+    const s = k;
+    const subs = [];
+    comb(verts, s, subs);
+    for (const sub of subs) {
+      const perms = [];
+      permute(sub.slice(), perms);
+      const seen = new Set();
+      for (const p of perms) {
+        // path uses consecutive edges only
+        const eids = [];
+        for (let i = 0; i < s - 1; i += 1) {
+          const a = Math.min(p[i], p[i + 1]);
+          const b = Math.max(p[i], p[i + 1]);
+          eids.push(id.get(`${a},${b}`));
+        }
+        eids.sort((x, y) => x - y);
+        const key = eids.join(',');
+        if (!seen.has(key)) {
+          seen.add(key);
+          sets.push(eids);
+        }
+      }
+    }
+  }
+
+  // dedupe globally
+  const uniq = [];
+  const seen = new Set();
+  for (const s of sets) {
+    const key = s.join(',');
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniq.push(s);
+    }
+  }
+  return uniq;
+}
+
+function antiRamseyBounded(n, forbiddenSets, timeoutMs) {
+  const { edges } = edgeListKn(n);
+  const m = edges.length;
+  const color = new Int16Array(m).fill(-1);
+  const setsByEdge = Array.from({ length: m }, () => []);
+  for (const fs of forbiddenSets) {
+    for (const e of fs) setsByEdge[e].push(fs);
+  }
+
+  const t0 = Date.now();
+  let nodes = 0;
+  let timedOut = false;
+  let best = 0;
+
+  function dfs(pos, usedColors) {
+    if (timedOut) return;
+    if (Date.now() - t0 > timeoutMs) {
+      timedOut = true;
+      return;
+    }
+    nodes += 1;
+
+    if (pos === m) {
+      if (usedColors > best) best = usedColors;
+      return;
+    }
+
+    if (usedColors + (m - pos) <= best) return;
+
+    for (let c = 0; c <= usedColors; c += 1) {
+      color[pos] = c;
+      let ok = true;
+      for (const fs of setsByEdge[pos]) {
+        let allAssigned = true;
+        const seen = new Set();
+        for (const e of fs) {
+          const ce = color[e];
+          if (ce === -1) {
+            allAssigned = false;
+            break;
+          }
+          seen.add(ce);
+        }
+        if (allAssigned && seen.size === fs.length) {
+          ok = false;
+          break;
+        }
+      }
+      if (ok) dfs(pos + 1, Math.max(usedColors, c + 1));
+      color[pos] = -1;
+      if (timedOut) return;
+    }
+  }
+
+  dfs(0, 0);
+  return {
+    bestLowerBound: best,
+    exact: !timedOut,
+    timedOut,
+    nodes,
+    elapsedMs: Date.now() - t0,
+    edgeCount: m,
+    forbiddenCount: forbiddenSets.length,
+  };
+}
+
+function main() {
+  const t0 = Date.now();
+  const depth = Math.max(1, Number(process.env.DEPTH || 1));
+  const timeoutMs = depth >= 4 ? 45000 : 7000;
+
+  const instances = [
+    { kind: 'C', k: 3, n: 4 },
+    { kind: 'C', k: 3, n: 5 },
+    { kind: 'C', k: 3, n: 6 },
+    { kind: 'C', k: 3, n: 7 },
+    { kind: 'P', k: 5, n: 6 },
+    { kind: 'P', k: 5, n: 7 },
+    { kind: 'P', k: 5, n: 8 },
+    { kind: 'C', k: 4, n: 7 },
+    { kind: 'C', k: 4, n: 8 },
+  ];
+
+  const rows = [];
+  for (const ins of instances) {
+    const forb = forbiddenEdgeSets(ins.n, ins.kind, ins.k);
+    const r = antiRamseyBounded(ins.n, forb, timeoutMs);
+    rows.push({
+      graph: `${ins.kind}${ins.k}`,
+      n: ins.n,
+      timeout_ms: timeoutMs,
+      ...r,
+      exact_or_lower_bound_AR: r.bestLowerBound,
+    });
+  }
+
+  const payload = {
+    problem: 'EP-1105',
+    script: 'ep1105.mjs',
+    method: 'deep_bounded_backtracking_for_small_n_anti_ramsey_values_for_cycles_and_paths',
+    warning: 'Exact only where timeout not hit; otherwise reported value is a certified lower bound.',
+    params: { depth, timeoutMs, instance_count: instances.length },
+    rows,
+    elapsed_ms: Date.now() - t0,
+    generated_utc: new Date().toISOString(),
+  };
+
+  console.log(JSON.stringify(payload, null, 2));
+}
+
+main();

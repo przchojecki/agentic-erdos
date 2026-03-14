@@ -1,93 +1,130 @@
 {
   "problem": "EP-1073",
-  "normalized_utc": "2026-03-05T08:54:16.974Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch24_web_compute.md",
-        "content": "### EP-1073\n- Quick literature check:\n  - Open (edited 06 Oct 2025), with OEIS anchor sequence and Wilson context.\n- Finite compute signal:\n  - Composite-modulus scan to `x=12000` recovers initial hits (`25,121,169,437,...`) and gives decreasing `A(x)/x` in probes.\n- Interpretation:\n  - Finite profile is consistent with sparsity heuristics but far from proving subpolynomial growth."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch24_quick_compute.mjs",
-        "heading": "finite count A(x) for composite u with n! ≡ -1 mod u for some n.",
-        "content": "// EP-1073: finite count A(x) for composite u with n! ≡ -1 mod u for some n.\n{\n  const X = 12_000;\n  const { isPrime } = sievePrimes(X);\n  const probes = [2_000, 4_000, 6_000, 8_000, 10_000, 12_000];\n  let ptr = 0;\n\n  let A = 0;\n  const firstHits = [];\n  const rows = [];\n\n  for (let u = 4; u <= X; u += 1) {\n    if (isPrime[u]) {\n      while (ptr < probes.length && u >= probes[ptr]) {\n        rows.push({ x: probes[ptr], A_x: A, A_over_x: Number((A / probes[ptr]).toPrecision(7)) });\n        ptr += 1;\n      }\n      continue;\n    }\n\n    let fac = 1 % u;\n    let ok = false;\n    for (let n = 1; n < u; n += 1) {\n      fac = (fac * n) % u;\n      if (fac === u - 1) {\n        ok = true;\n        break;\n      }\n      if (fac === 0) break;\n    }\n    if (ok) {\n      A += 1;\n      if (firstHits.length < 24) firstHits.push(u);\n    }\n\n    while (ptr < probes.length && u >= probes[ptr]) {\n      rows.push({ x: probes[ptr], A_x: A, A_over_x: Number((A / probes[ptr]).toPrecision(7)) });\n      ptr += 1;\n    }\n  }\n\n  out.results.ep1073 = {\n    description: 'Finite composite-modulus scan for existence of n with n! ≡ -1 (mod u).',\n    X,\n    first_hits: firstHits,\n    probe_rows: rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch24_quick_compute.json",
-        "key": "ep1073",
-        "container_meta": {
-          "script": "harder_batch24_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:28:27.056Z"
+  "normalized_utc": "2026-03-14T15:05:48Z",
+  "computations": [
+    {
+      "source_file": "ep1073_standalone_deeper_20260314T150435Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:05:48.669Z",
+      "data": {
+        "problem": "EP-1073",
+        "script": "ep1073.mjs",
+        "method": "deep_exact_composite_modulus_scan_with_factorial_zero_threshold_pruning",
+        "warning": "Finite-x profile only; this does not prove asymptotic subpolynomial growth.",
+        "params": {
+          "depth": 1,
+          "X": 300000
         },
-        "data": {
-          "description": "Finite composite-modulus scan for existence of n with n! ≡ -1 (mod u).",
-          "X": 12000,
-          "first_hits": [
-            25,
-            121,
-            169,
-            437,
-            551,
-            667,
-            721,
-            1037,
-            1159,
-            1273,
-            1349,
-            1403,
-            1541,
-            1769,
-            1943,
-            2209,
-            2329,
-            2363,
-            2419,
-            3071,
-            3713,
-            4087,
-            5041,
-            5111
-          ],
-          "probe_rows": [
-            {
-              "x": 2000,
-              "A_x": 15,
-              "A_over_x": 0.0075
-            },
-            {
-              "x": 4000,
-              "A_x": 21,
-              "A_over_x": 0.00525
-            },
-            {
-              "x": 6000,
-              "A_x": 24,
-              "A_over_x": 0.004
-            },
-            {
-              "x": 8000,
-              "A_x": 25,
-              "A_over_x": 0.003125
-            },
-            {
-              "x": 10000,
-              "A_x": 28,
-              "A_over_x": 0.0028
-            },
-            {
-              "x": 12000,
-              "A_x": 30,
-              "A_over_x": 0.0025
-            }
-          ]
-        }
+        "rows": [
+          {
+            "X": 300000,
+            "first_hits": [
+              25,
+              121,
+              169,
+              437,
+              551,
+              667,
+              721,
+              1037,
+              1159,
+              1273,
+              1349,
+              1403,
+              1541,
+              1769,
+              1943,
+              2209,
+              2329,
+              2363,
+              2419,
+              3071,
+              3713,
+              4087,
+              5041,
+              5111,
+              7313,
+              8357,
+              8479,
+              9017,
+              11357,
+              11983,
+              12673,
+              16117,
+              16343,
+              19043,
+              19099,
+              19879,
+              21797,
+              26657,
+              27343,
+              28261,
+              29279,
+              33611,
+              36917,
+              38989,
+              40321,
+              40687,
+              44689,
+              50429,
+              51923,
+              52043,
+              54871,
+              61337,
+              71087,
+              75499,
+              77113,
+              77411,
+              77653,
+              81469,
+              88531,
+              94001
+            ],
+            "probe_rows": [
+              {
+                "x": 20000,
+                "A_x": 36,
+                "A_over_x": 0.0018
+              },
+              {
+                "x": 40000,
+                "A_x": 44,
+                "A_over_x": 0.0011
+              },
+              {
+                "x": 80000,
+                "A_x": 57,
+                "A_over_x": 0.0007125
+              },
+              {
+                "x": 120000,
+                "A_x": 64,
+                "A_over_x": 0.0005333333
+              },
+              {
+                "x": 160000,
+                "A_x": 73,
+                "A_over_x": 0.00045625
+              },
+              {
+                "x": 200000,
+                "A_x": 76,
+                "A_over_x": 0.00038
+              },
+              {
+                "x": 300000,
+                "A_x": 84,
+                "A_over_x": 0.00028
+              }
+            ],
+            "total_factorial_updates": 2742962046
+          }
+        ],
+        "elapsed_ms": 73284,
+        "generated_utc": "2026-03-14T15:05:48.669Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

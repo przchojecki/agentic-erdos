@@ -1,5 +1,73 @@
 {
   "problem": "EP-1038",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:34:45Z",
+  "computations": [
+    {
+      "source_file": "ep1038_standalone_deeper_20260314T103445Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:34:47.011Z",
+      "data": {
+        "problem": "EP-1038",
+        "script": "ep1038.mjs",
+        "method": "deep_real_root_polynomial_sublevel_measure_scan",
+        "warning": "Grid-based numerical estimates only; not rigorous extremal proofs.",
+        "params": {
+          "depth": 5,
+          "nList": [
+            6,
+            8,
+            10,
+            12,
+            14
+          ]
+        },
+        "rows": [
+          {
+            "n": 6,
+            "random_trials": 1250,
+            "chebyshev_root_measure_est": 2.49960006,
+            "equally_spaced_root_measure_est": 2.49320109,
+            "smallest_measure_seen_random_search": 2.01407775,
+            "largest_measure_seen_random_search": 2.70756679
+          },
+          {
+            "n": 8,
+            "random_trials": 1250,
+            "chebyshev_root_measure_est": 2.49960006,
+            "equally_spaced_root_measure_est": 2.45640697,
+            "smallest_measure_seen_random_search": 2.02767557,
+            "largest_measure_seen_random_search": 2.61078227
+          },
+          {
+            "n": 10,
+            "random_trials": 1250,
+            "chebyshev_root_measure_est": 2.49960006,
+            "equally_spaced_root_measure_est": 2.43401056,
+            "smallest_measure_seen_random_search": 2.0524716,
+            "largest_measure_seen_random_search": 2.59958407
+          },
+          {
+            "n": 12,
+            "random_trials": 1250,
+            "chebyshev_root_measure_est": 2.49960006,
+            "equally_spaced_root_measure_est": 2.41961286,
+            "smallest_measure_seen_random_search": 2.07806751,
+            "largest_measure_seen_random_search": 2.5443929
+          },
+          {
+            "n": 14,
+            "random_trials": 1250,
+            "chebyshev_root_measure_est": 2.49960006,
+            "equally_spaced_root_measure_est": 2.4100144,
+            "smallest_measure_seen_random_search": 2.1012638,
+            "largest_measure_seen_random_search": 2.57478803
+          }
+        ],
+        "elapsed_ms": 1762,
+        "generated_utc": "2026-03-14T10:34:47.011Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

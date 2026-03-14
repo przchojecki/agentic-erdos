@@ -1,5 +1,92 @@
 {
   "problem": "EP-1051",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:38:25Z",
+  "computations": [
+    {
+      "source_file": "ep1051_standalone_deeper_20260314T103825Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:38:25.299Z",
+      "data": {
+        "problem": "EP-1051",
+        "script": "ep1051.mjs",
+        "method": "deep_growth_condition_series_rational_approximation_scan",
+        "warning": "Numerical small-denominator exclusion only; not a theorem-level irrationality proof.",
+        "params": {
+          "depth": 8,
+          "maxDen": 8000000
+        },
+        "rows": [
+          {
+            "c_growth_base": 1.02,
+            "terms_used": 12,
+            "sum_numeric": 3.422995488040021,
+            "last_term_as_tail_proxy": 2.436959E-18,
+            "best_rational_p_over_q_up_to_maxDen": "2295673/670662",
+            "best_rational_error": 1.54543E-13,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "506018/147829",
+            "best_bruteforce_error": 9.931611E-12,
+            "error_minus_tail_proxy": 1.545406E-13,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "c_growth_base": 1.05,
+            "terms_used": 11,
+            "sum_numeric": 2.797400056089892,
+            "last_term_as_tail_proxy": 2.0052E-22,
+            "best_rational_p_over_q_up_to_maxDen": "8388723/2998757",
+            "best_rational_error": 1.465494E-14,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "488910/174773",
+            "best_bruteforce_error": 1.715739E-11,
+            "error_minus_tail_proxy": 1.465494E-14,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "c_growth_base": 1.1,
+            "terms_used": 10,
+            "sum_numeric": 2.299871270608505,
+            "last_term_as_tail_proxy": 6.411287E-22,
+            "best_rational_p_over_q_up_to_maxDen": "8698925/3782353",
+            "best_rational_error": 2.88658E-14,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "505606/219841",
+            "best_bruteforce_error": 8.389289E-12,
+            "error_minus_tail_proxy": 2.88658E-14,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "c_growth_base": 1.2,
+            "terms_used": 9,
+            "sum_numeric": 1.808496665514721,
+            "last_term_as_tail_proxy": 5.365386E-21,
+            "best_rational_p_over_q_up_to_maxDen": "10503103/5807643",
+            "best_rational_error": 1.487699E-14,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "195522/108113",
+            "best_bruteforce_error": 1.116351E-11,
+            "error_minus_tail_proxy": 1.487698E-14,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "c_growth_base": 1.35,
+            "terms_used": 8,
+            "sum_numeric": 1.432574395321624,
+            "last_term_as_tail_proxy": 2.07624E-17,
+            "best_rational_p_over_q_up_to_maxDen": "6713641/4686417",
+            "best_rational_error": 4.662937E-15,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "211915/147926",
+            "best_bruteforce_error": 1.586264E-11,
+            "error_minus_tail_proxy": 4.642174E-15,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          }
+        ],
+        "elapsed_ms": 3,
+        "generated_utc": "2026-03-14T10:38:25.299Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

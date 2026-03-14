@@ -1,6 +1,6 @@
 {
   "problem": "EP-5",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-14T17:31:04Z",
   "computations": [
     {
       "source_file": "harder_batch1_quick_compute.json",
@@ -17,6 +17,54 @@
         "q95": 3.216941,
         "occupied_bins_in_0_10_step_0_25": 40,
         "total_bins_in_0_10_step_0_25": 40
+      }
+    },
+    {
+      "source_file": "ep5_standalone_deeper_20260314T173045Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T17:30:48.988Z",
+      "data": {
+        "problem": "EP-5",
+        "script": "ep5.mjs",
+        "method": "deep_empirical_profile_of_normalized_prime_gap_limit_points",
+        "warning": "Finite computations cannot prove full limit-point set equality; they only provide large-range distribution evidence.",
+        "params": {
+          "depth": 5,
+          "nPrimeTarget": 5000000,
+          "largest_prime_used": 86028221,
+          "sieve_limit": 96804715
+        },
+        "normalized_by_log_n": {
+          "min_value": 0.129660127,
+          "max_value": 14.9009082925,
+          "argmax_n": 1319945,
+          "q01": 0.1309190169,
+          "q05": 0.139827379,
+          "q50": 0.8891173526,
+          "q95": 3.1953206496,
+          "q99": 4.7270140303,
+          "occupied_bins": 127,
+          "total_bins": 200,
+          "fraction_lt_0_2": 0.0765578153,
+          "fraction_gt_6": 0.0025644005
+        },
+        "normalized_by_log_pn": {
+          "min_value": 0.1094680076,
+          "max_value": 12.4614523328,
+          "argmax_n": 1319945,
+          "q01": 0.1104204464,
+          "q05": 0.1171206336,
+          "q50": 0.7388452258,
+          "q95": 2.6783175859,
+          "q99": 3.9659310032,
+          "occupied_bins": 105,
+          "total_bins": 200,
+          "fraction_lt_0_2": 0.0770006154,
+          "fraction_gt_6": 0.0007516002
+        },
+        "elapsed_ms": 3266,
+        "generated_utc": "2026-03-14T17:30:48.988Z"
       }
     }
   ],
@@ -70,5 +118,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

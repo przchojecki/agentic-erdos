@@ -1,5 +1,105 @@
 {
   "problem": "EP-1075",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T15:10:20Z",
+  "computations": [
+    {
+      "source_file": "ep1075_standalone_deeper_20260314T150957Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:10:20.912Z",
+      "data": {
+        "problem": "EP-1075",
+        "script": "ep1075.mjs",
+        "method": "deep_random_hypergraph_threshold_sampling_with_greedy_peeling_density_search",
+        "warning": "Heuristic finite random evidence only; no theorem is proved by this computation.",
+        "params": {
+          "depth": 5,
+          "scenario_count": 6
+        },
+        "rows": [
+          {
+            "n": 72,
+            "r": 3,
+            "eps": 0.15,
+            "trials": 150,
+            "threshold_edges": 15897,
+            "min_size_proxy": 12,
+            "baseline_c_r": 0.037037037037,
+            "hit_rate_above_baseline": 1,
+            "hit_rate_above_baseline_with_growing_size": 1,
+            "best_trial_density": 0.5090909091,
+            "best_trial_size": 12
+          },
+          {
+            "n": 96,
+            "r": 3,
+            "eps": 0.15,
+            "trials": 150,
+            "threshold_edges": 37683,
+            "min_size_proxy": 13,
+            "baseline_c_r": 0.037037037037,
+            "hit_rate_above_baseline": 1,
+            "hit_rate_above_baseline_with_growing_size": 1,
+            "best_trial_density": 0.4895104895,
+            "best_trial_size": 13
+          },
+          {
+            "n": 120,
+            "r": 3,
+            "eps": 0.15,
+            "trials": 120,
+            "threshold_edges": 73600,
+            "min_size_proxy": 13,
+            "baseline_c_r": 0.037037037037,
+            "hit_rate_above_baseline": 1,
+            "hit_rate_above_baseline_with_growing_size": 1,
+            "best_trial_density": 0.4755244755,
+            "best_trial_size": 13
+          },
+          {
+            "n": 48,
+            "r": 4,
+            "eps": 0.15,
+            "trials": 120,
+            "threshold_edges": 23846,
+            "min_size_proxy": 11,
+            "baseline_c_r": 0.00390625,
+            "hit_rate_above_baseline": 1,
+            "hit_rate_above_baseline_with_growing_size": 1,
+            "best_trial_density": 0.2575757576,
+            "best_trial_size": 11
+          },
+          {
+            "n": 60,
+            "r": 4,
+            "eps": 0.15,
+            "trials": 90,
+            "threshold_edges": 58218,
+            "min_size_proxy": 11,
+            "baseline_c_r": 0.00390625,
+            "hit_rate_above_baseline": 1,
+            "hit_rate_above_baseline_with_growing_size": 1,
+            "best_trial_density": 0.2454545455,
+            "best_trial_size": 11
+          },
+          {
+            "n": 72,
+            "r": 4,
+            "eps": 0.15,
+            "trials": 70,
+            "threshold_edges": 120722,
+            "min_size_proxy": 12,
+            "baseline_c_r": 0.00390625,
+            "hit_rate_above_baseline": 1,
+            "hit_rate_above_baseline_with_growing_size": 1,
+            "best_trial_density": 0.2262626263,
+            "best_trial_size": 12
+          }
+        ],
+        "elapsed_ms": 22372,
+        "generated_utc": "2026-03-14T15:10:20.912Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

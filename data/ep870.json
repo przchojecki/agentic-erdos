@@ -1,5 +1,61 @@
 {
   "problem": "EP-870",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:01:46.013Z",
+  "computations": [
+    {
+      "source_file": "ep870_standalone_deeper_20260313T161400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T20:01:26.543Z",
+      "data": {
+        "problem": "EP-870",
+        "script": "ep870.mjs",
+        "method": "finite_k3_representation_threshold_vs_minimal_core_probe",
+        "warning": "Finite horizon proxy only; does not resolve k>=3 infinite statement.",
+        "params": {
+          "CASES": [
+            [
+              120,
+              120,
+              260,
+              120
+            ],
+            [
+              160,
+              180,
+              360,
+              100
+            ]
+          ]
+        },
+        "rows": [
+          {
+            "N": 120,
+            "L": 120,
+            "U": 260,
+            "trials": 120,
+            "interval_len": 141,
+            "best_covered_count": 141,
+            "best_min_rep_when_fully_covered": 69,
+            "finite_minimal_core_instances_found": 119,
+            "max_finite_minimal_core_size_found": 16
+          },
+          {
+            "N": 160,
+            "L": 180,
+            "U": 360,
+            "trials": 100,
+            "interval_len": 181,
+            "best_covered_count": 181,
+            "best_min_rep_when_fully_covered": 69,
+            "finite_minimal_core_instances_found": 100,
+            "max_finite_minimal_core_size_found": 19
+          }
+        ],
+        "elapsed_ms": 129,
+        "generated_utc": "2026-03-13T20:01:26.543Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,78 +1,204 @@
 {
   "problem": "EP-1005",
-  "normalized_utc": "2026-03-05T08:54:16.972Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch22_web_compute.md",
-        "content": "### EP-1005\n- Quick literature check:\n  - Open; 2025 update gives bounds `((1/12)-o(1))n <= f(n) <= n/4 + O(1)` and conjectures the upper-constant side is sharp.\n- Finite compute signal:\n  - Exact finite `f(n)` computation up to `n=240` gives `f(n)/n` drifting from `0.525` (`n=40`) to about `0.504` (`n=240`).\n- Interpretation:\n  - Finite trend is near a linear law with constant close to `1/2` in this range; asymptotic constant remains unresolved."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch22_quick_compute.mjs",
-        "heading": "exact finite f(n) from Farey sequences via similarly-ordered run lengths.",
-        "content": "// EP-1005: exact finite f(n) from Farey sequences via similarly-ordered run lengths.\n{\n  const rows = [];\n  for (const n of [40, 60, 80, 120, 160, 200, 240]) {\n    const { numer, denom } = fareySequence(n);\n    const runLen = longestSimilarOrderRunLength(numer, denom);\n    const f = runLen - 1;\n    rows.push({\n      n,\n      farey_length: numer.length,\n      f_n_exact_in_this_computation: f,\n      f_over_n: Number((f / n).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1005 = {\n    description: 'Exact finite computation of similarly-ordered local window lengths in Farey sequences.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch22_quick_compute.json",
-        "key": "ep1005",
-        "container_meta": {
-          "script": "harder_batch22_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:34:53.027Z"
+  "normalized_utc": "2026-03-14T15:14:23Z",
+  "computations": [
+    {
+      "source_file": "ep1005_standalone_deeper_20260314T151421Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:14:23.931Z",
+      "data": {
+        "problem": "EP-1005",
+        "script": "ep1005.mjs",
+        "method": "exact_farey_pair_gap_scan_from_problem_definition",
+        "warning": "Exact finite values for listed n only; asymptotic constant remains open.",
+        "params": {
+          "depth": 4,
+          "nList": [180, 240, 300, 360, 480, 600, 720, 840, 960, 1080, 1200]
         },
-        "data": {
-          "description": "Exact finite computation of similarly-ordered local window lengths in Farey sequences.",
-          "rows": [
-            {
-              "n": 40,
-              "farey_length": 491,
-              "f_n_exact_in_this_computation": 21,
-              "f_over_n": 0.525
-            },
-            {
-              "n": 60,
-              "farey_length": 1103,
-              "f_n_exact_in_this_computation": 31,
-              "f_over_n": 0.5166667
-            },
-            {
-              "n": 80,
-              "farey_length": 1967,
-              "f_n_exact_in_this_computation": 41,
-              "f_over_n": 0.5125
-            },
-            {
-              "n": 120,
-              "farey_length": 4387,
-              "f_n_exact_in_this_computation": 61,
-              "f_over_n": 0.5083333
-            },
-            {
-              "n": 160,
-              "farey_length": 7807,
-              "f_n_exact_in_this_computation": 81,
-              "f_over_n": 0.50625
-            },
-            {
-              "n": 200,
-              "farey_length": 12233,
-              "f_n_exact_in_this_computation": 101,
-              "f_over_n": 0.505
-            },
-            {
-              "n": 240,
-              "farey_length": 17545,
-              "f_n_exact_in_this_computation": 121,
-              "f_over_n": 0.5041667
+        "rows": [
+          {
+            "n": 180,
+            "farey_length": 9845,
+            "f_n_exact_in_this_computation": 46,
+            "f_over_n": 0.2555555556,
+            "n_over_4": 45,
+            "pair_checks": 458340,
+            "elapsed_ms_for_n": 8,
+            "first_discordant_witness": {
+              "i": 4894,
+              "j": 4941,
+              "gap": 47,
+              "left": "89/180",
+              "right": "90/179"
             }
-          ]
-        }
+          },
+          {
+            "n": 240,
+            "farey_length": 17545,
+            "f_n_exact_in_this_computation": 61,
+            "f_over_n": 0.2541666667,
+            "n_over_4": 60,
+            "pair_checks": 1077066,
+            "elapsed_ms_for_n": 18,
+            "first_discordant_witness": {
+              "i": 8711,
+              "j": 8773,
+              "gap": 62,
+              "left": "119/240",
+              "right": "120/239"
+            }
+          },
+          {
+            "n": 300,
+            "farey_length": 27399,
+            "f_n_exact_in_this_computation": 76,
+            "f_over_n": 0.2533333333,
+            "n_over_4": 75,
+            "pair_checks": 2093022,
+            "elapsed_ms_for_n": 18,
+            "first_discordant_witness": {
+              "i": 13623,
+              "j": 13700,
+              "gap": 77,
+              "left": "149/300",
+              "right": "150/299"
+            }
+          },
+          {
+            "n": 360,
+            "farey_length": 39497,
+            "f_n_exact_in_this_computation": 91,
+            "f_over_n": 0.2527777778,
+            "n_over_4": 90,
+            "pair_checks": 3605856,
+            "elapsed_ms_for_n": 33,
+            "first_discordant_witness": {
+              "i": 19636,
+              "j": 19728,
+              "gap": 92,
+              "left": "179/360",
+              "right": "180/359"
+            }
+          },
+          {
+            "n": 480,
+            "farey_length": 70081,
+            "f_n_exact_in_this_computation": 121,
+            "f_over_n": 0.2520833333,
+            "n_over_4": 120,
+            "pair_checks": 8512200,
+            "elapsed_ms_for_n": 52,
+            "first_discordant_witness": {
+              "i": 34939,
+              "j": 35061,
+              "gap": 122,
+              "left": "239/480",
+              "right": "240/479"
+            }
+          },
+          {
+            "n": 600,
+            "farey_length": 109501,
+            "f_n_exact_in_this_computation": 151,
+            "f_over_n": 0.2516666667,
+            "n_over_4": 150,
+            "pair_checks": 16577775,
+            "elapsed_ms_for_n": 115,
+            "first_discordant_witness": {
+              "i": 54599,
+              "j": 54751,
+              "gap": 152,
+              "left": "299/600",
+              "right": "300/599"
+            }
+          },
+          {
+            "n": 720,
+            "farey_length": 157789,
+            "f_n_exact_in_this_computation": 181,
+            "f_over_n": 0.2513888889,
+            "n_over_4": 180,
+            "pair_checks": 28604991,
+            "elapsed_ms_for_n": 161,
+            "first_discordant_witness": {
+              "i": 78666,
+              "j": 78848,
+              "gap": 182,
+              "left": "359/720",
+              "right": "360/719"
+            }
+          },
+          {
+            "n": 840,
+            "farey_length": 215441,
+            "f_n_exact_in_this_computation": 211,
+            "f_over_n": 0.2511904762,
+            "n_over_4": 210,
+            "pair_checks": 45362997,
+            "elapsed_ms_for_n": 219,
+            "first_discordant_witness": {
+              "i": 107083,
+              "j": 107295,
+              "gap": 212,
+              "left": "419/840",
+              "right": "420/839"
+            }
+          },
+          {
+            "n": 960,
+            "farey_length": 280201,
+            "f_n_exact_in_this_computation": 241,
+            "f_over_n": 0.2510416667,
+            "n_over_4": 240,
+            "pair_checks": 67639140,
+            "elapsed_ms_for_n": 322,
+            "first_discordant_witness": {
+              "i": 139859,
+              "j": 140101,
+              "gap": 242,
+              "left": "479/960",
+              "right": "480/959"
+            }
+          },
+          {
+            "n": 1080,
+            "farey_length": 352087,
+            "f_n_exact_in_this_computation": 271,
+            "f_over_n": 0.2509259259,
+            "n_over_4": 270,
+            "pair_checks": 96248991,
+            "elapsed_ms_for_n": 431,
+            "first_discordant_witness": {
+              "i": 177051,
+              "j": 177323,
+              "gap": 272,
+              "left": "539/1080",
+              "right": "540/1079"
+            }
+          },
+          {
+            "n": 1200,
+            "farey_length": 437787,
+            "f_n_exact_in_this_computation": 301,
+            "f_over_n": 0.2508333333,
+            "n_over_4": 300,
+            "pair_checks": 131947029,
+            "elapsed_ms_for_n": 486,
+            "first_discordant_witness": {
+              "i": 218592,
+              "j": 218894,
+              "gap": 302,
+              "left": "599/1200",
+              "right": "600/1199"
+            }
+          }
+        ],
+        "total_pair_checks": 410637407,
+        "elapsed_ms": 1865,
+        "generated_utc": "2026-03-14T15:14:23.931Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

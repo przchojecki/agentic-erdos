@@ -1,5 +1,124 @@
 {
   "problem": "EP-863",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:00:04.492Z",
+  "computations": [
+    {
+      "source_file": "ep863_standalone_deeper_20260313T161000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:59:36.731Z",
+      "data": {
+        "problem": "EP-863",
+        "script": "ep863.mjs",
+        "method": "finite_random_greedy_comparison_sum_vs_difference_B2r_regimes",
+        "warning": "Finite heuristic proxy only; not asymptotic constants c_r, c_r'.",
+        "params": {
+          "N_LIST": [
+            80,
+            120,
+            180,
+            240
+          ],
+          "R_LIST": [
+            2,
+            3
+          ],
+          "TRIALS": 200
+        },
+        "rows": [
+          {
+            "N": 80,
+            "r": 2,
+            "trials": 200,
+            "best_sum_constrained_size": 16,
+            "best_diff_constrained_size": 14,
+            "avg_sum_constrained_size": 14.75,
+            "avg_diff_constrained_size": 12.705,
+            "best_sum_over_sqrtN": 1.7888544,
+            "best_diff_over_sqrtN": 1.5652476
+          },
+          {
+            "N": 80,
+            "r": 3,
+            "trials": 200,
+            "best_sum_constrained_size": 21,
+            "best_diff_constrained_size": 17,
+            "avg_sum_constrained_size": 19.235,
+            "avg_diff_constrained_size": 15.49,
+            "best_sum_over_sqrtN": 2.3478714,
+            "best_diff_over_sqrtN": 1.9006578
+          },
+          {
+            "N": 120,
+            "r": 2,
+            "trials": 200,
+            "best_sum_constrained_size": 19,
+            "best_diff_constrained_size": 16,
+            "avg_sum_constrained_size": 17.545,
+            "avg_diff_constrained_size": 14.95,
+            "best_sum_over_sqrtN": 1.7344548,
+            "best_diff_over_sqrtN": 1.4605935
+          },
+          {
+            "N": 120,
+            "r": 3,
+            "trials": 200,
+            "best_sum_constrained_size": 25,
+            "best_diff_constrained_size": 20,
+            "avg_sum_constrained_size": 22.88,
+            "avg_diff_constrained_size": 18.365,
+            "best_sum_over_sqrtN": 2.2821773,
+            "best_diff_over_sqrtN": 1.8257419
+          },
+          {
+            "N": 180,
+            "r": 2,
+            "trials": 200,
+            "best_sum_constrained_size": 23,
+            "best_diff_constrained_size": 19,
+            "avg_sum_constrained_size": 20.905,
+            "avg_diff_constrained_size": 17.675,
+            "best_sum_over_sqrtN": 1.7143188,
+            "best_diff_over_sqrtN": 1.4161764
+          },
+          {
+            "N": 180,
+            "r": 3,
+            "trials": 200,
+            "best_sum_constrained_size": 29,
+            "best_diff_constrained_size": 24,
+            "avg_sum_constrained_size": 27.175,
+            "avg_diff_constrained_size": 21.905,
+            "best_sum_over_sqrtN": 2.1615324,
+            "best_diff_over_sqrtN": 1.7888544
+          },
+          {
+            "N": 240,
+            "r": 2,
+            "trials": 200,
+            "best_sum_constrained_size": 26,
+            "best_diff_constrained_size": 22,
+            "avg_sum_constrained_size": 23.595,
+            "avg_diff_constrained_size": 20.05,
+            "best_sum_over_sqrtN": 1.6782928,
+            "best_diff_over_sqrtN": 1.4200939
+          },
+          {
+            "N": 240,
+            "r": 3,
+            "trials": 200,
+            "best_sum_constrained_size": 33,
+            "best_diff_constrained_size": 27,
+            "avg_sum_constrained_size": 30.935,
+            "avg_diff_constrained_size": 24.845,
+            "best_sum_over_sqrtN": 2.1301408,
+            "best_diff_over_sqrtN": 1.7428425
+          }
+        ],
+        "elapsed_ms": 126,
+        "generated_utc": "2026-03-13T19:59:36.731Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

@@ -1,6 +1,6 @@
 {
   "problem": "EP-3",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
+  "normalized_utc": "2026-03-14T17:29:06Z",
   "computations": [
     {
       "source_file": "harder_batch1_quick_compute.json",
@@ -40,6 +40,93 @@
             "harmonic_sum_over_set": 2.979622
           }
         ]
+      }
+    },
+    {
+      "source_file": "ep3_standalone_deeper_20260314T172828Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T17:28:51.983Z",
+      "data": {
+        "problem": "EP-3",
+        "script": "ep3.mjs",
+        "method": "deep_long_range_profile_of_ascending_greedy_3AP_free_set_with_harmonic_tracking",
+        "warning": "This studies one canonical 3-AP-free construction only and does not settle the full all-k divergent-harmonic implication.",
+        "params": {
+          "depth": 4,
+          "Nmax": 10000000,
+          "checkpoints": [
+            1000,
+            10000,
+            100000,
+            1000000,
+            5000000,
+            10000000
+          ]
+        },
+        "rows": [
+          {
+            "N": 1000,
+            "greedy_3ap_free_size": 105,
+            "harmonic_sum_over_set": 2.8427508068,
+            "exponent_log_size_over_logN": 0.6737297664,
+            "size_over_N_pow_log3_2": 1.3440023818,
+            "max_selected_element": 1000,
+            "selected_non_01_ternary_count": 52
+          },
+          {
+            "N": 10000,
+            "greedy_3ap_free_size": 512,
+            "harmonic_sum_over_set": 2.9442256435,
+            "exponent_log_size_over_logN": 0.6773174902,
+            "size_over_N_pow_log3_2": 1.5330310343,
+            "max_selected_element": 9842,
+            "selected_non_01_ternary_count": 256
+          },
+          {
+            "N": 100000,
+            "greedy_3ap_free_size": 2048,
+            "harmonic_sum_over_set": 2.9796216101,
+            "exponent_log_size_over_logN": 0.6622659905,
+            "size_over_N_pow_log3_2": 1.4344360273,
+            "max_selected_element": 88574,
+            "selected_non_01_ternary_count": 1024
+          },
+          {
+            "N": 1000000,
+            "greedy_3ap_free_size": 8192,
+            "harmonic_sum_over_set": 2.9953534764,
+            "exponent_log_size_over_logN": 0.6522316573,
+            "size_over_N_pow_log3_2": 1.3421820371,
+            "max_selected_element": 797162,
+            "selected_non_01_ternary_count": 4096
+          },
+          {
+            "N": 5000000,
+            "greedy_3ap_free_size": 19456,
+            "harmonic_sum_over_set": 3.0001787604,
+            "exponent_log_size_over_logN": 0.6402556744,
+            "size_over_N_pow_log3_2": 1.1547130222,
+            "max_selected_element": 4989641,
+            "selected_non_01_ternary_count": 9728
+          },
+          {
+            "N": 10000000,
+            "greedy_3ap_free_size": 32768,
+            "harmonic_sum_over_set": 3.0023454331,
+            "exponent_log_size_over_logN": 0.6450642764,
+            "size_over_N_pow_log3_2": 1.2558612489,
+            "max_selected_element": 7174454,
+            "selected_non_01_ternary_count": 16384
+          }
+        ],
+        "summary": {
+          "final_size": 32768,
+          "final_harmonic_sum": 3.0023454331,
+          "selected_non_01_ternary_count": 16384
+        },
+        "elapsed_ms": 23945,
+        "generated_utc": "2026-03-14T17:28:51.983Z"
       }
     }
   ],
@@ -116,5 +203,6 @@
         }
       }
     ]
-  }
+  },
+  "progress_status": "has_computation"
 }

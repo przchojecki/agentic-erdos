@@ -1,5 +1,57 @@
 {
   "problem": "EP-887",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T21:41:33.189Z",
+  "computations": [
+    {
+      "source_file": "ep887_standalone_deeper_20260313T164700Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:41:12.067Z",
+      "data": {
+        "problem": "EP-887",
+        "script": "ep887.mjs",
+        "method": "finite_scan_of_divisors_in_short_interval_above_sqrt",
+        "params": {
+          "N": 3000000,
+          "C_LIST": [
+            1,
+            2,
+            3,
+            4,
+            6
+          ]
+        },
+        "rows": [
+          {
+            "C": 1,
+            "max_divisors_in_interval_found": 1,
+            "witness_n": 2
+          },
+          {
+            "C": 2,
+            "max_divisors_in_interval_found": 4,
+            "witness_n": 15120
+          },
+          {
+            "C": 3,
+            "max_divisors_in_interval_found": 5,
+            "witness_n": 720720
+          },
+          {
+            "C": 4,
+            "max_divisors_in_interval_found": 6,
+            "witness_n": 85680
+          },
+          {
+            "C": 6,
+            "max_divisors_in_interval_found": 8,
+            "witness_n": 720720
+          }
+        ],
+        "elapsed_ms": 846,
+        "generated_utc": "2026-03-13T21:41:12.067Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

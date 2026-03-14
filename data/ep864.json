@@ -1,5 +1,78 @@
 {
   "problem": "EP-864",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:00:04.492Z",
+  "computations": [
+    {
+      "source_file": "ep864_standalone_deeper_20260313T161000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:59:01.965Z",
+      "data": {
+        "problem": "EP-864",
+        "script": "ep864.mjs",
+        "method": "finite_random_greedy_profile_for_single_exception_sum_multiplicity",
+        "warning": "Finite heuristic lower-bound profile only.",
+        "params": {
+          "N_LIST": [
+            60,
+            100,
+            160,
+            240,
+            320
+          ],
+          "TRIALS": 240
+        },
+        "rows": [
+          {
+            "N": 60,
+            "trials": 240,
+            "best_size_found": 12,
+            "avg_size_found": 8.8041667,
+            "best_over_sqrtN": 1.5491933,
+            "avg_over_sqrtN": 1.136613,
+            "best_over_conjectured_constant_sqrtN": 1.3416408
+          },
+          {
+            "N": 100,
+            "trials": 240,
+            "best_size_found": 14,
+            "avg_size_found": 10.533333,
+            "best_over_sqrtN": 1.4,
+            "avg_over_sqrtN": 1.0533333,
+            "best_over_conjectured_constant_sqrtN": 1.2124356
+          },
+          {
+            "N": 160,
+            "trials": 240,
+            "best_size_found": 15,
+            "avg_size_found": 12.470833,
+            "best_over_sqrtN": 1.1858541,
+            "avg_over_sqrtN": 0.98590594,
+            "best_over_conjectured_constant_sqrtN": 1.0269798
+          },
+          {
+            "N": 240,
+            "trials": 240,
+            "best_size_found": 17,
+            "avg_size_found": 14.316667,
+            "best_over_sqrtN": 1.0973453,
+            "avg_over_sqrtN": 0.92413686,
+            "best_over_conjectured_constant_sqrtN": 0.95032889
+          },
+          {
+            "N": 320,
+            "trials": 240,
+            "best_size_found": 18,
+            "avg_size_found": 16.008333,
+            "best_over_sqrtN": 1.0062306,
+            "avg_over_sqrtN": 0.89489304,
+            "best_over_conjectured_constant_sqrtN": 0.87142125
+          }
+        ],
+        "elapsed_ms": 213,
+        "generated_utc": "2026-03-13T19:59:01.965Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

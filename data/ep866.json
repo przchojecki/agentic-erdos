@@ -1,5 +1,75 @@
 {
   "problem": "EP-866",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T20:00:04.492Z",
+  "computations": [
+    {
+      "source_file": "ep866_standalone_deeper_20260313T161000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T19:59:37.022Z",
+      "data": {
+        "problem": "EP-866",
+        "script": "ep866.mjs",
+        "method": "finite_random_search_for_pattern-free_sets_giving_lower_bounds_on_gkN",
+        "warning": "Finite randomized lower-bound proxy only.",
+        "params": {
+          "CASES": [
+            [
+              4,
+              40,
+              80
+            ],
+            [
+              4,
+              60,
+              80
+            ],
+            [
+              5,
+              40,
+              60
+            ],
+            [
+              5,
+              60,
+              60
+            ]
+          ]
+        },
+        "rows": [
+          {
+            "k": 4,
+            "N": 40,
+            "trials": 80,
+            "best_no_pattern_set_size_found": 43,
+            "implied_finite_lower_bound_on_gkN": 4
+          },
+          {
+            "k": 4,
+            "N": 60,
+            "trials": 80,
+            "best_no_pattern_set_size_found": 63,
+            "implied_finite_lower_bound_on_gkN": 4
+          },
+          {
+            "k": 5,
+            "N": 40,
+            "trials": 60,
+            "best_no_pattern_set_size_found": 52,
+            "implied_finite_lower_bound_on_gkN": 13
+          },
+          {
+            "k": 5,
+            "N": 60,
+            "trials": 60,
+            "best_no_pattern_set_size_found": 72,
+            "implied_finite_lower_bound_on_gkN": 13
+          }
+        ],
+        "elapsed_ms": 417,
+        "generated_utc": "2026-03-13T19:59:37.022Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

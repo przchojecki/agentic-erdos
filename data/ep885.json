@@ -1,342 +1,403 @@
 {
   "problem": "EP-885",
-  "normalized_utc": "2026-03-05T08:54:16.969Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch20_web_compute.md",
-        "content": "### EP-885\n- Quick literature check:\n  - Open in full generality; known solved cases include `k=2,3,4` (latest listed progress through 2019).\n- Finite compute signal:\n  - Bounded search (`N<=30000`) found witnesses for `k=2,3`; no witness found for `k=4,5,6` in this range/strategy.\n- Interpretation:\n  - Negative finite result is purely range-limited and consistent with known theorem that `k=4` is true."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch20_quick_compute.mjs",
-        "heading": "common intersection search for factor-difference sets.",
-        "content": "// EP-885: common intersection search for factor-difference sets.\n{\n  const N = 30000;\n  const DofN = Array.from({ length: N + 1 }, () => []);\n  const diffToNs = new Map();\n\n  for (let n = 1; n <= N; n += 1) {\n    const s = new Set();\n    const lim = Math.floor(Math.sqrt(n));\n    for (let a = 1; a <= lim; a += 1) {\n      if (n % a !== 0) continue;\n      const b = Math.floor(n / a);\n      s.add(Math.abs(b - a));\n    }\n    const arr = Array.from(s).sort((x, y) => x - y);\n    DofN[n] = arr;\n    for (const d of arr) {\n      if (!diffToNs.has(d)) diffToNs.set(d, []);\n      diffToNs.get(d).push(n);\n    }\n  }\n\n  function findWitness(k) {\n    const cands = [];\n    for (const [d, ns] of diffToNs.entries()) {\n      if (ns.length >= k) cands.push({ d, ns });\n    }\n    cands.sort((a, b) => b.ns.length - a.ns.length || a.d - b.d);\n\n    const maxDiffs = 220;\n    const arr = cands.slice(0, maxDiffs);\n\n    let answer = null;\n    const t0 = Date.now();\n    const timeLimitMs = 2600;\n\n    function dfs(start, depth, curNs, chosenDiffs) {\n      if (Date.now() - t0 > timeLimitMs) return true;\n      if (depth === k) {\n        if (curNs.length >= k) {\n          answer = {\n            k,\n            common_differences: [...chosenDiffs],\n            witness_N_values: curNs.slice(0, k),\n            intersection_size: chosenDiffs.length,\n          };\n          return true;\n        }\n        return false;\n      }\n\n      for (let i = start; i < arr.length; i += 1) {\n        if (arr.length - i < k - depth) break;\n        const nextNs = curNs === null ? arr[i].ns : intersectSortedArrays(curNs, arr[i].ns);\n        if (nextNs.length < k) continue;\n        chosenDiffs.push(arr[i].d);\n        const ok = dfs(i + 1, depth + 1, nextNs, chosenDiffs);\n        chosenDiffs.pop();\n        if (answer) return true;\n        if (ok && Date.now() - t0 > timeLimitMs) return true;\n      }\n      return false;\n    }\n\n    dfs(0, 0, null, []);\n    return {\n      k,\n      found: !!answer,\n      witness: answer,\n      searched_top_diff_supports: arr.slice(0, 12).map((x) => ({ d: x.d, support: x.ns.length })),\n      hit_time_limit: Date.now() - t0 > timeLimitMs,\n    };\n  }\n\n  const rows = [];\n  for (const k of [2, 3, 4, 5, 6]) rows.push(findWitness(k));\n\n  out.results.ep885 = {\n    description: 'Finite search for k-tuples with at least k common factor differences.',\n    N,\n    rows,\n    note: 'Not finding a witness for larger k in this finite bounded search is inconclusive.',\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch20_quick_compute.json",
-        "key": "ep885",
-        "container_meta": {
-          "script": "harder_batch20_quick_compute.mjs",
-          "generated_utc": "2026-03-04T09:01:58.630Z"
-        },
-        "data": {
-          "description": "Finite search for k-tuples with at least k common factor differences.",
-          "N": 30000,
-          "rows": [
-            {
-              "k": 2,
-              "found": true,
-              "witness": {
-                "k": 2,
-                "common_differences": [
-                  0,
-                  9
-                ],
-                "witness_N_values": [
-                  36,
-                  400
-                ],
-                "intersection_size": 2
-              },
-              "searched_top_diff_supports": [
-                {
-                  "d": 0,
-                  "support": 173
-                },
-                {
-                  "d": 1,
-                  "support": 172
-                },
-                {
-                  "d": 2,
-                  "support": 172
-                },
-                {
-                  "d": 3,
-                  "support": 171
-                },
-                {
-                  "d": 4,
-                  "support": 171
-                },
-                {
-                  "d": 5,
-                  "support": 170
-                },
-                {
-                  "d": 6,
-                  "support": 170
-                },
-                {
-                  "d": 7,
-                  "support": 169
-                },
-                {
-                  "d": 8,
-                  "support": 169
-                },
-                {
-                  "d": 9,
-                  "support": 168
-                },
-                {
-                  "d": 10,
-                  "support": 168
-                },
-                {
-                  "d": 11,
-                  "support": 167
-                }
-              ],
-              "hit_time_limit": false
-            },
-            {
-              "k": 3,
-              "found": true,
-              "witness": {
-                "k": 3,
-                "common_differences": [
-                  2,
-                  23,
-                  142
-                ],
-                "witness_N_values": [
-                  288,
-                  1848,
-                  17160
-                ],
-                "intersection_size": 3
-              },
-              "searched_top_diff_supports": [
-                {
-                  "d": 0,
-                  "support": 173
-                },
-                {
-                  "d": 1,
-                  "support": 172
-                },
-                {
-                  "d": 2,
-                  "support": 172
-                },
-                {
-                  "d": 3,
-                  "support": 171
-                },
-                {
-                  "d": 4,
-                  "support": 171
-                },
-                {
-                  "d": 5,
-                  "support": 170
-                },
-                {
-                  "d": 6,
-                  "support": 170
-                },
-                {
-                  "d": 7,
-                  "support": 169
-                },
-                {
-                  "d": 8,
-                  "support": 169
-                },
-                {
-                  "d": 9,
-                  "support": 168
-                },
-                {
-                  "d": 10,
-                  "support": 168
-                },
-                {
-                  "d": 11,
-                  "support": 167
-                }
-              ],
-              "hit_time_limit": false
-            },
-            {
-              "k": 4,
-              "found": false,
-              "witness": null,
-              "searched_top_diff_supports": [
-                {
-                  "d": 0,
-                  "support": 173
-                },
-                {
-                  "d": 1,
-                  "support": 172
-                },
-                {
-                  "d": 2,
-                  "support": 172
-                },
-                {
-                  "d": 3,
-                  "support": 171
-                },
-                {
-                  "d": 4,
-                  "support": 171
-                },
-                {
-                  "d": 5,
-                  "support": 170
-                },
-                {
-                  "d": 6,
-                  "support": 170
-                },
-                {
-                  "d": 7,
-                  "support": 169
-                },
-                {
-                  "d": 8,
-                  "support": 169
-                },
-                {
-                  "d": 9,
-                  "support": 168
-                },
-                {
-                  "d": 10,
-                  "support": 168
-                },
-                {
-                  "d": 11,
-                  "support": 167
-                }
-              ],
-              "hit_time_limit": false
-            },
-            {
-              "k": 5,
-              "found": false,
-              "witness": null,
-              "searched_top_diff_supports": [
-                {
-                  "d": 0,
-                  "support": 173
-                },
-                {
-                  "d": 1,
-                  "support": 172
-                },
-                {
-                  "d": 2,
-                  "support": 172
-                },
-                {
-                  "d": 3,
-                  "support": 171
-                },
-                {
-                  "d": 4,
-                  "support": 171
-                },
-                {
-                  "d": 5,
-                  "support": 170
-                },
-                {
-                  "d": 6,
-                  "support": 170
-                },
-                {
-                  "d": 7,
-                  "support": 169
-                },
-                {
-                  "d": 8,
-                  "support": 169
-                },
-                {
-                  "d": 9,
-                  "support": 168
-                },
-                {
-                  "d": 10,
-                  "support": 168
-                },
-                {
-                  "d": 11,
-                  "support": 167
-                }
-              ],
-              "hit_time_limit": false
-            },
-            {
-              "k": 6,
-              "found": false,
-              "witness": null,
-              "searched_top_diff_supports": [
-                {
-                  "d": 0,
-                  "support": 173
-                },
-                {
-                  "d": 1,
-                  "support": 172
-                },
-                {
-                  "d": 2,
-                  "support": 172
-                },
-                {
-                  "d": 3,
-                  "support": 171
-                },
-                {
-                  "d": 4,
-                  "support": 171
-                },
-                {
-                  "d": 5,
-                  "support": 170
-                },
-                {
-                  "d": 6,
-                  "support": 170
-                },
-                {
-                  "d": 7,
-                  "support": 169
-                },
-                {
-                  "d": 8,
-                  "support": 169
-                },
-                {
-                  "d": 9,
-                  "support": 168
-                },
-                {
-                  "d": 10,
-                  "support": 168
-                },
-                {
-                  "d": 11,
-                  "support": 167
-                }
-              ],
-              "hit_time_limit": false
-            }
+  "normalized_utc": "2026-03-13T21:39:47.390Z",
+  "computations": [
+    {
+      "source_file": "ep885_standalone_deeper_20260313T164000Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T21:39:19.211Z",
+      "data": {
+        "problem": "EP-885",
+        "script": "ep885.mjs",
+        "method": "deeper_finite_search_for_common_factor_difference_intersections",
+        "params": {
+          "N": 120000,
+          "K_LIST": [
+            2,
+            3,
+            4,
+            5,
+            6
           ],
-          "note": "Not finding a witness for larger k in this finite bounded search is inconclusive."
-        }
+          "MAX_DIFFS": 400,
+          "TIME_LIMIT_MS": 12000
+        },
+        "rows": [
+          {
+            "k": 2,
+            "found": true,
+            "witness": {
+              "k": 2,
+              "common_differences": [
+                0,
+                9
+              ],
+              "witness_N_values": [
+                36,
+                400
+              ],
+              "support_size": 2
+            },
+            "top_diff_supports": [
+              {
+                "d": 0,
+                "support": 346
+              },
+              {
+                "d": 1,
+                "support": 345
+              },
+              {
+                "d": 2,
+                "support": 345
+              },
+              {
+                "d": 3,
+                "support": 344
+              },
+              {
+                "d": 4,
+                "support": 344
+              },
+              {
+                "d": 5,
+                "support": 343
+              },
+              {
+                "d": 6,
+                "support": 343
+              },
+              {
+                "d": 7,
+                "support": 342
+              },
+              {
+                "d": 8,
+                "support": 342
+              },
+              {
+                "d": 9,
+                "support": 341
+              },
+              {
+                "d": 10,
+                "support": 341
+              },
+              {
+                "d": 11,
+                "support": 340
+              },
+              {
+                "d": 12,
+                "support": 340
+              },
+              {
+                "d": 13,
+                "support": 339
+              },
+              {
+                "d": 14,
+                "support": 339
+              }
+            ],
+            "elapsed_ms": 0,
+            "hit_time_limit": false
+          },
+          {
+            "k": 3,
+            "found": true,
+            "witness": {
+              "k": 3,
+              "common_differences": [
+                1,
+                116,
+                244
+              ],
+              "witness_N_values": [
+                992,
+                5852,
+                48620
+              ],
+              "support_size": 3
+            },
+            "top_diff_supports": [
+              {
+                "d": 0,
+                "support": 346
+              },
+              {
+                "d": 1,
+                "support": 345
+              },
+              {
+                "d": 2,
+                "support": 345
+              },
+              {
+                "d": 3,
+                "support": 344
+              },
+              {
+                "d": 4,
+                "support": 344
+              },
+              {
+                "d": 5,
+                "support": 343
+              },
+              {
+                "d": 6,
+                "support": 343
+              },
+              {
+                "d": 7,
+                "support": 342
+              },
+              {
+                "d": 8,
+                "support": 342
+              },
+              {
+                "d": 9,
+                "support": 341
+              },
+              {
+                "d": 10,
+                "support": 341
+              },
+              {
+                "d": 11,
+                "support": 340
+              },
+              {
+                "d": 12,
+                "support": 340
+              },
+              {
+                "d": 13,
+                "support": 339
+              },
+              {
+                "d": 14,
+                "support": 339
+              }
+            ],
+            "elapsed_ms": 7,
+            "hit_time_limit": false
+          },
+          {
+            "k": 4,
+            "found": false,
+            "witness": null,
+            "top_diff_supports": [
+              {
+                "d": 0,
+                "support": 346
+              },
+              {
+                "d": 1,
+                "support": 345
+              },
+              {
+                "d": 2,
+                "support": 345
+              },
+              {
+                "d": 3,
+                "support": 344
+              },
+              {
+                "d": 4,
+                "support": 344
+              },
+              {
+                "d": 5,
+                "support": 343
+              },
+              {
+                "d": 6,
+                "support": 343
+              },
+              {
+                "d": 7,
+                "support": 342
+              },
+              {
+                "d": 8,
+                "support": 342
+              },
+              {
+                "d": 9,
+                "support": 341
+              },
+              {
+                "d": 10,
+                "support": 341
+              },
+              {
+                "d": 11,
+                "support": 340
+              },
+              {
+                "d": 12,
+                "support": 340
+              },
+              {
+                "d": 13,
+                "support": 339
+              },
+              {
+                "d": 14,
+                "support": 339
+              }
+            ],
+            "elapsed_ms": 422,
+            "hit_time_limit": false
+          },
+          {
+            "k": 5,
+            "found": false,
+            "witness": null,
+            "top_diff_supports": [
+              {
+                "d": 0,
+                "support": 346
+              },
+              {
+                "d": 1,
+                "support": 345
+              },
+              {
+                "d": 2,
+                "support": 345
+              },
+              {
+                "d": 3,
+                "support": 344
+              },
+              {
+                "d": 4,
+                "support": 344
+              },
+              {
+                "d": 5,
+                "support": 343
+              },
+              {
+                "d": 6,
+                "support": 343
+              },
+              {
+                "d": 7,
+                "support": 342
+              },
+              {
+                "d": 8,
+                "support": 342
+              },
+              {
+                "d": 9,
+                "support": 341
+              },
+              {
+                "d": 10,
+                "support": 341
+              },
+              {
+                "d": 11,
+                "support": 340
+              },
+              {
+                "d": 12,
+                "support": 340
+              },
+              {
+                "d": 13,
+                "support": 339
+              },
+              {
+                "d": 14,
+                "support": 339
+              }
+            ],
+            "elapsed_ms": 291,
+            "hit_time_limit": false
+          },
+          {
+            "k": 6,
+            "found": false,
+            "witness": null,
+            "top_diff_supports": [
+              {
+                "d": 0,
+                "support": 346
+              },
+              {
+                "d": 1,
+                "support": 345
+              },
+              {
+                "d": 2,
+                "support": 345
+              },
+              {
+                "d": 3,
+                "support": 344
+              },
+              {
+                "d": 4,
+                "support": 344
+              },
+              {
+                "d": 5,
+                "support": 343
+              },
+              {
+                "d": 6,
+                "support": 343
+              },
+              {
+                "d": 7,
+                "support": 342
+              },
+              {
+                "d": 8,
+                "support": 342
+              },
+              {
+                "d": 9,
+                "support": 341
+              },
+              {
+                "d": 10,
+                "support": 341
+              },
+              {
+                "d": 11,
+                "support": 340
+              },
+              {
+                "d": 12,
+                "support": 340
+              },
+              {
+                "d": 13,
+                "support": 339
+              },
+              {
+                "d": 14,
+                "support": 339
+              }
+            ],
+            "elapsed_ms": 200,
+            "hit_time_limit": false
+          }
+        ],
+        "elapsed_ms": 1017,
+        "generated_utc": "2026-03-13T21:39:19.211Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

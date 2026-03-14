@@ -1,5 +1,262 @@
 {
   "problem": "EP-1089",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T15:51:58Z",
+  "computations": [
+    {
+      "source_file": "ep1089_standalone_deeper_20260314T155154Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:51:58.744Z",
+      "data": {
+        "problem": "EP-1089",
+        "script": "ep1089.mjs",
+        "method": "deep_max_clique_search_for_large_two_distance_subsets_in_lattice_shell_candidate_universes",
+        "warning": "Finite candidate-universe lower bounds only; not a global optimum over all point configurations.",
+        "params": {
+          "depth": 4,
+          "dList": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "perPairBudgetMs": 1200,
+          "nodeCap": 900000
+        },
+        "rows": [
+          {
+            "d": 3,
+            "candidate_points_count": 18,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 0,
+            "best_two_distance_set_size_in_candidate_universe": 6,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 7,
+            "cross_polytope_baseline_2d": 6,
+            "improvement_over_cross_polytope": 0,
+            "best_solver_stats": {
+              "timedOut": false,
+              "nodes": 12,
+              "elapsedMs": 0
+            }
+          },
+          {
+            "d": 4,
+            "candidate_points_count": 32,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 0,
+            "best_two_distance_set_size_in_candidate_universe": 8,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 9,
+            "cross_polytope_baseline_2d": 8,
+            "improvement_over_cross_polytope": 0,
+            "best_solver_stats": {
+              "timedOut": false,
+              "nodes": 56,
+              "elapsedMs": 0
+            }
+          },
+          {
+            "d": 5,
+            "candidate_points_count": 50,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 0,
+            "best_two_distance_set_size_in_candidate_universe": 10,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 11,
+            "cross_polytope_baseline_2d": 10,
+            "improvement_over_cross_polytope": 0,
+            "best_solver_stats": {
+              "timedOut": false,
+              "nodes": 224,
+              "elapsedMs": 1
+            }
+          },
+          {
+            "d": 6,
+            "candidate_points_count": 72,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 0,
+            "best_two_distance_set_size_in_candidate_universe": 15,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 16,
+            "cross_polytope_baseline_2d": 12,
+            "improvement_over_cross_polytope": 3,
+            "best_solver_stats": {
+              "timedOut": false,
+              "nodes": 1152,
+              "elapsedMs": 1
+            }
+          },
+          {
+            "d": 7,
+            "candidate_points_count": 98,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 0,
+            "best_two_distance_set_size_in_candidate_universe": 21,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 22,
+            "cross_polytope_baseline_2d": 14,
+            "improvement_over_cross_polytope": 7,
+            "best_solver_stats": {
+              "timedOut": false,
+              "nodes": 7424,
+              "elapsedMs": 9
+            }
+          },
+          {
+            "d": 8,
+            "candidate_points_count": 128,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 1,
+            "best_two_distance_set_size_in_candidate_universe": 28,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 29,
+            "cross_polytope_baseline_2d": 16,
+            "improvement_over_cross_polytope": 12,
+            "best_solver_stats": {
+              "timedOut": false,
+              "nodes": 58562,
+              "elapsedMs": 101
+            }
+          },
+          {
+            "d": 9,
+            "candidate_points_count": 162,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 2,
+            "best_two_distance_set_size_in_candidate_universe": 36,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 37,
+            "cross_polytope_baseline_2d": 18,
+            "improvement_over_cross_polytope": 18,
+            "best_solver_stats": {
+              "timedOut": true,
+              "nodes": 501604,
+              "elapsedMs": 1201
+            }
+          },
+          {
+            "d": 10,
+            "candidate_points_count": 200,
+            "candidate_distance_values_squared": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "tested_allowed_distance_sets": 28,
+            "timed_out_cases": 2,
+            "best_two_distance_set_size_in_candidate_universe": 38,
+            "best_allowed_distances_squared": [
+              2,
+              4
+            ],
+            "implied_lower_bound_g_d_3": 39,
+            "cross_polytope_baseline_2d": 20,
+            "improvement_over_cross_polytope": 18,
+            "best_solver_stats": {
+              "timedOut": true,
+              "nodes": 342915,
+              "elapsedMs": 1201
+            }
+          }
+        ],
+        "elapsed_ms": 4164,
+        "generated_utc": "2026-03-14T15:51:58.744Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

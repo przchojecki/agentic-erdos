@@ -1,5 +1,55 @@
 {
   "problem": "EP-990",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:07:48Z",
+  "computations": [
+    {
+      "source_file": "ep990_standalone_deeper_20260314T100748Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:07:48.602Z",
+      "data": {
+        "problem": "EP-990",
+        "script": "ep990.mjs",
+        "method": "deep_sparse_polynomial_root_argument_discrepancy_scan",
+        "warning": "Finite random model only; does not prove universal bound.",
+        "rows": [
+          {
+            "degree": 40,
+            "sparsity_target": 6,
+            "trials": 20,
+            "mean_discrepancy_over_sqrt_nlogM": 12.09426679,
+            "max_discrepancy_over_sqrt_nlogM": 13.31524843,
+            "max_interval_discrepancy_observed": 40
+          },
+          {
+            "degree": 60,
+            "sparsity_target": 8,
+            "trials": 18,
+            "mean_discrepancy_over_sqrt_nlogM": 14.5457683,
+            "max_discrepancy_over_sqrt_nlogM": 15.5051611,
+            "max_interval_discrepancy_observed": 60
+          },
+          {
+            "degree": 80,
+            "sparsity_target": 10,
+            "trials": 14,
+            "mean_discrepancy_over_sqrt_nlogM": 16.40687894,
+            "max_discrepancy_over_sqrt_nlogM": 18.13546082,
+            "max_interval_discrepancy_observed": 80
+          },
+          {
+            "degree": 100,
+            "sparsity_target": 12,
+            "trials": 10,
+            "mean_discrepancy_over_sqrt_nlogM": 17.68013435,
+            "max_discrepancy_over_sqrt_nlogM": 18.30639971,
+            "max_interval_discrepancy_observed": 100
+          }
+        ],
+        "elapsed_ms": 40,
+        "generated_utc": "2026-03-14T10:07:48.602Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

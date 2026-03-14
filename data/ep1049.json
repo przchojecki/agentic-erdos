@@ -1,5 +1,106 @@
 {
   "problem": "EP-1049",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:38:25Z",
+  "computations": [
+    {
+      "source_file": "ep1049_standalone_deeper_20260314T103825Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:38:25.300Z",
+      "data": {
+        "problem": "EP-1049",
+        "script": "ep1049.mjs",
+        "method": "deep_partial_sum_plus_tail_and_continued_fraction_search_for_small_denominator_rationals",
+        "warning": "Numerical exclusion of small denominators only; not a proof of irrationality for rational non-integer t.",
+        "params": {
+          "depth": 8,
+          "N": 240,
+          "maxDen": 8000000
+        },
+        "rows": [
+          {
+            "t": "2",
+            "partial_sum_N": 240,
+            "S_N_numeric": 1.60669515241529,
+            "tail_bound_after_N": 1.13196E-72,
+            "best_rational_p_over_q_up_to_maxDen": "2192591/1364659",
+            "best_rational_error": 7.394085E-14,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "374895/233333",
+            "best_bruteforce_error": 6.355139E-12,
+            "guaranteed_gap_minus_tail": 7.394085E-14,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "t": "3",
+            "partial_sum_N": 240,
+            "S_N_numeric": 0.682153502605238,
+            "tail_bound_after_N": 3.096698E-115,
+            "best_rational_p_over_q_up_to_maxDen": "4123959/6045500",
+            "best_rational_error": 5.107026E-15,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "136855/200622",
+            "best_bruteforce_error": 1.654121E-12,
+            "guaranteed_gap_minus_tail": 5.107026E-15,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "t": "3/2",
+            "partial_sum_N": 240,
+            "S_N_numeric": 3.89715507549868,
+            "tail_bound_after_N": 2.188557E-42,
+            "best_rational_p_over_q_up_to_maxDen": "4419861/1134125",
+            "best_rational_error": 5.728751E-14,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "388219/99616",
+            "best_bruteforce_error": 8.793855E-12,
+            "guaranteed_gap_minus_tail": 5.728751E-14,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "t": "5/3",
+            "partial_sum_N": 240,
+            "S_N_numeric": 2.6914001679428,
+            "tail_bound_after_N": 1.711675E-53,
+            "best_rational_p_over_q_up_to_maxDen": "10618626/3945391",
+            "best_rational_error": 1.776357E-15,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "637843/236993",
+            "best_bruteforce_error": 5.345946E-12,
+            "guaranteed_gap_minus_tail": 1.776357E-15,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "t": "7/5",
+            "partial_sum_N": 240,
+            "S_N_numeric": 5.20039046132375,
+            "tail_bound_after_N": 4.248557E-35,
+            "best_rational_p_over_q_up_to_maxDen": "30965699/5954495",
+            "best_rational_error": 1.065814E-14,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "37292/7171",
+            "best_bruteforce_error": 2.576233E-10,
+            "guaranteed_gap_minus_tail": 1.065814E-14,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          },
+          {
+            "t": "9/7",
+            "partial_sum_N": 240,
+            "S_N_numeric": 8.0403503186869,
+            "tail_bound_after_N": 4.471213E-26,
+            "best_rational_p_over_q_up_to_maxDen": "5935266/738185",
+            "best_rational_error": 1.509903E-13,
+            "best_bruteforce_p_over_q_up_to_bruteMaxDen": "1288040/160197",
+            "best_bruteforce_error": 1.67617E-11,
+            "guaranteed_gap_minus_tail": 1.509903E-13,
+            "max_denominator_checked": 8000000,
+            "brute_max_denominator_checked": 250000
+          }
+        ],
+        "elapsed_ms": 4,
+        "generated_utc": "2026-03-14T10:38:25.300Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

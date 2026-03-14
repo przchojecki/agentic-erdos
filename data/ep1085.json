@@ -1,108 +1,347 @@
 {
   "problem": "EP-1085",
-  "normalized_utc": "2026-03-05T08:54:16.975Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch25_web_compute.md",
-        "content": "### EP-1085\n- Quick literature check:\n  - Page is open (last edited 17 October 2025); core difficult cases remain `d=2` and `d=3`.\n- Finite compute signal:\n  - Grid constructions in `d=2,3` show the expected polynomial scaling profiles for unit-distance counts (with declining normalized constants as side length grows).\n- Interpretation:\n  - Finite lattice behavior is consistent with classical exponent frameworks but does not improve extremal bounds."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch25_quick_compute.mjs",
-        "heading": "finite construction profile for unit-distance pair counts.",
-        "content": "// EP-1085: finite construction profile for unit-distance pair counts.\n{\n  const rows2 = [];\n  for (let t = 4; t <= 20; t += 4) {\n    const n = t * t;\n    const unitPairs = 2 * t * (t - 1);\n    rows2.push({\n      t,\n      n,\n      unit_pairs_grid_2d: unitPairs,\n      pairs_over_n_4_over_3: Number((unitPairs / (n ** (4 / 3))).toPrecision(7)),\n      pairs_over_n_log_n: Number((unitPairs / (n * Math.log(n))).toPrecision(7)),\n    });\n  }\n\n  const rows3 = [];\n  for (let t = 3; t <= 11; t += 2) {\n    const n = t ** 3;\n    const unitPairs = 3 * t * t * (t - 1);\n    rows3.push({\n      t,\n      n,\n      unit_pairs_grid_3d: unitPairs,\n      pairs_over_n_4_over_3: Number((unitPairs / (n ** (4 / 3))).toPrecision(7)),\n      pairs_over_n_3_over_2: Number((unitPairs / (n ** (3 / 2))).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1085 = {\n    description: 'Finite lattice-construction profile for unit-distance pair counts in d=2 and d=3.',\n    rows_2d_grid: rows2,\n    rows_3d_grid: rows3,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch25_quick_compute.json",
-        "key": "ep1085",
-        "container_meta": {
-          "script": "harder_batch25_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:52:16.569Z"
+  "normalized_utc": "2026-03-14T15:30:00Z",
+  "computations": [
+    {
+      "source_file": "ep1085_standalone_deeper_20260314T152955Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:30:00.881Z",
+      "data": {
+        "problem": "EP-1085",
+        "script": "ep1085.mjs",
+        "method": "deep_multifamily_unit_distance_construction_profiles_with_4d_lenz_bruteforce_verification",
+        "warning": "Construction-side finite evidence only; does not prove extremal upper bounds in d=2 or d=3.",
+        "params": {
+          "depth": 4,
+          "t2": [
+            50,
+            100,
+            150,
+            200,
+            300,
+            400,
+            500,
+            700,
+            900,
+            1100
+          ],
+          "t3": [
+            20,
+            30,
+            40,
+            50,
+            60,
+            80,
+            100,
+            120,
+            140
+          ],
+          "nListFormula": [
+            500,
+            1000,
+            2000,
+            5000,
+            10000,
+            20000,
+            40000
+          ],
+          "verifyN": [
+            14000,
+            18000,
+            22000
+          ],
+          "verifyPasses": 5
         },
-        "data": {
-          "description": "Finite lattice-construction profile for unit-distance pair counts in d=2 and d=3.",
-          "rows_2d_grid": [
+        "rows": {
+          "grid_2d": [
             {
-              "t": 4,
-              "n": 16,
-              "unit_pairs_grid_2d": 24,
-              "pairs_over_n_4_over_3": 0.5952754,
-              "pairs_over_n_log_n": 0.5410106
+              "t": 50,
+              "n": 2500,
+              "unit_pairs_grid_2d": 4900,
+              "pairs_over_n_4_over_3": 0.1444140347,
+              "pairs_over_n_log_n": 0.2505097743,
+              "pairs_over_n": 1.96
             },
             {
-              "t": 8,
-              "n": 64,
-              "unit_pairs_grid_2d": 112,
-              "pairs_over_n_4_over_3": 0.4375,
-              "pairs_over_n_log_n": 0.4207861
+              "t": 100,
+              "n": 10000,
+              "unit_pairs_grid_2d": 19800,
+              "pairs_over_n_4_over_3": 0.0919034589,
+              "pairs_over_n_log_n": 0.2149757685,
+              "pairs_over_n": 1.98
             },
             {
-              "t": 12,
-              "n": 144,
-              "unit_pairs_grid_2d": 264,
-              "pairs_over_n_4_over_3": 0.3497738,
-              "pairs_over_n_log_n": 0.3688938
+              "t": 150,
+              "n": 22500,
+              "unit_pairs_grid_2d": 44700,
+              "pairs_over_n_4_over_3": 0.0703716119,
+              "pairs_over_n_log_n": 0.1982449879,
+              "pairs_over_n": 1.9866666667
             },
             {
-              "t": 16,
-              "n": 256,
-              "unit_pairs_grid_2d": 480,
-              "pairs_over_n_4_over_3": 0.295294,
-              "pairs_over_n_log_n": 0.3381317
+              "t": 200,
+              "n": 40000,
+              "unit_pairs_grid_2d": 79600,
+              "pairs_over_n_4_over_3": 0.058187953,
+              "pairs_over_n_log_n": 0.18779547,
+              "pairs_over_n": 1.99
             },
             {
-              "t": 20,
-              "n": 400,
-              "unit_pairs_grid_2d": 760,
-              "pairs_over_n_4_over_3": 0.2578697,
-              "pairs_over_n_log_n": 0.3171178
+              "t": 300,
+              "n": 90000,
+              "unit_pairs_grid_2d": 179400,
+              "pairs_over_n_4_over_3": 0.0444801005,
+              "pairs_over_n_log_n": 0.1747378465,
+              "pairs_over_n": 1.9933333333
+            },
+            {
+              "t": 400,
+              "n": 160000,
+              "unit_pairs_grid_2d": 319200,
+              "pairs_over_n_4_over_3": 0.0367482142,
+              "pairs_over_n_log_n": 0.1664868401,
+              "pairs_over_n": 1.995
+            },
+            {
+              "t": 500,
+              "n": 250000,
+              "unit_pairs_grid_2d": 499000,
+              "pairs_over_n_4_over_3": 0.031684525,
+              "pairs_over_n_log_n": 0.1605893701,
+              "pairs_over_n": 1.996
+            },
+            {
+              "t": 700,
+              "n": 490000,
+              "unit_pairs_grid_2d": 978600,
+              "pairs_over_n_4_over_3": 0.0253324448,
+              "pairs_over_n_log_n": 0.1524285122,
+              "pairs_over_n": 1.9971428571
+            },
+            {
+              "t": 900,
+              "n": 810000,
+              "unit_pairs_grid_2d": 1618200,
+              "pairs_over_n_4_over_3": 0.0214314804,
+              "pairs_over_n_log_n": 0.1468437107,
+              "pairs_over_n": 1.9977777778
+            },
+            {
+              "t": 1100,
+              "n": 1210000,
+              "unit_pairs_grid_2d": 2417800,
+              "pairs_over_n_4_over_3": 0.0187516669,
+              "pairs_over_n_log_n": 0.1426647966,
+              "pairs_over_n": 1.9981818182
             }
           ],
-          "rows_3d_grid": [
+          "grid_3d": [
             {
-              "t": 3,
-              "n": 27,
-              "unit_pairs_grid_3d": 54,
-              "pairs_over_n_4_over_3": 0.6666667,
-              "pairs_over_n_3_over_2": 0.3849002
+              "t": 20,
+              "n": 8000,
+              "unit_pairs_grid_3d": 22800,
+              "pairs_over_n_4_over_3": 0.1425,
+              "pairs_over_n_3_over_2": 0.0318639687,
+              "pairs_over_n": 2.85
             },
             {
-              "t": 5,
-              "n": 125,
-              "unit_pairs_grid_3d": 300,
-              "pairs_over_n_4_over_3": 0.48,
-              "pairs_over_n_3_over_2": 0.2146625
+              "t": 30,
+              "n": 27000,
+              "unit_pairs_grid_3d": 78300,
+              "pairs_over_n_4_over_3": 0.0966666667,
+              "pairs_over_n_3_over_2": 0.017648838,
+              "pairs_over_n": 2.9
             },
             {
-              "t": 7,
-              "n": 343,
-              "unit_pairs_grid_3d": 882,
-              "pairs_over_n_4_over_3": 0.3673469,
-              "pairs_over_n_3_over_2": 0.1388441
+              "t": 40,
+              "n": 64000,
+              "unit_pairs_grid_3d": 187200,
+              "pairs_over_n_4_over_3": 0.073125,
+              "pairs_over_n_3_over_2": 0.0115620777,
+              "pairs_over_n": 2.925
             },
             {
-              "t": 9,
-              "n": 729,
-              "unit_pairs_grid_3d": 1944,
-              "pairs_over_n_4_over_3": 0.2962963,
-              "pairs_over_n_3_over_2": 0.09876543
+              "t": 50,
+              "n": 125000,
+              "unit_pairs_grid_3d": 367500,
+              "pairs_over_n_4_over_3": 0.0588,
+              "pairs_over_n_3_over_2": 0.0083155757,
+              "pairs_over_n": 2.94
             },
             {
-              "t": 11,
-              "n": 1331,
-              "unit_pairs_grid_3d": 3630,
-              "pairs_over_n_4_over_3": 0.2479339,
-              "pairs_over_n_3_over_2": 0.07475488
+              "t": 60,
+              "n": 216000,
+              "unit_pairs_grid_3d": 637200,
+              "pairs_over_n_4_over_3": 0.0491666667,
+              "pairs_over_n_3_over_2": 0.0063473894,
+              "pairs_over_n": 2.95
+            },
+            {
+              "t": 80,
+              "n": 512000,
+              "unit_pairs_grid_3d": 1516800,
+              "pairs_over_n_4_over_3": 0.03703125,
+              "pairs_over_n_3_over_2": 0.0041402196,
+              "pairs_over_n": 2.9625
+            },
+            {
+              "t": 100,
+              "n": 1000000,
+              "unit_pairs_grid_3d": 2970000,
+              "pairs_over_n_4_over_3": 0.0297,
+              "pairs_over_n_3_over_2": 0.00297,
+              "pairs_over_n": 2.97
+            },
+            {
+              "t": 120,
+              "n": 1728000,
+              "unit_pairs_grid_3d": 5140800,
+              "pairs_over_n_4_over_3": 0.0247916667,
+              "pairs_over_n_3_over_2": 0.0022631592,
+              "pairs_over_n": 2.975
+            },
+            {
+              "t": 140,
+              "n": 2744000,
+              "unit_pairs_grid_3d": 8173200,
+              "pairs_over_n_4_over_3": 0.0212755102,
+              "pairs_over_n_3_over_2": 0.0017981088,
+              "pairs_over_n": 2.9785714286
             }
-          ]
-        }
+          ],
+          "lenz_4d_formula_optimal_splits": [
+            {
+              "n": 500,
+              "best_split": {
+                "a": 248,
+                "b": 252
+              },
+              "unit_pairs_formula": 62996,
+              "quadratic_leading_ratio_over_n2": 0.251984,
+              "cross_pairs_only_ratio": 0.249984,
+              "intra_correction": 500
+            },
+            {
+              "n": 1000,
+              "best_split": {
+                "a": 500,
+                "b": 500
+              },
+              "unit_pairs_formula": 251000,
+              "quadratic_leading_ratio_over_n2": 0.251,
+              "cross_pairs_only_ratio": 0.25,
+              "intra_correction": 1000
+            },
+            {
+              "n": 2000,
+              "best_split": {
+                "a": 1000,
+                "b": 1000
+              },
+              "unit_pairs_formula": 1002000,
+              "quadratic_leading_ratio_over_n2": 0.2505,
+              "cross_pairs_only_ratio": 0.25,
+              "intra_correction": 2000
+            },
+            {
+              "n": 5000,
+              "best_split": {
+                "a": 2500,
+                "b": 2500
+              },
+              "unit_pairs_formula": 6255000,
+              "quadratic_leading_ratio_over_n2": 0.2502,
+              "cross_pairs_only_ratio": 0.25,
+              "intra_correction": 5000
+            },
+            {
+              "n": 10000,
+              "best_split": {
+                "a": 5000,
+                "b": 5000
+              },
+              "unit_pairs_formula": 25010000,
+              "quadratic_leading_ratio_over_n2": 0.2501,
+              "cross_pairs_only_ratio": 0.25,
+              "intra_correction": 10000
+            },
+            {
+              "n": 20000,
+              "best_split": {
+                "a": 10000,
+                "b": 10000
+              },
+              "unit_pairs_formula": 100020000,
+              "quadratic_leading_ratio_over_n2": 0.25005,
+              "cross_pairs_only_ratio": 0.25,
+              "intra_correction": 20000
+            },
+            {
+              "n": 40000,
+              "best_split": {
+                "a": 20000,
+                "b": 20000
+              },
+              "unit_pairs_formula": 400040000,
+              "quadratic_leading_ratio_over_n2": 0.250025,
+              "cross_pairs_only_ratio": 0.25,
+              "intra_correction": 40000
+            }
+          ],
+          "lenz_4d_bruteforce_verification": [
+            {
+              "n": 14000,
+              "split": {
+                "a": 7000,
+                "b": 7000
+              },
+              "verify_passes": 5,
+              "unit_pairs_formula": 49014000,
+              "unit_pairs_bruteforce": 49014000,
+              "exact_match_formula_vs_bruteforce": true,
+              "stable_across_passes": true,
+              "ratio_over_n2": 0.2500714286,
+              "elapsed_ms_bruteforce_all_passes": 1075,
+              "avg_ms_per_pass": 215
+            },
+            {
+              "n": 18000,
+              "split": {
+                "a": 9000,
+                "b": 9000
+              },
+              "verify_passes": 5,
+              "unit_pairs_formula": 81018000,
+              "unit_pairs_bruteforce": 81018000,
+              "exact_match_formula_vs_bruteforce": true,
+              "stable_across_passes": true,
+              "ratio_over_n2": 0.2500555556,
+              "elapsed_ms_bruteforce_all_passes": 1881,
+              "avg_ms_per_pass": 376.2
+            },
+            {
+              "n": 22000,
+              "split": {
+                "a": 11000,
+                "b": 11000
+              },
+              "verify_passes": 5,
+              "unit_pairs_formula": 121022000,
+              "unit_pairs_bruteforce": 121022000,
+              "exact_match_formula_vs_bruteforce": true,
+              "stable_across_passes": true,
+              "ratio_over_n2": 0.2500454545,
+              "elapsed_ms_bruteforce_all_passes": 2606,
+              "avg_ms_per_pass": 521.2
+            }
+          ],
+          "bruteforce_pairs_checked_total": 2509865000
+        },
+        "elapsed_ms": 5574,
+        "generated_utc": "2026-03-14T15:30:00.881Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }

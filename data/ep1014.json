@@ -1,5 +1,143 @@
 {
   "problem": "EP-1014",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:19:05Z",
+  "computations": [
+    {
+      "source_file": "ep1014_standalone_deeper_20260314T101905Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:19:09.308Z",
+      "data": {
+        "problem": "EP-1014",
+        "script": "ep1014.mjs",
+        "method": "deep_constructive_ratio_proxy_for_R3t_via_triangle_free_independence_witnesses",
+        "warning": "Constructive finite lower-bound proxy only; does not resolve asymptotic ratio limit.",
+        "params": {
+          "n_min": 26,
+          "n_max": 62,
+          "depth": 6
+        },
+        "rows": [
+          {
+            "t": 8,
+            "best_witness_n_with_alpha_le_t": null,
+            "implied_constructive_lower_bound_for_R3_tplus1": null
+          },
+          {
+            "t": 9,
+            "best_witness_n_with_alpha_le_t": 30,
+            "implied_constructive_lower_bound_for_R3_tplus1": 31
+          },
+          {
+            "t": 10,
+            "best_witness_n_with_alpha_le_t": 34,
+            "implied_constructive_lower_bound_for_R3_tplus1": 35
+          },
+          {
+            "t": 11,
+            "best_witness_n_with_alpha_le_t": 38,
+            "implied_constructive_lower_bound_for_R3_tplus1": 39
+          },
+          {
+            "t": 12,
+            "best_witness_n_with_alpha_le_t": 42,
+            "implied_constructive_lower_bound_for_R3_tplus1": 43
+          },
+          {
+            "t": 13,
+            "best_witness_n_with_alpha_le_t": 48,
+            "implied_constructive_lower_bound_for_R3_tplus1": 49
+          },
+          {
+            "t": 14,
+            "best_witness_n_with_alpha_le_t": 52,
+            "implied_constructive_lower_bound_for_R3_tplus1": 53
+          },
+          {
+            "t": 15,
+            "best_witness_n_with_alpha_le_t": 56,
+            "implied_constructive_lower_bound_for_R3_tplus1": 57
+          },
+          {
+            "t": 16,
+            "best_witness_n_with_alpha_le_t": 60,
+            "implied_constructive_lower_bound_for_R3_tplus1": 61
+          },
+          {
+            "t": 17,
+            "best_witness_n_with_alpha_le_t": 62,
+            "implied_constructive_lower_bound_for_R3_tplus1": 63
+          },
+          {
+            "t": 18,
+            "best_witness_n_with_alpha_le_t": 62,
+            "implied_constructive_lower_bound_for_R3_tplus1": 63
+          },
+          {
+            "t": 19,
+            "best_witness_n_with_alpha_le_t": 62,
+            "implied_constructive_lower_bound_for_R3_tplus1": 63
+          },
+          {
+            "t": 20,
+            "best_witness_n_with_alpha_le_t": 62,
+            "implied_constructive_lower_bound_for_R3_tplus1": 63
+          }
+        ],
+        "ratios": [
+          {
+            "t_to_tplus1": "8->9",
+            "witness_ratio_n_tplus1_over_n_t": null
+          },
+          {
+            "t_to_tplus1": "9->10",
+            "witness_ratio_n_tplus1_over_n_t": 1.13333333
+          },
+          {
+            "t_to_tplus1": "10->11",
+            "witness_ratio_n_tplus1_over_n_t": 1.11764706
+          },
+          {
+            "t_to_tplus1": "11->12",
+            "witness_ratio_n_tplus1_over_n_t": 1.10526316
+          },
+          {
+            "t_to_tplus1": "12->13",
+            "witness_ratio_n_tplus1_over_n_t": 1.14285714
+          },
+          {
+            "t_to_tplus1": "13->14",
+            "witness_ratio_n_tplus1_over_n_t": 1.08333333
+          },
+          {
+            "t_to_tplus1": "14->15",
+            "witness_ratio_n_tplus1_over_n_t": 1.07692308
+          },
+          {
+            "t_to_tplus1": "15->16",
+            "witness_ratio_n_tplus1_over_n_t": 1.07142857
+          },
+          {
+            "t_to_tplus1": "16->17",
+            "witness_ratio_n_tplus1_over_n_t": 1.03333333
+          },
+          {
+            "t_to_tplus1": "17->18",
+            "witness_ratio_n_tplus1_over_n_t": 1
+          },
+          {
+            "t_to_tplus1": "18->19",
+            "witness_ratio_n_tplus1_over_n_t": 1
+          },
+          {
+            "t_to_tplus1": "19->20",
+            "witness_ratio_n_tplus1_over_n_t": 1
+          }
+        ],
+        "elapsed_ms": 4272,
+        "generated_utc": "2026-03-14T10:19:09.308Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

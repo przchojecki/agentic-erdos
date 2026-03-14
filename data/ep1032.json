@@ -1,5 +1,151 @@
 {
   "problem": "EP-1032",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-14T10:29:52Z",
+  "computations": [
+    {
+      "source_file": "ep1032_standalone_deeper_20260314T102952Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T10:29:53.057Z",
+      "data": {
+        "problem": "EP-1032",
+        "script": "ep1032.mjs",
+        "method": "deep_exact_search_for_small_four_critical_graphs_and_min_degree_profile",
+        "warning": "Small-n exact search only; does not determine asymptotic minimum-degree behavior.",
+        "params": {
+          "depth": 3,
+          "n_range": [
+            11,
+            20
+          ]
+        },
+        "deterministic_family_checks": [
+          {
+            "construction": "odd_wheel_W_5",
+            "n": 6,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.5
+          },
+          {
+            "construction": "odd_wheel_W_7",
+            "n": 8,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.375
+          },
+          {
+            "construction": "odd_wheel_W_9",
+            "n": 10,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.3
+          },
+          {
+            "construction": "odd_wheel_W_11",
+            "n": 12,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.25
+          },
+          {
+            "construction": "odd_wheel_W_13",
+            "n": 14,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.21428571
+          },
+          {
+            "construction": "odd_wheel_W_15",
+            "n": 16,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.1875
+          },
+          {
+            "construction": "odd_wheel_W_17",
+            "n": 18,
+            "is_four_critical_verified": true,
+            "min_degree": 3,
+            "min_degree_over_n": 0.16666667
+          }
+        ],
+        "rows": [
+          {
+            "n": 11,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 12,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 13,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 14,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 15,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 16,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 17,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 18,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 19,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          },
+          {
+            "n": 20,
+            "trials": 900,
+            "four_critical_found": 0,
+            "best_min_degree_found": null,
+            "ratio_best_min_degree_over_n": null
+          }
+        ],
+        "elapsed_ms": 260,
+        "generated_utc": "2026-03-14T10:29:53.057Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

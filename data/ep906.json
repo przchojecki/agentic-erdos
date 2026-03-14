@@ -1,5 +1,68 @@
 {
   "problem": "EP-906",
-  "normalized_utc": "2026-03-05T08:48:57.983Z",
-  "computations": []
+  "normalized_utc": "2026-03-13T22:04:23Z",
+  "computations": [
+    {
+      "source_file": "ep906_standalone_20260313T220400Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-13T22:04:09.606Z",
+      "data": {
+        "problem": "EP-906",
+        "script": "ep906.mjs",
+        "method": "as_written_trivial_witness_check_with_constant_entire_function",
+        "witness_function": "f(z)=1",
+        "conclusion": "As written, existential statement is true: derivative-zero set is all of C for every infinite sequence of positive derivative orders.",
+        "finite_grid_checks": [
+          {
+            "sequence": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "grid_points": 121,
+            "all_derivatives_zero": true
+          },
+          {
+            "sequence": [
+              2,
+              5,
+              9,
+              14,
+              20
+            ],
+            "grid_points": 121,
+            "all_derivatives_zero": true
+          },
+          {
+            "sequence": [
+              10,
+              20,
+              30,
+              40,
+              50
+            ],
+            "grid_points": 121,
+            "all_derivatives_zero": true
+          },
+          {
+            "sequence": [
+              3,
+              7,
+              15,
+              31,
+              63
+            ],
+            "grid_points": 121,
+            "all_derivatives_zero": true
+          }
+        ],
+        "elapsed_ms": 0,
+        "generated_utc": "2026-03-13T22:04:09.606Z"
+      }
+    }
+  ],
+  "progress_status": "has_computation"
 }

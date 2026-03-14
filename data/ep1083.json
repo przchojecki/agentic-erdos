@@ -1,92 +1,294 @@
 {
   "problem": "EP-1083",
-  "normalized_utc": "2026-03-05T08:54:16.974Z",
-  "computations": [],
-  "batch_split_integrations_from_head": {
-    "integrated_utc": "2026-03-05T08:56:18.891Z",
-    "note_sources": [
-      {
-        "source_file": "notes/harder_batch24_web_compute.md",
-        "content": "### EP-1083\n- Quick literature check:\n  - Open (edited 16 Oct 2025), with current lower-bound exponents and classical lattice upper mechanism still central.\n- Finite compute signal:\n  - On `t x t x t` grids (`n=t^3`), distinct-distance counts scale near a constant multiple of `n^{2/3}` in tested `t`.\n- Interpretation:\n  - Finite lattice behavior is consistent with the conjectured `n^{2/d}`-scale upper mechanism for `d=3`."
-      }
-    ],
-    "script_sources": [
-      {
-        "source_file": "scripts/harder_batch24_quick_compute.mjs",
-        "heading": "3D grid distinct-distance counts (upper-bound-style construction).",
-        "content": "// EP-1083: 3D grid distinct-distance counts (upper-bound-style construction).\n{\n  const rows = [];\n  for (let t = 3; t <= 10; t += 1) {\n    const sq = new Set();\n    for (let dx = 0; dx < t; dx += 1) {\n      for (let dy = 0; dy < t; dy += 1) {\n        for (let dz = 0; dz < t; dz += 1) {\n          if (dx === 0 && dy === 0 && dz === 0) continue;\n          sq.add(dx * dx + dy * dy + dz * dz);\n        }\n      }\n    }\n    const n = t ** 3;\n    const m = sq.size;\n    rows.push({\n      t,\n      n,\n      distinct_distances_count: m,\n      n_to_2_over_3: t * t,\n      ratio_m_over_n_2_over_3: Number((m / (t * t)).toPrecision(7)),\n    });\n  }\n\n  out.results.ep1083 = {\n    description: 'Finite distinct-distance profile on cubic-lattice point sets in R^3.',\n    rows,\n  };\n}"
-      }
-    ],
-    "data_sources": [
-      {
-        "source_file": "data/harder_batch24_quick_compute.json",
-        "key": "ep1083",
-        "container_meta": {
-          "script": "harder_batch24_quick_compute.mjs",
-          "generated_utc": "2026-03-04T11:28:27.056Z"
+  "normalized_utc": "2026-03-14T15:18:38Z",
+  "computations": [
+    {
+      "source_file": "ep1083_standalone_deeper_20260314T151822Z.json",
+      "extension": ".json",
+      "kind": "json",
+      "generated_utc": "2026-03-14T15:18:38.034Z",
+      "data": {
+        "problem": "EP-1083",
+        "script": "ep1083.mjs",
+        "method": "deep_large_lattice_box_distinct_distance_profiles_with_repeated_exact_passes",
+        "warning": "Finite construction-side evidence only; does not prove lower/upper asymptotics.",
+        "params": {
+          "depth": 4,
+          "tList": [
+            100,
+            150,
+            200,
+            250,
+            300,
+            350,
+            400,
+            450,
+            500
+          ],
+          "families": [
+            "cube_t_t_t",
+            "slab_t_t_2t"
+          ],
+          "passesPerBox": 10
         },
-        "data": {
-          "description": "Finite distinct-distance profile on cubic-lattice point sets in R^3.",
-          "rows": [
-            {
-              "t": 3,
-              "n": 27,
-              "distinct_distances_count": 9,
-              "n_to_2_over_3": 9,
-              "ratio_m_over_n_2_over_3": 1
-            },
-            {
-              "t": 4,
-              "n": 64,
-              "distinct_distances_count": 18,
-              "n_to_2_over_3": 16,
-              "ratio_m_over_n_2_over_3": 1.125
-            },
-            {
-              "t": 5,
-              "n": 125,
-              "distinct_distances_count": 31,
-              "n_to_2_over_3": 25,
-              "ratio_m_over_n_2_over_3": 1.24
-            },
-            {
-              "t": 6,
-              "n": 216,
-              "distinct_distances_count": 44,
-              "n_to_2_over_3": 36,
-              "ratio_m_over_n_2_over_3": 1.222222
-            },
-            {
-              "t": 7,
-              "n": 343,
-              "distinct_distances_count": 66,
-              "n_to_2_over_3": 49,
-              "ratio_m_over_n_2_over_3": 1.346939
-            },
-            {
-              "t": 8,
-              "n": 512,
-              "distinct_distances_count": 87,
-              "n_to_2_over_3": 64,
-              "ratio_m_over_n_2_over_3": 1.359375
-            },
-            {
-              "t": 9,
-              "n": 729,
-              "distinct_distances_count": 115,
-              "n_to_2_over_3": 81,
-              "ratio_m_over_n_2_over_3": 1.419753
-            },
-            {
-              "t": 10,
-              "n": 1000,
-              "distinct_distances_count": 144,
-              "n_to_2_over_3": 100,
-              "ratio_m_over_n_2_over_3": 1.44
-            }
-          ]
-        }
+        "rows": [
+          {
+            "family": "cube_t_t_t",
+            "ax": 100,
+            "ay": 100,
+            "az": 100,
+            "n": 1000000,
+            "distinct_distances_count": 19798,
+            "n_to_2_over_3": 10000,
+            "ratio_m_over_n_2_over_3": 1.9798,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 15,
+            "avg_ms_per_pass": 1.5
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 150,
+            "ay": 150,
+            "az": 150,
+            "n": 3375000,
+            "distinct_distances_count": 46072,
+            "n_to_2_over_3": 22500,
+            "ratio_m_over_n_2_over_3": 2.0476444444,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 42,
+            "avg_ms_per_pass": 4.2
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 200,
+            "ay": 200,
+            "az": 200,
+            "n": 8000000,
+            "distinct_distances_count": 83752,
+            "n_to_2_over_3": 40000,
+            "ratio_m_over_n_2_over_3": 2.0938,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 97,
+            "avg_ms_per_pass": 9.7
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 250,
+            "ay": 250,
+            "az": 250,
+            "n": 15625000,
+            "distinct_distances_count": 133025,
+            "n_to_2_over_3": 62500,
+            "ratio_m_over_n_2_over_3": 2.1284,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 188,
+            "avg_ms_per_pass": 18.8
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 300,
+            "ay": 300,
+            "az": 300,
+            "n": 27000000,
+            "distinct_distances_count": 193586,
+            "n_to_2_over_3": 89999.9999999999,
+            "ratio_m_over_n_2_over_3": 2.1509555556,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 325,
+            "avg_ms_per_pass": 32.5
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 350,
+            "ay": 350,
+            "az": 350,
+            "n": 42875000,
+            "distinct_distances_count": 266239,
+            "n_to_2_over_3": 122499.9999999999,
+            "ratio_m_over_n_2_over_3": 2.1733795918,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 515,
+            "avg_ms_per_pass": 51.5
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 400,
+            "ay": 400,
+            "az": 400,
+            "n": 64000000,
+            "distinct_distances_count": 350367,
+            "n_to_2_over_3": 159999.9999999999,
+            "ratio_m_over_n_2_over_3": 2.18979375,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 1064,
+            "avg_ms_per_pass": 106.4
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 450,
+            "ay": 450,
+            "az": 450,
+            "n": 91125000,
+            "distinct_distances_count": 446262,
+            "n_to_2_over_3": 202499.9999999999,
+            "ratio_m_over_n_2_over_3": 2.203762963,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 1239,
+            "avg_ms_per_pass": 123.9
+          },
+          {
+            "family": "cube_t_t_t",
+            "ax": 500,
+            "ay": 500,
+            "az": 500,
+            "n": 125000000,
+            "distinct_distances_count": 554119,
+            "n_to_2_over_3": 249999.9999999998,
+            "ratio_m_over_n_2_over_3": 2.216476,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 1509,
+            "avg_ms_per_pass": 150.9
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 100,
+            "ay": 100,
+            "az": 200,
+            "n": 2000000,
+            "distinct_distances_count": 45002,
+            "n_to_2_over_3": 15874.010519682,
+            "ratio_m_over_n_2_over_3": 2.8349483544,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 25,
+            "avg_ms_per_pass": 2.5
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 150,
+            "ay": 150,
+            "az": 300,
+            "n": 6750000,
+            "distinct_distances_count": 102886,
+            "n_to_2_over_3": 35716.5236692845,
+            "ratio_m_over_n_2_over_3": 2.880627492,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 83,
+            "avg_ms_per_pass": 8.3
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 200,
+            "ay": 200,
+            "az": 400,
+            "n": 16000000,
+            "distinct_distances_count": 185009,
+            "n_to_2_over_3": 63496.0420787279,
+            "ratio_m_over_n_2_over_3": 2.913709169,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 197,
+            "avg_ms_per_pass": 19.7
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 250,
+            "ay": 250,
+            "az": 500,
+            "n": 31250000,
+            "distinct_distances_count": 291259,
+            "n_to_2_over_3": 99212.5657480124,
+            "ratio_m_over_n_2_over_3": 2.9357067606,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 387,
+            "avg_ms_per_pass": 38.7
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 300,
+            "ay": 300,
+            "az": 600,
+            "n": 54000000,
+            "distinct_distances_count": 421434,
+            "n_to_2_over_3": 142866.0946771379,
+            "ratio_m_over_n_2_over_3": 2.9498531541,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 686,
+            "avg_ms_per_pass": 68.6
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 350,
+            "ay": 350,
+            "az": 700,
+            "n": 85750000,
+            "distinct_distances_count": 576409,
+            "n_to_2_over_3": 194456.6288661043,
+            "ratio_m_over_n_2_over_3": 2.9642033978,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 1268,
+            "avg_ms_per_pass": 126.8
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 400,
+            "ay": 400,
+            "az": 800,
+            "n": 128000000,
+            "distinct_distances_count": 755513,
+            "n_to_2_over_3": 253984.1683149117,
+            "ratio_m_over_n_2_over_3": 2.974646038,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 1778,
+            "avg_ms_per_pass": 177.8
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 450,
+            "ay": 450,
+            "az": 900,
+            "n": 182250000,
+            "distinct_distances_count": 958889,
+            "n_to_2_over_3": 321448.7130235602,
+            "ratio_m_over_n_2_over_3": 2.9830232978,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 2398,
+            "avg_ms_per_pass": 239.8
+          },
+          {
+            "family": "slab_t_t_2t",
+            "ax": 500,
+            "ay": 500,
+            "az": 1000,
+            "n": 250000000,
+            "distinct_distances_count": 1187036,
+            "n_to_2_over_3": 396850.2629920496,
+            "ratio_m_over_n_2_over_3": 2.9911432868,
+            "passes_per_box": 10,
+            "stable_across_passes": true,
+            "elapsed_ms_for_box_all_passes": 3343,
+            "avg_ms_per_pass": 334.3
+          }
+        ],
+        "elapsed_ms": 15160,
+        "generated_utc": "2026-03-14T15:18:38.034Z"
       }
-    ]
-  }
+    }
+  ],
+  "progress_status": "has_computation"
 }
