@@ -41,3 +41,31 @@ Interpretation: finite data confirms nontrivial constructions beyond pure powers
 ## Status
 - Major progress known, original stronger form still open.
 - Added deep exact/heuristic computation with explicit witness sets and quantitative gaps.
+
+## Added Proof-Strategy Layer (No New Computation)
+
+### Approaches to Push
+- Additive-combinatorial anti-concentration route on
+  \[
+  \sum_{i=1}^n \varepsilon_i a_i.
+  \]
+- Sieve-style collision control for subset sums (view repeated sums as bad events).
+- Probabilistic/LLL framing for local collision constraints among subset signatures.
+
+### Blocking Lemma(s)
+- **EP1-A (constant-scale anti-concentration)**:
+  prove
+  \[
+  \max_t \mathbf P\!\left(\sum \varepsilon_i a_i=t\right)\le C\,2^{-n}
+  \]
+  with absolute $C$; current methods lose a $\sqrt n$ factor.
+- **EP1-B (energy rigidity)**:
+  near-minimal additive energy of subset sums should force support size
+  $\gg 2^n$ with absolute constant, not $2^n/\sqrt n$.
+
+### What Would Finish the Proof
+- Either EP1-A or EP1-B at full strength implies
+  \[
+  \#\{\text{subset sums}\}\gg 2^n,
+  \]
+  hence $N\gg 2^n$ since subset sums lie in $[0,nN]$.

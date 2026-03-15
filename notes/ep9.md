@@ -38,3 +38,38 @@ Batch scripts were integrated into `data/ep9.json` with extracted EP-specific se
 
 ## New Experiments
 - 2026-03-05T09:26:52.089Z: autonomous one-by-one run imported harder_batch1_quick_compute.json result for EP-9.
+
+## Added Proof-Strategy Layer (No New Computation)
+
+### Problem Recast
+Let
+\[
+\mathcal E := \{\,n\in 2\mathbb Z+1 : n\neq p+2^a+2^b\ \forall p,a,b\,\}.
+\]
+Target claim: $\overline d(\mathcal E)>0$.
+
+### Approaches to Push
+- Sieve-first: representable odds as union of shifted-prime sets
+  \[
+  \{n:\ n-(2^a+2^b)\ \text{prime}\}
+  \]
+  and show this union leaves a positive-density complement.
+- Random/probabilistic residue modeling of $2^a+2^b$ shifts.
+- Lopsided-LLL control of overlap dependencies among representation events.
+- Red-blue encoding (representable vs exceptional) with modular expansion barriers.
+
+### Blocking Lemma(s)
+- **EP9-A (second-moment overlap bound)**:
+  control correlations between shifted-prime sets strongly enough that their
+  union has density $<1$ among odds.
+- **EP9-B (uniform distribution of power-sum shifts modulo many moduli)**:
+  enough equidistribution to keep sieve major arcs from saturating.
+- **EP9-C (weighted-to-unweighted density transfer)**:
+  convert weighted sieve upper bounds on representables into an unweighted
+  positive-density lower bound for exceptions.
+
+### What Would Finish the Proof
+- EP9-A with explicit constants would already imply positive upper density of
+  $\mathcal E$.
+- More realistically, EP9-B + EP9-C provide the missing infrastructure needed
+  to prove EP9-A.

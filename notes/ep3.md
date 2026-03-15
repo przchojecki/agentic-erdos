@@ -36,3 +36,55 @@ Interpretation:
 ## Status
 - Partially resolved in literature at low progression lengths.
 - Added deep standalone finite evidence up to $10^7$ for a canonical 3-AP-free model.
+
+## Added Proof-Strategy Layer (No New Computation)
+
+### Approaches to Push
+- Tao-style transference: convert reciprocal-mass divergence into structured
+  density increments on many scales.
+- Hypergraph container route with harmonic weights.
+- LLL-inspired local-obstruction control for AP constraints.
+- Red-blue block reformulation of density profiles across dyadic scales.
+
+### Blocking Lemma(s)
+- **EP3-A (harmonic-to-density bridge)**:
+  divergent
+  \[
+  \sum_{a\in A}\frac1a
+  \]
+  must force infinitely many $N$ where density is above the threshold needed by
+  quantitative $k$-AP theorems (uniformly in fixed $k$).
+- **EP3-B (weighted container bound)**:
+  every $k$-AP-free container should obey a uniform reciprocal-mass ceiling
+  unless it falls into a rigid exceptional class.
+- **EP3-C (decay threshold for $r_k(N)$)**:
+  a bound strong enough to imply reciprocal convergence for all $k$-AP-free sets.
+
+### What Would Finish the Proof
+- A theorem delivering EP3-C for each fixed $k\ge3$ settles the implication by
+  partial summation.
+- Alternatively, EP3-A + EP3-B closes the argument through a transference chain.
+
+## Deeper Proof Program (A => B => C)
+
+### Target
+Prove the full Erdős-Turán harmonic implication:
+\[
+\sum_{a\in A}\frac1a=\infty \ \Longrightarrow\ A\ \text{contains arbitrarily long APs}.
+\]
+
+### Step A: Harmonic-Mass Localization
+From divergence, extract infinitely many dyadic scales where \(A\) carries
+quantified weighted mass above a threshold convertible to density information.
+
+### Step B: Weighted-to-Uniform Transference
+Transfer Step A mass into uniform-enough density on structured subprogressions,
+with losses small enough to apply quantitative Szemerédi/hypergraph tools.
+
+### Step C: Length Escalation
+Iterate in progression length \(k\) and scale to force arbitrarily long APs.
+
+### Concrete Blocking Lemma (Most Critical)
+Need a scale-uniform transference estimate: harmonic-weight excess on
+\([X,2X]\) implies existence of a large subprogression \(P\subset[X,2X]\) with
+relative density \(\gg (\log X)^{-O(1)}\) and controlled pseudorandom error.
