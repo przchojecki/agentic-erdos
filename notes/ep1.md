@@ -69,3 +69,30 @@ Interpretation: finite data confirms nontrivial constructions beyond pure powers
   \#\{\text{subset sums}\}\gg 2^n,
   \]
   hence $N\gg 2^n$ since subset sums lie in $[0,nN]$.
+
+## Deeper Proof Program (A => B => C)
+
+### Target
+Upgrade the current \(2^n/\sqrt n\)-scale lower bounds to \(c\,2^n\), yielding
+\(N\gg 2^n\).
+
+### Step A: Strong Anti-Concentration
+For dissociated \(A\), establish near-optimal bound on maximal atom of subset-sum
+distribution:
+\[
+\max_t \mathbf P\!\left(\sum \varepsilon_i a_i=t\right)\le C\,2^{-n}.
+\]
+
+### Step B: Support Expansion
+Deduce
+\[
+|\operatorname{supp}\text{(subset sums)}|\ge c\,2^n
+\]
+with absolute \(c>0\).
+
+### Step C: Interval Compression Contradiction
+Since support lies in \([0,nN]\), infer \(nN\ge c\,2^n\), i.e. \(N\gg 2^n\).
+
+### Concrete Blocking Lemma (Most Critical)
+Need an inverse Littlewood-Offord theorem tailored to strictly increasing
+positive integers that removes the \(\sqrt n\) entropy loss in current bounds.

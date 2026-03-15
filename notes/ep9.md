@@ -73,3 +73,31 @@ Target claim: $\overline d(\mathcal E)>0$.
   $\mathcal E$.
 - More realistically, EP9-B + EP9-C provide the missing infrastructure needed
   to prove EP9-A.
+
+## Deeper Proof Program (A => B => C)
+
+### Target
+Prove positive upper density of exceptional odds:
+\[
+\overline d(\mathcal E)>0.
+\]
+
+### Step A: Weighted Cover Bound
+Bound representable-odds indicator by a weighted union of shifted-prime events
+with explicit second-moment control.
+
+### Step B: Correlation Defect Quantification
+Show pairwise/higher correlations among shifts \(2^a+2^b\) contribute only
+subcritical overlap, leaving uncovered mass \(\ge \delta\) on infinitely many scales.
+
+### Step C: Density Extraction
+Convert scale-wise uncovered mass into positive upper density via limsup
+selection.
+
+### Concrete Blocking Lemma (Most Critical)
+Need a uniform overlap estimate:
+\[
+\sum_{(a,b)\neq(a',b')} \!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\! \mu\!\left(E_{a,b}\cap E_{a',b'}\right)
+\le (1-\eta)\Big(\sum_{a,b}\mu(E_{a,b})\Big)^2
+\]
+at relevant scales, where \(E_{a,b}=\{n:\ n-(2^a+2^b)\ \text{prime}\}\).

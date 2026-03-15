@@ -72,3 +72,30 @@ Interpretation: finite data strongly supports a rich spread of normalized gaps, 
   S=[0,\infty).
   \]
 - Practically: EP5-B + EP5-C is the likely route to proving EP5-A.
+
+## Deeper Proof Program (A => B => C)
+
+### Target
+Show every \(\alpha>0\) is a normalized prime-gap limit point:
+\[
+\exists\,n_j\to\infty,\quad \frac{p_{n_j+1}-p_{n_j}}{\log n_j}\to \alpha.
+\]
+
+### Step A: Target-Window Production
+For fixed \(\alpha,\varepsilon\), produce infinitely many \(n\) with
+\[
+\frac{p_{n+1}-p_n}{\log n}\in[\alpha-\varepsilon,\alpha+\varepsilon].
+\]
+
+### Step B: Quantitative Density of Hits
+Upgrade to positive lower density of such hits along a sparse subsequence of
+scales, robust under narrowing \(\varepsilon\).
+
+### Step C: Diagonalization in \(\varepsilon\)
+Apply \(\varepsilon_m\downarrow0\) and subsequence extraction to obtain a true
+limit point \(\alpha\).
+
+### Concrete Blocking Lemma (Most Critical)
+Need a sieve distribution theorem with two-sided gap control: simultaneously
+exclude nearby extra primes and force one prime at the target offset with
+uniform error terms across scales.
