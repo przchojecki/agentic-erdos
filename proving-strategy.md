@@ -48,6 +48,21 @@ Each `Blocking Lemma` entry should be specific, e.g.:
 - Do not treat empirical evidence as proof progress.
 - Prefer theorem-strength reductions over heuristic narratives.
 
+## Global-Method Switch (When Local Casework Stalls)
+If a problem is progressing only by small finite-layer case splits, switch to a global method pass:
+1. Write a discrepancy decomposition (`main term + oscillation/error`) and identify the exact sign-sensitive estimate needed.
+2. Formulate an extremizer/stability statement: characterize near-equality structure.
+3. Build a dual/optimization viewpoint (LP, entropy, or variational bound) to upper-bound the global ratio directly.
+4. Convert “finite initial range” into a finite pattern-class theorem (symbolic classes, not numerical scans).
+5. Return to local lemmas only after the global bottleneck theorem is explicitly stated.
+
+## EP-488 Specific Global Program
+- Decomposition: \(M_A(x)=\delta_A x+E_A(x)\); current \(L^\infty\) bound on \(E_A\) is too weak.
+- Missing key: sign-aware transport inequality for \(E_A(m)-2E_A(n)\).
+- Stability target: near-factor-2 implies singleton-dominant reduced set.
+- Pattern target: bounded complexity of reduced profiles at fixed \(|B\cap[1,n]|=t\).
+- Success criterion: one theorem that covers all \(t\) at once, replacing layer-by-layer closure.
+
 ## Future-Run Remarks
 - Keep reductions explicit: write `A => B => C`, and state exactly where implication fails.
 - Distinguish clearly:
